@@ -43,7 +43,7 @@
 	
 	# assign other smarty variables
 	$smarty->assign_by_ref('page_title', sprintf(gtc("Family Page for %s"), $o->name));
-	$smarty->assign_by_ref('surname_title', sprintf(gtc("%s Surname"), $o->sname));
+	$smarty->assign_by_ref('surname_title', sprintf(gtc("%s Surname"), htmlentities($o->sname)));
 	$content_title = $o->prefix.' '.$o->name;
 	if ($o->suffix) $content_title .= ', '.$o->suffix;
 	$smarty->assign_by_ref('content_title', $content_title);
@@ -52,7 +52,7 @@
 	if ($o->father_indkey) { 
 		$f = new person($o->father_indkey, 3); 
 		$params = array('m'=>'family','id'=>$f->indkey);
-		$smarty->assign_by_ref('father_link', Theme::BuildLink($params, $f->name));
+		$smarty->assign_by_ref('father_link', Theme::BuildLink($params, htmlentities($f->name)));
 		keyword_push($f->name);
 		unset($f, $params);
 	}
@@ -61,7 +61,7 @@
 	if ($o->mother_indkey) { 
 		$m = new person($o->mother_indkey, 3); 
 		$params = array('m'=>'family','id'=>$m->indkey);
-		$smarty->assign('mother_link', Theme::BuildLink($params, $m->name));
+		$smarty->assign('mother_link', Theme::BuildLink($params, htmlentities($m->name)));
 		keyword_push($m->name);
 		unset($m, $params);
 	}

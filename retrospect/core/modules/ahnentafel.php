@@ -57,8 +57,8 @@
 	$tree->fill_tree($g_max_gens);
 
 	# assign other smarty variables
-	$smarty->assign_by_ref('page_title', sprintf(gtc("Ahnentafel Report for %s"), $o->name));
-	$smarty->assign_by_ref('surname_title', sprintf(gtc("%s Surname"), $o->sname));
+	$smarty->assign_by_ref('page_title', sprintf(gtc("Ahnentafel Report for %s"), htmlentities($o->name)));
+	$smarty->assign_by_ref('surname_title', sprintf(gtc("%s Surname"), htmlentities($o->sname)));
 	$content_title = $o->prefix.' '.$o->name;
 	if ($o->suffix) $content_title .= ', '.$o->suffix;
 	$smarty->assign_by_ref('content_title', $content_title);

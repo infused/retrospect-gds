@@ -64,10 +64,10 @@
 	# name searches
 	if ($search_type == 'name') {
 		if ($soundex === true) {
-			$sql = "SELECT * FROM ".TBL_INDIV." WHERE soundex(surname)=soundex(".$db->Quote($sname).") AND givenname LIKE ".$db->Quote('%'.$gname.'%')." ORDER BY surname, givenname";
+			$sql = "SELECT * FROM ".TBL_INDIV." WHERE soundex(surname)=soundex(".$db->qstr($sname).") AND givenname LIKE ".$db->qstr('%'.$gname.'%')." ORDER BY surname, givenname";
 		}
 		else {
-			$sql = "SELECT * FROM ".TBL_INDIV." WHERE surname LIKE ".$db->Quote($sname.'%')." AND givenname LIKE ".$db->Quote('%'.$gname.'%')." ORDER BY surname, givenname";
+			$sql = "SELECT * FROM ".TBL_INDIV." WHERE surname LIKE ".$db->qstr($sname.'%')." AND givenname LIKE ".$db->qstr('%'.$gname.'%')." ORDER BY surname, givenname";
 		}	 
 	}
 	# location searches
