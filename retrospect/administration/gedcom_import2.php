@@ -118,10 +118,13 @@
         <tr>
           <td valign="middle" class="text">
 						<?php
-							//$gedcom->ParseGedcom();
+							$gedcom->ParseGedcom();
 						?>
 						&nbsp;
 					</td>
+        </tr>
+        <tr>
+          <td valign="middle" class="text">Processing complete. </td>
         </tr> 
       </table></td> 
   </tr> 

@@ -217,8 +217,7 @@
         <td align="left" valign="top" class="section_item">Verifying tables... </td>
         <td align="left" valign="top" class="section_item">
 					<?php 
-						
-						$pref = ( !empty( $db_pref ) ) ? $db_pref . '_' : '';
+						$pref = (!empty($db_pref)) ? $db_pref . '_' : '';
 						$check_arr = array( $pref . 'children',
 																$pref . 'citation',
 																$pref . 'comment',
@@ -234,7 +233,10 @@
 						$table_arr = $db->MetaTables('TABLES');
 						foreach($check_arr as $table) {
 							$table_chk = in_array($table, $table_arr);
-							if ( $table_chk === false ) break;
+							if ( $table_chk === false ) {
+								$failed = true;
+								break;
+							}
 						}
 						echo ( $table_chk ) ? '<div class="yes">OK</div>' : '<div class="no">Failed</div>';
 					?>				</td>
@@ -245,7 +247,7 @@
 				</td>
       </tr>
     </table>
-		<?php if (!$failed) { ?>
+		<?php if ($failed != true) { ?>
 		<p>Congratulations! The installation of Retrospect-GDS has completed successfully. </p>
 		<p>You should now log into the <a href="../administration/index.php">administration</a> module to import your data. The default username is 'admin' and the password is 'welcome'.</p>
 		<p class="style1">IMPORTANT! You should remove the entire /install directory from your web server now that the installation is complete. </p>

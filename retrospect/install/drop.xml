@@ -30,9 +30,6 @@
 	<table name="options">
 		<drop />
 	</table>
-	<table name="relation">
-		<drop />
-	</table>
 	<table name="source">
 		<drop />
 	</table>
