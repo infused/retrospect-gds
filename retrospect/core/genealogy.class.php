@@ -77,7 +77,16 @@ class Person {
 	*/
 	var $name;
 	
+	/**
+	* Name prefix
+	* @var string
+	*/
 	var $prefix;
+	
+	/**
+	* Name suffix
+	* @var string
+	*/
 	var $suffix;
 	
 	/**

@@ -37,7 +37,7 @@
 					if (auth::PasswordExpired($_SESSION['uid'])) { 
 						echo '<p>';
 						$here = '<a href="'.$_SERVER['PHP_SELF'].'?option=user_edit&id='.$_SESSION['uid'].'">here</a>';
-						printf('The admin password has expired.  Go %s to change it immediately!', $here);
+						printf('Your password has expired.  Go %s to change it immediately!', $here);
 						echo '</p>';
 					} 
 					

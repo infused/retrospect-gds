@@ -272,12 +272,8 @@
 			# get the year
 			$year = $this->_get_greg1($year_str);
 			$date = $year.$month.$day;
-			if (checkdate($month, $day, $year)) {
-				return $date;
-			}
-			else {
-				return false;
-			}
+			if (checkdate($month, $day, $year)) return $date;
+			else return false;
 		}
 			
 		/**
@@ -288,12 +284,11 @@
 		function _get_modifier ($string) {
 			global $DATE_MODS;
 			if ($string == '') {
-				$modifier = DATE_MOD_NONE;
+				return DATE_MOD_NONE;
 			}
-			else {
-				$modifier = $DATE_MODS[$string];
+			else { 
+				return $DATE_MODS[$string];
 			}
-				return $modifier;
 		}
 		
 		function FormatDateStr ($date_arr) {
@@ -340,8 +335,8 @@
 				else {
 					$ts = adodb_mktime('0','0','0', $month, $day, $year);
 					$date = lang_translate_date(adodb_date($date_fmt['YMD'], $ts)); 
-					
 				}
+				
 				return $date;
 			}
 		}
