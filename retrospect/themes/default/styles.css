@@ -29,10 +29,6 @@ a:hover {
 	z-index: 3;
 	margin: 10px 10px 10px 220px;
 }
-/* Opera 7 fix */
-body>#content {
-	height: 450px;
-}
 #utils {
 	position: relative;
 	top: 0px;
