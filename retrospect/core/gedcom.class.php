@@ -57,8 +57,8 @@
 	define('REG_CHIL','/^1 CHIL @(.+)@/');				# Child
 	
 	# Note substructures
-	define('REG_CONT','/^[0-9]{1,2} CONT (.+)/');	# Continuation
-	define('REG_CONC','/^[0-9]{1,2} CONC (.+)/');	# Concatenation
+	define('REG_CONT','/^[\d]{1,2} CONT (.+)/');	# Continuation
+	define('REG_CONC','/^[\d]{1,2} CONC (.+)/');	# Concatenation
 	
 	# Event substructures
 	define('REG_FAME','/^1 (ANUL|CENS|DIV|DIVF|ENGA|MARR|MARB|MARC|MARL|MARS|EVEN)(.+)/'); # Family Event
@@ -66,17 +66,17 @@
 	define('REG_DATE','/^2 DATE (.+)/');					# Event date
 	define('REG_TYPE','/^2 TYPE (.+)/');					# Event type
 	define('REG_PLAC','/^2 PLAC (.+)/');					# Event place
-	define('REG_SOURX','/^[0-9]{1,2} SOUR @(.+)@/');  # Source citation
+	define('REG_SOURX','/^[\d]{1,2} SOUR @(.+)@/');  # Source citation
 	
 	# Source substuctures
 	define('REG_AUTH','/^1 AUTH (.+)/');					# Author
 	define('REG_PUBL','/^1 PUBL (.+)/');					# Publication
 	define('REG_TEXT','/^1 TEXT (.+)/');					# Text
-	define('REG_PAGE','/^[0-9]{1,2} PAGE (.+)/');	# Page
-	define('REG_QUAY','/^[0-9]{1,2} QUAY (\d)/'); # Quality Assesment
+	define('REG_PAGE','/^[\d]{1,2} PAGE (.+)/');	# Page
+	define('REG_QUAY','/^[\d]{1,2} QUAY (\d)/'); # Quality Assesment
 	
 	# Miscelaneous 
-	define('REG_LEVEL','/^([0-9]{1,2})/');	
+	define('REG_LEVEL','/^([\d]{1,2})/');	
 	
 	$FAM_EVENTS = array(
 		'ANUL'=>'Annulment',
