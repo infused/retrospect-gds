@@ -241,7 +241,7 @@
 					$this->_ParseFamily($line);
 				} 
 				elseif (preg_match(REG_SOUR, $line)) {
-
+					$this->_ParseSource($line);
 				} 
 				elseif (preg_match(REG_NOTE, $line)) {
 					$this->_ParseNote($line);
@@ -291,6 +291,14 @@
 					array_push($events, $event);
 				}
 			}
+		}
+		
+		/**
+		* Parse Source record
+		* @param string $start_line
+		*/
+		function _ParseSource($source_line) {
+			$source = array();
 		}
 		
 		/**
