@@ -3,7 +3,7 @@
 /**
  * Project:     SmartyValidate: Form Validator for the Smarty Template Engine
  * File:        SmartyValidate.class.php
- * Author:      Monte Ohrt <monte@ispi.net>
+ * Author:      Monte Ohrt <monte at newdigitalgroup dot com>
  * Website:     http://www.phpinsider.com/php/code/SmartyValidate/
  *
  * This library is free software; you can redistribute it and/or
@@ -21,10 +21,10 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
  * @link http://www.phpinsider.com/php/code/SmartyValidate/
- * @copyright 2001-2004 ispi of Lincoln, Inc.
- * @author Monte Ohrt <monte@ispi.net>
+ * @copyright 2001-2005 New Digital Group, Inc.
+ * @author Monte Ohrt <monte at newdigitalgroup dot com>
  * @package SmartyValidate
- * @version 2.3
+ * @version 2.4-dev
  */
 
 
