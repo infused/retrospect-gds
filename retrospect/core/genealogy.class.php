@@ -101,8 +101,8 @@ class Person {
 	* The date string is pulled straight from the database and is not parsed in any way
 	* @var string
 	*/
-	var $birth;						# event object
-	
+	var $birth;
+		
 	/**
 	* Holds the death date.
 	* The date string is pulled straight from the database and is not parsed in any way
@@ -249,57 +249,42 @@ class Person {
 		$this->sname = htmlentities($row['surname']);
 		$this->aka = htmlentities($row['aka']);
 		$this->notekey = $row['notekey'];
+		# split out the first name
 		$fnames = explode(' ', $row['givenname']); 
 		$this->fname = $fnames[0];
 		$this->name = trim($this->gname.' '.$this->sname);
 		$this->sex = $row['sex'];
-		if ($this->sex == 'M') { 
-			$this->gender = 'Male'; 
-		}
-		elseif ($this->sex == 'F') { 
-			$this->gender = 'Female'; 
-		}
-		else { 
-			$this->gender = 'Unknown'; 
-		}
+		# determine correct gender string
+		if ($this->sex == 'M') $this->gender = 'Male'; 
+		elseif ($this->sex == 'F') $this->gender = 'Female'; 
+		else $this->gender = 'Unknown'; 
 	}
 
 	/**
 	* Gets events from database
-	* @access private
 	*/
 	function _get_events($p_fetch_sources = true) {
-		global $db;
 		$this->events = array();
 		$sql =  'SELECT * FROM '.TBL_FACT." WHERE indfamkey = '{$this->indkey}'";
-		$rs = $db->Execute($sql);
+		$rs = $GLOBALS['db']->Execute($sql);
 		while ($row = $rs->FetchRow()) {
 			$event = new event($row['type'], $row['date_str'], $row['place'], $row['comment'], $row['factkey'], $p_fetch_sources);
-			if (strtolower($event->type) == 'birth') {
-				$this->birth = $event;
-			}
-			elseif (strtolower($event->type) == 'death') {
-				$this->death = $event;
-			}
-			else {
-				array_push($this->events, $event);
-			}
-			
+			if (strtolower($event->type) == 'birth') $this->birth = $event;
+			elseif (strtolower($event->type) == 'death') $this->death = $event;
+			else array_push($this->events, $event);
 		}
 		$this->event_count = count($this->events);
 	}
 
 	/**
 	* Gets parents from database
-	* @access private
 	*/	
 	function _get_parents() {
-		global $db;
 		$sql  = 'SELECT spouse1, spouse2 FROM '.TBL_FAMILY.' ';
 		$sql .= 'INNER JOIN '.TBL_CHILD.' ';
 		$sql .= 'ON '.TBL_FAMILY.'.famkey = '.TBL_CHILD.'.famkey ';
 		$sql .= 'WHERE '.TBL_CHILD.".indkey = '{$this->indkey}'";
-		if ($row = $db->GetRow($sql)) {
+		if ($row = $GLOBALS['db']->GetRow($sql)) {
 			$this->father_indkey = $row['spouse1'];
 			$this->mother_indkey = $row['spouse2'];
 		}
@@ -308,10 +293,8 @@ class Person {
 	/**
 	* Gets marriages/family units from database
 	* @param boolean $fetch_sources
-	* @access private
 	*/	
 	function _get_marriages($fetch_sources = true) {
-		global $db;
 		if ($this->sex == 'M') { 
 			$p_col = 'spouse1'; 
 			$s_col = 'spouse2'; 
@@ -321,7 +304,7 @@ class Person {
 			$s_col = 'spouse1'; 
 		}
 		$sql = 'SELECT * FROM '.TBL_FAMILY." WHERE {$p_col}='{$this->indkey}'";
-		$rs = $db->Execute($sql);
+		$rs = $GLOBALS['db']->Execute($sql);
 		while ($row = $rs->FetchRow()) {
 			$marriage = new marriage($row['famkey'], $row[$s_col], $row['beginstatus'], $row['endstatus'], $row['notekey'], $fetch_sources);
 			array_push($this->marriages, $marriage);
@@ -331,90 +314,77 @@ class Person {
 
 	/**
 	* Gets children from database
-	* @access private
 	*/	
 	function _get_children() {
-		global $db;
 		foreach ($this->marriages as $marriage) {	
 			$famkey = $marriage['famkey'];
 			$sql = "SELECT indkey FROM ".TBL_CHILD." WHERE famkey='{$famkey}'";
-			$children = $db->GetCol($sql);
+			$children = $GLOBALS['db']->GetCol($sql);
 			foreach ($children as $child) {
-				array_push($this->children, $child);
+				$this->children[] = $child;
 			}
 		}
 	}
 
 	/**
 	* Gets notes from database
-	* @access private
 	*/	
 	function _get_notes() {
-		global $db;
 		$query = "SELECT text FROM ".TBL_NOTE." WHERE notekey='{$this->notekey}'";
-		$this->notes = htmlentities(nl2br($db->GetOne($query)));
+		$this->notes = htmlentities(nl2br($GLOBALS['db']->GetOne($query)));
 	}
 }
 
 /**
  * Defines an event
  * @author			Keith Morrison <keithm@infused-solutions.com>
- * @access public
  * @package	genealogy
  */
 class Event {
 	/**
 	* Event Type
-	* @access public
 	* @var string
 	*/
 	var $type;
 
 	/**
 	*	Event Date
-	* @access public
 	* @var string
 	*/
 	var $date;
 
 	/**
 	* Event Place
-	* @access public
 	* @var string	
 	*/
 	var $place;
 	
 	/**
 	* Event Comment
-	* @access public
 	* @var string
 	*/
 	var $comment;
 	
 	/**
 	* Event Factkey
-	* @access public
 	* @var string
 	*/
 	var $factkey;
 
 	/**
 	* Array of Sources
-	* @access public
 	* @var array
 	*/
 	var $sources;
 
 	/**
 	* Count of Sources
-	* @access public
 	* @var integer
 	*/
 	var $source_count;
 	
 	/**
 	* Event Constructor
-	* @access public
 	* @param string $p_type The type of event
 	* @param string $p_date When the event occured
 	* @param string $p_place Where the event occured
@@ -434,18 +404,17 @@ class Event {
 	* @access private
 	*/
 	function _get_sources() {
-		global $db;
 		$sources = array();
 		$sql  = 'SELECT '.TBL_CITATION.'.source, '.TBL_SOURCE.'.text '; 
 		$sql .= 'FROM '.TBL_CITATION.' INNER JOIN '.TBL_SOURCE.' ';
 		$sql .= 'ON '.TBL_CITATION.'.srckey = '.TBL_SOURCE.'.srckey ';
 		$sql .= 'WHERE '.TBL_CITATION.".factkey = '{$this->factkey}'";
-		$rs = $db->Execute($sql);
+		$rs = $GLOBALS['db']->Execute($sql);
 		while ($row = $rs->FetchRow()) {
 			$srccitation = $row['source'];
 			$msrc = htmlentities($row['text']);
 			$source = $msrc.'<br />'.$srccitation;
-			array_push($sources, $source);
+			$sources[] = $source;
 		}
 		$this->sources = $sources;
 		$this->source_count = count($this->sources);
@@ -456,45 +425,38 @@ class Event {
  * Defines a marriage or family unit
  * @author			Keith Morrison <keithm@infused-solutions.com>
  * @package	genealogy
- * @access public
  */
 class Marriage {
+	
 	/**
-	* Famkey
-	*
+	* Famkey.
 	* This is the key used to look up the family from the database.
-	* @access public
 	* @var string
 	*/
 	var $famkey;
 
 	/**
-	* Marriage/Union/Family type
-	* 
+	* Marriage/Union/Family type.
 	* Some values are, but are not limited to:
 	* "married", "unmarried", "friends", "partners", "single"
-	* @access public
 	* @var string
 	*/
 	var $type;
 	
 	/**
 	* Indkey of spouse or partner
-	* @access public
 	* @var string
 	*/
 	var $spouse;
 
 	/** 
 	* Date of marriage
-	* @access public
 	* @var string
 	*/
 	var $date;
 	
 	/**
 	* Place of marriage
-	* @access public
 	* @var string
 	*/
 	var $place;
@@ -503,14 +465,12 @@ class Marriage {
 	* Marriage begin status
 	* 
 	* ie. married, single, partners, etc....
-	* @access public
 	* @var string
 	*/
 	var $beginstatus;
 	
 	/**
 	* Begin status factkey
-	* @access public
 	* @var string
 	*/
 	var $beginstatus_factkey;
@@ -518,76 +478,65 @@ class Marriage {
 	/**
 	* Marriage end status
 	* ie. divorced, annulled, etc.
-	* @access public
 	* @var string
 	*/
 	var $endstatus;
 	
 	/**
 	* End status factkey
-	* @access public
 	* @var string
 	*/
 	var $endstatus_factkey;
 	
 	/**
 	* End date
-	* @access public
 	* @var string
 	*/
 	var $enddate;
 	
 	/**
 	* End place
-	* @access public
 	* @var string
 	*/
 	var $endplace;
 	
 	/**
 	* Marriage notes
-	* @access public
 	* @var string
 	*/
 	var $notes;
 	
 	/**
 	* Array of child indkeys
-	* @access public
 	* @var array
 	*/
 	var $children;
 	
 	/**
 	* Number/Count of children
-	* @access public
 	* @var integer
 	*/
 	var $child_count;
 
 	/** 
 	* Array of begin status sources
-	* @access public
 	* @var array
 	*/
 	var $sources;
 
 	/**
 	* Number/Count of begin status sources
-	* @access public
 	* @var integer
 	*/
 	var $source_count;
 	
 	/**
 	* Array of end status sources
-	* @access public
 	* @var array
 	*/
 	var $end_sources;
 
 	/** Number/Count of end status sources
-	* @access public
 	* @var integer
 	*/
 	var $end_sources_count;
@@ -597,36 +546,11 @@ class Marriage {
 	/**
 	* @access private
 	* @var string
-	*/	
-	var $tbl_note;
-	
-	/**
-	* @access private
-	* @var string
-	*/
-	var $tbl_citation;
-	
-	/**
-	* @access private
-	* @var string
-	*/
-	var $tbl_source;
-	
-	/**
-	* @access private
-	* @var string
-	*/
-	var $tbl_child;
-	
-	/**
-	* @access private
-	* @var string
 	*/
 	var $notekey;
 	
 	/**
 	* Marriage Constructor
-	* @access public
 	* @param string $p__famkey
 	* @param string $p_spouse
 	* @param string $p_beginstatus
@@ -640,12 +564,8 @@ class Marriage {
 		# work around wording discrepency
 		if ($p_beginstatus == 'Married') { $this->beginstatus = 'Marriage'; }
 		else { 
-			if (!empty($p_beginstatus)) {
-				$this->beginstatus = $p_beginstatus; 
-			}
-			else {
-				$this->beginstatus = 'Relationship';
-			}
+			if (!empty($p_beginstatus)) $this->beginstatus = $p_beginstatus; 
+			else $this->beginstatus = 'Relationship';
 		}
 		$this->endstatus =& $p_endstatus;
 		$this->notekey =& $p_notekey;
@@ -666,54 +586,44 @@ class Marriage {
 		
 	/**
 	* Get Children
-	* @access private
 	*/	
 	function _get_children() {	
-		global $db;
-		$sql = 'SELECT indkey FROM '.TBL_CHILD." WHERE famkey = '{$this->famkey}'";
-		$this->children = $db->GetCol($sql);
+		$sql = 'SELECT indkey FROM '.TBL_CHILD.' WHERE famkey = "'.$this->famkey.'"';
+		$this->children = $GLOBALS['db']->GetCol($sql);
 		$this->child_count = count($this->children);
 	}
 	
 	/**
 	* Get Notes
-	* @access private
 	*/
 	function _get_notes() {
-		global $db;
-		$query = 'SELECT text FROM '.TBL_NOTE." WHERE notekey='{$this->notekey}'";
-		$this->notes = htmlentities($db->GetOne($query));
+		$query = 'SELECT text FROM '.TBL_NOTE.' WHERE notekey="'.$this->notekey.'"';
+		$this->notes = htmlentities($GLOBALS['db']->GetOne($query));
 	}
 	
 	/**
 	* Get Sources
-	* @access private
 	*/
 	function _get_sources($p_factkey) {
-		global $db;
 		$sources = array();
 		$sql  = 'SELECT '.TBL_CITATION.'.source, '.TBL_SOURCE.'.text ';
 		$sql .= 'FROM '.TBL_CITATION.' INNER JOIN '.TBL_SOURCE.' ';
 		$sql .= 'ON '.TBL_CITATION.'.srckey = '.TBL_SOURCE.'.srckey ';
-		$sql .= 'WHERE '.TBL_CITATION.".factkey = '{$p_factkey}'";
-		$rs = $db->Execute($sql);
+		$sql .= 'WHERE '.TBL_CITATION.'.factkey = "'.$p_factkey.'"';
+		$rs = $GLOBALS['db']->Execute($sql);
 		while ($row = $rs->FetchRow()) {
-			$srccitation = $row['source'];
-			$msrc = $row['text'];
-			$source = $msrc.'<br>'.$srccitation;
-			array_push($sources, htmlentities($source));
+			$source = $row['text'].'<br />'.$row['source'];
+			$sources[] = htmlentities($source);
 		}
 		return $sources;
 	}
 	
 	/**
 	* Get Begin Status Event
-	* @access private
 	*/
 	function _get_beginstatus_event() {
-		global $db;
-		$query = "SELECT * FROM ".TBL_FACT." WHERE (indfamkey='{$this->famkey}') AND (type='{$this->beginstatus}')";
-		if ($row = $db->GetRow($query)) {
+		$query = 'SELECT * FROM '.TBL_FACT.' WHERE (indfamkey="'.$this->famkey.'") AND (type="'.$this->beginstatus.'")';
+		if ($row = $GLOBALS['db']->GetRow($query)) {
 			$this->beginstatus_factkey = $row['factkey'];
 			$this->date = lang_translate_date(ucwords(strtolower($row['date_str'])));
 			$this->place = htmlentities($row['place']);
@@ -722,12 +632,10 @@ class Marriage {
 	
 	/** 
 	* Get End Status Event
-	* @access private
 	*/
 	function _get_endstatus_event() {
-		global $db;
 		$query = "SELECT factkey, date, place FROM ".TBL_FACT." WHERE (indfamkey='{$this->famkey}') AND (type='{$this->endstatus}') LIMIT 1";
-		if ($row = $db->GetRow($query)) {
+		if ($row = $GLOBALS['db']->GetRow($query)) {
 			$this->endstatus_factkey = $row['factkey'];
 			$this->enddate = lang_translate_date(ucwords(strtolower($row['date'])));
 			$this->endplace = htmlentities($row['place']);	

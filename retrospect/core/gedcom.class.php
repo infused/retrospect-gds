@@ -291,6 +291,8 @@
 				$line = fgets($this->fhandle);
 				$level = $this->_ExtractLevel($line);
 				# dump record to db if reached end of indi record
+				# if the name array contains more than 1 name structure
+				# only the first one is used.
 				if ($level == 0) { 
 					$recordset = array_merge($indiv, $names[0]);
 					$this->_DB_InsertRecord($this->rs_indiv, $recordset);
