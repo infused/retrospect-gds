@@ -12,19 +12,19 @@
 	* Root path
 	* @global string
 	*/
-	define('_ROOT_PATH', dirname($_SERVER['PATH_TRANSLATED']));
+	define('ROOT_PATH', dirname($_SERVER['PATH_TRANSLATED']));
 
 	/**
 	* Location of core files
 	* @global string
 	*/
-	define('_CORE', _ROOT_PATH.'/core/');	
+	define('_CORE', ROOT_PATH.'/core/');	
 	
 	/** 
 	* Location of library files
 	* @global string
 	*/
-	define('_LIB', _ROOT_PATH.'/libraries/');
+	define('_LIB', ROOT_PATH.'/libraries/');
 	
 	/**
 	* Current url w/query string

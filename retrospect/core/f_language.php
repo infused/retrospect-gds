@@ -43,7 +43,7 @@
 		# the LC_MESSAGES domain
 		if (extension_loaded('gettext')) {
 			setlocale(LC_ALL, $lang);
-			bindtextdomain('messages', _ROOT_PATH.'/locale/'); 
+			bindtextdomain('messages', ROOT_PATH.'/locale/'); 
 			textdomain('messages');	
 			putenv('LANG='.$lang);
 		}
