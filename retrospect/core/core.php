@@ -37,9 +37,7 @@
 	* Load the configuration file
 	*/
 	if (file_exists(CORE_PATH.'config.php')) @require_once(CORE_PATH.'config.php');
-	else {
-		exit('Could not find configuration file.'); 
-	}
+	else exit('Could not read configuration file.'); 
 
 	# Define all database table names
 	define('TBL_INDIV', $g_db_prefix.'indiv');
@@ -123,17 +121,18 @@
 		$profile = false;
 	}
 
-	# Initialize the gettext engine
-	lang_init_gettext();
-	if ($options->GetOption('allow_lang_change') == 1) {
-		$g_langs = lang_get_langs();
-	
-	$lang_names = array();
-	$lang_codes = array();
-	foreach ($g_langs as $lang) {
-		$lang_name = $lang['lang_name'];
-		$lang_names[] = gtc($lang_name);
-		$lang_codes[] = $lang['lang_code'];
-	}
+	# Initialize the gettext engine unless running in admin mode
+	if (!defined('_RGDS_ADMIN')) {
+		lang_init_gettext();
+		if ($options->GetOption('allow_lang_change') == 1) {
+			$g_langs = lang_get_langs();
+			$lang_names = array();
+			$lang_codes = array();
+			foreach ($g_langs as $lang) {
+				$lang_name = $lang['lang_name'];
+				$lang_names[] = gtc($lang_name);
+				$lang_codes[] = $lang['lang_code'];
+			}
+		}
 	}
 ?>

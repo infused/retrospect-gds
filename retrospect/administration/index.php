@@ -30,6 +30,9 @@
 	# Set flag that this is a parent file
 	define( '_RGDS_VALID', 1 );	
 	
+	# Set flag that running in admin mode
+	define( '_RGDS_ADMIN', 1 );
+	
 	# Turn on error reporting
 	error_reporting(E_ALL);
 
@@ -38,11 +41,12 @@
 	header('Cache-control: private'); # IE6 fix
 	
 	# Define all application paths
-	define('ROOT_PATH', dirname($_SERVER['PATH_TRANSLATED'])); # Path to root Retrospect-GDS directory
-	define('CORE_PATH', ROOT_PATH.'/../core/'); # Path to core files
-	define('LIB_PATH', ROOT_PATH.'/../libraries/'); # Path to 3rd party libraries
-	define('LOCALE_PATH', ROOT_PATH.'/../locale/'); # Path to gettext locale files
-	define('THEME_PATH', ROOT_PATH.'/../themes/'); # Path to themes
+	define('ADMIN_PATH', dirname($_SERVER['PATH_TRANSLATED']));
+	define('ROOT_PATH', dirname($_SERVER['PATH_TRANSLATED']).'/..'); # Path to root Retrospect-GDS directory
+	define('CORE_PATH', ROOT_PATH.'/core/'); # Path to core files
+	define('LIB_PATH', ROOT_PATH.'/libraries/'); # Path to 3rd party libraries
+	define('LOCALE_PATH', ROOT_PATH.'/locale/'); # Path to gettext locale files
+	define('THEME_PATH', ROOT_PATH.'/themes/'); # Path to themes
 
 	/**
 	* Current url w/query string
@@ -51,8 +55,8 @@
 	define('CURRENT_PAGE', $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
 	
 	require_once(CORE_PATH.'core.php');
-	require_once(ROOT_PATH.'/auth.class.php');
-	require_once(ROOT_PATH.'/f_admin.php');
+	require_once(ADMIN_PATH.'/auth.class.php');
+	require_once(ADMIN_PATH.'/f_admin.php');
 	
 	# check login status and redirect as necessary
 	include(Auth::check() ? 'admin.php' : 'login.php');

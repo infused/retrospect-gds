@@ -25,7 +25,7 @@
 <link href="styles.css" rel="stylesheet" type="text/css">
 <?php 
 	# Set some variables
-	$gedcomdir = ROOT_PATH . '/../gedcom/';
+	$gedcomdir = ROOT_PATH . '/gedcom/';
 	
 	# Check if gedcom directory is writable
 	if (!is_writable($gedcomdir)) { 
