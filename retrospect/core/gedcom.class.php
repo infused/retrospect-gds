@@ -67,8 +67,8 @@
 	define('REG_CONC','/^[\d]{1,2} CONC (.+)/');	# Concatenation
 	
 	# Event substructures
-	define('REG_FAME','/^1 (ANUL|CENS|DIV|DIVF|ENGA|MARR|MARB|MARC|MARL|MARS|EVEN)(.+)/'); # Family Event
-	define('REG_INDE','/^1 (BIRT|CHR|DEAT|BURI|CREM|ADOP|BAPM|BARM|BASM|BLES|CHRA|CONF|FCOM|ORDN|NATU|EMIG|IMMI|CENS|PROB|WILL|GRAD|RETI|RESI|OCCU|CAST|DSCR|EDUC|IDNO|NATI|PROP|RELI|SSN|EVEN)(.+)/'); # Individual Event
+	define('REG_FAME','/^1 (ANUL|CENS|DIV|DIVF|ENGA|MARR|MARB|MARC|MARL|MARS|EVEN)(.*)/'); # Family Event
+	define('REG_INDE','/^1 (BIRT|CHR|DEAT|BURI|CREM|ADOP|BAPM|BARM|BASM|BLES|CHRA|CONF|FCOM|ORDN|NATU|EMIG|IMMI|CENS|PROB|WILL|GRAD|RETI|RESI|OCCU|CAST|DSCR|EDUC|IDNO|NATI|PROP|RELI|SSN|EVEN)(.*)/'); # Individual Event
 	define('REG_DATE','/^2 DATE (.+)/');					# Event date
 	define('REG_TYPE','/^2 TYPE (.+)/');					# Event type
 	define('REG_PLAC','/^2 PLAC (.+)/');					# Event place
@@ -240,6 +240,7 @@
 			rewind($handle);
 			while (!feof($handle)) {
 				$line = fgets($handle);
+				$line = trim($line);
 				if (preg_match(REG_INDI, $line)) {
 					$icount++;
 				} 
@@ -286,6 +287,7 @@
 				if ($time - $start >= $time_limit) return $poffset;
 				
 				$line = fgets($this->fhandle);
+				$line = trim($line);
 				if (preg_match(REG_INDI, $line, $match)) {
 					$this->_ParseIndividual($match);
 				} 
@@ -313,6 +315,7 @@
 			while (!feof($this->fhandle)) {
 				$poffset = ftell($this->fhandle);
 				$line = fgets($this->fhandle);
+				$line = trim($line);
 				$level = $this->_ExtractLevel($line);
 				# dump record to db if reached end of indi record
 				# if the name array contains more than 1 name structure
@@ -364,6 +367,7 @@
 			while (!feof($this->fhandle)) {
 				$poffset = ftell($this->fhandle);
 				$line = fgets($this->fhandle);
+				$line = trim($line);
 				$level = $this->_ExtractLevel($line);
 				if ($level == 0) {
 					$source['text'] = $text;
@@ -401,6 +405,7 @@
 			while (!feof($this->fhandle)) {
 				$poffset = ftell($this->fhandle);
 				$line = fgets($this->fhandle);
+				$line = trim($line);
 				$level = $this->_ExtractLevel($line);
 				if ($level <= $begin_level) {
 					fseek($this->fhandle, $poffset);
@@ -437,6 +442,7 @@
 			while (!feof($this->fhandle)) {
 				$poffset = ftell($this->fhandle);
 				$line = fgets($this->fhandle);
+				$line = trim($line);
 				$level = $this->_ExtractLevel($line);
 				# dump record to db if reached end of note record
 				if ($level == 0) {
@@ -465,6 +471,7 @@
 			while (!feof($this->fhandle)) {
 				$poffset = ftell($this->fhandle);
 				$line = fgets($this->fhandle);
+				$line = trim($line);
 				$level = $this->_ExtractLevel($line);
 				# dump record to db if reached end of family record
 				if ($level == 0) {
@@ -552,6 +559,7 @@
 			while (!feof($this->fhandle)) {
 				$poffset = ftell($this->fhandle);
 				$line = fgets($this->fhandle);
+				$line = trim($line);
 				$level = $this->_ExtractLevel($line);
 				# return record to calling function if end of structure
 				if ($level <= 1) {
@@ -598,6 +606,7 @@
 			while (!feof($this->fhandle)) {
 				$poffset = ftell($this->fhandle);
 				$line = fgets($this->fhandle);
+				$line = trim($line);
 				$level = $this->_ExtractLevel($line);
 				# return record to calling function if end of structure
 				if ($level <= 1) {
@@ -638,6 +647,7 @@
 			while (!feof($this->fhandle)) {
 				$poffset = ftell($this->fhandle);
 				$line = fgets($this->fhandle);
+				$line = trim($line);
 				$level = $this->_ExtractLevel($line);
 				if ($level <= $begin_level) {
 					//$this->_DB_InsertRecord($this->rs_citation, $citation);
@@ -683,6 +693,7 @@
 			while (!feof($this->fhandle)) {
 				$poffset = ftell($this->fhandle);
 				$line = fgets($this->fhandle);
+				$line = trim($line);
 				$level = $this->_ExtractLevel($line);
 				# return record if reached end of name record
 				if ($level <= 1) { 
