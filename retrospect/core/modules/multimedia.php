@@ -35,7 +35,7 @@
 	
 	# populate keyword array
 	keyword_push(gtc("Multimedia"));
-	keyword_push($o->name);
+	keyword_push(htmlentities($o->name));
 	
 	# assign other smarty variables
 	$smarty->assign('page_title', sprintf(gtc("Multimedia for %s"), htmlentities($o->name)));

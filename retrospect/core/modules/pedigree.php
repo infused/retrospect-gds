@@ -48,7 +48,7 @@
 	# assign other smarty variables
 	$smarty->assign('page_title', sprintf(gtc("Family Page for %s"), htmlentities($o->name)));
 	$smarty->assign('surname_title', sprintf(gtc("%s Surname"), htmlentities($o->sname)));
-	$content_title = $o->prefix.' '.$o->name;
+	$content_title = htmlentities($o->prefix.' '.$o->name);
 	if ($o->suffix) $content_title .= ', '.$o->suffix;
 	$smarty->assign('content_title', $content_title);
 
@@ -65,7 +65,7 @@
 		global $g_node_strings, $g_node_parents, $g_node_indkey, $g_nodes;
 		
 		# populate keyword array
-		keyword_push($p_node->name);
+		keyword_push(htmlentities($p_node->name));
 		
 		$g_node_indkey[$p_node->ns_number] = $p_node->indkey;
 		if ($p_node->father_indkey || $p_node->mother_indkey) {

@@ -38,6 +38,6 @@
 	
 	# populate keyword array
 	keyword_push(gtc("Reports"));
-	keyword_push($o->name);
+	keyword_push(htmlentities($o->name));
 
 ?>

@@ -274,7 +274,7 @@ class Person {
 		# split out the first name
 		$fnames = explode(' ', $row['givenname']); 
 		$this->fname = $fnames[0];
-		$this->name = trim($this->gname.' '.$this->sname);
+		$this->name = htmlentities(trim($this->gname.' '.$this->sname));
 		$this->sex = $row['sex'];
 		# determine correct gender string
 		if ($this->sex == 'M') $this->gender = 'Male'; 

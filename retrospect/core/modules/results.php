@@ -183,7 +183,7 @@
 		$individuals = array();
 		while ($row = $rs->FetchRow()) {
 					$o = new Person($row['indkey'], 1);
-					keyword_push($o->name); # populate keyword array
+					keyword_push(htmlentities($o->name)); # populate keyword array
 					$individuals[] = $o;
 		}
 		$smarty->assign('individuals', $individuals);

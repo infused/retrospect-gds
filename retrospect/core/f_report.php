@@ -44,7 +44,7 @@
 		$rdate2 		= $p->birth->raw['date2']; 
 		
 		# populate keyword array
-		keyword_push($p->name);
+		keyword_push(htmlentities($p->name));
 		if (!empty($place)) { keyword_push($place); }
 		
 		# for males
@@ -140,12 +140,12 @@
 	*/
 	function get_parents_sentence($p, $p_father, $p_mother) {
 		# populate keyword array
-		keyword_push($p_father->name);
-		keyword_push($p_mother->name);
+		keyword_push(htmlentities($p_father->name));
+		keyword_push(htmlentities($p_mother->name));
 		$params = array('m'=>'family','id'=>$p_mother->indkey);
-		$mother_link = '<a class="secondary" href="'.Theme::BuildUrl($params).'">'.$p_mother->name.'</a>';
+		$mother_link = '<a class="secondary" href="'.Theme::BuildUrl($params).'">'.htmlentities($p_mother->name).'</a>';
 		$params = array('m'=>'family','id'=>$p_father->indkey);
-		$father_link = '<a class="secondary" href="'.Theme::BuildUrl($params).'">'.$p_father->name.'</a>';
+		$father_link = '<a class="secondary" href="'.Theme::BuildUrl($params).'">'.htmlentities($p_father->name).'</a>';
 		if ($p->father_indkey || $p->mother_indkey) {
 			if ($p->sex == 'M') { 
 				# structure for son of father and mother
@@ -191,9 +191,9 @@
 			$marriage =& $p->marriages[$i];
 			if ($marriage->spouse) {
 				$spouse = new Person($marriage->spouse, 3);
-				$spouse_link = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?m=family&amp;id='.$spouse->indkey.'">'.$spouse->name.'</a>';
+				$spouse_link = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?m=family&amp;id='.$spouse->indkey.'">'.htmlentities($spouse->name).'</a>';
 				# populate keyword array
-				keyword_push($spouse->name);
+				keyword_push(htmlentities($spouse->name));
 				
 				# fix some problems
 				if (!$spouse->name) { $spouse->name =  gtc("Unknown"); }
@@ -306,10 +306,10 @@
 	function get_children_of_sentence($p, $ps) {
 		$s = '';
 		if ($p->name and $ps->name) {
-			$s .= sprintf(gtc("Children of %s and %s"), $p->name, $ps->name);
+			$s .= sprintf(gtc("Children of %s and %s"), htmlentities($p->name), htmlentities($ps->name));
 		}
 		else {
-			$s .= sprintf(gtc("Children of %s"), $p->name);
+			$s .= sprintf(gtc("Children of %s"), htmlentities($p->name));
 		}
 		return $s;
 	}
