@@ -112,32 +112,32 @@
             <table  border="0" cellspacing="2" cellpadding="0">
             <tr>
               <td width="250" class="content-label">MySQL Hostname:</td>
-              <td width="200"><input name="db_host_new" type="text" class="textbox" id="db_host_new" value="<?php echo $g_db_host; ?>" readonly="true">
-                  <input name="db_host_old" type="hidden" id="db_host_old" value="<?php echo $g_db_host; ?>"></td>
+              <td width="200"><input name="db_host_new" type="text" class="textbox" id="db_host_new" value="<?php echo DB_HOST; ?>" readonly="true">
+                  <input name="db_host_old" type="hidden" id="db_host_old" value="<?php echo DB_HOST; ?>"></td>
               <td>&nbsp;</td>
             </tr>
             <tr>
               <td class="content-label">MySQL Port: </td>
-              <td><input name="db_port_new" type="text" class="textbox" id="db_port_new" value="<?php echo $g_db_port; ?>" readonly="true">
-                  <input name="db_port_old" type="hidden" id="db_port_old" value="<?php echo $g_db_port; ?>"></td>
+              <td><input name="db_port_new" type="text" class="textbox" id="db_port_new" value="<?php echo DB_PORT; ?>" readonly="true">
+                  <input name="db_port_old" type="hidden" id="db_port_old" value="<?php echo DB_PORT; ?>"></td>
               <td>&nbsp;</td>
             </tr>
             <tr>
               <td class="content-label">MySQL Username:</td>
-              <td><input name="db_user_new" type="text" class="textbox" id="db_user_new" value="<?php echo $g_db_user; ?>" readonly="true">
-                  <input name="db_user_old" type="hidden" id="db_user_old" value="<?php echo $g_db_user; ?>"></td>
+              <td><input name="db_user_new" type="text" class="textbox" id="db_user_new" value="<?php echo DB_USER; ?>" readonly="true">
+                  <input name="db_user_old" type="hidden" id="db_user_old" value="<?php echo DB_USER; ?>"></td>
               <td>&nbsp;</td>
             </tr>
             <tr>
               <td class="content-label">MySQL Password: </td>
-              <td><input name="db_pass_new" type="password" class="textbox" id="db_pass_new" value="<?php echo $g_db_pass; ?>" readonly="true">
-                  <input name="db_pass_old" type="hidden" id="db_pass_old" value="<?php echo $g_db_pass; ?>"></td>
+              <td><input name="db_pass_new" type="password" class="textbox" id="db_pass_new" value="<?php echo DB_PASS; ?>" readonly="true">
+                  <input name="db_pass_old" type="hidden" id="db_pass_old" value="<?php echo DB_PASS; ?>"></td>
               <td>&nbsp;</td>
             </tr>
             <tr>
               <td class="content-label">MySQL Database: </td>
-              <td><input name="db_new" type="text" class="textbox" id="db_new" value="<?php echo $g_db_name; ?>" readonly="true">
-                  <input name="db_old" type="hidden" id="db_old" value="<?php echo $g_db_name; ?>"></td>
+              <td><input name="db_new" type="text" class="textbox" id="db_new" value="<?php echo DB_NAME; ?>" readonly="true">
+                  <input name="db_old" type="hidden" id="db_old" value="<?php echo DB_NAME; ?>"></td>
               <td>&nbsp;</td>
             </tr>
           </table></td>

@@ -10,7 +10,7 @@
 </head>
 <div id="content_printable">
 	<div id="utils">
-		<a href="#" onclick="window.print(); return false;"><img src="{$THEME_URL}images/printbutton.gif" border="0" alt="{translate s="Print"}" /></a>
+		<a href="#" onclick="window.print(); return false;"><img src="{$THEME_URL}images/printbutton.gif" border="0" alt="{php}t("Print"){/php}" /></a>
 	</div>
 	{include file = "$module.tpl"}
 </div>

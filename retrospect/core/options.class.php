@@ -63,7 +63,7 @@
 		*/
 		function GetOption($optkey) {
 			if (isset($this->{$optkey})) return $this->{$optkey};
-			else return;
+			else return null;
 		}
 		
 		/**

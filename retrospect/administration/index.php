@@ -46,18 +46,21 @@
 	define('CORE_PATH', ROOT_PATH.'/core/'); # Path to core files
 	define('LIB_PATH', ROOT_PATH.'/libraries/'); # Path to 3rd party libraries
 	define('LOCALE_PATH', ROOT_PATH.'/locale/'); # Path to gettext locale files
-	define('THEME_PATH', ROOT_PATH.'/themes/'); # Path to themes
+	define('THEME_PATH', ADMIN_PATH.'/themes/'); # Path to themes
+	define('BASE_URL', dirname($_SERVER['PHP_SELF']));
 
-	/**
-	* Current url w/query string
-	* @global string
-	*/
-	define('CURRENT_PAGE', $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
+	# Load the Restrospect-GDS core and others
+	@require_once(CORE_PATH.'core.php');
+	@require_once(ADMIN_PATH.'/auth.class.php');
+	@require_once(ADMIN_PATH.'/f_admin.php');
 	
-	require_once(CORE_PATH.'core.php');
-	require_once(ADMIN_PATH.'/auth.class.php');
-	require_once(ADMIN_PATH.'/f_admin.php');
+	# Store the current url w/query string
+	$cp = (empty($_SERVER['QUERY_STRING'])) ? $_SERVER['PHP_SELF'] : $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
+	$smarty->assign('CURRENT_PAGE', $cp);
 	
 	# check login status and redirect as necessary
 	include(Auth::check() ? 'admin.php' : 'login.php');
+	
+	# Load the option's script
+	@require_once(MODULE_PATH.$module.'.php');
 ?>

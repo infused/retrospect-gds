@@ -51,11 +51,6 @@
 	
 	$trackback_encoded = urlencode(base64_encode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']));
 	$smarty->assign('TRACKBACK_ENCODED', $trackback_encoded);
-	
-	//$decoded = base64_decode(urldecode($trackback_encoded));
-	//echo $trackback_encoded.'<br>';
-	//echo $decoded.'<br>';
-	
 
 	# Make sure a valid module is set or get the default page
 	$module = isset($_GET['m']) ? $_GET['m'] : $options->GetOption('default_page');
