@@ -145,7 +145,7 @@ class ATree {
 		# point root_node to the first node
 		$this->root_index = 0;
 		# create the first node, set generation andf ahnentafel to 1
-		$t_node = new ATreeNode($p_data, null, $this->root_index, 1, 1);
+		$t_node =& new ATreeNode($p_data, null, $this->root_index, 1, 1);
 		$this->nodes[0] = $t_node;
 	}
 	
@@ -168,7 +168,7 @@ class ATree {
 		# create new node and insert into array
 		$ahnentafel = ($p_parent_type == 'f') ? ($child_ahnentafel * 2) : (($child_ahnentafel * 2) + 1);
 		$generation = $child_generation + 1;
-		$this->nodes[] = new ATreeNode($p_data, $child_index, $this->current_index, $generation, $ahnentafel);
+		$this->nodes[] =& new ATreeNode($p_data, $child_index, $this->current_index, $generation, $ahnentafel);
 		
 		# set childs parent property
 		if ($p_parent_type == 'f') {
@@ -187,26 +187,6 @@ class ATree {
 	*/
 	function get_node_at_index($p_index) {
 		return $this->nodes[$p_index];
-	}
-	
-	/**
-	* Get Root Node
-	*
-	* Returns the root node of the tree
-	* @return ATreeNode
-	*/
-	function get_root_node() {
-		return reset($this->nodes);
-	}
-	
-	/**
-	* Get Current Node
-	* 
-	* Returns the currently selected node in the tree
-	*	@return ATreeNode
-	*/
-	function get_current_node() {
-		return current($this->nodes);
 	}
 	
 	/**
@@ -234,7 +214,7 @@ class ATree {
 			$node = array_shift($nodes);
 
 			# do something with the node here
-			$person = new Person($node->data, 4, $node->ahnentafel);
+			$person = &new Person($node->data, 4, $node->ahnentafel);
 			call_user_func($p_callback_func, $person, $node->generation);
 			
 			if ( is_integer( $node->father_index ) ) {

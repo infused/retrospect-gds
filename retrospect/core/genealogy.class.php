@@ -298,15 +298,15 @@ class Person {
 	* @param integer $p_ns_number anhnentafel number
 	*/
 	function Person($p_id, $p_level = 0, $p_ns_number = null) {
-		$this->tbl_indiv = $GLOBALS['g_tbl_indiv'];
-		$this->tbl_fact = $GLOBALS['g_tbl_fact'];
-		$this->tbl_family = $GLOBALS['g_tbl_family'];
-		$this->tbl_citation = $GLOBALS['g_tbl_citation'];
-		$this->tbl_source = $GLOBALS['g_tbl_source'];
-		$this->tbl_note = $GLOBALS['g_tbl_note'];
-		$this->tbl_child = $GLOBALS['g_tbl_child'];
-		$this->indkey = $p_id;
-		$this->ns_number = $p_ns_number;
+		$this->tbl_indiv =& $GLOBALS['g_tbl_indiv'];
+		$this->tbl_fact =& $GLOBALS['g_tbl_fact'];
+		$this->tbl_family =& $GLOBALS['g_tbl_family'];
+		$this->tbl_citation =& $GLOBALS['g_tbl_citation'];
+		$this->tbl_source =& $GLOBALS['g_tbl_source'];
+		$this->tbl_note =& $GLOBALS['g_tbl_note'];
+		$this->tbl_child =& $GLOBALS['g_tbl_child'];
+		$this->indkey =& $p_id;
+		$this->ns_number =& $p_ns_number;
 		$this->sources = array();
 		
 		# 0: All data
@@ -533,10 +533,10 @@ class Event {
 	* @param string $p_factkey 
 	*/
 	function Event($p_type, $p_date, $p_place, $p_factkey, $p_fetch_sources = true) {
-		$this->tbl_citation = $GLOBALS['g_tbl_citation'];
-		$this->tbl_source = $GLOBALS['g_tbl_source'];
+		$this->tbl_citation =& $GLOBALS['g_tbl_citation'];
+		$this->tbl_source =& $GLOBALS['g_tbl_source'];
 		$this->type = ucwords(strtolower($p_type));
-		$this->date = lang_translate_date(ucwords(strtolower($p_date)));
+		$this->date = lang_translate_date($p_date);
 		$this->place = htmlspecialchars($p_place);
 		$this->factkey = $p_factkey;
 		if ($p_fetch_sources === true) {
@@ -751,18 +751,18 @@ class Marriage {
 	* @param boolean $fetch_sources
 	*/
 	function Marriage($p_famkey, $p_spouse, $p_beginstatus, $p_endstatus, $p_notekey, $fetch_sources = true) {
-		$this->tbl_note = $GLOBALS['g_tbl_note'];
-		$this->tbl_citation = $GLOBALS['g_tbl_citation'];
-		$this->tbl_source = $GLOBALS['g_tbl_source'];
-		$this->tbl_child = $GLOBALS['g_tbl_child'];
-		$this->tbl_fact = $GLOBALS['g_tbl_fact'];
-		$this->famkey = $p_famkey;
-		$this->spouse = $p_spouse;
+		$this->tbl_note =& $GLOBALS['g_tbl_note'];
+		$this->tbl_citation =& $GLOBALS['g_tbl_citation'];
+		$this->tbl_source =& $GLOBALS['g_tbl_source'];
+		$this->tbl_child =& $GLOBALS['g_tbl_child'];
+		$this->tbl_fact =& $GLOBALS['g_tbl_fact'];
+		$this->famkey =& $p_famkey;
+		$this->spouse =& $p_spouse;
 		# work around wording discrepency
 		if ($p_beginstatus == 'Married') { $this->beginstatus = 'Marriage'; }
 		else { $this->beginstatus = $p_beginstatus; }
-		$this->endstatus = $p_endstatus;
-		$this->notekey = $p_notekey;
+		$this->endstatus =& $p_endstatus;
+		$this->notekey =& $p_notekey;
 		$this->children = array();
 		$this->_get_children();
 		$this->_get_notes();
