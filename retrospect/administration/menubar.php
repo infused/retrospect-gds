@@ -28,28 +28,28 @@
 <script language="JavaScript"><!--
 var myMenu =
 [
-	[null, '<?php echo _("System"); ?>', null, null, '<?php echo _("System"); ?>',
-		['<img src="js/ThemeOffice/help.png" />', '<?php echo _("Status"); ?>', '<?php echo $_SERVER['PHP_SELF']; ?>?option=status', null, '<?php echo _("Status"); ?>'],
-		['<img src="js/ThemeOffice/config.png" />', '<?php echo _("Configuration"); ?>', '<?php echo $_SERVER['PHP_SELF']; ?>?option=sys_config', null, '<?php echo _("Configuration"); ?>'],
-		['<img src="js/ThemeOffice/user.png" />', '<?php echo _("User Admin"); ?>', null, null, '<?php echo _("User Admin"); ?>',
-			['<img src="js/ThemeOffice/edit.png" />', '<?php echo _("User List"); ?>', '<?php echo $_SERVER['PHP_SELF']; ?>?option=user_list', null, '<?php echo _("Edit Users"); ?>'],
-			['<img src="js/ThemeOffice/new_user.png" />', '<?php echo _("Add User"); ?>', '<?php echo $_SERVER['PHP_SELF']; ?>?option=user_add', null, '<?php echo _("Add User"); ?>']
+	[null, 'System', null, null, 'System',
+		['<img src="js/ThemeOffice/help.png" />', 'Status', '<?php echo $_SERVER['PHP_SELF']; ?>?option=status', null, 'Status'],
+		['<img src="js/ThemeOffice/config.png" />', 'Configuration', '<?php echo $_SERVER['PHP_SELF']; ?>?option=sys_config', null, 'Configuration'],
+		['<img src="js/ThemeOffice/user.png" />', 'User Admin', null, null, 'User Admin',
+			['<img src="js/ThemeOffice/edit.png" />', 'User List', '<?php echo $_SERVER['PHP_SELF']; ?>?option=user_list', null, 'Edit Users'],
+			['<img src="js/ThemeOffice/new_user.png" />', 'Add User', '<?php echo $_SERVER['PHP_SELF']; ?>?option=user_add', null, 'Add User']
 			
 		]
 	],
     _cmSplit,
-		[null, '<?php echo _("Database"); ?>', null, null, '<?php echo _("Database"); ?>',
-			['<img src="js/ThemeOffice/install.png" />', '<?php echo _("Import Gedcom"); ?>', '<?php echo $_SERVER['PHP_SELF']; ?>?option=gedcom_import', null, '<?php echo _("Import Gedcom"); ?>'],
-			['<img src="js/ThemeOffice/edit.png" />', '<?php echo _("Edit"); ?>', null, null, '<?php echo _("Edit"); ?>',
-				['<img src="js/ThemeOffice/new_user.png" />', '<?php echo _("Individual"); ?>', '<?php echo $_SERVER['PHP_SELF']; ?>?option=db_edit_indiv', null, '<?php echo _("Edit Individual"); ?>']
+		[null, 'Database', null, null, 'Database',
+			['<img src="js/ThemeOffice/install.png" />', 'Import Gedcom', '<?php echo $_SERVER['PHP_SELF']; ?>?option=gedcom_import', null, 'Import Gedcom'],
+			['<img src="js/ThemeOffice/edit.png" />', 'Edit', null, null, 'Edit',
+				['<img src="js/ThemeOffice/new_user.png" />', 'Individual', '<?php echo $_SERVER['PHP_SELF']; ?>?option=db_edit_indiv', null, 'Edit Individual']
 			],
-			['<img src="js/ThemeOffice/db.png" />', '<?php echo _("Maintenance"); ?>', null, null, '<?php echo _("Maintenance"); ?>',
-				['<img src="js/ThemeOffice/sysinfo.png" />', '<?php echo _("Optimize Tables"); ?>', '<?php echo $_SERVER['PHP_SELF']; ?>?option=db_optimize', null, '<?php echo _("Optimize Tables"); ?>']
+			['<img src="js/ThemeOffice/db.png" />', 'Maintenance', null, null, 'Maintenance',
+				['<img src="js/ThemeOffice/sysinfo.png" />', 'Optimize Tables', '<?php echo $_SERVER['PHP_SELF']; ?>?option=db_optimize', null, 'Optimize Tables']
 			]
 		],
     _cmSplit,
-    [null, 'Media', null, null, '<?php echo _("Media"); ?>',   // a folder item
-        ['<img src="js/ThemeOffice/content.png" />', '<?php echo _("Media Manager"); ?>', '<?php echo $_SERVER['PHP_SELF']; ?>?option=media_list', null, '<?php echo _("Media Manager"); ?>']
+    [null, 'Media', null, null, 'Media',   // a folder item
+        ['<img src="js/ThemeOffice/content.png" />', 'Media Manager', '<?php echo $_SERVER['PHP_SELF']; ?>?option=media_list', null, 'Media Manager']
     ]
 ];
 --></script>

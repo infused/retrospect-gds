@@ -25,26 +25,22 @@
 <link href="styles.css" rel="stylesheet" type="text/css">
 <table width="100%"  border="0" cellspacing="5" cellpadding="0">
 	<tr>
-	  <td align="left" valign="top" colspan="4">&nbsp;</td>
+	  <td colspan="4" align="left" valign="top"><table width="100%"  border="0" cellpadding="0" cellspacing="0" class="section">
+      <tr>
+        <td class="section_head">Media Manager &nbsp;</td>
+      </tr>
+      <tr>
+        <td class="section_body"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="150" align="left" valign="top" class="content-label"><a style="text-decoration: underline;" href="<?php echo $_SERVER['PHP_SELF'].'?option=media_list&orderby=filename'; ?>">Filename</a></td>
+            <td width="150" align="left" valign="top" class="content-label">Caption</td>
+            <td align="left" valign="top" class="content-label">Description</td>
+            <td align="left" valign="top" class="content-label">Thumbnail</td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
   </tr>
-	<tr>
-    <td align="left" valign="top" colspan="4" class="content-subtitle"><?php echo _("Media Manager"); ?></td>
-  </tr>
-	<tr>
-	  <td align="left" valign="top" colspan="4">&nbsp;</td>
-  </tr>
-	<tr>
-	  <td align="left" valign="top" colspan="4">&nbsp;</td>
-  </tr>
-	<tr>
-	  <td align="left" valign="top" colspan="4">&nbsp;</td>
-  </tr>
-	<tr>
-	  <td width="150" align="left" valign="top" class="content-label"><a style="text-decoration: underline;" href="<?php echo $_SERVER['PHP_SELF'].'?option=media_list&orderby=filename'; ?>"><?php echo _("Filename"); ?></a></td>
-    <td width="150" align="left" valign="top" class="content-label"><?php echo _("Caption"); ?></td>
-	  <td align="left" valign="top" class="content-label"><?php echo _("Description"); ?></td>
-		<td align="left" valign="top" class="content-label"><?php echo _("Thumbnail"); ?></td> 
-	</tr>
 	<?php
 		$sql = "SELECT * FROM $g_tbl_media ";
 		if (isset($_GET['orderby'])) {

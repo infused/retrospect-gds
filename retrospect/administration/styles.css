@@ -2,12 +2,28 @@
 html { 
 	overflow-x: auto; 
 }
-body {
-	color:#333;
-	background-color:white;
-	margin: 0px;
-	padding: 0px;
-	font: normal 12px Verdana, Arial, Helvetica, sans-serif;
+body
+{
+	color:              #000000;
+	background-color:   #ffffff;
+	font-family:        Verdana, Arial, Helvetica, sans-serif;
+	font-size:          12px;
+	margin:             0;
+	padding:            0;
+}
+a
+{
+	font-weight: bold;
+  color:              #474468;
+  text-decoration:    none;
+}
+a:hover
+{
+  color: #FF9900;
+	text-decoration:    underline;
+}
+a.secondary {
+	font-weight: normal;
 }
 td {
 	font: normal 14px Verdana, Arial, Helvetica, sans-serif;
@@ -24,17 +40,7 @@ h3 {
 	padding: 0px;
 	margin: 5px 0px 5px 0px;
 }
-a {
-	font-weight: bold;
-	color: #0066CC;
-	text-decoration: none;
-}
-a.secondary {
-	font-weight: normal;
-}
-a:hover {
-	color: #FF9900;
-}
+
 form {
 	padding: 0px;
 	margin: 0px;
@@ -95,5 +101,21 @@ input.textbox {
 .notification {
 	font: normal 14px Verdana, Arial, Helvetica, sans-serif;
 	color: #FF0000;
-	padding-left: 2px;
+}
+table.section {
+	border: 1px solid #666666;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+td.section_head
+{
+	color: white;
+	font-weight: bold;
+	background-color: #7B869A;
+	padding: 5px;
+}
+td.section_body
+{
+	padding: 5px;
+	background-color: #f0f0f0;
 }

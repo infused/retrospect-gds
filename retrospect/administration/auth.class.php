@@ -92,9 +92,9 @@ class Auth {
 		else { return false; }
 	}
 	
-	function UpdateUser($p_id, $p_uid, $p_fullname, $p_email, $p_pwd) {
+	function UpdateUser($p_uid, $p_fullname, $p_email, $p_pwd) {
 		global $db, $g_tbl_user;
-		$c_id = $p_id;
+		$c_id = $p_uid;
 		$c_uid = $db->Qstr($p_uid);
 		$c_fullname = $db->Qstr($p_fullname);
 		$c_email = $db->Qstr($p_email);

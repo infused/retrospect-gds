@@ -24,32 +24,27 @@
 ?>
 <link href="styles.css" rel="stylesheet" type="text/css">
 <form name="user_add_form" method="post" action="">
-<table width="100%" border="0" cellpadding="0" cellspacing="5">
-  <tr>
-    <td colspan="2" align="left" valign="top" class="notification">&nbsp;</td>
-  </tr>
 	<?php 
 		if (isset($_POST['Save'])) {
-			echo '<tr><td class="notification">';
 			# validate values
 			$form_error = false;
 			
-			if ($_POST['username'] == '' or $_POST['fullname'] =='' or $_POST['email'] == '') { 
-				echo _("All fields are required.  Please correct the error.").'<br />';
+			if ($_POST['uid'] == '' or $_POST['fullname'] =='' or $_POST['email'] == '') { 
+				notify('All fields are required.  Please correct the error.');
 				$form_error = true;
 			}
 			if ($_POST['password1'] != $_POST['password2']) {
-				echo _("Both password fields must be the same.  Please re-type them.").'<br />'; 
+				notify('Both password fields must be the same.  Please re-type them.'); 
 				$form_error = true;
 			}
 			if ($form_error != true) { 
-				$result = Auth::UpdateUser($_POST['id'], $_POST['username'], $_POST['fullname'], $_POST['email'], $_POST['password1']);
+				$result = Auth::UpdateUser($_POST['uid'], $_POST['fullname'], $_POST['email'], $_POST['password1']);
 				if ($result == true) {
-					echo sprintf(_("User %s was successfully modified."), $_POST['username']).' ';
+					notify( sprintf('User %s was successfully modified.', $_POST['uid']) );
 					redirect_j($_SERVER['PHP_SELF'].'?option=user_list', 2);
 				}
 				else {
-					echo sprintf(_("User %s was not modified."), $_POST['username']).' ';
+					notify( sprintf('User %s was not modified.', $_POST['username']) );
 					redirect_j($_SERVER['PHP_SELF'].'?option=user_list', 2);
 				}
 			}
@@ -60,9 +55,7 @@
 			$uid = $_POST['username'];
 			$sql = "DELETE FROM $g_tbl_user WHERE uid='$uid'";
 			$db->Execute($sql);
-			echo '<tr><td class="notification">';
-			echo sprintf(_("User %s was deleted."), $_POST['username']).' ';
-			echo '</td></tr>';
+			notify( sprintf('User %s was deleted.', $_POST['username']) );
 			redirect_j($_SERVER['PHP_SELF'].'?option=user_list', 2);
 		}
 		else {
@@ -70,51 +63,51 @@
 			$sql = "SELECT * FROM $g_tbl_user WHERE uid='$id'";
 			$rs = $db->Execute($sql);
 			$u = $rs->FetchRow($rs);
-		//}
-	?>
+?>
+<table width="100%" border="0" cellpadding="0" cellspacing="5">
   <tr>
-    <td colspan="2" class="content-subtitle"><?php echo _("Edit User"); ?>&nbsp;</td>
+    <td colspan="2" align="left" valign="top"><table width="100%"  border="0" cellpadding="0" cellspacing="0" class="section">
+      <tr>
+        <td class="section_head">Edit User </td>
+      </tr>
+      <tr>
+        <td class="section_body"><table border="0" cellpadding="4" cellspacing="0">
+          <tr>
+            <td width="200" class="content-label">Username:<br>
+            </td>
+            <td><input name="uid" type="text" class="textbox" id="uid" size="40" maxlength="40" value="<?php echo $u['uid']; ?>">
+            </td>
+          </tr>
+          <tr>
+            <td class="content-label">Full Name: </td>
+            <td><input name="fullname" type="text" class="textbox" id="fullname" size="40" maxlength="40" value="<?php echo $u['fullname']; ?>">
+            </td>
+          </tr>
+          <tr>
+            <td class="content-label">Email Address: </td>
+            <td><input name="email" type="text" class="textbox" id="email" size="40" maxlength="40" value="<?php echo $u['email']; ?>">
+            </td>
+          </tr>
+          <tr>
+            <td class="content-label">New Password:<br></td>
+            <td class="text"><input name="password1" type="password" class="textbox" id="password1" size="40" maxlength="40" value="">
+            </td>
+          </tr>
+          <tr>
+            <td class="content-label">Verify Password: <br>
+            </td>
+            <td class="text"><input name="password2" type="password" class="textbox" id="password2" size="40" maxlength="40" value="">
+            </td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
   </tr>
   <tr>
-    <td colspan="2" bgcolor="#CCCCCC"><table border="0" cellpadding="4" cellspacing="0">
-      <tr>
-        <td width="200" class="content-label"><?php echo _("Username"); ?>:<br>          </td>
-        <td>
-					<input name="username" type="text" class="textbox" id="username" size="40" maxlength="40" value="<?php echo $u['uid']; ?>">
-				</td>
-      </tr>
-      <tr>
-        <td class="content-label"><?php echo _("Full Name"); ?>: </td>
-        <td>
-					<input name="fullname" type="text" class="textbox" id="fullname" size="40" maxlength="40" value="<?php echo $u['fullname']; ?>">
-				</td>
-      </tr>
-      <tr>
-        <td class="content-label"><?php echo _("Email Address"); ?>: </td>
-        <td>
-					<input name="email" type="text" class="textbox" id="email" size="40" maxlength="40" value="<?php echo $u['email']; ?>">
-				</td>
-      </tr>
-      <tr>
-        <td class="content-label"><?php echo _("New Password"); ?>:<br></td>
-        <td class="text">
-					<input name="password1" type="password" class="textbox" id="password1" size="40" maxlength="40" value="">
-				</td>
-      </tr>
-      <tr>
-        <td class="content-label"><?php echo _("Verify Password"); ?>: <br>          </td>
-        <td class="text">
-					<input name="password2" type="password" class="textbox" id="password2" size="40" maxlength="40" value="">
-				</td>
-      </tr>
-    </table>
-            <input name="id" type="hidden" id="id" value="<?php echo $id; ?>"></td>
-  </tr>
-  <tr>
-    <td align="left"><input name="Save" type="submit" class="text" id="Save" value="<?php echo _("Save"); ?>">
-    <input name="Reset" type="reset" class="text" id="Reset" value="<?php echo _("Reset"); ?>"></td>
-    <td align="right"><input name="Delete" type="submit" class="text" id="Delete" value="<?php echo _("Delete"); ?>"></td>
+    <td align="left"><input name="Save" type="submit" class="text" id="Save" value="Save">
+    <input name="Reset" type="reset" class="text" id="Reset" value="Reset"></td>
+    <td align="right"><input name="Delete" type="submit" class="text" id="Delete" value="Delete"></td>
   </tr>
 </table>
 </form>
-<?php } ?> 
+<?php } ?>

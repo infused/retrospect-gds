@@ -26,7 +26,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title><?php echo _("phpGene Pro Administration Login"); ?></title>
+<title>Retrospect-GDS Admin Login</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link href="styles.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" type="text/javascript">
@@ -52,37 +52,19 @@
               <tr>
                 <td align="center" valign="middle"><table border="0" cellpadding="2" cellspacing="0">
                   <tr>
-                    <td align="right" valign="middle" class="text"><?php echo _("Username"); ?>:</td>
+                    <td align="right" valign="middle" class="text">Username:</td>
                     <td>
                       <input name="uid" type="text" class="textbox" tabindex="1" />
                     </td>
                     </tr>
                   <tr>
-                    <td align="right" valign="middle" class="text"><?php echo _("Password"); ?>:</td>
+                    <td align="right" valign="middle" class="text">Password:</td>
                     <td><input name="pwd" type="password" class="textbox" id="password" tabindex="2" />
                     </td>
                   </tr>
                   <tr>
-                    <td align="right" valign="middle" class="text"><?php echo _("Language"); ?>:</td>
-                    <td>
-											<?php 
-												echo '<select name="lang" size="1" class="listbox" id="lang" onChange="document.forms.form_change_lang.submit();">';
-												foreach ($g_langs as $the_lang) {
-													$code = $the_lang['lang_code'];
-													$name = $the_lang['lang_name'];
-													echo '<option value="'.$code.'"';
-													if ($_SESSION['lang'] == $code) {
-														echo ' SELECTED';
-													}
-													echo '>'._($name).'</option>';
-												}
-												echo '</select>';
-											?>
-										</td>
-                  </tr>
-                  <tr>
                     <td align="right" valign="middle" class="text">&nbsp;</td>
-                    <td><input name="Submit" type="submit" class="text" tabindex="4" value="<?php echo _("Login"); ?>" /></td>
+                    <td><input name="Submit" type="submit" class="text" tabindex="4" value="Login" /></td>
                     </tr>
                 </table></td>
               </tr>

@@ -23,118 +23,112 @@
  */  
 ?>
 <link href="styles.css" rel="stylesheet" type="text/css">
-<table width="100%"  border="0" cellpadding="0" cellspacing="5"> 
-  <tr> 
-    <td align="left" valign="top" class="notification">
-			<?php
-				# Load the gedcom classes
-				require_once(CORE_PATH.'gedcom.class.php');
-				
-				# Set some variables
-				$gedcomdir = ROOT_PATH . '/../gedcom/';
+<?php
+	# Load the gedcom classes
+	require_once(CORE_PATH.'gedcom.class.php');
 	
-				# Check if gedcom directory is writable
-				if (!is_writable($gedcomdir)) { 
-					echo _("The gedcom directory is not writable. Check your server configuration.");
-				}
-				
-				$gedcomfile = $gedcomdir.$_POST['selectedfile'];
-				$gedcom = new GedcomParser();
-				$gedcom->Open($gedcomfile);
-			?>
-			&nbsp;
-		</td> 
-  </tr> 
-  <tr> 
-    <td align="left" valign="top" class="content-subtitle"><?php echo _("Import Gedcom"); ?></td> 
-  </tr> 
-  <tr> 
-    <td align="left" valign="top"> <table width="100%"  border="0" cellpadding="2" cellspacing="0" bgcolor="#CCCCCC"> 
-        <tr>
-          <td valign="middle" class="content-label">Emptying tables... </td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">Individual table... 
-						<?php
+	# Set some variables
+	$gedcomdir = ROOT_PATH . '/../gedcom/';
+
+	# Check if gedcom directory is writable
+	if (!is_writable($gedcomdir)) { 
+		notify('The gedcom directory is not writable. Check your server configuration.');
+	}
+	
+	$gedcomfile = $gedcomdir.$_POST['selectedfile'];
+	$gedcom = new GedcomParser();
+	$gedcom->Open($gedcomfile);
+?>
+<table width="100%"  border="0" cellpadding="0" cellspacing="5"> 
+  <tr>
+    <td align="left" valign="top"><table width="100%"  border="0" cellpadding="0" cellspacing="0" class="section">
+      <tr>
+        <td class="section_head">Import Gedcom </td>
+      </tr>
+      <tr>
+        <td class="section_body"><table width="100%"  border="0" cellpadding="2" cellspacing="0">
+          <tr>
+            <td valign="middle" class="content-label">Emptying tables... </td>
+          </tr>
+          <tr>
+            <td valign="middle" class="text">Individual table...
+                <?php
 							$sql = 'delete from '.$g_tbl_indiv;
 							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
 						?>
-					</td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">Family table... 
-						<?php
+            </td>
+          </tr>
+          <tr>
+            <td valign="middle" class="text">Family table...
+                <?php
 							$sql = 'delete from '.$g_tbl_family;
 							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
 						?>
-					</td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">Child table... 
-						<?php 
+            </td>
+          </tr>
+          <tr>
+            <td valign="middle" class="text">Child table...
+                <?php 
 							$sql = 'delete from '.$g_tbl_child;
 							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
 						?>
-					</td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">Fact table... 
-						<?php 
+            </td>
+          </tr>
+          <tr>
+            <td valign="middle" class="text">Fact table...
+                <?php 
 							$sql = 'delete from '.$g_tbl_fact;
 							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
 						?>
-					</td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">Note table... 
-						<?php 
+            </td>
+          </tr>
+          <tr>
+            <td valign="middle" class="text">Note table...
+                <?php 
 							$sql = 'delete from '.$g_tbl_note;
 							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
 						?>
-					</td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">Source table... 
-						<?php 
+            </td>
+          </tr>
+          <tr>
+            <td valign="middle" class="text">Source table...
+                <?php 
 							$sql = 'delete from '.$g_tbl_citation;
 							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
 						?>
-					</td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">Citation table... 
-						<?php 
+            </td>
+          </tr>
+          <tr>
+            <td valign="middle" class="text">Citation table...
+                <?php 
 							$sql = 'delete from '.$g_tbl_source;
 							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
 						?>
-					</td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">&nbsp;</td>
-        </tr>
-        <tr>
-          <td valign="middle" class="content-label">Processing gedcom...</td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">
-						<?php
+            </td>
+          </tr>
+          <tr>
+            <td valign="middle" class="text">&nbsp;</td>
+          </tr>
+          <tr>
+            <td valign="middle" class="content-label">Processing gedcom...</td>
+          </tr>
+          <tr>
+            <td valign="middle" class="text"><?php
 							$gedcom->ParseGedcom();
 						?>
-						&nbsp;
-					</td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">Processing complete. </td>
-        </tr> 
-      </table></td> 
-  </tr> 
-  <tr> 
-    <td align="left" valign="top">&nbsp;</td> 
+&nbsp; </td>
+          </tr>
+          <tr>
+            <td valign="middle" class="text">Processing complete. </td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
   </tr> 
 	<tr>
 	<td>
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-		<input name="Continue" type="submit" class="text" id="Continue" value="<?php echo _("Continue"); ?>"> 
+		<input name="Continue" type="submit" class="text" id="Continue" value="Continue"> 
 		</form>
 	</td>
 	</tr>

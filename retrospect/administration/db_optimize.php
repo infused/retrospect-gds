@@ -38,18 +38,16 @@ function optimize_table($p_table) {
 <link href="styles.css" rel="stylesheet" type="text/css">
 <table width="100%"  border="0" cellspacing="5" cellpadding="0">
   <tr>
-    <td colspan="2">&nbsp;</td>
-  </tr>
-  <tr>
-    <td colspan="2" class="content-subtitle"><?php echo _("Optimize Tables"); ?></td>
-  </tr>
-  <tr>
-    <td colspan="2">&nbsp;</td>
-  </tr>
-  <tr>
-    <td width="150" class="content-label">Table</td>
-    <td class="content-label">Status</td>
-  </tr>
+    <td colspan="2"><table width="100%"  border="0" cellpadding="0" cellspacing="0" class="section">
+      <tr>
+        <td class="section_head">Optimize Tables </td>
+      </tr>
+      <tr>
+        <td class="section_body"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="150" class="content-label">Table</td>
+            <td class="content-label">Status</td>
+          </tr>
   <?php 
 		$tables[] = $g_tbl_indiv;
 		$tables[] = $g_tbl_fact;
@@ -67,10 +65,14 @@ function optimize_table($p_table) {
 			$result = optimize_table($table);
 			?>
 			<tr>
-    	<td class="text"><?php echo $table; ?></td>
+    	<td width="150" class="text"><?php echo $table; ?></td>
 	    <td class="text"><?php echo $result; ?></td>
   		</tr>
 	<?php } ?>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
 </table>
 <?php 
 	redirect_j($_SERVER['PHP_SELF'], 3);

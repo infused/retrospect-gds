@@ -104,12 +104,12 @@
 			$p_date = str_replace(array('dec', 'Dec', 'DEC'), _("Dec"), $p_date);
 		
 			# replace date qualifiers
-			$p_date = str_replace(array('abt', 'Abt', 'ABT', 'about', 'About', 'ABOUT'), _("abv About"), $p_date);
-			$p_date = str_replace(array('cir', 'Cir', 'CIR', 'circa', 'Circa', 'CIRCA'), _("abv Circa"), $p_date);
-			$p_date = str_replace(array('aft', 'Aft', 'AFT', 'after', 'After', 'AFTER'), _("abv After"), $p_date);
-			$p_date = str_replace(array('bef', 'Bef', 'BEF', 'before', 'Before', 'BEFORE'), _("abv Before"), $p_date);
-			$p_date = str_replace(array('bet', 'Bet', 'BET', 'between', 'Between', 'BETWEEN'), _("abv Between"), $p_date);
-			$p_date = str_replace(array('cal', 'Cal', 'CAL', 'calculated', 'Calculated', 'CALCULATED'), _("abv Calculated"), $p_date);		
+			$p_date = str_replace(array('abt', 'Abt', 'ABT', 'about', 'About', 'ABOUT'), _("abt"), $p_date);
+			$p_date = str_replace(array('cir', 'Cir', 'CIR', 'circa', 'Circa', 'CIRCA'), _("cir"), $p_date);
+			$p_date = str_replace(array('aft', 'Aft', 'AFT', 'after', 'After', 'AFTER'), _("aft"), $p_date);
+			$p_date = str_replace(array('bef', 'Bef', 'BEF', 'before', 'Before', 'BEFORE'), _("bef"), $p_date);
+			$p_date = str_replace(array('bet', 'Bet', 'BET', 'between', 'Between', 'BETWEEN'), _("bet"), $p_date);
+			$p_date = str_replace(array('cal', 'Cal', 'CAL', 'calculated', 'Calculated', 'CALCULATED'), _("cal"), $p_date);		
 		}
 		return $p_date;
 	}

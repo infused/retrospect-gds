@@ -6,454 +6,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2004-05-19 20:39-0800\n"
+"PO-Revision-Date: 2004-05-25 13:58-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused.org>\n"
 "Language-Team: GERMAN <wil.feindt@t-online.de>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: administration/admin.php:29
-msgid "Retrospect-GDS Administration"
-msgstr "Retrospect-GDS Administration"
-
-#: administration/admin.php:65
-#, php-format
-msgid "Logged in as %s"
-msgstr "Eingelogt als %s"
-
-#: administration/admin.php:67
-msgid "Logout"
-msgstr "Logout"
-
-#: administration/db_edit_indiv.php:31
-#: administration/menubar.php:44
-msgid "Edit Individual"
-msgstr "Edit Person"
-
-#: administration/db_edit_indiv.php:34
-#: themes/default/multimedia.php:47
-msgid "This feature has not been implemented yet."
-msgstr "Diese Funktion ist leider noch nicht vorhanden"
-
-#: administration/db_optimize.php:44
-#: administration/menubar.php:47
-msgid "Optimize Tables"
-msgstr "Tabellen optimieren"
-
-#: administration/gedcom_import.php:35
-#: administration/gedcom_import.php:65
-#: administration/gedcom_import1.php:38
-#: administration/gedcom_import2.php:38
-msgid "The gedcom directory is not writable. Check your server configuration."
-msgstr ""
-
-#: administration/gedcom_import.php:42
-msgid "No file was selected for upload."
-msgstr ""
-
-#: administration/gedcom_import.php:45
-msgid "The file upload did not complete.  Try again."
-msgstr ""
-
-#: administration/gedcom_import.php:48
-#: administration/gedcom_import.php:51
-msgid "The file is too large to upload."
-msgstr ""
-
-#: administration/gedcom_import.php:60
-msgid "Only .ged or .zip files are allowed."
-msgstr ""
-
-#: administration/gedcom_import.php:70
-msgid "A file with the same name already exists."
-msgstr ""
-
-#: administration/gedcom_import.php:75
-msgid "Error moving file to the gedcom directory.  Check your server configuration."
-msgstr ""
-
-#: administration/gedcom_import.php:108
-msgid "Unable to delete the selected file."
-msgstr ""
-
-#: administration/gedcom_import.php:111
-msgid "No file was selected for deletion."
-msgstr ""
-
-#: administration/gedcom_import.php:119
-msgid "Upload Gedcom"
-msgstr ""
-
-#: administration/gedcom_import.php:126
-#, php-format
-msgid "Your server is configured for a maximum file upload size of %s. If you wish to upload a gedcom file that is larger than %s either change the upload_max_filesize directive in php.ini or manually upload the file to the gedcom directory."
-msgstr ""
-
-#: administration/gedcom_import.php:132
-msgid "Gedcom File"
-msgstr ""
-
-#: administration/gedcom_import.php:138
-msgid "Upload"
-msgstr ""
-
-#: administration/gedcom_import.php:149
-#: administration/gedcom_import1.php:55
-#: administration/gedcom_import2.php:49
-#: administration/menubar.php:42
-msgid "Import Gedcom"
-msgstr ""
-
-#: administration/gedcom_import.php:155
-msgid "Select a gedcom file to begin the import process..."
-msgstr ""
-
-#: administration/gedcom_import.php:161
-#: administration/media_list.php:43
-msgid "Filename"
-msgstr "Dateiname"
-
-#: administration/gedcom_import.php:163
-#, fuzzy
-msgid "Last Modified"
-msgstr "Zuletzt eingelogt"
-
-#: administration/gedcom_import.php:165
-msgid "Size"
-msgstr ""
-
-#: administration/gedcom_import.php:184
-#, php-format
-msgid "%s bytes"
-msgstr ""
-
-#: administration/gedcom_import.php:186
-msgid "view"
-msgstr ""
-
-#: administration/gedcom_import.php:188
-#, fuzzy
-msgid "delete"
-msgstr "Löschen"
-
-#: administration/gedcom_import.php:201
-msgid "Begin Import..."
-msgstr ""
-
-#: administration/gedcom_import1.php:97
-#: administration/gedcom_import2.php:137
-msgid "Continue"
-msgstr ""
-
-#: administration/login.php:29
-msgid "phpGene Pro Administration Login"
-msgstr "phpGene Pro Administration Login"
-
-#: administration/login.php:55
-#: administration/user_add.php:75
-#: administration/user_edit.php:81
-#: administration/user_list.php:37
-msgid "Username"
-msgstr "Benutzername"
-
-#: administration/login.php:61
-msgid "Password"
-msgstr "Passwort"
-
-#: administration/login.php:66
-#: themes/default/menu.php:34
-msgid "Language"
-msgstr "Sprache"
-
-#: administration/login.php:85
-msgid "Login"
-msgstr "Login"
-
-#: administration/media_list.php:31
-#: administration/menubar.php:52
-msgid "Media Manager"
-msgstr ""
-
-#: administration/media_list.php:44
-msgid "Caption"
-msgstr "Untertitel"
-
-#: administration/media_list.php:45
-#: core/f_dummy.php:82
-msgid "Description"
-msgstr "Beschreibung"
-
-#: administration/media_list.php:46
-msgid "Thumbnail"
-msgstr "Thumbnail"
-
-#: administration/menubar.php:31
-msgid "System"
-msgstr "System"
-
-#: administration/menubar.php:32
-#, fuzzy
-msgid "Status"
-msgstr "Statistiken"
-
-#: administration/menubar.php:33
-msgid "Configuration"
-msgstr "Konfiguration"
-
-#: administration/menubar.php:34
-msgid "User Admin"
-msgstr "Benutzer Admin"
-
-#: administration/menubar.php:35
-#: administration/user_list.php:31
-msgid "User List"
-msgstr "Benutzerliste"
-
-#: administration/menubar.php:35
-msgid "Edit Users"
-msgstr "Editiere Benutzer"
-
-#: administration/menubar.php:36
-#: administration/user_add.php:69
-msgid "Add User"
-msgstr "Benutzer hinzufügen"
-
-#: administration/menubar.php:41
-#: themes/default/menu.php:26
-msgid "Database"
-msgstr "Datenbank"
-
-#: administration/menubar.php:43
-msgid "Edit"
-msgstr "Edit"
-
-#: administration/menubar.php:44
-msgid "Individual"
-msgstr "Person"
-
-#: administration/menubar.php:46
-msgid "Maintenance"
-msgstr "Wartung"
-
-#: administration/menubar.php:51
-msgid "Media"
-msgstr "Medien"
-
-#: administration/status.php:40
-#, fuzzy
-msgid "System Alerts"
-msgstr "System"
-
-#: administration/status.php:41
-#, fuzzy
-msgid "Database Records"
-msgstr "Datenbank"
-
-#: administration/status.php:49
-#, php-format
-msgid "The admin password has expired.  Go %s to change it immediately!"
-msgstr ""
-
-#: administration/status.php:54
-msgid "The install directory should be deleted immediately."
-msgstr ""
-
-#: administration/sys_config.php:34
-#, php-format
-msgid "You must edit core/config.php to change the %s setting."
-msgstr "Bitte core/config.php editieren um die %s Einstellungen zu ändern"
-
-#: administration/sys_config.php:60
-#: administration/sys_config.php:103
-msgid "MySQL Hostname"
-msgstr "MySQL Hostname"
-
-#: administration/sys_config.php:61
-#: administration/sys_config.php:109
-msgid "MySQL Port"
-msgstr "MySQL Port"
-
-#: administration/sys_config.php:62
-#: administration/sys_config.php:115
-msgid "MySQL Username"
-msgstr "MySQL Benutzername"
-
-#: administration/sys_config.php:63
-#: administration/sys_config.php:121
-msgid "MySQL Password"
-msgstr "MySQL Passwort"
-
-#: administration/sys_config.php:64
-#: administration/sys_config.php:127
-msgid "MySQL Database"
-msgstr "MySQL Datenbank"
-
-#: administration/sys_config.php:67
-msgid "Nothing to save."
-msgstr "Nichts zum Speichen."
-
-#: administration/sys_config.php:68
-msgid "Options updated."
-msgstr ""
-
-#: administration/sys_config.php:77
-msgid "Site Configuration"
-msgstr "Seiten Konfiguration"
-
-#: administration/sys_config.php:82
-msgid "Default Page"
-msgstr "Standartseite"
-
-#: administration/sys_config.php:93
-msgid "Database Configuration"
-msgstr "Datenbank Konfiguration"
-
-#: administration/sys_config.php:98
-msgid "The database settings are shown for reference only and can not be changed from this screen. You must edit core/config.php to change these settings."
-msgstr "Die Datenbankeinstellungen werden nur als Referenz gezeigt und können hier nicht geändert werden. Bitte core/config.php editieren um die Einstellungen zu ändern."
-
-#: administration/sys_config.php:139
-msgid "Language Configuration"
-msgstr "Sprache konfigurieren"
-
-#: administration/sys_config.php:144
-msgid "Default Language"
-msgstr "Standartsprache"
-
-#: administration/sys_config.php:161
-msgid "Allow language changes"
-msgstr "Sprachänderung zulassen"
-
-#: administration/sys_config.php:164
-#: administration/sys_config.php:174
-#: administration/sys_config.php:218
+#: administration/sys_config.php:159
+#: administration/sys_config.php:169
+#: administration/sys_config.php:210
 msgid "Yes"
 msgstr "Ja"
 
-#: administration/sys_config.php:165
-#: administration/sys_config.php:175
-#: administration/sys_config.php:219
+#: administration/sys_config.php:160
+#: administration/sys_config.php:170
+#: administration/sys_config.php:211
 msgid "No"
 msgstr "Nein"
 
-#: administration/sys_config.php:172
-msgid "Translate Dates"
-msgstr "Datum übersetzen"
-
-#: administration/sys_config.php:186
-#, fuzzy
-msgid "Meta Tag Generation"
-msgstr "Generation"
-
-#: administration/sys_config.php:210
-#, fuzzy
-msgid "Testing Configuration"
-msgstr "Seiten Konfiguration"
-
-#: administration/sys_config.php:215
-msgid "Profile Functions"
-msgstr ""
-
-#: administration/sys_config.php:236
-#: administration/user_edit.php:114
-msgid "Save"
-msgstr "Speichern"
-
-#: administration/sys_config.php:237
-#: administration/user_add.php:100
-#: administration/user_edit.php:115
+#: administration/sys_config.php:228
 #: themes/default/search.php:99
 msgid "Reset"
 msgstr "Zurück"
-
-#: administration/user_add.php:38
-#: administration/user_edit.php:38
-msgid "All fields are required.  Please correct the error."
-msgstr "Bitte alle Felder ausfüllen!"
-
-#: administration/user_add.php:42
-msgid "The username must be between 6 and 16 characters long and contain only alphanumeric characters."
-msgstr "Der Benutzername muss zwischen 6 und 16 Zeichen lang sein und darf nur alphanumerische Zeichen enthalten!"
-
-#: administration/user_add.php:46
-#: administration/user_edit.php:42
-msgid "Both password fields must be the same.  Please re-type them."
-msgstr "Passwortfelder müssen gleich sein! bitte nocheinmal versuchen."
-
-#: administration/user_add.php:50
-msgid "The password must be between 6 and 16 characters long and contain only alphanumeric characters."
-msgstr "Das Passwort muss zwischen 6 und 16 Zeichen lang sein und darf nur alphanumerische Zeichen enthalten!"
-
-#: administration/user_add.php:55
-#, php-format
-msgid "User %s already exists.  Please use a different username."
-msgstr "Benutzername %s existiert schon!  Bitte einen anderen benutzen."
-
-#: administration/user_add.php:58
-#, php-format
-msgid "User %s was successfully added."
-msgstr "Benutzer %s hinzugefügt"
-
-#: administration/user_add.php:79
-#: administration/user_edit.php:87
-#: administration/user_list.php:38
-msgid "Full Name"
-msgstr "Richtiger Name"
-
-#: administration/user_add.php:83
-#: administration/user_edit.php:93
-msgid "Email Address"
-msgstr "Email Addresse"
-
-#: administration/user_add.php:87
-#: administration/user_edit.php:99
-msgid "New Password"
-msgstr "Neues Passwort"
-
-#: administration/user_add.php:91
-#: administration/user_edit.php:105
-msgid "Verify Password"
-msgstr "Password ändern"
-
-#: administration/user_add.php:99
-msgid "Add"
-msgstr "Einfügen"
-
-#: administration/user_edit.php:48
-#, php-format
-msgid "User %s was successfully modified."
-msgstr "Benutzerangaben %s geändert!"
-
-#: administration/user_edit.php:52
-#, php-format
-msgid "User %s was not modified."
-msgstr "Benutzerangaben %s nicht geändert!"
-
-#: administration/user_edit.php:64
-#, php-format
-msgid "User %s was deleted."
-msgstr "Benutzer %s gelöscht!"
-
-#: administration/user_edit.php:76
-msgid "Edit User"
-msgstr "Editiere Benutzer"
-
-#: administration/user_edit.php:116
-msgid "Delete"
-msgstr "Löschen"
-
-#: administration/user_list.php:39
-msgid "Email"
-msgstr "Email"
-
-#: administration/user_list.php:40
-msgid "Last Login"
-msgstr "Zuletzt eingelogt"
-
-#: administration/user_list.php:54
-msgid "Never"
-msgstr "Nie"
 
 #: core/f_dummy.php:38
 #: core/f_dummy.php:94
@@ -615,6 +190,10 @@ msgstr "Gestorben"
 #: core/f_dummy.php:81
 msgid "Degree"
 msgstr "Grades"
+
+#: core/f_dummy.php:82
+msgid "Description"
+msgstr "Beschreibung"
 
 #: core/f_dummy.php:83
 msgid "Education"
@@ -814,28 +393,28 @@ msgid "Dec"
 msgstr "Dez"
 
 #: core/f_language.php:107
-msgid "abv About"
-msgstr "um"
+msgid "abt"
+msgstr ""
 
 #: core/f_language.php:108
-msgid "abv Circa"
-msgstr "etwa"
+msgid "cir"
+msgstr ""
 
 #: core/f_language.php:109
-msgid "abv After"
-msgstr "nach"
+msgid "aft"
+msgstr ""
 
 #: core/f_language.php:110
-msgid "abv Before"
-msgstr "vor"
+msgid "bef"
+msgstr ""
 
 #: core/f_language.php:111
-msgid "abv Between"
-msgstr "zwischen"
+msgid "bet"
+msgstr ""
 
 #: core/f_language.php:112
-msgid "abv Calculated"
-msgstr "errechnet"
+msgid "cal"
+msgstr ""
 
 #: core/f_report.php:42
 #, php-format
@@ -1196,6 +775,10 @@ msgstr "Familiendatenblatt von %s"
 msgid "Sources"
 msgstr "Quellen"
 
+#: themes/default/menu.php:26
+msgid "Database"
+msgstr "Datenbank"
+
 #: themes/default/menu.php:27
 msgid "Search the Database"
 msgstr "Datenbank durschsuchen"
@@ -1228,6 +811,10 @@ msgstr "Datenbank Statistik"
 msgid "Statistics"
 msgstr "Statistiken"
 
+#: themes/default/menu.php:34
+msgid "Language"
+msgstr "Sprache"
+
 #: themes/default/multimedia.php:33
 #: themes/default/nav.php:62
 #: themes/default/nav.php:65
@@ -1238,6 +825,10 @@ msgstr "Multimedia"
 #, php-format
 msgid "Multimedia for %s"
 msgstr "Multimedia von %s"
+
+#: themes/default/multimedia.php:47
+msgid "This feature has not been implemented yet."
+msgstr "Diese Funktion ist leider noch nicht vorhanden"
 
 #: themes/default/nav.php:30
 #: themes/default/nav.php:33

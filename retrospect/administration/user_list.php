@@ -25,35 +25,38 @@
 <link href="styles.css" rel="stylesheet" type="text/css">
 <table width="100%"  border="0" cellspacing="5" cellpadding="0">
 	<tr>
-	  <td colspan="4" align="left" valign="top" class="notification">&nbsp;</td>
+	  <td colspan="4" align="left" valign="top"><table width="100%"  border="0" cellpadding="0" cellspacing="0" class="section">
+      <tr>
+        <td class="section_head">User List</td>
+      </tr>
+      <tr>
+        <td class="section_body"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>Username</td>
+            <td>Full Name </td>
+            <td>Email</td>
+            <td>Last Login</td>
+          </tr>
+						<?php
+							$sql = "SELECT * FROM $g_tbl_user";
+							$rs = $db->Execute($sql);
+							while ($row = $rs->FetchRow()) {
+								$uid = $row['uid'];
+								$fullname = $row['fullname'];
+								$email = $row['email'];
+								$pwd_expired = $row['pwd_expired'];
+								echo '<tr>';
+								echo '<td class="text" width="200"><a href="'.$_SERVER['PHP_SELF'].'?option=user_edit&id='.$uid.'">'.$uid.'</a></td>';
+								echo '<td class="text" width="200">'.$fullname.'</td>';
+								echo '<td class="text">'.$email.'</td>';
+								$last = ($row['last'] == '0000-00-00 00:00:00') ? 'Never' : $row['last'];
+								echo '<td class="text">'.$last.'</td>';
+								echo '</tr>';
+							}
+						?>
+        </table></td>
+      </tr>
+    </table></td>
   </tr>
-	<tr>
-    <td align="left" valign="top" colspan="4" class="content-subtitle"><?php echo _("User List"); ?></td>
-  </tr>
-	<tr>
-	  <td align="left" valign="top" colspan="4">&nbsp;</td>
-  </tr>
-	<tr>
-	  <td align="left" valign="top" class="content-label"><?php echo _("Username"); ?></td>
-    <td align="left" valign="top" class="content-label"><?php echo _("Full Name"); ?></td>
-    <td align="left" valign="top" class="content-label"><?php echo _("Email"); ?></td>
-	  <td align="left" valign="top" class="content-label"><?php echo _("Last Login"); ?></td>
-	</tr>
-	<?php
-		$sql = "SELECT * FROM $g_tbl_user";
-		$rs = $db->Execute($sql);
-		while ($row = $rs->FetchRow()) {
-			$uid = $row['uid'];
-			$fullname = $row['fullname'];
-			$email = $row['email'];
-			$pwd_expired = $row['pwd_expired'];
-			echo '<tr>';
-			echo '<td class="text" width="200"><a href="'.$_SERVER['PHP_SELF'].'?option=user_edit&id='.$uid.'">'.$uid.'</a></td>';
-			echo '<td class="text" width="200">'.$fullname.'</td>';
-			echo '<td class="text">'.$email.'</td>';
-			$last = ($row['last'] == '0000-00-00 00:00:00') ? _("Never") : $row['last'];
-			echo '<td class="text">'.$last.'</td>';
-			echo '</tr>';
-		}
-	?>
+
 </table>

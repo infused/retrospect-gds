@@ -23,64 +23,55 @@
  */  
 ?>
 <link href="styles.css" rel="stylesheet" type="text/css">
-<table width="100%"  border="0" cellpadding="0" cellspacing="5"> 
-  <tr> 
-    <td align="left" valign="top" class="notification">
-			<?php
-				# Load the gedcom classes
-				require_once(CORE_PATH.'gedcom.class.php');
-				
-				# Set some variables
-				$gedcomdir = ROOT_PATH . '/../gedcom/';
+<?php
+	# Load the gedcom classes
+	require_once(CORE_PATH.'gedcom.class.php');
 	
-				# Check if gedcom directory is writable
-				if (!is_writable($gedcomdir)) { 
-					echo _("The gedcom directory is not writable. Check your server configuration.");
-				}
-				
-				$gedcomfile = $gedcomdir.$_POST['selectedfile'];
-				$gedcom = new GedcomParser();
-				$gedcom->Open($gedcomfile);
-				$gedcom->GetStatistics();
-				
-				# Display any errors
-				//if ($gedcom->lasterror) {
-				//	echo $gedcom->lasterror;
-				//}
-			?>
-			&nbsp;
-		</td> 
-  </tr> 
-  <tr> 
-    <td align="left" valign="top" class="content-subtitle"><?php echo _("Import Gedcom"); ?></td> 
-  </tr> 
-  <tr> 
-    <td align="left" valign="top"> <table width="100%"  border="0" cellpadding="2" cellspacing="0" bgcolor="#CCCCCC"> 
-        <tr> 
-          <td valign="middle" class="content-label">Analyzing gedcom file...</td> 
-        </tr>
-        <tr>
-          <td valign="middle" class="text">File size: <?php echo filesize_format($gedcom->fsize); ?></td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">Number of individuals: <?php echo number_format($gedcom->individual_count); ?></td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">Number of families: <?php echo number_format($gedcom->family_count); ?></td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">Number of sources: <?php echo number_format($gedcom->source_count); ?></td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">Number of notes: <?php echo number_format($gedcom->note_count); ?></td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">&nbsp;</td>
-        </tr>
-      </table></td> 
-  </tr> 
+	# Set some variables
+	$gedcomdir = ROOT_PATH . '/../gedcom/';
+
+	# Check if gedcom directory is writable
+	if (!is_writable($gedcomdir)) { 
+		notify('The gedcom directory is not writable. Check your server configuration.');
+	}
+	
+	$gedcomfile = $gedcomdir.$_POST['selectedfile'];
+	$gedcom = new GedcomParser();
+	$gedcom->Open($gedcomfile);
+	$gedcom->GetStatistics();
+?>
+<table width="100%"  border="0" cellpadding="0" cellspacing="5"> 
   <tr>
-    <td align="left" valign="top">&nbsp;</td>
+    <td align="left" valign="top"><table width="100%"  border="0" cellpadding="0" cellspacing="0" class="section">
+      <tr>
+        <td class="section_head">Import Gedcom </td>
+      </tr>
+      <tr>
+        <td class="section_body"><table width="100%"  border="0" cellpadding="2" cellspacing="0">
+          <tr>
+            <td valign="middle" class="content-label">Analyzing gedcom file...</td>
+          </tr>
+          <tr>
+            <td valign="middle" class="text">File size: <?php echo filesize_format($gedcom->fsize); ?></td>
+          </tr>
+          <tr>
+            <td valign="middle" class="text">Number of individuals: <?php echo number_format($gedcom->individual_count); ?></td>
+          </tr>
+          <tr>
+            <td valign="middle" class="text">Number of families: <?php echo number_format($gedcom->family_count); ?></td>
+          </tr>
+          <tr>
+            <td valign="middle" class="text">Number of sources: <?php echo number_format($gedcom->source_count); ?></td>
+          </tr>
+          <tr>
+            <td valign="middle" class="text">Number of notes: <?php echo number_format($gedcom->note_count); ?></td>
+          </tr>
+          <tr>
+            <td valign="middle" class="text">&nbsp;</td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
   </tr>
   <tr> 
     <td align="left" valign="top" class="notification"><p><strong>WARNING!</strong><br>
@@ -94,7 +85,7 @@
 	<td>
 		<form action="<?php echo $_SERVER['PHP_SELF'].'?option=gedcom_import2'; ?>" method="post" enctype="multipart/form-data" name="gedcom_import_form1" id="gedcom_import_form1">
 			<input name="selectedfile" type="hidden" value="<?php echo $_POST['selectedfile'] ?>">
-			<input name="Continue" type="submit" class="text" id="Continue" value="<?php echo _("Continue"); ?>"> 
+			<input name="Continue" type="submit" class="text" id="Continue" value="Continue"> 
 		</form>
 	</td>
 	</tr>

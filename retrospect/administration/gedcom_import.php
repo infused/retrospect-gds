@@ -23,188 +23,183 @@
  */  
 ?>
 <link href="styles.css" rel="stylesheet" type="text/css">
-<table width="100%"  border="0" cellpadding="0" cellspacing="5">
-  <tr>
-    <td align="left" valign="top" class="notification">
-			<?php 
-				# Set some variables
-				$gedcomdir = ROOT_PATH . '/../gedcom/';
-				
+<?php 
+	# Set some variables
+	$gedcomdir = ROOT_PATH . '/../gedcom/';
+	
+	# Check if gedcom directory is writable
+	if (!is_writable($gedcomdir)) { 
+		notify('The gedcom directory is not writable. Check your server configuration.');
+	}
+	
+	# Handle file uploads
+	if (isset($_POST['Upload'])) {
+		switch ($_FILES['file']['error']) {
+			case 4:
+				notify('No file was selected for upload.');
+				break;
+			case 3:
+				notify('The file upload did not complete.  Try again.');
+				break;
+			case 2:
+				notify('The file is too large to upload.');
+				break;
+			case 1:
+				notify('The file is too large to upload.');
+				break;
+			case 0:
+				$uploadfile = $gedcomdir.$_FILES['file']['name'];
+				# Check for valid file extension (no mime)
+				$valid_extensions = array('ged','zip');
+				$pathinfo = pathinfo($uploadfile);
+				$extension = strtolower($pathinfo['extension']);
+				if (!in_array($extension, $valid_extensions)) {
+					notify('Only .ged or .zip files are allowed.');
+					break;
+				}
 				# Check if gedcom directory is writable
 				if (!is_writable($gedcomdir)) { 
-					echo _("The gedcom directory is not writable. Check your server configuration.");
+					notify('The gedcom directory is not writable. Check your server configuration.');
+					break;
 				}
-				
-				# Handle file uploads
-				if (isset($_POST['Upload'])) {
-					switch ($_FILES['file']['error']) {
-						case 4:
-							echo _("No file was selected for upload.");
-							break;
-						case 3:
-							echo _("The file upload did not complete.  Try again.");
-							break;
-						case 2:
-							echo _("The file is too large to upload.");
-							break;
-						case 1:
-							echo _("The file is too large to upload.");
-							break;
-						case 0:
-							$uploadfile = $gedcomdir.$_FILES['file']['name'];
-							# Check for valid file extension (no mime)
-							$valid_extensions = array('ged','zip');
-							$pathinfo = pathinfo($uploadfile);
-							$extension = strtolower($pathinfo['extension']);
-							if (!in_array($extension, $valid_extensions)) {
-								echo _("Only .ged or .zip files are allowed.");
-								break;
-							}
-							# Check if gedcom directory is writable
-							if (!is_writable($gedcomdir)) { 
-								echo _("The gedcom directory is not writable. Check your server configuration.");
-								break;
-							}
-							# Check if file already exists
-							if (file_exists($uploadfile)) {
-								echo _("A file with the same name already exists.");
-								break;
-							}
-							# Move the file
-							if (!move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
-								echo _("Error moving file to the gedcom directory.  Check your server configuration.");
-								break;
-							}
-							# Extract gedcoms from zip files and cleanup
-							if (strtolower($extension) == 'zip') {
-								if ($zip = zip_open($uploadfile)) {
-									while ($zip_entry = zip_read($zip)) {
-										$file = basename(zip_entry_name($zip_entry));
-										$pathinfo = pathinfo($file);
-										# Only extract gedcoms!
-										if ($pathinfo['extension'] == 'ged') {
-											$fp = fopen($gedcomdir.$file, 'w+');
-											if (zip_entry_open($zip, $zip_entry, "r")) {
-         							  $buf = zip_entry_read($zip_entry, zip_entry_filesize($zip_entry));
-         							  zip_entry_close($zip_entry);
-       								}
-        						  fwrite($fp, $buf);
-       								fclose($fp);
-										}
-									}
+				# Check if file already exists
+				if (file_exists($uploadfile)) {
+					notify('A file with the same name already exists.');
+					break;
+				}
+				# Move the file
+				if (!move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
+					notify('Error moving file to the gedcom directory.  Check your server configuration.');
+					break;
+				}
+				# Extract gedcoms from zip files and cleanup
+				if (strtolower($extension) == 'zip') {
+					if ($zip = zip_open($uploadfile)) {
+						while ($zip_entry = zip_read($zip)) {
+							$file = basename(zip_entry_name($zip_entry));
+							$pathinfo = pathinfo($file);
+							# Only extract gedcoms!
+							if ($pathinfo['extension'] == 'ged') {
+								$fp = fopen($gedcomdir.$file, 'w+');
+								if (zip_entry_open($zip, $zip_entry, "r")) {
+									$buf = zip_entry_read($zip_entry, zip_entry_filesize($zip_entry));
+									zip_entry_close($zip_entry);
 								}
-								zip_close($zip);
-								unlink($uploadfile);
-							} 
-							
-							break; 
-					}
-				}
-				# Handle file deletes
-				if (isset($_GET['delete']) AND $_GET['delete'] == '1') {
-					if (isset($_GET['fn'])) {
-						$gedcomfile = $gedcomdir.$_GET['fn'];
-							if (@unlink($gedcomfile) == false) {
-								echo _("Unable to delete the selected file.");
+								fwrite($fp, $buf);
+								fclose($fp);
 							}
-					} else {
-						echo _("No file was selected for deletion.");
+						}
 					}
+					zip_close($zip);
+					unlink($uploadfile);
+				} 
+				
+				break; 
+		}
+	}
+	# Handle file deletes
+	if (isset($_GET['delete']) AND $_GET['delete'] == '1') {
+		if (isset($_GET['fn'])) {
+			$gedcomfile = $gedcomdir.$_GET['fn'];
+				if (@unlink($gedcomfile) == false) {
+					notify('Unable to delete the selected file.');
 				}
-			?>
-			&nbsp;
-		</td>
-  </tr>
+		} else {
+			notify('No file was selected for deletion.');
+		}
+	}
+?>
+<table width="100%"  border="0" cellpadding="0" cellspacing="5">
   <tr>
-    <td align="left" valign="top" class="content-subtitle"><?php echo _("Upload Gedcom"); ?></td>
-  </tr>
-  <tr>
-    <td align="left" valign="top">
-			<form action="" method="post" enctype="multipart/form-data" name="gedcom_upload_form" id="gedcom_upload_form">
-        <table width="100%"  border="0" cellpadding="2" cellspacing="0" bgcolor="#CCCCCC">
+    <td align="left" valign="top"><table width="100%"  border="0" cellpadding="0" cellspacing="0" class="section">
+      <tr>
+        <td class="section_head">Upload Gedcom </td>
+      </tr>
+      <tr>
+        <td class="section_body">
+				<form action="" method="post" enctype="multipart/form-data" name="gedcom_upload_form" id="gedcom_upload_form">
+				<table width="100%"  border="0" cellpadding="2" cellspacing="0">
           <tr>
-            <td colspan="3" valign="middle" class="text"><?php echo sprintf(_("Your server is configured for a maximum file upload size of %s. If you wish to upload a gedcom file that is larger than %s either change the upload_max_filesize directive in php.ini or manually upload the file to the gedcom directory."), ini_get('upload_max_filesize'), ini_get('upload_max_filesize')); ?></td>
+            <td colspan="3" valign="middle" class="text"><?php echo sprintf('Your server is configured for a maximum file upload size of %s. If you wish to upload a gedcom file that is larger than %s either change the upload_max_filesize directive in php.ini or manually upload the file to the gedcom directory.', ini_get('upload_max_filesize'), ini_get('upload_max_filesize')); ?></td>
           </tr>
           <tr>
             <td colspan="3" valign="middle">&nbsp;</td>
           </tr>
           <tr>
-            <td width="125" valign="middle" class="content-label"><?php echo _("Gedcom File"); ?>:</td>
+            <td width="125" valign="middle" class="content-label">Gedcom File:</td>
             <td valign="middle"><input name="file" type="file" class="text"></td>
             <td align="left" valign="top"><p>You can upload a single gedcom file with an extension of .ged or a zip file containing one or more gedcom files. </p></td>
           </tr>
           <tr>
             <td valign="middle" class="content-label">&nbsp;</td>
-            <td valign="middle"><input name="Upload" type="submit" class="text" id="Upload" value="<?php echo _("Upload"); ?>"></td>
+            <td valign="middle"><input name="Upload" type="submit" class="text" id="Upload" value="Upload"></td>
             <td align="left" valign="top">&nbsp;</td>
           </tr>
         </table>
-      </form>
-		</td>
-  </tr>
-  <tr>
-    <td align="left" valign="top">&nbsp;</td>
-  </tr>
-  <tr>
-    <td align="left" valign="top" class="content-subtitle"><?php echo _("Import Gedcom"); ?>&nbsp;</td>
-  </tr>
-  <tr>
-    <td align="left" valign="top"><form action="<?php echo $_SERVER['PHP_SELF'].'?option=gedcom_import1'; ?>" method="post" enctype="multipart/form-data" name="gedcom_import_form1" id="gedcom_import_form1">
-        <table width="100%"  border="0" cellpadding="2" cellspacing="0" bgcolor="#CCCCCC">
-          <tr>
-            <td colspan="5"><?php echo _("Select a gedcom file to begin the import process..."); ?></td>
-          </tr>
-          <tr>
-            <td colspan="5"><table border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
-                <tr>
-                  <td align="center" nowrap>&nbsp;</td>
-                  <td nowrap><em><?php echo _("Filename"); ?></em></td>
-                  <td width="20" nowrap>&nbsp;</td>
-                  <td nowrap><em><?php echo _("Last Modified"); ?></em></td>
-                  <td width="20" nowrap>&nbsp;</td>
-                  <td nowrap><em><?php echo _("Size"); ?></em></td>
-                  <td width="20" nowrap>&nbsp;</td>
-                  <td nowrap>&nbsp;</td>
-                  <td width="20" nowrap>&nbsp;</td>
-                  <td nowrap>&nbsp;</td>
-                </tr>
-                <?php
+				</form>
+				</td>
+      </tr>
+    </table>
+      <table width="100%"  border="0" cellpadding="0" cellspacing="0" class="section">
+        <tr>
+          <td class="section_head">Import Gedcom </td>
+        </tr>
+        <tr>
+          <td class="section_body"><form action="<?php echo $_SERVER['PHP_SELF'].'?option=gedcom_import1'; ?>" method="post" enctype="multipart/form-data" name="gedcom_import_form1" id="gedcom_import_form1">
+            <table width="100%"  border="0" cellpadding="2" cellspacing="0">
+              <tr>
+                <td colspan="5">Select a gedcom file to begin the import process...</td>
+              </tr>
+              <tr>
+                <td colspan="5"><table border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td align="center" nowrap>&nbsp;</td>
+                      <td nowrap><em>Filename</em></td>
+                      <td width="20" nowrap>&nbsp;</td>
+                      <td nowrap><em>Last Modified </em></td>
+                      <td width="20" nowrap>&nbsp;</td>
+                      <td nowrap><em>Size</em></td>
+                      <td width="20" nowrap>&nbsp;</td>
+                      <td nowrap>&nbsp;</td>
+                      <td width="20" nowrap>&nbsp;</td>
+                      <td nowrap>&nbsp;</td>
+                    </tr>
+                    <?php
 								$dir = dir($gedcomdir);
 								while (($filename = $dir->read()) !== false) {
 									$pathinfo = pathinfo($filename);
 									$gedcomfile = $gedcomdir.$filename;
 									if (isset($pathinfo['extension']) AND strtolower($pathinfo['extension']) == 'ged') { ?>
-                <tr>
-                  <td width="50" align="center" nowrap><input name="selectedfile" type="radio" value="<?php echo $filename; ?>">
-                  </td>
-                  <td nowrap><strong><?php echo $filename; ?></strong></td>
-                  <td nowrap>&nbsp;</td>
-                  <td nowrap><?php echo date('F d Y H:i:s', filemtime($gedcomfile)); ?></td>
-                  <td nowrap>&nbsp;</td>
-                  <td nowrap><?php echo sprintf(_("%s bytes"), number_format(filesize($gedcomfile))); ?></td>
-                  <td nowrap>&nbsp;</td>
-                  <td nowrap><a class="text" href="<?php echo $gedcomfile; ?>"><?php echo _("view"); ?></a></td>
-                  <td nowrap>&nbsp;</td>
-                  <td nowrap><a class="text" href="<?php echo $_SERVER['PHP_SELF'].'?option=gedcom_import&delete=1&fn='.$filename; ?>"><?php echo _("delete"); ?></a></td>
-                </tr>
-                <?php 
+                    <tr>
+                      <td width="50" align="center" nowrap><input name="selectedfile" type="radio" value="<?php echo $filename; ?>">
+                      </td>
+                      <td nowrap><strong><?php echo $filename; ?></strong></td>
+                      <td nowrap>&nbsp;</td>
+                      <td nowrap><?php echo date('F d Y H:i:s', filemtime($gedcomfile)); ?></td>
+                      <td nowrap>&nbsp;</td>
+                      <td nowrap><?php echo sprintf('%s bytes', number_format(filesize($gedcomfile))); ?></td>
+                      <td nowrap>&nbsp;</td>
+                      <td nowrap><a class="text" href="<?php echo $gedcomfile; ?>">view</a></td>
+                      <td nowrap>&nbsp;</td>
+                      <td nowrap><a class="text" href="<?php echo $_SERVER['PHP_SELF'].'?option=gedcom_import&delete=1&fn='.$filename; ?>">delete</a></td>
+                    </tr>
+                    <?php 
 									}
 								}
 								$dir->close();
 							?>
-              </table></td>
-          </tr>
-          <tr>
-            <td colspan="5">&nbsp;</td>
-          </tr>
-          <tr>
-            <td colspan="5"><input name="Import" type="submit" class="text" id="Import" value="<?php echo _("Begin Import..."); ?>">
-            </td>
-          </tr>
-        </table>
-      </form></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
+                </table></td>
+              </tr>
+              <tr>
+                <td colspan="5">&nbsp;</td>
+              </tr>
+              <tr>
+                <td colspan="5"><input name="Import" type="submit" class="text" id="Import" value="Begin Import...">
+                </td>
+              </tr>
+            </table>
+          </form></td>
+        </tr>
+      </table></td>
   </tr>
 </table>

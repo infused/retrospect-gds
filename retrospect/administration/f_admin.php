@@ -25,6 +25,9 @@
 <?php
 	# Additional admin functions
 	
+	/**
+	* Redirect to another page w/delay
+	*/
 	function redirect_j($p_url, $p_delay) {
 		?>
 			<script language="javascript">
@@ -34,4 +37,13 @@
 			</script>
 		<?php
 	}
+	
+	/**
+	* Print notification message
+	*/
+	function notify($message) {
+		echo '<table cellpadding="10" cellspacing="0"><tr><td class="notification">'.$message.'</td></tr></table>';
+	}
+	
+	
 ?>

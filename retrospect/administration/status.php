@@ -32,140 +32,136 @@
 
 
 <link href="styles.css" rel="stylesheet" type="text/css">
-<table width="100%"  border="0" cellspacing="5" cellpadding="0">
-  <tr>
-    <td colspan="2" class="notification">&nbsp;</td>
-  </tr>
-  <tr>
-    <td class="content-subtitle"><?php echo _("System Alerts");  ?></td>
-    <td class="content-subtitle"><?php echo _("Database Records");  ?></td>
-  </tr>
+<table width="100%"  border="0" cellspacing="0" cellpadding="5">
   <tr>
     <td align="left" valign="top">
-		<?php 
-				if (auth::PasswordExpired($_SESSION['uid'])) { 
-					echo '<p>';
-					$here = '<a href="'.$_SERVER['PHP_SELF'].'?option=user_edit&id='.$_SESSION['uid'].'">here</a>';
-					printf(_("The admin password has expired.  Go %s to change it immediately!"), $here);
-					echo '</p>';
-				} 
-				if (file_exists(ROOT_PATH.'/../install')) {
-					echo '<p>';
-					echo _("The install directory should be deleted immediately.");
-					echo '</p>';
-				}
-		?>
-    </td>
-    <td width="300" align="right"><table width="300"  border="0" cellpadding="2" cellspacing="0" bgcolor="#CCCCCC">
+		<table width="100%"  border="0" cellpadding="0" cellspacing="0" class="section">
       <tr>
-        <td><?php echo $g_tbl_child; ?></td>
-        <td>
-					<?php 
+        <td class="section_head">System Alerts </td>
+      </tr>
+      <tr>
+        <td class="section_body">
+				<?php 
+					if (auth::PasswordExpired($_SESSION['uid'])) { 
+						echo '<p>';
+						$here = '<a href="'.$_SERVER['PHP_SELF'].'?option=user_edit&id='.$_SESSION['uid'].'">here</a>';
+						printf('The admin password has expired.  Go %s to change it immediately!', $here);
+						echo '</p>';
+					} 
+					if (file_exists(ROOT_PATH.'/../install')) {
+						echo '<p>';
+						echo 'The install directory should be deleted immediately.';
+						echo '</p>';
+					}
+				?>
+				</td>
+      </tr>
+    </table>
+    </td>
+    <td width="300" align="right"><table width="100%"  border="0" cellpadding="0" cellspacing="0" class="section">
+        <tr>
+          <td class="section_head">Database Records </td>
+        </tr>
+        <tr>
+          <td class="section_body"><table width="300"  border="0" cellpadding="2" cellspacing="0">
+            <tr bgcolor="#CCCCCC">
+              <td><?php echo $g_tbl_child; ?></td>
+              <td><?php 
 						$sql = "SELECT COUNT(*) FROM $g_tbl_child";
 						echo $db->GetOne($sql);
 				 	?>
-				</td>
-        </tr>
-      <tr>
-        <td><?php echo $g_tbl_citation; ?></td>
-        <td>
-					<?php 
+              </td>
+            </tr>
+            <tr>
+              <td><?php echo $g_tbl_citation; ?></td>
+              <td><?php 
 						$sql = "SELECT COUNT(*) FROM $g_tbl_citation";
 						echo $db->GetOne($sql);
 				 	?>
-				</td>
-        </tr>
-      <tr>
-        <td><?php echo $g_tbl_comment; ?></td>
-        <td>
-					<?php 
+              </td>
+            </tr>
+            <tr bgcolor="#CCCCCC">
+              <td><?php echo $g_tbl_comment; ?></td>
+              <td><?php 
 						$sql = "SELECT COUNT(*) FROM $g_tbl_comment";
 						echo $db->GetOne($sql);
 				 	?>
-				</td>
-        </tr>
-      <tr>
-        <td><?php echo $g_tbl_fact; ?></td>
-        <td>
-					<?php 
+              </td>
+            </tr>
+            <tr>
+              <td><?php echo $g_tbl_fact; ?></td>
+              <td><?php 
 						$sql = "SELECT COUNT(*) FROM $g_tbl_fact";
 						echo $db->GetOne($sql);
 				 	?>
-				</td>
-        </tr>
-      <tr>
-        <td><?php echo $g_tbl_family; ?></td>
-        <td>
-					<?php 
+              </td>
+            </tr>
+            <tr bgcolor="#CCCCCC">
+              <td><?php echo $g_tbl_family; ?></td>
+              <td><?php 
 						$sql = "SELECT COUNT(*) FROM $g_tbl_family";
 						echo $db->GetOne($sql);
 					?>
-					</td>
-        </tr>
-      <tr>
-        <td><?php echo $g_tbl_indiv; ?></td>
-        <td>
-					<?php 
+              </td>
+            </tr>
+            <tr>
+              <td><?php echo $g_tbl_indiv; ?></td>
+              <td><?php 
 						$sql = "SELECT COUNT(*) FROM $g_tbl_indiv";
 						echo $db->GetOne($sql);
 				 	?>
-				</td>
-        </tr>
-      <tr>
-        <td><?php echo $g_tbl_lang; ?></td>
-        <td>
-					<?php 
+              </td>
+            </tr>
+            <tr bgcolor="#CCCCCC">
+              <td><?php echo $g_tbl_lang; ?></td>
+              <td><?php 
 						$sql = "SELECT COUNT(*) FROM $g_tbl_lang";
 						echo $db->GetOne($sql);
 				 	?>
-				</td>
-        </tr>
-      <tr>
-        <td><?php echo $g_tbl_media; ?></td>
-        <td>
-					<?php 
+              </td>
+            </tr>
+            <tr>
+              <td><?php echo $g_tbl_media; ?></td>
+              <td><?php 
 						$sql = "SELECT COUNT(*) FROM $g_tbl_media";
 						echo $db->GetOne($sql);
 				 	?>
-				</td>
-        </tr>
-      <tr>
-        <td><?php echo $g_tbl_note; ?></td>
-        <td>
-					<?php 
+              </td>
+            </tr>
+            <tr bgcolor="#CCCCCC">
+              <td><?php echo $g_tbl_note; ?></td>
+              <td><?php 
 						$sql = "SELECT COUNT(*) FROM $g_tbl_note";
 						echo $db->GetOne($sql);
 				 	?>
-				</td>
-        </tr>
-      <tr>
-        <td><?php echo $g_tbl_option; ?></td>
-        <td>
-					<?php 
+              </td>
+            </tr>
+            <tr>
+              <td><?php echo $g_tbl_option; ?></td>
+              <td><?php 
 						$sql = "SELECT COUNT(*) FROM $g_tbl_option";
 						echo $db->GetOne($sql);
 				 	?>
-				</td>
-        </tr>
-      <tr>
-        <td><?php echo $g_tbl_source; ?></td>
-        <td>
-					<?php 
+              </td>
+            </tr>
+            <tr bgcolor="#CCCCCC">
+              <td><?php echo $g_tbl_source; ?></td>
+              <td><?php 
 						$sql = "SELECT COUNT(*) FROM $g_tbl_source";
 						echo $db->GetOne($sql);
 				 	?>
-				</td>
-        </tr>
-      <tr>
-        <td><?php echo $g_tbl_user; ?></td>
-        <td>
-					<?php 
+              </td>
+            </tr>
+            <tr>
+              <td><?php echo $g_tbl_user; ?></td>
+              <td><?php 
 						$sql = "SELECT COUNT(*) FROM $g_tbl_user";
 						echo $db->GetOne($sql);
 				 	?>
-				</td>
+              </td>
+            </tr>
+          </table></td>
         </tr>
-    </table>      
-     </td>
+      </table>       </td>
   </tr>
 </table>
