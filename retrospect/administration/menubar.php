@@ -39,6 +39,7 @@ var myMenu =
 	],
     _cmSplit,
 		[null, '<?php echo _("Database"); ?>', null, null, '<?php echo _("Database"); ?>',
+			['<img src="js/ThemeOffice/install.png" />', '<?php echo _("Import Gedcom"); ?>', '<?php echo $_SERVER['PHP_SELF']; ?>?option=gedcom_import', null, '<?php echo _("Import Gedcom"); ?>'],
 			['<img src="js/ThemeOffice/edit.png" />', '<?php echo _("Edit"); ?>', null, null, '<?php echo _("Edit"); ?>',
 				['<img src="js/ThemeOffice/new_user.png" />', '<?php echo _("Individual"); ?>', '<?php echo $_SERVER['PHP_SELF']; ?>?option=db_edit_indiv', null, '<?php echo _("Edit Individual"); ?>']
 			],

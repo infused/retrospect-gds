@@ -23,12 +23,42 @@
  */
  
   /**
- * Gedcom class
- * @package public
- * @access public
- */
- class Gedcom {
- 
- }
+ 	* Gedcom class
+ 	* @package public
+ 	* @access public
+ 	*/
+	class Gedcom {
+	
+		var $filename; 
+		var $fhandle;
+		
+		/**
+		* Gedcom class constructor
+		* @access public
+		*/
+		function Gedcom {
+			
+		}
+		
+		/** 
+		* OpenFile 
+		* 
+		* Opens the gedcom file in readonly mode and sets fhandle var.
+		* @access public
+		* @param $filename
+		* @return boolean
+		*/
+		function OpenFile($filename) {
+			$handle = @fopen($filename, 'rb');
+			if ($handle == false) {
+				return false;
+			} else {
+				$this->fhandle = $handle;
+				return true;
+			}
+		}
+		
+		
+ 	}
  
 ?>
