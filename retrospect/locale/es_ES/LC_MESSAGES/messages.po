@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2004-10-27 16:28-0800\n"
-"Last-Translator: Keith Morrison <keithm@infused.org>\n"
+"PO-Revision-Date: 2004-11-06 23:33-0800\n"
+"Last-Translator: Keith Morrison <keithm@infused-solutions.com>\n"
 "Language-Team: Spanish <keithm@infused-solutions.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
@@ -18,7 +18,8 @@ msgstr ""
 "X-Poedit-Keywords: gtc,t\n"
 "X-Poedit-Basepath: c:\\web\\retrospect\n"
 "X-Poedit-SearchPath-0: core\n"
-"X-Poedit-SearchPath-1: themes/default\n"
+"X-Poedit-SearchPath-1: core/modules\n"
+"X-Poedit-SearchPath-2: themes/default\n"
 
 #: core/date.class.php:305
 msgid "to"
@@ -30,7 +31,7 @@ msgstr "y"
 
 #: core/f_dummy.php:38
 #: core/f_dummy.php:94
-#: themes/default/stats.php:99
+#: themes/default/templates_c/%%7C^7C1^7C13AA49%%stats.tpl.php:53
 msgid "Marriage"
 msgstr "Unión"
 
@@ -38,7 +39,7 @@ msgstr "Unión"
 #: core/f_dummy.php:63
 #: core/f_report.php:174
 #: core/f_report.php:175
-#: themes/default/stats.php:94
+#: themes/default/templates_c/%%7C^7C1^7C13AA49%%stats.tpl.php:31
 msgid "Unknown"
 msgstr "Desconocido"
 
@@ -112,12 +113,12 @@ msgid "Wife"
 msgstr "Esposa"
 
 #: core/f_dummy.php:61
-#: themes/default/stats.php:92
+#: themes/default/templates_c/%%7C^7C1^7C13AA49%%stats.tpl.php:23
 msgid "Male"
 msgstr "Masculino"
 
 #: core/f_dummy.php:62
-#: themes/default/stats.php:93
+#: themes/default/templates_c/%%7C^7C1^7C13AA49%%stats.tpl.php:27
 msgid "Female"
 msgstr "Femenino"
 
@@ -147,13 +148,11 @@ msgid "Bas Mitzah"
 msgstr "Bas Mitzah"
 
 #: core/f_dummy.php:72
-#: core/f_language.php:68
-#: themes/default/family_old.php:107
-#: themes/default/family_pdf.php:132
-#: themes/default/pedigree_pdf.php:90
-#: themes/default/search.php:326
-#: themes/default/stats.php:97
-#: themes/default/surnames.php:139
+#: core/modules/family_pdf.php:132
+#: core/modules/pedigree_pdf.php:90
+#: themes/default/templates_c/%%7C^7C1^7C13AA49%%stats.tpl.php:45
+#: themes/default/templates_c/%%A9^A92^A92CA1BB%%surnames.tpl.php:27
+#: themes/default/templates_c/results.tpl.php:29
 msgid "Birth"
 msgstr "Nació"
 
@@ -186,12 +185,11 @@ msgid "Cremation"
 msgstr "Cremación"
 
 #: core/f_dummy.php:80
-#: themes/default/family_old.php:125
-#: themes/default/family_pdf.php:150
-#: themes/default/pedigree_pdf.php:91
-#: themes/default/search.php:327
-#: themes/default/stats.php:98
-#: themes/default/surnames.php:140
+#: core/modules/family_pdf.php:150
+#: core/modules/pedigree_pdf.php:91
+#: themes/default/templates_c/%%7C^7C1^7C13AA49%%stats.tpl.php:49
+#: themes/default/templates_c/%%A9^A92^A92CA1BB%%surnames.tpl.php:28
+#: themes/default/templates_c/results.tpl.php:30
 msgid "Death"
 msgstr "Murió"
 
@@ -377,7 +375,7 @@ msgid "German"
 msgstr "Alemán"
 
 #: core/f_dummy.php:127
-#: themes/default/family_old.php:261
+#: themes/default/templates_c/family.tpl.php:136
 msgid "Source Citations"
 msgstr "Citaciones De la Fuente"
 
@@ -405,98 +403,52 @@ msgstr ""
 msgid "cal"
 msgstr ""
 
-#: core/f_language.php:64
-#: themes/default/family_old.php:97
-#: themes/default/family_pdf.php:115
-msgid "Aka"
-msgstr "Alias"
-
-#: core/f_language.php:65
-#: themes/default/family_old.php:100
-#: themes/default/family_pdf.php:124
-msgid "Gender"
-msgstr "Sexo"
-
-# family.php:101
-# family.php:101
-# family.php:101
-# family.php:101
-# family.php:101
-# family.php:101 family.php:217
-# family.php:94 family.php:210
-# family.php:94 family.php:210
-# family.php:94 family.php:210
-# family.php:94 family.php:210
-# family.php:94 family.php:210
-#: core/f_language.php:66
-#: themes/default/family_old.php:103
-#: themes/default/family_pdf.php:168
-msgid "Father"
-msgstr "Padre"
-
-# family.php:105
-# family.php:105
-# family.php:105
-# family.php:105
-# family.php:105
-# family.php:105 family.php:221
-# family.php:98 family.php:214
-# family.php:98 family.php:214
-# family.php:98 family.php:214
-# family.php:98 family.php:214
-# family.php:98 family.php:214
-#: core/f_language.php:67
-#: themes/default/family_old.php:105
-#: themes/default/family_pdf.php:174
-msgid "Mother"
-msgstr "Madre"
-
-#: core/f_language.php:93
+#: core/f_language.php:86
 msgid "Jan"
 msgstr "Ene"
 
-#: core/f_language.php:93
+#: core/f_language.php:86
 msgid "Feb"
 msgstr "Feb"
 
-#: core/f_language.php:93
+#: core/f_language.php:86
 msgid "Mar"
 msgstr "Mar"
 
-#: core/f_language.php:93
+#: core/f_language.php:86
 msgid "Apr"
 msgstr "Abr"
 
-#: core/f_language.php:93
+#: core/f_language.php:86
 msgid "May"
 msgstr "May"
 
-#: core/f_language.php:94
+#: core/f_language.php:87
 msgid "Jun"
 msgstr "Jun"
 
-#: core/f_language.php:94
+#: core/f_language.php:87
 msgid "Jul"
 msgstr "Jul"
 
-#: core/f_language.php:94
+#: core/f_language.php:87
 msgid "Aug"
 msgstr "Ago"
 
-#: core/f_language.php:94
+#: core/f_language.php:87
 msgid "Sep"
 msgstr "Sep"
 
-#: core/f_language.php:94
+#: core/f_language.php:87
 msgid "Oct"
 msgstr "Oct"
 
-#: core/f_language.php:94
+#: core/f_language.php:87
 #, fuzzy
 msgid "Nov"
 msgstr "No"
 
-#: core/f_language.php:94
+#: core/f_language.php:87
 msgid "Dec"
 msgstr "Dec"
 
@@ -1046,26 +998,44 @@ msgstr "Hijos de %s y de %s"
 msgid "Children of %s"
 msgstr "Hijos de %s y de %s"
 
-#: themes/default/ahnentafel.php:43
-#: themes/default/reports.php:69
+#: core/modules/ahnentafel.php:40
+#: themes/default/templates_c/%%2E^2E7^2E77BCE6%%reports.tpl.php:32
 msgid "Ahnentafel"
 msgstr "Ahnentafel"
 
-#: themes/default/ahnentafel.php:44
-#: themes/default/pedigree.php:36
+#: core/modules/ahnentafel.php:41
+#: core/modules/pedigree.php:35
 msgid "Ancestors"
 msgstr "Antepasados"
 
-#: themes/default/ahnentafel.php:59
-#: themes/default/ahnentafel_pdf.php:60
-#: themes/default/ahnentafel_pdf.php:87
+#: core/modules/ahnentafel.php:62
+#: core/modules/ahnentafel_pdf.php:60
+#: core/modules/ahnentafel_pdf.php:87
 #, php-format
 msgid "Ahnentafel Report for %s"
 msgstr "Informe de Ahnentafel para %s"
 
-#: themes/default/ahnentafel.php:70
-msgid "Ahnentafel Report"
-msgstr "Informe De Ahnentafel"
+# family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+#: core/modules/ahnentafel.php:63
+#: core/modules/descendant.php:47
+#: core/modules/family.php:42
+#: core/modules/multimedia.php:38
+#: core/modules/pedigree.php:49
+#: core/modules/reports.php:33
+#: core/modules/surnames.php:102
+#, php-format
+msgid "%s Surname"
+msgstr "Apellido %s"
 
 # ancestors.php:54
 # ancestors.php:83
@@ -1076,134 +1046,122 @@ msgstr "Informe De Ahnentafel"
 # ancestors.php:112
 # ancestors.php:112
 # ancestors.php:112
-#: themes/default/ahnentafel.php:98
-#: themes/default/ahnentafel_pdf.php:107
-#: themes/default/descendant.php:62
-#: themes/default/descendant_pdf.php:93
+#: core/modules/ahnentafel.php:96
+#: core/modules/ahnentafel_pdf.php:107
+#: core/modules/descendant.php:76
+#: core/modules/descendant_pdf.php:93
 #, php-format
 msgid "Generation %s"
 msgstr "Generacion %s"
 
-#: themes/default/ahnentafel_pdf.php:73
-#: themes/default/descendant_pdf.php:68
-#: themes/default/family_pdf.php:64
-#: themes/default/pedigree_pdf.php:73
+#: core/modules/ahnentafel_pdf.php:73
+#: core/modules/descendant_pdf.php:68
+#: core/modules/family_pdf.php:64
+#: core/modules/pedigree_pdf.php:73
 #, php-format
 msgid "Send questions or comments to %s"
 msgstr "Envíe las preguntas o los comentarios a %s"
 
-#: themes/default/ahnentafel_pdf.php:88
-#: themes/default/descendant_pdf.php:178
-#: themes/default/family_pdf.php:79
-#: themes/default/pedigree_pdf.php:117
+#: core/modules/ahnentafel_pdf.php:88
+#: core/modules/descendant_pdf.php:178
+#: core/modules/family_pdf.php:79
+#: core/modules/pedigree_pdf.php:117
 msgid "Genealogy"
 msgstr "Genealogía"
 
-#: themes/default/descendant.php:106
-#: themes/default/family_old.php:188
-#: themes/default/family_old.php:250
-#: themes/default/family_pdf.php:241
-#: themes/default/pedigree.php:76
-msgid "b."
-msgstr "n."
-
-#: themes/default/descendant.php:109
-#: themes/default/family_old.php:189
-#: themes/default/family_old.php:251
-#: themes/default/family_pdf.php:242
-#: themes/default/pedigree.php:77
-msgid "d."
-msgstr "m."
-
-#: themes/default/descendant.php:129
-#: themes/default/descendant_pdf.php:58
-#: themes/default/descendant_pdf.php:177
+#: core/modules/descendant.php:46
+#: core/modules/descendant_pdf.php:58
+#: core/modules/descendant_pdf.php:177
 #, php-format
 msgid "Descendant Report for %s"
 msgstr "Informe del descendiente para %s"
 
-#: themes/default/descendant.php:140
-msgid "Descendant Report"
-msgstr "Informe Del Descendiente"
+#: core/modules/descendant.php:120
+#: core/modules/family_pdf.php:241
+#: themes/default/templates_c/%%68^684^68456755%%pedigree.indiv.tpl.php:14
+#: themes/default/templates_c/family.tpl.php:66
+#: themes/default/templates_c/family.tpl.php:123
+msgid "b."
+msgstr "n."
 
-#: themes/default/email.php:29
-#: themes/default/email.php:65
-#: themes/default/template.php:74
-msgid "E-mail this to a friend"
-msgstr "E-mail esto a un amigo"
+#: core/modules/descendant.php:123
+#: core/modules/family_pdf.php:242
+#: themes/default/templates_c/%%68^684^68456755%%pedigree.indiv.tpl.php:18
+#: themes/default/templates_c/family.tpl.php:70
+#: themes/default/templates_c/family.tpl.php:127
+msgid "d."
+msgstr "m."
 
-#: themes/default/email.php:72
-msgid "Your friend's e-mail"
-msgstr "E-mail de su amigo"
-
-# family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-#: themes/default/email.php:76
-msgid "Your name"
-msgstr "Su nombre"
-
-#: themes/default/email.php:80
-msgid "Your e-mail"
-msgstr "Su e-mail"
-
-#: themes/default/email.php:85
-#, fuzzy
-msgid "Send e-mail"
-msgstr "E-mail de su amigo"
-
-#: themes/default/email.php:86
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: themes/default/email.php:100
-msgid "Your message has been sent. "
-msgstr "Se ha enviado su mensaje."
-
-#: themes/default/email.php:120
-msgid "Close"
-msgstr "Cierra"
-
-#: themes/default/family.php:42
-#: themes/default/family_old.php:42
+#: core/modules/family.php:41
+#: core/modules/pedigree.php:48
 #, php-format
 msgid "Family Page for %s"
 msgstr "Página de la familia para %s."
 
-# family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-#: themes/default/family.php:43
-#: themes/default/nav.php:30
-#: themes/default/nav.php:33
-#: themes/default/surnames.php:115
-#: themes/default/surnames.php:118
-#, php-format
-msgid "%s Surname"
-msgstr "Apellido %s"
-
-#: themes/default/family.php:87
-#: themes/default/family_old.php:181
-#: themes/default/family_pdf.php:234
+#: core/modules/family.php:84
+#: core/modules/family_pdf.php:234
 #, php-format
 msgid "Family %s"
 msgstr "Familia %s"
+
+#: core/modules/family_pdf.php:54
+#: core/modules/family_pdf.php:78
+#, php-format
+msgid "Family Group Sheet for %s"
+msgstr "Página de la familia para %s"
+
+#: core/modules/family_pdf.php:115
+#: themes/default/templates_c/family.tpl.php:14
+#: themes/default/templates_c/family.tpl.php:25
+msgid "Aka"
+msgstr "Alias"
+
+#: core/modules/family_pdf.php:124
+#: themes/default/templates_c/family.tpl.php:18
+msgid "Gender"
+msgstr "Sexo"
+
+#: core/modules/family_pdf.php:139
+#: core/modules/family_pdf.php:157
+#: core/modules/family_pdf.php:200
+#: core/modules/family_pdf.php:251
+#: core/modules/family_pdf.php:268
+#: core/modules/family_pdf.php:299
+#: core/modules/family_pdf.php:351
+#: themes/default/templates_c/%%7C^7C1^7C13AA49%%stats.tpl.php:67
+msgid "Sources"
+msgstr "Fuentes"
+
+# family.php:101
+# family.php:101
+# family.php:101
+# family.php:101
+# family.php:101
+# family.php:101 family.php:217
+# family.php:94 family.php:210
+# family.php:94 family.php:210
+# family.php:94 family.php:210
+# family.php:94 family.php:210
+# family.php:94 family.php:210
+#: core/modules/family_pdf.php:168
+#: themes/default/templates_c/family.tpl.php:22
+msgid "Father"
+msgstr "Padre"
+
+# family.php:105
+# family.php:105
+# family.php:105
+# family.php:105
+# family.php:105
+# family.php:105 family.php:221
+# family.php:98 family.php:214
+# family.php:98 family.php:214
+# family.php:98 family.php:214
+# family.php:98 family.php:214
+# family.php:98 family.php:214
+#: core/modules/family_pdf.php:174
+msgid "Mother"
+msgstr "Madre"
 
 # family.php:130
 # family.php:130
@@ -1216,17 +1174,17 @@ msgstr "Familia %s"
 # family.php:123 family.php:166 family.php:238
 # family.php:123 family.php:166 family.php:238
 # family.php:123 family.php:166 family.php:238
-#: themes/default/family_old.php:168
-#: themes/default/family_old.php:229
-#: themes/default/family_pdf.php:213
-#: themes/default/family_pdf.php:313
-#: themes/default/stats.php:101
+#: core/modules/family_pdf.php:213
+#: core/modules/family_pdf.php:313
+#: themes/default/templates_c/%%7C^7C1^7C13AA49%%stats.tpl.php:62
+#: themes/default/templates_c/family.tpl.php:51
+#: themes/default/templates_c/family.tpl.php:97
 msgid "Notes"
 msgstr "Notas"
 
 # core/f_dummy.php:8
-#: themes/default/family_old.php:182
-#: themes/default/family_pdf.php:238
+#: core/modules/family_pdf.php:238
+#: themes/default/templates_c/family.tpl.php:61
 msgid "Spouse/Partner"
 msgstr "Esposo/Socio"
 
@@ -1235,226 +1193,57 @@ msgstr "Esposo/Socio"
 # family.php:251
 # family.php:251
 # family.php:251
-#: themes/default/family_old.php:236
-#: themes/default/family_pdf.php:325
+#: core/modules/family_pdf.php:325
+#: themes/default/templates_c/family.tpl.php:103
 msgid "Children"
 msgstr "Hijos"
 
-#: themes/default/family_pdf.php:54
-#: themes/default/family_pdf.php:78
-#, php-format
-msgid "Family Group Sheet for %s"
-msgstr "Página de la familia para %s"
-
-#: themes/default/family_pdf.php:139
-#: themes/default/family_pdf.php:157
-#: themes/default/family_pdf.php:200
-#: themes/default/family_pdf.php:251
-#: themes/default/family_pdf.php:268
-#: themes/default/family_pdf.php:299
-#: themes/default/family_pdf.php:351
-#: themes/default/stats.php:102
-msgid "Sources"
-msgstr "Fuentes"
-
-# gen_menu.php:38
-# gen_menu.php:38
-# gen_menu.php:38
-# gen_menu.php:38
-# gen_menu.php:38
-#: themes/default/menu.php:26
-msgid "Database"
-msgstr "Base de datos"
-
-#: themes/default/menu.php:27
-msgid "Search the Database"
-msgstr "Busque la base de datos"
-
-# core/header.php:7
-# core/header.php:7
-# core/header.php:7
-# core/header.php:7
-# core/header.php:7
-# gen_menu.php:42
-# gen_menu.php:42
-# gen_menu.php:42
-# gen_menu.php:42
-# gen_menu.php:42
-#: themes/default/menu.php:27
-#: themes/default/search.php:39
-#: themes/default/search.php:42
-#: themes/default/search.php:45
-#: themes/default/search.php:52
-#: themes/default/search.php:62
-#: themes/default/search.php:104
-#: themes/default/search.php:142
-#: themes/default/search.php:180
-msgid "Search"
-msgstr "Buscar"
-
-# family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-#: themes/default/menu.php:28
-#: themes/default/surnames.php:30
-#: themes/default/surnames.php:60
-#: themes/default/surnames.php:63
-msgid "Surname List"
-msgstr "Lista Del Apellido"
-
-# core/header.php:7
-# core/header.php:7
-# core/header.php:7
-# core/header.php:7
-# core/header.php:7
-# gen_menu.php:31
-# gen_menu.php:31
-# gen_menu.php:31
-# gen_menu.php:31
-# gen_menu.php:31
-#: themes/default/menu.php:29
-msgid "Database Statistics"
-msgstr "Estadística de la Base de datos"
-
-# core/header.php:7
-# core/header.php:7
-# core/header.php:7
-# core/header.php:7
-# core/header.php:7
-# gen_menu.php:31
-# gen_menu.php:31
-# gen_menu.php:31
-# gen_menu.php:31
-# gen_menu.php:31
-#: themes/default/menu.php:29
-#: themes/default/stats.php:83
-#: themes/default/stats.php:86
-#: themes/default/stats.php:89
-msgid "Statistics"
-msgstr "Estadística"
-
-# gen_menu.php:6
-# gen_menu.php:6
-# gen_menu.php:6
-# gen_menu.php:6
-# gen_menu.php:6
-#: themes/default/menu.php:34
-msgid "Language"
-msgstr "Lengua"
-
-#: themes/default/multimedia.php:33
-#: themes/default/nav.php:62
-#: themes/default/nav.php:65
+#: core/modules/multimedia.php:33
+#: themes/default/templates_c/%%8B^8BF^8BF16D52%%nav.tpl.php:56
+#: themes/default/templates_c/%%8B^8BF^8BF16D52%%nav.tpl.php:61
 msgid "Multimedia"
 msgstr "Multimedia"
 
-#: themes/default/multimedia.php:37
+#: core/modules/multimedia.php:37
 #, php-format
 msgid "Multimedia for %s"
 msgstr "Multimedia para %s"
 
-#: themes/default/multimedia.php:47
-msgid "This feature has not been implemented yet."
-msgstr "Esta "
-
-#: themes/default/nav.php:38
-#: themes/default/nav.php:41
-msgid "Family"
-msgstr "Familia"
-
-#: themes/default/nav.php:46
-#: themes/default/nav.php:49
-#: themes/default/pedigree.php:35
+#: core/modules/pedigree.php:34
+#: themes/default/templates_c/%%8B^8BF^8BF16D52%%nav.tpl.php:32
+#: themes/default/templates_c/%%8B^8BF^8BF16D52%%nav.tpl.php:37
 msgid "Pedigree"
 msgstr "Pedigrí"
 
-#: themes/default/nav.php:54
-#: themes/default/nav.php:57
-#: themes/default/reports.php:43
-msgid "Reports"
-msgstr "Informes"
-
-#: themes/default/pedigree.php:50
-#: themes/default/pedigree_pdf.php:63
-#: themes/default/pedigree_pdf.php:116
+#: core/modules/pedigree_pdf.php:63
+#: core/modules/pedigree_pdf.php:116
 #, php-format
 msgid "Pedigree for %s"
 msgstr "Pedigrí para %s"
 
-#: themes/default/reports.php:40
+#: core/modules/reports.php:31
+#: core/modules/reports.php:32
 #, php-format
 msgid "Reports for %s"
 msgstr "Informes para %s"
 
-#: themes/default/reports.php:59
-msgid "Family Reports"
-msgstr "Informes de la Familia"
+#: core/modules/reports.php:36
+#: themes/default/templates_c/%%8B^8BF^8BF16D52%%nav.tpl.php:41
+#: themes/default/templates_c/%%8B^8BF^8BF16D52%%nav.tpl.php:46
+#: themes/default/templates_c/%%8B^8BF^8BF16D52%%nav.tpl.php:52
+msgid "Reports"
+msgstr "Informes"
 
-#: themes/default/reports.php:60
-msgid "Family PDF"
-msgstr "Familia PDF"
+#: core/modules/results.php:54
+#: core/modules/results.php:58
+#, fuzzy
+msgid "Search Results"
+msgstr "Resultados"
 
-#: themes/default/reports.php:62
-msgid "Pedigree Reports"
-msgstr "Informes Pedigríes"
-
-#: themes/default/reports.php:63
-msgid "Pedigree PDF"
-msgstr "Pedigrí PDF"
-
-#: themes/default/reports.php:65
-msgid "Ancestor Reports"
-msgstr "Informes del Antepasado"
-
-#: themes/default/reports.php:68
-#: themes/default/reports.php:83
-msgid "Report type"
-msgstr "Divulgue el tipo"
-
-#: themes/default/reports.php:69
-msgid "Ahnentafel PDF"
-msgstr "Ahnentafel PDF"
-
-# ancestors.php:54
-# ancestors.php:54
-# ancestors.php:54
-# ancestors.php:54
-# ancestors.php:60
-# ancestors.php:60
-# ancestors.php:60
-# ancestors.php:60
-# ancestors.php:60
-#: themes/default/reports.php:70
-#: themes/default/reports.php:85
-msgid "Number of Generations"
-msgstr "Generaciones"
-
-#: themes/default/reports.php:76
-#: themes/default/reports.php:91
-msgid "Apply"
-msgstr "Apliqúese"
-
-#: themes/default/reports.php:80
-msgid "Descendant Reports"
-msgstr "Informes Del Descendiente"
-
-#: themes/default/reports.php:84
-msgid "Descendant"
-msgstr "Descendiente"
-
-#: themes/default/reports.php:84
-msgid "Descendant PDF"
-msgstr "Descendiente PDF"
-
-#: themes/default/search.php:67
+#: core/modules/results.php:55
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:13
+#: themes/default/templates_c/results.tpl.php:14
+#: themes/default/templates_c/search.tpl.php:13
 msgid "Results"
 msgstr "Resultados"
 
@@ -1468,12 +1257,233 @@ msgstr "Resultados"
 # gen_menu.php:42
 # gen_menu.php:42
 # gen_menu.php:42
-#: themes/default/search.php:84
+#: core/modules/search.php:44
+#: core/modules/search.php:45
+#: core/modules/search.php:48
+#: themes/default/templates_c/%%8C^8CA^8CA044D0%%menu.tpl.php:14
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:9
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:12
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:48
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:93
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:139
+#: themes/default/templates_c/results.tpl.php:12
+#: themes/default/templates_c/search.tpl.php:9
+#: themes/default/templates_c/search.tpl.php:12
+#: themes/default/templates_c/search.tpl.php:48
+#: themes/default/templates_c/search.tpl.php:93
+#: themes/default/templates_c/search.tpl.php:139
+msgid "Search"
+msgstr "Buscar"
+
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# gen_menu.php:31
+# gen_menu.php:31
+# gen_menu.php:31
+# gen_menu.php:31
+# gen_menu.php:31
+#: core/modules/stats.php:26
+#: core/modules/stats.php:27
+#: core/modules/stats.php:93
+#: themes/default/templates_c/%%8C^8CA^8CA044D0%%menu.tpl.php:22
+msgid "Statistics"
+msgstr "Estadística"
+
+# family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+#: core/modules/surnames.php:31
+#: core/modules/surnames.php:64
+#: core/modules/surnames.php:70
+#: themes/default/templates_c/%%8C^8CA^8CA044D0%%menu.tpl.php:18
+msgid "Surname List"
+msgstr "Lista Del Apellido"
+
+#: themes/default/templates_c/%%2E^2E7^2E77BCE6%%reports.tpl.php:12
+msgid "Family Reports"
+msgstr "Informes de la Familia"
+
+#: themes/default/templates_c/%%2E^2E7^2E77BCE6%%reports.tpl.php:15
+msgid "Family PDF"
+msgstr "Familia PDF"
+
+#: themes/default/templates_c/%%2E^2E7^2E77BCE6%%reports.tpl.php:19
+msgid "Pedigree Reports"
+msgstr "Informes Pedigríes"
+
+#: themes/default/templates_c/%%2E^2E7^2E77BCE6%%reports.tpl.php:22
+msgid "Pedigree PDF"
+msgstr "Pedigrí PDF"
+
+#: themes/default/templates_c/%%2E^2E7^2E77BCE6%%reports.tpl.php:26
+msgid "Ancestor Reports"
+msgstr "Informes del Antepasado"
+
+#: themes/default/templates_c/%%2E^2E7^2E77BCE6%%reports.tpl.php:33
+msgid "Ahnentafel PDF"
+msgstr "Ahnentafel PDF"
+
+# ancestors.php:54
+# ancestors.php:54
+# ancestors.php:54
+# ancestors.php:54
+# ancestors.php:60
+# ancestors.php:60
+# ancestors.php:60
+# ancestors.php:60
+# ancestors.php:60
+#: themes/default/templates_c/%%2E^2E7^2E77BCE6%%reports.tpl.php:36
+#: themes/default/templates_c/%%2E^2E7^2E77BCE6%%reports.tpl.php:60
+msgid "Number of Generations"
+msgstr "Generaciones"
+
+#: themes/default/templates_c/%%2E^2E7^2E77BCE6%%reports.tpl.php:43
+#: themes/default/templates_c/%%2E^2E7^2E77BCE6%%reports.tpl.php:67
+msgid "Apply"
+msgstr "Apliqúese"
+
+#: themes/default/templates_c/%%2E^2E7^2E77BCE6%%reports.tpl.php:50
+msgid "Descendant Reports"
+msgstr "Informes Del Descendiente"
+
+#: themes/default/templates_c/%%2E^2E7^2E77BCE6%%reports.tpl.php:56
+msgid "Descendant"
+msgstr "Descendiente"
+
+#: themes/default/templates_c/%%2E^2E7^2E77BCE6%%reports.tpl.php:57
+msgid "Descendant PDF"
+msgstr "Descendiente PDF"
+
+#: themes/default/templates_c/%%45^45E^45E480CD%%index.tpl.php:49
+msgid "Print"
+msgstr "Imprimir"
+
+# family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+#: themes/default/templates_c/%%7C^7C1^7C13AA49%%stats.tpl.php:14
+msgid "Surnames"
+msgstr "Apellidos"
+
+#: themes/default/templates_c/%%7C^7C1^7C13AA49%%stats.tpl.php:19
+msgid "Individuals"
+msgstr "Individuos"
+
+#: themes/default/templates_c/%%7C^7C1^7C13AA49%%stats.tpl.php:36
+msgid "Families"
+msgstr "Familias"
+
+#: themes/default/templates_c/%%7C^7C1^7C13AA49%%stats.tpl.php:41
+#, fuzzy
+msgid "Events"
+msgstr "Evento"
+
+# family.php:101
+# family.php:101
+# family.php:101
+# family.php:101
+# family.php:101
+# family.php:101 family.php:217
+# family.php:94 family.php:210
+# family.php:94 family.php:210
+# family.php:94 family.php:210
+# family.php:94 family.php:210
+# family.php:94 family.php:210
+#: themes/default/templates_c/%%7C^7C1^7C13AA49%%stats.tpl.php:57
+msgid "Other"
+msgstr "Otro"
+
+#: themes/default/templates_c/%%7C^7C1^7C13AA49%%stats.tpl.php:71
+msgid "Citations"
+msgstr "Citaciones"
+
+#: themes/default/templates_c/%%8B^8BF^8BF16D52%%nav.tpl.php:23
+#: themes/default/templates_c/%%8B^8BF^8BF16D52%%nav.tpl.php:28
+msgid "Family"
+msgstr "Familia"
+
+# gen_menu.php:38
+# gen_menu.php:38
+# gen_menu.php:38
+# gen_menu.php:38
+# gen_menu.php:38
+#: themes/default/templates_c/%%8C^8CA^8CA044D0%%menu.tpl.php:11
+msgid "Database"
+msgstr "Base de datos"
+
+# gen_menu.php:6
+# gen_menu.php:6
+# gen_menu.php:6
+# gen_menu.php:6
+# gen_menu.php:6
+#: themes/default/templates_c/%%8C^8CA^8CA044D0%%menu.tpl.php:25
+msgid "Language"
+msgstr "Lengua"
+
+#: themes/default/templates_c/%%A9^A92^A92CA1BB%%surnames.tpl.php:21
+#: themes/default/templates_c/results.tpl.php:23
+msgid "Number of individuals listed"
+msgstr "Número de los individuos enumerados"
+
+#: themes/default/templates_c/%%A9^A92^A92CA1BB%%surnames.tpl.php:26
+#: themes/default/templates_c/results.tpl.php:28
+msgid "Name"
+msgstr "Nombre"
+
+# ancestors.php:54
+# ancestors.php:54
+# ancestors.php:54
+# ancestors.php:54
+# ancestors.php:60
+# ancestors.php:60
+# ancestors.php:60
+# ancestors.php:60
+# ancestors.php:60
+#: themes/default/templates_c/%%A9^A92^A92CA1BB%%surnames.tpl.php:51
+msgid "Number of surnames listed"
+msgstr "El número de apellidos enumeró"
+
+#: themes/default/templates_c/%%BA^BA4^BA4F8AD1%%multimedia.tpl.php:11
+msgid "This feature has not been implemented yet."
+msgstr "Esta "
+
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# gen_menu.php:42
+# gen_menu.php:42
+# gen_menu.php:42
+# gen_menu.php:42
+# gen_menu.php:42
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:27
+#: themes/default/templates_c/search.tpl.php:27
 #, fuzzy
 msgid "Name Search"
 msgstr "Buscar"
 
-#: themes/default/search.php:87
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:30
+#: themes/default/templates_c/search.tpl.php:30
 msgid "Given Name"
 msgstr "Nombre de Pila"
 
@@ -1488,58 +1498,87 @@ msgstr "Nombre de Pila"
 # family.php:52 gen_menu.php:47
 # family.php:52 gen_menu.php:47
 # family.php:52 gen_menu.php:47
-#: themes/default/search.php:88
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:31
+#: themes/default/templates_c/search.tpl.php:31
 msgid "Surname"
 msgstr "Apellido"
 
-#: themes/default/search.php:105
-#: themes/default/search.php:143
-#: themes/default/search.php:181
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:49
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:94
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:140
+#: themes/default/templates_c/search.tpl.php:49
+#: themes/default/templates_c/search.tpl.php:94
+#: themes/default/templates_c/search.tpl.php:140
 msgid "Reset"
 msgstr "Reiniciar"
 
-#: themes/default/search.php:106
-#: themes/default/search.php:144
-#: themes/default/search.php:182
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:50
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:95
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:141
+#: themes/default/templates_c/search.tpl.php:50
+#: themes/default/templates_c/search.tpl.php:95
+#: themes/default/templates_c/search.tpl.php:141
 msgid "Clear"
 msgstr "Limpiar"
 
-#: themes/default/search.php:120
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:68
+#: themes/default/templates_c/search.tpl.php:68
 msgid "Location Search"
 msgstr ""
 
-#: themes/default/search.php:123
-#: themes/default/search.php:161
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:71
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:117
+#: themes/default/templates_c/search.tpl.php:71
+#: themes/default/templates_c/search.tpl.php:117
 msgid "Keywords"
 msgstr ""
 
-#: themes/default/search.php:129
-#: themes/default/search.php:167
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:71
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:117
+#: themes/default/templates_c/search.tpl.php:71
+#: themes/default/templates_c/search.tpl.php:117
+msgid "separate with spaces"
+msgstr ""
+
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:80
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:126
+#: themes/default/templates_c/search.tpl.php:80
+#: themes/default/templates_c/search.tpl.php:126
 msgid "Match Keywords"
 msgstr ""
 
-#: themes/default/search.php:132
-#: themes/default/search.php:170
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:83
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:129
+#: themes/default/templates_c/search.tpl.php:83
+#: themes/default/templates_c/search.tpl.php:129
 msgid "All"
 msgstr "Todos"
 
-#: themes/default/search.php:133
-#: themes/default/search.php:171
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:84
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:130
+#: themes/default/templates_c/search.tpl.php:84
+#: themes/default/templates_c/search.tpl.php:130
 msgid "Any"
 msgstr "Cualesquiera"
 
-#: themes/default/search.php:134
-#: themes/default/search.php:172
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:85
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:131
+#: themes/default/templates_c/search.tpl.php:85
+#: themes/default/templates_c/search.tpl.php:131
 msgid "Phrase"
 msgstr "Frase"
 
-#: themes/default/search.php:135
-#: themes/default/search.php:173
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:86
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:132
+#: themes/default/templates_c/search.tpl.php:86
+#: themes/default/templates_c/search.tpl.php:132
 msgid "Starts with"
 msgstr ""
 
-#: themes/default/search.php:136
-#: themes/default/search.php:174
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:87
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:133
+#: themes/default/templates_c/search.tpl.php:87
+#: themes/default/templates_c/search.tpl.php:133
 msgid "Ends with"
 msgstr ""
 
@@ -1553,90 +1592,21 @@ msgstr ""
 # gen_menu.php:42
 # gen_menu.php:42
 # gen_menu.php:42
-#: themes/default/search.php:158
+#: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:114
+#: themes/default/templates_c/search.tpl.php:114
 #, fuzzy
 msgid "Note Search"
 msgstr "Buscar"
 
-#: themes/default/search.php:197
+#: themes/default/templates_c/results.tpl.php:20
 msgid "No search parameters were specified."
 msgstr "Busqueda no tiene parametros especificados."
 
-#: themes/default/search.php:322
-#: themes/default/surnames.php:137
-msgid "Number of individuals listed"
-msgstr "Número de los individuos enumerados"
+#: themes/default/templates_c/results.tpl.php:21
+msgid "Please go back to the search page and enter some search criteria."
+msgstr ""
 
-#: themes/default/search.php:325
-#: themes/default/surnames.php:138
-msgid "Name"
-msgstr "Nombre"
-
-#: themes/default/search.php:345
+#: themes/default/templates_c/results.tpl.php:51
 msgid "No matching records were found."
 msgstr "No se encontró ningunos expedientes que emparejaban."
-
-# family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-#: themes/default/stats.php:90
-msgid "Surnames"
-msgstr "Apellidos"
-
-#: themes/default/stats.php:91
-msgid "Individuals"
-msgstr "Individuos"
-
-#: themes/default/stats.php:95
-msgid "Families"
-msgstr "Familias"
-
-#: themes/default/stats.php:96
-msgid "Facts"
-msgstr "Hechos"
-
-# family.php:101
-# family.php:101
-# family.php:101
-# family.php:101
-# family.php:101
-# family.php:101 family.php:217
-# family.php:94 family.php:210
-# family.php:94 family.php:210
-# family.php:94 family.php:210
-# family.php:94 family.php:210
-# family.php:94 family.php:210
-#: themes/default/stats.php:100
-msgid "Other"
-msgstr "Otro"
-
-#: themes/default/stats.php:103
-msgid "Citations"
-msgstr "Citaciones"
-
-# ancestors.php:54
-# ancestors.php:54
-# ancestors.php:54
-# ancestors.php:54
-# ancestors.php:60
-# ancestors.php:60
-# ancestors.php:60
-# ancestors.php:60
-# ancestors.php:60
-#: themes/default/surnames.php:95
-msgid "Number of surnames listed"
-msgstr "El número de apellidos enumeró"
-
-#: themes/default/template.php:73
-#: themes/default/template_print.php:36
-msgid "Print"
-msgstr "Imprimir"
 

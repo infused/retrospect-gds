@@ -89,7 +89,6 @@
 	
 	# Start Smarty template engine
 	$smarty = new Smarty;
-	$smarty->use_sub_dirs = true;
 	$smarty->template_dir = ROOT_PATH.'/themes/'.$g_theme.'/templates/';
 	$smarty->compile_dir = ROOT_PATH.'/themes/'.$g_theme.'/templates_c/';
 	$smarty->config_dir = ROOT_PATH.'/themes/'.$g_theme.'/configs/';
@@ -130,7 +129,8 @@
 	$lang_names = array();
 	$lang_codes = array();
 	foreach ($g_langs as $lang) {
-		$lang_names[] = gtc($lang['lang_name']);
+		$lang_name = $lang['lang_name'];
+		$lang_names[] = gtc($lang_name);
 		$lang_codes[] = $lang['lang_code'];
 	}
 ?>

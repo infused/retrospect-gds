@@ -52,6 +52,7 @@
 	
 	# set page title
 	$smarty->assign('page_title', gtc("Search Results"));
+	$smarty->assign('content_title', gtc("Results"));
 	
 	# populate keyword array
 	keyword_push(gtc("Search Results"));

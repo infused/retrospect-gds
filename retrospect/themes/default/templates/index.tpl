@@ -34,7 +34,7 @@ function MM_setTextOfTextfield(objName,x,newText) { //v3.0
 <div id="menu">{include file="menu.tpl"}</div>
 <div id="content">
 	<div id="utils">
-		<a href="{$CURRENT_PAGE}&print=y" target="_blank"><img src="themes/default/images/printbutton.gif" border="0" alt="{translate s="Print"}" /></a>
+		<a href="{$CURRENT_PAGE}&print=y" target="_blank"><img src="themes/default/images/printbutton.gif" border="0" alt="{php}t("Print"){/php}" /></a>
 	</div>
 	{include file="$option.tpl"}
 </div>

@@ -87,6 +87,7 @@ sup {
 }
 .col2-2 {
 	position: relative;
+	left: 0px !important;
 	left: -3px;
 	height: 11pt;
 	width: auto;
