@@ -282,18 +282,18 @@
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'profile_functions' record to options table</descr>
-		<query>INSERT INTO options VALUES (4, 'profile_functions', '0')</query>
+		<query>INSERT INTO options VALUES (5, 'profile_functions', '0')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add english language</descr>
-		<query>INSERT INTO language VALUES (1, 'en_US', 'English')</query>
+		<query>INSERT INTO language VALUES (1, 'en_US', 'English', 'iso-8859-1')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add spanish language</descr>
-		<query>INSERT INTO language VALUES (2, 'es_ES', 'Spanish')</query>
+		<query>INSERT INTO language VALUES (2, 'es_ES', 'Spanish', 'iso-8859-1')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add german language</descr>
-		<query>INSERT INTO language VALUES (3, 'de_DE', 'German')</query>
+		<query>INSERT INTO language VALUES (3, 'de_DE', 'German', 'iso-8859-1')</query>
 	</sql>
 </schema>
