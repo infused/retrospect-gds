@@ -1,4 +1,4 @@
-# PHPGENE PRO ENGLISH (US) TRANSLATION
+# PHPGENE PRO FRENCH TRANSLATION
 # Copyright (C) 2003 Infused Solutions
 # Keith Morrison <keithm@infused-solutions.com>, 2003.
 # 
@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2005-01-09 21:25-0800\n"
+"PO-Revision-Date: 2005-01-09 21:30-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused-solutions.com>\n"
-"Language-Team: ENGLISH <keithm@infused-solutions.com>\n"
+"Language-Team: FRENCH <genealogie@robert-weinland.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: English\n"
-"X-Poedit-Country: UNITED STATES\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: FRANCE\n"
 "X-Poedit-SourceCharset: iso-8859-1\n"
 "X-Poedit-Keywords: gtc,t\n"
 "X-Poedit-Basepath: c:\\web\\retrospect\n"
@@ -23,47 +23,47 @@ msgstr ""
 
 #: core/date.class.php:307
 msgid "to"
-msgstr "to"
+msgstr "à"
 
 #: core/date.class.php:308
 msgid "and"
-msgstr "and"
+msgstr "et"
 
 #: core/date.class.php:397
 msgid "Jan"
-msgstr "Jan"
+msgstr "Janv"
 
 #: core/date.class.php:397
 msgid "Feb"
-msgstr "Feb"
+msgstr "Févr"
 
 #: core/date.class.php:397
 msgid "Mar"
-msgstr "Mar"
+msgstr "Mars"
 
 #: core/date.class.php:397
 msgid "Apr"
-msgstr "Apr"
+msgstr "Avr"
 
 #: core/date.class.php:397
 msgid "May"
-msgstr "May"
+msgstr "Mai"
 
 #: core/date.class.php:398
 msgid "Jun"
-msgstr "Jun"
+msgstr "Juin"
 
 #: core/date.class.php:398
 msgid "Jul"
-msgstr "Jul"
+msgstr "Juil"
 
 #: core/date.class.php:398
 msgid "Aug"
-msgstr "Aug"
+msgstr "Août"
 
 #: core/date.class.php:398
 msgid "Sep"
-msgstr "Sep"
+msgstr "Sept"
 
 #: core/date.class.php:398
 msgid "Oct"
@@ -75,13 +75,13 @@ msgstr "Nov"
 
 #: core/date.class.php:398
 msgid "Dec"
-msgstr "Dec"
+msgstr "Déc"
 
 #: core/f_dummy.php:42
 #: core/f_dummy.php:98
 #: themes/default/templates_c/stats.tpl.php:53
 msgid "Marriage"
-msgstr "Marriage"
+msgstr "Mariage"
 
 #: core/f_dummy.php:43
 #: core/f_dummy.php:67
@@ -89,27 +89,27 @@ msgstr "Marriage"
 #: core/f_report.php:200
 #: themes/default/templates_c/stats.tpl.php:31
 msgid "Unknown"
-msgstr "Unknown"
+msgstr "Inconnu"
 
 #: core/f_dummy.php:44
 msgid "Friends"
-msgstr "Friends"
+msgstr "Relations"
 
 #: core/f_dummy.php:45
 msgid "Partners"
-msgstr "Partners"
+msgstr "Partenaires"
 
 #: core/f_dummy.php:48
 msgid "Death of one spouse"
-msgstr "Death of one spouse"
+msgstr "Décès d'un conjoint"
 
 #: core/f_dummy.php:49
 msgid "Divorced"
-msgstr "Divorce"
+msgstr "Divorcé"
 
 #: core/f_dummy.php:50
 msgid "Annulment"
-msgstr "Annulment"
+msgstr "Annulation"
 
 #: core/f_dummy.php:53
 msgid "Divorce"
@@ -117,49 +117,49 @@ msgstr "Divorce"
 
 #: core/f_dummy.php:54
 msgid "Divorce Filed"
-msgstr "Divorce Filed"
+msgstr "Divorce enregistré"
 
 #: core/f_dummy.php:55
 msgid "Engagement"
-msgstr "Engagement"
+msgstr "Fiancailles"
 
 #: core/f_dummy.php:56
 msgid "Husband"
-msgstr "Husband"
+msgstr "Mari"
 
 #: core/f_dummy.php:57
 msgid "Marriage Bann"
-msgstr "Marriage Bann"
+msgstr "Bans de mariage"
 
 #: core/f_dummy.php:58
 msgid "Marriage Contract"
-msgstr "Marriage Contract"
+msgstr "Contrat de mariage"
 
 #: core/f_dummy.php:59
 msgid "Marriage Fact"
-msgstr "Marriage Fact"
+msgstr "Evénement de mariage"
 
 #: core/f_dummy.php:60
 msgid "Marriage License"
-msgstr "Marriage License"
+msgstr "Autorisation de mariage"
 
 #: core/f_dummy.php:61
 msgid "Marriage Settlement"
-msgstr "Marriage Settlement"
+msgstr "Contrat de mariage"
 
 #: core/f_dummy.php:62
 msgid "Wife"
-msgstr "Wife"
+msgstr "Epouse"
 
 #: core/f_dummy.php:65
 #: themes/default/templates_c/stats.tpl.php:23
 msgid "Male"
-msgstr "Male"
+msgstr "Masculin"
 
 #: core/f_dummy.php:66
 #: themes/default/templates_c/stats.tpl.php:27
 msgid "Female"
-msgstr "Female"
+msgstr "Féminin"
 
 #: core/f_dummy.php:70
 msgid "Adoption"
@@ -167,15 +167,15 @@ msgstr "Adoption"
 
 #: core/f_dummy.php:71
 msgid "Adult Christening"
-msgstr "Adult Christening"
+msgstr "Baptême d'adulte"
 
 #: core/f_dummy.php:72
 msgid "Baptism"
-msgstr "Baptism"
+msgstr "Baptême"
 
 #: core/f_dummy.php:73
 msgid "BaptismLDS"
-msgstr "BaptismLDS"
+msgstr "Baptême mormon"
 
 #: core/f_dummy.php:74
 msgid "Bar Mitzah"
@@ -192,15 +192,15 @@ msgstr "Bas Mitzah"
 #: themes/default/templates_c/stats.tpl.php:45
 #: themes/default/templates_c/surnames.tpl.php:27
 msgid "Birth"
-msgstr "Birth"
+msgstr "Naissance"
 
 #: core/f_dummy.php:77
 msgid "Blessing"
-msgstr "Blessing"
+msgstr "Bénédiction"
 
 #: core/f_dummy.php:78
 msgid "Burial"
-msgstr "Burial"
+msgstr "Inhumation"
 
 #: core/f_dummy.php:79
 msgid "Caste"
@@ -208,11 +208,11 @@ msgstr "Caste"
 
 #: core/f_dummy.php:80
 msgid "Census"
-msgstr "Census"
+msgstr "Recensement"
 
 #: core/f_dummy.php:81
 msgid "Christening"
-msgstr "Christening"
+msgstr "Baptême"
 
 #: core/f_dummy.php:82
 msgid "Confirmation"
@@ -220,7 +220,7 @@ msgstr "Confirmation"
 
 #: core/f_dummy.php:83
 msgid "Cremation"
-msgstr "Cremation"
+msgstr "Crémation"
 
 #: core/f_dummy.php:84
 #: core/modules/family_pdf.php:154
@@ -229,11 +229,11 @@ msgstr "Cremation"
 #: themes/default/templates_c/stats.tpl.php:49
 #: themes/default/templates_c/surnames.tpl.php:28
 msgid "Death"
-msgstr "Death"
+msgstr "Décès"
 
 #: core/f_dummy.php:85
 msgid "Degree"
-msgstr "Degree"
+msgstr "Diplôme"
 
 #: core/f_dummy.php:86
 msgid "Description"
@@ -253,23 +253,23 @@ msgstr "Emigration"
 
 #: core/f_dummy.php:90
 msgid "Event"
-msgstr "Event"
+msgstr "Evénement"
 
 #: core/f_dummy.php:91
 msgid "First Communion"
-msgstr "First Communion"
+msgstr "Première communion"
 
 #: core/f_dummy.php:92
 msgid "Funeral"
-msgstr "Funeral"
+msgstr "Funérailles"
 
 #: core/f_dummy.php:93
 msgid "Graduation"
-msgstr "Graduation"
+msgstr "Diplôme"
 
 #: core/f_dummy.php:94
 msgid "ID Number"
-msgstr "ID Number"
+msgstr "N° id."
 
 #: core/f_dummy.php:95
 msgid "Immigration"
@@ -277,51 +277,51 @@ msgstr "Immigration"
 
 #: core/f_dummy.php:96
 msgid "Land"
-msgstr "Land"
+msgstr "Propriété foncière"
 
 #: core/f_dummy.php:97
 msgid "Last Known Addr"
-msgstr "Last Known Addr"
+msgstr "Dernière adresse connue"
 
 #: core/f_dummy.php:99
 msgid "Military"
-msgstr "Military"
+msgstr "Militaire"
 
 #: core/f_dummy.php:100
 msgid "Military Award"
-msgstr "Military Award"
+msgstr "Distinction militaire"
 
 #: core/f_dummy.php:101
 msgid "Military Discharge"
-msgstr "Military Discharge"
+msgstr "Fin de service militaire"
 
 #: core/f_dummy.php:102
 msgid "Military Enlist"
-msgstr "Military Enlist"
+msgstr "Engagement militaire"
 
 #: core/f_dummy.php:103
 msgid "Military Service"
-msgstr "Military Service"
+msgstr "Service militaire"
 
 #: core/f_dummy.php:104
 msgid "Nationality"
-msgstr "Nationality"
+msgstr "Nationalité"
 
 #: core/f_dummy.php:105
 msgid "Naturalization"
-msgstr "Naturalization"
+msgstr "Naturalisation"
 
 #: core/f_dummy.php:106
 msgid "Number of Children"
-msgstr "Number of Children"
+msgstr "Nombre d'enfants"
 
 #: core/f_dummy.php:107
 msgid "Number of Marriages"
-msgstr "Number of Marriages"
+msgstr "Nombre de mariages"
 
 #: core/f_dummy.php:108
 msgid "Occupation"
-msgstr "Occupation"
+msgstr "Profession"
 
 #: core/f_dummy.php:109
 msgid "Ordination"
@@ -329,11 +329,11 @@ msgstr "Ordination"
 
 #: core/f_dummy.php:110
 msgid "Possessions"
-msgstr "Possessions"
+msgstr "Biens"
 
 #: core/f_dummy.php:111
 msgid "Probate"
-msgstr "Probate"
+msgstr "Testament"
 
 #: core/f_dummy.php:112
 msgid "Religion"
@@ -341,80 +341,80 @@ msgstr "Religion"
 
 #: core/f_dummy.php:113
 msgid "Researcher"
-msgstr "Researcher"
+msgstr "Chercheur"
 
 #: core/f_dummy.php:114
 msgid "Residence"
-msgstr "Residence"
+msgstr "Résidence"
 
 #: core/f_dummy.php:115
 msgid "Retirement"
-msgstr "Retirement"
+msgstr "Retraite"
 
 #: core/f_dummy.php:116
 msgid "Social Security Number"
-msgstr "Social Security Number"
+msgstr "N° sécurité sociale"
 
 #: core/f_dummy.php:117
 msgid "SSN"
-msgstr "SSN"
+msgstr "N° SS"
 
 #: core/f_dummy.php:118
 msgid "Title"
-msgstr "Title"
+msgstr "Titre"
 
 #: core/f_dummy.php:119
 msgid "Will"
-msgstr "Will"
+msgstr "Testament"
 
 #: core/f_dummy.php:122
 msgid "ALL"
-msgstr "ALL"
+msgstr "TOUS"
 
 #: core/f_dummy.php:125
 msgid "English"
-msgstr "English"
+msgstr "Anglais"
 
 #: core/f_dummy.php:126
 msgid "Spanish"
-msgstr "Spanish"
+msgstr "Espagnol"
 
 #: core/f_dummy.php:127
 msgid "Dutch"
-msgstr "Dutch"
+msgstr "Néerlandais"
 
 #: core/f_dummy.php:128
 msgid "German"
-msgstr "German"
+msgstr "Allemand"
 
 #: core/f_dummy.php:129
 msgid "French"
-msgstr "French"
+msgstr "Français"
 
 #: core/f_dummy.php:132
 #: themes/default/templates_c/family.tpl.php:149
 msgid "Source Citations"
-msgstr "Source Citations"
+msgstr "Citations de source"
 
 #: core/f_dummy.php:135
 msgid "abt"
-msgstr "Abt"
+msgstr "vers"
 
 #: core/f_dummy.php:136
 msgid "cir"
-msgstr "Cir"
+msgstr "ca"
 
 #: core/f_dummy.php:137
 msgid "aft"
-msgstr "Aft"
+msgstr "ap."
 
 #: core/f_dummy.php:138
 msgid "bef"
-msgstr "Bef"
+msgstr "av."
 
 #: core/f_dummy.php:139
 msgid "bet"
-msgstr "Bet"
+msgstr "entre"
 
 #: core/f_dummy.php:140
 msgid "cal"
@@ -423,247 +423,247 @@ msgstr "Cal"
 #: core/f_report.php:53
 #, php-format
 msgid "He was born on %s in %s."
-msgstr "He was born on %s in %s."
+msgstr "Il est né le %s à %s."
 
 #: core/f_report.php:54
 #, php-format
 msgid "He was born on %s."
-msgstr "He was born on %s."
+msgstr "Il est né le %s."
 
 #: core/f_report.php:55
 #: core/f_report.php:60
 #, php-format
 msgid "He was born in %s."
-msgstr "He was born in %s."
+msgstr "Il est né à %s."
 
 #: core/f_report.php:58
-#, php-format
+#, fuzzy, php-format
 msgid "He was born %s in %s."
-msgstr "He was born %s in %s."
+msgstr "Il est né le %s à %s."
 
 #: core/f_report.php:59
-#, php-format
+#, fuzzy, php-format
 msgid "He was born %s."
-msgstr "He was born %s."
+msgstr "Il est né le %s."
 
 #: core/f_report.php:66
 #, php-format
 msgid "She was born on %s in %s."
-msgstr "She was born on %s in %s."
+msgstr "Elle est née le %s à %s."
 
 #: core/f_report.php:67
 #, php-format
 msgid "She was born on %s."
-msgstr "She was born on %s."
+msgstr "Elle est née le %s."
 
 #: core/f_report.php:68
 #: core/f_report.php:73
 #, php-format
 msgid "She was born in %s."
-msgstr "She was born in %s."
+msgstr "Elle est née à %s."
 
 #: core/f_report.php:71
-#, php-format
+#, fuzzy, php-format
 msgid "She was born %s in %s."
-msgstr "She was born %s in %s."
+msgstr "Elle est née le %s à %s."
 
 #: core/f_report.php:72
-#, php-format
+#, fuzzy, php-format
 msgid "She was born %s."
-msgstr "She was born %s."
+msgstr "Elle est née le %s."
 
 #: core/f_report.php:103
 #, php-format
 msgid "He died on %s in %s."
-msgstr "He died on %s in %s."
+msgstr "Il est décédé le %s à %s."
 
 #: core/f_report.php:104
 #, php-format
 msgid "He died on %s."
-msgstr "He died on %s."
+msgstr "Il est décédé le %s."
 
 #: core/f_report.php:105
 #: core/f_report.php:110
 #, php-format
 msgid "He died in %s."
-msgstr "He died in %s."
+msgstr "Il est décédé à %s."
 
 #: core/f_report.php:108
-#, php-format
+#, fuzzy, php-format
 msgid "He died %s in %s."
-msgstr "He died %s in %s."
+msgstr "Il est décédé le %s à %s."
 
 #: core/f_report.php:109
-#, php-format
+#, fuzzy, php-format
 msgid "He died %s."
-msgstr "He died %s."
+msgstr "Il est décédé le %s."
 
 #: core/f_report.php:116
 #, php-format
 msgid "She died on %s in %s."
-msgstr "She died on %s in %s."
+msgstr "Elle est décédée le %s à %s."
 
 #: core/f_report.php:117
 #, php-format
 msgid "She died on %s."
-msgstr "She died on %s."
+msgstr "Elle est décédée le %s."
 
 #: core/f_report.php:118
 #: core/f_report.php:123
 #, php-format
 msgid "She died in %s."
-msgstr "She died in %s."
+msgstr "Elle est décédée à %s."
 
 #: core/f_report.php:121
-#, php-format
+#, fuzzy, php-format
 msgid "She died %s in %s."
-msgstr "She died %s in %s."
+msgstr "Elle est décédée le %s à %s."
 
 #: core/f_report.php:122
-#, php-format
+#, fuzzy, php-format
 msgid "She died %s."
-msgstr "She died %s."
+msgstr "Elle est décédée le %s."
 
 #: core/f_report.php:153
 #, php-format
 msgid ", son of %s and %s."
-msgstr ", son of %s and %s."
+msgstr ", fils de %s et %s."
 
 #: core/f_report.php:157
 #: core/f_report.php:161
 #, php-format
 msgid ", son of %s."
-msgstr ", son of %s."
+msgstr ", fils de %s."
 
 #: core/f_report.php:167
 #, php-format
 msgid ", daughter of %s and %s."
-msgstr ", daughter of %s and %s."
+msgstr ", fille de %s et %s."
 
 #: core/f_report.php:171
 #: core/f_report.php:175
 #, php-format
 msgid ", daughter of %s."
-msgstr ", daughter of %s."
+msgstr ", fille de %s."
 
 #: core/f_report.php:206
 #, php-format
 msgid "male %s married %s on %s in %s."
-msgstr "%s married %s on %s in %s."
+msgstr "%s a épousé %s le %s à %s."
 
 #: core/f_report.php:210
 #, php-format
 msgid "male %s married %s on %s."
-msgstr "%s married %s on %s."
+msgstr "%s a épousé %s le %s."
 
 #: core/f_report.php:214
 #, php-format
 msgid "male %s married %s in %s."
-msgstr "%s married %s in %s."
+msgstr "%s a épousé %s à %s."
 
 #: core/f_report.php:218
 #, php-format
 msgid "male %s married %s."
-msgstr "%s married %s."
+msgstr "%s a épousé %s."
 
 #: core/f_report.php:222
 #: core/f_report.php:244
 #: core/f_report.php:268
 #, php-format
 msgid "This marriage ended in %s."
-msgstr "This marriage ended in %s."
+msgstr "Ce mariage a pris fin en %s."
 
 #: core/f_report.php:228
 #, php-format
 msgid "female %s married %s on %s in %s."
-msgstr "%s married %s on %s in %s."
+msgstr "%s a épousé %s le %s à %s."
 
 #: core/f_report.php:232
 #, php-format
 msgid "female %s married %s on %s."
-msgstr "%s married %s on %s."
+msgstr "%s a épousé %s le %s."
 
 #: core/f_report.php:236
 #, php-format
 msgid "female %s married %s in %s."
-msgstr "%s married %s in %s."
+msgstr "%s a épousé %s à %s."
 
 #: core/f_report.php:240
 #, php-format
 msgid "female %s married %s."
-msgstr "%s married %s."
+msgstr "%s a épousé %s."
 
 #: core/f_report.php:252
 #, php-format
 msgid "male %s had a relationship with %s on %s in %s."
-msgstr "%s had a relationship with %s on %s in %s."
+msgstr "%s a eu une relation avec %s le %s à %s."
 
 #: core/f_report.php:256
 #, php-format
 msgid "male %s had a relationship with %s on %s."
-msgstr "%s had a relationship with %s on %s."
+msgstr "%s a eu une relation avec %s le %s."
 
 #: core/f_report.php:260
 #, php-format
 msgid "male %s had a relationship with %s in %s."
-msgstr "%s had a relationship with %s in %s."
+msgstr "%s a eu une relation avec %s à %s."
 
 #: core/f_report.php:264
 #, php-format
 msgid "male %s had a relationship with %s."
-msgstr "%s had a relationship with %s."
+msgstr "%s a eu une relation avec %s."
 
 #: core/f_report.php:274
 #, php-format
 msgid "female %s had a relationship with %s on %s in %s."
-msgstr "%s had a relationship with %s on %s in %s."
+msgstr "%s a eu une relation avec %s le %s à %s."
 
 #: core/f_report.php:278
 #, php-format
 msgid "female %s had a relationship with %s on %s."
-msgstr "%s had a relationship with %s on %s."
+msgstr "%s a eu une relation avec %s le %s."
 
 #: core/f_report.php:282
 #, php-format
 msgid "female %s had a relationship with %s in %s."
-msgstr "%s had a relationship with %s in %s."
+msgstr "%s a eu une relation avec %s à %s."
 
 #: core/f_report.php:286
 #, php-format
 msgid "female %s had a relationship with %s."
-msgstr "%s had a relationship with %s."
+msgstr "%s a eu une relation avec %s."
 
 #: core/f_report.php:290
 #, php-format
 msgid "This relationship ended in %s."
-msgstr "This relationship ended in %s."
+msgstr "La relation s'est terminée en %s."
 
 #: core/f_report.php:309
 #, php-format
 msgid "Children of %s and %s"
-msgstr "Children of %s and %s"
+msgstr "Enfants de %s et %s"
 
 #: core/f_report.php:312
 #, php-format
 msgid "Children of %s"
-msgstr "Children of %s."
+msgstr "Enfants de %s."
 
 #: core/modules/ahnentafel.php:44
 #: themes/default/templates_c/reports.tpl.php:32
 msgid "Ahnentafel"
-msgstr "Ahnentafel"
+msgstr "Liste-éclair"
 
 #: core/modules/ahnentafel.php:45
 #: core/modules/pedigree.php:36
 msgid "Ancestors"
-msgstr "Ancestors"
+msgstr "Ancêtres"
 
 #: core/modules/ahnentafel.php:60
 #: core/modules/ahnentafel_pdf.php:63
 #: core/modules/ahnentafel_pdf.php:90
 #, php-format
 msgid "Ahnentafel Report for %s"
-msgstr "Ahnentafel Report for %s"
+msgstr "Liste-éclair pour %s"
 
 #: core/modules/ahnentafel.php:61
 #: core/modules/descendant.php:50
@@ -674,7 +674,7 @@ msgstr "Ahnentafel Report for %s"
 #: core/modules/surnames.php:106
 #, php-format
 msgid "%s Surname"
-msgstr "%s Surname"
+msgstr "Nom de famille %s"
 
 #: core/modules/ahnentafel.php:87
 #: core/modules/ahnentafel_pdf.php:110
@@ -682,7 +682,7 @@ msgstr "%s Surname"
 #: core/modules/descendant_pdf.php:97
 #, php-format
 msgid "Generation %s"
-msgstr "Generation %s"
+msgstr "Génération %s"
 
 #: core/modules/ahnentafel_pdf.php:76
 #: core/modules/descendant_pdf.php:72
@@ -690,21 +690,21 @@ msgstr "Generation %s"
 #: core/modules/pedigree_pdf.php:76
 #, php-format
 msgid "Send questions or comments to %s"
-msgstr "Send questions or comments to %s"
+msgstr "Envoyez questions ou commentaires à %s"
 
 #: core/modules/ahnentafel_pdf.php:91
 #: core/modules/descendant_pdf.php:182
 #: core/modules/family_pdf.php:83
 #: core/modules/pedigree_pdf.php:120
 msgid "Genealogy"
-msgstr "Genealogy"
+msgstr "Généalogie"
 
 #: core/modules/descendant.php:49
 #: core/modules/descendant_pdf.php:62
 #: core/modules/descendant_pdf.php:181
 #, php-format
 msgid "Descendant Report for %s"
-msgstr "Descendant Report for %s"
+msgstr "Rapport de descendance de %s"
 
 #: core/modules/descendant.php:101
 #: core/modules/family_pdf.php:245
@@ -712,7 +712,7 @@ msgstr "Descendant Report for %s"
 #: themes/default/templates_c/family.tpl.php:136
 #: themes/default/templates_c/pedigree.indiv.tpl.php:14
 msgid "b."
-msgstr "b."
+msgstr "°"
 
 #: core/modules/descendant.php:104
 #: core/modules/family_pdf.php:246
@@ -720,40 +720,41 @@ msgstr "b."
 #: themes/default/templates_c/family.tpl.php:140
 #: themes/default/templates_c/pedigree.indiv.tpl.php:18
 msgid "d."
-msgstr "d."
+msgstr "+"
 
 #: core/modules/email.php:34
 #: core/modules/email.php:35
+#, fuzzy
 msgid "Email to a friend"
-msgstr "Email to a friend"
+msgstr "Envoi par e-mail à un ami"
 
 #: core/modules/family.php:45
 #: core/modules/pedigree.php:49
 #, php-format
 msgid "Family Page for %s"
-msgstr "Family Page for %s"
+msgstr "Page famille de %s"
 
 #: core/modules/family.php:88
 #: core/modules/family_pdf.php:238
 #, php-format
 msgid "Family %s"
-msgstr "Family %s"
+msgstr "Famille %s"
 
 #: core/modules/family_pdf.php:58
 #: core/modules/family_pdf.php:82
 #, php-format
 msgid "Family Group Sheet for %s"
-msgstr "Family Group Sheet for %s"
+msgstr "Feuille de groupe familial pour %s"
 
 #: core/modules/family_pdf.php:119
 #: themes/default/templates_c/family.tpl.php:14
 msgid "Aka"
-msgstr "Aka"
+msgstr "dit"
 
 #: core/modules/family_pdf.php:128
 #: themes/default/templates_c/family.tpl.php:18
 msgid "Gender"
-msgstr "Sex"
+msgstr "Sexe"
 
 #: core/modules/family_pdf.php:143
 #: core/modules/family_pdf.php:161
@@ -769,12 +770,12 @@ msgstr "Sources"
 #: core/modules/family_pdf.php:172
 #: themes/default/templates_c/family.tpl.php:22
 msgid "Father"
-msgstr "Father"
+msgstr "Père"
 
 #: core/modules/family_pdf.php:178
 #: themes/default/templates_c/family.tpl.php:25
 msgid "Mother"
-msgstr "Mother"
+msgstr "Mère"
 
 #: core/modules/family_pdf.php:217
 #: core/modules/family_pdf.php:317
@@ -787,59 +788,59 @@ msgstr "Notes"
 #: core/modules/family_pdf.php:242
 #: themes/default/templates_c/family.tpl.php:67
 msgid "Spouse/Partner"
-msgstr "Spouse/Partner"
+msgstr "Conjoint/Partenaire"
 
 #: core/modules/family_pdf.php:329
 #: themes/default/templates_c/family.tpl.php:116
 msgid "Children"
-msgstr "Children"
+msgstr "Enfants"
 
 #: core/modules/multimedia.php:37
 #: themes/default/templates_c/nav.tpl.php:56
 #: themes/default/templates_c/nav.tpl.php:61
 msgid "Multimedia"
-msgstr "Multimedia"
+msgstr "Multimédia"
 
 #: core/modules/multimedia.php:41
 #, php-format
 msgid "Multimedia for %s"
-msgstr "Multimedia for %s"
+msgstr "Fichiers multimédia pour %s"
 
 #: core/modules/pedigree.php:35
 #: themes/default/templates_c/nav.tpl.php:32
 #: themes/default/templates_c/nav.tpl.php:37
 msgid "Pedigree"
-msgstr "Pedigree"
+msgstr "Arbre d'ascendance"
 
 #: core/modules/pedigree_pdf.php:66
 #: core/modules/pedigree_pdf.php:119
 #, php-format
 msgid "Pedigree for %s"
-msgstr "Pedigree for %s"
+msgstr "Ascendance de %s"
 
 #: core/modules/reports.php:35
 #: core/modules/reports.php:36
 #, php-format
 msgid "Reports for %s"
-msgstr "Reports for %s"
+msgstr "Rapports pour %s"
 
 #: core/modules/reports.php:40
 #: themes/default/templates_c/nav.tpl.php:41
 #: themes/default/templates_c/nav.tpl.php:46
 #: themes/default/templates_c/nav.tpl.php:52
 msgid "Reports"
-msgstr "Reports"
+msgstr "Rapports"
 
 #: core/modules/results.php:58
 #: core/modules/results.php:62
 msgid "Search Results"
-msgstr "Search Results"
+msgstr "Résultats"
 
 #: core/modules/results.php:59
 #: themes/default/templates_c/results.tpl.php:14
 #: themes/default/templates_c/search.tpl.php:13
 msgid "Results"
-msgstr "Results"
+msgstr "Résultats"
 
 #: core/modules/search.php:48
 #: core/modules/search.php:49
@@ -852,174 +853,175 @@ msgstr "Results"
 #: themes/default/templates_c/search.tpl.php:97
 #: themes/default/templates_c/search.tpl.php:143
 msgid "Search"
-msgstr "Search"
+msgstr "Rechercher"
 
 #: core/modules/stats.php:30
 #: core/modules/stats.php:31
 #: core/modules/stats.php:97
 #: themes/default/templates_c/menu.tpl.php:24
 msgid "Statistics"
-msgstr "Statistics"
+msgstr "Statistiques"
 
 #: core/modules/surnames.php:35
 #: core/modules/surnames.php:68
 #: core/modules/surnames.php:74
 #: themes/default/templates_c/menu.tpl.php:20
 msgid "Surname List"
-msgstr "Surname List"
+msgstr "Liste des noms de famille"
 
 #: themes/default/templates_c/email.tpl.php:34
 #: themes/default/templates_c/emailthis.tpl.php:15
 msgid "The following link will be emailed"
-msgstr "The following link will be emailed"
+msgstr ""
 
 #: themes/default/templates_c/index.tpl.php:32
 #: themes/default/templates_c/index.tpl.php:38
 #: themes/default/templates_c/index_printable.tpl.php:22
 msgid "Print"
-msgstr "Print"
+msgstr "Imprimer"
 
 #: themes/default/templates_c/index.tpl.php:45
+#, fuzzy
 msgid "Email this page"
-msgstr "Email this page"
+msgstr "Envoi par e-mail à un ami"
 
 #: themes/default/templates_c/menu.tpl.php:13
 msgid "Database"
-msgstr "Database"
+msgstr "Base de données"
 
 #: themes/default/templates_c/menu.tpl.php:28
 msgid "Language"
-msgstr "Language"
+msgstr "Langue"
 
 #: themes/default/templates_c/multimedia.tpl.php:11
 msgid "This feature has not been implemented yet."
-msgstr "This feature has not been implemented yet."
+msgstr "Cette fonctionnalité n'est pas encore disponible."
 
 #: themes/default/templates_c/nav.tpl.php:23
 #: themes/default/templates_c/nav.tpl.php:28
 msgid "Family"
-msgstr "Family"
+msgstr "Famille"
 
 #: themes/default/templates_c/reports.tpl.php:12
 msgid "Family Reports"
-msgstr "Family Reports"
+msgstr "Rapports de famille"
 
 #: themes/default/templates_c/reports.tpl.php:15
 msgid "Family PDF"
-msgstr "Family PDF"
+msgstr "Famille PDF"
 
 #: themes/default/templates_c/reports.tpl.php:19
 msgid "Pedigree Reports"
-msgstr "Pedigree Reports"
+msgstr "Rapports d'ascendance"
 
 #: themes/default/templates_c/reports.tpl.php:22
 msgid "Pedigree PDF"
-msgstr "Pedigree PDF"
+msgstr "Arbre d'ascendance PDF"
 
 #: themes/default/templates_c/reports.tpl.php:26
 msgid "Ancestor Reports"
-msgstr "Ancestor Reports"
+msgstr "Rapports d'ancêtres"
 
 #: themes/default/templates_c/reports.tpl.php:33
 msgid "Ahnentafel PDF"
-msgstr "Ahnentafel PDF"
+msgstr "Liste-éclair PDF"
 
 #: themes/default/templates_c/reports.tpl.php:36
 #: themes/default/templates_c/reports.tpl.php:60
 msgid "Number of Generations"
-msgstr "Generations"
+msgstr "Générations"
 
 #: themes/default/templates_c/reports.tpl.php:43
 #: themes/default/templates_c/reports.tpl.php:67
 msgid "Apply"
-msgstr "Apply"
+msgstr "Appliquer"
 
 #: themes/default/templates_c/reports.tpl.php:50
 msgid "Descendant Reports"
-msgstr "Descendant Reports"
+msgstr "Rapports de descendance"
 
 #: themes/default/templates_c/reports.tpl.php:56
 msgid "Descendant"
-msgstr "Descendant"
+msgstr "Descendance"
 
 #: themes/default/templates_c/reports.tpl.php:57
 msgid "Descendant PDF"
-msgstr "Descendant PDF"
+msgstr "Descendance PDF"
 
 #: themes/default/templates_c/results.tpl.php:20
 msgid "No search parameters were specified."
-msgstr "No search parameters were specified."
+msgstr "Aucun paramétre de recherche n'est fourni."
 
 #: themes/default/templates_c/results.tpl.php:21
 msgid "Please go back to the search page and enter some search criteria."
-msgstr "Please go back to the search page and enter some search criteria."
+msgstr ""
 
 #: themes/default/templates_c/results.tpl.php:23
 #: themes/default/templates_c/surnames.tpl.php:21
 msgid "Number of individuals listed"
-msgstr "Number of individuals listed"
+msgstr "Nombre d'individus listés"
 
 #: themes/default/templates_c/results.tpl.php:28
 #: themes/default/templates_c/surnames.tpl.php:26
 msgid "Name"
-msgstr "Name"
+msgstr "Nom"
 
 #: themes/default/templates_c/results.tpl.php:51
 msgid "No matching records were found."
-msgstr "No matching records were found."
+msgstr "Aucun enregistrement correspondant n'a été trouvé."
 
 #: themes/default/templates_c/search.tpl.php:27
 msgid "Name Search"
-msgstr "Name Search"
+msgstr "Recherche de nom"
 
 #: themes/default/templates_c/search.tpl.php:30
 msgid "Given Name"
-msgstr "Given Name"
+msgstr "Prénom"
 
 #: themes/default/templates_c/search.tpl.php:31
 msgid "Surname"
-msgstr "Surname"
+msgstr "Nom de famille"
 
 #: themes/default/templates_c/search.tpl.php:53
 #: themes/default/templates_c/search.tpl.php:98
 #: themes/default/templates_c/search.tpl.php:144
 msgid "Reset"
-msgstr "Reset"
+msgstr "Réinitialiser"
 
 #: themes/default/templates_c/search.tpl.php:54
 #: themes/default/templates_c/search.tpl.php:99
 #: themes/default/templates_c/search.tpl.php:145
 msgid "Clear"
-msgstr "Clear"
+msgstr "Effacer"
 
 #: themes/default/templates_c/search.tpl.php:72
 msgid "Location Search"
-msgstr "Location Search"
+msgstr "Recherche de lieu"
 
 #: themes/default/templates_c/search.tpl.php:75
 #: themes/default/templates_c/search.tpl.php:121
 msgid "Keywords"
-msgstr "Keywords"
+msgstr "Mots-clés"
 
 #: themes/default/templates_c/search.tpl.php:75
 #: themes/default/templates_c/search.tpl.php:121
 msgid "separate with spaces"
-msgstr "separate with spaces"
+msgstr ""
 
 #: themes/default/templates_c/search.tpl.php:84
 #: themes/default/templates_c/search.tpl.php:130
 msgid "Match Keywords"
-msgstr "Match Keywords"
+msgstr "Correspondance avec mots-clés"
 
 #: themes/default/templates_c/search.tpl.php:87
 #: themes/default/templates_c/search.tpl.php:133
 msgid "All"
-msgstr "All"
+msgstr "Tous"
 
 #: themes/default/templates_c/search.tpl.php:88
 #: themes/default/templates_c/search.tpl.php:134
 msgid "Any"
-msgstr "Any"
+msgstr "N'importe lequel"
 
 #: themes/default/templates_c/search.tpl.php:89
 #: themes/default/templates_c/search.tpl.php:135
@@ -1029,36 +1031,36 @@ msgstr "Phrase"
 #: themes/default/templates_c/search.tpl.php:90
 #: themes/default/templates_c/search.tpl.php:136
 msgid "Starts with"
-msgstr "Starts with"
+msgstr "Commence par"
 
 #: themes/default/templates_c/search.tpl.php:91
 #: themes/default/templates_c/search.tpl.php:137
 msgid "Ends with"
-msgstr "Ends with"
+msgstr "Finit par"
 
 #: themes/default/templates_c/search.tpl.php:118
 msgid "Note Search"
-msgstr "Note Search"
+msgstr "Recherche de note"
 
 #: themes/default/templates_c/stats.tpl.php:14
 msgid "Surnames"
-msgstr "Surnames"
+msgstr "Noms de famille"
 
 #: themes/default/templates_c/stats.tpl.php:19
 msgid "Individuals"
-msgstr "Individuals"
+msgstr "Individus"
 
 #: themes/default/templates_c/stats.tpl.php:36
 msgid "Families"
-msgstr "Families"
+msgstr "Familles"
 
 #: themes/default/templates_c/stats.tpl.php:41
 msgid "Events"
-msgstr "Events"
+msgstr "Evénements"
 
 #: themes/default/templates_c/stats.tpl.php:57
 msgid "Other"
-msgstr "Other"
+msgstr "Autres"
 
 #: themes/default/templates_c/stats.tpl.php:71
 msgid "Citations"
@@ -1066,5 +1068,5 @@ msgstr "Citations"
 
 #: themes/default/templates_c/surnames.tpl.php:51
 msgid "Number of surnames listed"
-msgstr "Number of surnames listed"
+msgstr "Nombre de noms de famille listés"
 
