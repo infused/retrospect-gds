@@ -210,6 +210,7 @@ class Person {
 	* 1: Only vital statistics, parents, and sources<br />
 	* 2: Parents only (populates only $father_indkey and $mother_indkey)<br /> 
 	* 3: Vitals only - No Parents, No Sources
+	* 4: Custom setting currently only used for the Ahnentafel report
 	* @param string $p_id indkey
 	* @param integer $p_level populate all class properties or only vital stats?
 	* @param integer $p_ns_number anhnentafel number

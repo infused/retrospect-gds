@@ -138,26 +138,26 @@
  	*/
 	class GedcomParser {
 	
-		var $filename; 					// filename 
-		var $fhandle; 					// file handle
-		var $fsize;							// file size
-		var $lines;							// number of lines in file
-		var $individual_count;	// count of individual records
-		var $family_count;			// count of family records
-		var $source_count;			// count of source records
-		var $note_count;				// count of note records
-		var $onote_count;				// count of orphaned note records
-		var $rs_indiv;					// indiv adodb recordeset object
-		var $rs_note;						// note adodb recordset object
-		var $rs_family;					// family adodb recordset object
-		var $rs_fact;						// fact adodb recordset object
-		var $rs_child;					// child adodb recordset object
-		var $rs_source;					// source adodb recordset object
-		var $rs_citation;				// citation adodb recordset object
-		var $db;								// local var for $GLOBALS['db']
+		var $filename; 					# filename 
+		var $fhandle; 					# file handle
+		var $fsize;							# file size
+		var $lines;							# number of lines in file
+		var $individual_count;	# count of individual records
+		var $family_count;			# count of family records
+		var $source_count;			# count of source records
+		var $note_count;				# count of note records
+		var $onote_count;				# count of orphaned note records
+		var $rs_indiv;					# indiv adodb recordeset object
+		var $rs_note;						# note adodb recordset object
+		var $rs_family;					# family adodb recordset object
+		var $rs_fact;						# fact adodb recordset object
+		var $rs_child;					# child adodb recordset object
+		var $rs_source;					# source adodb recordset object
+		var $rs_citation;				# citation adodb recordset object
+		var $db;								# local var for $GLOBALS['db']
 		var $factkey;
-		var $date_parser;				// date parser object
-		var $file_end_offset;   // end offset of gedcom file
+		var $date_parser;				# date parser object
+		var $file_end_offset;   # end offset of gedcom file
 		
 		/**
 		* GedcomParser class constructor
@@ -168,25 +168,25 @@
 			$this->date_parser = new DateParser;
 			# get empty indiv recordset
 			$sql = 'SELECT * from '.TBL_INDIV.' where indkey=-1';
-			$this->rs_indiv = $GLOBALS['db']->Execute($sql);
+			$this->rs_indiv = $this->db->Execute($sql);
 			# get empty note recordset
 			$sql = 'SELECT * from '.TBL_NOTE.' where notekey=-1';
-			$this->rs_note = $GLOBALS['db']->Execute($sql);
+			$this->rs_note = $this->db->Execute($sql);
 			# get empty family recordset
 			$sql = 'SELECT * from '.TBL_FAMILY.' where famkey=-1';
-			$this->rs_family = $GLOBALS['db']->Execute($sql);
+			$this->rs_family = $this->db->Execute($sql);
 			# get empty fact recordset
 			$sql = 'SELECT * from '.TBL_FACT.' where indfamkey=-1';
-			$this->rs_fact = $GLOBALS['db']->Execute($sql);
+			$this->rs_fact = $this->db->Execute($sql);
 			# get empty child recordset
 			$sql = 'SELECT * from '.TBL_CHILD.' where famkey=-1';
-			$this->rs_child = $GLOBALS['db']->Execute($sql);
+			$this->rs_child = $this->db->Execute($sql);
 			# get empty source recordset
 			$sql = 'SELECT * from '.TBL_SOURCE.' where srckey=-1';
-			$this->rs_source = $GLOBALS['db']->Execute($sql);
+			$this->rs_source = $this->db->Execute($sql);
 			# get empty citation recordset
 			$sql = 'SELECT * from '.TBL_CITATION.' where factkey=-1';
-			$this->rs_citation = $GLOBALS['db']->Execute($sql);
+			$this->rs_citation = $this->db->Execute($sql);
 		}
 		
 		/**
@@ -195,7 +195,7 @@
 		* @return boolean
 		*/
 		function OpenReadOnly($filename) {
-			if (is_file($filename)) {  // make sure that it's really a file
+			if (is_file($filename)) {  # make sure that it's really a file
 				$handle = @fopen($filename, 'rb');
 				if ($handle == false) {
 					return false;
@@ -327,16 +327,14 @@
 				# only the first one is used.
 				if ($level == 0) { 
 					$recordset = array_merge($indiv, $names[0]);
-					//$this->_DB_InsertRecord($this->rs_indiv, $recordset);
 					$this->_DB_Insert_Indiv($recordset);
 					foreach ($events as $event) {
-						//$this->_DB_InsertRecord($this->rs_fact, $event);
 						$this->_DB_Insert_Fact($event);
 					}
 					fseek($this->fhandle, $poffset);
 					return;
 				}
-				elseif (preg_match(REG_NAME, $line)) {	// name structure
+				elseif (preg_match(REG_NAME, $line)) {	# name structure
 					$name = $this->_ParseNameStruct($line);
 					array_push($names, $name);
 				}
@@ -480,10 +478,8 @@
 				$level = $this->_ExtractLevel($line);
 				# dump record to db if reached end of family record
 				if ($level == 0) {
-					//$this->_DB_InsertRecord($this->rs_family, $family);
 					$this->_DB_Insert_Family($family);
 					foreach ($events as $event) {
-						//$this->_DB_InsertRecord($this->rs_fact, $event);
 						$this->_DB_Insert_Fact($event);
 					}
 					fseek($this->fhandle, $poffset);
@@ -502,7 +498,6 @@
 					$child = array();
 					$child['famkey'] = $family['famkey'];
 					$child['indkey'] = $match[1];
-					//$this->_DB_InsertRecord($this->rs_child, $child);
 					$this->_DB_Insert_Child($child);
 				}
 				# create note link
@@ -602,7 +597,6 @@
 			$event = array();
 			$event['indfamkey'] = $indfamkey;
 			$event['factkey'] = $this->factkey;
-			//preg_match(REG_INDE, $start_line, $match);
 			$key =& $match[1];
 			if ($key != 'EVEN') $event['type'] = $IND_EVENTS[$key];
 			# get the comment if available
@@ -655,7 +649,6 @@
 				$line = trim($line);
 				$level = $this->_ExtractLevel($line);
 				if ($level <= $begin_level) {
-					//$this->_DB_InsertRecord($this->rs_citation, $citation);
 					$this->_DB_Insert_Citation($citation);
 					fseek($this->fhandle, $poffset);
 					return;
@@ -705,19 +698,19 @@
 					fseek($this->fhandle, $poffset);
 					return $name;
 				}
-				elseif (preg_match(REG_GIVN, $line, $match)) {	// given name
+				elseif (preg_match(REG_GIVN, $line, $match)) {	# given name
 					$name['givenname'] = trim($match[1]);
 				}
-				elseif (preg_match(REG_SURN, $line, $match)) {	// surname
+				elseif (preg_match(REG_SURN, $line, $match)) {	# surname
 					$name['surname'] = trim($match[1]);
 				}
-				elseif (preg_match(REG_NICK, $line, $match)) {	// nickname (aka)
+				elseif (preg_match(REG_NICK, $line, $match)) {	# nickname (aka)
 					$name['aka'] = trim($match[1]);
 				}
-				elseif (preg_match(REG_NPFX, $line, $match)) {	// prefix
+				elseif (preg_match(REG_NPFX, $line, $match)) {	# prefix
 					$name['prefix'] = trim($match[1]);
 				}
-				elseif (preg_match(REG_NSFX, $line, $match)) {	// suffix
+				elseif (preg_match(REG_NSFX, $line, $match)) {	# suffix
 					$name['suffix'] = trim($match[1]);
 				}
 			}
@@ -737,7 +730,6 @@
 		function _DB_InsertRecord($rs, $record) {
 			$insertSQL = $GLOBALS['db']->GetInsertSQL($rs, $record);
 			$GLOBALS['db']->Execute($insertSQL);
-			//echo $insertSQL.'<br>';
 		}
 		
 		function _DB_Insert_Indiv($record) {

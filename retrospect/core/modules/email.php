@@ -29,6 +29,7 @@
 	# Define some regular expressions
 	define('REG_EMAIL', '/[_a-zA-Z\d\-\.]+@([_a-zA-Z\d\-]+(\.[_a-zA-Z\d\-]+)+)/');
 	
+	$subject = 'Test';
 	
 	$errors = array();
 	$smarty->assign('page_title', gtc("Email to a friend"));
@@ -72,7 +73,8 @@
 		# Send the email
 		if (count($errors) <= 0) {
 			$smarty->assign('sending', true);
-			//mail($to, $subject, $message, $headers)
+			$headers = 'From: '.$from."\r\n";
+			mail($to, $subject, $message, $headers);
 		}
 	}
 
