@@ -27,11 +27,7 @@
  */
 
 /**
-* ATreeNode classs
-*
-* Represents an ancestor tree node. 
-* This class is used by the ATree class.
-* @package genealogy
+* Represents an ancestor tree node
 */
 class ATreeNode {
 	
@@ -109,10 +105,8 @@ class ATreeNode {
 }
 
 /**
-* Atree Class
-* 
-* Represents an ancestor tree.
-* To instantiate this class call it with a valid individual's ID number.
+* Represents an ancestor tree - To instantiate this class, 
+* call it with a valid individual's ID number.
 *
 * Example: 
 * <code>
@@ -128,17 +122,13 @@ class ATree {
 	var $nodes;
 	
 	/**
-	* Index of root node
-	*
-	* This is always equal to 0
+	* Index of root node (this is always equal to 0)
 	* @var integer
 	*/
 	var $root_index;
 	
 	/**
 	* ATree Constructor
-	*
-	* Initializes the ATree
 	*	@param mixed $p_data
 	*/
 	function ATree($p_data) {
@@ -150,8 +140,6 @@ class ATree {
 	}
 	
 	/**
-	* Insert Node
-	*
 	* Inserts a node into the tree and creates links between individuals.
 	* @param mixed $p_data
 	* @param ATreeNode $p_child_node 
