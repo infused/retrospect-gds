@@ -25,6 +25,7 @@
 	# process expected get/post variables
 	$print = isset($_GET['print']) ? true : false;
 	$sn = isset($_GET['sn']) ? $_GET['sn'] : null;
+	$g_alpha = (isset($_GET['alpha'])) ? $_GET['alpha'] : 'A';
 	$smarty->assign('sn', $sn);
 	
 	# populate keyword array
@@ -68,7 +69,6 @@
 	# if no surname is selected
 	if ($sn == null) {
 		$smarty->assign('content_title', gtc("Surname List"));
-		$g_alpha = (isset($_GET['alpha'])) ? $_GET['alpha'] : 'A';
 		if ($g_alpha == 'ALL') {
 			$sql = "SELECT surname, count(surname) AS number FROM ".TBL_INDIV." surname GROUP BY surname";		
 			$rs = $db->Execute($sql);

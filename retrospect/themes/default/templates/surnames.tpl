@@ -1,8 +1,8 @@
 {*
-/**
-*	Surnames sub-template
-* $Id$
-*/
+	/**
+	*	Surnames sub-template
+	* $Id$
+	*/
 *}
 <div class="content-title">{$content_title}</div>
 <table class="tab-row" cellpadding="0" cellspacing="0">

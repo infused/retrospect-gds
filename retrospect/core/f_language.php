@@ -130,4 +130,8 @@
 			return '';
 		}
 	}
+	
+	function t($string) {
+		echo htmlentities(gettext($string));
+	}
 ?>
