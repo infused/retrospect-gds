@@ -108,12 +108,20 @@ input.textbox {
 	background: white;
 }
 .pedbox {
-	padding: 1px 2px 1px 2px;
-	text-align: left;
-	vertical-align: middle;
+	background-color: #CCCCCC;
+	position:absolute; 
+	width:150px; 
+	height:60px;
+	overflow: hidden;
 }
 .pedbox-text {
-	font-size: 7pt;
+	font-size: 11px;
+	padding: 1px 3px 0px;
+}
+.ped-arrow {
+	position: absolute;
+	width: 20px;
+	height: 60px;
 }
 .text {
 	font: normal 8pt Georgia, Arial, Helvetica, sans-serif

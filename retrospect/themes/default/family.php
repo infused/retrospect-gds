@@ -41,8 +41,6 @@
 	# assign other smarty variables
 	$smarty->assign('page_title', sprintf(gtc("Family Page for %s"), $o->name));
 	$smarty->assign('surname_title', sprintf(gtc("%s Surname"), $o->sname));
-	
-	# content title
 	$content_title = $o->prefix.' '.$o->name;
 	if ($o->suffix) $content_title .= ', '.$o->suffix;
 	$smarty->assign('content_title', $content_title);
