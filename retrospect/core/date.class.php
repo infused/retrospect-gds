@@ -23,6 +23,9 @@
  * $Id$
  */
 	
+	# Ensure this file is being included by a parent file
+	defined( '_VALID_RGDS' ) or die( 'Direct access to this file is not allowed.' );
+	
 	# Define regular expressions
 	# Gedcom compliant structures
 	define('REG_DATE_GREG1','/^(ABT|CIR|BEF|AFT|FROM|TO|EST|CAL|) *([\d]{4}\/[\d]{2}|[\d]{4}\/[\d]{4}|[\d]{1,4})$/');

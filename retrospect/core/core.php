@@ -26,6 +26,9 @@
  * $Id$
  */
 	
+	# Ensure this file is being included by a parent file
+	defined( '_VALID_RGDS' ) or die( 'Direct access to this file is not allowed.' );
+	
 	# Define some RGDS strings
 	define('RGDS_COPYRIGHT', '©2003-2004 Keith Morrison, Infused Solutions');
 	define('RGDS_VERSION', '1.7.0');

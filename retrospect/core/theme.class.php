@@ -20,11 +20,14 @@
  * $Id$
  */
  
- /**
- * Theme class
- * @package themes
- * @subpackage classes
- */
+ 	# Ensure this file is being included by a parent file
+	defined( '_VALID_RGDS' ) or die( 'Direct access to this file is not allowed.' );
+ 
+/**
+* Theme class
+* @package themes
+* @subpackage classes
+*/
 class Theme {
 		
 	/**

@@ -23,6 +23,9 @@
  * $Id$
  */
  
+	# Ensure this file is being included by a parent file
+	defined( '_VALID_RGDS' ) or die( 'Direct access to this file is not allowed.' );
+	
 	# Define regular expressions
 	# Main record structures
 	define('REG_NEWREC','/^0/'); 									# New record

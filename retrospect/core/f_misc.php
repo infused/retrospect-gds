@@ -22,6 +22,9 @@
  * $Id$
  */
 	
+	# Ensure this file is being included by a parent file
+	defined( '_VALID_RGDS' ) or die( 'Direct access to this file is not allowed.' );
+	
 	/**
 	* Push item onto keyword array and enforce size limit.
 	* Only unique keywords are added to the array
