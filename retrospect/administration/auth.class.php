@@ -94,6 +94,7 @@ class Auth {
 		global $db;
 		$rs = $db->Execute('SELECT * FROM '.TBL_USER.' WHERE id='.$db->Qstr($id));
 		$sql = $db->GetUpdateSQL($rs, $fields);
+		$db->Execute($sql);
 	}
 	
 	function UserExists($p_uid) {
