@@ -215,6 +215,7 @@
 		<field name="opt_id" type="I">
 			<key />
 			<notnull />
+			<autoincrement />
 		</field>
 		<field name="opt_key" type="C" size="20">
 			<unique />
@@ -262,6 +263,7 @@
 			<notnull />
 		</field>
 		<field name="grp" type="I">
+			<default value="1" />
 			<notnull />
 		</field>
 		<field name="created" type ="T" />
@@ -299,52 +301,52 @@
 		<query>INSERT INTO usertype VALUES ('1', 'Site Administrator')</query>
 	</sql>
 	<sql prefixmethod="auto">
-		<descr>Add Site Administrator usertype</descr>
-		<query>INSERT INTO usertype VALUES ('2', 'User')</query>
-	</sql>
-	<sql prefixmethod="auto">
 		<descr>Add 'default_lang' record to options table</descr>
-		<query>INSERT INTO options VALUES ('1', 'default_lang', 'en_US')</query>
+		<query>INSERT INTO options VALUES ('', 'default_lang', 'en_US')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'allow_lang_change' record to options table</descr>
-		<query>INSERT INTO options VALUES ('2', 'allow_lang_change', '1')</query>
+		<query>INSERT INTO options VALUES ('', 'allow_lang_change', '1')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'default_page' record to options table</descr>
-		<query>INSERT INTO options VALUES ('3', 'default_page', 'surnames')</query>
+		<query>INSERT INTO options VALUES ('', 'default_page', 'surnames')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'translate_dates' record to options table</descr>
-		<query>INSERT INTO options VALUES ('4', 'translate_dates', '1')</query>
+		<query>INSERT INTO options VALUES ('', 'translate_dates', '1')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'debug' record to options table</descr>
-		<query>INSERT INTO options VALUES ('5', 'debug', '0')</query>
+		<query>INSERT INTO options VALUES ('', 'debug', '0')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'meta_copyright' record to options table</descr>
-		<query>INSERT INTO options VALUES ('6', 'meta_copyright', '')</query>
+		<query>INSERT INTO options VALUES ('', 'meta_copyright', '')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'meta_keywords' record to options table</descr>
-		<query>INSERT INTO options VALUES ('7', 'meta_keywords', 'Genealogy,Family History')</query>
+		<query>INSERT INTO options VALUES ('', 'meta_keywords', 'Genealogy,Family History')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'date_format' record to options table</descr>
-		<query>INSERT INTO options VALUES ('8', 'date_format', '1')</query>
+		<query>INSERT INTO options VALUES ('', 'date_format', '1')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'sort_children' record to options table</descr>
-		<query>INSERT INTO options VALUES ('9', 'sort_children', '0')</query>
+		<query>INSERT INTO options VALUES ('', 'sort_children', '0')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'sort_marriages' record to options table</descr>
-		<query>INSERT INTO options VALUES ('10', 'sort_marriages', '0')</query>
+		<query>INSERT INTO options VALUES ('', 'sort_marriages', '0')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'sort_events' record to options table</descr>
-		<query>INSERT INTO options VALUES ('11', 'sort_events', '0')</query>
+		<query>INSERT INTO options VALUES ('', 'sort_events', '0')</query>
+	</sql>
+	<sql prefixmethod="auto">
+		<descr>Add 'allow_comments' record to options table</descr>
+		<query>INSERT INTO options VALUES ('', 'allow_comments', '1')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add english language</descr>
