@@ -77,7 +77,8 @@
         <tr>
           <td width="200" class="section_item">Database type: </td>
           <td width="200" class="section_item"><select name="frm_db_type" class="listbox" id="frm_db_type">
-            <option value="mysql">MySQL</option>
+            <option value="mysql" selected="selected">MySQL</option>
+            <option value="postgres7">PostgreSQL 7.x</option>
           </select></td>
           <td class="section_item">MySQL is the only database supported in this release. Future versions will have support for more databases. </td>
         </tr>
