@@ -1,0 +1,162 @@
+<link href="styles.css" rel="stylesheet" type="text/css">
+<form name="config_form" method="post" action="">
+<table width="100%"  border="0" cellpadding="0" cellspacing="5"> 
+  <tr> 
+    <td align="left" valign="top">&nbsp;</td> 
+  </tr> 
+	<?php 
+		$updated = false;
+		
+		function config_update($p_opt_val_new, $p_opt_val_old, $p_opt_key) {
+			global $g_tbl_option;
+			$query = "UPDATE $g_tbl_option SET opt_val='$p_opt_val_new' WHERE opt_key='$p_opt_key'";
+			$result = db_query_a($query);
+			if ($result > 0) {
+				echo sprintf(_("Changed %s from %s to %s."), $p_opt_key, $p_opt_val_old, $p_opt_val_new).'<br />';
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		
+		function config_fail($p_value) {
+			echo sprintf(_("You must edit core/config.php to change the %s setting."), $p_value).'<br />';
+		}
+		
+		if (isset($_POST['Save']) and $_POST['Save'] == 'Save') {
+			echo '<tr><td class="notification">';
+			if ($_POST['default_page_new'] != $_POST['default_page_old']) {
+				$updated = config_update($_POST['default_page_new'], $_POST['default_page_old'], 'default_page');
+			}
+			if ($_POST['default_lang_new'] != $_POST['default_lang_old']) {
+				$updated = config_update($_POST['default_lang_new'], $_POST['default_lang_old'], 'default_lang');
+			}
+			if ($_POST['allow_lang_change_new'] != $_POST['allow_lang_change_old']) {
+				$updated = config_update($_POST['allow_lang_change_new'], $_POST['allow_lang_change_old'], 'allow_lang_change');
+			}
+			if ($_POST['translate_dates_new'] != $_POST['translate_dates_old']) {
+				$updated = config_update($_POST['translate_dates_new'], $_POST['translate_dates_old'], 'translate_dates');
+			}
+			if ($_POST['db_host_new'] != $_POST['db_host_old']) { config_fail(_("MySQL Hostname")); }
+			if ($_POST['db_port_new'] != $_POST['db_port_old']) { config_fail(_("MySQL Port"));	}
+			if ($_POST['db_user_new'] != $_POST['db_user_old']) { config_fail(_("MySQL Username")); }
+			if ($_POST['db_pass_new'] != $_POST['db_pass_old']) { config_fail(_("MySQL Password")); }
+			if ($_POST['db_new'] != $_POST['db_old']) { config_fail(_("MySQL Database")); }
+			if ($updated == false) { echo _("Nothing to save."); }
+			echo '</td></tr>';
+			echo '<tr><td>&nbsp;</td></tr>';
+			
+			# re-initialize options object
+			$g_opts = new Options();
+		}
+	?>
+  <tr> 
+    <td align="left" valign="top" class="content-subtitle"><?php echo _("Site Configuration"); ?></td> 
+  </tr> 
+  <tr> 
+    <td align="left" valign="top"> <table width="100%"  border="0" cellpadding="4" cellspacing="0" bgcolor="#CCCCCC"> 
+        <tr> 
+          <td width="200" class="content-label"><?php echo _("Default Page"); ?>:</td> 
+          <td><input name="default_page_new" type="text" class="textbox" id="default_page_new" value="<?php echo $g_opts->default_page; ?>">
+          <input name="default_page_old" type="hidden" id="default_page_old" value="<?php echo $g_opts->default_page; ?>"></td> 
+        </tr> 
+      </table></td> 
+  </tr> 
+  <tr> 
+    <td align="left" valign="top">&nbsp;</td> 
+  </tr> 
+  <tr> 
+    <td align="left" valign="top" class="content-subtitle"><?php echo _("Database Configuration"); ?></td> 
+  </tr>
+  <tr> 
+    <td align="left" valign="top" bgcolor="#CCCCCC"><table width="100%"  border="0" cellspacing="0" cellpadding="2">
+      <tr>
+        <td><span class="text"><?php echo _("The database settings are shown for reference only and can not be changed from this screen. You must edit core/config.php to change these settings."); ?></span></td>
+      </tr>
+    </table>
+    <table  border="0" cellspacing="0" cellpadding="4"> 
+        <tr> 
+          <td width="200" class="content-label"><?php echo _("MySQL Hostname"); ?>:</td> 
+          <td><input name="db_host_new" type="text" class="textbox" id="db_host_new" value="<?php echo $g_db_host; ?>" readonly="true">
+          <input name="db_host_old" type="hidden" id="db_host_old" value="<?php echo $g_db_host; ?>"></td> 
+        </tr> 
+        <tr> 
+          <td class="content-label"><?php echo _("MySQL Port"); ?>: </td> 
+          <td><input name="db_port_new" type="text" class="textbox" id="db_port_new" value="<?php echo $g_db_port; ?>" readonly="true">
+          <input name="db_port_old" type="hidden" id="db_port_old" value="<?php echo $g_db_port; ?>"></td> 
+        </tr> 
+        <tr> 
+          <td class="content-label"><?php echo _("MySQL Username"); ?>:</td> 
+          <td><input name="db_user_new" type="text" class="textbox" id="db_user_new" value="<?php echo $g_db_user; ?>" readonly="true">
+          <input name="db_user_old" type="hidden" id="db_user_old" value="<?php echo $g_db_user; ?>"></td> 
+        </tr> 
+        <tr> 
+          <td class="content-label"><?php echo _("MySQL Password"); ?>: </td> 
+          <td><input name="db_pass_new" type="text" class="textbox" id="db_pass_new" value="<?php echo $g_db_pass; ?>" readonly="true">
+          <input name="db_pass_old" type="hidden" id="db_pass_old" value="<?php echo $g_db_pass; ?>"></td> 
+        </tr> 
+        <tr> 
+          <td class="content-label"><?php echo _("MySQL Database"); ?>: </td> 
+          <td><input name="db_new" type="text" class="textbox" id="db_new" value="<?php echo $g_db; ?>" readonly="true">
+          <input name="db_old" type="hidden" id="db_old" value="<?php echo $g_db; ?>"></td> 
+        </tr> 
+      </table>
+		</td> 
+  </tr> 
+  <tr> 
+    <td align="left" valign="top">&nbsp;</td> 
+  </tr> 
+  <tr> 
+    <td align="left" valign="top" class="content-subtitle"><?php echo _("Language Configuration"); ?></td> 
+  </tr> 
+  <tr> 
+    <td align="left" valign="top"><table width="100%"  border="0" cellspacing="0" cellpadding="4"> 
+        <tr bgcolor="#CCCCCC"> 
+          <td width="200" class="content-label"><?php echo _("Default Language"); ?>: </td> 
+          <td>
+						<select name="default_lang_new" class="listbox" id="default_lang_new"> 
+              <?php
+					 			$sql = "SELECT * FROM $g_tbl_lang";
+								$result = db_query_r($sql);
+								while ($row = mysql_fetch_array($result)) {
+									echo '<option value="'.$row['lang_code'].'"';
+									if ($g_opts->default_lang == $row['lang_code']) { echo ' SELECTED'; }
+									echo '>'.$row['lang_name'].'</option>';
+					 			}
+					 		?> 
+            </select>
+						<input name="default_lang_old" type="hidden" id="default_lang_old" value="<?php echo $g_opts->default_lang; ?>">
+					</td> 
+        </tr>
+        <tr bgcolor="#CCCCCC">
+          <td class="content-label"><?php echo _("Allow language changes"); ?>?</td>
+          <td>
+						<select name="allow_lang_change_new" class="listbox" id="allow_lang_change_new">
+            	<option value="1" <?php if ($g_opts->allow_lang_change == 1) echo 'SELECTED'; ?>><?php echo _("Yes"); ?></option>
+            	<option value="0" <?php if ($g_opts->allow_lang_change == 0) echo 'SELECTED'; ?>><?php echo _("No"); ?></option>
+          	</select>
+						<input name="allow_lang_change_old" type="hidden" id="allow_lang_change_old" value="<?php echo $g_opts->allow_lang_change; ?>">
+					</td>
+        </tr>
+        <tr bgcolor="#CCCCCC">
+          <td class="content-label"><?php echo _("Translate Dates"); ?>?</td>
+          <td><select name="translate_dates_new" class="listbox" id="translate_dates_new">
+            <option value="1" <?php if ($g_opts->translate_dates == 1) echo 'SELECTED'; ?>><?php echo _("Yes"); ?></option>
+            <option value="0" <?php if ($g_opts->translate_dates == 0) echo 'SELECTED'; ?>><?php echo _("No"); ?></option>
+          </select>
+            <input name="translate_dates_old" type="hidden" id="translate_dates_old" value="<?php echo $g_opts->translate_dates; ?>"></td>
+        </tr> 
+        <tr> 
+          <td>&nbsp;</td> 
+          <td>&nbsp;</td> 
+        </tr> 
+      </table>
+		</td> 
+  </tr> 
+	<tr>
+	<td><input name="Save" type="submit" class="text" id="Save" value="<?php echo _("Save"); ?>"> 
+	<input name="<?php echo _("Reset"); ?>" type="reset" class="text" id="<?php echo _("Reset"); ?>" value="<?php echo _("Reset"); ?>"></td>
+	</tr>
+</table> 
+</form>
