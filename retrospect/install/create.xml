@@ -9,13 +9,13 @@
     <field name="indkey" type="C" size="20">
 			<notnull />
     </field>
+		<index name="famkey">
+			<col>famkey</col>
+		</index>
+		<index name="indkey">
+			<col>indkey</col>
+		</index>
   </table>
-	<index name="famkey" table="children">
-		<col>famkey</col>
-	</index>
-	<index name="indkey" table="children">
-		<col>indkey</col>
-	</index>
 	<table name="citation">
 		<descr>Source citations</descr>
 		<field name="factkey" type="C" size="20">
@@ -27,10 +27,10 @@
 		<field name="source" type="X">
 			<notnull />
 		</field>
+		<index name="factkey">
+			<col>factkey</col>
+		</index>
 	</table>
-	<index name="factkey" table="citation">
-		<col>factkey</col>
-	</index>
 	<table name="comment">
 		<field name="id" type="I">
 			<key />
@@ -50,10 +50,10 @@
 		<field name="reviewed" type="L">
 			<default value="0" />
 		</field>
+		<index name="indkey">
+			<col>indkey</col>
+		</index>
 	</table>
-	<index name="indkey" table="comment">
-		<col>indkey</col>
-	</index>
 	<table name="fact">
 		<field name="indfamkey" type="C" size="20">
 			<notnull />
@@ -74,17 +74,13 @@
 			<key />
 			<notnull />
 		</field>
+		<index name="indfamkey">
+			<col>indfamkey</col>
+		</index>
+		<index name="type">
+			<col>type</col>
+		</index>
 	</table>
-	<index name="indfamkey" table="fact">
-		<col>indfamkey</col>
-	</index>
-	<index name="type" table="fact" platform="mysql">
-		<descr>MySQL supports indexing partial columns</descr>
-		<col>type(10)</col>
-	</index>
-	<index name="type" table="fact">
-		<col>type</col>
-	</index>
 	<table name="family">
 		<field name="famkey" type="C" size="20">
 			<key />
@@ -105,13 +101,13 @@
 		<field name="notekey" type="C" size="20">
 			<notnull />
 		</field>
+		<index name="spouse1">
+			<col>spouse1</col>
+		</index>
+		<index name="spouse2">
+			<col>spouse2</col>
+		</index>
 	</table>
-	<index name="spouse1" table="family">
-		<col>spouse1</col>
-	</index>
-	<index name="spouse2" table="family">
-		<col>spouse2</col>
-	</index>
 	<table name="indiv">
 		<field name="indkey" type="C" size="20">
 			<key />
@@ -141,16 +137,16 @@
 		<field name="notekey" type="C" size="20">
 			<notnull />
 		</field>
+		<index name="surname">
+			<col>surname</col>
+		</index>
+		<index name="givenname">
+			<col>givenname</col>
+		</index>
+		<index name="sex">
+			<col>sex</col>
+		</index>
 	</table>
-	<index name="surname" table="indiv">
-		<col>surname</col>
-	</index>
-	<index name="givenname" table="indiv">
-		<col>givenname</col>
-	</index>
-	<index name="sex" table="indiv">
-		<col>sex</col>
-	</index>
 	<table name="language">
 		<field name="lang_id" type="I">
 			<key />
@@ -166,10 +162,10 @@
 		<field name="lang_name" type="C" size="20">
 			<notnull />
 		</field>
+		<index name="lang_code">
+			<col>lang_code</col>
+		</index>
 	</table>
-	<index name="lang_code" table="language">
-		<col>lang_code</col>
-	</index>
 	<table name="media">
 		<field name="id" type="I">
 			<key />
@@ -185,10 +181,10 @@
 		<field name="description" type="C" size="250">
 			<notnull />
 		</field>
-	</table>
-	<index name="indfamkey" table="media">
+	<index name="indfamkey">
 		<col>indfamkey</col>
 	</index>
+	</table>
 	<table name="note">
 		<field name="notekey" type="C" size="20">
 			<key />
@@ -210,14 +206,14 @@
 		<field name="opt_val" type="C" size="250">
 			<notnull />
 		</field>
+		<index name="opt_key">
+			<col>opt_key</col>
+			<unique />
+		</index>
+		<index name="famkey">
+			<col>famkey</col>
+		</index>
 	</table>
-	<index name="opt_key" table="options">
-		<col>opt_key</col>
-		<unique />
-	</index>
-	<index name="famkey" table="relation">
-		<col>famkey</col>
-	</index>
 	<table name="source">
 		<field name="srckey" type="C" size="20">
 			<key />
@@ -252,14 +248,14 @@
 		<field name="pwd_expired" type="L">
 			<notnull />
 		</field>
+		<index name="uid">
+			<col>uid</col>
+			<unique />
+		</index>
+		<index name="pwd">
+			<col>pwd</col>
+		</index>
 	</table>
-	<index name="uid" table="user">
-		<col>uid</col>
-		<unique />
-	</index>
-	<index name="pwd" table="user">
-		<col>pwd</col>
-	</index>
 	<sql prefixmethod="auto">
 		<descr>Create admin account with password "welcome"</descr>
 		<query>INSERT INTO user VALUES ('', 'Admin', '40be4e59b9a2a2b5dffb918c0e86b3d7', 'Administrator', 'root@someplace.com', null, '1')</query>
