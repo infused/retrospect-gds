@@ -36,6 +36,7 @@
 
 	# get first person information
 	$o = new Person($g_indiv);
+	$smarty->assign('indiv', $o);
 
 	# initialize other variables
 	$g_node_indkey = array();
