@@ -1,59 +1,118 @@
-2004-01-16 16:10  kmorrison
+2004-01-17  kmorrison
 
-	* retrospect/install/create.xml: - Corrected field naming typo
+	* retrospect/install/create.xml:
 
-2004-01-15 21:10  kmorrison
+	- Change xml db schema
 
-	* retrospect/administration/auth.class.php: - Code cleanup
+2004-01-17  kmorrison
 
-2004-01-15 20:13  kmorrison
+	* retrospect/: core/config.php, install/create.xml:
 
-	* retrospect/install/: install1.php, install2.php: - Set
-	  error_reporting(0)
+	- Change xml db schema
 
-2004-01-15 20:11  kmorrison
+2004-01-17  kmorrison
+
+	* retrospect/install/create.xml:
+
+	- Change xml db schema
+
+2004-01-17  kmorrison
+
+	* retrospect/core/core.php:
+
+	- Fixed g_db_type var not being used to set db connection
+
+2004-01-17  kmorrison
+
+	* retrospect/install/install2.php:
+
+	- Added missing underscore to db_prefix when writing new config file
+
+2004-01-17  kmorrison
+
+	* retrospect/install/create.xml:
+
+	- Standardized on 4 byte integer fields
+
+2004-01-16  kmorrison
+
+	* retrospect/docs/ChangeLog.txt:
+
+	- Updated ChangeLog
+
+2004-01-16  kmorrison
+
+	* retrospect/install/create.xml:
+
+	- Corrected field naming typo
+
+2004-01-15  kmorrison
+
+	* retrospect/administration/auth.class.php:
+
+	- Code cleanup
+
+2004-01-15  kmorrison
+
+	* retrospect/install/: install1.php, install2.php:
+
+	- Set error_reporting(0)
+
+2004-01-15  kmorrison
 
 	* retrospect/install/: create.xml, drop.xml, index.php,
-	  install.css, install1.php, install2.php: - Added installation
-	  module - Added xml database schema for creation of tables,
-	  indexes, and default data - Added xml schema for dropping tables
+	  install.css, install1.php, install2.php:
 
-2004-01-15 20:08  kmorrison
+	- Added installation module
+	- Added xml database schema for creation of tables, indexes, and default data
+	- Added xml schema for dropping tables
+
+2004-01-15  kmorrison
 
 	* retrospect/: core/config.php, core/core.php,
-	  themes/default/template.php: - Added a global version variable
+	  themes/default/template.php:
 
-2004-01-14 16:25  kmorrison
+	- Added a global version variable
 
-	* retrospect/core/: config.php, core.php: - Renamed $g_db to
-	  $g_db_name
+2004-01-14  kmorrison
 
-2004-01-14 14:10  kmorrison
+	* retrospect/core/: config.php, core.php:
 
-	* retrospect/themes/default/descendant_pdf.php: - Changed
-	  formatting
+	- Renamed $g_db to $g_db_name
 
-2004-01-14 14:07  kmorrison
+2004-01-14  kmorrison
 
-	* retrospect/themes/default/descendant_pdf.php: - Changed
-	  formatting
+	* retrospect/themes/default/descendant_pdf.php:
 
-2004-01-14 14:05  kmorrison
+	- Changed formatting
+
+2004-01-14  kmorrison
+
+	* retrospect/themes/default/descendant_pdf.php:
+
+	- Changed formatting
+
+2004-01-14  kmorrison
 
 	* retrospect/themes/default/: descendant.php, descendant_pdf.php,
-	  family_pdf.php: - Fixed undeclared var errors
+	  family_pdf.php:
 
-2004-01-14 13:54  kmorrison
+	- Fixed undeclared var errors
 
-	* retrospect/core/f_language.php: - Disable putenv's if safe_mode
-	  enabled
+2004-01-14  kmorrison
 
-2004-01-13 14:12  kmorrison
+	* retrospect/core/f_language.php:
 
-	* retrospect/core/: config.php, core.php: - Added g_db_prefix var -
-	  Moved table global vars to core.php
+	- Disable putenv's if safe_mode enabled
 
-2004-01-12 21:16  kmorrison
+2004-01-13  kmorrison
+
+	* retrospect/core/: config.php, core.php:
+
+	- Added g_db_prefix var
+	- Moved table global vars to core.php
+
+2004-01-12  kmorrison
 
 	* retrospect/libraries/adodb/: adodb-csvlib.inc.php,
 	  adodb-datadict.inc.php, adodb-error.inc.php,
@@ -97,10 +156,11 @@
 	  session/adodb-compress-gzip.php, session/adodb-cryptsession.php,
 	  session/adodb-encrypt-mcrypt.php, session/adodb-encrypt-md5.php,
 	  session/adodb-encrypt-secret.php, session/adodb-session-clob.php,
-	  session/adodb-session.php: - Updated adodb library to version
-	  4.10
+	  session/adodb-session.php:
 
-2004-01-12 12:55  kmorrison
+	- Updated adodb library to version 4.10
+
+2004-01-12  kmorrison
 
 	* retrospect/libraries/adodb/xmlschema/: Changelog, INSTALL,
 	  LICENSE, README, adodb-xmlschema.inc.php, default.html,
@@ -110,88 +170,106 @@
 	  docs/index.html, docs/layout.css, docs/li_default.html,
 	  docs/style.css, docs/default/_adodb-xmlschema_inc_php.html,
 	  docs/default/_test_schema_php.html, docs/default/adoSchema.html,
-	  docs/default/dbObject.html: - Integrated adodb-xmlschema
-	  documentation into CVS tree
+	  docs/default/dbObject.html:
 
-2004-01-12 12:52  kmorrison
+	- Integrated adodb-xmlschema documentation into CVS tree
 
-	* retrospect/libraries/adodb/adodb-xmlschema.inc.php: - Updated to
-	  newer version of adodb-xmlschema
+2004-01-12  kmorrison
 
-2004-01-10 23:43  kmorrison
+	* retrospect/libraries/adodb/adodb-xmlschema.inc.php:
+
+	- Updated to newer version of adodb-xmlschema
+
+2004-01-10  kmorrison
 
 	* retrospect/: locale/en_US/LC_MESSAGES/messages.mo,
 	  locale/en_US/LC_MESSAGES/messages.po,
 	  locale/es_ES/LC_MESSAGES/messages.mo,
 	  locale/es_ES/LC_MESSAGES/messages.po, themes/default/search.php:
-	  - Updated translation strings
 
-2004-01-10 15:34  kmorrison
+	- Updated translation strings
 
-	* retrospect/core/core.php: - Changed db connection string
-	  generation to a ternary operator
+2004-01-10  kmorrison
 
-2004-01-10 15:29  kmorrison
+	* retrospect/core/core.php:
 
-	* retrospect/core/core.php: - Changed require for config file to a
-	  ternary operator
+	- Changed db connection string generation to a ternary operator
 
-2004-01-10 15:20  kmorrison
+2004-01-10  kmorrison
 
-	* retrospect/themes/default/styles.css: - Removed unused styles
-	  from stylesheet
+	* retrospect/core/core.php:
 
-2004-01-10 15:08  kmorrison
+	- Changed require for config file to a ternary operator
 
-	* retrospect/themes/default/styles.css: - Removed unused styles
-	  from stylesheet
+2004-01-10  kmorrison
 
-2004-01-10 12:47  kmorrison
+	* retrospect/themes/default/styles.css:
+
+	- Removed unused styles from stylesheet
+
+2004-01-10  kmorrison
+
+	* retrospect/themes/default/styles.css:
+
+	- Removed unused styles from stylesheet
+
+2004-01-10  kmorrison
 
 	* retrospect/install/: index.php, install.class.php, install.php,
-	  install.sql, install2.php, install3.php: - Removing obsolete
-	  installation files
+	  install.sql, install2.php, install3.php:
 
-2004-01-10 09:57  kmorrison
+	- Removing obsolete installation files
+
+2004-01-10  kmorrison
 
 	* retrospect/locale/: en_US/LC_MESSAGES/messages.mo,
 	  en_US/LC_MESSAGES/messages.po, es_ES/LC_MESSAGES/messages.mo,
-	  es_ES/LC_MESSAGES/messages.po: - Updated translations
+	  es_ES/LC_MESSAGES/messages.po:
 
-2004-01-08 23:02  kmorrison
+	- Updated translations
 
-	* retrospect/install/index.php: - Fixed title
+2004-01-08  kmorrison
 
-2004-01-08 22:29  kmorrison
+	* retrospect/install/index.php:
 
-	* retrospect/install/install.sql: - Changed table name prefixes to
-	  rgds_
+	- Fixed title
 
-2004-01-08 20:24  kmorrison
+2004-01-08  kmorrison
+
+	* retrospect/install/install.sql:
+
+	- Changed table name prefixes to rgds_
+
+2004-01-08  kmorrison
 
 	* retrospect/: core/config.php, core/core.php,
-	  themes/default/surnames.php: - Explicitly set adodb fetch mode to
-	  associative - Fixed resulting problem in surnames script -
-	  Changed table name prefixes to rgds_
+	  themes/default/surnames.php:
 
-2004-01-07 19:16  kmorrison
+	- Explicitly set adodb fetch mode to associative
+	- Fixed resulting problem in surnames script
+	- Changed table name prefixes to rgds_
 
-	* retrospect/core/core.php: - Reformat connection string to support
-	  multiple db's
+2004-01-07  kmorrison
 
-2004-01-06 22:09  kmorrison
+	* retrospect/core/core.php:
+
+	- Reformat connection string to support multiple db's
+
+2004-01-06  kmorrison
 
 	* retrospect/: administration/media_list.php,
 	  administration/user_edit.php, administration/user_list.php,
-	  core/genealogy.class.php: - Removed superfluous stripslashes
-	  calls
+	  core/genealogy.class.php:
 
-2004-01-06 19:24  kmorrison
+	- Removed superfluous stripslashes calls
 
-	* retrospect/core/: core.php, f_database.php: - Removed unused
-	  files
+2004-01-06  kmorrison
 
-2004-01-06 19:22  kmorrison
+	* retrospect/core/: core.php, f_database.php:
+
+	- Removed unused files
+
+2004-01-06  kmorrison
 
 	* retrospect/: administration/auth.class.php,
 	  administration/db_optimize.php, administration/index.php,
@@ -299,49 +377,58 @@
 	  libraries/adodb/session/adodb-sessions.mysql.sql,
 	  libraries/adodb/session/adodb-sessions.oracle.clob.sql,
 	  libraries/adodb/session/adodb-sessions.oracle.sql,
-	  libraries/adodb/session/crypt.inc.php: - Implemented ADODB as DB
-	  abstraction library - Optimized and standardized queries - Added
-	  a 3rd detail level to the Person class - Fixed missing marriage
-	  sentence in Ahnentafel reports
+	  libraries/adodb/session/crypt.inc.php:
 
-2004-01-04 12:49  kmorrison
+	- Implemented ADODB as DB abstraction library
+	- Optimized and standardized queries
+	- Added a 3rd detail level to the Person class
+	- Fixed missing marriage sentence in Ahnentafel reports
 
-	* retrospect/themes/default/family_pdf.php: - Check for aka and
-	  display if not empty
+2004-01-04  kmorrison
 
-2004-01-04 12:46  kmorrison
+	* retrospect/themes/default/family_pdf.php:
 
-	* retrospect/themes/default/family.php: - Check for aka and display
-	  if not empty
+	- Check for aka and display if not empty
 
-2004-01-04 12:03  kmorrison
+2004-01-04  kmorrison
+
+	* retrospect/themes/default/family.php:
+
+	- Check for aka and display if not empty
+
+2004-01-04  kmorrison
 
 	* retrospect/libraries/fpdf/: font/makefont/cp1255.map,
 	  font/makefont/cp1258.map, font/makefont/cp874.map,
 	  font/makefont/iso-8859-11.map, font/makefont/koi8-u.map,
-	  font/makefont/makefont.php, fpdf.php: - Updated the fpdf library
-	  to version 1.52
+	  font/makefont/makefont.php, fpdf.php:
 
-2004-01-03 17:51  kmorrison
+	- Updated the fpdf library to version 1.52
+
+2004-01-03  kmorrison
 
 	* retrospect/administration/: admin.php, auth.class.php,
-	  user_edit.php: - BUG0000009: Fixed query error - BUG0000010:
-	  Changed module title
+	  user_edit.php:
 
-2004-01-03 17:15  kmorrison
+	- BUG0000009: Fixed query error
+	- BUG0000010: Changed module title
 
-	* retrospect/index.php: - Fixed trailing "?" on CURRENT_PAGE
-	  contstant when no query string is present.
+2004-01-03  kmorrison
 
-2004-01-03 17:04  kmorrison
+	* retrospect/index.php:
+
+	- Fixed trailing "?" on CURRENT_PAGE contstant when no query string is present.
+
+2004-01-03  kmorrison
 
 	* retrospect/administration/: admin.php, auth.class.php,
 	  db_edit_indiv.php, db_optimize.php, f_admin.php, index.php,
 	  login.php, media_list.php, menubar.php, sys_config.php,
-	  user_add.php, user_edit.php, user_list.php: - Added phpdoc
-	  headers to administration files
+	  user_add.php, user_edit.php, user_list.php:
 
-2004-01-03 16:54  kmorrison
+	- Added phpdoc headers to administration files
+
+2004-01-03  kmorrison
 
 	* retrospect/: index.php, core/atree.class.php, core/config.php,
 	  core/core.php, core/f_compatibility.php, core/f_database.php,
@@ -358,15 +445,17 @@
 	  themes/default/pedigree.php, themes/default/pedigree_pdf.php,
 	  themes/default/reports.php, themes/default/search.php,
 	  themes/default/stats.php, themes/default/surnames.php,
-	  themes/default/template.php, themes/default/template_print.php: -
-	  Updated copyright
+	  themes/default/template.php, themes/default/template_print.php:
 
-2004-01-03 16:50  kmorrison
+	- Updated copyright
 
-	* retrospect/: core/f_dummy.php, themes/default/styles.css: - Misc
-	  cleanup
+2004-01-03  kmorrison
 
-2003-12-30 21:47  kmorrison
+	* retrospect/: core/f_dummy.php, themes/default/styles.css:
+
+	- Misc cleanup
+
+2003-12-30  kmorrison
 
 	* retrospect/: core/atree.class.php, core/config.php,
 	  core/core.php, core/f_compatibility.php, core/f_database.php,
@@ -374,23 +463,27 @@
 	  core/f_report.php, core/genealogy.class.php,
 	  core/options.class.php, core/theme.class.php, install/index.php,
 	  install/install.class.php, install/install.php,
-	  install/install2.php, install/install3.php: - Added CVS Id tag
+	  install/install2.php, install/install3.php:
 
-2003-12-30 21:39  kmorrison
+	- Added CVS Id tag
+
+2003-12-30  kmorrison
 
 	* retrospect/themes/default/: ahnentafel_pdf.php, descendant.php,
 	  descendant_pdf.php, email.php, family.php, family_pdf.php,
 	  menu.php, multimedia.php, nav.php, pedigree.php,
 	  pedigree_pdf.php, reports.php, search.php, stats.php,
-	  surnames.php, template.php, template_print.php: - Added CVS Id
-	  tag
+	  surnames.php, template.php, template_print.php:
 
-2003-12-24 14:54  kmorrison
+	- Added CVS Id tag
 
-	* retrospect/: index.php, themes/default/ahnentafel.php: - Added
-	  CVS Id tag
+2003-12-24  kmorrison
 
-2003-12-24 13:41  kmorrison
+	* retrospect/: index.php, themes/default/ahnentafel.php:
+
+	- Added CVS Id tag
+
+2003-12-24  kmorrison
 
 	* retrospect/: index.php, core/atree.class.php, core/config.php,
 	  core/core.php, core/f_compatibility.php, core/f_database.php,
@@ -407,43 +500,55 @@
 	  themes/default/pedigree.php, themes/default/pedigree_pdf.php,
 	  themes/default/reports.php, themes/default/search.php,
 	  themes/default/stats.php, themes/default/surnames.php,
-	  themes/default/template.php, themes/default/template_print.php: -
-	  Updated licening info - Removed version tag
+	  themes/default/template.php, themes/default/template_print.php:
 
-2003-12-23 17:09  kmorrison
+	- Updated licening info
+	- Removed version tag
 
-	* retrospect/themes/default/template.php: Changed copyright notice
-	  to add link to Retrospect-GDS website
+2003-12-23  kmorrison
 
-2003-12-23 17:02  kmorrison
+	* retrospect/themes/default/template.php:
 
-	* retrospect/docs/GPL.txt: Fixed license file
+	Changed copyright notice to add link to Retrospect-GDS website
 
-2003-12-23 16:56  kmorrison
+2003-12-23  kmorrison
+
+	* retrospect/docs/GPL.txt:
+
+	Fixed license file
+
+2003-12-23  kmorrison
 
 	* retrospect/: index.php, administration/index.php,
-	  themes/default/menu.php, themes/default/template.php: Renamed
-	  CURRENT_PAGE constant
+	  themes/default/menu.php, themes/default/template.php:
 
-2003-12-23 16:54  kmorrison
+	Renamed CURRENT_PAGE constant
+
+2003-12-23  kmorrison
 
 	* retrospect/: index.php, administration/index.php,
 	  core/config.php, core/core.php,
 	  themes/default/ahnentafel_pdf.php,
 	  themes/default/descendant_pdf.php, themes/default/family_pdf.php,
-	  themes/default/pedigree_pdf.php: - Renamed CORE_PATH constant -
-	  Renamed LIB_PATH constant
+	  themes/default/pedigree_pdf.php:
 
-2003-12-23 16:43  kmorrison
+	- Renamed CORE_PATH constant
+	- Renamed LIB_PATH constant
+
+2003-12-23  kmorrison
 
 	* retrospect/: administration/index.php, core/f_language.php,
-	  index.php: Renamed ROOT_PATH constant
+	  index.php:
 
-2003-12-18 12:11  kmorrison
+	Renamed ROOT_PATH constant
 
-	* retrospect/index.php: Initializing project.
+2003-12-18  kmorrison
 
-2003-12-18 12:08  kmorrison
+	* retrospect/index.php:
+
+	Initializing project.
+
+2003-12-18  kmorrison
 
 	* retrospect/: locale/en_US/LC_MESSAGES/index.html,
 	  locale/es_ES/LC_MESSAGES/index.html, media/files/index.html,
@@ -460,15 +565,19 @@
 	  themes/default/images/emailbutton.gif,
 	  themes/default/images/logo.png,
 	  themes/default/images/printbutton.gif,
-	  themes/default/images/r_arrow.gif: Initializing project.
+	  themes/default/images/r_arrow.gif:
 
-2003-12-18 12:04  kmorrison
+	Initializing project.
+
+2003-12-18  kmorrison
 
 	* retrospect/locale/: en_US/LC_MESSAGES/messages.mo,
 	  en_US/LC_MESSAGES/messages.po, es_ES/LC_MESSAGES/messages.mo,
-	  es_ES/LC_MESSAGES/messages.po: Initializing project.
+	  es_ES/LC_MESSAGES/messages.po:
 
-2003-12-18 11:59  kmorrison
+	Initializing project.
+
+2003-12-18  kmorrison
 
 	* retrospect/libraries/fpdf/: fpdf.php, font/courier.php,
 	  font/helvetica.php, font/helveticab.php, font/helveticabi.php,
@@ -482,16 +591,19 @@
 	  font/makefont/iso-8859-2.map, font/makefont/iso-8859-4.map,
 	  font/makefont/iso-8859-5.map, font/makefont/iso-8859-7.map,
 	  font/makefont/iso-8859-9.map, font/makefont/koi8-r.map,
-	  font/makefont/makefont.php: Initializing project.
+	  font/makefont/makefont.php:
 
-2003-12-18 11:55  kmorrison
+	Initializing project.
+
+2003-12-18  kmorrison
 
 	* retrospect/: docs/GPL.txt, docs/README.txt, install/index.php,
 	  install/install.class.php, install/install.php,
 	  install/install.sql, install/install2.php, install/install3.php:
-	  Initializing project.
 
-2003-12-18 11:50  kmorrison
+	Initializing project.
+
+2003-12-18  kmorrison
 
 	* retrospect/: administration/admin.php,
 	  administration/auth.class.php, administration/db_edit_indiv.php,
@@ -541,6 +653,7 @@
 	  core/f_compatibility.php, core/f_database.php,
 	  core/f_datetime.php, core/f_dummy.php, core/f_language.php,
 	  core/f_report.php, core/genealogy.class.php,
-	  core/options.class.php, core/theme.class.php: Initializing
-	  project.
+	  core/options.class.php, core/theme.class.php:
+
+	Initializing project.
 
