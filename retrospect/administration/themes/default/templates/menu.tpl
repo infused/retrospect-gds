@@ -17,7 +17,7 @@ var myMenu =
 	],
 	_cmSplit,
 	[null, 'Media', null, null, 'Media',   // a folder item
-			['<img src="{$THEME_URL}js/ThemeOffice/content.png" />', 'Media Manager', 'url', null, 'Media Manager']
+			['<img src="{$THEME_URL}js/ThemeOffice/content.png" />', 'Media Manager', '{$PHP_SELF}', null, 'Media Manager']
 	]
 ];
 --></script>
