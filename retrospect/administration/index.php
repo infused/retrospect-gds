@@ -34,7 +34,7 @@
 	define( '_RGDS_ADMIN', 1 );
 	
 	# Turn off error reporting
-	error_reporting(E_ALL);
+	error_reporting(0);
 
 	# Start or continue a session
 	session_start();
