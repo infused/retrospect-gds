@@ -35,10 +35,17 @@ function MM_setTextOfTextfield(objName,x,newText) { //v3.0
 <div id="content">
 	<div id="utils">
 		{if $CURRENT_PAGE == $PHP_SELF}
-			<a href="{$CURRENT_PAGE}?print=y" target="_blank"><img src="{$THEME_URL}images/printbutton.gif" border="0" alt="{php}t("Print"){/php}" /></a>
+			<a href="{$CURRENT_PAGE}?print=y" target="_blank">
+				<img src="{$THEME_URL}images/printbutton.gif" border="0" alt="{php}t("Print"){/php}" />
+			</a>
 		{else}
-			<a href="{$CURRENT_PAGE}&print=y" target="_blank"><img src="{$THEME_URL}images/printbutton.gif" border="0" alt="{php}t("Print"){/php}" /></a>
+			<a href="{$CURRENT_PAGE}&print=y" target="_blank">
+				<img src="{$THEME_URL}images/printbutton.gif" border="0" alt="{php}t("Print"){/php}" />
+			</a>
 		{/if}
+		<a href="{$PHP_SELF}?m=emailthis&ln={$TRACKBACK_ENCODED}">
+			<img src="{$THEME_URL}images/emailbutton.gif" border="0" alt="{php}t("Email"){/php}" />
+		</a>
 	</div>
 	{include file="$module.tpl"}
 </div>

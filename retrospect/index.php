@@ -48,6 +48,14 @@
 	# Store the current url w/query string
 	$cp = (empty($_SERVER['QUERY_STRING'])) ? $_SERVER['PHP_SELF'] : $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
 	$smarty->assign('CURRENT_PAGE', $cp);
+	
+	$trackback_encoded = urlencode(base64_encode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']));
+	$smarty->assign('TRACKBACK_ENCODED', $trackback_encoded);
+	
+	//$decoded = base64_decode(urldecode($trackback_encoded));
+	//echo $trackback_encoded.'<br>';
+	//echo $decoded.'<br>';
+	
 
 	# Make sure a valid module is set or get the default page
 	$module = isset($_GET['m']) ? $_GET['m'] : $options->GetOption('default_page');
@@ -59,8 +67,9 @@
 	$smarty->assign('PHP_SELF', $_SERVER['PHP_SELF']);
 	$smarty->assign('BASE_URL', BASE_URL);
 	$smarty->assign('THEME_URL', BASE_URL.'/themes/'.$g_theme.'/');
-	$smarty->assign('lang_names', $lang_names);
-	$smarty->assign('lang_codes', $lang_codes);
+	$smarty->assign('allow_lang_change', $options->GetOption('allow_lang_change'));
+	if (isset($lang_names)) $smarty->assign('lang_names', $lang_names);
+	if (isset($lang_codes)) $smarty->assign('lang_codes', $lang_codes);
 	$smarty->assign('lang', $_SESSION['lang']);
 	if (isset($_GET['print']) AND $_GET['print'] == strtolower('y')) {
 		$smarty->display('index_printable.tpl');

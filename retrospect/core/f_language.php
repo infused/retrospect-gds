@@ -69,11 +69,9 @@
 	* @return array 
 	*/
 	function lang_get_langs() {
-		global $db, $options;
-		if ($options->GetOption('allow_lang_change') == 1) {
-			$sql = "SELECT lang_name, lang_code FROM ".TBL_LANG;
-			return $db->GetAll($sql);
-		}
+		global $db;
+		$sql = "SELECT lang_name, lang_code FROM ".TBL_LANG;
+		return $db->GetAll($sql);
 	}
 	
 	/**
