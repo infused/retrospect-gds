@@ -77,15 +77,11 @@
 		include(Theme::getPage($g_theme, 'nav'));
 	}
 	unset($o);
-
-  # pad content div so that footer is below chart
-	echo '<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />';
-	echo '<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />';
-	echo '<br /><br /><br /><br /><br /><br /><br /><br />';	
+	echo '<div class="tab-page">';
 	
 	# chart (individual boxes)
 	if (! isset($g_node_strings[1])) { $g_node_strings[1] = ''; }
-	echo '<div class="pedbox" id="Person1" style="position:absolute; width:150px; height:60px; z-index:3; left: 230px; top: 387px; background-color: #CCCCCC; padding: 0px 2px 0px 2px; overflow: hidden;">'.$g_node_strings[1].'</div>';
+	echo '<div class="pedbox" id="Person1" style="position:absolute; width:150px; height:60px; z-index:3; left: 240px; top: 387px; background-color: #CCCCCC; padding: 0px 2px 0px 2px; overflow: hidden;">'.$g_node_strings[1].'</div>';
 	if (! isset($g_node_strings[2])) { $g_node_strings[2] = ''; }
 	echo '<div class="pedbox" id="Person2" style="position:absolute; width:150px; height:60px; z-index:4; left: 370px; top: 262px; background-color: #CCCCCC; padding: 0px 2px 0px 2px; overflow: hidden;">'.$g_node_strings[2].'</div>';
 	if (! isset($g_node_strings[3])) { $g_node_strings[3] = ''; }
@@ -116,9 +112,9 @@
 	echo '<div class="pedbox" id="Person15" style="position:absolute; width:150px; height:60px; z-index:17; left: 690px; top: 620px; background-color: #CCCCCC; padding: 0px 2px 0px 2px; overflow: hidden;">'.$g_node_strings[15].'</div>';
 
 	# chart (connecting lines)	
-	echo '<div id="Lines1" style="position:absolute; width:200px; height:115px; z-index:1; left: 300px; top: 293px; border-top: 2px solid #CCCCCC; border-left: 2px solid #CCCCCC;"></div>';
+	echo '<div id="Lines1" style="position:absolute; width:200px; height:115px; z-index:1; left: 310px; top: 293px; border-top: 2px solid #CCCCCC; border-left: 2px solid #CCCCCC;"></div>';
 	echo '<div id="Lines2" style="position:absolute; width:200px; height:134px; z-index:1; left: 440px; top: 226px; border-top: 2px solid #CCCCCC; border-bottom: 2px solid #CCCCCC; border-left: 2px solid #CCCCCC;"></div>';
-	echo '<div id="Lines3" style="position:absolute; width:200px; height:115px; z-index:2; left: 300px; top: 440px; border-bottom: 2px solid #CCCCCC; border-left: 2px solid #CCCCCC;"></div>';
+	echo '<div id="Lines3" style="position:absolute; width:200px; height:115px; z-index:2; left: 310px; top: 440px; border-bottom: 2px solid #CCCCCC; border-left: 2px solid #CCCCCC;"></div>';
   echo '<div id="Lines4" style="position:absolute; width:200px; height:134px; z-index:2; left: 440px; top: 487px; border-top: 2px solid #CCCCCC; border-bottom: 2px solid #CCCCCC; border-left: 2px solid #CCCCCC;"></div>';
   echo '<div id="Lines5" style="position:absolute; width:200px; height:80px; z-index:3; left: 603px; top: 187px; border-top: 2px solid #CCCCCC; border-bottom: 2px solid #CCCCCC; border-left: 2px solid #CCCCCC;"></div>';
 	echo '<div id="Lines6" style="position:absolute; width:200px; height:80px; z-index:3; left: 603px; top: 317px; border-top: 2px solid #CCCCCC; border-bottom: 2px solid #CCCCCC; border-left: 2px solid #CCCCCC;"></div>';
@@ -163,5 +159,6 @@
 		if (isset($g_node_parents[15]) and $g_node_parents[15] === true) { 
 			echo '<a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&indiv='.$g_node_indkey[15].'"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0"></a>';
 		}
+	echo '</div>';
 	echo '</div>';
 ?>

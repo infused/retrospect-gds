@@ -62,6 +62,7 @@
 	
 	# search form
 	if ($submitted == false) {
+		echo '<div class="tab-page">';
 		echo '<form name="form_search" method="get" action="'.$_SERVER['PHP_SELF'].'">';
 		echo '<input name="option" type="hidden" value="search">';
 		echo '<table border="0" cellspacing="2" cellpadding="2">';
@@ -98,12 +99,12 @@
 		echo '</tr>';
 		echo '</table>';
 		echo '</form>';
-		echo '<br /><br /><br /><br /><br /><br /><br />';
-		echo '<br /><br /><br /><br /><br /><br /><br />';
+		echo '</div>';
 	}
 	
 	# show results
 	else {
+		echo '<div class="tab-page">';
 		# give error if no search parameters
 		if ($gname == null and $sname == null) {
 			echo '<p class="text">'._("No search parameters were specified.").'</p>';
@@ -143,6 +144,7 @@
 				echo '<p class="text">'._("No matching records were found.").'</p>';
 			}
 		}
+		echo '</div>';
 	}
 
 ?>

@@ -33,11 +33,13 @@
 	$g_title = sprintf(_("Multimedia for %s"), $o->name);
 	
 	# name and menu
-	$g_content = '<p class="content-title">'.$o->name;
-	if (isset($o->title) and $o->title != '') { $g_content .= ', '.$o->title; }
-	$g_content .= '</p>';
+	echo '<p class="content-title">'.$o->name;
+	if (isset($o->title) and $o->title != '') { echo ', '.$o->title; }
+	echo '</p>';
 	if ($print === false) {
 		include(Theme::getPage($g_theme, 'nav'));
 	}
-	$g_content .= '<p><b>'._("This feature has not been implemented yet.").'</b></p>';
+	echo '<div class="tab-page">';
+	echo '<p><b>'._("This feature has not been implemented yet.").'</b></p>';
+	echo '</div>';
 ?>

@@ -46,7 +46,8 @@
 		if ($print === false) {
 			include(Theme::getPage($g_theme, 'nav'));
 		}
-		echo '<p class="content-subtitle">'._("Ahnentafel Report").'</p>';
+		
+		echo '<div class="tab-page">';
 		
 		# family reports
 		echo '<p class="content-subtitle">'._("Family Reports").'</p>';
@@ -82,5 +83,7 @@
 		echo '<td><input name="" type="submit" class="text" value="'._("Apply").'" /></td>';
 		echo '</tr></table>';
 		echo '</form>';
+		
+		echo '</div>';
 	}
 ?>

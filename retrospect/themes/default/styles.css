@@ -175,26 +175,30 @@ input.textbox {
 }
 .tab-page {
 	width: 100%;
+	height: 550px;
 	margin: 0px;
 	padding: 10px;
 	background-color: #F9F9F9;
 	border-width: 1px;
-	border-color: #999999;
+	border-color: #CCCCCC;
 	border-bottom-style: solid;
 	border-left-style: solid;
 	border-right-style: solid;
 }
 .tab-row {
 	font: 8pt Verdana, Arial, Helvetica, sans-serif;
-	background-color: #EEEEEE;
 	text-align: center;
 	white-space: nowrap;
+	border-collapse: collapse;
 }
 .tab {
+	background-color: #EEEEEE;
 	border-width: 1px;	
-	border-color: #999999;
-	border-bottom-style: solid;
+	border-color: #CCCCCC;
 	border-right-style: solid;
+	border-top-style: solid;
+	border-left-style: solid;
+	border-bottom-style: solid;
 	text-align: center;
 	white-space: nowrap;
 	padding: 3px 5px;
@@ -202,18 +206,19 @@ input.textbox {
 .tab-selected {
 	padding: 3px 5px;
 	font-weight: bold;
-	background-color: white;
+	background-color: F9F9F9;
+	border-width: 1px;
+	border-color: #CCCCCC;
 	border-bottom-style: none;
 	border-top-style: solid;
 	border-right-style: solid;
+	border-left-style: solid;
 	text-align: center;
 	white-space: nowrap;
-	border-width: 1px;
-	border-color: #999999;
 }
 .tab-last {
 	border-width: 1px;	
-	border-color: #999999;
+	border-color: #CCCCCC;
 	border-bottom-style: solid;
 	width: 100%;
 }

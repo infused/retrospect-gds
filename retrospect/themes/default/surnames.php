@@ -88,6 +88,7 @@
 		$max_cols = 4;
 		$max_rows = ceil($rs->RecordCount() / $max_cols);
 		
+		echo '<div class="tab-page">';
 		echo '<p class="text">'._("Number of surnames listed").': '.$rs->RecordCount().'</p>';
 		echo '<table border="0" cellpadding="0" cellspacing="0">';
 		echo '<tr><td class="text" width="200" valign="top">';
@@ -102,6 +103,7 @@
 			if ($count % $max_rows == 0) { echo '</td><td class="text" width="200" valign="top">'; }
 		}
 		echo '</td></tr></table>';
+		echo '</div>';
 }
 	
 	else {
@@ -128,6 +130,7 @@
 		$sql = "SELECT indkey FROM $g_tbl_indiv WHERE surname = '$sn' ORDER BY givenname";
 		$rs = $db->Execute($sql);
 		
+		echo '<div class="tab-page">';
 		echo '<p class="text">'._("Number of individuals listed").': '.$rs->RecordCount().'</p>';
 		echo '<div class="text" style="width: 300px; float: left;"><b>'._("Name").'</b></div>';
 		echo '<div class="text" style="width: 150px; float: left;"><b>'._("Birth").'</b></div>';
@@ -140,5 +143,6 @@
 			echo '<div class="text" style="width: 150px; float: left; height: 10pt; overflow:hidden;">'.$o->birth->date.'</div>';
 			echo '<div class="text" style="width: 150px; height: 10pt; overflow:hidden;">'.$o->death->date.'</div>';
 		}
+		echo '</div>';
 	}
 ?>
