@@ -30,6 +30,31 @@
 			Auth::ToggleEnabled($id);
 		}
 	}
+	# Process tasks
+	if (isset($_POST['Submit'])) {
+		$task = $_POST['task'];
+		$selected = $_POST['selectitem'];
+		if ($task == 'delete') {
+			foreach ($selected as $id) {
+				if ($id != '1') {
+					$sql = 'DELETE FROM '.TBL_USER.' WHERE id='.$db->Qstr($id);
+					$db->Execute($sql);
+				}
+			}
+		} elseif ($task == 'enable') {
+			foreach ($selected as $id) {
+				if ($id != '1') {
+					Auth::Enable($id);
+				}
+			}
+		} elseif ($task == 'disable') {
+			foreach ($selected as $id) {
+				if ($id != '1') {
+					Auth::Disable($id);
+				}
+			}
+		}
+	}
 	
 	$sql = 'SELECT * from '.TBL_USER;
 	$users = $db->GetAll($sql);

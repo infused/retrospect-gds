@@ -1,3 +1,4 @@
+<form action="{$PHP_SELF}?m=usermgr" method="post">
 <div class="content-title">User Manager</div>
 <table class="tab-row" cellpadding="0" cellspacing="0">
 	<tr>
@@ -21,7 +22,7 @@
 		{foreach from=$users item="user"}
 		<tr>
 			<td class="list_item" width="25">
-				<input name="" type="checkbox" class="checkbox" value="">
+				<input name="selectitem[]" type="checkbox" class="checkbox" value="{$user.id}">
 			</td>
 			<td class="list_item" nowrap="nowrap"><a href="{$PHP_SELF}?m=useredit&id={$user.id}">{$user.fullname}</a></td>
 			<td class="list_item" nowrap="nowrap">{$user.uid}</td>
@@ -41,7 +42,6 @@
 		{/foreach}
 	</table>
 </div>
-<form action="{$PHP_SELF}" method="post">
 <table cellpadding="5" cellspacing="0">
 	<tr>
 		<td valign="middle">

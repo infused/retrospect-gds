@@ -63,6 +63,7 @@ class Auth {
 			return false;
 		} else {
 			$row = $rs->FetchRow();
+			if ($row['enabled'] == '0') return false;
 			$s_uid = isset($_SESSION['uid']) ? $_SESSION['uid'] : null;
 			$s_pwd = isset($_SESSION['pwd']) ? $_SESSION['pwd'] : null;
 			if ($s_uid != $uid and $s_pwd != $pwd) {
@@ -133,14 +134,30 @@ class Auth {
 	}
 	
 	function ToggleEnabled($p_id) {
-		global $db, $smarty;
+		global $db;
 		$sql = "SELECT * FROM ".TBL_USER." WHERE id='{$p_id}'";
 		$row = $db->GetRow($sql);
 		$enabled = $row['enabled'] === '1' ? '0' : '1';
 		$sql = "UPDATE ".TBL_USER." SET enabled='{$enabled}' WHERE id='{$p_id}'";
-		$smarty->assign('enabled', $enabled);
 		if ($db->Execute($sql)) return true;
 		else return false;
 	}
+	
+	function Enable($p_id) {
+		global $db;
+		$id = $db->Qstr($p_id);
+		$enabled = $db->Qstr('1');
+		$sql = 'UPDATE '.TBL_USER.' SET enabled='.$enabled.' WHERE id='.$id;
+		$db->Execute($sql);
+	}
+	
+	function Disable($p_id) {
+		global $db;
+		$id = $db->Qstr($p_id);
+		$enabled = $db->Qstr('0');
+		$sql = 'UPDATE '.TBL_USER.' SET enabled='.$enabled.' WHERE id='.$id;
+		$db->Execute($sql);
+	}
+
 }
 ?>
