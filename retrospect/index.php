@@ -18,13 +18,13 @@
 	* Location of core files
 	* @global string
 	*/
-	define('_CORE', ROOT_PATH.'/core/');	
+	define('CORE_PATH', ROOT_PATH.'/core/');	
 	
 	/** 
 	* Location of library files
 	* @global string
 	*/
-	define('_LIB', ROOT_PATH.'/libraries/');
+	define('LIB_PATH', ROOT_PATH.'/libraries/');
 	
 	/**
 	* Current url w/query string
@@ -36,7 +36,7 @@
 	* Require core.php
 	* @access public
 	*/
-	require_once(_CORE.'core.php');
+	require_once(CORE_PATH.'core.php');
 
 	$g_option = isset($_GET['option']) ? $_GET['option'] : $g_opts->default_page;
 	

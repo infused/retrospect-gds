@@ -44,7 +44,7 @@
 	* Require datetime functions.
 	* Used only during development
 	*/
-	require_once(_CORE.'f_datetime.php');
+	require_once(CORE_PATH.'f_datetime.php');
 	$start =  time_get_micro();
 	
 	# Turn on error reporting
@@ -62,43 +62,43 @@
 	* If a development configuration file exists,
 	* it will be used instead of the default file.
 	*/
-	if (file_exists(_CORE.'config-dev.php')) {
-		require_once(_CORE.'config-dev.php');
+	if (file_exists(CORE_PATH.'config-dev.php')) {
+		require_once(CORE_PATH.'config-dev.php');
 	}
 	else {
-		require_once(_CORE.'config.php');
+		require_once(CORE_PATH.'config.php');
 	}
 
 	/** 
 	* Require PHP compatibility functions
 	*/
-	require_once(_CORE.'f_compatibility.php');
+	require_once(CORE_PATH.'f_compatibility.php');
 	
 	/**
 	* Require database functions and establish connection
 	*/
-	require_once(_CORE.'f_database.php');
+	require_once(CORE_PATH.'f_database.php');
 	db_connect($g_db_host, $g_db_port, $g_db_user, $g_db_pass, $g_db);
 
 	/**
 	* Require options file and instantiate options
 	*/
-	require_once(_CORE.'options.class.php');
+	require_once(CORE_PATH.'options.class.php');
 	$g_opts = new Options();
 
 	/**
 	* Require language functions and initialize gettext
 	*/
-	require_once(_CORE.'f_language.php');
+	require_once(CORE_PATH.'f_language.php');
 	lang_init_gettext();
 	
 	/**
 	* Require genealogy classes
 	*/
-	require_once(_CORE.'genealogy.class.php');
+	require_once(CORE_PATH.'genealogy.class.php');
 	
 	/**
 	* Require theme functions
 	*/
-	require_once(_CORE.'theme.class.php');
+	require_once(CORE_PATH.'theme.class.php');
 ?>

@@ -20,9 +20,9 @@
  *
  */
 
-	require_once(_CORE.'core.php');
-	require_once(_CORE.'atree.class.php');
-	require_once(_LIB.'fpdf/fpdf.php'); 
+	require_once(CORE_PATH.'core.php');
+	require_once(CORE_PATH.'atree.class.php');
+	require_once(LIB_PATH.'fpdf/fpdf.php'); 
 	
 	# process expected get/post variables
 	$print = isset($_GET['print']) ? true : false;

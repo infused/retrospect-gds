@@ -20,9 +20,9 @@
  *
  */
 	
-	require_once(_LIB.'fpdf/fpdf.php'); 
-	require_once(_CORE.'atree.class.php');
-	require_once(_CORE.'f_report.php');
+	require_once(LIB_PATH.'fpdf/fpdf.php'); 
+	require_once(CORE_PATH.'atree.class.php');
+	require_once(CORE_PATH.'f_report.php');
 	
 	$font = 'Helvetica';
 	

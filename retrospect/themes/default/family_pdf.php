@@ -20,7 +20,7 @@
  *
  */
  
-	require('fpdf/fpdf.php'); 
+	require(LIB_PATH.'fpdf/fpdf.php'); 
 
 	# process expected get/post variables
 	$g_indiv = isset($_GET['indiv']) ? $_GET['indiv'] : exit;
