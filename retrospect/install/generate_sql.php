@@ -31,7 +31,6 @@
 		$db = NewAdoCOnnection($db_type);
 		$schema = new adoSchema( $db );
 		$schema->setPrefix( $tbl_prefix );
-		$sql = $schema->ParseSchema('create.xml');
 		if ($sql = $schema->ParseSchema('create.xml')) {
 			return $sql;
 		} else {
