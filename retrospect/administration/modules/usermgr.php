@@ -23,7 +23,7 @@
 	
 	$smarty->assign('page_title', 'Retrospect-GDS Administration');
 	
-	# Process tasks
+	# The form was posted, so let's process the request
 	if (isset($_POST['Submit'])) {
 		$task = $_POST['task'];
 		$selected = $_POST['selectitem'];
@@ -60,6 +60,7 @@
 		}
 	}
 	
+	# Build a list of users
 	$sql  = 'SELECT * from '.TBL_USER.' ';
 	$sql .= 'ORDER BY id';
 	$users = $db->GetAll($sql);
