@@ -37,10 +37,11 @@
 	# content title and psuedo menu
 	echo '<p class="content-title">'._("Search").'</p>';
 	if ($print === false) {
-		echo '<div class="tab-row">';
-		echo '<div class="tab ';
+		echo '<table class="tab-row" cellpadding="0" cellspacing="0">';
+		echo '<tr>';
+		echo '<td class="tab';
 		if ($submitted == false) { 
-			echo 'selected';
+			echo '-selected';
 			echo '">'._("Search").'</div>';
 		}
 		else {
@@ -48,13 +49,15 @@
 			if ($gname != null) { $search_params .= '&gname='.$gname; }
 			if ($sname != null) { $search_params .= '&sname='.$sname; }
 			if ($soundex == true) { $search_params .= '&soundex=1'; }
-			echo '"><a href="'.$_SERVER['PHP_SELF'].$search_params.'">'._("Search").'</a></div>';
+			echo '"><a href="'.$_SERVER['PHP_SELF'].$search_params.'">'._("Search").'</a></td>';
 
 		}
-		echo '<div class="tab ';
-		if ($submitted == true) echo 'selected';
-		echo '">'._("Results").'</div>';
-		echo '</div>';
+		echo '<td class="tab';
+		if ($submitted == true) echo '-selected';
+		echo '">'._("Results").'</td>';
+		echo '<td class="tab-last">&nbsp;</td>';
+		echo '</tr>';
+		echo '</table>';
 	}
 	
 	# search form

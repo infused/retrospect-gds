@@ -190,19 +190,19 @@ input.textbox {
 	border-right-style: solid;
 	text-align: center;
 	white-space: nowrap;
-	padding: 5px;
+	padding: 3px 5px;
 }
 .tab-selected {
-	padding: 5px;
+	padding: 3px 5px;
 	font-weight: bold;
 	background-color: white;
-	border-color: #999999;
-	border-width: 1px;	
 	border-bottom-style: none;
 	border-top-style: solid;
 	border-right-style: solid;
 	text-align: center;
 	white-space: nowrap;
+	border-width: 1px;
+	border-color: #999999;
 }
 .tab-last {
 	border-width: 1px;	

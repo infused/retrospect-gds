@@ -28,7 +28,7 @@
 	}
 	
 	function display_col2($p_string) {
-		$out = '<div class="col2-3">'.number_format($p_string).'</div>';
+		$out = '<div class="col2-2">'.number_format($p_string).'</div>';
 		return $out;
 	}
 	
