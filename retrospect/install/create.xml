@@ -93,9 +93,15 @@
 		<field name="spouse2" type="C" size="20">
 			<notnull />
 		</field>
-		<field name="beginstatus" type="C" size="128" />
-		<field name="endstatus" type="C" size="128" />
-		<field name="notekey" type="C" size="20" />	
+		<field name="beginstatus" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="endstatus" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="notekey" type="C" size="20">
+			<notnull />
+		</field>
 	</table>
 	<index name="spouse1" table="family">
 		<col>spouse1</col>
