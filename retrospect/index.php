@@ -54,12 +54,11 @@
 	define('CURRENT_PAGE', $current_page);
 
 	# Make sure a valid module is set or get the default page
-	$g_option = isset($_GET['option']) ? $_GET['option'] : $options->GetOption('default_page');
+	$module = isset($_GET['m']) ? $_GET['m'] : $options->GetOption('default_page');
 	
 	# Load the option's script
-	require_once(MODULE_PATH.$g_option.'.php');
-
-	$smarty->assign('option', $g_option);
+	require_once(MODULE_PATH.$module.'.php');
+	$smarty->assign('module', $module);
 	$smarty->assign('meta_keywords', implode(', ', $keywords));
 	$smarty->assign('PHP_SELF', $_SERVER['PHP_SELF']);
 	$smarty->assign('CURRENT_PAGE', CURRENT_PAGE);

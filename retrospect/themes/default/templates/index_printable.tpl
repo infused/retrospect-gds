@@ -12,7 +12,7 @@
 	<div id="utils">
 		<a href="#" onclick="window.print(); return false;"><img src="themes/default/images/printbutton.gif" border="0" alt="{translate s="Print"}" /></a>
 	</div>
-	{include file = "$option.tpl"}
+	{include file = "$module.tpl"}
 </div>
 <div id="footer">
 	<a href="http://www.infused-solutions.com/retrospect/">Retrospect-GDS v{$RGDS_VERSION}</a> {$RGDS_COPYRIGHT}

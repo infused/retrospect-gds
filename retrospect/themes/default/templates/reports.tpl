@@ -10,12 +10,12 @@
 <div class="tab-page">
 	<!-- Begin family reports -->
 	<p class="content-subtitle">{php}t("Family Reports"){/php}</p>
-	<a href="{$php_self}?option=family_pdf&amp;id={$indiv->indkey}">{php}t("Family PDF"){/php}</a>
+	<a href="{$php_self}?m=family_pdf&amp;id={$indiv->indkey}">{php}t("Family PDF"){/php}</a>
 	<!-- End family reports -->
 	
 	<!-- Begin pedigree reports -->
 	<p class="content-subtitle">{php}t("Pedigree Reports"){/php}</p>
-	<a href="{$php_self}?option=pedigree_pdf&amp;id={$indiv->indkey}">{php}t("Pedigree PDF"){/php}</a>
+	<a href="{$php_self}?m=pedigree_pdf&amp;id={$indiv->indkey}">{php}t("Pedigree PDF"){/php}</a>
 	<!-- End pedigree reports -->
 	
 	<!-- Begin ancestor reports -->
@@ -24,7 +24,7 @@
 		<table border="0" cellpadding="0" cellspacing="0">
 			<tr>
 				<td width="125">
-					<select name="option" class="listbox">
+					<select name="m" class="listbox">
 						<option value="ahnentafel">{php}t("Ahnentafel"){/php}</option>
 						<option value="ahnentafel_pdf">{php}t("Ahnentafel PDF"){/php}</option>
 					</select>
@@ -47,7 +47,7 @@
 		<table border="0" cellpadding="0" cellspacing="0">
 			<tr>
 				<td width="125">
-					<select name="option" class="listbox">
+					<select name="m" class="listbox">
 						<option value="descendant">{php}t("Descendant"){/php}</option>
 						<option value="descendant_pdf">{php}t("Descendant PDF"){/php}</option>
 					</select>

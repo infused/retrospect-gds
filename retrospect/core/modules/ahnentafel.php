@@ -86,7 +86,7 @@
 		$individual['generation'] = $g_generation;
 		$individual['generation_title'] = sprintf(gtc("Generation %s"), $g_generation);
 		$individual['ns_number'] = $p_node->ns_number;
-		$individual['name_link'] = '<a href="'.$_SERVER['PHP_SELF'].'?option=family&amp;id='.$p_node->indkey.'">'.$p_node->name.'</a>';
+		$individual['name_link'] = '<a href="'.$_SERVER['PHP_SELF'].'?m=family&amp;id='.$p_node->indkey.'">'.$p_node->name.'</a>';
 		$individual['parent_sentence'] = get_parents_sentence($p_node, $father, $mother);
 		$individual['birth_sentence'] = get_birth_sentence($p_node);
 		$individual['marriage_sentence'] = get_marriage_sentences($p_node);

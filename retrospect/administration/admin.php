@@ -66,9 +66,9 @@
   <tr> 
     <td align="left" valign="top">
 			<?php 
-				$g_option = (isset($_GET['option'])) ? $_GET['option'] : 'status';
-				if (file_exists($g_option.'.php')) {
-					include($g_option.'.php');
+				$module = (isset($_GET['option'])) ? $_GET['option'] : 'status';
+				if (file_exists($module.'.php')) {
+					include($module.'.php');
 				}
 			?> 
 		</td> 

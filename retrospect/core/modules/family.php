@@ -51,7 +51,7 @@
 	# create father link
 	if ($o->father_indkey) { 
 		$f = new person($o->father_indkey, 3); 
-		$params = array('option'=>'family','id'=>$f->indkey);
+		$params = array('m'=>'family','id'=>$f->indkey);
 		$smarty->assign('father_link', Theme::BuildLink($params, $f->name));
 		keyword_push($f->name);
 		unset($f, $params);
@@ -60,7 +60,7 @@
 	# create mother link
 	if ($o->mother_indkey) { 
 		$m = new person($o->mother_indkey, 3); 
-		$params = array('option'=>'family','id'=>$m->indkey);
+		$params = array('m'=>'family','id'=>$m->indkey);
 		$smarty->assign('mother_link', Theme::BuildLink($params, $m->name));
 		keyword_push($m->name);
 		unset($m, $params);
@@ -97,7 +97,7 @@
 			}
 		}
 		# spouse
-		$params = array('option'=>'family','id'=>$s->indkey); 
+		$params = array('m'=>'family','id'=>$s->indkey); 
 		$marriages[$i]['spouse'] = $s;
 		$marriages[$i]['spouse_link'] = Theme::BuildLink($params, $s->name);
 		$marriages[$i]['spouse_birth'] = $s->birth->date;
@@ -109,7 +109,7 @@
 			foreach ($m->children as $child_indkey) {
 				$c = new person($child_indkey, 3);
 				keyword_push($c->name);
-				$params = array('option'=>'family','id'=>$c->indkey);
+				$params = array('m'=>'family','id'=>$c->indkey);
 				$children[] = array('child_link'=>Theme::BuildLink($params, $c->name), 'child'=>$c);
 			}
 			$marriages[$i]['children'] = $children;

@@ -38,42 +38,42 @@
 	<!-- Begin continuation links -->
 	{if $parents[8]}
 		<div class="ped-arrow" style="left: 840px; top: 165px;">
-			<a href="{$php_self}?option=pedigree&indiv={$individuals[8]->indkey}"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>
+			<a href="{$php_self}?m=pedigree&indiv={$individuals[8]->indkey}"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>
 		</div>
 	{/if}
 	{if $parents[9]}
 		<div class="ped-arrow" style="left: 840px; top: 230px;">
-			<a href="{$php_self}?option=pedigree&indiv={$individuals[9]->indkey}"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>
+			<a href="{$php_self}?m=pedigree&indiv={$individuals[9]->indkey}"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>
 		</div>
 	{/if}
 	{if $parents[10]}
 		<div class="ped-arrow" style="left: 840px; top: 295px;">
-			<a href="{$php_self}?option=pedigree&indiv={$individuals[10]->indkey}"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>
+			<a href="{$php_self}?m=pedigree&indiv={$individuals[10]->indkey}"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>
 		</div>
 	{/if}
 	{if $parents[11]}
 		<div class="ped-arrow" style="left: 840px; top: 360px;">
-			<a href="{$php_self}?option=pedigree&indiv={$individuals[11]->indkey}"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>
+			<a href="{$php_self}?m=pedigree&indiv={$individuals[11]->indkey}"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>
 		</div>
 	{/if}
 	{if $parents[12]}
 		<div class="ped-arrow" style="left: 840px; top: 425px;">
-			<a href="{$php_self}?option=pedigree&indiv={$individuals[12]->indkey}"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>
+			<a href="{$php_self}?m=pedigree&indiv={$individuals[12]->indkey}"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>
 		</div>
 	{/if}
 	{if $parents[13]}
 		<div class="ped-arrow" style="left: 840px; top: 490px;">
-			<a href="{$php_self}?option=pedigree&indiv={$individuals[13]->indkey}"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>
+			<a href="{$php_self}?m=pedigree&indiv={$individuals[13]->indkey}"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>
 		</div>
 	{/if}
 	{if $parents[14]}
 		<div class="ped-arrow" style="left: 840px; top: 555px;">
-			<a href="{$php_self}?option=pedigree&indiv={$individuals[14]->indkey}"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>
+			<a href="{$php_self}?m=pedigree&indiv={$individuals[14]->indkey}"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>
 		</div>
 	{/if}
 	{if $parents[15]}
 		<div class="ped-arrow" style="left: 840px; top: 620px;">
-			<a href="{$php_self}?option=pedigree&indiv={$individuals[15]->indkey}"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>
+			<a href="{$php_self}?m=pedigree&indiv={$individuals[15]->indkey}"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>
 		</div>
 	{/if}
 	<!-- End continuation links -->

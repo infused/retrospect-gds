@@ -40,7 +40,7 @@ function MM_setTextOfTextfield(objName,x,newText) { //v3.0
 			<a href="{$CURRENT_PAGE}&print=y" target="_blank"><img src="themes/default/images/printbutton.gif" border="0" alt="{php}t("Print"){/php}" /></a>
 		{/if}
 	</div>
-	{include file="$option.tpl"}
+	{include file="$module.tpl"}
 </div>
 <div id="footer">
 	<a href="http://www.infused-solutions.com/retrospect/">Retrospect-GDS v{$RGDS_VERSION}</a> {$RGDS_COPYRIGHT}

@@ -28,7 +28,7 @@
  */
 
 	# Ensure this file is being included by a parent file
-	defined( '_VALID_RGDS' ) or die( 'Direct access to this file is not allowed.' );y
+	defined( '_VALID_RGDS' ) or die( 'Direct access to this file is not allowed.' );
 
 /**
 * Represents an ancestor tree node
