@@ -38,6 +38,8 @@
  *
  */
 
+	$g_version = '1.2.0';
+	
 	# Turn on error reporting
 	error_reporting(E_ALL);	
 

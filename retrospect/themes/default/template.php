@@ -78,7 +78,7 @@ function MM_setTextOfTextfield(objName,x,newText) { //v3.0
 ?>
 </div>
 <div id="footer">
-	<a href="http://www.infused-solutions.com/retrospect" target="_blank">Retrospect-GDS</a> &copy; 2003 Keith Morrison, Infused Solutions<br />
+	<a href="http://www.infused-solutions.com/retrospect" target="_blank">Retrospect-GDS v<?php echo $g_version; ?></a> &copy;2003-2004 Keith Morrison, Infused Solutions<br />
  	<?php 
 		$end = time_get_micro();
 		$time = $end - $start;
