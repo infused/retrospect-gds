@@ -27,14 +27,21 @@
   <tr> 
     <td align="left" valign="top" class="notification">
 			<?php
+				# Load the gedcom classes
 				require_once(CORE_PATH.'gedcom.class.php');
+				
+				# Set some variables
 				$gedcomdir = ROOT_PATH . '/../gedcom/';
+	
+				# Check if gedcom directory is writable
+				if (!is_writable($gedcomdir)) { 
+					echo _("The gedcom directory is not writable. Check your server configuration.");
+				}
+				
 				$gedcomfile = $gedcomdir.$_POST['selectedfile'];
 				$gedcom = new GedcomParser();
 				$gedcom->Open($gedcomfile);
 				$gedcom->GetStatistics();
-				
-				$gedcom->Close();
 			?>
 			&nbsp;
 		</td> 
@@ -64,6 +71,23 @@
         </tr>
         <tr>
           <td valign="middle" class="text">Number of notes: <?php echo number_format($gedcom->note_count); ?></td>
+        </tr>
+        <tr>
+          <td valign="middle" class="text">Number of orphaned notes: <?php echo number_format($gedcom->onote_count); ?></td>
+        </tr>
+        <tr>
+          <td valign="middle" class="text">&nbsp;</td>
+        </tr>
+        <tr>
+          <td valign="middle" class="content-label">Locating individuals... </td>
+        </tr>
+        <tr>
+          <td valign="middle" class="text">
+						<?php
+							$gedcom->ParseGedcom();
+						?>
+						&nbsp;
+					</td>
         </tr> 
       </table></td> 
   </tr> 

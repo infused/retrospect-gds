@@ -22,16 +22,14 @@
  *
  */
  
-  # Define gedcom tags
-	define('TAG_INDI','INDI'); 	# Individual
-	define('TAG_FAM','FAM');   	# Family
-	define('TAG_NAME','NAME');	# Name
-	
 	# Define regular expressions
-	define('REG_INDI','^0 @[a-zA-Z0-9]*@ INDI'); 	# Beginning of Individual record
-	define('REG_FAM','^0 @[a-zA-Z0-9]*@ FAM');		# Beginning of Family record
-	define('REG_SOUR','^0 @[a-zA-Z0-9]*@ SOUR');	# Beginning of Source record
-	define('REG_NOTE','^0 @[a-zA-Z0-9]*@ NOTE');	# Beginning of Note record
+	define('REG_INDI','/^0 @(.+)@ INDI/'); 	# Beginning of Individual record
+	define('REG_FAM','/^0 @[a-zA-Z0-9]+@ FAM/');		# Beginning of Family record
+	define('REG_SOUR','/^0 @.+@ SOUR/');	# Beginning of Source record
+	define('REG_NOTE1','/^0 (@.+@) NOTE(.*)/');	# Note record
+	define('REG_NOTE2','/^[0-9]{1,2} NOTE [^@](.*)/');	# Alternate note record form
+	define('REG_NAME1','/^[1-9]{1,2} NAME (.*)(\/(.*)\/)(.*)?/');  # Name with surname enclosed in slashes
+	define('REG_NAME2','^[1-9]{1,2} NAME (.*)');  # Name with no surname
 	
 	/**
  	* GedcomParser class
@@ -50,14 +48,21 @@
 		var $family_count;		
 		var $source_count;
 		var $note_count;
+		var $onote_count;
 		
 		/**
 		* GedcomParser class constructor
 		* @access public
 		*/
 		function GedcomParser() {
+			if ($GLOBALS['profile'] == true) {
+				$GLOBALS['profiler']->startTimer('class_gedcomparser_constructor');
+			}
 			$this->errors = array();
 			$this->lasterror = false; 
+			if ($GLOBALS['profile'] == true) {
+				$GLOBALS['profiler']->stopTimer('class_gedcomparser_constructor');
+			}
 		}
 		
 		/**
@@ -105,23 +110,103 @@
 			$fcount = 0;
 			$scount = 0;
 			$ncount = 0;
+			$ocount = 0;
 			rewind($handle);
 			while (!feof($handle)) {
 				$line = fgets($handle);
-				if (ereg(REG_INDI, $line)) {
+				if (preg_match(REG_INDI, $line)) {
 					$icount++;
-				} elseif (ereg(REG_FAM, $line)) {
+				} elseif (preg_match(REG_FAM, $line)) {
 					$fcount++;
-				} elseif (ereg(REG_SOUR, $line)) {
+				} elseif (preg_match(REG_SOUR, $line)) {
 					$scount++;
-				} elseif (ereg(REG_NOTE, $line)) {
+				} elseif (preg_match(REG_NOTE1, $line)) {
 					$ncount++;
+				} elseif (preg_match(REG_NOTE2, $line)) {
+					$ocount++;
 				}
 			}
 			$this->individual_count = $icount;
 			$this->family_count = $fcount;
 			$this->source_count = $scount;
 			$this->note_count = $ncount;
+			$this->onote_count = $ocount;
+		}
+		
+		/**
+		* Parse the gedcom file
+		*/
+		function ParseGedcom() {
+			if ($GLOBALS['profile'] == true) {
+				$GLOBALS['profiler']->startTimer('class_GedcomParser_ParseGedcom');
+			}
+			$this->fsize = sprintf("%u", filesize($this->filename));
+			$this->lines = $this->_CountLines();
+			$icount = 0;
+			$fcount = 0;
+			$scount = 0;
+			$ncount = 0;
+			$ocount = 0;
+			rewind($this->fhandle);
+			while (!feof($this->fhandle)) {
+				$line = fgets($this->fhandle);
+				if (preg_match(REG_INDI, $line, $match)) {
+					$icount++;
+					$this->ParseIndividual($line, $match);
+				} elseif (preg_match(REG_FAM, $line)) {
+					$fcount++;
+				} elseif (preg_match(REG_SOUR, $line)) {
+					$scount++;
+				} elseif (preg_match(REG_NOTE1, $line)) {
+					$ncount++;
+				} elseif (preg_match(REG_NOTE2, $line)) {
+					$ocount++;
+				}
+			}
+			# update counts
+			$this->individual_count = $icount;
+			$this->family_count = $fcount;
+			$this->source_count = $scount;
+			$this->note_count = $ncount;
+			$this->onote_count = $ocount;
+			if ($GLOBALS['profile'] == true) {
+				$GLOBALS['profiler']->stopTimer('class_GedcomParser_ParseGedcom');
+			}
+		}
+		
+		/**
+		* Parse Individual
+		*/
+		function ParseIndividual($line, $match) {
+			if ($GLOBALS['profile'] == true) {
+				$GLOBALS['profiler']->startTimer('class_GedcomParser_ParseIndividual');
+			}
+			# init vars
+			$title = '';
+			$gname = '';
+			$sname = '';
+			
+			$indkey = $match[1];
+			# let's get the rest of the record
+			while (!feof($this->fhandle)) {
+				$offset = ftell($this->fhandle); // get offset so we can back up at end of record
+				$line = fgets($this->fhandle);
+				if (preg_match(REG_NAME1, $line, $match)) {  
+					$gname = $match[1];
+					if (isset($match[3])) { 
+						$gname .= ' '.$match[4];
+					}
+					$sname = $match[3];
+					echo $gname.' '.$sname.'<br>';
+				} elseif(ereg(REG_NAME2, $line, $match)) {
+						$gname = $match[1];
+						echo $gname.' '.$sname.'<br>';
+				}
+				
+			}
+			if ($GLOBALS['profile'] == true) {
+				$GLOBALS['profiler']->stopTimer('class_GedcomParser_ParseIndividual');
+			}
 		}
 		
 		/**
@@ -145,6 +230,11 @@
 			$this->lasterror = $message;
 			$this->errors[] = $message;
 		}
+		
+		function _IsXREF($text) {
+			return ereg('^@[a-zA-Z0-9]*@', $text);
+		}
+		
  	}
  
 ?>

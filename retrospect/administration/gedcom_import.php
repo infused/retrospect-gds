@@ -25,9 +25,16 @@
 <link href="styles.css" rel="stylesheet" type="text/css">
 <table width="100%"  border="0" cellpadding="0" cellspacing="5">
   <tr>
-    <td align="left" valign="top" class="notification"><?php 
+    <td align="left" valign="top" class="notification">
+			<?php 
 				# Set some variables
 				$gedcomdir = ROOT_PATH . '/../gedcom/';
+				
+				# Check if gedcom directory is writable
+				if (!is_writable($gedcomdir)) { 
+					echo _("The gedcom directory is not writable. Check your server configuration.");
+				}
+				
 				# Handle file uploads
 				if (isset($_POST['Upload'])) {
 					switch ($_FILES['file']['error']) {
@@ -44,8 +51,7 @@
 							echo _("The file is too large to upload.");
 							break;
 						case 0:
-							$uploaddir = ROOT_PATH . '/../gedcom/';
-							$uploadfile = $uploaddir.$_FILES['file']['name'];
+							$uploadfile = $gedcomdir.$_FILES['file']['name'];
 							# Check for valid file extension (no mime)
 							$valid_extensions = array('ged','zip');
 							$pathinfo = pathinfo($uploadfile);
@@ -55,7 +61,7 @@
 								break;
 							}
 							# Check if gedcom directory is writable
-							if (!is_writable($uploaddir)) { 
+							if (!is_writable($gedcomdir)) { 
 								echo _("The gedcom directory is not writable. Check your server configuration.");
 								break;
 							}
@@ -143,7 +149,7 @@
     <td align="left" valign="top" class="content-subtitle"><?php echo _("Import Gedcom"); ?>&nbsp;</td>
   </tr>
   <tr>
-    <td align="left" valign="top"><form action="<?php echo CURRENT_PAGE.'2'; ?>" method="post" enctype="multipart/form-data" name="gedcom_import_form1" id="gedcom_import_form1">
+    <td align="left" valign="top"><form action="<?php echo $_SERVER['PHP_SELF'].'?option=gedcom_import2'; ?>" method="post" enctype="multipart/form-data" name="gedcom_import_form1" id="gedcom_import_form1">
         <table width="100%"  border="0" cellpadding="2" cellspacing="0" bgcolor="#CCCCCC">
           <tr>
             <td colspan="5"><?php echo _("Select a gedcom file to begin the import process..."); ?></td>
