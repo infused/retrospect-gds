@@ -24,24 +24,7 @@
  * @package themes
  */
 class Theme {
-	
-	/**
-	* Loads a themed page
-	* @param string $p_theme Theme
-	* @param string $p_page Page Option
-	* @return string
-	*/
-	function getPage($p_theme, $p_page) {
-		$themed_page = 'themes/'.$p_theme.'/'.$p_page.'.php';
-		if (file_exists($themed_page)) { 
-			return $themed_page;
-		} else { 
-			$default_page = 'themes/default/'.$p_page.'.php';
-			if (file_exists($default_page)) return $default_page;
-			else die (sprintf("Could not find page: %s", $themed_page));
-		}
-	}
-	
+		
 	/**
 	* Returns arguaments used to call the page
 	* @param string $p_option

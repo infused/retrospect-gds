@@ -35,6 +35,7 @@
 	# Define all application paths
 	define('ROOT_PATH', dirname($_SERVER['PATH_TRANSLATED'])); # Path to root Retrospect-GDS directory
 	define('CORE_PATH', ROOT_PATH.'/core/'); # Path to core files
+	define('MODULE_PATH', CORE_PATH.'modules/'); # Path to module files
 	define('LIB_PATH', ROOT_PATH.'/libraries/'); # Path to 3rd party libraries
 	define('LOCALE_PATH', ROOT_PATH.'/locale/'); # Path to gettext locale files
 	define('FPDF_FONTPATH', LIB_PATH.'fpdf/font/'); # FPDF font path
@@ -51,11 +52,11 @@
 	$smarty->assign('CURRENT_PAGE', CURRENT_PAGE);
 	unset($current_page);
 
-	# Make sure a valid option is set or get the default page
+	# Make sure a valid module is set or get the default page
 	$g_option = isset($_GET['option']) ? $_GET['option'] : $options->GetOption('default_page');
 	
 	# Load the option's script
-	include(Theme::getPage($g_theme, $g_option));
+	require_once(MODULE_PATH.$g_option.'.php');
 
 	$smarty->assign('option', $g_option);
 	$smarty->assign('meta_keywords', implode(', ', $keywords));
