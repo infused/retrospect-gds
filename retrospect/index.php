@@ -38,7 +38,7 @@
 	define('THEME_PATH', ROOT_PATH.'/themes/'); 								# Path to themes
 	define('LIB_PATH', ROOT_PATH.'/libraries/'); 								# Path to 3rd party libraries
 	define('LOCALE_PATH', ROOT_PATH.'/locale/'); 								# Path to gettext locale files
-	define('BASE_URL', dirname($_SERVER['PHP_SELF']));
+	define('BASE_URL', dirname($_SERVER['PHP_SELF']) == '/' ? '' : dirname($_SERVER['PHP_SELF']) );
 
 	# Load the Restrospect-GDS core
 	@require_once(CORE_PATH.'core.php');
