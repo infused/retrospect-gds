@@ -110,6 +110,16 @@
 		}
 		$pdf->Cell(0, 5, $namestr);
 		
+		# print aka string
+		if (!empty($p_node->aka)) {
+			$pdf->Ln($linespace);
+			$pdf->SetFont($font, 'I', 10);
+			$pdf->Cell(0, 5, _("Aka").':');
+			$pdf->SetX($factcol);
+			$pdf->SetFont($font, '', 10);
+			$pdf->Cell(0, 5, $p_node->aka);
+		}
+		
 		# print gender string
 		$pdf->Ln($linespace);
 		$pdf->SetFont($font, 'I', 10);
