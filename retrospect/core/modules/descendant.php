@@ -28,8 +28,8 @@
 	require_once(CORE_PATH.'f_report.php');
 	
 	# process expected get/post variables
-	$g_indiv = isset($_GET['indiv']) ? $_GET['indiv'] : exit;
-	$g_max_gens = isset($_GET['max_gens']) ? $_GET['max_gens'] : 250;
+	$g_indiv = isset($_GET['id']) ? $_GET['id'] : exit;
+	$g_max_gens = isset($_GET['g']) ? $_GET['g'] : 250;
 	
 	# init other vars
 	$g_descendants = array();
@@ -77,7 +77,7 @@
 		}
 		$string .= "\n";
 		$string .= '<ol><li value="'.$p_node->ns_number.'">';
-		$string .= '<a href="'.$_SERVER['PHP_SELF'].'?option=family&amp;indiv='.$p_node->indkey.'">'.$p_node->name.'</a>';
+		$string .= '<a href="'.$_SERVER['PHP_SELF'].'?option=family&amp;id='.$p_node->indkey.'">'.$p_node->name.'</a>';
 		# display parents
 		$string .= get_parents_sentence($p_node, $father, $mother);
 		$string .= '<br />'."\n";
@@ -108,7 +108,7 @@
 							}
 						}
 					}
-					$child_nk = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?option=family&amp;indiv='.$child->indkey.'">'.$child->name.'</a>';
+					$child_nk = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?option=family&amp;id='.$child->indkey.'">'.$child->name.'</a>';
 					
 					if ($child->ns_number) {	
 						$string .= '<ol>';

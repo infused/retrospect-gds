@@ -29,7 +29,7 @@
 	$font = 'Helvetica';
 	
 	# process expected get/post variables
-	$g_indiv = isset($_GET['indiv']) ? $_GET['indiv'] : exit;
+	$g_indiv = isset($_GET['id']) ? $_GET['id'] : exit;
 	$g_max_gens = isset($_GET['max_gens']) ? $_GET['max_gens'] : 250;
 
 	# init other vars

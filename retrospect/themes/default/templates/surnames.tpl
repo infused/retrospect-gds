@@ -26,7 +26,7 @@
 		{foreach from=$individuals item=indiv}
 		<tr>
 			<td class="surname_col1">
-				<a href="{$php_self}?option=family&amp;indiv={$indiv->indkey}">{$indiv->sname}, {$indiv->gname}</a>
+				<a href="{$php_self}?option=family&amp;id={$indiv->indkey}">{$indiv->sname}, {$indiv->gname}</a>
 			</td>
 			<td class="surname_col2">{$indiv->birth->date}</td>
 			<td class="surname_col2">{$indiv->death->date}</td>

@@ -10,12 +10,12 @@
 <div class="tab-page">
 	<!-- Begin family reports -->
 	<p class="content-subtitle">{php}t("Family Reports"){/php}</p>
-	<a href="{$php_self}?option=family_pdf&amp;indiv={$indiv->indkey}">{php}t("Family PDF"){/php}</a>
+	<a href="{$php_self}?option=family_pdf&amp;id={$indiv->indkey}">{php}t("Family PDF"){/php}</a>
 	<!-- End family reports -->
 	
 	<!-- Begin pedigree reports -->
 	<p class="content-subtitle">{php}t("Pedigree Reports"){/php}</p>
-	<a href="{$php_self}?option=pedigree_pdf&amp;indiv={$indiv->indkey}">{php}t("Pedigree PDF"){/php}</a>
+	<a href="{$php_self}?option=pedigree_pdf&amp;id={$indiv->indkey}">{php}t("Pedigree PDF"){/php}</a>
 	<!-- End pedigree reports -->
 	
 	<!-- Begin ancestor reports -->
@@ -31,11 +31,11 @@
 				</td>
 				<td class="text">&nbsp;&nbsp;{php}t("Number of Generations"){/php}:&nbsp;</td>
 				<td>
-					<input name="max_gens" type="text" class="textbox" value="250" size="3" />
-					<input name="indiv" type="hidden" value="{$indiv->indkey}" />
+					<input name="id" type="hidden" value="{$indiv->indkey}" />
+					<input name="g" type="text" class="textbox" value="250" size="3" />
 				</td>
 				<td>&nbsp;&nbsp;&nbsp;</td>
-				<td><input name="" type="submit" class="text" value="{php}t("Apply"){/php}" /></td>
+				<td><input name="a" type="submit" class="text" value="{php}t("Apply"){/php}" /></td>
 			</tr>
 		</table>
 	</form>
@@ -54,11 +54,11 @@
 				</td>
 				<td class="text">&nbsp;&nbsp;{php}t("Number of Generations"){/php}:&nbsp;</td>
 				<td>
-					<input name="max_gens" type="text" class="textbox" value="250" size="3" />
-					<input name="indiv" type="hidden" value="{$indiv->indkey}" />
+					<input name="id" type="hidden" value="{$indiv->indkey}" />
+					<input name="g" type="text" class="textbox" value="250" size="3" />
 				</td>
 				<td>&nbsp;&nbsp;&nbsp;</td>
-				<td><input name="" type="submit" class="text" value="{php}t("Apply"){/php}" /></td>
+				<td><input name="a" type="submit" class="text" value="{php}t("Apply"){/php}" /></td>
 			</tr>
 		</table>
 	</form>

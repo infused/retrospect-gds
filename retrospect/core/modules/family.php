@@ -23,7 +23,7 @@
  */
 
 	# process expected get/post variables
-	$g_indiv = isset($_GET['indiv']) ? $_GET['indiv'] : exit;
+	$g_indiv = isset($_GET['id']) ? $_GET['id'] : exit;
 
 	# initialize other variables
 	$sources = array();
@@ -47,7 +47,7 @@
 	# create father link
 	if ($o->father_indkey) { 
 		$f = new person($o->father_indkey, 3); 
-		$args = Theme::GetArgs('family', array('indiv'=>$f->indkey));
+		$args = Theme::GetArgs('family', array('id'=>$f->indkey));
 		$smarty->assign('father_link', '<a href="'.$args.'">'.$f->name.'</a>');
 		keyword_push($f->name);
 		unset($f, $args);
@@ -56,7 +56,7 @@
 	# create mother link
 	if ($o->mother_indkey) { 
 		$m = new person($o->mother_indkey, 3); 
-		$args = Theme::GetArgs('family', array('indiv'=>$m->indkey));
+		$args = Theme::GetArgs('family', array('id'=>$m->indkey));
 		$smarty->assign('mother_link', '<a href="'.$args.'">'.$m->name.'</a>');
 		keyword_push($m->name);
 		unset($m, $args);
@@ -93,7 +93,7 @@
 			}
 		}
 		# spouse
-		$args = Theme::GetArgs('family', array('indiv'=>$s->indkey)); 
+		$args = Theme::GetArgs('family', array('id'=>$s->indkey)); 
 		$spouse_link = '<a href="'.$args.'">'.$s->name.'</a>';
 		$marriages[$i]['spouse'] = $s;
 		$marriages[$i]['spouse_link'] = $spouse_link;
@@ -106,7 +106,7 @@
 			foreach ($m->children as $child_indkey) {
 				$c = new person($child_indkey, 3);
 				keyword_push($c->name);
-				$args = Theme::GetArgs('family', array('indiv'=>$c->indkey));
+				$args = Theme::GetArgs('family', array('id'=>$c->indkey));
 				$child_link = '<a href="'.$args.'">'.$c->name.'</a>';
 				$children[] = array('child_link'=>$child_link, 'child'=>$c);
 			}

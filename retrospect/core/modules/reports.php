@@ -23,7 +23,7 @@
  */
 
 		# process expected get/post variables
-		$g_indiv = isset($_GET['indiv']) ? $_GET['indiv'] : exit;
+		$g_indiv = isset($_GET['id']) ? $_GET['id'] : exit;
 	
 		# initialize other variables
 		$o = new person($g_indiv, 3);

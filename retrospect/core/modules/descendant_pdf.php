@@ -28,11 +28,11 @@
 	$font = 'Helvetica';
 	
 	# die if not called properly
-	if (!isset($_GET['indiv'])) { exit; }
+	if (!isset($_GET['id'])) { exit; }
 	# else init script
 	else {
 		# extract _get vars
-		$g_indiv = $_GET['indiv'];
+		$g_indiv = $_GET['id'];
 		if (isset($_GET['max_gens'])) { $g_max_gens = $_GET['max_gens']; }
 		else { $g_max_gens = 250; }
 		# init other vars

@@ -27,8 +27,7 @@
 	require_once(LIB_PATH.'fpdf/fpdf.php'); 
 	
 	# process expected get/post variables
-	$print = isset($_GET['print']) ? true : false;
-	$g_indiv = isset($_GET['indiv']) ? $_GET['indiv'] : exit;
+	$g_indiv = isset($_GET['id']) ? $_GET['id'] : exit;
 
 	# get first person information
 	$o = new Person($g_indiv);

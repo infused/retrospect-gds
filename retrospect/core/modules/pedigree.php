@@ -28,7 +28,7 @@
 	require_once('core/atree.class.php');
 	
 	# process expected get/post variables
-	$g_indiv = isset($_GET['indiv']) ? $_GET['indiv'] : exit;
+	$g_indiv = isset($_GET['id']) ? $_GET['id'] : exit;
 	
 	# populate keyword array
 	keyword_push(gtc("Pedigree"));

@@ -33,8 +33,8 @@
 	require_once(CORE_PATH.'f_report.php');
 	
 	# process expected get/post variables
-	$g_indiv = isset($_GET['indiv']) ? $_GET['indiv'] : exit;
-	$g_max_gens = isset($_GET['max_gens']) ? $_GET['max_gens'] : 250;
+	$g_indiv = isset($_GET['id']) ? $_GET['id'] : exit;
+	$g_max_gens = isset($_GET['g']) ? $_GET['g'] : 250;
 	
 	# populate keyword array
 	keyword_push(gtc("Ahnentafel"));
@@ -97,7 +97,7 @@
 		}
 		$string .= '<ol><li value="'.$p_node->ns_number.'">';
 		# display ahnentafel number and name
-		$string .= '<a href="'.$_SERVER['PHP_SELF'].'?option=family&amp;indiv='.$p_node->indkey.'">'.$p_node->name.'</a>'; 
+		$string .= '<a href="'.$_SERVER['PHP_SELF'].'?option=family&amp;id='.$p_node->indkey.'">'.$p_node->name.'</a>'; 
 		# display parents
 		$string .= get_parents_sentence($p_node, $father, $mother).'<br />';
 		# display birth sentence
