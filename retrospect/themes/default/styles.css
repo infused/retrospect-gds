@@ -245,3 +245,8 @@ textarea.textbox {
 	padding: 0px 5px 0px 5px;
 	width: 150px;
 }
+.warning {
+	background-color: #EEEEEE;
+	padding: 5px;
+	border: solid 1px #CCCCCC;
+}
