@@ -1,3 +1,10 @@
+<!--
+/** 
+*	Family sub-template
+* $ID:
+*
+*/
+-->
 <p class="content-title">{$content_title}</p>
 <div class="tab-page">
 	{if $indiv->aka}

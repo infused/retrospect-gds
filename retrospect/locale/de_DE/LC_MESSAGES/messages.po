@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2004-10-03 21:57-0800\n"
+"PO-Revision-Date: 2004-10-22 15:03-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused.org>\n"
 "Language-Team: GERMAN <wil.feindt@t-online.de>\n"
 "MIME-Version: 1.0\n"
@@ -20,11 +20,11 @@ msgstr ""
 "X-Poedit-SearchPath-0: core\n"
 "X-Poedit-SearchPath-1: themes/default\n"
 
-#: core/date.class.php:347
+#: core/date.class.php:305
 msgid "to"
 msgstr "zu"
 
-#: core/date.class.php:348
+#: core/date.class.php:306
 #, fuzzy
 msgid "and"
 msgstr "Land"
@@ -139,8 +139,8 @@ msgid "Bas Mitzah"
 msgstr "Bas Mitzah"
 
 #: core/f_dummy.php:72
-#: themes/default/family.php:105
-#: themes/default/family_pdf.php:134
+#: core/f_language.php:68
+#: themes/default/family_pdf.php:132
 #: themes/default/pedigree_pdf.php:90
 #: themes/default/search.php:326
 #: themes/default/stats.php:97
@@ -177,8 +177,7 @@ msgid "Cremation"
 msgstr "Verbrennung"
 
 #: core/f_dummy.php:80
-#: themes/default/family.php:123
-#: themes/default/family_pdf.php:152
+#: themes/default/family_pdf.php:150
 #: themes/default/pedigree_pdf.php:91
 #: themes/default/search.php:327
 #: themes/default/stats.php:98
@@ -343,77 +342,101 @@ msgstr "Holl‰ndisch"
 msgid "German"
 msgstr "Deutsch"
 
+#: core/f_dummy.php:127
+msgid "Source Citations"
+msgstr "Quellenverweise"
+
+#: core/f_dummy.php:130
+msgid "abt"
+msgstr ""
+
+#: core/f_dummy.php:131
+msgid "cir"
+msgstr ""
+
+#: core/f_dummy.php:132
+msgid "aft"
+msgstr ""
+
+#: core/f_dummy.php:133
+msgid "bef"
+msgstr ""
+
+#: core/f_dummy.php:134
+msgid "bet"
+msgstr ""
+
+#: core/f_dummy.php:135
+msgid "cal"
+msgstr ""
+
+#: core/f_language.php:64
+#: themes/default/family_pdf.php:115
+msgid "Aka"
+msgstr "Alias/auch bekannt als"
+
+#: core/f_language.php:65
+#: themes/default/family_pdf.php:124
+msgid "Gender"
+msgstr "Geschlecht"
+
+#: core/f_language.php:66
+#: themes/default/family_pdf.php:168
+msgid "Father"
+msgstr "Vater"
+
+#: core/f_language.php:67
+#: themes/default/family_pdf.php:174
+msgid "Mother"
+msgstr "Mutter"
+
 #: core/f_language.php:93
 msgid "Jan"
 msgstr "Jan"
 
-#: core/f_language.php:94
+#: core/f_language.php:93
 msgid "Feb"
 msgstr "Feb"
 
-#: core/f_language.php:95
+#: core/f_language.php:93
 msgid "Mar"
 msgstr "Mar"
 
-#: core/f_language.php:96
+#: core/f_language.php:93
 msgid "Apr"
 msgstr "Apr"
 
-#: core/f_language.php:97
+#: core/f_language.php:93
 msgid "May"
 msgstr "Mai"
 
-#: core/f_language.php:98
+#: core/f_language.php:94
 msgid "Jun"
 msgstr "Jun"
 
-#: core/f_language.php:99
+#: core/f_language.php:94
 msgid "Jul"
 msgstr "Jul"
 
-#: core/f_language.php:100
+#: core/f_language.php:94
 msgid "Aug"
 msgstr "Aug"
 
-#: core/f_language.php:101
+#: core/f_language.php:94
 msgid "Sep"
 msgstr "Sep"
 
-#: core/f_language.php:102
+#: core/f_language.php:94
 msgid "Oct"
 msgstr "Okt"
 
-#: core/f_language.php:103
+#: core/f_language.php:94
 msgid "Nov"
 msgstr "Nov"
 
-#: core/f_language.php:104
+#: core/f_language.php:94
 msgid "Dec"
 msgstr "Dez"
-
-#: core/f_language.php:107
-msgid "abt"
-msgstr ""
-
-#: core/f_language.php:108
-msgid "cir"
-msgstr ""
-
-#: core/f_language.php:109
-msgid "aft"
-msgstr ""
-
-#: core/f_language.php:110
-msgid "bef"
-msgstr ""
-
-#: core/f_language.php:111
-msgid "bet"
-msgstr ""
-
-#: core/f_language.php:112
-msgid "cal"
-msgstr ""
 
 #: core/f_report.php:42
 #, php-format
@@ -600,7 +623,7 @@ msgid "Children of %s"
 msgstr "Kind/er von %s."
 
 #: themes/default/ahnentafel.php:43
-#: themes/default/reports.php:67
+#: themes/default/reports.php:69
 msgid "Ahnentafel"
 msgstr "Vorfahren"
 
@@ -617,11 +640,11 @@ msgstr "Vorfahrenliste"
 msgid "Ahnentafel Report for %s"
 msgstr "Vorfahrenliste von %s"
 
-#: themes/default/ahnentafel.php:68
+#: themes/default/ahnentafel.php:70
 msgid "Ahnentafel Report"
 msgstr "Vorfahrenliste"
 
-#: themes/default/ahnentafel.php:96
+#: themes/default/ahnentafel.php:98
 #: themes/default/ahnentafel_pdf.php:107
 #: themes/default/descendant.php:62
 #: themes/default/descendant_pdf.php:93
@@ -645,17 +668,13 @@ msgid "Genealogy"
 msgstr "Genealogie"
 
 #: themes/default/descendant.php:106
-#: themes/default/family.php:186
-#: themes/default/family.php:227
-#: themes/default/family_pdf.php:243
+#: themes/default/family_pdf.php:241
 #: themes/default/pedigree.php:76
 msgid "b."
 msgstr "geb."
 
 #: themes/default/descendant.php:109
-#: themes/default/family.php:187
-#: themes/default/family.php:228
-#: themes/default/family_pdf.php:244
+#: themes/default/family_pdf.php:242
 #: themes/default/pedigree.php:77
 msgid "d."
 msgstr "gest."
@@ -667,7 +686,7 @@ msgstr "gest."
 msgid "Descendant Report for %s"
 msgstr "Nachfahren von %s"
 
-#: themes/default/descendant.php:138
+#: themes/default/descendant.php:140
 msgid "Descendant Report"
 msgstr "Nachfahrenliste"
 
@@ -710,53 +729,11 @@ msgstr "Schlieﬂen"
 msgid "Family Page for %s"
 msgstr "Familiendatenblatt von %s"
 
-#: themes/default/family.php:95
-#: themes/default/family_pdf.php:117
-msgid "Aka"
-msgstr "Alias/auch bekannt als"
-
-#: themes/default/family.php:98
-#: themes/default/family_pdf.php:126
-msgid "Gender"
-msgstr "Geschlecht"
-
-#: themes/default/family.php:101
-#: themes/default/family_pdf.php:170
-msgid "Father"
-msgstr "Vater"
-
-#: themes/default/family.php:103
-#: themes/default/family_pdf.php:176
-msgid "Mother"
-msgstr "Mutter"
-
-#: themes/default/family.php:166
-#: themes/default/family.php:206
-#: themes/default/family_pdf.php:215
-#: themes/default/family_pdf.php:283
-#: themes/default/stats.php:101
-msgid "Notes"
-msgstr "Bemerkung"
-
-#: themes/default/family.php:179
-#: themes/default/family_pdf.php:236
+#: themes/default/family.php:86
+#: themes/default/family_pdf.php:234
 #, php-format
 msgid "Family %s"
 msgstr "Ehe %s"
-
-#: themes/default/family.php:180
-#: themes/default/family_pdf.php:240
-msgid "Spouse/Partner"
-msgstr "Ehepartner"
-
-#: themes/default/family.php:213
-#: themes/default/family_pdf.php:295
-msgid "Children"
-msgstr "Kinder"
-
-#: themes/default/family.php:238
-msgid "Source Citations"
-msgstr "Quellenverweise"
 
 #: themes/default/family_pdf.php:54
 #: themes/default/family_pdf.php:78
@@ -764,15 +741,30 @@ msgstr "Quellenverweise"
 msgid "Family Group Sheet for %s"
 msgstr "Familiendatenblatt von %s"
 
-#: themes/default/family_pdf.php:141
-#: themes/default/family_pdf.php:159
-#: themes/default/family_pdf.php:202
-#: themes/default/family_pdf.php:253
-#: themes/default/family_pdf.php:270
-#: themes/default/family_pdf.php:321
+#: themes/default/family_pdf.php:139
+#: themes/default/family_pdf.php:157
+#: themes/default/family_pdf.php:200
+#: themes/default/family_pdf.php:251
+#: themes/default/family_pdf.php:268
+#: themes/default/family_pdf.php:299
+#: themes/default/family_pdf.php:351
 #: themes/default/stats.php:102
 msgid "Sources"
 msgstr "Quellen"
+
+#: themes/default/family_pdf.php:213
+#: themes/default/family_pdf.php:313
+#: themes/default/stats.php:101
+msgid "Notes"
+msgstr "Bemerkung"
+
+#: themes/default/family_pdf.php:238
+msgid "Spouse/Partner"
+msgstr "Ehepartner"
+
+#: themes/default/family_pdf.php:325
+msgid "Children"
+msgstr "Kinder"
 
 #: themes/default/menu.php:26
 msgid "Database"
@@ -868,54 +860,54 @@ msgstr "Stammbaum von %s"
 msgid "Reports for %s"
 msgstr "Liste von %s"
 
-#: themes/default/reports.php:57
+#: themes/default/reports.php:59
 msgid "Family Reports"
 msgstr "Familien Datenblatt"
 
-#: themes/default/reports.php:58
+#: themes/default/reports.php:60
 msgid "Family PDF"
 msgstr "Datenblatt PDF"
 
-#: themes/default/reports.php:60
+#: themes/default/reports.php:62
 msgid "Pedigree Reports"
 msgstr "Stammbaum"
 
-#: themes/default/reports.php:61
+#: themes/default/reports.php:63
 msgid "Pedigree PDF"
 msgstr "Stammbaum PDF"
 
-#: themes/default/reports.php:63
+#: themes/default/reports.php:65
 msgid "Ancestor Reports"
 msgstr "Vorfahrenliste"
 
-#: themes/default/reports.php:66
-#: themes/default/reports.php:81
+#: themes/default/reports.php:68
+#: themes/default/reports.php:83
 msgid "Report type"
 msgstr "Listentyp"
 
-#: themes/default/reports.php:67
+#: themes/default/reports.php:69
 msgid "Ahnentafel PDF"
 msgstr "Vorfahren PDF"
 
-#: themes/default/reports.php:68
-#: themes/default/reports.php:83
+#: themes/default/reports.php:70
+#: themes/default/reports.php:85
 msgid "Number of Generations"
 msgstr "Generation"
 
-#: themes/default/reports.php:74
-#: themes/default/reports.php:89
+#: themes/default/reports.php:76
+#: themes/default/reports.php:91
 msgid "Apply"
 msgstr "Ansehen"
 
-#: themes/default/reports.php:78
+#: themes/default/reports.php:80
 msgid "Descendant Reports"
 msgstr "Nachkommenliste"
 
-#: themes/default/reports.php:82
+#: themes/default/reports.php:84
 msgid "Descendant"
 msgstr "Nachkommen"
 
-#: themes/default/reports.php:82
+#: themes/default/reports.php:84
 msgid "Descendant PDF"
 msgstr "Nachkommen PDF"
 

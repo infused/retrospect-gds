@@ -124,7 +124,8 @@
 	*/
 	function lang_translate_smarty($params) {
 		if ($params['s']) {
-			return gtc($params['s']);
+			$s = $params['s'];
+			return gtc($s);
 		} else {
 			return '';
 		}

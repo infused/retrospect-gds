@@ -117,10 +117,21 @@
 		# misc
 		gettext("ALL");
 		
-		# Supported Languages
+		# supported languages
 		gettext("English");
 		gettext("Spanish");
 		gettext("Dutch");
 		gettext("German");
+		
+		# event labels
+		gettext("Source Citations");
+		
+		# date modifers
+		gettext("abt");
+		gettext("cir");
+		gettext("aft");
+		gettext("bef");
+		gettext("bet");
+		gettext("cal");
 	}
 ?>

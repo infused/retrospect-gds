@@ -10,7 +10,7 @@
 </head>
 <div id="content_printable">
 	<div id="utils">
-		<a href="{$CURRENT_PAGE}&print=y" target="_blank"><img src="themes/default/images/printbutton.gif" border="0" alt="{translate s="Print"}" /></a>
+		<a href="#" onclick="window.print(); return false;"><img src="themes/default/images/printbutton.gif" border="0" alt="{translate s="Print"}" /></a>
 	</div>
 	{include file = "$option.tpl"}
 </div>
