@@ -63,14 +63,14 @@
 	define('TBL_COMMENT', $g_db_prefix.'comment');
 	
 	# Load all other functions, classes, and libraries
-	@require_once(CORE_PATH.'f_misc.php'); # miscellaneous functions
-	@require_once(CORE_PATH.'options.class.php'); # options class
-	@require_once(CORE_PATH.'f_language.php'); # language functions
-	@require_once(CORE_PATH.'genealogy.class.php'); # genealogy classes
-	@require_once(CORE_PATH.'theme.class.php'); # theme class
-	@require_once(CORE_PATH.'date.class.php'); # date-parser class
-	@require_once(LIB_PATH.'adodb/adodb.inc.php'); # ADODB database library
-	@require_once(LIB_PATH.'smarty/libs/Smarty.class.php'); # Smarty template engine
+	require_once(CORE_PATH.'f_misc.php');
+	require_once(CORE_PATH.'options.class.php');
+	require_once(CORE_PATH.'f_language.php');
+	require_once(CORE_PATH.'genealogy.class.php');
+	require_once(CORE_PATH.'theme.class.php');
+	require_once(CORE_PATH.'date.class.php');
+	require_once(LIB_PATH.'adodb/adodb.inc.php');
+	require_once(LIB_PATH.'smarty/libs/Smarty.class.php');
 
 	# Establish the database connection
 	$db =& AdoNewConnection(DB_TYPE);
@@ -83,7 +83,7 @@
 		$host = (DB_PORT != '') ? DB_HOST.':'.DB_PORT : DB_HOST;
 		$db->Connect($host, DB_USER, DB_PASS, DB_NAME);
 	}
-	# Make sure that RecordSets are always returned as associative arrays
+	# Make sure that recordsets are always returned as associative arrays
 	$db->SetFetchMode(ADODB_FETCH_ASSOC);
 	
 	# Create options object
