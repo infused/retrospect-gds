@@ -1,64 +1,363 @@
-2004-01-17  kmorrison
+2004-02-11
+
+	* retrospect/themes/default/: nav.php, styles.css, surnames.php:
+
+	- fixed tabbed navigation problems in firebird and opera
+
+2004-02-06
+
+	* retrospect/locale/: en_US/LC_MESSAGES/messages.mo,
+	  en_US/LC_MESSAGES/messages.po, es_ES/LC_MESSAGES/messages.mo,
+	  es_ES/LC_MESSAGES/messages.po:
+
+	- updated translation files
+
+2004-02-04
+
+	* retrospect/install/: create.xml, generate_sql.php:
+
+	- added generate_sql module to install directory
+	- added mysql installation sql script
+	- updated xml schema
+
+	* retrospect/libraries/adodb/: xmlschema/INSTALL, xmlschema/README,
+	  xmlschema/adodb-xmlschema.inc.php,
+	  xmlschema/docs/default/_adodb-xmlschema_inc_php.html,
+	  xmlschema/docs/default/adoSchema.html, adodb-xmlschema.inc.php:
+
+	- updated xmlschema
+
+2004-01-31
+
+	* retrospect/: administration/admin.php,
+	  administration/auth.class.php, administration/login.php,
+	  administration/menubar.php, administration/status.php,
+	  administration/user_edit.php, administration/user_list.php,
+	  install/create.xml:
+
+	- added system status page to admin module
+	- added expired password detection
+	- added pwd_expired field to user table and updated schema
+
+	* retrospect/: core/core.php, core/f_dummy.php,
+	  core/theme.class.php, locale/en_US/LC_MESSAGES/messages.mo,
+	  locale/en_US/LC_MESSAGES/messages.po,
+	  locale/es_ES/LC_MESSAGES/messages.po:
+
+	- fixed bug in theme class (error message not being translated)
+	- added new translation string to dummy class
+
+	* retrospect/: index.php, administration/sys_config.php,
+	  core/f_language.php, core/options.class.php,
+	  themes/default/menu.php:
+
+	- added GetOption function to Options class
+	- rewrote other scripts to use GetOption function rather than accessing the options vars directly
+
+	* retrospect/: administration/sys_config.php, index.php,
+	  core/core.php, core/f_language.php, core/options.class.php,
+	  themes/default/menu.php:
+
+	- changed variable name $g_opts to $options
+	- added GetAll function to Options class
+
+	* retrospect/: libraries/adodb/adodb-csvlib.inc.php,
+	  libraries/adodb/adodb-datadict.inc.php,
+	  libraries/adodb/adodb-error.inc.php,
+	  libraries/adodb/adodb-errorhandler.inc.php,
+	  libraries/adodb/adodb-errorpear.inc.php,
+	  libraries/adodb/adodb-exceptions.inc.php,
+	  libraries/adodb/adodb-iterator.inc.php,
+	  libraries/adodb/adodb-lib.inc.php,
+	  libraries/adodb/adodb-pager.inc.php,
+	  libraries/adodb/adodb-pear.inc.php,
+	  libraries/adodb/adodb-perf.inc.php,
+	  libraries/adodb/adodb-php4.inc.php,
+	  libraries/adodb/adodb-xmlschema.inc.php,
+	  libraries/adodb/adodb.inc.php, libraries/adodb/docs-adodb.htm,
+	  libraries/adodb/docs-datadict.htm, libraries/adodb/docs-perf.htm,
+	  libraries/adodb/docs-session.htm, libraries/adodb/license.txt,
+	  libraries/adodb/pivottable.inc.php,
+	  libraries/adodb/rsfilter.inc.php, libraries/adodb/server.php,
+	  libraries/adodb/toexport.inc.php, libraries/adodb/tohtml.inc.php,
+	  libraries/adodb/datadict/datadict-access.inc.php,
+	  libraries/adodb/datadict/datadict-db2.inc.php,
+	  libraries/adodb/datadict/datadict-generic.inc.php,
+	  libraries/adodb/datadict/datadict-ibase.inc.php,
+	  libraries/adodb/datadict/datadict-informix.inc.php,
+	  libraries/adodb/datadict/datadict-mssql.inc.php,
+	  libraries/adodb/datadict/datadict-mysql.inc.php,
+	  libraries/adodb/datadict/datadict-oci8.inc.php,
+	  libraries/adodb/datadict/datadict-postgres.inc.php,
+	  libraries/adodb/datadict/datadict-sybase.inc.php,
+	  administration/user_edit.php,
+	  libraries/adodb/drivers/adodb-access.inc.php,
+	  libraries/adodb/drivers/adodb-ado.inc.php,
+	  libraries/adodb/drivers/adodb-ado_access.inc.php,
+	  libraries/adodb/drivers/adodb-ado_mssql.inc.php,
+	  libraries/adodb/drivers/adodb-borland_ibase.inc.php,
+	  libraries/adodb/drivers/adodb-csv.inc.php,
+	  libraries/adodb/drivers/adodb-db2.inc.php,
+	  libraries/adodb/drivers/adodb-fbsql.inc.php,
+	  libraries/adodb/drivers/adodb-firebird.inc.php,
+	  libraries/adodb/drivers/adodb-ibase.inc.php,
+	  libraries/adodb/drivers/adodb-informix.inc.php,
+	  libraries/adodb/drivers/adodb-informix72.inc.php,
+	  libraries/adodb/drivers/adodb-mssql.inc.php,
+	  libraries/adodb/drivers/adodb-mssqlpo.inc.php,
+	  libraries/adodb/drivers/adodb-mysql.inc.php,
+	  libraries/adodb/drivers/adodb-mysqli.inc.php,
+	  libraries/adodb/drivers/adodb-mysqlt.inc.php,
+	  libraries/adodb/drivers/adodb-oci8.inc.php,
+	  libraries/adodb/drivers/adodb-oci805.inc.php,
+	  libraries/adodb/drivers/adodb-oci8po.inc.php,
+	  libraries/adodb/drivers/adodb-odbc.inc.php,
+	  libraries/adodb/drivers/adodb-odbc_mssql.inc.php,
+	  libraries/adodb/drivers/adodb-odbc_oracle.inc.php,
+	  libraries/adodb/drivers/adodb-oracle.inc.php,
+	  libraries/adodb/drivers/adodb-postgres.inc.php,
+	  libraries/adodb/drivers/adodb-postgres64.inc.php,
+	  libraries/adodb/drivers/adodb-postgres7.inc.php,
+	  libraries/adodb/drivers/adodb-proxy.inc.php,
+	  libraries/adodb/drivers/adodb-sapdb.inc.php,
+	  libraries/adodb/drivers/adodb-sqlanywhere.inc.php,
+	  libraries/adodb/drivers/adodb-sqlite.inc.php,
+	  libraries/adodb/drivers/adodb-sybase.inc.php,
+	  libraries/adodb/drivers/adodb-vfp.inc.php,
+	  libraries/adodb/lang/adodb-ca.inc.php,
+	  libraries/adodb/perf/perf-db2.inc.php,
+	  libraries/adodb/perf/perf-informix.inc.php,
+	  libraries/adodb/perf/perf-mssql.inc.php,
+	  libraries/adodb/perf/perf-mysql.inc.php,
+	  libraries/adodb/perf/perf-oci8.inc.php,
+	  libraries/adodb/perf/perf-postgres.inc.php,
+	  libraries/adodb/session/adodb-session.php:
+
+	- updated adodb from 4.10 to 4.11
+
+2004-01-30
+
+	* retrospect/administration/: admin.php, login.php:
+
+	- cosmetic changes
+
+	* retrospect/core/: atree.class.php, genealogy.class.php:
+
+	- changed some vars to var refs
+
+	* retrospect/: administration/db_optimize.php,
+	  administration/login.php, administration/sys_config.php,
+	  core/core.php:
+
+	- cosmetic changes to admin login and sys_config pages
+	- changed some vars to var refs
+
+2004-01-28
+
+	* retrospect/: administration/admin.php, administration/index.php,
+	  administration/styles.css, administration/sys_config.php,
+	  core/f_language.php, index.php:
+
+	- added language change menu to admin modules
+
+	* retrospect/administration/: admin.php, images/logo.gif,
+	  images/logo.png:
+
+	- changed logo file
+
+	* retrospect/install/create.xml:
+
+	- added notnulls
+
+2004-01-27
+
+	* retrospect/: core/core.php, docs/README.txt,
+	  install/install1.php, install/install2.php:
+
+	- added mssql and odbc-mssql support
+
+	* retrospect/install/install1.php:
+
+	- added ado-mssql and odbc-mssql support
+
+	* retrospect/: core/core.php, install/install1.php,
+	  install/install2.php:
+
+	- added ado-mssql and odbc-mssql support
+
+2004-01-26
+
+	* retrospect/themes/default/template.php:
+
+	- fixed print button not working when no option is explicitly set
+
+	* retrospect/: core/atree.class.php, themes/default/styles.css,
+	  themes/default/template.php, themes/default/images/logo.gif,
+	  themes/default/images/logo.png:
+
+	- replace logo in default template
+
+2004-01-25
+
+	* retrospect/themes/default/search.php:
+
+	-replaced mysql_real_escape_string with $db->quote
+
+	* retrospect/: core/atree.class.php, core/core.php,
+	  core/f_report.php, core/genealogy.class.php,
+	  themes/default/ahnentafel.php, themes/default/descendant.php:
+
+	- Added another level of data collection to the person class for use with ahnentafel type reports
+	- Improved ahnentafel performance (approx 90% improvement)
+	- Minor code optimizations
+
+2004-01-24
+
+	* retrospect/index.php:
+
+	- move option checking into output buffered section
+
+	* retrospect/: core/theme.class.php, index.php,
+	  themes/default/ahnentafel.php, themes/default/descendant.php,
+	  themes/default/family.php, themes/default/menu.php,
+	  themes/default/nav.php, themes/default/pedigree.php,
+	  themes/default/reports.php, themes/default/search.php,
+	  themes/default/stats.php, themes/default/surnames.php,
+	  themes/default/template.php:
+
+	- changed option file to echo output instead of having to put all content into $g_content
+	- $g_content is now created using output caching to facilitate template development
+	- fixed potential variable conflict
+
+	* retrospect/install/install2.php:
+
+	- removed reference to relation table
+
+	* retrospect/install/install1.php:
+
+	- added default installation parameters
+
+	* retrospect/: core/core.php, install/create.xml:
+
+	- Updated version #
+	- Removed invalid xml tag
+
+	* retrospect/install/install1.php:
+
+	- Added postrgres7 db option to installation
+
+2004-01-19
+
+	* retrospect/: administration/user_add.php,
+	  core/genealogy.class.php, themes/default/family.php:
+
+	- Minor code optimizations
+
+	* retrospect/install/create.xml:
+
+	- Added index to user table
+
+	* retrospect/: administration/db_optimize.php, core/core.php,
+	  core/genealogy.class.php, install/create.xml:
+
+	- Removed relation table from schema and all scripts
+	- Child table is used instead.  Relation table was redundant.
+
+	* retrospect/install/create.xml:
+
+	- Removed notnull from comments.received field
+
+	* retrospect/core/core.php:
+
+	- Removed support for config-dev.php file
+
+	* retrospect/core/: .cvsignore, config-dist.php:
+
+	- Renamed config.php to config-dist.php
+
+	* retrospect/: core/core.php, core/f_language.php,
+	  core/options.class.php, install/create.xml,
+	  themes/default/descendant.php, themes/default/descendant_pdf.php,
+	  themes/default/family_pdf.php, themes/default/menu.php:
+
+	- Proper handling of missing spouse
+	- Adjusted db schema
+	- Incremented version number
+	- Populate g_langs array in lang_init_gettext function
+	- Changed language menu to pull languages from database
+	- Added sanity checks to options class
+
+2004-01-18
+
+	* retrospect/: install/create.xml, themes/default/menu.php:
+
+	- Added German translation by Wilfried Feindt
+
+	* retrospect/locale/: en_US/LC_MESSAGES/messages.mo,
+	  en_US/LC_MESSAGES/messages.po, es_ES/LC_MESSAGES/messages.mo,
+	  es_ES/LC_MESSAGES/messages.po:
+
+	- Added German translation by Wilfried Feindt
+	- Updated English translation
+	- Updated Spanish translation
+
+	* retrospect/themes/default/family.php:
+
+	- Proper handling of missing spouse in family record
+
+	* retrospect/core/core.php:
+
+	- Corrected g_tbl_options var
+
+2004-01-17
+
+	* retrospect/docs/ChangeLog.txt:
+
+	- Updated ChangeLog for release-1_2_1
 
 	* retrospect/install/create.xml:
 
 	- Change xml db schema
 
-2004-01-17  kmorrison
-
-	* retrospect/: core/config.php, install/create.xml:
-
-	- Change xml db schema
-
-2004-01-17  kmorrison
-
 	* retrospect/install/create.xml:
 
 	- Change xml db schema
 
-2004-01-17  kmorrison
+	* retrospect/install/create.xml:
+
+	- Change xml db schema
 
 	* retrospect/core/core.php:
 
 	- Fixed g_db_type var not being used to set db connection
 
-2004-01-17  kmorrison
-
 	* retrospect/install/install2.php:
 
 	- Added missing underscore to db_prefix when writing new config file
-
-2004-01-17  kmorrison
 
 	* retrospect/install/create.xml:
 
 	- Standardized on 4 byte integer fields
 
-2004-01-16  kmorrison
+2004-01-16
 
 	* retrospect/docs/ChangeLog.txt:
 
 	- Updated ChangeLog
 
-2004-01-16  kmorrison
-
 	* retrospect/install/create.xml:
 
 	- Corrected field naming typo
 
-2004-01-15  kmorrison
+2004-01-15
 
 	* retrospect/administration/auth.class.php:
 
 	- Code cleanup
 
-2004-01-15  kmorrison
-
 	* retrospect/install/: install1.php, install2.php:
 
 	- Set error_reporting(0)
-
-2004-01-15  kmorrison
 
 	* retrospect/install/: create.xml, drop.xml, index.php,
 	  install.css, install1.php, install2.php:
@@ -67,52 +366,41 @@
 	- Added xml database schema for creation of tables, indexes, and default data
 	- Added xml schema for dropping tables
 
-2004-01-15  kmorrison
-
-	* retrospect/: core/config.php, core/core.php,
-	  themes/default/template.php:
+	* retrospect/: core/core.php, themes/default/template.php:
 
 	- Added a global version variable
 
-2004-01-14  kmorrison
+2004-01-14
 
-	* retrospect/core/: config.php, core.php:
+	* retrospect/core/core.php:
 
 	- Renamed $g_db to $g_db_name
 
-2004-01-14  kmorrison
-
 	* retrospect/themes/default/descendant_pdf.php:
 
 	- Changed formatting
 
-2004-01-14  kmorrison
-
 	* retrospect/themes/default/descendant_pdf.php:
 
 	- Changed formatting
-
-2004-01-14  kmorrison
 
 	* retrospect/themes/default/: descendant.php, descendant_pdf.php,
 	  family_pdf.php:
 
 	- Fixed undeclared var errors
 
-2004-01-14  kmorrison
-
 	* retrospect/core/f_language.php:
 
 	- Disable putenv's if safe_mode enabled
 
-2004-01-13  kmorrison
+2004-01-13
 
-	* retrospect/core/: config.php, core.php:
+	* retrospect/core/core.php:
 
 	- Added g_db_prefix var
 	- Moved table global vars to core.php
 
-2004-01-12  kmorrison
+2004-01-12
 
 	* retrospect/libraries/adodb/: adodb-csvlib.inc.php,
 	  adodb-datadict.inc.php, adodb-error.inc.php,
@@ -160,8 +448,6 @@
 
 	- Updated adodb library to version 4.10
 
-2004-01-12  kmorrison
-
 	* retrospect/libraries/adodb/xmlschema/: Changelog, INSTALL,
 	  LICENSE, README, adodb-xmlschema.inc.php, default.html,
 	  example.php.txt, example.xml, xmlschema.dtd,
@@ -174,13 +460,11 @@
 
 	- Integrated adodb-xmlschema documentation into CVS tree
 
-2004-01-12  kmorrison
-
 	* retrospect/libraries/adodb/adodb-xmlschema.inc.php:
 
 	- Updated to newer version of adodb-xmlschema
 
-2004-01-10  kmorrison
+2004-01-10
 
 	* retrospect/: locale/en_US/LC_MESSAGES/messages.mo,
 	  locale/en_US/LC_MESSAGES/messages.po,
@@ -189,38 +473,26 @@
 
 	- Updated translation strings
 
-2004-01-10  kmorrison
-
 	* retrospect/core/core.php:
 
 	- Changed db connection string generation to a ternary operator
-
-2004-01-10  kmorrison
 
 	* retrospect/core/core.php:
 
 	- Changed require for config file to a ternary operator
 
-2004-01-10  kmorrison
-
 	* retrospect/themes/default/styles.css:
 
 	- Removed unused styles from stylesheet
 
-2004-01-10  kmorrison
-
 	* retrospect/themes/default/styles.css:
 
 	- Removed unused styles from stylesheet
-
-2004-01-10  kmorrison
 
 	* retrospect/install/: index.php, install.class.php, install.php,
 	  install.sql, install2.php, install3.php:
 
 	- Removing obsolete installation files
-
-2004-01-10  kmorrison
 
 	* retrospect/locale/: en_US/LC_MESSAGES/messages.mo,
 	  en_US/LC_MESSAGES/messages.po, es_ES/LC_MESSAGES/messages.mo,
@@ -228,34 +500,29 @@
 
 	- Updated translations
 
-2004-01-08  kmorrison
+2004-01-08
 
 	* retrospect/install/index.php:
 
 	- Fixed title
 
-2004-01-08  kmorrison
-
 	* retrospect/install/install.sql:
 
 	- Changed table name prefixes to rgds_
 
-2004-01-08  kmorrison
-
-	* retrospect/: core/config.php, core/core.php,
-	  themes/default/surnames.php:
+	* retrospect/: core/core.php, themes/default/surnames.php:
 
 	- Explicitly set adodb fetch mode to associative
 	- Fixed resulting problem in surnames script
 	- Changed table name prefixes to rgds_
 
-2004-01-07  kmorrison
+2004-01-07
 
 	* retrospect/core/core.php:
 
 	- Reformat connection string to support multiple db's
 
-2004-01-06  kmorrison
+2004-01-06
 
 	* retrospect/: administration/media_list.php,
 	  administration/user_edit.php, administration/user_list.php,
@@ -263,13 +530,9 @@
 
 	- Removed superfluous stripslashes calls
 
-2004-01-06  kmorrison
-
 	* retrospect/core/: core.php, f_database.php:
 
 	- Removed unused files
-
-2004-01-06  kmorrison
 
 	* retrospect/: administration/auth.class.php,
 	  administration/db_optimize.php, administration/index.php,
@@ -384,19 +647,15 @@
 	- Added a 3rd detail level to the Person class
 	- Fixed missing marriage sentence in Ahnentafel reports
 
-2004-01-04  kmorrison
+2004-01-04
 
 	* retrospect/themes/default/family_pdf.php:
 
 	- Check for aka and display if not empty
 
-2004-01-04  kmorrison
-
 	* retrospect/themes/default/family.php:
 
 	- Check for aka and display if not empty
-
-2004-01-04  kmorrison
 
 	* retrospect/libraries/fpdf/: font/makefont/cp1255.map,
 	  font/makefont/cp1258.map, font/makefont/cp874.map,
@@ -405,7 +664,7 @@
 
 	- Updated the fpdf library to version 1.52
 
-2004-01-03  kmorrison
+2004-01-03
 
 	* retrospect/administration/: admin.php, auth.class.php,
 	  user_edit.php:
@@ -413,13 +672,9 @@
 	- BUG0000009: Fixed query error
 	- BUG0000010: Changed module title
 
-2004-01-03  kmorrison
-
 	* retrospect/index.php:
 
 	- Fixed trailing "?" on CURRENT_PAGE contstant when no query string is present.
-
-2004-01-03  kmorrison
 
 	* retrospect/administration/: admin.php, auth.class.php,
 	  db_edit_indiv.php, db_optimize.php, f_admin.php, index.php,
@@ -428,10 +683,8 @@
 
 	- Added phpdoc headers to administration files
 
-2004-01-03  kmorrison
-
-	* retrospect/: index.php, core/atree.class.php, core/config.php,
-	  core/core.php, core/f_compatibility.php, core/f_database.php,
+	* retrospect/: index.php, core/atree.class.php, core/core.php,
+	  core/f_compatibility.php, core/f_database.php,
 	  core/f_datetime.php, core/f_dummy.php, core/f_language.php,
 	  core/f_report.php, core/genealogy.class.php,
 	  core/options.class.php, core/theme.class.php, install/index.php,
@@ -449,16 +702,14 @@
 
 	- Updated copyright
 
-2004-01-03  kmorrison
-
 	* retrospect/: core/f_dummy.php, themes/default/styles.css:
 
 	- Misc cleanup
 
-2003-12-30  kmorrison
+2003-12-30
 
-	* retrospect/: core/atree.class.php, core/config.php,
-	  core/core.php, core/f_compatibility.php, core/f_database.php,
+	* retrospect/: core/atree.class.php, core/core.php,
+	  core/f_compatibility.php, core/f_database.php,
 	  core/f_datetime.php, core/f_dummy.php, core/f_language.php,
 	  core/f_report.php, core/genealogy.class.php,
 	  core/options.class.php, core/theme.class.php, install/index.php,
@@ -466,8 +717,6 @@
 	  install/install2.php, install/install3.php:
 
 	- Added CVS Id tag
-
-2003-12-30  kmorrison
 
 	* retrospect/themes/default/: ahnentafel_pdf.php, descendant.php,
 	  descendant_pdf.php, email.php, family.php, family_pdf.php,
@@ -477,16 +726,14 @@
 
 	- Added CVS Id tag
 
-2003-12-24  kmorrison
+2003-12-24
 
 	* retrospect/: index.php, themes/default/ahnentafel.php:
 
 	- Added CVS Id tag
 
-2003-12-24  kmorrison
-
-	* retrospect/: index.php, core/atree.class.php, core/config.php,
-	  core/core.php, core/f_compatibility.php, core/f_database.php,
+	* retrospect/: index.php, core/atree.class.php, core/core.php,
+	  core/f_compatibility.php, core/f_database.php,
 	  core/f_datetime.php, core/f_dummy.php, core/f_language.php,
 	  core/f_report.php, core/genealogy.class.php,
 	  core/options.class.php, core/theme.class.php, install/index.php,
@@ -505,29 +752,22 @@
 	- Updated licening info
 	- Removed version tag
 
-2003-12-23  kmorrison
+2003-12-23
 
 	* retrospect/themes/default/template.php:
 
 	Changed copyright notice to add link to Retrospect-GDS website
 
-2003-12-23  kmorrison
-
 	* retrospect/docs/GPL.txt:
 
 	Fixed license file
-
-2003-12-23  kmorrison
 
 	* retrospect/: index.php, administration/index.php,
 	  themes/default/menu.php, themes/default/template.php:
 
 	Renamed CURRENT_PAGE constant
 
-2003-12-23  kmorrison
-
-	* retrospect/: index.php, administration/index.php,
-	  core/config.php, core/core.php,
+	* retrospect/: index.php, administration/index.php, core/core.php,
 	  themes/default/ahnentafel_pdf.php,
 	  themes/default/descendant_pdf.php, themes/default/family_pdf.php,
 	  themes/default/pedigree_pdf.php:
@@ -535,20 +775,16 @@
 	- Renamed CORE_PATH constant
 	- Renamed LIB_PATH constant
 
-2003-12-23  kmorrison
-
 	* retrospect/: administration/index.php, core/f_language.php,
 	  index.php:
 
 	Renamed ROOT_PATH constant
 
-2003-12-18  kmorrison
+2003-12-18
 
 	* retrospect/index.php:
 
 	Initializing project.
-
-2003-12-18  kmorrison
 
 	* retrospect/: locale/en_US/LC_MESSAGES/index.html,
 	  locale/es_ES/LC_MESSAGES/index.html, media/files/index.html,
@@ -569,15 +805,11 @@
 
 	Initializing project.
 
-2003-12-18  kmorrison
-
 	* retrospect/locale/: en_US/LC_MESSAGES/messages.mo,
 	  en_US/LC_MESSAGES/messages.po, es_ES/LC_MESSAGES/messages.mo,
 	  es_ES/LC_MESSAGES/messages.po:
 
 	Initializing project.
-
-2003-12-18  kmorrison
 
 	* retrospect/libraries/fpdf/: fpdf.php, font/courier.php,
 	  font/helvetica.php, font/helveticab.php, font/helveticabi.php,
@@ -595,15 +827,11 @@
 
 	Initializing project.
 
-2003-12-18  kmorrison
-
 	* retrospect/: docs/GPL.txt, docs/README.txt, install/index.php,
 	  install/install.class.php, install/install.php,
 	  install/install.sql, install/install2.php, install/install3.php:
 
 	Initializing project.
-
-2003-12-18  kmorrison
 
 	* retrospect/: administration/admin.php,
 	  administration/auth.class.php, administration/db_edit_indiv.php,
@@ -649,10 +877,9 @@
 	  administration/js/ThemeOffice/tux.png,
 	  administration/js/ThemeOffice/user.png,
 	  administration/js/ThemeOffice/weblink.png, core/.cvsignore,
-	  core/atree.class.php, core/config.php, core/core.php,
-	  core/f_compatibility.php, core/f_database.php,
-	  core/f_datetime.php, core/f_dummy.php, core/f_language.php,
-	  core/f_report.php, core/genealogy.class.php,
+	  core/atree.class.php, core/core.php, core/f_compatibility.php,
+	  core/f_database.php, core/f_datetime.php, core/f_dummy.php,
+	  core/f_language.php, core/f_report.php, core/genealogy.class.php,
 	  core/options.class.php, core/theme.class.php:
 
 	Initializing project.
