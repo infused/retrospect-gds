@@ -7,7 +7,7 @@
  * This file is not intended to be used by any script.  It's only 
  * purpose is to be parsed by gettext when building a "po" file
  * for language translations.
- * @copyright 	Keith Morrison, Infused Solutions	2001-2004
+ * @copyright 	Keith Morrison, Infused Solutions	2001-2005
  * @author			Keith Morrison <keithm@infused-solutions.com>
  * @package 		genealogy
  * @license http://opensource.org/licenses/gpl-license.php

@@ -2,6 +2,7 @@ body {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	color: #000000;
+	background: #FFFFFF;
 }
 .title {
 	font-size: 24px;
@@ -25,10 +26,7 @@ td.section_body {
 }
 td.section_item {
 	padding: 2px 0px;
-	border-top: 1px none #666666;
-	border-right: 1px none #666666;
 	border-bottom: 1px dotted #666666;
-	border-left: 1px none #666666;
 }
 div.yes {
 	font-weight: bold;

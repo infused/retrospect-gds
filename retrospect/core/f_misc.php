@@ -1,7 +1,7 @@
 <?php 
 /**
  * Miscellaneous Functions
- * @copyright 	Keith Morrison, Infused Solutions	2001-2004
+ * @copyright 	Keith Morrison, Infused Solutions	2001-2005
  * @author			Keith Morrison <keithm@infused-solutions.com>
  * @package 		core
  * @license http://opensource.org/licenses/gpl-license.php

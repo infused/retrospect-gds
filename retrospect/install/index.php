@@ -2,7 +2,7 @@
 /**
  * Installation 
  *
- * @copyright 	Keith Morrison, Infused Solutions	2001-2004
+ * @copyright 	Keith Morrison, Infused Solutions	2001-2005
  * @author			Keith Morrison <keithm@infused-solutions.com>
  * @package 		installation
  * @license http://opensource.org/licenses/gpl-license.php
@@ -71,13 +71,8 @@
           <td align="center" class="section_item"><?php echo is_writable( CORE_PATH ) ? '<div class="yes">Yes</div>' : '<div class="no-not-req">No</div>';?></td>
           <td class="section_item">Optional</td>
         </tr>
-        <tr>
-          <td class="section_item">Misc Extensions:</td>
-          <td align="center" class="section_item">&nbsp;</td>
-          <td class="section_item">&nbsp;</td>
-        </tr>
         <tr> 
-          <td class="section_item"> - Gettext support </td> 
+          <td class="section_item"> Gettext support </td> 
           <td align="center" class="section_item">
 						<?php 
 							$cfg_filename = CORE_PATH.'config.php';
@@ -86,24 +81,6 @@
 						?>
 					</td> 
           <td class="section_item">Required</td>
-        </tr>
-        <tr>
-          <td class="section_item">- Mmcache </td>
-          <td align="center" class="section_item">
-					<?php
-						echo function_exists('mmcache_cache_page') ? '<div class="yes">Yes</div>' : '<div class="no-not-req">No</div>';
-					?>
-					</td>
-          <td class="section_item">Optional</td>
-        </tr>
-        <tr>
-          <td class="section_item">- Adodb zend extension</td>
-          <td align="center" class="section_item">
-					<?php 
-						echo extension_loaded('ADOdb') ? '<div class="yes">Yes</div>' : '<div class="no-not-req">No</div>';
-					?>
-					</td>
-          <td class="section_item">Optional</td>
         </tr>
     </table></td></tr> 
 </table> 
