@@ -76,7 +76,7 @@
 	
 	# Miscelaneous 
 	define('REG_LEVEL','/^([0-9]{1,2})/');	
-	
+		
 	$FAM_EVENTS = array(
 		'ANUL'=>'Annulment',
 		'CENS'=>'Census',
@@ -675,5 +675,4 @@
 		}
 
  	}
- 
 ?>
