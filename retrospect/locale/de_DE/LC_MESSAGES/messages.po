@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2004-05-13 19:36-0800\n"
+"PO-Revision-Date: 2004-05-19 20:39-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused.org>\n"
 "Language-Team: GERMAN <wil.feindt@t-online.de>\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +32,7 @@ msgid "Edit Individual"
 msgstr "Edit Person"
 
 #: administration/db_edit_indiv.php:34
-#: themes/default/multimedia.php:43
+#: themes/default/multimedia.php:47
 msgid "This feature has not been implemented yet."
 msgstr "Diese Funktion ist leider noch nicht vorhanden"
 
@@ -264,101 +264,106 @@ msgstr ""
 msgid "You must edit core/config.php to change the %s setting."
 msgstr "Bitte core/config.php editieren um die %s Einstellungen zu ändern"
 
-#: administration/sys_config.php:54
-#: administration/sys_config.php:97
+#: administration/sys_config.php:60
+#: administration/sys_config.php:103
 msgid "MySQL Hostname"
 msgstr "MySQL Hostname"
 
-#: administration/sys_config.php:55
-#: administration/sys_config.php:103
+#: administration/sys_config.php:61
+#: administration/sys_config.php:109
 msgid "MySQL Port"
 msgstr "MySQL Port"
 
-#: administration/sys_config.php:56
-#: administration/sys_config.php:109
+#: administration/sys_config.php:62
+#: administration/sys_config.php:115
 msgid "MySQL Username"
 msgstr "MySQL Benutzername"
 
-#: administration/sys_config.php:57
-#: administration/sys_config.php:115
+#: administration/sys_config.php:63
+#: administration/sys_config.php:121
 msgid "MySQL Password"
 msgstr "MySQL Passwort"
 
-#: administration/sys_config.php:58
-#: administration/sys_config.php:121
+#: administration/sys_config.php:64
+#: administration/sys_config.php:127
 msgid "MySQL Database"
 msgstr "MySQL Datenbank"
 
-#: administration/sys_config.php:61
+#: administration/sys_config.php:67
 msgid "Nothing to save."
 msgstr "Nichts zum Speichen."
 
-#: administration/sys_config.php:62
+#: administration/sys_config.php:68
 msgid "Options updated."
 msgstr ""
 
-#: administration/sys_config.php:71
+#: administration/sys_config.php:77
 msgid "Site Configuration"
 msgstr "Seiten Konfiguration"
 
-#: administration/sys_config.php:76
+#: administration/sys_config.php:82
 msgid "Default Page"
 msgstr "Standartseite"
 
-#: administration/sys_config.php:87
+#: administration/sys_config.php:93
 msgid "Database Configuration"
 msgstr "Datenbank Konfiguration"
 
-#: administration/sys_config.php:92
+#: administration/sys_config.php:98
 msgid "The database settings are shown for reference only and can not be changed from this screen. You must edit core/config.php to change these settings."
 msgstr "Die Datenbankeinstellungen werden nur als Referenz gezeigt und können hier nicht geändert werden. Bitte core/config.php editieren um die Einstellungen zu ändern."
 
-#: administration/sys_config.php:133
+#: administration/sys_config.php:139
 msgid "Language Configuration"
 msgstr "Sprache konfigurieren"
 
-#: administration/sys_config.php:138
+#: administration/sys_config.php:144
 msgid "Default Language"
 msgstr "Standartsprache"
 
-#: administration/sys_config.php:155
+#: administration/sys_config.php:161
 msgid "Allow language changes"
 msgstr "Sprachänderung zulassen"
 
-#: administration/sys_config.php:158
-#: administration/sys_config.php:168
-#: administration/sys_config.php:188
+#: administration/sys_config.php:164
+#: administration/sys_config.php:174
+#: administration/sys_config.php:218
 msgid "Yes"
 msgstr "Ja"
 
-#: administration/sys_config.php:159
-#: administration/sys_config.php:169
-#: administration/sys_config.php:189
+#: administration/sys_config.php:165
+#: administration/sys_config.php:175
+#: administration/sys_config.php:219
 msgid "No"
 msgstr "Nein"
 
-#: administration/sys_config.php:166
+#: administration/sys_config.php:172
 msgid "Translate Dates"
 msgstr "Datum übersetzen"
 
-#: administration/sys_config.php:180
+#: administration/sys_config.php:186
+#, fuzzy
+msgid "Meta Tag Generation"
+msgstr "Generation"
+
+#: administration/sys_config.php:210
 #, fuzzy
 msgid "Testing Configuration"
 msgstr "Seiten Konfiguration"
 
-#: administration/sys_config.php:185
+#: administration/sys_config.php:215
 msgid "Profile Functions"
 msgstr ""
 
-#: administration/sys_config.php:206
+#: administration/sys_config.php:236
 #: administration/user_edit.php:114
 msgid "Save"
 msgstr "Speichern"
 
-#: administration/sys_config.php:207
+#: administration/sys_config.php:237
 #: administration/user_add.php:100
 #: administration/user_edit.php:115
-#: themes/default/search.php:96
+#: themes/default/search.php:99
 msgid "Reset"
 msgstr "Zurück"
 
@@ -452,15 +457,15 @@ msgstr "Nie"
 
 #: core/f_dummy.php:38
 #: core/f_dummy.php:94
-#: themes/default/stats.php:96
+#: themes/default/stats.php:99
 msgid "Marriage"
 msgstr "Ehedaten"
 
 #: core/f_dummy.php:39
 #: core/f_dummy.php:63
-#: core/f_report.php:161
-#: core/f_report.php:162
-#: themes/default/stats.php:91
+#: core/f_report.php:174
+#: core/f_report.php:175
+#: themes/default/stats.php:94
 msgid "Unknown"
 msgstr "unbekannt"
 
@@ -526,12 +531,12 @@ msgid "Wife"
 msgstr "Weiblich"
 
 #: core/f_dummy.php:61
-#: themes/default/stats.php:89
+#: themes/default/stats.php:92
 msgid "Male"
 msgstr "Männlich"
 
 #: core/f_dummy.php:62
-#: themes/default/stats.php:90
+#: themes/default/stats.php:93
 msgid "Female"
 msgstr "Weiblich"
 
@@ -560,12 +565,12 @@ msgid "Bas Mitzah"
 msgstr "Bas Mitzah"
 
 #: core/f_dummy.php:72
-#: themes/default/family.php:96
+#: themes/default/family.php:105
 #: themes/default/family_pdf.php:134
 #: themes/default/pedigree_pdf.php:90
-#: themes/default/search.php:128
-#: themes/default/stats.php:94
-#: themes/default/surnames.php:136
+#: themes/default/search.php:131
+#: themes/default/stats.php:97
+#: themes/default/surnames.php:139
 msgid "Birth"
 msgstr "Geboren"
 
@@ -598,12 +603,12 @@ msgid "Cremation"
 msgstr "Verbrennung"
 
 #: core/f_dummy.php:80
-#: themes/default/family.php:99
+#: themes/default/family.php:108
 #: themes/default/family_pdf.php:152
 #: themes/default/pedigree_pdf.php:91
-#: themes/default/search.php:129
-#: themes/default/stats.php:95
-#: themes/default/surnames.php:137
+#: themes/default/search.php:132
+#: themes/default/stats.php:98
+#: themes/default/surnames.php:140
 msgid "Death"
 msgstr "Gestorben"
 
@@ -760,274 +765,285 @@ msgstr "Holländisch"
 msgid "German"
 msgstr "Deutsch"
 
-#: core/f_language.php:88
+#: core/f_language.php:93
 msgid "Jan"
 msgstr "Jan"
 
-#: core/f_language.php:89
+#: core/f_language.php:94
 msgid "Feb"
 msgstr "Feb"
 
-#: core/f_language.php:90
+#: core/f_language.php:95
 msgid "Mar"
 msgstr "Mar"
 
-#: core/f_language.php:91
+#: core/f_language.php:96
 msgid "Apr"
 msgstr "Apr"
 
-#: core/f_language.php:92
+#: core/f_language.php:97
 msgid "May"
 msgstr "Mai"
 
-#: core/f_language.php:93
+#: core/f_language.php:98
 msgid "Jun"
 msgstr "Jun"
 
-#: core/f_language.php:94
+#: core/f_language.php:99
 msgid "Jul"
 msgstr "Jul"
 
-#: core/f_language.php:95
+#: core/f_language.php:100
 msgid "Aug"
 msgstr "Aug"
 
-#: core/f_language.php:96
+#: core/f_language.php:101
 msgid "Sep"
 msgstr "Sep"
 
-#: core/f_language.php:97
+#: core/f_language.php:102
 msgid "Oct"
 msgstr "Okt"
 
-#: core/f_language.php:98
+#: core/f_language.php:103
 msgid "Nov"
 msgstr "Nov"
 
-#: core/f_language.php:99
+#: core/f_language.php:104
 msgid "Dec"
 msgstr "Dez"
 
-#: core/f_language.php:102
+#: core/f_language.php:107
 msgid "abv About"
 msgstr "um"
 
-#: core/f_language.php:103
+#: core/f_language.php:108
 msgid "abv Circa"
 msgstr "etwa"
 
-#: core/f_language.php:104
+#: core/f_language.php:109
 msgid "abv After"
 msgstr "nach"
 
-#: core/f_language.php:105
+#: core/f_language.php:110
 msgid "abv Before"
 msgstr "vor"
 
-#: core/f_language.php:106
+#: core/f_language.php:111
 msgid "abv Between"
 msgstr "zwischen"
 
-#: core/f_language.php:107
+#: core/f_language.php:112
 msgid "abv Calculated"
 msgstr "errechnet"
 
-#: core/f_report.php:38
+#: core/f_report.php:42
 #, php-format
 msgid "He was born on %s in %s."
 msgstr "Er wurde  %s in %s geboren."
 
-#: core/f_report.php:41
+#: core/f_report.php:45
 #, php-format
 msgid "He was born on %s."
 msgstr "Er wurde %s geboren."
 
-#: core/f_report.php:44
+#: core/f_report.php:48
 #, php-format
 msgid "He was born in %s."
 msgstr "Er wurde in %s geboren"
 
-#: core/f_report.php:50
+#: core/f_report.php:54
 #, php-format
 msgid "She was born on %s in %s."
 msgstr "Sie wurde %s in %s geboren."
 
-#: core/f_report.php:53
+#: core/f_report.php:57
 #, php-format
 msgid "She was born on %s."
 msgstr "Sie wurde %s geboren."
 
-#: core/f_report.php:56
+#: core/f_report.php:60
 #, php-format
 msgid "She was born in %s."
 msgstr "Sie wurde in %s geboren."
 
-#: core/f_report.php:75
+#: core/f_report.php:82
 #, php-format
 msgid "He died on %s in %s."
 msgstr "Er starb %s in %s."
 
-#: core/f_report.php:78
+#: core/f_report.php:85
 #, php-format
 msgid "He died on %s."
 msgstr "Er starb %s."
 
-#: core/f_report.php:81
+#: core/f_report.php:88
 #, php-format
 msgid "He died in %s."
 msgstr "Er starb in %s."
 
-#: core/f_report.php:87
+#: core/f_report.php:94
 #, php-format
 msgid "She died on %s in %s."
 msgstr "Sie starb %s in %s."
 
-#: core/f_report.php:90
+#: core/f_report.php:97
 #, php-format
 msgid "She died on %s."
 msgstr "Sie starb %s."
 
-#: core/f_report.php:93
+#: core/f_report.php:100
 #, php-format
 msgid "She died in %s."
 msgstr "Sie starb in %s."
 
-#: core/f_report.php:117
+#: core/f_report.php:128
 #, php-format
 msgid ", son of %s and %s."
 msgstr ", Sohn von %s und %s."
 
-#: core/f_report.php:121
-#: core/f_report.php:125
+#: core/f_report.php:132
+#: core/f_report.php:136
 #, php-format
 msgid ", son of %s."
 msgstr ", Sohn von %s."
 
-#: core/f_report.php:131
+#: core/f_report.php:142
 #, php-format
 msgid ", daughter of %s and %s."
 msgstr ", Tochter von %s und %s."
 
-#: core/f_report.php:135
-#: core/f_report.php:139
+#: core/f_report.php:146
+#: core/f_report.php:150
 #, php-format
 msgid ", daughter of %s."
 msgstr ", Tochter von %s."
 
-#: core/f_report.php:168
+#: core/f_report.php:181
 #, php-format
 msgid "male %s married %s on %s in %s."
 msgstr "%s heiratete %s %s in %s."
 
-#: core/f_report.php:172
+#: core/f_report.php:185
 #, php-format
 msgid "male %s married %s on %s."
 msgstr "%s heiratete %s %s."
 
-#: core/f_report.php:176
+#: core/f_report.php:189
 #, php-format
 msgid "male %s married %s in %s."
 msgstr "%s heiratete %s in %s."
 
-#: core/f_report.php:180
+#: core/f_report.php:193
 #, php-format
 msgid "male %s married %s."
 msgstr "%s heiratete %s."
 
-#: core/f_report.php:184
-#: core/f_report.php:206
-#: core/f_report.php:230
+#: core/f_report.php:197
+#: core/f_report.php:219
+#: core/f_report.php:243
 #, php-format
 msgid "This marriage ended in %s."
 msgstr "Diese Ehe endete in %s."
 
-#: core/f_report.php:190
+#: core/f_report.php:203
 #, php-format
 msgid "female %s married %s on %s in %s."
 msgstr "%s heiratete %s %s in %s."
 
-#: core/f_report.php:194
+#: core/f_report.php:207
 #, php-format
 msgid "female %s married %s on %s."
 msgstr "%s heiratete %s %s."
 
-#: core/f_report.php:198
+#: core/f_report.php:211
 #, php-format
 msgid "female %s married %s in %s."
 msgstr "%s heiratete %s in %s."
 
-#: core/f_report.php:202
+#: core/f_report.php:215
 #, php-format
 msgid "female %s married %s."
 msgstr "%s heiratete %s."
 
-#: core/f_report.php:214
+#: core/f_report.php:227
 #, php-format
 msgid "male %s had a relationship with %s on %s in %s."
 msgstr "%s hatte ein Eheähnliches Verhätnis mit %s %s in %s."
 
-#: core/f_report.php:218
+#: core/f_report.php:231
 #, php-format
 msgid "male %s had a relationship with %s on %s."
 msgstr "%shatte ein Eheähnliches Verhätnis mit %s %s."
 
-#: core/f_report.php:222
+#: core/f_report.php:235
 #, php-format
 msgid "male %s had a relationship with %s in %s."
 msgstr "%s hatte ein Eheähnliches Verhätnis mit %s in %s."
 
-#: core/f_report.php:226
+#: core/f_report.php:239
 #, php-format
 msgid "male %s had a relationship with %s."
 msgstr "%s hatte ein Eheähnliches Verhätnis mit %s."
 
-#: core/f_report.php:236
+#: core/f_report.php:249
 #, php-format
 msgid "female %s had a relationship with %s on %s in %s."
 msgstr "%s hatte ein Eheähnliches Verhätnis mit %s %s in %s."
 
-#: core/f_report.php:240
+#: core/f_report.php:253
 #, php-format
 msgid "female %s had a relationship with %s on %s."
 msgstr "%s hatte ein Eheähnliches Verhätnis mit %s %s."
 
-#: core/f_report.php:244
+#: core/f_report.php:257
 #, php-format
 msgid "female %s had a relationship with %s in %s."
 msgstr "%s hatte ein Eheähnliches Verhätnis mit %s in %s."
 
-#: core/f_report.php:248
+#: core/f_report.php:261
 #, php-format
 msgid "female %s had a relationship with %s."
 msgstr "%s hatte ein Eheähnliches Verhätnis mit %s."
 
-#: core/f_report.php:252
+#: core/f_report.php:265
 #, php-format
 msgid "This relationship ended in %s."
 msgstr "Das Verhältnis endete in %s."
 
-#: core/f_report.php:271
+#: core/f_report.php:284
 #, php-format
 msgid "Children of %s and %s"
 msgstr "Kind/er von %s und %s"
 
-#: core/f_report.php:274
+#: core/f_report.php:287
 #, php-format
 msgid "Children of %s"
 msgstr "Kind/er von %s."
 
-#: themes/default/ahnentafel.php:55
+#: themes/default/ahnentafel.php:43
+#: themes/default/reports.php:67
+msgid "Ahnentafel"
+msgstr "Vorfahren"
+
+#: themes/default/ahnentafel.php:44
+#: themes/default/pedigree.php:36
+#, fuzzy
+msgid "Ancestors"
+msgstr "Vorfahrenliste"
+
+#: themes/default/ahnentafel.php:59
 #: themes/default/ahnentafel_pdf.php:60
 #: themes/default/ahnentafel_pdf.php:87
 #, php-format
 msgid "Ahnentafel Report for %s"
 msgstr "Vorfahrenliste von %s"
 
-#: themes/default/ahnentafel.php:64
+#: themes/default/ahnentafel.php:68
 msgid "Ahnentafel Report"
 msgstr "Vorfahrenliste"
 
-#: themes/default/ahnentafel.php:90
+#: themes/default/ahnentafel.php:96
 #: themes/default/ahnentafel_pdf.php:107
 #: themes/default/descendant.php:61
 #: themes/default/descendant_pdf.php:93
@@ -1051,18 +1067,18 @@ msgid "Genealogy"
 msgstr "Genealogie"
 
 #: themes/default/descendant.php:104
-#: themes/default/family.php:143
-#: themes/default/family.php:182
-#: themes/default/family_pdf.php:240
-#: themes/default/pedigree.php:68
+#: themes/default/family.php:154
+#: themes/default/family.php:195
+#: themes/default/family_pdf.php:243
+#: themes/default/pedigree.php:76
 msgid "b."
 msgstr "geb."
 
 #: themes/default/descendant.php:107
-#: themes/default/family.php:144
-#: themes/default/family.php:183
-#: themes/default/family_pdf.php:241
-#: themes/default/pedigree.php:69
+#: themes/default/family.php:155
+#: themes/default/family.php:196
+#: themes/default/family_pdf.php:244
+#: themes/default/pedigree.php:77
 msgid "d."
 msgstr "gest."
 
@@ -1079,7 +1095,7 @@ msgstr "Nachfahrenliste"
 
 #: themes/default/email.php:29
 #: themes/default/email.php:65
-#: themes/default/template.php:70
+#: themes/default/template.php:74
 msgid "E-mail this to a friend"
 msgstr "E-mail an einen Freund"
 
@@ -1111,56 +1127,56 @@ msgstr "Deine Nachricht wurde gesendet."
 msgid "Close"
 msgstr "Schließen"
 
-#: themes/default/family.php:37
+#: themes/default/family.php:42
 #, php-format
 msgid "Family Page for %s"
 msgstr "Familiendatenblatt von %s"
 
-#: themes/default/family.php:86
+#: themes/default/family.php:95
 #: themes/default/family_pdf.php:117
 msgid "Aka"
 msgstr "Alias/auch bekannt als"
 
-#: themes/default/family.php:89
+#: themes/default/family.php:98
 #: themes/default/family_pdf.php:126
 msgid "Gender"
 msgstr "Geschlecht"
 
-#: themes/default/family.php:92
+#: themes/default/family.php:101
 #: themes/default/family_pdf.php:170
 msgid "Father"
 msgstr "Vater"
 
-#: themes/default/family.php:94
+#: themes/default/family.php:103
 #: themes/default/family_pdf.php:176
 msgid "Mother"
 msgstr "Mutter"
 
-#: themes/default/family.php:125
-#: themes/default/family.php:163
-#: themes/default/family_pdf.php:212
-#: themes/default/family_pdf.php:280
-#: themes/default/stats.php:98
+#: themes/default/family.php:134
+#: themes/default/family.php:174
+#: themes/default/family_pdf.php:215
+#: themes/default/family_pdf.php:283
+#: themes/default/stats.php:101
 msgid "Notes"
 msgstr "Bemerkung"
 
-#: themes/default/family.php:136
-#: themes/default/family_pdf.php:233
+#: themes/default/family.php:147
+#: themes/default/family_pdf.php:236
 #, php-format
 msgid "Family %s"
 msgstr "Ehe %s"
 
-#: themes/default/family.php:137
-#: themes/default/family_pdf.php:237
+#: themes/default/family.php:148
+#: themes/default/family_pdf.php:240
 msgid "Spouse/Partner"
 msgstr "Ehepartner"
 
-#: themes/default/family.php:170
-#: themes/default/family_pdf.php:292
+#: themes/default/family.php:181
+#: themes/default/family_pdf.php:295
 msgid "Children"
 msgstr "Kinder"
 
-#: themes/default/family.php:193
+#: themes/default/family.php:206
 msgid "Source Citations"
 msgstr "Quellenverweise"
 
@@ -1172,11 +1188,11 @@ msgstr "Familiendatenblatt von %s"
 
 #: themes/default/family_pdf.php:141
 #: themes/default/family_pdf.php:159
-#: themes/default/family_pdf.php:199
-#: themes/default/family_pdf.php:250
-#: themes/default/family_pdf.php:267
-#: themes/default/family_pdf.php:318
-#: themes/default/stats.php:99
+#: themes/default/family_pdf.php:202
+#: themes/default/family_pdf.php:253
+#: themes/default/family_pdf.php:270
+#: themes/default/family_pdf.php:321
+#: themes/default/stats.php:102
 msgid "Sources"
 msgstr "Quellen"
 
@@ -1187,15 +1203,17 @@ msgstr "Datenbank durschsuchen"
 #: themes/default/menu.php:27
 #: themes/default/search.php:35
 #: themes/default/search.php:38
-#: themes/default/search.php:45
-#: themes/default/search.php:52
-#: themes/default/search.php:95
+#: themes/default/search.php:41
+#: themes/default/search.php:48
+#: themes/default/search.php:55
+#: themes/default/search.php:98
 msgid "Search"
 msgstr "Suchen"
 
 #: themes/default/menu.php:28
-#: themes/default/surnames.php:57
+#: themes/default/surnames.php:30
 #: themes/default/surnames.php:60
+#: themes/default/surnames.php:63
 msgid "Surname List"
 msgstr "Familiennamen"
 
@@ -1206,18 +1224,25 @@ msgstr "Datenbank Statistik"
 #: themes/default/menu.php:29
 #: themes/default/stats.php:83
 #: themes/default/stats.php:86
+#: themes/default/stats.php:89
 msgid "Statistics"
 msgstr "Statistiken"
 
 #: themes/default/multimedia.php:33
+#: themes/default/nav.php:62
+#: themes/default/nav.php:65
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#: themes/default/multimedia.php:37
 #, php-format
 msgid "Multimedia for %s"
 msgstr "Multimedia von %s"
 
 #: themes/default/nav.php:30
 #: themes/default/nav.php:33
-#: themes/default/surnames.php:112
 #: themes/default/surnames.php:115
+#: themes/default/surnames.php:118
 #, php-format
 msgid "%s Surname"
 msgstr "Familienname %s "
@@ -1229,20 +1254,17 @@ msgstr "Familie"
 
 #: themes/default/nav.php:46
 #: themes/default/nav.php:49
+#: themes/default/pedigree.php:35
 msgid "Pedigree"
 msgstr "Stammbaum"
 
 #: themes/default/nav.php:54
 #: themes/default/nav.php:57
+#: themes/default/reports.php:43
 msgid "Reports"
 msgstr "Listen"
 
-#: themes/default/nav.php:62
-#: themes/default/nav.php:65
-msgid "Multimedia"
-msgstr "Multimedia"
-
-#: themes/default/pedigree.php:46
+#: themes/default/pedigree.php:50
 #: themes/default/pedigree_pdf.php:63
 #: themes/default/pedigree_pdf.php:116
 #, php-format
@@ -1254,124 +1276,120 @@ msgstr "Stammbaum von %s"
 msgid "Reports for %s"
 msgstr "Liste von %s"
 
-#: themes/default/reports.php:53
+#: themes/default/reports.php:57
 msgid "Family Reports"
 msgstr "Familien Datenblatt"
 
-#: themes/default/reports.php:54
+#: themes/default/reports.php:58
 msgid "Family PDF"
 msgstr "Datenblatt PDF"
 
-#: themes/default/reports.php:56
+#: themes/default/reports.php:60
 msgid "Pedigree Reports"
 msgstr "Stammbaum"
 
-#: themes/default/reports.php:57
+#: themes/default/reports.php:61
 msgid "Pedigree PDF"
 msgstr "Stammbaum PDF"
 
-#: themes/default/reports.php:59
+#: themes/default/reports.php:63
 msgid "Ancestor Reports"
 msgstr "Vorfahrenliste"
 
-#: themes/default/reports.php:62
-#: themes/default/reports.php:76
+#: themes/default/reports.php:66
+#: themes/default/reports.php:80
 msgid "Report type"
 msgstr "Listentyp"
 
-#: themes/default/reports.php:63
-msgid "Ahnentafel"
-msgstr "Vorfahren"
-
-#: themes/default/reports.php:63
+#: themes/default/reports.php:67
 msgid "Ahnentafel PDF"
 msgstr "Vorfahren PDF"
 
-#: themes/default/reports.php:64
-#: themes/default/reports.php:78
+#: themes/default/reports.php:68
+#: themes/default/reports.php:82
 msgid "Number of Generations"
 msgstr "Generation"
 
-#: themes/default/reports.php:69
-#: themes/default/reports.php:83
+#: themes/default/reports.php:73
+#: themes/default/reports.php:87
 msgid "Apply"
 msgstr "Ansehen"
 
-#: themes/default/reports.php:73
+#: themes/default/reports.php:77
 msgid "Descendant Reports"
 msgstr "Nachkommenliste"
 
-#: themes/default/reports.php:77
+#: themes/default/reports.php:81
 msgid "Descendant"
 msgstr "Nachkommen"
 
-#: themes/default/reports.php:77
+#: themes/default/reports.php:81
 msgid "Descendant PDF"
 msgstr "Nachkommen PDF"
 
-#: themes/default/search.php:57
+#: themes/default/search.php:60
 msgid "Results"
 msgstr "Ergebnis"
 
-#: themes/default/search.php:74
+#: themes/default/search.php:77
 msgid "Given Name"
 msgstr "Vorname"
 
-#: themes/default/search.php:75
+#: themes/default/search.php:78
 msgid "Surname"
 msgstr "Familienname"
 
-#: themes/default/search.php:97
+#: themes/default/search.php:100
 msgid "Clear"
 msgstr "Löschen"
 
-#: themes/default/search.php:110
+#: themes/default/search.php:113
 msgid "No search parameters were specified."
 msgstr "Kein Suchparameter eingegeben!"
 
-#: themes/default/search.php:124
-#: themes/default/surnames.php:134
+#: themes/default/search.php:127
+#: themes/default/surnames.php:137
 msgid "Number of individuals listed"
 msgstr "Anzahl der Personen"
 
-#: themes/default/search.php:127
-#: themes/default/surnames.php:135
+#: themes/default/search.php:130
+#: themes/default/surnames.php:138
 msgid "Name"
 msgstr "Name"
 
-#: themes/default/search.php:144
+#: themes/default/search.php:150
 msgid "No matching records were found."
 msgstr "Leider kein Ergebnis!"
 
-#: themes/default/stats.php:87
+#: themes/default/stats.php:90
 msgid "Surnames"
 msgstr "Familiennamen"
 
-#: themes/default/stats.php:88
+#: themes/default/stats.php:91
 msgid "Individuals"
 msgstr "Personen"
 
-#: themes/default/stats.php:92
+#: themes/default/stats.php:95
 msgid "Families"
 msgstr "Familien"
 
-#: themes/default/stats.php:93
+#: themes/default/stats.php:96
 msgid "Facts"
 msgstr "Personendaten"
 
-#: themes/default/stats.php:97
+#: themes/default/stats.php:100
 msgid "Other"
 msgstr "Andere"
 
-#: themes/default/stats.php:100
+#: themes/default/stats.php:103
 msgid "Citations"
 msgstr "Verweise"
 
-#: themes/default/surnames.php:92
+#: themes/default/surnames.php:95
 msgid "Number of surnames listed"
 msgstr "Anzahl der Familiennamen"
 
-#: themes/default/template.php:69
+#: themes/default/template.php:73
 #: themes/default/template_print.php:36
 msgid "Print"
 msgstr "Drucken"
