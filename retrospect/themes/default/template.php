@@ -71,7 +71,7 @@ function MM_setTextOfTextfield(objName,x,newText) { //v3.0
 <div id="content">
 	<div id="utils">
 		<a href="#" onclick="MM_openBrWindow('<?php echo htmlentities((CURRENT_PAGE == $_SERVER['PHP_SELF']) ? CURRENT_PAGE.'?print=y' : CURRENT_PAGE.'&print=y'); ?>','','scrollbars=yes,resizable=yes,width=640,height=480')"><img src="themes/default/images/printbutton.gif" border="0" alt="<?php echo gtc("Print"); ?>" /></a>
-		<a href="#" onclick="MM_openBrWindow('<?php echo htmlentities(Theme::getPage($g_theme, 'email').'?'.$_SERVER['QUERY_STRING']); ?> ','','scrollbars=yes,resizable=yes,width=400,height=225')"><img src="themes/default/images/emailbutton.gif" border="0" alt="<?php echo gtc("E-mail this to a friend"); ?>" /></a>
+		<a href="#" onclick="MM_openBrWindow('<?php echo htmlentities($_SERVER['PHP_SELF'].'?option=email&print=y'); ?> ','','scrollbars=yes,resizable=yes,width=400,height=225')"><img src="themes/default/images/emailbutton.gif" border="0" alt="<?php echo gtc("E-mail this to a friend"); ?>" /></a>
 	</div>
 	<?php	echo $g_content; 	unset($g_content); ?>
 </div>
