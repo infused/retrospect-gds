@@ -25,6 +25,7 @@
 	# process expected get/post variables
 	$print = isset($_GET['print']) ? true : false;
 	$sn = isset($_GET['sn']) ? $_GET['sn'] : null;
+	$smarty->assign('sn', $sn);
 	
 	# populate keyword array
 	keyword_push(gtc("Surname List"));
@@ -52,21 +53,22 @@
 		return ($p_alpha == $g_alpha) ? $p_alpha : '<a href="'.$_SERVER['PHP_SELF'].'?option=surnames&amp;alpha='.$p_alpha.'">'.gtc($p_alpha).'</a>';
 	}
 
+	$alphabet = range('A', 'Z');
+	$alphabet[] = 'ALL';
+	$alphabet[] = 'TOP100';
+	$tabs = array();
+	for ($i = 0; $i < count($alphabet); $i++) {
+		$tabs[$i]['class'] = get_alpha_class($alphabet[$i]);
+		$tabs[$i]['link'] = get_alpha_link($alphabet[$i]);
+	}
+	$smarty->assign('page_title', gtc("Surname List"));
+	$smarty->assign('tabs', $tabs);
+	unset($alphabet, $tabs);
+
 	# if no surname is selected
 	if ($sn == null) {
+		$smarty->assign('content_title', gtc("Surname List"));
 		$g_alpha = (isset($_GET['alpha'])) ? $_GET['alpha'] : 'A';
-		$alphabet = range('A', 'Z');
-		$alphabet[] = 'ALL';
-		$alphabet[] = 'TOP100';
-		$tabs = array();
-		for ($i = 0; $i < count($alphabet); $i++) {
-			$tabs[$i]['class'] = get_alpha_class($alphabet[$i]);
-			$tabs[$i]['link'] = get_alpha_link($alphabet[$i]);
-		}
-		$smarty->assign('page_title', gtc("Surname List"));
-		$smarty->assign('tabs', $tabs);
-		unset($alphabet, $tabs);
-		
 		if ($g_alpha == 'ALL') {
 			$sql = "SELECT surname, count(surname) AS number FROM ".TBL_INDIV." surname GROUP BY surname";		
 			$rs = $db->Execute($sql);
@@ -98,7 +100,15 @@
 	
 	# if a surname has been selected
 	else {
-		
+		$smarty->assign('content_title', sprintf(gtc("%s Surname"), $sn));
+		$sql = "SELECT indkey FROM ".TBL_INDIV." WHERE surname = '$sn' ORDER BY givenname";
+		$rs = $db->Execute($sql);
+		$individuals = array();
+		while ($row = $rs->FetchRow()) {
+			$o = new Person($row['indkey'], 3); 
+			$individuals[] = $o;
+		}
+		$smarty->assign('individuals', $individuals);
 	}
 	
 ?>

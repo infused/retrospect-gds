@@ -2,10 +2,10 @@ body {
 	margin: 0px;
 	padding: 0px;
 	background-color: white;
-	font: normal 8pt Verdana, Arial, Helvetica, sans-serif;
+	font: normal 8pt Georgia, Arial, Helvetica, sans-serif;
 }
 p {
-	font: normal 8pt Verdana, Arial, Helvetica, sans-serif;
+	font: normal 8pt Georgia, Arial, Helvetica, sans-serif;
 }
 a {
 	font-weight: bold;
@@ -89,18 +89,6 @@ sup {
 	width: auto;
 	clear: right;
 }
-.col2-3 {
-	position: relative;
-	left: -3px;
-	height: 11pt;
-	width: 50px;
-	clear: right;
-	text-align: right;
-}
-/* Opera 7 fix */
-div>.col2-2 {
-	position:static;
-}
 form {
 	padding: 0px;
 	margin: 0px;
@@ -168,7 +156,6 @@ input.textbox {
 }
 .tab-page {
 	width: auto;
-	height: 550px;
 	margin: 0px;
 	padding: 10px;
 	background-color: #F9F9F9;
@@ -179,7 +166,7 @@ input.textbox {
 	border-right-style: solid;
 }
 .tab-row {
-	font: 8pt Verdana, Arial, Helvetica, sans-serif;
+	font: 8pt Georgia, Arial, Helvetica, sans-serif;
 	text-align: center;
 	white-space: nowrap;
 	border-collapse: collapse;
@@ -225,4 +212,12 @@ input.textbox {
 }
 .nobullet {
 	list-style-type: none;
+}
+.surname_col1 {
+	padding: 0px 5px 0px 0px;
+	width: 300px;
+}
+.surname_col2 {
+	padding: 0px 5px 0px 5px;
+	width: 150px;
 }
