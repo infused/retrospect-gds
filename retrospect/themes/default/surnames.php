@@ -52,29 +52,21 @@
 		return ($p_alpha == $g_alpha) ? $p_alpha : '<a href="'.$_SERVER['PHP_SELF'].'?option=surnames&amp;alpha='.$p_alpha.'">'.gtc($p_alpha).'</a>';
 	}
 
-	//Display list of surnames if one has not been selected
+	# if no surname is selected
 	if ($sn == null) {
 		$g_alpha = (isset($_GET['alpha'])) ? $_GET['alpha'] : 'A';
-
-		#title
-		$g_title = gtc("Surname List");
-		
-		# alphabet menu
-		echo '<div class="content-title">'.gtc("Surname List").'</div>';
-		if ($print === false) {
-			echo '<table class="tab-row" cellpadding="0" cellspacing="0">';
-			echo '<tr>';
-			$alphabet = range('A', 'Z');
-			$alphabet[] = 'ALL';
-			$alphabet[] = 'TOP100';
-			foreach ($alphabet as $alpha) {
-				echo '<td class="'.get_alpha_class($alpha).'">'.get_alpha_link($alpha).'</td>'."\n"; 
-			}
-			echo '<td class="tab-last">&nbsp;</td>';
-			echo '</tr>';
-			echo '</table>';
+		$alphabet = range('A', 'Z');
+		$alphabet[] = 'ALL';
+		$alphabet[] = 'TOP100';
+		$tabs = array();
+		for ($i = 0; $i < count($alphabet); $i++) {
+			$tabs[$i]['class'] = get_alpha_class($alphabet[$i]);
+			$tabs[$i]['link'] = get_alpha_link($alphabet[$i]);
 		}
-			
+		$smarty->assign('page_title', gtc("Surname List"));
+		$smarty->assign('tabs', $tabs);
+		unset($alphabet, $tabs);
+		
 		if ($g_alpha == 'ALL') {
 			$sql = "SELECT surname, count(surname) AS number FROM ".TBL_INDIV." surname GROUP BY surname";		
 			$rs = $db->Execute($sql);
@@ -86,66 +78,27 @@
 		else {
 			$sql = "SELECT surname, count(surname) AS number FROM ".TBL_INDIV." surname WHERE surname LIKE '$g_alpha%' GROUP BY surname";
 			$rs = $db->Execute($sql);
-			
 		}
 		$max_cols = 4;
 		$max_rows = ceil($rs->RecordCount() / $max_cols);
-		
-		echo '<div class="tab-page">';
-		echo '<p class="text">'.gtc("Number of surnames listed").': '.$rs->RecordCount().'</p>';
-		echo '<table border="0" cellpadding="0" cellspacing="0">';
-		echo '<tr><td class="text" width="200" valign="top">';
+		$smarty->assign('max_cols', $max_cols);
+		$smarty->assign('max_rows', $max_rows);
+		$surnames = array();
 		$count = 0;
 		while ($row = $rs->FetchRow()) {
-			$count++;			
-			$letter = strtoupper(substr($row['surname'],0,1));
-			echo '<a href="'.$_SERVER['PHP_SELF'].'?option=surnames&amp;sn='.$row['surname'].'">';
-			echo $row['surname'];
-			echo '&nbsp;('.$row['number'].')';
-			echo '</a><br />';
-			if ($count % $max_rows == 0) { echo '</td><td class="text" width="200" valign="top">'; }
+			if (!empty($row['surname'])) {
+				$surnames[$count]['surname'] = $row['surname'];
+				$surnames[$count]['count'] = $row['number'];
+				$count++;
+			}
 		}
-		echo '</td></tr></table>';
-		echo '</div>';
-}
+		$smarty->assign('surnames', $surnames);
+		unset($surnames, $max_cols);
+	}
 	
+	# if a surname has been selected
 	else {
 		
-		#title
-		$g_title = sprintf(gtc("%s Surname"), $sn);
-		
-		# alphabet menu
-		echo '<div class="content-title">'.sprintf(gtc("%s Surname"), $sn).'</div>';
-		if ($print === false) {
-			echo '<table class="tab-row" cellpadding="0" cellspacing="0">';
-			echo '<tr>';
-			$alphabet = range('A', 'Z');
-			$alphabet[] = 'ALL';
-			$alphabet[] = 'TOP100';
-			foreach ($alphabet as $alpha) {
-				echo '<td class="'.get_alpha_class($alpha).'">'.get_alpha_link($alpha).'</td>'."\n"; 
-			}
-			echo '<td class="tab-last">&nbsp;</td>';
-			echo '</tr>';
-			echo '</table>';
-		}
-		
-		$sql = "SELECT indkey FROM ".TBL_INDIV." WHERE surname = '$sn' ORDER BY givenname";
-		$rs = $db->Execute($sql);
-		
-		echo '<div class="tab-page">';
-		echo '<p class="text">'.gtc("Number of individuals listed").': '.$rs->RecordCount().'</p>';
-		echo '<div class="text" style="width: 300px; float: left;"><b>'.gtc("Name").'</b></div>';
-		echo '<div class="text" style="width: 150px; float: left;"><b>'.gtc("Birth").'</b></div>';
-		echo '<div class="text" style="width: 150px;"><b>'.gtc("Death").'</b></div>';
-
-		while ($row = $rs->FetchRow()) {
-			$o = new Person($row['indkey'], 3); 
-			$o_link = '<a href="'.$_SERVER['PHP_SELF'].'?option=family&amp;indiv='.$o->indkey.'">'.$o->sname.', '.$o->gname.'</a>';
-			echo '<div class="text" style="width: 300px; float: left; height: 10pt; overflow:hidden;">'.$o_link.'</div>';
-			echo '<div class="text" style="width: 150px; float: left; height: 10pt; overflow:hidden;">'.$o->birth->date.'</div>';
-			echo '<div class="text" style="width: 150px; height: 10pt; overflow:hidden;">'.$o->death->date.'</div>';
-		}
-		echo '</div>';
 	}
+	
 ?>
