@@ -32,7 +32,7 @@
 	{/foreach}
 	{if $indiv->notes}
 		<div class="col1">{translate s="Notes"}:</div>
-		<div class="col-notes">{$indiv->notes}</div>
+		<div class="col2-2">{$indiv->notes}</div>
 	{/if}
 	{foreach from=$marriages item=marriage}
 		<br />
