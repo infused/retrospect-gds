@@ -135,7 +135,7 @@ class ATree {
 		# point root_node to the first node
 		$this->root_index = 0;
 		# create the first node, set generation andf ahnentafel to 1
-		$t_node =& new ATreeNode($p_data, null, $this->root_index, 1, 1);
+		$t_node = new ATreeNode($p_data, null, $this->root_index, 1, 1);
 		$this->nodes[0] = $t_node;
 	}
 	
@@ -202,7 +202,7 @@ class ATree {
 			$node = array_shift($nodes);
 
 			# do something with the node here
-			$person = &new Person($node->data, 4, $node->ahnentafel);
+			$person = new Person($node->data, 4, $node->ahnentafel);
 			call_user_func($p_callback_func, $person, $node->generation);
 			
 			if ( is_integer( $node->father_index ) ) {
