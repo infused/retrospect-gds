@@ -6,12 +6,323 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2004-01-31 14:49-0800\n"
+"PO-Revision-Date: 2004-02-06 12:28-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused.org>\n"
 "Language-Team: ENGLISH <keithm@infused-solutions.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: administration/admin.php:29
+msgid "Retrospect-GDS Administration"
+msgstr "Retrospect-GDS Administration"
+
+#: administration/admin.php:62
+#, php-format
+msgid "Logged in as %s"
+msgstr "Logged in as %s"
+
+#: administration/admin.php:64
+msgid "Logout"
+msgstr "Logout"
+
+#: administration/db_edit_indiv.php:31
+#: administration/menubar.php:43
+msgid "Edit Individual"
+msgstr "Edit Individual"
+
+#: administration/db_edit_indiv.php:34
+#: themes/default/multimedia.php:42
+msgid "This feature has not been implemented yet."
+msgstr "This feature has not been implemented yet."
+
+#: administration/db_optimize.php:44
+#: administration/menubar.php:46
+msgid "Optimize Tables"
+msgstr "Optimize Tables"
+
+#: administration/login.php:29
+msgid "phpGene Pro Administration Login"
+msgstr "phpGene Pro Administration Login"
+
+#: administration/login.php:55
+#: administration/user_add.php:75
+#: administration/user_edit.php:81
+#: administration/user_list.php:37
+msgid "Username"
+msgstr "Username"
+
+#: administration/login.php:59
+msgid "Login"
+msgstr "Login"
+
+#: administration/login.php:62
+msgid "Password"
+msgstr "Password"
+
+#: administration/login.php:67
+#: themes/default/menu.php:34
+msgid "Language"
+msgstr "Language"
+
+#: administration/media_list.php:31
+#: administration/menubar.php:51
+msgid "Media List"
+msgstr "Media List"
+
+#: administration/media_list.php:37
+#: administration/menubar.php:43
+msgid "Individual"
+msgstr "Individual"
+
+#: administration/media_list.php:38
+msgid "Filename"
+msgstr "Filename"
+
+#: administration/media_list.php:39
+msgid "Caption"
+msgstr "Caption"
+
+#: administration/media_list.php:40
+#: core/f_dummy.php:81
+msgid "Description"
+msgstr "Description"
+
+#: administration/media_list.php:41
+msgid "Thumbnail"
+msgstr "Thumbnail"
+
+#: administration/menubar.php:31
+msgid "System"
+msgstr "System"
+
+#: administration/menubar.php:32
+msgid "Status"
+msgstr "Status"
+
+#: administration/menubar.php:33
+msgid "Configuration"
+msgstr "Configuration"
+
+#: administration/menubar.php:34
+msgid "User Admin"
+msgstr "User Admin"
+
+#: administration/menubar.php:35
+#: administration/user_list.php:31
+msgid "User List"
+msgstr "User List"
+
+#: administration/menubar.php:35
+msgid "Edit Users"
+msgstr "Edit Users"
+
+#: administration/menubar.php:36
+#: administration/user_add.php:69
+msgid "Add User"
+msgstr "Add User"
+
+#: administration/menubar.php:41
+#: themes/default/menu.php:26
+msgid "Database"
+msgstr "Database"
+
+#: administration/menubar.php:42
+msgid "Edit"
+msgstr "Edit"
+
+#: administration/menubar.php:45
+msgid "Maintenance"
+msgstr "Maintenance"
+
+#: administration/menubar.php:50
+msgid "Media"
+msgstr "Media"
+
+#: administration/status.php:39
+#, php-format
+msgid "You password has expired.  Go %s to change it immediately!"
+msgstr "You password has expired.  Go %s to change it immediately!"
+
+#: administration/sys_config.php:35
+#, php-format
+msgid "You must edit core/config.php to change the %s setting."
+msgstr "You must edit core/config.php to change the %s setting."
+
+#: administration/sys_config.php:52
+#: administration/sys_config.php:93
+msgid "MySQL Hostname"
+msgstr "MySQL Hostname"
+
+#: administration/sys_config.php:53
+#: administration/sys_config.php:99
+msgid "MySQL Port"
+msgstr "MySQL Port"
+
+#: administration/sys_config.php:54
+#: administration/sys_config.php:105
+msgid "MySQL Username"
+msgstr "MySQL Username"
+
+#: administration/sys_config.php:55
+#: administration/sys_config.php:111
+msgid "MySQL Password"
+msgstr "MySQL Password"
+
+#: administration/sys_config.php:56
+#: administration/sys_config.php:117
+msgid "MySQL Database"
+msgstr "MySQL Database"
+
+#: administration/sys_config.php:57
+msgid "Nothing to save."
+msgstr "Nothing to save."
+
+#: administration/sys_config.php:58
+msgid "Options updated."
+msgstr "Options updated."
+
+#: administration/sys_config.php:67
+msgid "Site Configuration"
+msgstr "Site Configuration"
+
+#: administration/sys_config.php:72
+msgid "Default Page"
+msgstr "Default Page"
+
+#: administration/sys_config.php:83
+msgid "Database Configuration"
+msgstr "Database Configuration"
+
+#: administration/sys_config.php:88
+msgid "The database settings are shown for reference only and can not be changed from this screen. You must edit core/config.php to change these settings."
+msgstr "The database settings are shown for reference only and can not be changed from this screen. You must edit core/config.php to change these settings."
+
+#: administration/sys_config.php:129
+msgid "Language Configuration"
+msgstr "Language Configuration"
+
+#: administration/sys_config.php:134
+msgid "Default Language"
+msgstr "Default Language"
+
+#: administration/sys_config.php:150
+msgid "Allow language changes"
+msgstr "Allow language changes"
+
+#: administration/sys_config.php:153
+#: administration/sys_config.php:162
+msgid "Yes"
+msgstr "Yes"
+
+#: administration/sys_config.php:154
+#: administration/sys_config.php:163
+msgid "No"
+msgstr "No"
+
+#: administration/sys_config.php:160
+msgid "Translate Dates"
+msgstr "Translate Dates"
+
+#: administration/sys_config.php:170
+#: administration/user_edit.php:114
+msgid "Save"
+msgstr "Save"
+
+#: administration/sys_config.php:171
+#: administration/user_add.php:100
+#: administration/user_edit.php:115
+#: themes/default/search.php:92
+msgid "Reset"
+msgstr "Reset"
+
+#: administration/user_add.php:38
+#: administration/user_edit.php:38
+msgid "All fields are required.  Please correct the error."
+msgstr "All fields are required.  Please correct the error."
+
+#: administration/user_add.php:42
+msgid "The username must be between 6 and 16 characters long and contain only alphanumeric characters."
+msgstr "The username must be between 6 and 16 characters long and contain only alphanumeric characters."
+
+#: administration/user_add.php:46
+#: administration/user_edit.php:42
+msgid "Both password fields must be the same.  Please re-type them."
+msgstr "Both password fields must be the same.  Please re-type them."
+
+#: administration/user_add.php:50
+msgid "The password must be between 6 and 16 characters long and contain only alphanumeric characters."
+msgstr "The password must be between 6 and 16 characters long and contain only alphanumeric characters."
+
+#: administration/user_add.php:55
+#, php-format
+msgid "User %s already exists.  Please use a different username."
+msgstr "User %s already exists.  Please use a different username."
+
+#: administration/user_add.php:58
+#, php-format
+msgid "User %s was successfully added."
+msgstr "User %s was successfully added."
+
+#: administration/user_add.php:79
+#: administration/user_edit.php:87
+#: administration/user_list.php:38
+msgid "Full Name"
+msgstr "Full Name"
+
+#: administration/user_add.php:83
+#: administration/user_edit.php:93
+msgid "Email Address"
+msgstr "Email Address"
+
+#: administration/user_add.php:87
+#: administration/user_edit.php:99
+msgid "New Password"
+msgstr "New Password"
+
+#: administration/user_add.php:91
+#: administration/user_edit.php:105
+msgid "Verify Password"
+msgstr "Verify Password"
+
+#: administration/user_add.php:99
+msgid "Add"
+msgstr "Add"
+
+#: administration/user_edit.php:48
+#, php-format
+msgid "User %s was successfully modified."
+msgstr "User %s was successfully modified."
+
+#: administration/user_edit.php:52
+#, php-format
+msgid "User %s was not modified."
+msgstr "User %s was not modified."
+
+#: administration/user_edit.php:64
+#, php-format
+msgid "User %s was deleted."
+msgstr "User %s was deleted."
+
+#: administration/user_edit.php:76
+msgid "Edit User"
+msgstr "Edit User"
+
+#: administration/user_edit.php:116
+msgid "Delete"
+msgstr "Delete"
+
+#: administration/user_list.php:39
+msgid "Email"
+msgstr "Email"
+
+#: administration/user_list.php:40
+msgid "Last Login"
+msgstr "Last Login"
+
+#: administration/user_list.php:54
+msgid "Never"
+msgstr "Never"
 
 #: core/f_dummy.php:38
 #: core/f_dummy.php:93
@@ -169,11 +480,6 @@ msgstr "Death"
 msgid "Degree"
 msgstr "Degree"
 
-#: core/f_dummy.php:81
-#: administration/media_list.php:40
-msgid "Description"
-msgstr "Description"
-
 #: core/f_dummy.php:82
 msgid "Education"
 msgstr "Education"
@@ -307,12 +613,10 @@ msgid "ALL"
 msgstr "ALL"
 
 #: core/f_dummy.php:120
-#: administration/login.php:69
 msgid "English"
 msgstr "English"
 
 #: core/f_dummy.php:121
-#: administration/login.php:70
 msgid "Spanish"
 msgstr "Spanish"
 
@@ -749,11 +1053,6 @@ msgstr "Family Group Sheet for %s"
 msgid "Sources"
 msgstr "Sources"
 
-#: themes/default/menu.php:26
-#: administration/menubar.php:40
-msgid "Database"
-msgstr "Database"
-
 #: themes/default/menu.php:27
 msgid "Search the Database"
 msgstr "Search the Database"
@@ -783,20 +1082,10 @@ msgstr "Database Statistics"
 msgid "Statistics"
 msgstr "Statistics"
 
-#: themes/default/menu.php:34
-#: administration/login.php:67
-msgid "Language"
-msgstr "Language"
-
 #: themes/default/multimedia.php:33
 #, php-format
 msgid "Multimedia for %s"
 msgstr "Multimedia for %s"
-
-#: themes/default/multimedia.php:42
-#: administration/db_edit_indiv.php:34
-msgid "This feature has not been implemented yet."
-msgstr "This feature has not been implemented yet."
 
 #: themes/default/nav.php:29
 #: themes/default/nav.php:32
@@ -905,13 +1194,6 @@ msgstr "Given Name"
 msgid "Surname"
 msgstr "Surname"
 
-#: themes/default/search.php:92
-#: administration/sys_config.php:171
-#: administration/user_add.php:100
-#: administration/user_edit.php:115
-msgid "Reset"
-msgstr "Reset"
-
 #: themes/default/search.php:93
 msgid "Clear"
 msgstr "Clear"
@@ -966,279 +1248,4 @@ msgstr "Number of surnames listed"
 #: themes/default/template_print.php:36
 msgid "Print"
 msgstr "Print"
-
-#: administration/admin.php:29
-msgid "Retrospect-GDS Administration"
-msgstr "Retrospect-GDS Administration"
-
-#: administration/admin.php:62
-#, php-format
-msgid "Logged in as %s"
-msgstr "Logged in as %s"
-
-#: administration/admin.php:64
-msgid "Logout"
-msgstr "Logout"
-
-#: administration/db_edit_indiv.php:31
-#: administration/menubar.php:42
-msgid "Edit Individual"
-msgstr "Edit Individual"
-
-#: administration/db_optimize.php:44
-#: administration/menubar.php:45
-msgid "Optimize Tables"
-msgstr "Optimize Tables"
-
-#: administration/login.php:29
-msgid "phpGene Pro Administration Login"
-msgstr "phpGene Pro Administration Login"
-
-#: administration/login.php:55
-#: administration/user_add.php:75
-#: administration/user_edit.php:81
-#: administration/user_list.php:37
-msgid "Username"
-msgstr "Username"
-
-#: administration/login.php:59
-msgid "Login"
-msgstr "Login"
-
-#: administration/login.php:62
-msgid "Password"
-msgstr "Password"
-
-#: administration/media_list.php:31
-#: administration/menubar.php:50
-msgid "Media List"
-msgstr "Media List"
-
-#: administration/media_list.php:37
-#: administration/menubar.php:42
-msgid "Individual"
-msgstr "Individual"
-
-#: administration/media_list.php:38
-msgid "Filename"
-msgstr "Filename"
-
-#: administration/media_list.php:39
-msgid "Caption"
-msgstr "Caption"
-
-#: administration/media_list.php:41
-msgid "Thumbnail"
-msgstr "Thumbnail"
-
-#: administration/menubar.php:31
-msgid "Configuration"
-msgstr "Configuration"
-
-#: administration/menubar.php:32
-msgid "System"
-msgstr "System"
-
-#: administration/menubar.php:33
-msgid "User Admin"
-msgstr "User Admin"
-
-#: administration/menubar.php:34
-#: administration/user_list.php:31
-msgid "User List"
-msgstr "User List"
-
-#: administration/menubar.php:34
-msgid "Edit Users"
-msgstr "Edit Users"
-
-#: administration/menubar.php:35
-#: administration/user_add.php:69
-msgid "Add User"
-msgstr "Add User"
-
-#: administration/menubar.php:41
-msgid "Edit"
-msgstr "Edit"
-
-#: administration/menubar.php:44
-msgid "Maintenance"
-msgstr "Maintenance"
-
-#: administration/menubar.php:49
-msgid "Media"
-msgstr "Media"
-
-#: administration/sys_config.php:35
-#, php-format
-msgid "You must edit core/config.php to change the %s setting."
-msgstr "You must edit core/config.php to change the %s setting."
-
-#: administration/sys_config.php:52
-#: administration/sys_config.php:93
-msgid "MySQL Hostname"
-msgstr "MySQL Hostname"
-
-#: administration/sys_config.php:53
-#: administration/sys_config.php:99
-msgid "MySQL Port"
-msgstr "MySQL Port"
-
-#: administration/sys_config.php:54
-#: administration/sys_config.php:105
-msgid "MySQL Username"
-msgstr "MySQL Username"
-
-#: administration/sys_config.php:55
-#: administration/sys_config.php:111
-msgid "MySQL Password"
-msgstr "MySQL Password"
-
-#: administration/sys_config.php:56
-#: administration/sys_config.php:117
-msgid "MySQL Database"
-msgstr "MySQL Database"
-
-#: administration/sys_config.php:57
-msgid "Nothing to save."
-msgstr "Nothing to save."
-
-#: administration/sys_config.php:58
-msgid "Options updated."
-msgstr "Options updated."
-
-#: administration/sys_config.php:67
-msgid "Site Configuration"
-msgstr "Site Configuration"
-
-#: administration/sys_config.php:72
-msgid "Default Page"
-msgstr "Default Page"
-
-#: administration/sys_config.php:83
-msgid "Database Configuration"
-msgstr "Database Configuration"
-
-#: administration/sys_config.php:88
-msgid "The database settings are shown for reference only and can not be changed from this screen. You must edit core/config.php to change these settings."
-msgstr "The database settings are shown for reference only and can not be changed from this screen. You must edit core/config.php to change these settings."
-
-#: administration/sys_config.php:129
-msgid "Language Configuration"
-msgstr "Language Configuration"
-
-#: administration/sys_config.php:134
-msgid "Default Language"
-msgstr "Default Language"
-
-#: administration/sys_config.php:150
-msgid "Allow language changes"
-msgstr "Allow language changes"
-
-#: administration/sys_config.php:153
-#: administration/sys_config.php:162
-msgid "Yes"
-msgstr "Yes"
-
-#: administration/sys_config.php:154
-#: administration/sys_config.php:163
-msgid "No"
-msgstr "No"
-
-#: administration/sys_config.php:160
-msgid "Translate Dates"
-msgstr "Translate Dates"
-
-#: administration/sys_config.php:170
-#: administration/user_edit.php:114
-msgid "Save"
-msgstr "Save"
-
-#: administration/user_add.php:38
-#: administration/user_edit.php:38
-msgid "All fields are required.  Please correct the error."
-msgstr "All fields are required.  Please correct the error."
-
-#: administration/user_add.php:42
-msgid "The username must be between 6 and 16 characters long and contain only alphanumeric characters."
-msgstr "The username must be between 6 and 16 characters long and contain only alphanumeric characters."
-
-#: administration/user_add.php:46
-#: administration/user_edit.php:42
-msgid "Both password fields must be the same.  Please re-type them."
-msgstr "Both password fields must be the same.  Please re-type them."
-
-#: administration/user_add.php:50
-msgid "The password must be between 6 and 16 characters long and contain only alphanumeric characters."
-msgstr "The password must be between 6 and 16 characters long and contain only alphanumeric characters."
-
-#: administration/user_add.php:55
-#, php-format
-msgid "User %s already exists.  Please use a different username."
-msgstr "User %s already exists.  Please use a different username."
-
-#: administration/user_add.php:58
-#, php-format
-msgid "User %s was successfully added."
-msgstr "User %s was successfully added."
-
-#: administration/user_add.php:79
-#: administration/user_edit.php:87
-#: administration/user_list.php:38
-msgid "Full Name"
-msgstr "Full Name"
-
-#: administration/user_add.php:83
-#: administration/user_edit.php:93
-msgid "Email Address"
-msgstr "Email Address"
-
-#: administration/user_add.php:87
-#: administration/user_edit.php:99
-msgid "New Password"
-msgstr "New Password"
-
-#: administration/user_add.php:91
-#: administration/user_edit.php:105
-msgid "Verify Password"
-msgstr "Verify Password"
-
-#: administration/user_add.php:99
-msgid "Add"
-msgstr "Add"
-
-#: administration/user_edit.php:48
-#, php-format
-msgid "User %s was successfully modified."
-msgstr "User %s was successfully modified."
-
-#: administration/user_edit.php:52
-#, php-format
-msgid "User %s was not modified."
-msgstr "User %s was not modified."
-
-#: administration/user_edit.php:64
-#, php-format
-msgid "User %s was deleted."
-msgstr "User %s was deleted."
-
-#: administration/user_edit.php:76
-msgid "Edit User"
-msgstr "Edit User"
-
-#: administration/user_edit.php:116
-msgid "Delete"
-msgstr "Delete"
-
-#: administration/user_list.php:39
-msgid "Email"
-msgstr "Email"
-
-#: administration/user_list.php:40
-msgid "Last Login"
-msgstr "Last Login"
-
-#: administration/user_list.php:53
-msgid "Never"
-msgstr "Never"
 
