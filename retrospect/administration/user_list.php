@@ -43,9 +43,9 @@
 		$sql = "SELECT * FROM $g_tbl_user";
 		$rs = $db->Execute($sql);
 		while ($row = $rs->FetchRow()) {
-			$uid = stripslashes($row['uid']);
-			$fullname = stripslashes($row['fullname']);
-			$email = stripslashes($row['email']);
+			$uid = $row['uid'];
+			$fullname = $row['fullname'];
+			$email = $row['email'];
 			echo '<tr>';
 			echo '<td class="text" width="200"><a href="'.$_SERVER['PHP_SELF'].'?option=user_edit&id='.$row['id'].'">'.$uid.'</a></td>';
 			echo '<td class="text" width="200">'.$fullname.'</td>';

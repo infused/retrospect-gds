@@ -564,8 +564,8 @@ class Event {
 		$sql .= "WHERE {$this->tbl_citation}.factkey = '{$this->factkey}'";
 		$rs = $db->Execute($sql);
 		while ($row = $rs->FetchRow()) {
-			$srccitation = stripslashes($row['source']);
-			$msrc = stripslashes($row['text']);
+			$srccitation = $row['source'];
+			$msrc = $row['text'];
 			$source = $msrc.'<br>'.$srccitation;
 			$source = ereg_replace('<br>$', '', $source);  //trim ending breaks
 			array_push($sources, $source);
@@ -825,8 +825,8 @@ class Marriage {
 		$sql .= "WHERE {$this->tbl_citation}.factkey = '{$p_factkey}'";
 		$rs = $db->Execute($sql);
 		while ($row = $rs->FetchRow()) {
-			$srccitation = stripslashes($row['source']);
-			$msrc = stripslashes($row['text']);
+			$srccitation = $row['source'];
+			$msrc = $row['text'];
 			$source = $msrc.'<br>'.$srccitation;
 			array_push($sources, $source);
 		}
@@ -843,7 +843,7 @@ class Marriage {
 		if ($row = $db->GetRow($query)) {
 			$this->beginstatus_factkey = $row['factkey'];
 			$this->date = lang_translate_date(ucwords(strtolower($row['date'])));
-			$this->place = stripslashes($row['place']);
+			$this->place = $row['place'];
 		}
 	}
 	
@@ -857,7 +857,7 @@ class Marriage {
 		if ($row = $db->GetRow($query)) {
 			$this->endstatus_factkey = $row['factkey'];
 			$this->enddate = lang_translate_date(ucwords(strtolower($row['date'])));
-			$this->endplace = stripslashes($row['place']);	
+			$this->endplace = $row['place'];	
 		}
 	}
 }

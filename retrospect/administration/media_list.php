@@ -54,10 +54,10 @@
 		$rs = $db->Execute($sql);
 		while ($row = $rs->FetchRow()) {
 			echo '<tr>';
-			echo '<td class="text"><a target="_blank" href="../index.php?option=family&indiv='.stripslashes($row['indfamkey']).'">'.stripslashes($row['indfamkey']).'</a></td>';
-			echo '<td class="text">'.stripslashes($row['filename']).'</td>';
-			echo '<td class="text">'.stripslashes($row['caption']).'</td>';
-			echo '<td class="text">'.stripslashes($row['description']).'</td>';
+			echo '<td class="text"><a target="_blank" href="../index.php?option=family&indiv='.$row['indfamkey'].'">'.$row['indfamkey'].'</a></td>';
+			echo '<td class="text">'.$row['filename'].'</td>';
+			echo '<td class="text">'.$row['caption'].'</td>';
+			echo '<td class="text">'.$row['description'].'</td>';
 			echo '<td class="text">ok</td>';
 			echo '</tr>';
 		}

@@ -81,19 +81,19 @@
       <tr>
         <td width="200" class="content-label"><?php echo _("Username"); ?>:<br>          </td>
         <td>
-					<input name="username" type="text" class="textbox" id="username" size="40" maxlength="40" value="<?php echo stripslashes($u['uid']); ?>">
+					<input name="username" type="text" class="textbox" id="username" size="40" maxlength="40" value="<?php echo $u['uid']; ?>">
 				</td>
       </tr>
       <tr>
         <td class="content-label"><?php echo _("Full Name"); ?>: </td>
         <td>
-					<input name="fullname" type="text" class="textbox" id="fullname" size="40" maxlength="40" value="<?php echo stripslashes($u['fullname']); ?>">
+					<input name="fullname" type="text" class="textbox" id="fullname" size="40" maxlength="40" value="<?php echo $u['fullname']; ?>">
 				</td>
       </tr>
       <tr>
         <td class="content-label"><?php echo _("Email Address"); ?>: </td>
         <td>
-					<input name="email" type="text" class="textbox" id="email" size="40" maxlength="40" value="<?php echo stripslashes($u['email']); ?>">
+					<input name="email" type="text" class="textbox" id="email" size="40" maxlength="40" value="<?php echo $u['email']; ?>">
 				</td>
       </tr>
       <tr>
