@@ -1,6 +1,6 @@
 <?php
 /*
- V4.22 15 Apr 2004  (c) 2000-2004 John Lim (jlim@natsoft.com.my). All rights reserved.
+ V4.54 5 Nov 2004  (c) 2000-2004 John Lim (jlim@natsoft.com.my). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence.
@@ -42,6 +42,9 @@
 
 */
 
+// security - hide paths
+if (!defined('ADODB_DIR')) die();
+
 function adodb_addslashes($s)
 {
 	$len = strlen($s);
@@ -58,7 +61,10 @@ class ADODB_postgres64 extends ADOConnection{
 	var $_resultid = false;
   	var $concat_operator='||';
 	var $metaDatabasesSQL = "select datname from pg_database where datname not in ('template0','template1') order by 1";
-    var $metaTablesSQL = "select tablename,'T' from pg_tables where tablename not like 'pg\_%' union 
+    var $metaTablesSQL = "select tablename,'T' from pg_tables where tablename not like 'pg\_%'
+	and tablename not in ('sql_features', 'sql_implementation_info', 'sql_languages',
+	 'sql_packages', 'sql_sizing', 'sql_sizing_profiles') 
+	union 
         select viewname,'V' from pg_views where viewname not like 'pg\_%'";
 	//"select tablename from pg_tables where tablename not like 'pg_%' order by 1";
 	var $isoDates = true; // accepts dates in ISO format
@@ -122,12 +128,12 @@ WHERE relkind = 'r' AND (c.relname='%s' or c.relname = lower('%s'))
 		$this->version = $arr;
 		return $arr;
 	}
-/*
+
 	function IfNull( $field, $ifNull ) 
 	{
-		return " NULLIF($field, $ifNull) "; // if PGSQL
+		return " coalesce($field, $ifNull) "; 
 	}
-*/
+
 	// get the last id - never tested
 	function pg_insert_id($tablename,$fieldname)
 	{
@@ -144,10 +150,12 @@ WHERE relkind = 'r' AND (c.relname='%s' or c.relname = lower('%s'))
 Using a OID as a unique identifier is not generally wise. 
 Unless you are very careful, you might end up with a tuple having 
 a different OID if a database must be reloaded. */
-	function _insertid()
+	function _insertid($table,$column)
 	{
 		if (!is_resource($this->_resultid) || get_resource_type($this->_resultid) !== 'pgsql result') return false;
-	   	return pg_getlastoid($this->_resultid);
+		$oid = pg_getlastoid($this->_resultid);
+		// to really return the id, we need the table and column-name, else we can only return the oid != id
+		return empty($table) || empty($column) ? $oid : $this->GetOne("SELECT $column FROM $table WHERE oid=".(int)$oid);
 	}
 
 // I get this error with PHP before 4.0.6 - jlim
@@ -192,12 +200,26 @@ a different OID if a database must be reloaded. */
 	}
 	
 	function &MetaTables($ttype=false,$showSchema=false,$mask=false) 
-	{	
+	{
+		$info = $this->ServerInfo();
+		if ($info['version'] >= 7.3) {
+	    	$this->metaTablesSQL = "select tablename,'T' from pg_tables where tablename not like 'pg\_%'
+			  and schemaname  not in ( 'pg_catalog','information_schema')
+	union 
+        select viewname,'V' from pg_views where viewname not like 'pg\_%'  and schemaname  not in ( 'pg_catalog','information_schema') ";
+		}
 		if ($mask) {
 			$save = $this->metaTablesSQL;
 			$mask = $this->qstr(strtolower($mask));
-			$this->metaTablesSQL = "
-select tablename,'T' from pg_tables where tablename like $mask union 
+			if ($info['version']>=7.3)
+				$this->metaTablesSQL = "
+select tablename,'T' from pg_tables where tablename like $mask and schemaname not in ( 'pg_catalog','information_schema')  
+ union 
+select viewname,'V' from pg_views where viewname like $mask and schemaname  not in ( 'pg_catalog','information_schema')  ";
+			else
+				$this->metaTablesSQL = "
+select tablename,'T' from pg_tables where tablename like $mask 
+ union 
 select viewname,'V' from pg_views where viewname like $mask";
 		}
 		$ret =& ADOConnection::MetaTables($ttype,$showSchema);
@@ -325,6 +347,15 @@ select viewname,'V' from pg_views where viewname like $mask";
 		return $rez; 
 	} 
 	
+	/*
+		Hueristic - not guaranteed to work.
+	*/
+	function GuessOID($oid)
+	{
+		if (strlen($oid)>16) return false;
+		return is_numeric($oid);
+	}
+	
 	/* 
 	* If an OID is detected, then we use pg_lo_* to open the oid file and read the
 	* real blob from the db using the oid supplied as a parameter. If you are storing
@@ -333,20 +364,24 @@ select viewname,'V' from pg_views where viewname like $mask";
 	* contributed by Mattia Rossi mattia@technologist.com
 	*
 	* see http://www.postgresql.org/idocs/index.php?largeobjects.html
+	*
+	* Since adodb 4.54, this returns the blob, instead of sending it to stdout. Also
+	* added maxsize parameter, which defaults to $db->maxblobsize if not defined.
 	*/ 
-	function BlobDecode( $blob) 
-	{ 
-		if (strlen($blob) > 24) return $blob;
+	function BlobDecode($blob,$maxsize=false,$hastrans=true) 
+	{
+		if (!$this->GuessOID($blob)) return $blob;
 		
-		@pg_exec($this->_connectionID,"begin"); 
+		if ($hastrans) @pg_exec($this->_connectionID,"begin"); 
 		$fd = @pg_lo_open($this->_connectionID,$blob,"r");
 		if ($fd === false) {
-			@pg_exec($this->_connectionID,"commit");
+			if ($hastrans) @pg_exec($this->_connectionID,"commit");
 			return $blob;
 		}
-		$realblob = @pg_loreadall($fd); 
+		if (!$maxsize) $maxsize = $this->maxblobsize;
+		$realblob = @pg_loread($fd,$maxsize); 
 		@pg_loclose($fd); 
-		@pg_exec($this->_connectionID,"commit"); 
+		if ($hastrans) @pg_exec($this->_connectionID,"commit"); 
 		return $realblob;
 	} 
 	
@@ -384,14 +419,14 @@ select viewname,'V' from pg_views where viewname like $mask";
 
 	// for schema support, pass in the $table param "$schema.$tabname".
 	// converts field names to lowercase, $upper is ignored
-	function &MetaColumns($table,$upper=true) 
+	function &MetaColumns($table,$normalize=true) 
 	{
 	global $ADODB_FETCH_MODE;
 	
 		$schema = false;
 		$this->_findschema($table,$schema);
 		
-		$table = strtolower($table);
+		if ($normalize) $table = strtolower($table);
 
 		$save = $ADODB_FETCH_MODE;
 		$ADODB_FETCH_MODE = ADODB_FETCH_NUM;
@@ -402,8 +437,10 @@ select viewname,'V' from pg_views where viewname like $mask";
 		if (isset($savem)) $this->SetFetchMode($savem);
 		$ADODB_FETCH_MODE = $save;
 		
-		if ($rs === false) return false;
-		
+		if ($rs === false) {
+			$false = false;
+			return $false;
+		}
 		if (!empty($this->metaKeySQL)) {
 			// If we want the primary keys, we have to issue a separate query
 			// Of course, a modified version of the metaColumnsSQL query using a 
@@ -434,7 +471,7 @@ select viewname,'V' from pg_views where viewname like $mask";
 				while (!$rsdef->EOF) {
 					$num = $rsdef->fields['num'];
 					$s = $rsdef->fields['def'];
-					if (substr($s, 0, 1) == "'") { /* quoted strings hack... for now... fixme */
+					if (strpos($s,'::')===false && substr($s, 0, 1) == "'") { /* quoted strings hack... for now... fixme */
 						$s = substr($s, 1);
 						$s = substr($s, 0, strlen($s) - 1);
 					}
@@ -456,7 +493,10 @@ select viewname,'V' from pg_views where viewname like $mask";
 			$fld->max_length = $rs->fields[2];
 			if ($fld->max_length <= 0) $fld->max_length = $rs->fields[3]-4;
 			if ($fld->max_length <= 0) $fld->max_length = -1;
-			
+			if ($fld->type == 'numeric') {
+				$fld->scale = $fld->max_length & 0xFFFF;
+				$fld->max_length >>= 16;
+			}
 			// dannym
 			// 5 hasdefault; 6 num-of-column
 			$fld->has_default = ($rs->fields[5] == 't');
@@ -480,7 +520,7 @@ select viewname,'V' from pg_views where viewname like $mask";
 			}
 			
 			if ($ADODB_FETCH_MODE == ADODB_FETCH_NUM) $retarr[] = $fld;	
-			else $retarr[($upper) ? strtoupper($fld->name) : $fld->name] = $fld;
+			else $retarr[($normalize) ? strtoupper($fld->name) : $fld->name] = $fld;
 			
 			$rs->MoveNext();
 		}
@@ -495,7 +535,7 @@ select viewname,'V' from pg_views where viewname like $mask";
                 
 				$schema = false;
 				$this->_findschema($table,$schema);
-				
+
 				if ($schema) { // requires pgsql 7.3+ - pg_namespace used.
 					$sql = '
 SELECT c.relname as "Name", i.indisunique as "Unique", i.indkey as "Columns" 
@@ -503,18 +543,18 @@ FROM pg_catalog.pg_class c
 JOIN pg_catalog.pg_index i ON i.indexrelid=c.oid 
 JOIN pg_catalog.pg_class c2 ON c2.oid=i.indrelid
 	,pg_namespace n 
-WHERE c2.relname=\'%s\' and c.relnamespace=c2.relnamespace and c.relnamespace=n.oid and n.nspname=\'%s\' AND i.indisprimary=false';
+WHERE (c2.relname=\'%s\' or c2.relname=lower(\'%s\')) and c.relnamespace=c2.relnamespace and c.relnamespace=n.oid and n.nspname=\'%s\' AND i.indisprimary=false';
 				} else {
 	                $sql = '
 SELECT c.relname as "Name", i.indisunique as "Unique", i.indkey as "Columns"
 FROM pg_catalog.pg_class c
 JOIN pg_catalog.pg_index i ON i.indexrelid=c.oid
 JOIN pg_catalog.pg_class c2 ON c2.oid=i.indrelid
-WHERE c2.relname=\'%s\'';
+WHERE c2.relname=\'%s\' or c2.relname=lower(\'%s\')';
     			}
 				            
                 if ($primary == FALSE) {
-                        $sql .= ' AND i.indisprimary=false;';
+                	$sql .= ' AND i.indisprimary=false;';
                 }
                 
                 $save = $ADODB_FETCH_MODE;
@@ -523,23 +563,21 @@ WHERE c2.relname=\'%s\'';
                         $savem = $this->SetFetchMode(FALSE);
                 }
                 
-                $rs = $this->Execute(sprintf($sql,$table,$schema));
-                
+                $rs = $this->Execute(sprintf($sql,$table,$table,$schema));
                 if (isset($savem)) {
                         $this->SetFetchMode($savem);
                 }
                 $ADODB_FETCH_MODE = $save;
-                
+
                 if (!is_object($rs)) {
-                        return FALSE;
+                	$false = false;
+					return $false;
                 }
-                
-                $col_names = $this->MetaColumnNames($table);
+				
+                $col_names = $this->MetaColumnNames($table,true);
                 $indexes = array();
-                
                 while ($row = $rs->FetchRow()) {
                         $columns = array();
-                        
                         foreach (explode(' ', $row[2]) as $col) {
                                 $columns[] = $col_names[$col - 1];
                         }
@@ -549,7 +587,6 @@ WHERE c2.relname=\'%s\'';
                                 'columns' => $columns
                         );
                 }
-                
                 return $indexes;
         }
 
@@ -561,7 +598,7 @@ WHERE c2.relname=\'%s\'';
 	function _connect($str,$user='',$pwd='',$db='',$ctype=0)
 	{
 		
-		if (!function_exists('pg_pconnect')) return false;
+		if (!function_exists('pg_pconnect')) return null;
 		
 		$this->_errorMsg = false;
 		
@@ -720,7 +757,10 @@ WHERE c2.relname=\'%s\'';
 	function ErrorNo()
 	{
 		$e = $this->ErrorMsg();
-		return strlen($e) ? $e : 0;
+		if (strlen($e)) {
+			return ADOConnection::MetaError($e);
+		 }
+		 return 0;
 	}
 
 	// returns true or false
@@ -778,6 +818,7 @@ class ADORecordSet_postgres64 extends ADORecordSet{
 		case ADODB_FETCH_DEFAULT:
 		case ADODB_FETCH_BOTH:$this->fetchMode = PGSQL_BOTH; break;
 		}
+		$this->adodbFetchMode = $mode;
 		$this->ADORecordSet($queryID);
 	}
 	
@@ -798,9 +839,9 @@ class ADORecordSet_postgres64 extends ADORecordSet{
 		// cache types for blob decode check
 		for ($i=0, $max = $this->_numOfFields; $i < $max; $i++) {  
 			if (pg_fieldtype($qid,$i) == 'bytea') {
-				$this->_blobArr[$i] = pg_fieldname($qid,$off);
+				$this->_blobArr[$i] = pg_fieldname($qid,$i);
 			}
-		}		
+		}
 	}
 
 		/* Use associative array to get fields array */
@@ -818,9 +859,9 @@ class ADORecordSet_postgres64 extends ADORecordSet{
 		 return $this->fields[$this->bind[strtoupper($colname)]];
 	}
 
-	function &FetchField($fieldOffset = 0) 
+	function &FetchField($off = 0) 
 	{
-		$off=$fieldOffset; // offsets begin at 0
+		// offsets begin at 0
 		
 		$o= new ADOFieldObject();
 		$o->name = @pg_fieldname($this->_queryID,$off);
@@ -862,7 +903,7 @@ class ADORecordSet_postgres64 extends ADORecordSet{
 			if ($this->_numOfRows < 0 || $this->_numOfRows > $this->_currentRow) {
 				$this->fields = @pg_fetch_array($this->_queryID,$this->_currentRow,$this->fetchMode);
 				if (is_array($this->fields) && $this->fields) {
-					if ($this->fields && isset($this->_blobArr)) $this->_fixblobs();
+					if (isset($this->_blobArr)) $this->_fixblobs();
 					return true;
 				}
 			}

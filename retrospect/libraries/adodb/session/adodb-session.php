@@ -1,6 +1,5 @@
 <?php
 
-// $CVSHeader$
 
 /*
 V4.01 23 Oct 2003  (c) 2000-2004 John Lim (jlim@natsoft.com.my). All rights reserved.
@@ -139,7 +138,8 @@ class ADODB_Session {
 
 	/*!
 	*/
-	function persist($persist = null) {
+	function persist($persist = null) 
+	{
 		static $_persist = true;
 
 		if (!is_null($persist)) {
@@ -432,7 +432,6 @@ class ADODB_Session {
 		$user		= ADODB_Session::user();
 
 		if (!is_null($persist)) {
-			$persist = (bool) $persist;
 			ADODB_Session::persist($persist);
 		} else {
 			$persist = ADODB_Session::persist();
@@ -444,7 +443,7 @@ class ADODB_Session {
 #		assert('$host');
 
 		// cannot use =& below - do not know why...
-		$conn = ADONewConnection($driver);
+		$conn =& ADONewConnection($driver);
 
 		if ($debug) {
 			$conn->debug = true;
@@ -452,7 +451,12 @@ class ADODB_Session {
 		}
 
 		if ($persist) {
-			$ok = $conn->PConnect($host, $user, $password, $database);
+			switch($persist) {
+			default:
+			case 'P': $ok = $conn->PConnect($host, $user, $password, $database); break;
+			case 'C': $ok = $conn->Connect($host, $user, $password, $database); break;
+			case 'N': $ok = $conn->NConnect($host, $user, $password, $database); break;
+			}
 		} else {
 			$ok = $conn->Connect($host, $user, $password, $database);
 		}
@@ -681,8 +685,8 @@ class ADODB_Session {
 			if (!$rs->EOF) {
 				$ref = $rs->fields[0];
 				$key = $rs->fields[1];
-				assert('$ref');
-				assert('$key');
+				//assert('$ref');
+				//assert('$key');
 				$fn($ref, $key);
 			}
 			$rs->Close();
