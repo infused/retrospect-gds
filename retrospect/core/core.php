@@ -172,7 +172,7 @@
 		$dsn = 'Driver={SQL Server};Server='.$g_db_host.';Database='.$g_db_name.';';
 		$db->Connect($dsn, $g_db_user, $g_db_pass);
 	} else {
-		# MySQL, PostrgreSQL, etc...
+		# All other database types
 		$host = ($g_db_port != '') ? $g_db_host.':'.$g_db_port : $g_db_host;
 		$db->Connect($host, $g_db_user, $g_db_pass, $g_db_name);
 	}

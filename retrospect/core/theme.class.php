@@ -36,14 +36,12 @@ class Theme {
 		$themed_page = 'themes/'.$p_theme.'/'.$p_page.'.php';
 		if (file_exists($themed_page)) { 
 			return $themed_page;
-		}
-		else { 
+		} else { 
 			$default_page = 'themes/default/'.$p_page.'.php';
 			if (file_exists($default_page)) {
 				return $default_page;
-			}
-			else {
-				die ('Could not find page: '.$themed_page);
+			} else {
+				die ( sprintf("Could not find page: %s", $themed_page));
 			}
 		}
 	}

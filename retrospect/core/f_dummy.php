@@ -120,5 +120,6 @@
 		gettext("English");
 		gettext("Spanish");
 		gettext("Dutch");
+		gettext("German");
 	}
 ?>
