@@ -186,7 +186,15 @@
 			$pdf->SetFont($font, '', 10);
 			$pdf->Cell(0, 5, $event->date);
 			$pdf->SetX($placecol);
-			$eventplace = $event->place;
+			if (!empty($event->place) AND !empty($event->comment)) {
+				$eventstring = $event->comment.' / '.$event->place;
+			}
+			elseif (!empty($event->comment)) {
+				$eventstring = $event->comment;
+			}
+			elseif (!empty($event->place)) {
+				$eventstring = $event->place;
+			}
 			if ($event->sources) {
 				$eventplace .= ' ('._("Sources").': '; 
 				foreach ($event->sources as $source)  {
@@ -195,7 +203,7 @@
 				}
 				$eventplace .= ')';
 			}
-			$pdf->MultiCell(0, 5, $eventplace, 0, 'L');
+			$pdf->MultiCell(0, 5, $eventstring, 0, 'L');
 		}
 		# print notes
 		if ($p_node->notes) {

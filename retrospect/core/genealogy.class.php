@@ -399,7 +399,7 @@ class Person {
 		$sql =  "SELECT * FROM {$this->tbl_fact} WHERE indfamkey = '{$this->indkey}'";
 		$rs = $db->Execute($sql);
 		while ($row = $rs->FetchRow()) {
-			$event = new event($row['type'], $row['date'], $row['place'], $row['factkey'], $p_fetch_sources);
+			$event = new event($row['type'], $row['date'], $row['place'], $row['comment'], $row['factkey'], $p_fetch_sources);
 			if (strtolower($event->type) == 'birth') {
 				$this->birth = $event;
 			}
@@ -531,6 +531,13 @@ class Event {
 	var $place;
 	
 	/**
+	* Evene Comment
+	* @access public
+	* @var string
+	*/
+	var $comment;
+	
+	/**
 	* Event Factkey
 	* @access public
 	* @var string
@@ -575,7 +582,7 @@ class Event {
 	* @param string $p_place Where the event occured
 	* @param string $p_factkey 
 	*/
-	function Event($p_type, $p_date, $p_place, $p_factkey, $p_fetch_sources = true) {
+	function Event($p_type, $p_date, $p_place, $p_comment, $p_factkey, $p_fetch_sources = true) {
 		global $profiler, $profile;
 		if ($profile == true) {
 			$profiler->startTimer('class_event_constructor');
@@ -585,6 +592,7 @@ class Event {
 		$this->type = ucwords(strtolower($p_type));
 		$this->date = lang_translate_date($p_date);
 		$this->place = htmlspecialchars($p_place);
+		$this->comment = htmlspecialchars($p_comment);
 		$this->factkey = $p_factkey;
 		if ($p_fetch_sources === true) {
 			$this->_get_sources();

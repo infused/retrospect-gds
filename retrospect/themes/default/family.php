@@ -105,7 +105,19 @@
 	foreach($o->events as $event) { ?>
 		<div class="col1"><?php echo _($event->type); ?>:</div>
 		<div class="col2"><?php echo $event->date; ?></div>
-		<div class="col3"><?php echo $event->place . disp_sources($event->sources); ?></div>
+		<div class="col3">
+			<?php 
+				if (!empty($event->comment) AND !empty($event->place)) {
+					echo $event->comment.' / '.$event->place . disp_sources($event->sources);
+				}
+				elseif (!empty($event->comment)) {
+					echo $event->comment . disp_sources($event->sources);
+				}
+				elseif (!empty($event->place)) {
+					echo $event->place . disp_sources($event->sources);
+				}
+			?>
+		</div>
 	<?php } 
 	
 	# notes

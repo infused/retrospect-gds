@@ -539,7 +539,7 @@
 		function _DB_InsertRecord($rs, $record) {
 			$db = &$this->db;
 			$insertSQL = $db->GetInsertSQL($rs, $record);
-			//$db->Execute($insertSQL);
+			$db->Execute($insertSQL);
 			echo $insertSQL.'<br>';
 		}
 
