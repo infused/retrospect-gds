@@ -1,8 +1,8 @@
 #
-# Table structure for table `gms_children`
+# Table structure for table `rgds_children`
 #
 
-CREATE TABLE `gms2_children` (
+CREATE TABLE `rgds_children` (
   `famkey` varchar(20) NOT NULL default '',
   `indkey` varchar(20) NOT NULL default '',
   KEY `famkey` (`famkey`),
@@ -12,10 +12,10 @@ CREATE TABLE `gms2_children` (
 # --------------------------------------------------------
 
 #
-# Table structure for table `gms_citation`
+# Table structure for table `rgds_citation`
 #
 
-CREATE TABLE `gms2_citation` (
+CREATE TABLE `rgds_citation` (
   `factkey` varchar(20) NOT NULL default '0',
   `srckey` varchar(20) default NULL,
   `source` text,
@@ -25,10 +25,10 @@ CREATE TABLE `gms2_citation` (
 # --------------------------------------------------------
 
 #
-# Table structure for table `gms_comment`
+# Table structure for table `rgds_comment`
 #
 
-CREATE TABLE `gms2_comment` (
+CREATE TABLE `rgds_comment` (
   `id` int(11) NOT NULL auto_increment,
   `indkey` varchar(20) NOT NULL default '',
   `from` tinytext NOT NULL,
@@ -42,10 +42,10 @@ CREATE TABLE `gms2_comment` (
 # --------------------------------------------------------
 
 #
-# Table structure for table `gms_fact`
+# Table structure for table `rgds_fact`
 #
 
-CREATE TABLE `gms2_fact` (
+CREATE TABLE `rgds_fact` (
   `indfamkey` varchar(20) NOT NULL default '',
   `type` varchar(255) NOT NULL default '',
   `date` tinytext NOT NULL,
@@ -59,10 +59,10 @@ CREATE TABLE `gms2_fact` (
 # --------------------------------------------------------
 
 #
-# Table structure for table `gms_family`
+# Table structure for table `rgds_family`
 #
 
-CREATE TABLE `gms2_family` (
+CREATE TABLE `rgds_family` (
   `famkey` varchar(20) NOT NULL default '',
   `spouse1` varchar(20) NOT NULL default '',
   `spouse2` varchar(20) NOT NULL default '',
@@ -77,10 +77,10 @@ CREATE TABLE `gms2_family` (
 # --------------------------------------------------------
 
 #
-# Table structure for table `gms_indiv`
+# Table structure for table `rgds_indiv`
 #
 
-CREATE TABLE `gms2_indiv` (
+CREATE TABLE `rgds_indiv` (
   `indkey` varchar(20) NOT NULL default '',
   `title` tinytext NOT NULL,
   `surname` varchar(255) NOT NULL default '',
@@ -97,24 +97,24 @@ CREATE TABLE `gms2_indiv` (
 # --------------------------------------------------------
 
 #
-# Table structure for table `gms_language`
+# Table structure for table `rgds_language`
 #
 
-CREATE TABLE `gms2_language` (
+CREATE TABLE `rgds_language` (
   `lang_code` char(5) NOT NULL default '',
   `lang_name` char(20) NOT NULL default ''
 ) TYPE=MyISAM;
 
-INSERT INTO `gms2_language` (`lang_code`, `lang_name`) VALUES ('en_US', 'English');
-INSERT INTO `gms2_language` (`lang_code`, `lang_name`) VALUES ('es_ES', 'Spanish');
+INSERT INTO `rgds_language` (`lang_code`, `lang_name`) VALUES ('en_US', 'English');
+INSERT INTO `rgds_language` (`lang_code`, `lang_name`) VALUES ('es_ES', 'Spanish');
 
 # --------------------------------------------------------
 
 #
-# Table structure for table `gms_note`
+# Table structure for table `rgds_note`
 #
 
-CREATE TABLE `gms2_note` (
+CREATE TABLE `rgds_note` (
   `notekey` varchar(20) NOT NULL default '',
   `text` text NOT NULL,
   PRIMARY KEY  (`notekey`)
@@ -123,10 +123,10 @@ CREATE TABLE `gms2_note` (
 # --------------------------------------------------------
 
 #
-# Table structure for table `gms_options`
+# Table structure for table `rgds_options`
 #
 
-CREATE TABLE `gms2_options` (
+CREATE TABLE `rgds_options` (
   `opt_id` tinyint(3) NOT NULL default '0',
   `opt_key` varchar(20) NOT NULL default '',
   `opt_val` varchar(255) NOT NULL default '',
@@ -134,19 +134,19 @@ CREATE TABLE `gms2_options` (
   UNIQUE KEY `opt_key` (`opt_key`)
 ) TYPE=MyISAM;
 
-INSERT INTO `gms2_options` (`opt_id`, `opt_key`, `opt_val`) VALUES (1, 'default_lang', 'en_US');
-INSERT INTO `gms2_options` (`opt_id`, `opt_key`, `opt_val`) VALUES (2, 'allow_lang_change', '1');
-INSERT INTO `gms2_options` (`opt_id`, `opt_key`, `opt_val`) VALUES (3, 'default_page', 'surnames');
-INSERT INTO `gms2_options` (`opt_id`, `opt_key`, `opt_val`) VALUES (4, 'translate_dates', '1');
+INSERT INTO `rgds_options` (`opt_id`, `opt_key`, `opt_val`) VALUES (1, 'default_lang', 'en_US');
+INSERT INTO `rgds_options` (`opt_id`, `opt_key`, `opt_val`) VALUES (2, 'allow_lang_change', '1');
+INSERT INTO `rgds_options` (`opt_id`, `opt_key`, `opt_val`) VALUES (3, 'default_page', 'surnames');
+INSERT INTO `rgds_options` (`opt_id`, `opt_key`, `opt_val`) VALUES (4, 'translate_dates', '1');
 
 
 # --------------------------------------------------------
 
 #
-# Table structure for table `gms_relation`
+# Table structure for table `rgds_relation`
 #
 
-CREATE TABLE `gms2_relation` (
+CREATE TABLE `rgds_relation` (
   `indkey` varchar(20) NOT NULL default '',
   `famkey` varchar(20) NOT NULL default '',
   PRIMARY KEY  (`indkey`),
@@ -156,10 +156,10 @@ CREATE TABLE `gms2_relation` (
 # --------------------------------------------------------
 
 #
-# Table structure for table `gms_source`
+# Table structure for table `rgds_source`
 #
 
-CREATE TABLE `gms2_source` (
+CREATE TABLE `rgds_source` (
   `srckey` varchar(20) NOT NULL default '',
   `text` text NOT NULL,
   `notekey` varchar(20) default NULL,
@@ -169,10 +169,10 @@ CREATE TABLE `gms2_source` (
 # --------------------------------------------------------
 
 #
-# Table structure for table `gms_user`
+# Table structure for table `rgds_user`
 #
 
-CREATE TABLE `gms2_user` (
+CREATE TABLE `rgds_user` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `uid` char(16) NOT NULL default '',
   `pwd` char(32) NOT NULL default '',
