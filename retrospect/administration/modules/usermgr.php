@@ -33,6 +33,17 @@
 	
 	$sql = 'SELECT * from '.TBL_USER;
 	$users = $db->GetAll($sql);
+
+	
+	$sql = 'SELECT * FROM '.TBL_USERTYPE;
+	$groups = $db->GetAssoc($sql);
+	
+	for ($i=0; $i<count($users); $i++) {
+		$gid = $users[$i]['group'];
+		$users[$i]['groupname'] = $groups[$gid];
+	}
+	
 	$smarty->assign('users', $users);
+	$smarty->assign('groups', $groups);
 	
 ?>

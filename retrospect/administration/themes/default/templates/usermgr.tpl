@@ -12,19 +12,19 @@
 		<tr>
 			<td class="list_header" width="200">Full Name</td>
 			<td class="list_header" width="100">Username</td>
-			<td class="list_header" width="100">Group</td>
+			<td class="list_header" width="150">Group</td>
 			<td class="list_header" width="200">Email</td>
-			<td class="list_header" width="200">Last Visit</td>
+			<td class="list_header" width="150">Last Login</td>
 			<td align="center" class="list_header" width="100">Enabled</td>
 		</tr>
 		{foreach from=$users item="user"}
 		<tr>
-			<td class="list_item"><a href="{$PHP_SELF}?m=useredit&id={$user.id}">{$user.fullname}</a></td>
-			<td class="list_item">{$user.uid}</td>
-			<td class="list_item">{$user.group}</td>
-			<td class="list_item"><a class="decor" href="mailto:{$user.email}">{$user.email}</a></td>
-			<td class="list_item">{$user.last}</td>
-			<td align="center" class="list_item">
+			<td class="list_item" nowrap="nowrap"><a href="{$PHP_SELF}?m=useredit&id={$user.id}">{$user.fullname}</a></td>
+			<td class="list_item" nowrap="nowrap">{$user.uid}</td>
+			<td class="list_item" nowrap="nowrap">{$user.groupname}</td>
+			<td class="list_item" nowrap="nowrap"><a class="decor" href="mailto:{$user.email}">{$user.email}</a></td>
+			<td class="list_item" nowrap="nowrap">{if $user.last == null}Never{else}{$user.last}{/if}</td>
+			<td align="center" class="list_item" nowrap="nowrap">
 			<a href="{$PHP_SELF}?m=usermgr&t=toggle&id={$user.id}">
 				{if $user.enabled == "1"}
 					<img src="{$THEME_URL}images/tick.png" alt="Enabled" border="0" />

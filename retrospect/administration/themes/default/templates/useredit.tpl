@@ -3,6 +3,7 @@
 	<p><i>{if $SAVED.fullname}{$SAVED.fullname}{else}{$SAVED.username}{/if}</i> has been changed.</p>
 	<p>Click <a href="{$PHP_SELF}?m=usermgr">HERE</a> to return to the User Manager.</p>
 	<p>Click <a href="{$PHP_SELF}">HERE</a> to return to the main administration page.</p>
+{$sql}
 {else}
 <form name="useraddform" action="{$PHP_SELF}?m=useredit" method="post">
 <div class="content-title">User Manager</div>

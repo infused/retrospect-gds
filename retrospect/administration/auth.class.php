@@ -94,19 +94,15 @@ class Auth {
 		else { return false; }
 	}
 	
-	function UpdateUser($p_id, $p_uid, $p_fullname, $p_email, $p_pwd, $enabled) {
+	function UpdateUser($id, $uid, $fullname, $email, $pwd, $enabled) {
 		global $db, $smarty;
-		$c_id = $p_id;
-		$c_uid = $db->Qstr($p_uid);
-		$c_fullname = $db->Qstr($p_fullname);
-		$c_email = $db->Qstr($p_email);
-		$c_enabled = $db->Qstr($enabled);
-		if (!$p_pwd) { 
-			$sql = "UPDATE ".TBL_USER." SET uid={$c_uid}, fullname={$c_fullname}, email={$c_email}, enabled={$c_enabled} WHERE id='{$c_id}'";
-		} else {
-			$c_pwd = $db->Qstr(md5($p_pwd));
-			$sql = "UPDATE ".TBL_USER." SET uid={$c_uid}, fullname={$c_fullname}, email={$c_email}, pwd={$c_pwd}, pwd_expired='0', enabled={$c_enabled} WHERE id='{$c_id}'";
-		}
+		$sql  = 'UPDATE '.TBL_USER.' ';
+		$sql .= 'SET uid='.$db->Qstr($uid).', ';
+		$sql .= 'fullname='.$db->Qstr($fullname).', ';
+		$sql .= 'email='.$db->Qstr($email).', ';
+		$sql .= 'enabled='.$db->Qstr($enabled).', ';
+		$sql .= ($pwd != '') ? 'pwd='.$db->Qstr(md5($pwd)).' ' : ' ';
+		$sql .= 'WHERE id='.$db->Qstr($id);
 		return ($db->Execute($sql) !== false) ? true : false;
 	}
 	
