@@ -372,10 +372,12 @@
 				elseif ($day == '00') {
 					$ts = adodb_mktime(0,0,0, $month, 15, $year);
 					$date = adodb_date($date_fmt['YM'], $ts); 
+					// need to translate month names here
 				}
 				else {
 					$ts = adodb_mktime('0','0','0', $month, $day, $year);
 					$date = adodb_date($date_fmt['YMD'], $ts); 
+					// need to translate month names here
 				}
 				return $date;
 			}
