@@ -13,7 +13,7 @@ var myMenu =
 	[null, 'Users', null, null, 'Users',
 		['<img src="{$THEME_URL}js/ThemeOffice/user.png" />', 'User Manager', '{$PHP_SELF}?m=usermgr', null, 'User Manager'],
 		['<img src="{$THEME_URL}js/ThemeOffice/new_user.png" />', 'Add User', '{$PHP_SELF}?m=useradd', null, 'Add User'],
-		[null, 'Edit User', '{$PHP_SELF}?m=useredit', null, 'Edit User']
+		['', 'Edit User', '{$PHP_SELF}?m=useredit', null, 'Edit User']
 	],
 	_cmSplit,
 	[null, 'Trees', null, null, 'Trees',

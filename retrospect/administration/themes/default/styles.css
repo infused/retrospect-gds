@@ -62,13 +62,10 @@ sup {
 	padding: 0px 7px 0px 0px;
 }
 #notifications {
-	position: relative;
-	top: 0px;
-	left: 0px;
-	border: solid 1px #CCCCCC;
 	height: 390px;
- 	margin: 0px 210px 0px 0px;
+	margin: 0px 210px 0px 0px;
 	padding: 5px;
+	border: 1px solid #ccc;
 }
 #adminmenu {
 	position: relative;
