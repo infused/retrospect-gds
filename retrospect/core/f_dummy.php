@@ -46,6 +46,7 @@
 		gettext("Annulment");
 		
 		#family event types
+		gettext("Divorce");
 		gettext("Divorce Filed");
 		gettext("Engagement");
 		gettext("Husband");
@@ -101,7 +102,7 @@
 		gettext("Number of Children");
 		gettext("Number of Marriages");
 		gettext("Occupation");
-		gettext("Ordinance");
+		gettext("Ordination");
 		gettext("Possessions");
 		gettext("Probate");
 		gettext("Religion");

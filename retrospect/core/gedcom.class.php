@@ -396,7 +396,10 @@
 				$event['type'] = $FAM_EVENTS[$key];		
 			}
 			else { 
-				echo $start_line.' - '.$match[2].'<br>';
+				$comment = trim($match[2]);
+				if (!empty($comment)) {
+					$event['comment'] = $comment;
+				}
 			}
 			while (!feof($this->fhandle)) {
 				$poffset = ftell($this->fhandle);
@@ -437,7 +440,10 @@
 				$event['type'] = $IND_EVENTS[$key];		
 			}
 			else { 
-				echo $start_line.' - '.$match[2].'<br>';
+				$comment = trim($match[2]);
+				if (!empty($comment)) {
+					$event['comment'] = $comment;
+				}
 			}
 			while (!feof($this->fhandle)) {
 				$poffset = ftell($this->fhandle);

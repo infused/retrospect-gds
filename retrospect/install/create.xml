@@ -67,6 +67,9 @@
 		<field name="place" type="C" size="250">
 			<notnull />
 		</field>
+		<field name="comment" type="C" size="250">
+			<notnull />
+		</field>
 		<field name="factkey" type="C" size="20">
 			<key />
 			<notnull />
