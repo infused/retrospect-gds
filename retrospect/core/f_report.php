@@ -34,7 +34,7 @@
 	function get_birth_sentence($p_node) {
 		# for males
 		if ($p_node->sex == 'M') { 
-			if ($p_node->birth->date and $p_node->birth->place) {
+			if ($p_node->birth->date AND $p_node->birth->place) {
 				return sprintf(_("He was born on %s in %s."), lang_translate_date($p_node->birth->date), $p_node->birth->place).' ';		
 			}
 			elseif ($p_node->birth->date) {
@@ -46,7 +46,7 @@
 		}
 		# for females
 		if ($p_node->sex == 'F') { 
-			if ($p_node->birth->date and $p_node->birth->place) {
+			if ($p_node->birth->date AND $p_node->birth->place) {
 				return sprintf(_("She was born on %s in %s."), lang_translate_date($p_node->birth->date), $p_node->birth->place).' ';
 			}
 			elseif ($p_node->birth->date) {

@@ -230,24 +230,21 @@ class ATree {
 	* @param string $p_callback_func String containing the callback function name
 	*/
 	function level_order_traversal($p_start_node, $p_callback_func) {
-		$nodes = array();
-		array_push($nodes, $p_start_node);
+	  $nodes = array($p_start_node);	
 		
 		while (count($nodes) > 0 ) {
 			$node = array_shift($nodes);
 
 			# do something with the node here
-			$person = new Person($node->data, 0, $node->ahnentafel);
-			$p_callback_func($person, $node->generation);
+			$person = new Person($node->data, 4, $node->ahnentafel);
+			call_user_func($p_callback_func, $person, $node->generation);
 			
-			if ($node->father_index != null) {
-				$father = $this->get_node_at_index($node->father_index);
-				array_push($nodes, $father);
+			if ( ! is_null( $node->father_index ) ) {
+				$nodes[] = $this->get_node_at_index($node->father_index);
 			}			
 			
-			if ($node->mother_index != null) { 
-				$mother = $this->get_node_at_index($node->mother_index);
-				array_push($nodes, $mother);
+			if ( ! is_null( $node->mother_index ) ) { 
+				$nodes[] = $this->get_node_at_index($node->mother_index);
 			}
 		}
 	}
@@ -259,10 +256,8 @@ class ATree {
 	* @param integer $p_max_depth Maximum number of generations with which to fill the tree
 	*/
 	function fill_tree($p_max_depth = 250) {
-		$nodes = array();
-		# get root node
-		$node = $this->nodes[0];
-		array_push($nodes, $node);
+		# get root node and stuff into nodes array
+		$nodes = array($this->nodes[0]);
 		
 		for ($i = 0; $i <  count($nodes); $i++) {
 			$node = $nodes[$i];

@@ -335,6 +335,14 @@ class Person {
 			$this->_get_name();
 			$this->_get_events(false);
 		}
+		# 4: Custom (used for Ahnentafel report)
+		elseif($p_level == 4) {
+			$this->_get_name();
+			$this->_get_events(false);
+			$this->_get_parents();
+			$this->marriages = array();
+			$this->_get_marriages(false);
+		}
 	}
 	
 	/**
@@ -396,29 +404,29 @@ class Person {
 	*/	
 	function _get_parents() {
 		global $db;
-		
-		# grab the famkey
-		$sql = "SELECT famkey FROM {$this->tbl_child} WHERE indkey='{$this->indkey}'";
-		$famkey = $db->GetOne($sql);
-		
-		$sql = "SELECT spouse1, spouse2 FROM {$this->tbl_family} WHERE famkey='{$famkey}'";
-		$row = $db->GetRow($sql);
-		$this->father_indkey = isset($row['spouse1']) ? $row['spouse1'] : null;
-		$this->mother_indkey = isset($row['spouse2']) ? $row['spouse2'] : null;
+		$sql  = "SELECT spouse1, spouse2 FROM {$this->tbl_family} ";
+		$sql .= "INNER JOIN {$this->tbl_child} ";
+		$sql .= "ON {$this->tbl_family}.famkey = {$this->tbl_child}.famkey ";
+		$sql .= "WHERE {$this->tbl_child}.indkey = '{$this->indkey}'";
+		if ($row = $db->GetRow($sql)) {
+			$this->father_indkey = isset($row['spouse1']) ? $row['spouse1'] : null;
+			$this->mother_indkey = isset($row['spouse2']) ? $row['spouse2'] : null;
+		}
 	}
 
 	/**
 	* Gets marriages/family units from database
+	* @param boolean $fetch_sources
 	* @access private
 	*/	
-	function _get_marriages() {
+	function _get_marriages($fetch_sources = true) {
 		global $db;
 		if ($this->sex == 'M') { $p_col = 'spouse1'; $s_col = 'spouse2'; }
 		else { $p_col = 'spouse2'; $s_col = 'spouse1'; }
 		$sql = "SELECT * FROM {$this->tbl_family} WHERE {$p_col}='{$this->indkey}'";
 		$rs = $db->Execute($sql);
 		while ($row = $rs->FetchRow()) {
-			$marriage = new marriage($row['famkey'], $row[$s_col], $row['beginstatus'], $row['endstatus'], $row['notekey']);
+			$marriage = new marriage($row['famkey'], $row[$s_col], $row['beginstatus'], $row['endstatus'], $row['notekey'], $fetch_sources);
 			array_push($this->marriages, $marriage);
 		}
 		$this->marriage_count = count($this->marriages);
@@ -740,8 +748,9 @@ class Marriage {
 	* @param string $p_beginstatus
 	* @param string $p_endstatus
 	* @param string $p_notekey
+	* @param boolean $fetch_sources
 	*/
-	function Marriage($p_famkey, $p_spouse, $p_beginstatus, $p_endstatus, $p_notekey) {
+	function Marriage($p_famkey, $p_spouse, $p_beginstatus, $p_endstatus, $p_notekey, $fetch_sources = true) {
 		$this->tbl_note = $GLOBALS['g_tbl_note'];
 		$this->tbl_citation = $GLOBALS['g_tbl_citation'];
 		$this->tbl_source = $GLOBALS['g_tbl_source'];
@@ -759,11 +768,11 @@ class Marriage {
 		$this->_get_notes();
 		$this->_get_beginstatus_event();
 		$this->_get_endstatus_event();
-		if ($this->beginstatus_factkey) { 
+		if ($this->beginstatus_factkey AND $fetch_sources == true) { 
 			$this->sources = $this->_get_sources($this->beginstatus_factkey); 
 		}
 		$this->source_count = count($this->sources);
-		if ($this->endstatus_factkey) { 
+		if ($this->endstatus_factkey AND $fetch_sources == true) { 
 			$this->end_sources = $this->_get_sources($this->endstatus_factkey); 
 		}
 		$this->end_source_count = count($this->end_sources);
