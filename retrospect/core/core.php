@@ -68,7 +68,7 @@
   # Require theme class
 	@require_once(CORE_PATH.'theme.class.php');
 	# Require date-parser class
-	@require_once(CORE_PATH.'date-parser.class.php');
+	@require_once(CORE_PATH.'date.class.php');
 
 	# Establish the database connection and use
 	# the appropriate connection method based on the database type

@@ -26,7 +26,6 @@
 <?php
 	# Load the gedcom and date classes
 	require_once(CORE_PATH.'gedcom.class.php');
-	require_once(CORE_PATH.'date-parser.class.php');
 	
 	# Set some variables
 	$gedcomdir = ROOT_PATH . '/../gedcom/';
