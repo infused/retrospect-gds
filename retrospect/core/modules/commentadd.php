@@ -48,12 +48,12 @@
 	# If the form has been posted then let's validate the form variables
 	if (!empty($_POST)) {
 		if (empty($_POST['email'])) {
-			$form_errors['email'] = 'YOU MUST ENTER AN EMAIL ADDRESS';
+			$form_errors['email'] = gtc("YOU MUST ENTER AN EMAIL ADDRESS");
 		} elseif (!is_email(trim($_POST['email']))) {
-			$form_errors['email'] = 'THE EMAIL ADDRESS YOU ENTERED IS NOT VALID';
+			$form_errors['email'] = gtc("THE EMAIL ADDRESS YOU ENTERED IS NOT VALID");
 		}
 		if (empty($_POST['comment'])) {
-			$form_errors['comment'] = 'PLEASE ENTER SOME TEXT';
+			$form_errors['comment'] = gtc("PLEASE ENTER SOME TEXT");
 		}
 		$smarty->assign('form_errors', $form_errors);
 			

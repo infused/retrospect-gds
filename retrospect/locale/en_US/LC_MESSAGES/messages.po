@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2005-01-09 21:25-0800\n"
+"PO-Revision-Date: 2005-02-13 21:53-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused-solutions.com>\n"
 "Language-Team: ENGLISH <keithm@infused-solutions.com>\n"
 "MIME-Version: 1.0\n"
@@ -392,7 +392,7 @@ msgid "French"
 msgstr "French"
 
 #: core/f_dummy.php:132
-#: themes/default/templates_c/family.tpl.php:149
+#: themes/default/templates_c/family.tpl.php:150
 msgid "Source Citations"
 msgstr "Source Citations"
 
@@ -666,19 +666,21 @@ msgid "Ahnentafel Report for %s"
 msgstr "Ahnentafel Report for %s"
 
 #: core/modules/ahnentafel.php:61
+#: core/modules/commentadd.php:42
+#: core/modules/comments.php:42
 #: core/modules/descendant.php:50
 #: core/modules/family.php:46
 #: core/modules/multimedia.php:42
 #: core/modules/pedigree.php:50
-#: core/modules/reports.php:37
+#: core/modules/reports.php:38
 #: core/modules/surnames.php:106
 #, php-format
 msgid "%s Surname"
 msgstr "%s Surname"
 
-#: core/modules/ahnentafel.php:87
+#: core/modules/ahnentafel.php:88
 #: core/modules/ahnentafel_pdf.php:110
-#: core/modules/descendant.php:119
+#: core/modules/descendant.php:120
 #: core/modules/descendant_pdf.php:97
 #, php-format
 msgid "Generation %s"
@@ -699,6 +701,31 @@ msgstr "Send questions or comments to %s"
 msgid "Genealogy"
 msgstr "Genealogy"
 
+#: core/modules/commentadd.php:37
+#: core/modules/comments.php:37
+#: themes/default/templates_c/nav.tpl.php:65
+#: themes/default/templates_c/nav.tpl.php:71
+msgid "Comments"
+msgstr "Comments"
+
+#: core/modules/commentadd.php:41
+#: core/modules/comments.php:41
+#, php-format
+msgid "Comments for %s"
+msgstr "Comments for %s"
+
+#: core/modules/commentadd.php:51
+msgid "YOU MUST ENTER AN EMAIL ADDRESS"
+msgstr "YOU MUST ENTER AN EMAIL ADDRESS"
+
+#: core/modules/commentadd.php:53
+msgid "THE EMAIL ADDRESS YOU ENTERED IS NOT VALID"
+msgstr "THE EMAIL ADDRESS YOU ENTERED IS NOT VALID"
+
+#: core/modules/commentadd.php:56
+msgid "PLEASE ENTER SOME TEXT"
+msgstr "PLEASE ENTER SOME TEXT"
+
 #: core/modules/descendant.php:49
 #: core/modules/descendant_pdf.php:62
 #: core/modules/descendant_pdf.php:181
@@ -706,24 +733,24 @@ msgstr "Genealogy"
 msgid "Descendant Report for %s"
 msgstr "Descendant Report for %s"
 
-#: core/modules/descendant.php:101
+#: core/modules/descendant.php:102
 #: core/modules/family_pdf.php:245
-#: themes/default/templates_c/family.tpl.php:72
-#: themes/default/templates_c/family.tpl.php:136
+#: themes/default/templates_c/family.tpl.php:73
+#: themes/default/templates_c/family.tpl.php:137
 #: themes/default/templates_c/pedigree.indiv.tpl.php:14
 msgid "b."
 msgstr "b."
 
-#: core/modules/descendant.php:104
+#: core/modules/descendant.php:105
 #: core/modules/family_pdf.php:246
-#: themes/default/templates_c/family.tpl.php:76
-#: themes/default/templates_c/family.tpl.php:140
+#: themes/default/templates_c/family.tpl.php:77
+#: themes/default/templates_c/family.tpl.php:141
 #: themes/default/templates_c/pedigree.indiv.tpl.php:18
 msgid "d."
 msgstr "d."
 
-#: core/modules/email.php:34
 #: core/modules/email.php:35
+#: core/modules/email.php:36
 msgid "Email to a friend"
 msgstr "Email to a friend"
 
@@ -733,7 +760,7 @@ msgstr "Email to a friend"
 msgid "Family Page for %s"
 msgstr "Family Page for %s"
 
-#: core/modules/family.php:88
+#: core/modules/family.php:89
 #: core/modules/family_pdf.php:238
 #, php-format
 msgid "Family %s"
@@ -778,19 +805,19 @@ msgstr "Mother"
 
 #: core/modules/family_pdf.php:217
 #: core/modules/family_pdf.php:317
-#: themes/default/templates_c/family.tpl.php:51
-#: themes/default/templates_c/family.tpl.php:103
+#: themes/default/templates_c/family.tpl.php:52
+#: themes/default/templates_c/family.tpl.php:104
 #: themes/default/templates_c/stats.tpl.php:62
 msgid "Notes"
 msgstr "Notes"
 
 #: core/modules/family_pdf.php:242
-#: themes/default/templates_c/family.tpl.php:67
+#: themes/default/templates_c/family.tpl.php:68
 msgid "Spouse/Partner"
 msgstr "Spouse/Partner"
 
 #: core/modules/family_pdf.php:329
-#: themes/default/templates_c/family.tpl.php:116
+#: themes/default/templates_c/family.tpl.php:117
 msgid "Children"
 msgstr "Children"
 
@@ -817,13 +844,12 @@ msgstr "Pedigree"
 msgid "Pedigree for %s"
 msgstr "Pedigree for %s"
 
-#: core/modules/reports.php:35
-#: core/modules/reports.php:36
+#: core/modules/reports.php:37
 #, php-format
 msgid "Reports for %s"
 msgstr "Reports for %s"
 
-#: core/modules/reports.php:40
+#: core/modules/reports.php:45
 #: themes/default/templates_c/nav.tpl.php:41
 #: themes/default/templates_c/nav.tpl.php:46
 #: themes/default/templates_c/nav.tpl.php:52
@@ -868,14 +894,38 @@ msgstr "Statistics"
 msgid "Surname List"
 msgstr "Surname List"
 
+#: themes/default/templates_c/commentadd.tpl.php:16
+#: themes/default/templates_c/commentadd.tpl.php:40
+msgid "Return to comment list"
+msgstr "Return to comment list"
+
+#: themes/default/templates_c/commentadd.tpl.php:18
+msgid "The comment you submitted is show below."
+msgstr "The comment you submitted is show below."
+
+#: themes/default/templates_c/commentadd.tpl.php:19
+msgid "Please note that it will not be visible in the comment list until it has been reviewed and approved by an administrator."
+msgstr "Please note that it will not be visible in the comment list until it has been reviewed and approved by an administrator."
+
+#: themes/default/templates_c/commentadd.tpl.php:22
+#: themes/default/templates_c/comments.tpl.php:20
+msgid "From"
+msgstr "From"
+
+#: themes/default/templates_c/comments.tpl.php:15
+msgid "Submit a comment"
+msgstr "Submit a comment"
+
+#: themes/default/templates_c/comments.tpl.php:22
+msgid "Posted"
+msgstr "Posted"
+
 #: themes/default/templates_c/email.tpl.php:34
-#: themes/default/templates_c/emailthis.tpl.php:15
 msgid "The following link will be emailed"
 msgstr "The following link will be emailed"
 
 #: themes/default/templates_c/index.tpl.php:32
 #: themes/default/templates_c/index.tpl.php:38
-#: themes/default/templates_c/index_printable.tpl.php:22
 msgid "Print"
 msgstr "Print"
 

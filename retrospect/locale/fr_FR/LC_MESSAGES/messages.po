@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2005-01-09 21:30-0800\n"
+"PO-Revision-Date: 2005-02-13 21:55-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused-solutions.com>\n"
 "Language-Team: FRENCH <genealogie@robert-weinland.org>\n"
 "MIME-Version: 1.0\n"
@@ -392,7 +392,7 @@ msgid "French"
 msgstr "Français"
 
 #: core/f_dummy.php:132
-#: themes/default/templates_c/family.tpl.php:149
+#: themes/default/templates_c/family.tpl.php:150
 msgid "Source Citations"
 msgstr "Citations de source"
 
@@ -666,19 +666,21 @@ msgid "Ahnentafel Report for %s"
 msgstr "Liste-éclair pour %s"
 
 #: core/modules/ahnentafel.php:61
+#: core/modules/commentadd.php:42
+#: core/modules/comments.php:42
 #: core/modules/descendant.php:50
 #: core/modules/family.php:46
 #: core/modules/multimedia.php:42
 #: core/modules/pedigree.php:50
-#: core/modules/reports.php:37
+#: core/modules/reports.php:38
 #: core/modules/surnames.php:106
 #, php-format
 msgid "%s Surname"
 msgstr "Nom de famille %s"
 
-#: core/modules/ahnentafel.php:87
+#: core/modules/ahnentafel.php:88
 #: core/modules/ahnentafel_pdf.php:110
-#: core/modules/descendant.php:119
+#: core/modules/descendant.php:120
 #: core/modules/descendant_pdf.php:97
 #, php-format
 msgid "Generation %s"
@@ -699,6 +701,31 @@ msgstr "Envoyez questions ou commentaires à %s"
 msgid "Genealogy"
 msgstr "Généalogie"
 
+#: core/modules/commentadd.php:37
+#: core/modules/comments.php:37
+#: themes/default/templates_c/nav.tpl.php:65
+#: themes/default/templates_c/nav.tpl.php:71
+msgid "Comments"
+msgstr ""
+
+#: core/modules/commentadd.php:41
+#: core/modules/comments.php:41
+#, fuzzy, php-format
+msgid "Comments for %s"
+msgstr "Rapports pour %s"
+
+#: core/modules/commentadd.php:51
+msgid "YOU MUST ENTER AN EMAIL ADDRESS"
+msgstr ""
+
+#: core/modules/commentadd.php:53
+msgid "THE EMAIL ADDRESS YOU ENTERED IS NOT VALID"
+msgstr ""
+
+#: core/modules/commentadd.php:56
+msgid "PLEASE ENTER SOME TEXT"
+msgstr ""
+
 #: core/modules/descendant.php:49
 #: core/modules/descendant_pdf.php:62
 #: core/modules/descendant_pdf.php:181
@@ -706,24 +733,24 @@ msgstr "Généalogie"
 msgid "Descendant Report for %s"
 msgstr "Rapport de descendance de %s"
 
-#: core/modules/descendant.php:101
+#: core/modules/descendant.php:102
 #: core/modules/family_pdf.php:245
-#: themes/default/templates_c/family.tpl.php:72
-#: themes/default/templates_c/family.tpl.php:136
+#: themes/default/templates_c/family.tpl.php:73
+#: themes/default/templates_c/family.tpl.php:137
 #: themes/default/templates_c/pedigree.indiv.tpl.php:14
 msgid "b."
 msgstr "°"
 
-#: core/modules/descendant.php:104
+#: core/modules/descendant.php:105
 #: core/modules/family_pdf.php:246
-#: themes/default/templates_c/family.tpl.php:76
-#: themes/default/templates_c/family.tpl.php:140
+#: themes/default/templates_c/family.tpl.php:77
+#: themes/default/templates_c/family.tpl.php:141
 #: themes/default/templates_c/pedigree.indiv.tpl.php:18
 msgid "d."
 msgstr "+"
 
-#: core/modules/email.php:34
 #: core/modules/email.php:35
+#: core/modules/email.php:36
 #, fuzzy
 msgid "Email to a friend"
 msgstr "Envoi par e-mail à un ami"
@@ -734,7 +761,7 @@ msgstr "Envoi par e-mail à un ami"
 msgid "Family Page for %s"
 msgstr "Page famille de %s"
 
-#: core/modules/family.php:88
+#: core/modules/family.php:89
 #: core/modules/family_pdf.php:238
 #, php-format
 msgid "Family %s"
@@ -779,19 +806,19 @@ msgstr "Mère"
 
 #: core/modules/family_pdf.php:217
 #: core/modules/family_pdf.php:317
-#: themes/default/templates_c/family.tpl.php:51
-#: themes/default/templates_c/family.tpl.php:103
+#: themes/default/templates_c/family.tpl.php:52
+#: themes/default/templates_c/family.tpl.php:104
 #: themes/default/templates_c/stats.tpl.php:62
 msgid "Notes"
 msgstr "Notes"
 
 #: core/modules/family_pdf.php:242
-#: themes/default/templates_c/family.tpl.php:67
+#: themes/default/templates_c/family.tpl.php:68
 msgid "Spouse/Partner"
 msgstr "Conjoint/Partenaire"
 
 #: core/modules/family_pdf.php:329
-#: themes/default/templates_c/family.tpl.php:116
+#: themes/default/templates_c/family.tpl.php:117
 msgid "Children"
 msgstr "Enfants"
 
@@ -818,13 +845,12 @@ msgstr "Arbre d'ascendance"
 msgid "Pedigree for %s"
 msgstr "Ascendance de %s"
 
-#: core/modules/reports.php:35
-#: core/modules/reports.php:36
+#: core/modules/reports.php:37
 #, php-format
 msgid "Reports for %s"
 msgstr "Rapports pour %s"
 
-#: core/modules/reports.php:40
+#: core/modules/reports.php:45
 #: themes/default/templates_c/nav.tpl.php:41
 #: themes/default/templates_c/nav.tpl.php:46
 #: themes/default/templates_c/nav.tpl.php:52
@@ -869,14 +895,39 @@ msgstr "Statistiques"
 msgid "Surname List"
 msgstr "Liste des noms de famille"
 
+#: themes/default/templates_c/commentadd.tpl.php:16
+#: themes/default/templates_c/commentadd.tpl.php:40
+msgid "Return to comment list"
+msgstr ""
+
+#: themes/default/templates_c/commentadd.tpl.php:18
+msgid "The comment you submitted is show below."
+msgstr ""
+
+#: themes/default/templates_c/commentadd.tpl.php:19
+msgid "Please note that it will not be visible in the comment list until it has been reviewed and approved by an administrator."
+msgstr ""
+
+#: themes/default/templates_c/commentadd.tpl.php:22
+#: themes/default/templates_c/comments.tpl.php:20
+msgid "From"
+msgstr ""
+
+#: themes/default/templates_c/comments.tpl.php:15
+msgid "Submit a comment"
+msgstr ""
+
+#: themes/default/templates_c/comments.tpl.php:22
+#, fuzzy
+msgid "Posted"
+msgstr "Testament"
+
 #: themes/default/templates_c/email.tpl.php:34
-#: themes/default/templates_c/emailthis.tpl.php:15
 msgid "The following link will be emailed"
 msgstr ""
 
 #: themes/default/templates_c/index.tpl.php:32
 #: themes/default/templates_c/index.tpl.php:38
-#: themes/default/templates_c/index_printable.tpl.php:22
 msgid "Print"
 msgstr "Imprimer"
 
