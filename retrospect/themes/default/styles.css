@@ -2,7 +2,6 @@
 html { 
 	overflow-x: auto; 
 }
-
 body {
 	color:#333;
 	background-color:white;
@@ -13,40 +12,33 @@ body {
 p {
 	font: 8pt/1.2em Verdana, Arial, Helvetica, sans-serif;
 }
-
 a {
 	font-weight: bold;
 	color: #0066CC;
 	text-decoration: none;
 }
-
 a.secondary {
 	font-weight: normal;
 }
-
 a:hover {
 	color: #FF9900;
 }
-
 #content {
 	background-color: white;
 	padding: 10px 0px 10px 10px;
 	z-index: 3;
 	margin: 10px 10px 10px 220px;
 }
-
 /* Opera 7 fix */
 body>#content {
 	height: 450px;
 }
-
 #utils {
 	position: relative;
 	top: 0px;
 	right: 0px;
 	float: right;
 }
-
 #navAlpha {
 	position: absolute;
 	top: 80px;
@@ -57,12 +49,10 @@ body>#content {
 	padding: 10px;
 	z-index: 2;
 }
-
 /* Opera 7 fix */
 body>#navAlpha {
 	width: 180px;
 }
-
 #header {
 	height: 50px;
 	margin: 10px;
@@ -70,14 +60,12 @@ body>#navAlpha {
 	border-bottom-style: solid;
 	border-bottom-color: #000000;
 }
-
 #footer {
 	font-size: 8pt;
 	text-align: center;
 	vertical-align: middle;
 	clear: both;
 }
-
 .col1 {
 	position: static;
 	height: 11pt;
@@ -87,7 +75,6 @@ body>#navAlpha {
 	overflow: hidden;
 	font-weight: bold;
 }
-
 .col2 {
 	position: static;
 	height: 11pt;
@@ -96,7 +83,6 @@ body>#navAlpha {
 	float: left;
 	overflow: hidden;
 }
-
 .col3 {
 	position: static;
 	height: 11pt;
@@ -104,7 +90,6 @@ body>#navAlpha {
 	overflow: hidden;
 	clear: right;
 }
-
 .col2-2 {
 	position: relative;
 	left: -3px;
@@ -112,7 +97,6 @@ body>#navAlpha {
 	width: auto;
 	clear: right;
 }
-
 .col2-3 {
 	position: relative;
 	left: -3px;
@@ -121,22 +105,18 @@ body>#navAlpha {
 	clear: right;
 	text-align: right;
 }
-
 /* Opera 7 fix */
 div>.col2-2 {
 	position:static;
 }
-
 form {
 	padding: 0px;
 	margin: 0px;
 }
-
 select.listbox {
 	font-size: 8pt;
 	margin: 2px 1px 2px 0px;
 }
-
 input.textbox {
 	font-size: 8pt;
 	color: black;
@@ -144,21 +124,17 @@ input.textbox {
 	border: 1px solid #666666;
 	background: white;
 }
-
 .pedbox {
 	padding: 1px 2px 1px 2px;
 	text-align: left;
 	vertical-align: middle;
 }
-
 .pedbox-text {
 	font-size: 7pt;
 }
-
 .text {
 	font-size: 8pt;
 }
-
 .menu-title {
 	font-size: 11pt;
 	font-weight: bold;
@@ -166,13 +142,11 @@ input.textbox {
 	padding: 0px;
 	margin: 5px 0px 5px 0px;
 }
-
 .menu-item {
 	font-size: 9pt;
 	font-weight: bold;
 	line-height: 1.4em;
 }
-
 .content-title {
 	font-weight: bold;
 	font-size: 14pt;
@@ -180,7 +154,6 @@ input.textbox {
 	padding:0px;
 	color: #666666;
 }
-
 .content-subtitle {
 	font-weight: bold;
 	font-size: 10pt;
@@ -191,7 +164,6 @@ input.textbox {
 	margin: 10px 0px 10px 0px;
 	clear: both
 }
-
 .content-menubar {
 	font-weight: bold;
 	font-size: 10pt;
@@ -203,7 +175,6 @@ input.textbox {
 	margin: 0px 0px 20px 0px;
 	clear: both
 }
-
 .tab-row {
 	background-color: #EEEEEE;
 	border-width: 1px;
@@ -212,7 +183,6 @@ input.textbox {
 	padding: 4px 0px 4px 0px;
 	margin: 0px;
 }
-
 .tab-page {
 	width: 100%;
 	border-width: 1px;
@@ -220,7 +190,6 @@ input.textbox {
 	margin: 0px;
 	padding: 5px;
 }
-
 .tab-row .tab {
 	font-size: 8pt;
 	background-color: #EEEEEE;
@@ -233,7 +202,6 @@ input.textbox {
 	border-right-style: solid;
 	white-space: nowrap;
 }
-
 .tab-row .tab.selected {
 	padding: 4px 6px 5px 6px;
 	margin: 0px 0px 0px 0px;
