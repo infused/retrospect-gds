@@ -182,7 +182,7 @@
 	* Require options file and instantiate options
 	*/
 	require_once(CORE_PATH.'options.class.php');
-	$g_opts =& new Options();
+	$options =& new Options();
 
 	/**
 	* Require language functions and initialize gettext

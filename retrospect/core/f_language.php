@@ -26,7 +26,7 @@
 	* @access public
 	*/
 	function lang_init_gettext() {
-		global $db, $g_opts, $g_langs, $g_tbl_lang;
+		global $db, $options, $g_langs, $g_tbl_lang;
 		
 		# determine current language
 		if (isset($_POST['lang'])) { 
@@ -37,7 +37,7 @@
 			$lang = $_SESSION['lang']; 
 		}
 		else { 
-			$lang = $g_opts->default_lang; 
+			$lang = $options->default_lang; 
 			$_SESSION['lang'] = $lang;
 		}
 
@@ -67,7 +67,7 @@
 			}
 		}
 		# get list of supported languages 
-		if (isset($g_opts->allow_lang_change) AND $g_opts->allow_lang_change == 1) {
+		if (isset($options->allow_lang_change) AND $options->allow_lang_change == 1) {
 			$sql = "SELECT lang_name, lang_code FROM {$g_tbl_lang}";
 			$g_langs = $db->GetAll($sql);
 		}
@@ -82,8 +82,8 @@
 	* @return string translated date string
 	*/
 	function lang_translate_date($p_date) {
-		global $g_opts;
-		if ($_SESSION['lang'] != 'en_US' and $g_opts->translate_dates == 1) {
+		global $options;
+		if ($_SESSION['lang'] != 'en_US' and $options->translate_dates == 1) {
 			# replace month names
 			$p_date = str_replace(array('jan', 'Jan', 'JAN'), _("Jan"), $p_date);
 			$p_date = str_replace(array('feb', 'Feb', 'FEB'), _("Feb"), $p_date);

@@ -67,6 +67,10 @@
 		* @access public
 		*/
 		function Options() {
+			$this->GetAll();
+		}
+		
+		function GetAll() {
 			global $g_tbl_option, $db;
 			$sql = "SELECT * FROM $g_tbl_option";
 			$rs = $db->Execute($sql);
@@ -78,6 +82,23 @@
 			# declare some defaults just in case
 			if (!isset($this->default_page)) {
 				$this->default_page = 'surnames';
+			}
+			if (!isset($this->default_lang)) {
+				$this->default_lang = 'en_US';
+			}
+			if (!isset($this->allow_lang_change)) {
+				$this->allow_lang_change = true;
+			}
+		}
+		
+		function OptionUpdate($opt_val_new, $opt_val_old, $opt_key) {
+			global $db, $g_tbl_option;
+			$sql = "UPDATE {$g_tbl_option} SET opt_val='{$opt_val_new}' WHERE opt_key='{$opt_key}'";
+			if ($db->Execute($sql)) {
+				return true;
+			}
+			else {
+				return false;
 			}
 		}
 	}

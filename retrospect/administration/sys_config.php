@@ -31,18 +31,6 @@
 	<?php 
 		$updated = false;
 		
-		function config_update($p_opt_val_new, $p_opt_val_old, $p_opt_key) {
-			global $db, $g_tbl_option;
-			$sql = "UPDATE {$g_tbl_option} SET opt_val='{$p_opt_val_new}' WHERE opt_key='{$p_opt_key}'";
-			if ($db->Execute($sql)) {
-				echo sprintf(_("Changed %s from %s to %s."), $p_opt_key, $p_opt_val_old, $p_opt_val_new).'<br />';
-				return true;
-			}
-			else {
-				return false;
-			}
-		}
-		
 		function config_fail($p_value) {
 			echo sprintf(_("You must edit core/config.php to change the %s setting."), $p_value).'<br />';
 		}
@@ -50,16 +38,16 @@
 		if (isset($_POST['Save']) and $_POST['Save'] == 'Save') {
 			echo '<tr><td class="notification">';
 			if ($_POST['default_page_new'] != $_POST['default_page_old']) {
-				$updated = config_update($_POST['default_page_new'], $_POST['default_page_old'], 'default_page');
+				$updated = $options->OptionUpdate($_POST['default_page_new'], $_POST['default_page_old'], 'default_page');
 			}
 			if ($_POST['default_lang_new'] != $_POST['default_lang_old']) {
-				$updated = config_update($_POST['default_lang_new'], $_POST['default_lang_old'], 'default_lang');
+				$updated = $options->OptionUpdate($_POST['default_lang_new'], $_POST['default_lang_old'], 'default_lang');
 			}
 			if ($_POST['allow_lang_change_new'] != $_POST['allow_lang_change_old']) {
-				$updated = config_update($_POST['allow_lang_change_new'], $_POST['allow_lang_change_old'], 'allow_lang_change');
+				$updated = $options->OptionUpdate($_POST['allow_lang_change_new'], $_POST['allow_lang_change_old'], 'allow_lang_change');
 			}
 			if ($_POST['translate_dates_new'] != $_POST['translate_dates_old']) {
-				$updated = config_update($_POST['translate_dates_new'], $_POST['translate_dates_old'], 'translate_dates');
+				$updated = $options->OptionUpdate($_POST['translate_dates_new'], $_POST['translate_dates_old'], 'translate_dates');
 			}
 			if ($_POST['db_host_new'] != $_POST['db_host_old']) { config_fail(_("MySQL Hostname")); }
 			if ($_POST['db_port_new'] != $_POST['db_port_old']) { config_fail(_("MySQL Port"));	}
@@ -67,11 +55,12 @@
 			if ($_POST['db_pass_new'] != $_POST['db_pass_old']) { config_fail(_("MySQL Password")); }
 			if ($_POST['db_new'] != $_POST['db_old']) { config_fail(_("MySQL Database")); }
 			if ($updated == false) { echo _("Nothing to save."); }
+			else { echo _("Options updated."); }
 			echo '</td></tr>';
 			echo '<tr><td>&nbsp;</td></tr>';
 			
 			# re-initialize options object
-			$g_opts = new Options();
+			$options->GetAll();
 		}
 	?>
   <tr> 
@@ -81,8 +70,8 @@
     <td align="left" valign="top"> <table width="100%"  border="0" cellpadding="2" cellspacing="0" bgcolor="#CCCCCC"> 
         <tr> 
           <td width="250" class="content-label"><?php echo _("Default Page"); ?>:</td> 
-          <td width="200"><input name="default_page_new" type="text" class="textbox" id="default_page_new" value="<?php echo $g_opts->default_page; ?>">
-          <input name="default_page_old" type="hidden" id="default_page_old" value="<?php echo $g_opts->default_page; ?>">          </td> 
+          <td width="200"><input name="default_page_new" type="text" class="textbox" id="default_page_new" value="<?php echo $options->default_page; ?>">
+          <input name="default_page_old" type="hidden" id="default_page_old" value="<?php echo $options->default_page; ?>">          </td> 
           <td>This must be a page that does not require any parameters.</td>
         </tr> 
       </table></td> 
@@ -127,7 +116,7 @@
         <tr> 
           <td class="content-label"><?php echo _("MySQL Database"); ?>: </td> 
           <td><input name="db_new" type="text" class="textbox" id="db_new" value="<?php echo $g_db_name; ?>" readonly="true">
-          <input name="db_old" type="hidden" id="db_old" value="<?php echo $g_db; ?>"></td> 
+          <input name="db_old" type="hidden" id="db_old" value="<?php echo $g_db_name; ?>"></td> 
           <td>&nbsp;</td>
         </tr> 
       </table>
@@ -150,30 +139,30 @@
 								$rs = $db->Execute($sql);
 								while ($row = $rs->FetchRow()) {
 									echo '<option value="'.$row['lang_code'].'"';
-									if ($g_opts->default_lang == $row['lang_code']) { echo ' SELECTED'; }
+									if ($options->default_lang == $row['lang_code']) { echo ' SELECTED'; }
 									echo '>'.$row['lang_name'].'</option>';
 					 			}
 					 		?> 
             </select>
-						<input name="default_lang_old" type="hidden" id="default_lang_old" value="<?php echo $g_opts->default_lang; ?>"></td> 
+						<input name="default_lang_old" type="hidden" id="default_lang_old" value="<?php echo $options->default_lang; ?>"></td> 
         </tr>
         <tr bgcolor="#CCCCCC">
           <td class="content-label"><?php echo _("Allow language changes"); ?>?</td>
           <td>
 						<select name="allow_lang_change_new" class="listbox" id="allow_lang_change_new">
-            	<option value="1" <?php if ($g_opts->allow_lang_change == 1) echo 'SELECTED'; ?>><?php echo _("Yes"); ?></option>
-            	<option value="0" <?php if ($g_opts->allow_lang_change == 0) echo 'SELECTED'; ?>><?php echo _("No"); ?></option>
+            	<option value="1" <?php if ($options->allow_lang_change == 1) echo 'SELECTED'; ?>><?php echo _("Yes"); ?></option>
+            	<option value="0" <?php if ($options->allow_lang_change == 0) echo 'SELECTED'; ?>><?php echo _("No"); ?></option>
           	</select>
-						<input name="allow_lang_change_old" type="hidden" id="allow_lang_change_old" value="<?php echo $g_opts->allow_lang_change; ?>">
+						<input name="allow_lang_change_old" type="hidden" id="allow_lang_change_old" value="<?php echo $options->allow_lang_change; ?>">
 					</td>
         </tr>
         <tr bgcolor="#CCCCCC">
           <td class="content-label"><?php echo _("Translate Dates"); ?>?</td>
           <td><select name="translate_dates_new" class="listbox" id="translate_dates_new">
-            <option value="1" <?php if ($g_opts->translate_dates == 1) echo 'SELECTED'; ?>><?php echo _("Yes"); ?></option>
-            <option value="0" <?php if ($g_opts->translate_dates == 0) echo 'SELECTED'; ?>><?php echo _("No"); ?></option>
+            <option value="1" <?php if ($options->translate_dates == 1) echo 'SELECTED'; ?>><?php echo _("Yes"); ?></option>
+            <option value="0" <?php if ($options->translate_dates == 0) echo 'SELECTED'; ?>><?php echo _("No"); ?></option>
           </select>
-            <input name="translate_dates_old" type="hidden" id="translate_dates_old" value="<?php echo $g_opts->translate_dates; ?>"></td>
+            <input name="translate_dates_old" type="hidden" id="translate_dates_old" value="<?php echo $options->translate_dates; ?>"></td>
         </tr> 
       </table>		</td> 
   </tr> 
