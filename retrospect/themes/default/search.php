@@ -33,6 +33,7 @@
 	$location = isset($_GET['locat']) ? $_GET['locat'] : null;
 	$search_type = isset($_GET['search_type']) ? $_GET['search_type'] : null;
 	$parts = isset($_GET['parts']) ? $_GET['parts'] : null;
+	$note = isset($_GET['note']) ? $_GET['note'] : null;
 	
 	# set page title
 	$g_title = _("Search");
@@ -56,6 +57,7 @@
 			if ($sname != null) { $search_params .= '&sname='.$sname; }
 			if ($soundex == true) { $search_params .= '&soundex=1'; }
 			if ($location != null) { $search_params .= '&locat='.$location; }
+			if ($note != null) { $search_params .= '&note='.$note; }
 			if ($parts != null) { $search_params .= '&parts='.$parts; }
 			echo '"><a href="'.$_SERVER['PHP_SELF'].$search_params.'">'._("Search").'</a></td>';
 
@@ -118,7 +120,7 @@
 		echo '<td colspan="2" class="text"><b>'._("Location Search").'</b></td>';
 		echo '</tr>';
 		echo '<tr>';
-		echo '<td colspan="2" class="text">'._("Location").':</td>';
+		echo '<td colspan="2" class="text">'._("Keywords").':</td>';
 		echo '</tr>';
 		echo '<tr>';
 		echo '<td colspan="2"><input name="locat" size="40" type="text" class="textbox" id="locat" value="'.$location.'"></td>';
@@ -146,6 +148,44 @@
 		echo '</td></tr></table>';
 		echo '</form>';		
 		
+		# note search form
+		echo '<form name="form_search_note" method="get" action="'.$_SERVER['PHP_SELF'].'">';
+		echo '<input name="option" type="hidden" value="search">';
+		echo '<input name="search_type" type="hidden" value="note">';
+		echo '<table class="section" width="100%" cellspacing="0" cellpadding="0"><tr><td>';
+		echo '<table border="0" cellspacing="2" cellpadding="2">';
+		echo '<tr>';
+		echo '<td colspan="2" class="text"><b>'._("Note Search").'</b></td>';
+		echo '</tr>';
+		echo '<tr>';
+		echo '<td colspan="2" class="text">'._("Keywords").':</td>';
+		echo '</tr>';
+		echo '<tr>';
+		echo '<td colspan="2"><input name="note" size="40" type="text" class="textbox" id="note" value="'.$note.'"></td>';
+		echo '</tr>';
+		echo '<tr>';
+		echo '<td class="text">'._("Match Keywords").':</td>';
+		echo '<td>';
+		echo '<select name="parts" class="listbox">';
+		echo '<option value="all"'; if ($parts == 'all') echo ' selected'; echo '>'._("All").'</option>';
+		echo '<option value="any"'; if ($parts == 'any') echo ' selected'; echo '>'._("Any").'</option>';
+		echo '<option value="phrase"'; if ($parts == 'phrase') echo ' selected'; echo '>'._("Phrase").'</option>';
+		echo '<option value="starts"'; if ($parts == 'starts') echo ' selected'; echo '>'._("Starts with").'</option>';
+		echo '<option value="ends"'; if ($parts == 'ends') echo ' selected'; echo '>'._("Ends with").'</option>';
+		echo '</select>';
+		echo '</td>';
+		echo '</tr>';
+		echo '<tr>';
+		echo '<td colspan="2">';
+		echo '<input name="Submit" type="submit" class="text" value="'._("Search").'"> ';
+		echo '<input name="Reset" type="reset" class="text" value="'._("Reset").'"> ';
+		echo '<input name="Clear" type="button" class="text" value="'._("Clear").'" onMouseDown="MM_setTextOfTextfield(\'note\',\'\',\'\')">';
+		echo '</td>';
+		echo '</tr>';
+		echo '</table>';
+		echo '</td></tr></table>';
+		echo '</form>';
+		
 		echo '</div>';
 	}
 	
@@ -153,7 +193,7 @@
 	else {
 		echo '<div class="tab-page">';
 		# give error if no search parameters
-		if ($gname == null AND $sname == null AND $location == null) {
+		if ($gname == null AND $sname == null AND $location == null AND $note == null) {
 			echo '<p class="text">'._("No search parameters were specified.").'</p>';
 		}
 		# else display the results
@@ -218,6 +258,60 @@
 					$sql .= "WHERE {$g_tbl_indiv}.indkey = {$g_tbl_fact}.indfamkey ";
 					foreach($locat_arr as $locat_part) {
 						$sql .= "AND {$g_tbl_fact}.place LIKE \"%{$locat_part}%\" ";
+					}
+				}
+			}
+			
+			# note searches
+			elseif ($search_type == 'note') {
+				if ($parts == 'phrase') {
+					$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_note} ";
+					$sql .= "WHERE {$g_tbl_indiv}.notekey = {$g_tbl_note}.notekey ";
+					$sql .= "AND {$g_tbl_note}.text LIKE \"%{$note}%\" ";
+				}
+				# search part selection of ANY
+				elseif ($parts == 'any') {
+					$note_arr = explode(' ', $note);
+					$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_note} ";
+					$sql .= "WHERE {$g_tbl_indiv}.notekey = {$g_tbl_note}.notekey AND ";
+					for ($i = 0, $max = count($note_arr); $i < $max; $i++) {
+						$note_part = $note_arr[$i];
+						if ($i == 0 AND $max > 1) {
+							$sql .= '( ';
+							$sql .= "{$g_tbl_note}.text LIKE \"%{$note_part}%\" ";
+						}
+						elseif ($i == 0) {
+							$sql .= "{$g_tbl_note}.text LIKE \"%{$note_part}%\" ";
+						}
+						elseif ($i == $max - 1 AND $max > 1) {
+							$sql .= "OR {$g_tbl_note}.text LIKE \"%{$note_part}%\" ";
+							$sql .= ' )';
+						}
+						else {
+							$sql .= "OR {$g_tbl_note}.text LIKE \"%{$note_part}%\" ";
+						}
+					}
+				}
+				# search part selection of STARTS
+				elseif ($parts == 'starts') {
+					$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_note} ";
+					$sql .= "WHERE {$g_tbl_indiv}.notekey = {$g_tbl_note}.notekey ";
+					$sql .= "AND {$g_tbl_note}.text LIKE \"{$note}%\" ";
+				}
+				# search part selection of STARTS
+				elseif ($parts == 'ends') {
+					$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_note} ";
+					$sql .= "WHERE {$g_tbl_indiv}.notekey = {$g_tbl_note}.notekey ";
+					$sql .= "AND {$g_tbl_note}.text LIKE \"%{$note}\" ";
+				}
+				# search part selection of ALL
+				else {
+					$note_arr = explode(' ', $note);
+					
+					$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_note} ";
+					$sql .= "WHERE {$g_tbl_indiv}.notekey = {$g_tbl_note}.notekey ";
+					foreach($note_arr as $note_part) {
+						$sql .= "AND {$g_tbl_note}.text LIKE \"%{$note_part}%\" ";
 					}
 				}
 			}
