@@ -55,6 +55,8 @@
 			if ($gname != null) { $search_params .= '&gname='.$gname; }
 			if ($sname != null) { $search_params .= '&sname='.$sname; }
 			if ($soundex == true) { $search_params .= '&soundex=1'; }
+			if ($location != null) { $search_params .= '&locat='.$location; }
+			if ($parts != null) { $search_params .= '&parts='.$parts; }
 			echo '"><a href="'.$_SERVER['PHP_SELF'].$search_params.'">'._("Search").'</a></td>';
 
 		}
@@ -125,9 +127,11 @@
 		echo '<td class="text">'._("Match Keywords").':</td>';
 		echo '<td>';
 		echo '<select name="parts" class="listbox">';
-		echo '<option value="all">'._("All").'</option>';
-		echo '<option value="any">'._("Any").'</option>';
-		echo '<option value="phrase">'._("Phrase").'</option>';
+		echo '<option value="all"'; if ($parts == 'all') echo ' selected'; echo '>'._("All").'</option>';
+		echo '<option value="any"'; if ($parts == 'any') echo ' selected'; echo '>'._("Any").'</option>';
+		echo '<option value="phrase"'; if ($parts == 'phrase') echo ' selected'; echo '>'._("Phrase").'</option>';
+		echo '<option value="starts"'; if ($parts == 'starts') echo ' selected'; echo '>'._("Starts with").'</option>';
+		echo '<option value="ends"'; if ($parts == 'ends') echo ' selected'; echo '>'._("Ends with").'</option>';
 		echo '</select>';
 		echo '</td>';
 		echo '</tr>';
@@ -170,15 +174,7 @@
 					$sql .= "WHERE {$g_tbl_indiv}.indkey = {$g_tbl_fact}.indfamkey ";
 					$sql .= "AND {$g_tbl_fact}.place LIKE \"%{$location}%\" ";
 				}
-				elseif ($parts == 'all') {
-					$locat_arr = explode(' ', $location);
-					
-					$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_fact} ";
-					$sql .= "WHERE {$g_tbl_indiv}.indkey = {$g_tbl_fact}.indfamkey ";
-					foreach($locat_arr as $locat_part) {
-						$sql .= "AND {$g_tbl_fact}.place LIKE \"%{$locat_part}%\" ";
-					}
-				}
+				# search part selection of ANY
 				elseif ($parts == 'any') {
 					$locat_arr = explode(' ', $location);
 					
@@ -190,6 +186,9 @@
 							$sql .= '( ';
 							$sql .= "{$g_tbl_fact}.place LIKE \"%{$locat_part}%\" ";
 						}
+						elseif ($i == 0) {
+							$sql .= "{$g_tbl_fact}.place LIKE \"%{$locat_part}%\" ";
+						}
 						elseif ($i == $max - 1 AND $max > 1) {
 							$sql .= "OR {$g_tbl_fact}.place LIKE \"%{$locat_part}%\" ";
 							$sql .= ' )';
@@ -197,6 +196,28 @@
 						else {
 							$sql .= "OR {$g_tbl_fact}.place LIKE \"%{$locat_part}%\" ";
 						}
+					}
+				}
+				# search part selection of STARTS
+				elseif ($parts == 'starts') {
+					$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_fact} ";
+					$sql .= "WHERE {$g_tbl_indiv}.indkey = {$g_tbl_fact}.indfamkey ";
+					$sql .= "AND {$g_tbl_fact}.place LIKE \"{$location}%\" ";
+				}
+				# search part selection of STARTS
+				elseif ($parts == 'ends') {
+					$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_fact} ";
+					$sql .= "WHERE {$g_tbl_indiv}.indkey = {$g_tbl_fact}.indfamkey ";
+					$sql .= "AND {$g_tbl_fact}.place LIKE \"%{$location}\" ";
+				}
+				# search part selection of ALL
+				else {
+					$locat_arr = explode(' ', $location);
+					
+					$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_fact} ";
+					$sql .= "WHERE {$g_tbl_indiv}.indkey = {$g_tbl_fact}.indfamkey ";
+					foreach($locat_arr as $locat_part) {
+						$sql .= "AND {$g_tbl_fact}.place LIKE \"%{$locat_part}%\" ";
 					}
 				}
 			}
