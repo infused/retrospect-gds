@@ -272,3 +272,6 @@ textarea.textbox {
 .checkbox {
 	margin: 0px;
 }
+iframe.log {
+	border: solid 1px #CCCCCC;
+}

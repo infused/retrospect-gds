@@ -141,6 +141,7 @@
 		var $filename; 					// filename 
 		var $fhandle; 					// file handle
 		var $fsize;							// file size
+		var $lines;							// number of lines in file
 		var $individual_count;	// count of individual records
 		var $family_count;			// count of family records
 		var $source_count;			// count of source records
@@ -237,8 +238,10 @@
 			$scount = 0;
 			$ncount = 0;
 			$ocount = 0;
+			$lines = 0;
 			rewind($handle);
 			while (!feof($handle)) {
+				$lines++;
 				$line = fgets($handle);
 				$line = trim($line);
 				if (preg_match(REG_INDI, $line)) {
@@ -259,6 +262,7 @@
 			$this->source_count = $scount;
 			$this->note_count = $ncount;
 			$this->onote_count = $ocount;
+			$this->lines = $lines;
 		}
 		
 		/**
@@ -267,7 +271,7 @@
 		* @param integer Optional file offset at which to begin parsing
 		* @param integer Optional time limit in seconds
 		*/
-		function ParseGedcom($offset = 0, $time_limit = 30) {
+		function ParseGedcom($offset = 0, $time_limit = 5) {
 			# establish start time
 			$start = time();
 			

@@ -23,9 +23,6 @@
 	
 	$smarty->assign('page_title', 'Retrospect-GDS Administration');
 	
-	# Set some variables
-	define('GEDCOM_DIR', ROOT_PATH.'/gedcom/');
-	
 	# Process tasks
 	if (isset($_POST['Submit'])) {
 		$task = $_POST['task'];

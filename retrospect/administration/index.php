@@ -34,11 +34,11 @@
 	define( '_RGDS_ADMIN', 1 );
 	
 	# Turn off error reporting
-	error_reporting(0);
+	error_reporting(E_ALL);
 
 	# Start or continue a session
 	session_start();
-	header('Cache-control: private'); # IE6 fix
+	//header('Cache-control: private'); # IE6 fix
 	
 	# Define all application paths
 	define('ADMIN_PATH', dirname($_SERVER['PATH_TRANSLATED']));
@@ -49,6 +49,8 @@
 	define('LOCALE_PATH', ROOT_PATH.'/locale/'); # Path to gettext locale files
 	define('THEME_PATH', ADMIN_PATH.'/themes/'); # Path to themes
 	define('BASE_URL', dirname($_SERVER['PHP_SELF']));
+	define('BASE_SCRIPT', $_SERVER['PHP_SELF']);
+	define('GEDCOM_DIR', ROOT_PATH.'/gedcom/');
 
 	# Load the Restrospect-GDS core and others
 	@require_once(CORE_PATH.'core.php');
@@ -65,16 +67,20 @@
 	# Load the module's script
 	@require_once(MODULE_PATH.$module.'.php');
 	
-	# Assign Smarty variables
-	$smarty->assign('module', $module);
-	$smarty->assign('PHP_SELF', $_SERVER['PHP_SELF']);
-	$smarty->assign('THEME_URL', BASE_URL.'/themes/'.$g_admin_theme.'/');
-	$smarty->assign('BASE_URL', BASE_URL);
+	if ($module != 'gedcom_analyze' AND $module != 'gedcom_process') {
 	
-	# Display the appropriate template
-	if (isset($_GET['print']) AND $_GET['print'] == strtolower('y')) {
-		$smarty->display('index_printable.tpl');
-	} else {
-		$smarty->display('index.tpl');
+		# Assign Smarty variables
+		$smarty->assign('module', $module);
+		$smarty->assign('PHP_SELF', $_SERVER['PHP_SELF']);
+		$smarty->assign('THEME_URL', BASE_URL.'/themes/'.$g_admin_theme.'/');
+		$smarty->assign('BASE_URL', BASE_URL);
+		
+		# Display the appropriate template
+		if (isset($_GET['print']) AND $_GET['print'] == strtolower('y')) {
+			$smarty->display('index_printable.tpl');
+		} else {
+			$smarty->display('index.tpl');
+		}
+	
 	}
 ?>

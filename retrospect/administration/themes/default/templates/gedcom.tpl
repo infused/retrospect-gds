@@ -28,7 +28,7 @@
 			<td class="list_item">{$gedcom.size}</td>
 			<td class="list_item">{$gedcom.timestamp}</td>
 			<td class="list_item"><a href="{$gedcom.filepath}">view</a></td>
-			<td class="list_item"><a href="{$gedcom.filepath}">publish</a></td>
+			<td class="list_item"><a href="{$PHP_SELF}?m=gedcom_import&f={$gedcom.filename}">publish</a></td>
 			<td class="list_item">&nbsp;</td>
 		</tr>
 		{/foreach}

@@ -1,4 +1,4 @@
-<?php
+<?php 
 	/**
 	* @copyright 	Keith Morrison, Infused Solutions	2001-2004
 	* @author			Keith Morrison <keithm@infused-solutions.com>
@@ -21,9 +21,9 @@
 	* $Id$
 	*/
 	
-	$smarty->assign('page_title', 'Retrospect-GDS Administration Login');
+	$smarty->assign('page_title', 'Retrospect-GDS Administration');
 	
-	if ($_POST['loginsubmit']) {
-		$smarty->assign('LOGIN_ERROR', '1');
-	}
+	$file = $_GET['f'];
+	$smarty->assign('GEDCOM_FILE', $file);
+
 ?>
