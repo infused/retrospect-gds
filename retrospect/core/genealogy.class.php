@@ -373,9 +373,19 @@ class Event {
 
 	/**
 	*	Event Date
+	* This date string has been formated according to the
+	* date format chosen in the administration module
 	* @var string
 	*/
 	var $date;
+	
+	/**
+	* Raw date data
+	* This is an array information returned from the date
+	* parser. Indexes are date_mod, date1, and date2
+	* @var array
+	*/
+	var $raw;
 
 	/**
 	* Sort Date
@@ -428,6 +438,9 @@ class Event {
 		$this->sort_date = $event_data['date1'];
 		$dp = new DateParser();
 		$this->date = $dp->FormatDateStr($event_data);
+		$this->raw['mod'] = $event_data['date_mod'];
+		$this->raw['date1'] = $event_data['date1'];
+		$this->raw['date2'] = $event_data['date2'];
 		if ($p_fetch_sources === true) $this->_get_sources();
 	}
 	
