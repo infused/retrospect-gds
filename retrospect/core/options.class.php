@@ -57,9 +57,8 @@
 		* @return mixed
 		*/
 		function GetOption($optkey) {
-			$optval = null;
-			if (isset($this->{$optkey})) $optval = $this->{$optkey};
-			return $optval;
+			if (isset($this->{$optkey})) return $this->{$optkey};
+			else return;
 		}
 		
 		/**
