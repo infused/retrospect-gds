@@ -80,6 +80,8 @@
 		require_once(LIB_PATH.'profiler/profiler.inc.php');
 		$profiler = new Profiler( true, false );
 		$profiler->startTimer( 'all' );
+	} else {
+		$profile = false;
 	}
 
 	/**
