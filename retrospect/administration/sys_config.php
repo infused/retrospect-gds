@@ -141,7 +141,7 @@
               <td width="250" class="content-label">Default Language:</td>
               <td><select name="default_lang_new" class="listbox" id="default_lang_new">
                   <?php
-					 			$sql = "SELECT * FROM $g_tbl_lang";
+					 			$sql = "SELECT * FROM ".TBL_LANG;
 								$rs = $db->Execute($sql);
 								while ($row = $rs->FetchRow()) {
 									echo '<option value="'.$row['lang_code'].'"';

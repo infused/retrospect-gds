@@ -26,7 +26,7 @@
 	# gather table statistcs
 	
 	# individuals
-	$sql = "SELECT COUNT(*) FROM $g_tbl_indiv";
+	$sql = "SELECT COUNT(*) FROM ".TBL_INDIV;
 	$cnt_indiv = $db->GetOne($sql);
 ?>
 
@@ -63,97 +63,97 @@
         <tr>
           <td class="section_body"><table width="300"  border="0" cellpadding="2" cellspacing="0">
             <tr bgcolor="#CCCCCC">
-              <td><?php echo $g_tbl_child; ?></td>
+              <td><?php echo TBL_CHILD; ?></td>
               <td><?php 
-										$sql = "SELECT COUNT(*) FROM $g_tbl_child";
+										$sql = "SELECT COUNT(*) FROM ".TBL_CHILD;
 										echo $db->GetOne($sql);
 									?>
               </td>
             </tr>
             <tr>
-              <td><?php echo $g_tbl_citation; ?></td>
+              <td><?php echo TBL_CITATION; ?></td>
               <td><?php 
-										$sql = "SELECT COUNT(*) FROM $g_tbl_citation";
+										$sql = "SELECT COUNT(*) FROM ".TBL_CITATION;
 										echo $db->GetOne($sql);
 									?>
               </td>
             </tr>
             <tr bgcolor="#CCCCCC">
-              <td><?php echo $g_tbl_comment; ?></td>
+              <td><?php echo TBL_COMMENT; ?></td>
               <td><?php 
-										$sql = "SELECT COUNT(*) FROM $g_tbl_comment";
+										$sql = "SELECT COUNT(*) FROM ".TBL_COMMENT;
 										echo $db->GetOne($sql);
 									?>
               </td>
             </tr>
             <tr>
-              <td><?php echo $g_tbl_fact; ?></td>
+              <td><?php echo TBL_FACT; ?></td>
               <td><?php 
-										$sql = "SELECT COUNT(*) FROM $g_tbl_fact";
+										$sql = "SELECT COUNT(*) FROM ".TBL_FACT;
 										echo $db->GetOne($sql);
 									?>
               </td>
             </tr>
             <tr bgcolor="#CCCCCC">
-              <td><?php echo $g_tbl_family; ?></td>
+              <td><?php echo TBL_FAMILY; ?></td>
               <td><?php 
-										$sql = "SELECT COUNT(*) FROM $g_tbl_family";
+										$sql = "SELECT COUNT(*) FROM ".TBL_FAMILY;
 										echo $db->GetOne($sql);
 									?>
               </td>
             </tr>
             <tr>
-              <td><?php echo $g_tbl_indiv; ?></td>
+              <td><?php echo TBL_INDIV; ?></td>
               <td><?php 
-										$sql = "SELECT COUNT(*) FROM $g_tbl_indiv";
+										$sql = "SELECT COUNT(*) FROM ".TBL_INDIV;
 										echo $db->GetOne($sql);
 									?>
               </td>
             </tr>
             <tr bgcolor="#CCCCCC">
-              <td><?php echo $g_tbl_lang; ?></td>
+              <td><?php echo TBL_LANG; ?></td>
               <td><?php 
-										$sql = "SELECT COUNT(*) FROM $g_tbl_lang";
+										$sql = "SELECT COUNT(*) FROM ".TBL_LANG;
 										echo $db->GetOne($sql);
 									?>
               </td>
             </tr>
             <tr>
-              <td><?php echo $g_tbl_media; ?></td>
+              <td><?php echo TBL_MEDIA; ?></td>
               <td><?php 
-										$sql = "SELECT COUNT(*) FROM $g_tbl_media";
+										$sql = "SELECT COUNT(*) FROM ".TBL_MEDIA;
 										echo $db->GetOne($sql);
 									?>
               </td>
             </tr>
             <tr bgcolor="#CCCCCC">
-              <td><?php echo $g_tbl_note; ?></td>
+              <td><?php echo TBL_NOTE; ?></td>
               <td><?php 
-										$sql = "SELECT COUNT(*) FROM $g_tbl_note";
+										$sql = "SELECT COUNT(*) FROM ".TBL_NOTE;
 										echo $db->GetOne($sql);
 									?>
               </td>
             </tr>
             <tr>
-              <td><?php echo $g_tbl_option; ?></td>
+              <td><?php echo TBL_OPTION; ?></td>
               <td><?php 
-										$sql = "SELECT COUNT(*) FROM $g_tbl_option";
+										$sql = "SELECT COUNT(*) FROM ".TBL_OPTION;
 										echo $db->GetOne($sql);
 									?>
               </td>
             </tr>
             <tr bgcolor="#CCCCCC">
-              <td><?php echo $g_tbl_source; ?></td>
+              <td><?php echo TBL_SOURCE; ?></td>
               <td><?php 
-										$sql = "SELECT COUNT(*) FROM $g_tbl_source";
+										$sql = "SELECT COUNT(*) FROM ".TBL_SOURCE;
 										echo $db->GetOne($sql);
 				 					?>
               </td>
             </tr>
             <tr>
-              <td><?php echo $g_tbl_user; ?></td>
+              <td><?php echo TBL_USER; ?></td>
               <td><?php 
-										$sql = "SELECT COUNT(*) FROM $g_tbl_user";
+										$sql = "SELECT COUNT(*) FROM ".TBL_USER;
 										echo $db->GetOne($sql);
 									?>
               </td>

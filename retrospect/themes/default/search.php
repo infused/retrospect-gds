@@ -201,63 +201,63 @@
 			# name searches
 			if ($search_type == 'name') {
 				if ($soundex === true) {
-					$sql = "SELECT * FROM {$g_tbl_indiv} WHERE soundex(surname)=soundex(".$db->Quote($sname).") AND givenname LIKE ".$db->Quote('%'.$gname.'%')." ORDER BY surname, givenname";
+					$sql = "SELECT * FROM ".TBL_INDIV." WHERE soundex(surname)=soundex(".$db->Quote($sname).") AND givenname LIKE ".$db->Quote('%'.$gname.'%')." ORDER BY surname, givenname";
 				}
 				else {
-					$sql = "SELECT * FROM {$g_tbl_indiv} WHERE surname LIKE ".$db->Quote($sname.'%')." AND givenname LIKE ".$db->Quote('%'.$gname.'%')." ORDER BY surname, givenname";
+					$sql = "SELECT * FROM ".TBL_INDIV." WHERE surname LIKE ".$db->Quote($sname.'%')." AND givenname LIKE ".$db->Quote('%'.$gname.'%')." ORDER BY surname, givenname";
 				}	 
 			}
 			# location searches
 			elseif ($search_type == 'location') {
 				if ($parts == 'phrase') {
-					$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_fact} ";
-					$sql .= "WHERE {$g_tbl_indiv}.indkey = {$g_tbl_fact}.indfamkey ";
-					$sql .= "AND {$g_tbl_fact}.place LIKE \"%{$location}%\" ";
+					$sql = 'SELECT DISTINCT '.TBL_INDIV.'.indkey FROM '.TBL_INDIV.', '.TBL_FACT.' ';
+					$sql .= 'WHERE '.TBL_INDIV.'.indkey = '.TBL_FACT.'.indfamkey ';
+					$sql .= "AND ".TBL_FACT.".place LIKE \"%{$location}%\" ";
 				}
 				# search part selection of ANY
 				elseif ($parts == 'any') {
 					$locat_arr = explode(' ', $location);
 					
-					$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_fact} ";
-					$sql .= "WHERE {$g_tbl_indiv}.indkey = {$g_tbl_fact}.indfamkey AND ";
+					$sql = 'SELECT DISTINCT '.TBL_INDIV.'.indkey FROM '.TBL_INDIV.', '.TBL_FACT.' ';
+					$sql .= 'WHERE '.TBL_INDIV.'.indkey = '.TBL_FACT.'.indfamkey AND ';
 					for ($i = 0, $max = count($locat_arr); $i < $max; $i++) {
 						$locat_part = $locat_arr[$i];
 						if ($i == 0 AND $max > 1) {
 							$sql .= '( ';
-							$sql .= "{$g_tbl_fact}.place LIKE \"%{$locat_part}%\" ";
+							$sql .= TBL_FACT.".place LIKE \"%{$locat_part}%\" ";
 						}
 						elseif ($i == 0) {
-							$sql .= "{$g_tbl_fact}.place LIKE \"%{$locat_part}%\" ";
+							$sql .= TBL_FACT.".place LIKE \"%{$locat_part}%\" ";
 						}
 						elseif ($i == $max - 1 AND $max > 1) {
-							$sql .= "OR {$g_tbl_fact}.place LIKE \"%{$locat_part}%\" ";
+							$sql .= 'OR '.TBL_FACT.".place LIKE \"%{$locat_part}%\" ";
 							$sql .= ' )';
 						}
 						else {
-							$sql .= "OR {$g_tbl_fact}.place LIKE \"%{$locat_part}%\" ";
+							$sql .= 'OR '.TBL_FACT.".place LIKE \"%{$locat_part}%\" ";
 						}
 					}
 				}
 				# search part selection of STARTS
 				elseif ($parts == 'starts') {
-					$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_fact} ";
-					$sql .= "WHERE {$g_tbl_indiv}.indkey = {$g_tbl_fact}.indfamkey ";
-					$sql .= "AND {$g_tbl_fact}.place LIKE \"{$location}%\" ";
+					$sql = "SELECT DISTINCT ".TBL_INDIV.".indkey FROM ".TBL_INDIV.", ".TBL_FACT." ";
+					$sql .= "WHERE ".TBL_INDIV.".indkey = ".TBL_FACT.".indfamkey ";
+					$sql .= "AND ".TBL_FACT.".place LIKE \"{$location}%\" ";
 				}
 				# search part selection of STARTS
 				elseif ($parts == 'ends') {
-					$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_fact} ";
-					$sql .= "WHERE {$g_tbl_indiv}.indkey = {$g_tbl_fact}.indfamkey ";
-					$sql .= "AND {$g_tbl_fact}.place LIKE \"%{$location}\" ";
+					$sql = "SELECT DISTINCT ".TBL_INDIV.".indkey FROM ".TBL_INDIV.", ".TBL_FACT." ";
+					$sql .= "WHERE ".TBL_INDIV.".indkey = ".TBL_FACT.".indfamkey ";
+					$sql .= "AND ".TBL_FACT.".place LIKE \"%{$location}\" ";
 				}
 				# search part selection of ALL
 				else {
 					$locat_arr = explode(' ', $location);
 					
-					$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_fact} ";
-					$sql .= "WHERE {$g_tbl_indiv}.indkey = {$g_tbl_fact}.indfamkey ";
+					$sql = "SELECT DISTINCT ".TBL_INDIV.".indkey FROM ".TBL_INDIV.", ".TBL_FACT." ";
+					$sql .= "WHERE ".TBL_INDIV.".indkey = ".TBL_FACT.".indfamkey ";
 					foreach($locat_arr as $locat_part) {
-						$sql .= "AND {$g_tbl_fact}.place LIKE \"%{$locat_part}%\" ";
+						$sql .= "AND ".TBL_FACT.".place LIKE \"%{$locat_part}%\" ";
 					}
 				}
 			}
@@ -265,53 +265,53 @@
 			# note searches
 			elseif ($search_type == 'note') {
 				if ($parts == 'phrase') {
-					$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_note} ";
-					$sql .= "WHERE {$g_tbl_indiv}.notekey = {$g_tbl_note}.notekey ";
-					$sql .= "AND {$g_tbl_note}.text LIKE \"%{$note}%\" ";
+					$sql = "SELECT DISTINCT ".TBL_INDIV.".indkey FROM ".TBL_INDIV.", ".TBL_NOTE." ";
+					$sql .= "WHERE ".TBL_INDIV.".notekey = ".TBL_NOTE.".notekey ";
+					$sql .= "AND ".TBL_NOTE.".text LIKE \"%{$note}%\" ";
 				}
 				# search part selection of ANY
 				elseif ($parts == 'any') {
 					$note_arr = explode(' ', $note);
-					$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_note} ";
-					$sql .= "WHERE {$g_tbl_indiv}.notekey = {$g_tbl_note}.notekey AND ";
+					$sql = "SELECT DISTINCT ".TBL_INDIV.".indkey FROM ".TBL_INDIV.", ".TBL_NOTE." ";
+					$sql .= "WHERE ".TBL_INDIV.".notekey = ".TBL_NOTE.".notekey AND ";
 					for ($i = 0, $max = count($note_arr); $i < $max; $i++) {
 						$note_part = $note_arr[$i];
 						if ($i == 0 AND $max > 1) {
 							$sql .= '( ';
-							$sql .= "{$g_tbl_note}.text LIKE \"%{$note_part}%\" ";
+							$sql .= "".TBL_NOTE.".text LIKE \"%{$note_part}%\" ";
 						}
 						elseif ($i == 0) {
-							$sql .= "{$g_tbl_note}.text LIKE \"%{$note_part}%\" ";
+							$sql .= "".TBL_NOTE.".text LIKE \"%{$note_part}%\" ";
 						}
 						elseif ($i == $max - 1 AND $max > 1) {
-							$sql .= "OR {$g_tbl_note}.text LIKE \"%{$note_part}%\" ";
+							$sql .= "OR ".TBL_NOTE.".text LIKE \"%{$note_part}%\" ";
 							$sql .= ' )';
 						}
 						else {
-							$sql .= "OR {$g_tbl_note}.text LIKE \"%{$note_part}%\" ";
+							$sql .= "OR ".TBL_NOTE.".text LIKE \"%{$note_part}%\" ";
 						}
 					}
 				}
 				# search part selection of STARTS
 				elseif ($parts == 'starts') {
-					$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_note} ";
-					$sql .= "WHERE {$g_tbl_indiv}.notekey = {$g_tbl_note}.notekey ";
-					$sql .= "AND {$g_tbl_note}.text LIKE \"{$note}%\" ";
+					$sql = "SELECT DISTINCT ".TBL_INDIV.".indkey FROM ".TBL_INDIV.", ".TBL_NOTE." ";
+					$sql .= "WHERE ".TBL_INDIV.".notekey = ".TBL_NOTE.".notekey ";
+					$sql .= "AND ".TBL_NOTE.".text LIKE \"{$note}%\" ";
 				}
 				# search part selection of STARTS
 				elseif ($parts == 'ends') {
-					$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_note} ";
-					$sql .= "WHERE {$g_tbl_indiv}.notekey = {$g_tbl_note}.notekey ";
-					$sql .= "AND {$g_tbl_note}.text LIKE \"%{$note}\" ";
+					$sql = "SELECT DISTINCT ".TBL_INDIV.".indkey FROM ".TBL_INDIV.", ".TBL_NOTE." ";
+					$sql .= "WHERE ".TBL_INDIV.".notekey = ".TBL_NOTE.".notekey ";
+					$sql .= "AND ".TBL_NOTE.".text LIKE \"%{$note}\" ";
 				}
 				# search part selection of ALL
 				else {
 					$note_arr = explode(' ', $note);
 					
-					$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_note} ";
-					$sql .= "WHERE {$g_tbl_indiv}.notekey = {$g_tbl_note}.notekey ";
+					$sql = "SELECT DISTINCT ".TBL_INDIV.".indkey FROM ".TBL_INDIV.", ".TBL_NOTE." ";
+					$sql .= "WHERE ".TBL_INDIV.".notekey = ".TBL_NOTE.".notekey ";
 					foreach($note_arr as $note_part) {
-						$sql .= "AND {$g_tbl_note}.text LIKE \"%{$note_part}%\" ";
+						$sql .= "AND ".TBL_NOTE.".text LIKE \"%{$note_part}%\" ";
 					}
 				}
 			}

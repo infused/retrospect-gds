@@ -54,7 +54,7 @@
           <tr>
             <td valign="middle" class="text">Individual table...
                 <?php
-							$sql = 'delete from '.$g_tbl_indiv;
+							$sql = 'delete from '.TBL_INDIV;
 							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
 						?>
             </td>
@@ -62,7 +62,7 @@
           <tr>
             <td valign="middle" class="text">Family table...
                 <?php
-							$sql = 'delete from '.$g_tbl_family;
+							$sql = 'delete from '.TBL_FAMILY;
 							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
 						?>
             </td>
@@ -70,7 +70,7 @@
           <tr>
             <td valign="middle" class="text">Child table...
                 <?php 
-							$sql = 'delete from '.$g_tbl_child;
+							$sql = 'delete from '.TBL_CHILD;
 							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
 						?>
             </td>
@@ -78,7 +78,7 @@
           <tr>
             <td valign="middle" class="text">Fact table...
                 <?php 
-							$sql = 'delete from '.$g_tbl_fact;
+							$sql = 'delete from '.TBL_FACT;
 							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
 						?>
             </td>
@@ -86,7 +86,7 @@
           <tr>
             <td valign="middle" class="text">Note table...
                 <?php 
-							$sql = 'delete from '.$g_tbl_note;
+							$sql = 'delete from '.TBL_NOTE;
 							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
 						?>
             </td>
@@ -94,7 +94,7 @@
           <tr>
             <td valign="middle" class="text">Source table...
                 <?php 
-							$sql = 'delete from '.$g_tbl_citation;
+							$sql = 'delete from '.TBL_CITATION;
 							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
 						?>
             </td>
@@ -102,7 +102,7 @@
           <tr>
             <td valign="middle" class="text">Citation table...
                 <?php 
-							$sql = 'delete from '.$g_tbl_source;
+							$sql = 'delete from '.TBL_SOURCE;
 							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
 						?>
             </td>

@@ -48,8 +48,8 @@
 		* @access public
 		*/
 		function Initialize() {
-			global $g_tbl_option, $db;
-			$sql = "SELECT * FROM $g_tbl_option";
+			global $db;
+			$sql = "SELECT * FROM ".TBL_OPTION;
 			$rs = $db->Execute($sql);
 			while ($row = $rs->FetchRow()) {
 				$optkey = $row['opt_key'];
@@ -80,8 +80,8 @@
 		* @return boolean
 		*/
 		function OptionUpdate($opt_key, $opt_val) {
-			global $db, $g_tbl_option;
-			$sql = "UPDATE {$g_tbl_option} SET opt_val='{$opt_val}' WHERE opt_key='{$opt_key}'";
+			global $db;
+			$sql = "UPDATE ".TBL_OPTION." SET opt_val='{$opt_val}' WHERE opt_key='{$opt_key}'";
 			if ($db->Execute($sql)) {
 				return true;
 			} else {

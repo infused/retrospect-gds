@@ -76,7 +76,7 @@ function MM_setTextOfTextfield(objName,x,newText) { //v3.0
 	<?php	echo $g_content; 	unset($g_content); ?>
 </div>
 <div id="footer">
-	<a href="http://www.infused-solutions.com/retrospect" target="_blank">Retrospect-GDS v<?php echo $g_version; ?></a> <?php echo htmlentities(RGDS_COPYRIGHT); ?>
+	<a href="http://www.infused-solutions.com/retrospect" target="_blank">Retrospect-GDS v<?php echo RGDS_VERSION; ?></a> <?php echo htmlentities(RGDS_COPYRIGHT); ?>
 </div>
 <?php
 	# print profile info

@@ -49,17 +49,17 @@ function optimize_table($p_table) {
             <td class="content-label">Status</td>
           </tr>
   <?php 
-		$tables[] = $g_tbl_indiv;
-		$tables[] = $g_tbl_fact;
-		$tables[] = $g_tbl_family;
-		$tables[] = $g_tbl_citation;
-		$tables[] = $g_tbl_source;
-		$tables[] = $g_tbl_note;
-		$tables[] = $g_tbl_child;
-		$tables[] = $g_tbl_user;
-		$tables[] = $g_tbl_lang;
-		$tables[] = $g_tbl_option;
-		$tables[] = $g_tbl_media;
+		$tables[] = TBL_INDIV;
+		$tables[] = TBL_FACT;
+		$tables[] = TBL_FAMILY;
+		$tables[] = TBL_CITATION;
+		$tables[] = TBL_SOURCE;
+		$tables[] = TBL_NOTE;
+		$tables[] = TBL_CHILD;
+		$tables[] = TBL_USER;
+		$tables[] = TBL_LANG;
+		$tables[] = TBL_OPTION;
+		$tables[] = TBL_MEDIA;
 		
 		foreach($tables as $table) {
 			$result = optimize_table($table);

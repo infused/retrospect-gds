@@ -42,7 +42,7 @@
     </table></td>
   </tr>
 	<?php
-		$sql = "SELECT * FROM $g_tbl_media ";
+		$sql = "SELECT * FROM ".TBL_MEDIA." ";
 		if (isset($_GET['orderby'])) {
 			$orderby = $_GET['orderby'];
 			if ($orderby == 'filename') { 

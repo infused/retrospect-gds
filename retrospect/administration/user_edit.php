@@ -53,14 +53,14 @@
 		}
 		elseif (isset($_POST['Delete'])) {
 			$uid = $_POST['username'];
-			$sql = "DELETE FROM $g_tbl_user WHERE uid='$uid'";
+			$sql = "DELETE FROM ".TBL_USER." WHERE uid='$uid'";
 			$db->Execute($sql);
 			notify( sprintf('User %s was deleted.', $_POST['username']) );
 			redirect_j($_SERVER['PHP_SELF'].'?option=user_list', 2);
 		}
 		else {
 			$id = $_GET['id'];
-			$sql = "SELECT * FROM $g_tbl_user WHERE uid='$id'";
+			$sql = "SELECT * FROM ".TBL_USER." WHERE uid='$id'";
 			$rs = $db->Execute($sql);
 			$u = $rs->FetchRow($rs);
 ?>

@@ -25,30 +25,32 @@
  *
  */
 	
-	$g_version = '1.5.0';
-	
-	# Turn on error reporting
-	error_reporting(E_ALL);	
-
-	# Start or continue a session
-	session_start();
-	header('Cache-control: private'); # IE6 fix
+	# Define some RGDS strings
+	define('RGDS_COPYRIGHT', '©2003-2004 Keith Morrison, Infused Solutions');
+	define('RGDS_VERSION', '1.5.0');
 	
 	/**
 	* Load the configuration file
 	*/
-	if (file_exists(CORE_PATH.'config.php')) {
-		@require_once(CORE_PATH.'config.php');
-	}
+	if (file_exists(CORE_PATH.'config.php')) require_once(CORE_PATH.'config.php');
 	else {
 		echo 'Could not find configuration file.'; 
 		exit;
 	}
 
-	/**
-	* Load global variables
-	*/
-	require_once(CORE_PATH.'globals.php');
+	# Define all database table names
+	define('TBL_INDIV', $g_db_prefix.'indiv');
+	define('TBL_FACT', $g_db_prefix.'fact');
+	define('TBL_FAMILY', $g_db_prefix.'family');
+	define('TBL_CITATION', $g_db_prefix.'citation');
+	define('TBL_SOURCE', $g_db_prefix.'source');
+	define('TBL_NOTE', $g_db_prefix.'note');
+	define('TBL_CHILD', $g_db_prefix.'children');
+	define('TBL_USER', $g_db_prefix.'user');
+	define('TBL_LANG', $g_db_prefix.'language');
+	define('TBL_OPTION', $g_db_prefix.'options');
+	define('TBL_MEDIA', $g_db_prefix.'media');
+	define('TBL_COMMENT', $g_db_prefix.'comment');
 	
 	/** 
 	* Require PHP compatibility functions

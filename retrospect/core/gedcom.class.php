@@ -159,25 +159,25 @@
 			$this->factkey = 0;
 			$this->date_parser = new DateParser;
 			# get empty indiv recordset
-			$sql = 'SELECT * from '.$GLOBALS['g_tbl_indiv'].' where indkey=-1';
+			$sql = 'SELECT * from '.TBL_INDIV.' where indkey=-1';
 			$this->rs_indiv = $GLOBALS['db']->Execute($sql);
 			# get empty note recordset
-			$sql = 'SELECT * from '.$GLOBALS['g_tbl_note'].' where notekey=-1';
+			$sql = 'SELECT * from '.TBL_NOTE.' where notekey=-1';
 			$this->rs_note = $GLOBALS['db']->Execute($sql);
 			# get empty family recordset
-			$sql = 'SELECT * from '.$GLOBALS['g_tbl_family'].' where famkey=-1';
+			$sql = 'SELECT * from '.TBL_FAMILY.' where famkey=-1';
 			$this->rs_family = $GLOBALS['db']->Execute($sql);
 			# get empty fact recordset
-			$sql = 'SELECT * from '.$GLOBALS['g_tbl_fact'].' where indfamkey=-1';
+			$sql = 'SELECT * from '.TBL_FACT.' where indfamkey=-1';
 			$this->rs_fact = $GLOBALS['db']->Execute($sql);
 			# get empty child recordset
-			$sql = 'SELECT * from '.$GLOBALS['g_tbl_child'].' where famkey=-1';
+			$sql = 'SELECT * from '.TBL_CHILD.' where famkey=-1';
 			$this->rs_child = $GLOBALS['db']->Execute($sql);
 			# get empty source recordset
-			$sql = 'SELECT * from '.$GLOBALS['g_tbl_source'].' where srckey=-1';
+			$sql = 'SELECT * from '.TBL_SOURCE.' where srckey=-1';
 			$this->rs_source = $GLOBALS['db']->Execute($sql);
 			# get empty citation recordset
-			$sql = 'SELECT * from '.$GLOBALS['g_tbl_citation'].' where factkey=-1';
+			$sql = 'SELECT * from '.TBL_CITATION.' where factkey=-1';
 			$this->rs_citation = $GLOBALS['db']->Execute($sql);
 		}
 		

@@ -26,7 +26,7 @@
 	* @access public
 	*/
 	function lang_init_gettext() {
-		global $db, $options, $g_langs, $g_tbl_lang;
+		global $db, $options, $g_langs;
 		
 		# determine current language
 		if (isset($_POST['lang'])) { 
@@ -42,7 +42,7 @@
 		}
 		
 		# get charset
-		$sql = "SELECT lang_charset FROM {$g_tbl_lang} WHERE lang_code = '{$lang}'";
+		$sql = "SELECT lang_charset FROM ".TBL_LANG." WHERE lang_code = '{$lang}'";
 		$charset = $db->GetOne($sql);
 
 		# if gettext is available initialize with the default language
@@ -73,7 +73,7 @@
 		}
 		# get list of supported languages 
 		if ($options->GetOption('allow_lang_change') == 1) {
-			$sql = "SELECT lang_name, lang_code FROM {$g_tbl_lang}";
+			$sql = "SELECT lang_name, lang_code FROM ".TBL_LANG;
 			$g_langs = $db->GetAll($sql);
 		}
 	}

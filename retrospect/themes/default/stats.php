@@ -33,50 +33,50 @@
 	}
 	
 	# surnames
-	$sql = "SELECT COUNT(DISTINCT surname) FROM $g_tbl_indiv";
+	$sql = "SELECT COUNT(DISTINCT surname) FROM ".TBL_INDIV;
 	$cnt_surnames = $db->GetOne($sql);
 	
 	# individuals
-	$sql = "SELECT COUNT(*) FROM $g_tbl_indiv";
+	$sql = "SELECT COUNT(*) FROM ".TBL_INDIV;
 	$cnt_indiv = $db->GetOne($sql);
 	# individuals - male
-	$sql = "SELECT COUNT(*) FROM $g_tbl_indiv WHERE sex='M'";
+	$sql = "SELECT COUNT(*) FROM ".TBL_INDIV." WHERE sex='M'";
 	$cnt_indiv_male = $db->GetOne($sql);
 	# individuals - female
-	$sql = "SELECT COUNT(*) FROM $g_tbl_indiv WHERE sex='F'";
+	$sql = "SELECT COUNT(*) FROM ".TBL_INDIV." WHERE sex='F'";
 	$cnt_indiv_female = $db->GetOne($sql);
 	# individuals - unknown
 	$cnt_indiv_unknown = $cnt_indiv - $cnt_indiv_male - $cnt_indiv_female;
 	
 	# families
-	$sql = "SELECT COUNT(*) FROM $g_tbl_family";
+	$sql = "SELECT COUNT(*) FROM ".TBL_FAMILY;
 	$cnt_families = $db->GetOne($sql);
 	
 	# facts
-	$sql = "SELECT COUNT(*) FROM $g_tbl_fact";
+	$sql = "SELECT COUNT(*) FROM ".TBL_FACT;
 	$cnt_facts = $db->GetOne($sql);
 	# facts - birth
-	$sql = "SELECT COUNT(*) FROM $g_tbl_fact WHERE type='Birth'";
+	$sql = "SELECT COUNT(*) FROM ".TBL_FACT." WHERE type='Birth'";
 	$cnt_facts_birth = $db->GetOne($sql);
 	# facts - death
-	$sql = "SELECT COUNT(*) FROM $g_tbl_fact WHERE type='Death'";
+	$sql = "SELECT COUNT(*) FROM ".TBL_FACT." WHERE type='Death'";
 	$cnt_facts_death = $db->GetOne($sql);	
 	# facts - marriage
-	$sql = "SELECT COUNT(*) FROM $g_tbl_fact WHERE type='Marriage'";
+	$sql = "SELECT COUNT(*) FROM ".TBL_FACT." WHERE type='Marriage'";
 	$cnt_facts_marriage = $db->GetOne($sql);		
 	# facts - other
 	$cnt_facts_other = $cnt_facts - $cnt_facts_birth - $cnt_facts_death - $cnt_facts_marriage;
 	
 	# notes 
-	$sql = "SELECT COUNT(*) FROM $g_tbl_note";
+	$sql = "SELECT COUNT(*) FROM ".TBL_NOTE;
 	$cnt_notes = $db->GetOne($sql);
 	
 	# sources
-	$sql = "SELECT COUNT(*) FROM $g_tbl_source";
+	$sql = "SELECT COUNT(*) FROM ".TBL_SOURCE;
 	$cnt_sources = $db->GetOne($sql);
 	
 	# source citations
-	$sql = "SELECT COUNT(*) FROM $g_tbl_citation";
+	$sql = "SELECT COUNT(*) FROM ".TBL_CITATION;
 	$cnt_citations = $db->GetOne($sql);
 	
  	# set title

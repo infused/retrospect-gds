@@ -38,7 +38,7 @@ class Auth {
 	}
 	
 	function Login() {
-		global $db, $g_tbl_user;
+		global $db;
 		if (isset($_POST['uid'])) {
 			$uid = substr($_POST['uid'], 0, 16);
 		} elseif (isset($_SESSION['uid'])) {
@@ -55,7 +55,7 @@ class Auth {
 		}
 		
 		$md5pwd = md5($pwd);
-		$sql = "SELECT * FROM {$g_tbl_user} WHERE uid='{$uid}' AND pwd='{$md5pwd}'";
+		$sql = "SELECT * FROM ".TBL_USER." WHERE uid='{$uid}' AND pwd='{$md5pwd}'";
 		$rs = $db->Execute($sql);
 		if ($rs->RecordCount() == 0) {
 			unset($_SESSION['uid']);
@@ -68,7 +68,7 @@ class Auth {
 			if ($s_uid != $uid and $s_pwd != $pwd) {
 				$_SESSION['uid'] = $uid;
 				$_SESSION['pwd'] = $pwd;
-				$sql = "UPDATE {$g_tbl_user} SET last=".$db->DBTimestamp(time())." WHERE uid='{$uid}'";
+				$sql = "UPDATE ".TBL_USER." SET last=".$db->DBTimestamp(time())." WHERE uid='{$uid}'";
 				$db->Execute($sql);
 			}
 			return true;
@@ -82,41 +82,41 @@ class Auth {
 	}
 	
 	function AddUser($p_uid, $p_fullname, $p_email, $p_pwd) {
-		global $db, $g_tbl_user;
+		global $db;
 		$c_uid = $db->Qstr($p_uid);
 		$c_fullname = $db->Qstr($p_fullname);
 		$c_email = $db->Qstr($p_email);
 		$c_pwd = $db->Qstr(md5($p_pwd));
-		$sql = "INSERT INTO {$g_tbl_user} VALUES('', {$c_uid}, {$c_pwd}, {$c_fullname}, {$c_email},'','0')";
+		$sql = "INSERT INTO ".TBL_USER." VALUES('', {$c_uid}, {$c_pwd}, {$c_fullname}, {$c_email},'','0')";
 		if ($db->Execute($sql) !== false) { return true; }
 		else { return false; }
 	}
 	
 	function UpdateUser($p_uid, $p_fullname, $p_email, $p_pwd) {
-		global $db, $g_tbl_user;
+		global $db;
 		$c_id = $p_uid;
 		$c_uid = $db->Qstr($p_uid);
 		$c_fullname = $db->Qstr($p_fullname);
 		$c_email = $db->Qstr($p_email);
 		$c_pwd = $db->Qstr(md5($p_pwd));
 		if (!$p_pwd) { 
-			$sql = "UPDATE {$g_tbl_user} SET uid={$c_uid}, fullname={$c_fullname}, email={$c_email} WHERE uid='{$c_id}'";
+			$sql = "UPDATE ".TBL_USER." SET uid={$c_uid}, fullname={$c_fullname}, email={$c_email} WHERE uid='{$c_id}'";
 		} else {
-			$sql = "UPDATE {$g_tbl_user} SET uid={$c_uid}, fullname={$c_fullname}, email={$c_email}, pwd={$c_pwd}, pwd_expired='0' WHERE uid='{$c_id}'";
+			$sql = "UPDATE ".TBL_USER." SET uid={$c_uid}, fullname={$c_fullname}, email={$c_email}, pwd={$c_pwd}, pwd_expired='0' WHERE uid='{$c_id}'";
 		}
 		return ($db->Execute($sql) !== false) ? true : false;
 	}
 	
 	function UserExists($p_uid) {
-		global $db, $g_tbl_user;
-		$sql = "SELECT * FROM {$g_tbl_user} WHERE uid='{$p_uid}'";
+		global $db;
+		$sql = "SELECT * FROM ".TBL_USER." WHERE uid='{$p_uid}'";
 		$rs = $db->Execute($sql);
 		return ($rs->RecordCount() > 0) ? true : false;
 	}
 	
 	function PasswordExpired($p_uid) {
-		global $db, $g_tbl_user;
-		$sql = "SELECT * FROM {$g_tbl_user} WHERE uid='{$p_uid}'";
+		global $db;
+		$sql = "SELECT * FROM ".TBL_USER." WHERE uid='{$p_uid}'";
 		$rs = $db->Execute($sql);
 		if ($row = $rs->FetchRow()) {
 			if ($row['pwd_expired'] == 1) {

@@ -38,7 +38,7 @@
             <td>Last Login</td>
           </tr>
 						<?php
-							$sql = "SELECT * FROM $g_tbl_user";
+							$sql = "SELECT * FROM ".TBL_USER;
 							$rs = $db->Execute($sql);
 							while ($row = $rs->FetchRow()) {
 								$uid = $row['uid'];

@@ -40,7 +40,7 @@
         <td width="10" align="right" valign="bottom">&nbsp;</td>
       </tr>
       <tr>
-        <td align="right" valign="middle"><span class="vertext"><strong>v<?php echo $g_version; ?></strong></span></td>
+        <td align="right" valign="middle"><span class="vertext"><strong>v<?php echo RGDS_VERSION; ?></strong></span></td>
         <td align="right" valign="middle">&nbsp;</td>
       </tr>
     </table></td> 

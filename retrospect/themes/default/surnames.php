@@ -76,15 +76,15 @@
 		}
 			
 		if ($g_alpha == 'ALL') {
-			$sql = "SELECT surname, count(surname) AS number FROM $g_tbl_indiv surname GROUP BY surname";		
+			$sql = "SELECT surname, count(surname) AS number FROM ".TBL_INDIV." surname GROUP BY surname";		
 			$rs = $db->Execute($sql);
 		}
 		elseif ($g_alpha == 'TOP100') {
-			$sql = "SELECT surname, count(surname) AS number FROM $g_tbl_indiv surname GROUP BY surname ORDER BY number DESC";		
+			$sql = "SELECT surname, count(surname) AS number FROM ".TBL_INDIV." surname GROUP BY surname ORDER BY number DESC";		
 			$rs = $db->SelectLimit($sql, 100);
 		}
 		else {
-			$sql = "SELECT surname, count(surname) AS number FROM $g_tbl_indiv surname WHERE surname LIKE '$g_alpha%' GROUP BY surname";
+			$sql = "SELECT surname, count(surname) AS number FROM ".TBL_INDIV." surname WHERE surname LIKE '$g_alpha%' GROUP BY surname";
 			$rs = $db->Execute($sql);
 			
 		}
@@ -130,7 +130,7 @@
 			echo '</table>';
 		}
 		
-		$sql = "SELECT indkey FROM $g_tbl_indiv WHERE surname = '$sn' ORDER BY givenname";
+		$sql = "SELECT indkey FROM ".TBL_INDIV." WHERE surname = '$sn' ORDER BY givenname";
 		$rs = $db->Execute($sql);
 		
 		echo '<div class="tab-page">';
