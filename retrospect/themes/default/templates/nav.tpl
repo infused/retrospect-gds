@@ -6,28 +6,28 @@
 -->
 <table class="tab-row" cellpadding="0" cellspacing="0">
 	<tr>
-		{if $option=="surnames"}
+		{if $module=="surnames"}
 			<td class="tab-selected">{$surname_title}</td>
 		{else}
 			<td class="tab">
 				<a href="{$PHP_SELF}?m=surnames&amp;sn={$indiv->sname}">{$surname_title}</a>
 			</td>
 		{/if}
-		{if $option=="family"}
+		{if $module=="family"}
 			<td class="tab-selected">{php}t("Family"){/php}</td>
 		{else}
 			<td class="tab">
 				<a href="{$PHP_SELF}?m=family&amp;id={$indiv->indkey}">{php}t("Family"){/php}</a>
 			</td>
 		{/if}
-		{if $option=="pedigree"}
+		{if $module=="pedigree"}
 			<td class="tab-selected">{php}t("Pedigree"){/php}</td>
 		{else}
 			<td class="tab">
 				<a href="{$PHP_SELF}?m=pedigree&amp;id={$indiv->indkey}">{php}t("Pedigree"){/php}</a>
 			</td>
 		{/if}
-		{if $option=="reports"}
+		{if $module=="reports"}
 			<td class="tab-selected">{php}t("Reports"){/php}</td>
 		{elseif $option=="ahnentafel" or $option=="descendant"}
 			<td class="tab-selected">
@@ -38,7 +38,7 @@
 				<a href="{$PHP_SELF}?m=reports&amp;id={$indiv->indkey}">{php}t("Reports"){/php}</a>
 			</td>
 		{/if}
-		{if $option=="multimedia"}
+		{if $module=="multimedia"}
 			<td class="tab-selected">{php}t("Multimedia"){/php}</td>
 		{else}
 			<td class="tab">
