@@ -44,7 +44,7 @@
 			$_SESSION['language'] = $lang;
 		}
 		
-		# get charset
+		# grab the correct charset from the database
 		$sql = "SELECT lang_charset FROM ".TBL_LANG." WHERE lang_code = '{$lang}'";
 		$charset = $db->GetOne($sql);
 
@@ -53,14 +53,15 @@
 		setlocale(LC_ALL, $lang);
 		bindtextdomain('messages', LOCALE_PATH); 
 		textdomain('messages');	
+		
 		# do not try to set environment var if safe mode is on
-		# (this may break gettext on some windows platforms)
+		# (this will break gettext on some windows platforms)
 		if (!ini_get('safe_mode')) {
 			putenv('LC_ALL='.$lang);
 			putenv('LANG='.$lang);
 			putenv('LANGUAGE='.$lang);
 		}
-		# set correct charset in header
+		
 		header('Content-type: text/html; charset='.$charset);
 	}
 	
