@@ -51,7 +51,7 @@
           <td class="content-subtitle">Installation Introduction </td>
         </tr>
         <tr>
-          <td class="text"><p>The automated installation of phpGene Pro consists
+          <td class="text"><p>The automated installation of Retrospect-GDS consists
               of the following steps. Please read  below for important information... </p>
             <p><strong>Step 1. Check dependencies</strong><br />
               During this step, the installer checks to see that PHP is at least
