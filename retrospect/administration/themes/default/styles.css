@@ -40,7 +40,7 @@ sup {
 	float: right;
 	border: solid 1px #CCCCCC;
 	width: 200px;
-	height: 300px;
+	height: 400px;
 }
 #quickstats .header {
 	font-weight: bold;
@@ -56,6 +56,15 @@ sup {
 #quickstats .value {
 	text-align: right;
 	padding: 0px 7px 0px 0px;
+}
+#notifications {
+	position: relative;
+	top: 0px;
+	left: 0px;
+	border: solid 1px #CCCCCC;
+	height: 390px;
+ 	margin: 0px 210px 0px 0px;
+	padding: 5px;
 }
 #adminmenu {
 	background-color: #C6CBCE;

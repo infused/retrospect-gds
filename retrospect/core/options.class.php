@@ -92,7 +92,7 @@
 			else {
 				$sql = 'UPDATE '.TBL_OPTION.' SET opt_val="'.$val.'" WHERE opt_key="'.$key.'"';
 				$db->Execute($sql);
-				return $key;
+				return true;
 			}
 		}
 	}

@@ -9,7 +9,11 @@
 {/if}
 <meta name="copyright" content="{$copyright}" />
 </head>
+{if $module != "login"}
 <body>
+{else}
+<body onload="self.focus();document.loginform.uid.focus()">
+{/if}
 <div id="header"><img src="{$THEME_URL}images/logo.gif" align="left" alt="Retrospect-GDS"/></div>
 {if $module != "login"}
 	<div id="adminmenu"></div>
