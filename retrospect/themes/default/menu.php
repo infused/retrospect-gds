@@ -44,6 +44,11 @@
 		 		$g_menu .= ' SELECTED';
 			}
 		$g_menu .= '>'.gettext("Spanish").'</option>';
+		$g_menu .= '<option value="de_DE"';
+			if ($_SESSION['lang'] == 'de_DE') { 
+		 		$g_menu .= ' SELECTED';
+			}
+		$g_menu .= '>'.gettext("German").'</option>';
 		$g_menu .= '</select>';
 		$g_menu .= '</form>';
 	} 

@@ -262,4 +262,8 @@
 		<descr>Add spanish language</descr>
 		<query>INSERT INTO language VALUES (2, 'es_ES', 'Spanish')</query>
 	</sql>
+	<sql>
+		<descr>Add german language</descr>
+		<query>INSERT INTO language VALUES (3, 'de_DE', 'German')</query>
+	</sql>
 </schema>
