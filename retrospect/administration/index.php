@@ -22,7 +22,7 @@
 	* Current url w/query string
 	* @global string
 	*/
-	define('_CURRENT_PAGE', $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
+	define('CURRENT_PAGE', $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
 	
 	require_once(CORE_PATH.'core.php');
 	require_once(ROOT_PATH.'/auth.class.php');

@@ -30,7 +30,7 @@
 	* Current url w/query string
 	* @global string
 	*/
-	define('_CURRENT_PAGE', $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
+	define('CURRENT_PAGE', $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
 	
 	/**
 	* Require core.php

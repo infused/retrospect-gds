@@ -30,7 +30,7 @@
 	# language selection
 	if ($g_opts->allow_lang_change) {
 		$g_menu .= '<div class="menu-title">'._("Language").'</div>';
-		$g_menu .= '<form name="form_change_lang" method="post" action="'._CURRENT_PAGE.'">';
+		$g_menu .= '<form name="form_change_lang" method="post" action="'.CURRENT_PAGE.'">';
 		$g_menu .= '<select name="lang" size="1" class="listbox" id="lang" onChange="document.forms.form_change_lang.submit();">';
 		$g_menu .= '<option value="en_US"';
 			if ($_SESSION['lang'] == 'en_US') { 
