@@ -32,6 +32,7 @@
 	$soundex = isset($_GET['soundex']) ? true : false;
 	$location = isset($_GET['locat']) ? $_GET['locat'] : null;
 	$search_type = isset($_GET['search_type']) ? $_GET['search_type'] : null;
+	$parts = isset($_GET['parts']) ? $_GET['parts'] : null;
 	
 	# set page title
 	$g_title = _("Search");
@@ -79,8 +80,8 @@
 		echo '<td colspan="2" class="text"><b>'._("Name Search").'</b></td>';
 		echo '</tr>';
 		echo '<tr>';
-		echo '<td class="text">'._("Given Name").'</td>';
-		echo '<td class="text">'._("Surname").'</td>';
+		echo '<td class="text">'._("Given Name").':</td>';
+		echo '<td class="text">'._("Surname").':</td>';
 		echo '</tr>';
 		echo '<tr>';
 		echo '<td><input name="gname" type="text" class="textbox" id="gname" value="'.$gname.'"></td>';
@@ -93,10 +94,6 @@
 			if ($soundex == '1') { echo 'checked'; }
 		echo '>Use Soundex?';
 		echo '</td>';
-		echo '</tr>';
-		echo '<tr>';
-		echo '<td>&nbsp;</td>';
-		echo '<td>&nbsp;</td>';
 		echo '</tr>';
 		echo '<tr>';
 		echo '<td colspan="2">';
@@ -119,14 +116,20 @@
 		echo '<td colspan="2" class="text"><b>'._("Location Search").'</b></td>';
 		echo '</tr>';
 		echo '<tr>';
-		echo '<td colspan="2" class="text">'._("Location").'</td>';
+		echo '<td colspan="2" class="text">'._("Location").':</td>';
 		echo '</tr>';
 		echo '<tr>';
 		echo '<td colspan="2"><input name="locat" size="40" type="text" class="textbox" id="locat" value="'.$location.'"></td>';
 		echo '</tr>';
 		echo '<tr>';
-		echo '<td>&nbsp;</td>';
-		echo '<td>&nbsp;</td>';
+		echo '<td class="text">'._("Match Keywords").':</td>';
+		echo '<td>';
+		echo '<select name="parts" class="listbox">';
+		echo '<option value="all">'._("All").'</option>';
+		echo '<option value="any">'._("Any").'</option>';
+		echo '<option value="phrase">'._("Phrase").'</option>';
+		echo '</select>';
+		echo '</td>';
 		echo '</tr>';
 		echo '<tr>';
 		echo '<td colspan="2">';
@@ -151,6 +154,7 @@
 		}
 		# else display the results
 		else {
+			# name searches
 			if ($search_type == 'name') {
 				if ($soundex === true) {
 					$sql = "SELECT * FROM {$g_tbl_indiv} WHERE soundex(surname)=soundex(".$db->Quote($sname).") AND givenname LIKE ".$db->Quote('%'.$gname.'%')." ORDER BY surname, givenname";
@@ -159,11 +163,42 @@
 					$sql = "SELECT * FROM {$g_tbl_indiv} WHERE surname LIKE ".$db->Quote($sname.'%')." AND givenname LIKE ".$db->Quote('%'.$gname.'%')." ORDER BY surname, givenname";
 				}	 
 			}
+			# location searches
 			elseif ($search_type == 'location') {
-				$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_fact} ";
-				$sql .= "WHERE {$g_tbl_fact}.place ";
-				$sql .= 'LIKE  "%'.$location.'%"';
-				$sql .= "AND {$g_tbl_indiv}.indkey = {$g_tbl_fact}.indfamkey";
+				if ($parts == 'phrase') {
+					$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_fact} ";
+					$sql .= "WHERE {$g_tbl_indiv}.indkey = {$g_tbl_fact}.indfamkey ";
+					$sql .= "AND {$g_tbl_fact}.place LIKE \"%{$location}%\" ";
+				}
+				elseif ($parts == 'all') {
+					$locat_arr = explode(' ', $location);
+					
+					$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_fact} ";
+					$sql .= "WHERE {$g_tbl_indiv}.indkey = {$g_tbl_fact}.indfamkey ";
+					foreach($locat_arr as $locat_part) {
+						$sql .= "AND {$g_tbl_fact}.place LIKE \"%{$locat_part}%\" ";
+					}
+				}
+				elseif ($parts == 'any') {
+					$locat_arr = explode(' ', $location);
+					
+					$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_fact} ";
+					$sql .= "WHERE {$g_tbl_indiv}.indkey = {$g_tbl_fact}.indfamkey AND ";
+					for ($i = 0, $max = count($locat_arr); $i < $max; $i++) {
+						$locat_part = $locat_arr[$i];
+						if ($i == 0 AND $max > 1) {
+							$sql .= '( ';
+							$sql .= "{$g_tbl_fact}.place LIKE \"%{$locat_part}%\" ";
+						}
+						elseif ($i == $max - 1 AND $max > 1) {
+							$sql .= "OR {$g_tbl_fact}.place LIKE \"%{$locat_part}%\" ";
+							$sql .= ' )';
+						}
+						else {
+							$sql .= "OR {$g_tbl_fact}.place LIKE \"%{$locat_part}%\" ";
+						}
+					}
+				}
 			}
 			$rs = $db->Execute($sql);
 
