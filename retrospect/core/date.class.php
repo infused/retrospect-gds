@@ -31,9 +31,6 @@
 	define('REG_DATE_RANGE', '/^BET (.+) AND (.+)/');
 	define('REG_DATE_RANGE2', '/^(ABT|CIR|BEF|AFT|FROM|TO|EST|CAL|BET|) *(.+)-(.+)/');
 	
-	# Gedcom non-compliant structures
-	define('REG_DATE_DYMO', '/^(ABT|CIR|BEF|AFT|FROM|TO|EST|CAL|) *([\d]{1,2}) (JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)$/');
-	
 	# Define some aliases
 	define('REG_DATE_YEAR', REG_DATE_GREG1);
 	define('REG_DATE_EXACT', REG_DATE_GREG3);
@@ -151,12 +148,6 @@
 				$date = $this->_get_range2($match);
 				$this->pdate = $date;
 			}
-			elseif (preg_match(REG_DATE_DYMO, $datestr, $match)) {
-				$date = $this->_get_dymo($match);
-				$this->pdate['mod'] = $this->_get_modifier($match[1]);
-				$this->pdate['date1'] = $date;
-				$this->pdate['date2'] = DATE_EMPTY;
-			}
 			else {
 				$this->pdate['mod'] = DATE_MOD_INVALID;
 				$this->pdate['date1'] = '';
@@ -244,7 +235,6 @@
 		/**
 		* Parses dates in the form of: <MONTH> <YEAR>
 		* @param array $date_arr
-		* @param bool $return_modifier whether to return the modifier prepended to the date string
 		* @return string
 		*/
 		function _get_greg2 ($date_arr) {
@@ -287,24 +277,6 @@
 			$year = $this->_get_greg1($year_str);
 			$date = $year.$month.$day;
 			if (checkdate($month, $day, $year)) {
-				return $date;
-			}
-			else {
-				return false;
-			}
-		}
-		
-		function _get_dymo ($date_arr) {
-			global $months;
-			$day_str =& $date_arr[2];
-			$month_str =& $date_arr[3];
-			# get the day and pad to 2 digits
-			$day = str_pad($day_str, 2, '0', STR_PAD_LEFT);
-			# get the month and pad to 2 digits
-			$month = str_pad($months[$month_str], 2, '0', STR_PAD_LEFT);
-			$year = '0000';
-			$date = $year.$month.$day;
-			if (checkdate($month, $day, '0001')) {
 				return $date;
 			}
 			else {
