@@ -66,7 +66,13 @@
 		
 		# Save the data unless there are errors
 		if (!$error) {
-			Auth::AddUser($username, $fullname, $email, $password1, $enabled);
+			$fields = array('uid'=>$username,
+											'fullname'=>$fullname,
+											'grp'=>$group,
+											'enabled'=>$enabled,
+											'email'=>$email,
+											'pwd'=>md5($password1));
+			Auth::AddUser($fields);
 			$saved['username'] = $username;
 			$saved['fullname'] = $fullname;
 			$smarty->assign('SAVED', $saved);

@@ -23,13 +23,6 @@
 	
 	$smarty->assign('page_title', 'Retrospect-GDS Administration');
 	
-	# Enable / Disable account
-	if ($_GET['t'] == 'toggle' AND isset($_GET['id'])) {
-		$id = $_GET['id'];
-		if (Auth::UserIdExists($id)) {
-			Auth::ToggleEnabled($id);
-		}
-	}
 	# Process tasks
 	if (isset($_POST['Submit'])) {
 		$task = $_POST['task'];
@@ -38,7 +31,7 @@
 			foreach ($selected as $id) {
 				if ($id != '1') {
 					$sql = 'DELETE FROM '.TBL_USER.' WHERE id='.$db->Qstr($id);
-					//$db->Execute($sql);
+					$db->Execute($sql);
 					$deleted[] = $id;
 				}
 				$smarty->assign('DELETED', $deleted);
@@ -65,19 +58,19 @@
 		}
 	}
 	
-	$sql = 'SELECT * from '.TBL_USER;
+	$sql  = 'SELECT * from '.TBL_USER.' ';
+	$sql .= 'ORDER BY id';
 	$users = $db->GetAll($sql);
-
 	
 	$sql = 'SELECT * FROM '.TBL_USERTYPE;
 	$groups = $db->GetAssoc($sql);
 	
 	for ($i=0; $i<count($users); $i++) {
-		$gid = $users[$i]['group'];
+		$gid = $users[$i]['grp'];
 		$users[$i]['groupname'] = $groups[$gid];
 	}
 	
-	$tasks = array('na'=>'With Selected:','delete'=>'Delete','enable'=>'Enable','disable'=>'Disable');
+	$tasks = array('na'=>'With selected:','delete'=>'Delete','enable'=>'Enable','disable'=>'Disable');
 	
 	# Assign Smarty vars
 	$smarty->assign('users', $users);

@@ -31,8 +31,7 @@ class Auth {
 		if (isset($_GET['auth']) and $_GET['auth'] == 'logout') { 
 			Auth::Logout(); 
 			return false;
-		}
-		else { 
+		} else { 
 			return Auth::Login(); 
 		}
 	}
@@ -54,8 +53,7 @@ class Auth {
 			$pwd = null;
 		}
 		
-		$md5pwd = md5($pwd);
-		$sql = "SELECT * FROM ".TBL_USER." WHERE uid='{$uid}' AND pwd='{$md5pwd}'";
+		$sql = 'SELECT * FROM '.TBL_USER.' WHERE uid='.$db->qstr($uid).' AND pwd='.$db->qstr(md5($pwd));
 		$rs = $db->Execute($sql);
 		if ($rs->RecordCount() == 0) {
 			unset($_SESSION['uid']);
@@ -69,7 +67,7 @@ class Auth {
 			if ($s_uid != $uid and $s_pwd != $pwd) {
 				$_SESSION['uid'] = $uid;
 				$_SESSION['pwd'] = $pwd;
-				$sql = "UPDATE ".TBL_USER." SET last=".$db->DBTimestamp(time())." WHERE uid='{$uid}'";
+				$sql = 'UPDATE '.TBL_USER.' SET last='.$db->DBTimestamp(time()).' WHERE uid='.$db->qstr($uid);
 				$db->Execute($sql);
 			}
 			return true;
@@ -82,81 +80,64 @@ class Auth {
 		@session_destroy();
 	}
 	
-	function AddUser($p_uid, $p_fullname, $p_email, $p_pwd, $enabled) {
+	function AddUser($fields) {
 		global $db;
-		$c_uid = $db->Qstr($p_uid);
-		$c_fullname = $db->Qstr($p_fullname);
-		$c_email = $db->Qstr($p_email);
-		$c_pwd = $db->Qstr(md5($p_pwd));
-		$c_enabled = $db->Qstr($enabled);
-		$time = $db->DBTimestamp(time());
-		$sql = "INSERT INTO ".TBL_USER." VALUES('',{$c_uid},{$c_pwd},{$c_fullname},{$c_email},{$time},NULL,'0',{$c_enabled})";
+		$fields['created'] = time();
+		$sql = 'SELECT * FROM '.TBL_USER.' WHERE id='.$db->Qstr('-1');
+		$rs = $db->Execute($sql);
+		$sql = $db->GetInsertSQL($rs, $fields);
 		if ($db->Execute($sql) !== false) { return true; }
 		else { return false; }
 	}
 	
-	function UpdateUser($id, $uid, $fullname, $email, $pwd, $enabled) {
-		global $db, $smarty;
-		$sql  = 'UPDATE '.TBL_USER.' ';
-		$sql .= 'SET uid='.$db->Qstr($uid).', ';
-		$sql .= 'fullname='.$db->Qstr($fullname).', ';
-		$sql .= 'email='.$db->Qstr($email).', ';
-		$sql .= 'enabled='.$db->Qstr($enabled).', ';
-		$sql .= ($pwd != '') ? 'pwd='.$db->Qstr(md5($pwd)).' ' : ' ';
-		$sql .= 'WHERE id='.$db->Qstr($id);
-		return ($db->Execute($sql) !== false) ? true : false;
+	function UpdateUser($id, $fields) {
+		global $db;
+		$rs = $db->Execute('SELECT * FROM '.TBL_USER.' WHERE id='.$db->Qstr($id));
+		$sql = $db->GetUpdateSQL($rs, $fields);
 	}
 	
 	function UserExists($p_uid) {
+		global $db;
 		$sql = "SELECT * FROM ".TBL_USER." WHERE uid='{$p_uid}'";
-		$rs = $GLOBALS['db']->Execute($sql);
+		$rs = $db->Execute($sql);
 		return ($rs->RecordCount() > 0) ? true : false;
 	}
 	
-	function UserIdExists($p_id) {
-		$sql = "SELECT * FROM ".TBL_USER." WHERE id='{$p_id}'";
-		$rs = $GLOBALS['db']->Execute($sql);
+	function UserIdExists($id) {
+		global $db;
+		$sql = 'SELECT * FROM '.TBL_USER.' WHERE id='.$db->Qstr($id);
+		$rs = $db->Execute($sql);
 		return ($rs->RecordCount() > 0) ? true : false;
 	}
 	
-	function PasswordExpired($p_uid) {
-		$sql = "SELECT * FROM ".TBL_USER." WHERE uid='{$p_uid}'";
-		$rs = $GLOBALS['db']->Execute($sql);
-		if ($row = $rs->FetchRow()) {
-			if ($row['pwd_expired'] == 1) {
-				return true;
-			} else {
-				return false;
-			}
-		} else {
-			return false;
-		}
+	function PasswordExpired($uid) {
+		global $db;
+		$sql = 'SELECT pwd_expired FROM '.TBL_USER.' WHERE uid='.$db->Qstr($uid);
+		$rs = $db->GetOne($sql);
+		return ($db->GetOne($sql) == 1) ? true : false;
 	}
 	
-	function ToggleEnabled($p_id) {
+	function ToggleEnabled($id) {
 		global $db;
-		$sql = "SELECT * FROM ".TBL_USER." WHERE id='{$p_id}'";
-		$row = $db->GetRow($sql);
-		$enabled = $row['enabled'] === '1' ? '0' : '1';
-		$sql = "UPDATE ".TBL_USER." SET enabled='{$enabled}' WHERE id='{$p_id}'";
-		if ($db->Execute($sql)) return true;
-		else return false;
+		$sql = 'SELECT * FROM '.TBL_USER.' WHERE id='.$db->Qstr($id);
+		$rs = $db->Execute($sql);
+		$fields['enabled'] = $rs->fields['enabled'] === '1' ? '0' : '1';
+		$sql = $db->GetUpdateSQL($rs, $fields);
+		return ($db->Execute($sql)) ? true : false;
 	}
 	
-	function Enable($p_id) {
+	function Enable($id) {
 		global $db;
-		$id = $db->Qstr($p_id);
-		$enabled = $db->Qstr('1');
-		$sql = 'UPDATE '.TBL_USER.' SET enabled='.$enabled.' WHERE id='.$id;
-		$db->Execute($sql);
+		$enabled = '1';
+		$sql = 'UPDATE '.TBL_USER.' SET enabled='.$db->Qstr($enabled).' WHERE id='.$db->Qstr($id);
+		return ($db->Execute($sql)) ? true : false;
 	}
 	
-	function Disable($p_id) {
+	function Disable($id) {
 		global $db;
-		$id = $db->Qstr($p_id);
-		$enabled = $db->Qstr('0');
-		$sql = 'UPDATE '.TBL_USER.' SET enabled='.$enabled.' WHERE id='.$id;
-		$db->Execute($sql);
+		$enabled = '0';
+		$sql = 'UPDATE '.TBL_USER.' SET enabled='.$db->Qstr($enabled).' WHERE id='.$db->Qstr($id);
+		return ($db->Execute($sql)) ? true : false;
 	}
 
 }

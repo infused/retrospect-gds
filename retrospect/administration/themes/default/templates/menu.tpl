@@ -11,7 +11,7 @@ var myMenu =
 	],
 	_cmSplit,
 	[null, 'Database', null, null, 'Database',
-		['<img src="{$THEME_URL}js/ThemeOffice/install.png" />', 'Import Gedcom', 'url', null, 'Import Gedcom'],
+		['<img src="{$THEME_URL}js/ThemeOffice/install.png" />', 'Import Gedcom', '{$PHP_SELF}?m=gedcom', null, 'Import Gedcom'],
 		['<img src="{$THEME_URL}js/ThemeOffice/edit.png" />', 'Edit', null, null, 'Edit',
 			['<img src="{$THEME_URL}js/ThemeOffice/new_user.png" />', 'Individual', 'url', null, 'Edit Individual']
 		],

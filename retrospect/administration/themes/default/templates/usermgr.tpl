@@ -46,13 +46,11 @@
 			<td class="list_item" nowrap="nowrap"><a class="decor" href="mailto:{$user.email}">{$user.email}</a></td>
 			<td class="list_item" nowrap="nowrap">{if $user.last == null}Never{else}{$user.last}{/if}</td>
 			<td align="center" class="list_item" nowrap="nowrap">
-			<a href="{$PHP_SELF}?m=usermgr&t=toggle&id={$user.id}">
 				{if $user.enabled == "1"}
 					<img src="{$THEME_URL}images/tick.png" alt="Enabled" border="0" />
 				{else}
 					<img src="{$THEME_URL}images/redx.png" alt="Disabled" border="0" />
 				{/if}
-			</a>
 			</td>
 		</tr>
 		{/foreach}

@@ -1,0 +1,1 @@
+<div class="content-title">Gedcom Manager</div>

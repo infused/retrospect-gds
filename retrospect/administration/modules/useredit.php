@@ -81,7 +81,13 @@
 		
 		# Save the data unless there are errors
 		if (!$error) {
-			Auth::UpdateUser($id, $username, $fullname, $email, $password1, $enabled);
+			$fields = array('uid'=>$username,
+											'fullname'=>$fullname,
+											'grp'=>$group,
+											'enabled'=>$enabled,
+											'email'=>$email);
+			if ($password1 != '' AND $password2 != '') $fields['pwd'] = md5($password1);
+			Auth::UpdateUser($id, $fields);
 			$saved['username'] = $username;
 			$saved['fullname'] = $fullname;
 			$smarty->assign('SAVED', $saved);
