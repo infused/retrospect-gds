@@ -42,17 +42,17 @@
 	if (!empty($o->death->place)) { keyword_push($o->death->place); }
 	
 	# assign other smarty variables
-	$smarty->assign('page_title', sprintf(gtc("Family Page for %s"), $o->name));
-	$smarty->assign('surname_title', sprintf(gtc("%s Surname"), $o->sname));
+	$smarty->assign_by_ref('page_title', sprintf(gtc("Family Page for %s"), $o->name));
+	$smarty->assign_by_ref('surname_title', sprintf(gtc("%s Surname"), $o->sname));
 	$content_title = $o->prefix.' '.$o->name;
 	if ($o->suffix) $content_title .= ', '.$o->suffix;
-	$smarty->assign('content_title', $content_title);
+	$smarty->assign_by_ref('content_title', $content_title);
 	
 	# create father link
 	if ($o->father_indkey) { 
 		$f = new person($o->father_indkey, 3); 
 		$params = array('m'=>'family','id'=>$f->indkey);
-		$smarty->assign('father_link', Theme::BuildLink($params, $f->name));
+		$smarty->assign_by_ref('father_link', Theme::BuildLink($params, $f->name));
 		keyword_push($f->name);
 		unset($f, $params);
 	}
@@ -116,10 +116,10 @@
 		}
 		
 	}
-	$smarty->assign('marriages', $marriages);
-	$smarty->assign('sources', $sources);
-	$smarty->assign('marriage_count', count($marriages));
-	$smarty->assign('source_count', count($sources));
+	$smarty->assign_by_ref('marriages', $marriages);
+	$smarty->assign_by_ref('sources', $sources);
+	$smarty->assign_by_ref('marriage_count', count($marriages));
+	$smarty->assign_by_ref('source_count', count($sources));
 	unset($s, $m, $c, $params, $spouse_link, $marriages, $events, $children, $child_link);
 	
 ?>

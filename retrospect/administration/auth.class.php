@@ -81,14 +81,15 @@ class Auth {
 		@session_destroy();
 	}
 	
-	function AddUser($p_uid, $p_fullname, $p_email, $p_pwd) {
+	function AddUser($p_uid, $p_fullname, $p_email, $p_pwd, $enabled) {
 		global $db;
 		$c_uid = $db->Qstr($p_uid);
 		$c_fullname = $db->Qstr($p_fullname);
 		$c_email = $db->Qstr($p_email);
 		$c_pwd = $db->Qstr(md5($p_pwd));
+		$c_enabled = $db->Qstr($enabled);
 		$time = $db->DBTimestamp(time());
-		$sql = "INSERT INTO ".TBL_USER." VALUES('',{$c_uid},{$c_pwd},{$c_fullname},{$c_email},{$time},'','0','1')";
+		$sql = "INSERT INTO ".TBL_USER." VALUES('',{$c_uid},{$c_pwd},{$c_fullname},{$c_email},{$time},NULL,'0',{$c_enabled})";
 		if ($db->Execute($sql) !== false) { return true; }
 		else { return false; }
 	}
@@ -114,6 +115,12 @@ class Auth {
 		return ($rs->RecordCount() > 0) ? true : false;
 	}
 	
+	function UserIdExists($p_id) {
+		$sql = "SELECT * FROM ".TBL_USER." WHERE id='{$p_id}'";
+		$rs = $GLOBALS['db']->Execute($sql);
+		return ($rs->RecordCount() > 0) ? true : false;
+	}
+	
 	function PasswordExpired($p_uid) {
 		$sql = "SELECT * FROM ".TBL_USER." WHERE uid='{$p_uid}'";
 		$rs = $GLOBALS['db']->Execute($sql);
@@ -126,6 +133,17 @@ class Auth {
 		} else {
 			return false;
 		}
+	}
+	
+	function ToggleEnabled($p_id) {
+		global $db, $smarty;
+		$sql = "SELECT * FROM ".TBL_USER." WHERE id='{$p_id}'";
+		$row = $db->GetRow($sql);
+		$enabled = $row['enabled'] === '1' ? '0' : '1';
+		$sql = "UPDATE ".TBL_USER." SET enabled='{$enabled}' WHERE id='{$p_id}'";
+		$smarty->assign('enabled', $enabled);
+		if ($db->Execute($sql)) return true;
+		else return false;
 	}
 }
 ?>

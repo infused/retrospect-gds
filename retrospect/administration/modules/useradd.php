@@ -61,12 +61,14 @@
 			$error = true;
 			$password_errors[] = 'The password must be between 4 and 16 characters long.';
 		}
-		
+		# Process enabled flag
+		$enabled = $_POST['enabled'] == '1' ? '1' : '0';
 		
 		# Save the data unless there are errors
 		if (!$error) {
-			Auth::AddUser($username, $fullname, $email, $password1);
+			Auth::AddUser($username, $fullname, $email, $password1, $enabled);
 			$saved['username'] = $username;
+			$saved['fullname'] = $fullname;
 			$smarty->assign('SAVED', $saved);
 			$smarty->assign('REDIRECT', $_SERVER['PHP_SELF'].'?m=usermgr');
 		} else {
@@ -76,10 +78,4 @@
 		}
 		
 	}
-	else {
-	
-		
-	}
-	
-	
 ?>

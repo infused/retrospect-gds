@@ -3,6 +3,7 @@
 	<tr>
 		<td class="tab-selected">List Users</td>
 		<td class="tab"><a href="{$PHP_SELF}?m=useradd">Add User</a></td>
+		<td class="tab"><a href="{$PHP_SELF}?m=useredit">Edit User</a></td>
 		<td class="tab-last">&nbsp;</td>
 	</tr>
 </table>
@@ -24,11 +25,13 @@
 			<td class="list_item"><a class="decor" href="mailto:{$user.email}">{$user.email}</a></td>
 			<td class="list_item">{$user.last}</td>
 			<td align="center" class="list_item">
-			{if $user.enabled == "1"}
-				<img src="{$THEME_URL}images/tick.png" alt="Enabled" />
-			{else}
-				<img src="{$THEME_URL}images/redx.png" alt="Disabled" />
-			{/if}
+			<a href="{$PHP_SELF}?m=usermgr&t=toggle&id={$user.id}">
+				{if $user.enabled == "1"}
+					<img src="{$THEME_URL}images/tick.png" alt="Enabled" border="0" />
+				{else}
+					<img src="{$THEME_URL}images/redx.png" alt="Disabled" border="0" />
+				{/if}
+			</a>
 			</td>
 		</tr>
 		{/foreach}

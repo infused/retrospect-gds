@@ -142,9 +142,10 @@
 		# populate keyword array
 		keyword_push($p_father->name);
 		keyword_push($p_mother->name);
-		
-		$mother_link = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?option=family&amp;id='.$p_mother->indkey.'">'.$p_mother->name.'</a>';
-		$father_link = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?option=family&amp;id='.$p_father->indkey.'">'.$p_father->name.'</a>';
+		$params = array('m'=>'family','id'=>$p_mother->indkey);
+		$mother_link = '<a class="secondary" href="'.Theme::BuildUrl($params).'">'.$p_mother->name.'</a>';
+		$params = array('m'=>'family','id'=>$p_father->indkey);
+		$father_link = '<a class="secondary" href="'.Theme::BuildUrl($params).'">'.$p_father->name.'</a>';
 		if ($p->father_indkey || $p->mother_indkey) {
 			if ($p->sex == 'M') { 
 				# structure for son of father and mother
@@ -190,7 +191,7 @@
 			$marriage =& $p->marriages[$i];
 			if ($marriage->spouse) {
 				$spouse = new Person($marriage->spouse, 3);
-				$spouse_link = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?option=family&amp;id='.$spouse->indkey.'">'.$spouse->name.'</a>';
+				$spouse_link = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?m=family&amp;id='.$spouse->indkey.'">'.$spouse->name.'</a>';
 				# populate keyword array
 				keyword_push($spouse->name);
 				

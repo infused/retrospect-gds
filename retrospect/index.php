@@ -47,10 +47,10 @@
 	
 	# Store the current url w/query string
 	$cp = (empty($_SERVER['QUERY_STRING'])) ? $_SERVER['PHP_SELF'] : $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
-	$smarty->assign('CURRENT_PAGE', $cp);
+	$smarty->assign_by_ref('CURRENT_PAGE', $cp);
 	
 	$trackback_encoded = urlencode(base64_encode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']));
-	$smarty->assign('TRACKBACK_ENCODED', $trackback_encoded);
+	$smarty->assign_by_ref('TRACKBACK_ENCODED', $trackback_encoded);
 
 	# Make sure a valid module is set or get the default page
 	$module = isset($_GET['m']) ? $_GET['m'] : $options->GetOption('default_page');
@@ -59,15 +59,15 @@
 	@require_once(MODULE_PATH.$module.'.php');
 	
 	# Assign Smarty variables
-	$smarty->assign('module', $module);
-	$smarty->assign('meta_keywords', implode(', ', $keywords));
-	$smarty->assign('PHP_SELF', $_SERVER['PHP_SELF']);
+	$smarty->assign_by_ref('module', $module);
+	$smarty->assign_by_ref('meta_keywords', implode(', ', $keywords));
+	$smarty->assign_by_ref('PHP_SELF', $_SERVER['PHP_SELF']);
 	$smarty->assign('BASE_URL', BASE_URL);
 	$smarty->assign('THEME_URL', BASE_URL.'/themes/'.$g_theme.'/');
 	$smarty->assign('allow_lang_change', $options->GetOption('allow_lang_change'));
-	if (isset($lang_names)) $smarty->assign('lang_names', $lang_names);
-	if (isset($lang_codes)) $smarty->assign('lang_codes', $lang_codes);
-	$smarty->assign('lang', $_SESSION['lang']);
+	if (isset($lang_names)) $smarty->assign_by_ref('lang_names', $lang_names);
+	if (isset($lang_codes)) $smarty->assign_by_ref('lang_codes', $lang_codes);
+	$smarty->assign_by_ref('lang', $_SESSION['lang']);
 	
 	# Display the appropriate template
 	if (isset($_GET['print']) AND $_GET['print'] == strtolower('y')) {

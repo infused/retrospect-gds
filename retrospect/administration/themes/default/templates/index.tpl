@@ -5,14 +5,14 @@
 <title>{$page_title}</title>
 <link rel="stylesheet" href="{$THEME_URL}styles.css" />
 {if $REDIRECT}
-	<META HTTP-EQUIV="refresh" content="5;URL={$PHP_SELF}">
+	<META HTTP-EQUIV="refresh" content="5;URL={$REDIRECT}">
 {/if}
 <meta name="copyright" content="{$copyright}" />
 </head>
 {if $module == "login"}
 <body onload="self.focus();document.loginform.uid.focus()">
 {elseif $module == "useradd"}
-<body onload="self.focus();document.useraddform.uid.focus()">
+<body onload="self.focus();document.useraddform.username.focus()">
 {else}
 <body>
 {/if}

@@ -1,4 +1,4 @@
-<?php 
+<?php
 	/**
 	* @copyright 	Keith Morrison, Infused Solutions	2001-2004
 	* @author			Keith Morrison <keithm@infused-solutions.com>
@@ -23,16 +23,6 @@
 	
 	$smarty->assign('page_title', 'Retrospect-GDS Administration');
 	
-	# Enable / Disable account
-	if ($_GET['t'] == 'toggle' AND isset($_GET['id'])) {
-		$id = $_GET['id'];
-		if (Auth::UserIdExists($id)) {
-			Auth::ToggleEnabled($id);
-		}
-	}
-	
-	$sql = 'SELECT * from '.TBL_USER;
-	$users = $db->GetAll($sql);
-	$smarty->assign('users', $users);
-	
+	# Get list of groups and assign to Smarty variable
+	$smarty->assign('groups', $db->GetAssoc('SELECT * FROM '.TBL_USERTYPE));
 ?>

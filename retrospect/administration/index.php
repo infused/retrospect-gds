@@ -33,8 +33,8 @@
 	# Set flag that running in admin mode
 	define( '_RGDS_ADMIN', 1 );
 	
-	# Turn on error reporting
-	error_reporting(E_ALL);
+	# Turn off error reporting
+	error_reporting(0);
 
 	# Start or continue a session
 	session_start();

@@ -43,14 +43,14 @@
 	# get first person information
 	$o = new Person($g_indiv, 0, 1);
 	array_push($g_descendants, array($o, 1));
-	$smarty->assign('indiv', $o);
+	$smarty->assign_by_ref('indiv', $o);
 
 	# assign other smarty variables
-	$smarty->assign('page_title', sprintf(gtc("Descendant Report for %s"), $o->name));
-	$smarty->assign('surname_title', sprintf(gtc("%s Surname"), $o->sname));
+	$smarty->assign_by_ref('page_title', sprintf(gtc("Descendant Report for %s"), $o->name));
+	$smarty->assign_by_ref('surname_title', sprintf(gtc("%s Surname"), $o->sname));
 	$content_title = $o->prefix.' '.$o->name;
 	if ($o->suffix) $content_title .= ', '.$o->suffix;
-	$smarty->assign('content_title', $content_title);
+	$smarty->assign_by_ref('content_title', $content_title);
 	
 	# iterate through the descendants array
 	while (count($g_descendants) > 0) {
@@ -89,7 +89,7 @@
 							}
 						}
 					}
-					$child_nk = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?option=family&amp;id='.$child->indkey.'">'.$child->name.'</a>';
+					$child_nk = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?m=family&amp;id='.$child->indkey.'">'.$child->name.'</a>';
 					
 					if ($child->ns_number) {	
 						$string .= '<ol>';
@@ -118,7 +118,7 @@
 		$individual['generation'] = $p_generation;
 		$individual['generation_title'] = sprintf(gtc("Generation %s"), $g_generation);
 		$individual['ns_number'] = $p_node->ns_number;
-		$individual['name_link'] = '<a href="'.$_SERVER['PHP_SELF'].'?option=family&amp;id='.$p_node->indkey.'">'.$p_node->name.'</a>';
+		$individual['name_link'] = '<a href="'.$_SERVER['PHP_SELF'].'?m=family&amp;id='.$p_node->indkey.'">'.$p_node->name.'</a>';
 		$individual['parent_sentence'] = get_parents_sentence($p_node, $father, $mother);
 		$individual['birth_sentence'] = get_birth_sentence($p_node);
 		$individual['marriage_sentence'] = get_marriage_sentences($p_node);

@@ -1,6 +1,6 @@
 {if $SAVED}
 	<div class="content-title">User Manager</div>
-	<p><i>{if $SAVED.fullname}{$SAVED.fullname}{else}{$SAVED.username}{/if}</i> has been added to the user database.</p>
+	<p><i>{if $SAVED.fullname}{$SAVED.fullname}{else}{$SAVED.username}{/if}</i> has been changed.</p>
 	<p>Click <a href="{$PHP_SELF}?m=usermgr">HERE</a> to return to the User Manager.</p>
 	<p>Click <a href="{$PHP_SELF}">HERE</a> to return to the main administration page.</p>
 {else}
@@ -9,8 +9,8 @@
 <table class="tab-row" cellpadding="0" cellspacing="0">
 	<tr>
 		<td class="tab"><a href="{$PHP_SELF}?m=usermgr">List Users</a></td>
-		<td class="tab-selected">Add User</td>
-		<td class="tab"><a href="{$PHP_SELF}?m=useredit">Edit User</a></td>
+		<td class="tab"><a href="{$PHP_SELF}?m=useradd">Add User</a></td>
+		<td class="tab-selected">Edit User</td>
 		<td class="tab-last">&nbsp;</td>
 	</tr>
 </table>

@@ -57,17 +57,17 @@
 	$tree->fill_tree($g_max_gens);
 
 	# assign other smarty variables
-	$smarty->assign('page_title', sprintf(gtc("Ahnentafel Report for %s"), $o->name));
-	$smarty->assign('surname_title', sprintf(gtc("%s Surname"), $o->sname));
+	$smarty->assign_by_ref('page_title', sprintf(gtc("Ahnentafel Report for %s"), $o->name));
+	$smarty->assign_by_ref('surname_title', sprintf(gtc("%s Surname"), $o->sname));
 	$content_title = $o->prefix.' '.$o->name;
 	if ($o->suffix) $content_title .= ', '.$o->suffix;
-	$smarty->assign('content_title', $content_title);
+	$smarty->assign_by_ref('content_title', $content_title);
 	
 	# get root node and traverse tree
 	# each node of the tree is passed to the process_indiv function
 	$root = $tree->get_node_at_index(0);
 	$tree->level_order_traversal($root, 'process_indiv');
-	$smarty->assign('individuals', $individuals);
+	$smarty->assign_by_ref('individuals', $individuals);
 	unset($root, $tree, $o);
 	
 	/**
