@@ -30,9 +30,8 @@
 	* Only unique keywords are added to the array
 	* @param string $keyword
 	*/
-	function keyword_push($keyword) {
+	function keyword_push($keyword, $max_size = 32) {
 		global $keywords;
-		$max_size = 32;
 		if (count($keywords) < $max_size AND array_search($keyword, $keywords) === false) {
 			$keywords[] = $keyword;
 		}
