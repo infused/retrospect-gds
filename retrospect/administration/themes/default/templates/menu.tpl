@@ -12,14 +12,14 @@ var myMenu =
 	_cmSplit,
 	[null, 'Users', null, null, 'Users',
 		['<img src="{$THEME_URL}js/ThemeOffice/user.png" />', 'User Manager', '{$PHP_SELF}?m=usermgr', null, 'User Manager'],
-		[null, 'Add User', '{$PHP_SELF}?m=useradd', null, 'Add User'],
+		['<img src="{$THEME_URL}js/ThemeOffice/new_user.png" />', 'Add User', '{$PHP_SELF}?m=useradd', null, 'Add User'],
 		[null, 'Edit User', '{$PHP_SELF}?m=useredit', null, 'Edit User']
 	],
 	_cmSplit,
 	[null, 'Trees', null, null, 'Trees',
 		['<img src="{$THEME_URL}js/ThemeOffice/restore.png" />', 'Gedcom Manager', '{$PHP_SELF}?m=gedcom', null, 'Gedcom Manager'],
 		['<img src="{$THEME_URL}js/ThemeOffice/contact.png" />', 'Review Comments', '{$PHP_SELF}', null, 'Review Comments'],
-		['<img src="{$THEME_URL}js/ThemeOffice/content.png" />', 'Media Manager', '{$PHP_SELF}', null, 'Media Manager']	
+		['<img src="{$THEME_URL}js/ThemeOffice/media.png" />', 'Media Manager', '{$PHP_SELF}', null, 'Media Manager']	
 	]
 ];
 --></script>
