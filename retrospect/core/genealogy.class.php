@@ -304,11 +304,13 @@ class Person {
 	*/
 	function _sort_events() {
 		// declare internal compare function
-		function datecmp($arr1, $arr2) {
-			return strcmp($arr1->sort_date, $arr2->sort_date);
+		if (!function_exists('datecmp_evt')) {
+			function datecmp_evt($arr1, $arr2) {
+				return strcmp($arr1->sort_date, $arr2->sort_date);
+			}		
 		}
 		if ($this->event_count > 0) {
-			usort($this->events, 'datecmp');
+			usort($this->events, 'datecmp_evt');
 		}
 	}
 
@@ -357,11 +359,13 @@ class Person {
 	
 	function _sort_marriages() {
 		// declare internal compare function
-		function datecmp($arr1, $arr2) {
-			return strcmp($arr1->sort_date, $arr2->sort_date);
+		if (!function_exists('datecmp_marr')) {
+			function datecmp_marr($arr1, $arr2) {
+				return strcmp($arr1->sort_date, $arr2->sort_date);
+			}
 		}
 		if ($this->marriage_count > 0) {
-			usort($this->marriages, 'datecmp');
+			usort($this->marriages, 'datecmp_marr');
 		}
 	}
 
@@ -680,8 +684,10 @@ class Marriage {
 	*/
 	function _sort_children() {
 		# declare internal compare function
-		function datecmp($arr1, $arr2) {
-			return strcmp($arr1->birth->sort_date, $arr2->birth->sort_date);
+		if (!function_exists('datecmp_chi')) {	
+			function datecmp_chi($arr1, $arr2) {
+				return strcmp($arr1->birth->sort_date, $arr2->birth->sort_date);
+			}
 		}
 		if ($this->child_count > 0) {
 			$tmp_arr = array();
@@ -689,7 +695,7 @@ class Marriage {
 				$c =& new Person($indkey, 3);
 				$tmp_arr[] = $c;
 			}
-			usort($tmp_arr, 'datecmp');
+			usort($tmp_arr, 'datecmp_chi');
 			foreach ($tmp_arr as $child) {
 				$children[] = $child->indkey;
 			}
