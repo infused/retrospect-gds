@@ -509,7 +509,7 @@
 					return $event;
 				}
 				elseif (preg_match(REG_DATE, $line, $match)) {
-					$event['date'] = trim($match[1]);
+					$event['date_str'] = trim($match[1]);
 				}
 				elseif (preg_match(REG_TYPE, $line, $match)) {
 					$event['type'] = trim($match[1]);
@@ -556,7 +556,7 @@
 					return $event;
 				}
 				elseif (preg_match(REG_DATE, $line, $match)) {
-					$event['date'] = trim($match[1]);
+					$event['date_str'] = trim($match[1]);
 				}
 				elseif (preg_match(REG_TYPE, $line, $match)) {
 					$event['type'] = trim($match[1]);

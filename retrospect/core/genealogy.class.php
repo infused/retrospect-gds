@@ -399,7 +399,7 @@ class Person {
 		$sql =  "SELECT * FROM {$this->tbl_fact} WHERE indfamkey = '{$this->indkey}'";
 		$rs = $db->Execute($sql);
 		while ($row = $rs->FetchRow()) {
-			$event = new event($row['type'], $row['date'], $row['place'], $row['comment'], $row['factkey'], $p_fetch_sources);
+			$event = new event($row['type'], $row['date_str'], $row['place'], $row['comment'], $row['factkey'], $p_fetch_sources);
 			if (strtolower($event->type) == 'birth') {
 				$this->birth = $event;
 			}
