@@ -30,7 +30,8 @@
 	$gname = isset($_GET['gname']) ? $_GET['gname'] : null;
 	$sname = isset($_GET['sname']) ? $_GET['sname'] : null;
 	$soundex = isset($_GET['soundex']) ? true : false;
-	$location = isset($_GET['location']) ? $_GET['location'] : null;
+	$location = isset($_GET['locat']) ? $_GET['locat'] : null;
+	$search_type = isset($_GET['search_type']) ? $_GET['search_type'] : null;
 	
 	# set page title
 	$g_title = _("Search");
@@ -71,6 +72,7 @@
 		# name search form
 		echo '<form name="form_search_name" method="get" action="'.$_SERVER['PHP_SELF'].'">';
 		echo '<input name="option" type="hidden" value="search">';
+		echo '<input name="search_type" type="hidden" value="name">';
 		echo '<table class="section" width="100%" cellspacing="0" cellpadding="0"><tr><td>';
 		echo '<table border="0" cellspacing="2" cellpadding="2">';
 		echo '<tr>';
@@ -106,6 +108,37 @@
 		echo '</table>';
 		echo '</td></tr></table>';
 		echo '</form>';
+		
+		# location search form
+		echo '<form name="form_search_location" method="get" action="'.$_SERVER['PHP_SELF'].'">';
+		echo '<input name="option" type="hidden" value="search">';
+		echo '<input name="search_type" type="hidden" value="location">';
+		echo '<table class="section" width="100%" cellspacing="0" cellpadding="0"><tr><td>';
+		echo '<table border="0" cellspacing="2" cellpadding="2">';
+		echo '<tr>';
+		echo '<td colspan="2" class="text"><b>'._("Location Search").'</b></td>';
+		echo '</tr>';
+		echo '<tr>';
+		echo '<td colspan="2" class="text">'._("Location").'</td>';
+		echo '</tr>';
+		echo '<tr>';
+		echo '<td colspan="2"><input name="locat" size="40" type="text" class="textbox" id="locat" value="'.$location.'"></td>';
+		echo '</tr>';
+		echo '<tr>';
+		echo '<td>&nbsp;</td>';
+		echo '<td>&nbsp;</td>';
+		echo '</tr>';
+		echo '<tr>';
+		echo '<td colspan="2">';
+		echo '<input name="Submit" type="submit" class="text" value="'._("Search").'"> ';
+		echo '<input name="Reset" type="reset" class="text" value="'._("Reset").'"> ';
+		echo '<input name="Clear" type="button" class="text" value="'._("Clear").'" onMouseDown="MM_setTextOfTextfield(\'locat\',\'\',\'\')">';
+		echo '</td>';
+		echo '</tr>';
+		echo '</table>';
+		echo '</td></tr></table>';
+		echo '</form>';		
+		
 		echo '</div>';
 	}
 	
@@ -113,17 +146,25 @@
 	else {
 		echo '<div class="tab-page">';
 		# give error if no search parameters
-		if ($gname == null and $sname == null) {
+		if ($gname == null AND $sname == null AND $location == null) {
 			echo '<p class="text">'._("No search parameters were specified.").'</p>';
 		}
 		# else display the results
 		else {
-			if ($soundex === true) {
-				$sql = "SELECT * FROM $g_tbl_indiv WHERE soundex(surname)=soundex(".$db->Quote($sname).") AND givenname LIKE ".$db->Quote('%'.$gname.'%')." ORDER BY surname, givenname";
+			if ($search_type == 'name') {
+				if ($soundex === true) {
+					$sql = "SELECT * FROM {$g_tbl_indiv} WHERE soundex(surname)=soundex(".$db->Quote($sname).") AND givenname LIKE ".$db->Quote('%'.$gname.'%')." ORDER BY surname, givenname";
+				}
+				else {
+					$sql = "SELECT * FROM {$g_tbl_indiv} WHERE surname LIKE ".$db->Quote($sname.'%')." AND givenname LIKE ".$db->Quote('%'.$gname.'%')." ORDER BY surname, givenname";
+				}	 
 			}
-			else {
-				$sql = "SELECT * FROM $g_tbl_indiv WHERE surname LIKE ".$db->Quote($sname.'%')." AND givenname LIKE ".$db->Quote('%'.$gname.'%')." ORDER BY surname, givenname";
-			}	 
+			elseif ($search_type == 'location') {
+				$sql = "SELECT DISTINCT {$g_tbl_indiv}.indkey FROM {$g_tbl_indiv}, {$g_tbl_fact} ";
+				$sql .= "WHERE {$g_tbl_fact}.place ";
+				$sql .= 'LIKE  "%'.$location.'%"';
+				$sql .= "AND {$g_tbl_indiv}.indkey = {$g_tbl_fact}.indfamkey";
+			}
 			$rs = $db->Execute($sql);
 
 			# display list of individual
