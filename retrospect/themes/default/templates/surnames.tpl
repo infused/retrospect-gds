@@ -1,9 +1,9 @@
-<!--
+{*
 /**
 *	Surnames sub-template
 * $Id$
 */
--->
+*}
 <div class="content-title">{$content_title}</div>
 <table class="tab-row" cellpadding="0" cellspacing="0">
 	<tr>
@@ -15,13 +15,13 @@
 </table>
 {if $sn}
 <div class="tab-page">
-	<div class="text">{translate s="Number of individuals listed"}: {$individuals|@count}</div>
+	<div class="text">{php}t("Number of individuals listed"){/php}: {$individuals|@count}</div>
 	<div class="text">&nbsp;</div>
 	<table cellpadding="0" cellspacing="0" border="0">
 		<tr>
-			<td class="surname_col1"><b>{translate s="Name"}</b></td>
-			<td class="surname_col2"><b>{translate s="Birth"}</b></td>
-			<td class="surname_col2"><b>{translate s="Death"}</b></td>
+			<td class="surname_col1"><b>{php}t("Name"){/php}</b></td>
+			<td class="surname_col2"><b>{php}t("Birth"){/php}</b></td>
+			<td class="surname_col2"><b>{php}t("Death"){/php}</b></td>
 		</tr>
 		{foreach from=$individuals item=indiv}
 		<tr>
@@ -36,7 +36,7 @@
 </div>
 {else}
 <div class="tab-page">
-	<div class="text">{translate s="Number of surnames listed"}: {$surnames|@count}</div>
+	<div class="text">{php}t("Number of surnames listed"){/php}: {$surnames|@count}</div>
 	<div class="text">&nbsp;</div>
 	<table border="0" cellpadding="0" cellspacing="0">
 		<tr>
