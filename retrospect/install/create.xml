@@ -43,8 +43,7 @@
 		<field name="email" type="C" size="128">
 			<notnull />
 		</field>
-		<field name="received" type="T">
-			<notnull />
+		<field name="received" type="T" />
 		</field>
 		<field name="comment" type="X">
 			<notnull />
