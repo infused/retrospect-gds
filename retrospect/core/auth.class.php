@@ -17,17 +17,19 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License contained in the file GNU.txt for
  * more details.
- *
+ */
+ 
+ /**
  * $Id$
  *
  */  
-?>
-<?php
+
+	# Ensure this file is being included by a parent file
+	defined( '_RGDS_VALID' ) or die( 'Direct access to this file is not allowed.' );
 
 class Auth {
 	
 	function Check() {
-		global $_GET;
 		if (isset($_GET['auth']) and $_GET['auth'] == 'logout') { 
 			Auth::Logout(); 
 			return false;
@@ -83,7 +85,7 @@ class Auth {
 	function AddUser($fields) {
 		global $db;
 		$fields['created'] = time();
-		$sql = 'SELECT * FROM '.TBL_USER.' WHERE id='.$db->Qstr('-1');
+		$sql = 'SELECT * FROM '.TBL_USER.' WHERE id='.$db->qstr('-1');
 		$rs = $db->Execute($sql);
 		$sql = $db->GetInsertSQL($rs, $fields);
 		if ($db->Execute($sql) !== false) { return true; }
@@ -92,36 +94,34 @@ class Auth {
 	
 	function UpdateUser($id, $fields) {
 		global $db;
-		$rs = $db->Execute('SELECT * FROM '.TBL_USER.' WHERE id='.$db->Qstr($id));
+		$rs = $db->Execute('SELECT * FROM '.TBL_USER.' WHERE id='.$db->qstr($id));
 		$sql = $db->GetUpdateSQL($rs, $fields);
 		$db->Execute($sql);
 	}
 	
-	function UserExists($p_uid) {
+	function UserExists($uid) {
 		global $db;
-		$sql = "SELECT * FROM ".TBL_USER." WHERE uid='{$p_uid}'";
-		$rs = $db->Execute($sql);
+		$rs = $db->Execute('SELECT * FROM '.TBL_USER.' WHERE uid='.$db->qstr($uid));
 		return ($rs->RecordCount() > 0) ? true : false;
 	}
 	
 	function UserIdExists($id) {
 		global $db;
-		$sql = 'SELECT * FROM '.TBL_USER.' WHERE id='.$db->Qstr($id);
+		$sql = 'SELECT * FROM '.TBL_USER.' WHERE id='.$db->qstr($id);
 		$rs = $db->Execute($sql);
 		return ($rs->RecordCount() > 0) ? true : false;
 	}
 	
 	function PasswordExpired($uid) {
 		global $db;
-		$sql = 'SELECT pwd_expired FROM '.TBL_USER.' WHERE uid='.$db->Qstr($uid);
+		$sql = 'SELECT pwd_expired FROM '.TBL_USER.' WHERE uid='.$db->qstr($uid);
 		$rs = $db->GetOne($sql);
 		return ($db->GetOne($sql) == 1) ? true : false;
 	}
 	
 	function ToggleEnabled($id) {
 		global $db;
-		$sql = 'SELECT * FROM '.TBL_USER.' WHERE id='.$db->Qstr($id);
-		$rs = $db->Execute($sql);
+		$rs = $db->Execute('SELECT * FROM '.TBL_USER.' WHERE id='.$db->qstr($id));
 		$fields['enabled'] = $rs->fields['enabled'] === '1' ? '0' : '1';
 		$sql = $db->GetUpdateSQL($rs, $fields);
 		return ($db->Execute($sql)) ? true : false;
@@ -130,14 +130,14 @@ class Auth {
 	function Enable($id) {
 		global $db;
 		$enabled = '1';
-		$sql = 'UPDATE '.TBL_USER.' SET enabled='.$db->Qstr($enabled).' WHERE id='.$db->Qstr($id);
+		$sql = 'UPDATE '.TBL_USER.' SET enabled='.$db->Qstr($enabled).' WHERE id='.$db->qstr($id);
 		return ($db->Execute($sql)) ? true : false;
 	}
 	
 	function Disable($id) {
 		global $db;
 		$enabled = '0';
-		$sql = 'UPDATE '.TBL_USER.' SET enabled='.$db->Qstr($enabled).' WHERE id='.$db->Qstr($id);
+		$sql = 'UPDATE '.TBL_USER.' SET enabled='.$db->Qstr($enabled).' WHERE id='.$db->qstr($id);
 		return ($db->Execute($sql)) ? true : false;
 	}
 
