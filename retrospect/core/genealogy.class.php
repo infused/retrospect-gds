@@ -619,9 +619,8 @@ class Event {
 		$rs = $db->Execute($sql);
 		while ($row = $rs->FetchRow()) {
 			$srccitation = $row['source'];
-			$msrc = $row['text'];
+			$msrc = htmlentities($row['text']);
 			$source = $msrc.'<br />'.$srccitation;
-			$source = htmlentities(ereg_replace('<br />$', '', $source));  //trim ending breaks
 			array_push($sources, $source);
 		}
 		$this->sources = $sources;

@@ -262,8 +262,8 @@
 			while (!feof($this->fhandle)) {
 				$poffset = ftell($this->fhandle);
 				$line = fgets($this->fhandle);
-				if (preg_match(REG_INDI, $line)) {
-					$this->_ParseIndividual($line);
+				if (preg_match(REG_INDI, $line, $match)) {
+					$this->_ParseIndividual($match);
 				} 
 				elseif (preg_match(REG_FAM, $line)) {
 					$this->_ParseFamily($line);
@@ -281,11 +281,10 @@
 		* Parse Individual
 		* @param string $start_line
 		*/
-		function _ParseIndividual($start_line) {
+		function _ParseIndividual($match) {
 			$indiv = array();
 			$names = array();  
 			$events = array();
-			preg_match(REG_INDI, $start_line, $match);
 			$indiv['indkey'] = $match[1];
 			while (!feof($this->fhandle)) {
 				$poffset = ftell($this->fhandle);
