@@ -167,6 +167,9 @@
 			<notnull />
 		</field>
 	</table>
+	<index name="lang_code" table="language">
+		<col>lang_code</col>
+	</index>
 	<table name="media">
 		<field name="id" type="I">
 			<key />

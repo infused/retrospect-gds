@@ -40,13 +40,16 @@
 			$lang = $options->GetOption('default_lang'); 
 			$_SESSION['lang'] = $lang;
 		}
+		
+		# get charset
+		$sql = "SELECT lang_charset FROM {$g_tbl_lang} WHERE lang_code = '{$lang}'";
+		$charset = $db->GetOne($sql);
 
 		# if gettext is available initialize with the default language
 		# use LC_ALL because some operating systems do not support 
 		# the LC_MESSAGES domain
 		if (extension_loaded('gettext')) {
 			setlocale(LC_ALL, $lang);
-			//bindtextdomain('messages', ROOT_PATH.'/locale/');
 			bindtextdomain('messages', LOCALE_PATH); 
 			textdomain('messages');	
 			# do not try to set environment var if safe mode is on
@@ -56,6 +59,8 @@
 				putenv('LANG='.$lang);
 				putenv('LANGUAGE='.$lang);
 			}
+			# set correct charset in header
+			header("Content-type: text/html; charset={$charset}");
 		}
 		# if gettext is not available redefine some simple gettext functions
 		else {
