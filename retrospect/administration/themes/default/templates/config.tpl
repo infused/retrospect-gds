@@ -70,7 +70,7 @@
 				<textarea name="meta_keywords_new" cols="30" rows="2" class="textbox" id="meta_keywords_new">{$options.meta_keywords}</textarea>
         <input name="meta_keywords_old" type="hidden" id="meta_keywords_old" value="{$options.meta_keywords}">
 			</td>
-			<td class="cfg-dsc2">ok</td>
+			<td class="cfg-dsc2">These keywords will be added to the keywords meta tag on every page.</td>
 		</tr>
 	</table>
 </div>
@@ -99,12 +99,12 @@
 			<td class="cfg-dsc">&nbsp;</td>
 		</tr>
 		<tr>
-			<td class="cfg-lbl"><label for="db_port_new">Port:</label></td>
-			<td class="cfg-opt">
+			<td class="cfg-lbl2"><label for="db_port_new">Port:</label></td>
+			<td class="cfg-opt2">
 				<input name="db_port_new" type="text" class="textbox" id="db_port_new" value="{$db_port}" readonly="true">
 				<input name="db_port_old" type="hidden" id="db_port_old" value="{$db_port}">
 			</td>
-			<td class="cfg-dsc">&nbsp;</td>
+			<td class="cfg-dsc2">&nbsp;</td>
 		</tr>
 		<tr>
 			<td class="cfg-lbl"><label for="db_user_new">User:</label></td>
@@ -115,12 +115,12 @@
 			<td class="cfg-dsc">&nbsp;</td>
 		</tr>
 		<tr>
-			<td class="cfg-lbl"><label for="db_pass_new">Password:</label></td>
-			<td class="cfg-opt">
+			<td class="cfg-lbl2"><label for="db_pass_new">Password:</label></td>
+			<td class="cfg-opt2">
 				<input name="db_pass_new" type="password" class="textbox" id="db_pass_new" value="{$db_pass}" readonly="true">
 				<input name="db_pass_old" type="hidden" id="db_pass_old" value="{$db_pass}">
 			</td>
-			<td class="cfg-dsc">&nbsp;</td>
+			<td class="cfg-dsc2">&nbsp;</td>
 		</tr>
 		<tr>
 			<td class="cfg-lbl"><label for="db_name_new">Database:</label></td>
@@ -153,14 +153,14 @@
 			<td class="cfg-dsc">If you change the default language you may need to restart your browser to see the change.</td>
 		</tr>
 		<tr>
-			<td class="cfg-lbl"><label for="allow_lang_change_new">Allow language changes?</label></td>
-			<td class="cfg-opt">
+			<td class="cfg-lbl2"><label for="allow_lang_change_new">Allow language changes?</label></td>
+			<td class="cfg-opt2">
 				<select name="allow_lang_change_new" class="listbox" id="allow_lang_change_new">
 					{html_options options=$yesno selected=$options.allow_lang_change}
 				</select>
 				<input name="allow_lang_change_old" type="hidden" id="allow_lang_change_old" value="{$options.allow_lang_change}">
 			</td>
-			<td class="cfg-dsc">Enables the language drop down menu on all pages.</td>
+			<td class="cfg-dsc2">Enables the language drop down menu on all pages.</td>
 		</tr>
 		<tr>
 			<td class="cfg-lbl"><label for="translate_dates_new">Translate Dates?</label></td>
@@ -173,14 +173,14 @@
 			<td class="cfg-dsc">&nbsp;</td>
 		</tr>
 		<tr>
-			<td class="cfg-lbl"><label for="date_format_new">Date Format:</label></td>
-			<td class="cfg-opt">
+			<td class="cfg-lbl2"><label for="date_format_new">Date Format:</label></td>
+			<td class="cfg-opt2">
 				<select name="date_format_new" class="listbox" id="date_format_new">
 					{html_options options=$date_formats selected=$options.date_format}
 				</select>
 				<input type="hidden" name="date_format_old" id="date_format_old" value="{$options.date_format}" />
 			</td>
-			<td class="cfg-dsc"></td>
+			<td class="cfg-dsc2"></td>
 		</tr>
 	</table>
 </div>
@@ -206,4 +206,7 @@
 		</tr>
 	</table>
 </div>
+<br />	
+	<input name="Save" type="submit" class="text" id="Save" value="Save"> 
+	<input name="Reset" type="reset" class="text" id="Reset" value="Reset">
 </form>
