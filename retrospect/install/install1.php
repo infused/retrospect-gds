@@ -79,6 +79,7 @@
           <td width="200" class="section_item"><select name="frm_db_type" class="listbox" id="frm_db_type">
             <option value="mysql" selected="selected">MySQL</option>
             <option value="postgres7">PostgreSQL 7.x</option>
+            <option value="mssql">Microsoft SQL (Native)</option>
             <option value="odbc-mssql">Microsoft SQL (ODBC)</option>
             <option value="ado-mssql">Microsoft SQL (DSN-less)</option>
           </select></td>
