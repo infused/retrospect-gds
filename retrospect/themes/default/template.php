@@ -29,6 +29,7 @@
 <title><?php echo $g_title; unset($g_title); ?></title>
 <link rel="stylesheet" href="themes/default/styles.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="MSSmartTagsPreventParsing" content="true">
 <script language="JavaScript" type="text/JavaScript">
 <!--
 
