@@ -26,18 +26,22 @@
 					<tr>
 						<td class="text">{php}t("Given Name"){/php}:</td>
 						<td class="text">{php}t("Surname"){/php}:</td>
-					</tr>
+					  </tr>
 					<tr>
 						<td><input name="gname" type="text" class="textbox" id="gname" value="{$form_gname}" /></td>
 						<td><input name="sname" type="text" class="textbox" id="sname" value="{$form_sname}" /></td>
-					</tr>
+					  </tr>
 					<tr>
 						<td>&nbsp;</td>
 						<td class="text">
 							<input name="soundex" type="checkbox" id="soundex" value="1" {if $form_soundex == 1}checked{/if} />
 							Use Soundex?
 						</td>
-					</tr>
+					  </tr>
+					<tr>
+					  <td>&nbsp;</td>
+					  <td class="text">&nbsp;</td>
+					  </tr>
 					<tr>
 						<td colspan="2">
 							<input name="Submit" type="submit" class="text" value="{php}t("Search"){/php}" />

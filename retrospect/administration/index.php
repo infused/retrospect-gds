@@ -27,11 +27,11 @@
 ?>
 <?php
   
+	# Set flag that this is a parent file
+	define( '_VALID_RGDS', 1 );	
+	
 	# Turn on error reporting
 	error_reporting(E_ALL);
-	
-	# Start output buffering
-	ob_start();	
 
 	# Start or continue a session
 	session_start();
@@ -42,6 +42,7 @@
 	define('CORE_PATH', ROOT_PATH.'/../core/'); # Path to core files
 	define('LIB_PATH', ROOT_PATH.'/../libraries/'); # Path to 3rd party libraries
 	define('LOCALE_PATH', ROOT_PATH.'/../locale/'); # Path to gettext locale files
+	define('THEME_PATH', ROOT_PATH.'/../themes/'); # Path to themes
 
 	/**
 	* Current url w/query string

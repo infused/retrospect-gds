@@ -28,9 +28,6 @@
 	# Turn on error reporting
 	error_reporting(E_ALL);
 	
-	# Start output buffering
-	ob_start();	
-
 	# Start or continue a session
 	session_start();
 	header('Cache-control: private'); # IE6 fix
@@ -49,19 +46,17 @@
 	@require_once(CORE_PATH.'core.php');
 	
 	# Store the current url w/query string
-	$current_page = $_SERVER['PHP_SELF'];
-	if (!empty($_SERVER['QUERY_STRING'])) $current_page .= '?'.$_SERVER['QUERY_STRING'];
-	define('CURRENT_PAGE', $current_page);
+	$cp = (empty($_SERVER['QUERY_STRING'])) ? $_SERVER['PHP_SELF'] : $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
+	$smarty->assign('CURRENT_PAGE', $cp);
 
 	# Make sure a valid module is set or get the default page
 	$module = isset($_GET['m']) ? $_GET['m'] : $options->GetOption('default_page');
 	
 	# Load the option's script
-	require_once(MODULE_PATH.$module.'.php');
+	@require_once(MODULE_PATH.$module.'.php');
 	$smarty->assign('module', $module);
 	$smarty->assign('meta_keywords', implode(', ', $keywords));
 	$smarty->assign('PHP_SELF', $_SERVER['PHP_SELF']);
-	$smarty->assign('CURRENT_PAGE', CURRENT_PAGE);
 	$smarty->assign('BASE_URL', BASE_URL);
 	$smarty->assign('THEME_URL', BASE_URL.'/themes/'.$g_theme.'/');
 	$smarty->assign('lang_names', $lang_names);
@@ -72,5 +67,4 @@
 	} else {
 		$smarty->display('index.tpl');
 	}
-
 ?>
