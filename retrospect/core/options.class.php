@@ -79,7 +79,7 @@
 		* @param string $opt_key
 		* @return boolean
 		*/
-		function OptionUpdate($opt_val, $opt_key) {
+		function OptionUpdate($opt_key, $opt_val) {
 			global $db, $g_tbl_option;
 			$sql = "UPDATE {$g_tbl_option} SET opt_val='{$opt_val}' WHERE opt_key='{$opt_key}'";
 			if ($db->Execute($sql)) {

@@ -25,22 +25,10 @@
  *
  */
 	
-	$g_version = '1.3.21';
+	$g_version = '1.3.23';
 	
 	# Turn on error reporting
 	error_reporting(E_ALL);	
-	
-	# Print profiler information
-	$profile = false;
-	
-	/**
-	* Load profiler and initialize
-	*/
-	if ($profile == true) {
-		require_once(LIB_PATH.'profiler/profiler.inc.php');
-		$profiler = new Profiler( true, false );
-		$profiler->startTimer( 'all' );
-	}
 
 	# Start or continue a session
 	session_start();
@@ -83,6 +71,16 @@
 	*/
 	require_once(CORE_PATH.'options.class.php');
 	$options =& new Options();
+	
+	/**
+	* Load profiler and initialize
+	*/
+	if ($options->profile_functions == true) {
+		$profile = true;
+		require_once(LIB_PATH.'profiler/profiler.inc.php');
+		$profiler = new Profiler( true, false );
+		$profiler->startTimer( 'all' );
+	}
 
 	/**
 	* Require language functions and initialize gettext

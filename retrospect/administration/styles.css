@@ -52,6 +52,10 @@ input.textbox {
 .text {
 	font: 14px Verdana, Arial, Helvetica, sans-serif;
 }
+.vertext {
+	font: normal 12px Verdana, Arial, Helvetica, sans-serif;
+	color: white;
+}
 .menu-title {
 	font: bold 11pt Verdana, Arial, Helvetica, sans-serif;
 	color: #333333;

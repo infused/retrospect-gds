@@ -45,7 +45,7 @@
       <form name="loginform" id="loginform" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <table width="450" border="1" cellpadding="0" cellspacing="0" bordercolor="#0066CC">
           <tr>
-            <td height="59" background="images/logo.gif">&nbsp;</td>
+            <td height="59" align="right" valign="top" background="images/logo.gif" class="vertext">(v<?php echo $g_version; ?>)&nbsp;</td>
           </tr>
           <tr>
             <td align="center" valign="middle">						<table width="100%"  border="0" cellspacing="0" cellpadding="20">
@@ -90,6 +90,8 @@
           </tr>
         </table>
       </form>
+			<br/>
+			 &copy;2003-2004 Keith Morrison, Infused Solutions
     </td>
   </tr>
 </table>

@@ -35,28 +35,31 @@
 				}
 				
 				if (isset($_POST['Save']) and $_POST['Save'] == 'Save') {
-					//echo '<tr><td class="notification">';
 					if ($_POST['default_page_new'] != $_POST['default_page_old']) {
-						$updated = $options->OptionUpdate($_POST['default_page_new'], $_POST['default_page_old'], 'default_page');
+						$updated = $options->OptionUpdate('default_page', $_POST['default_page_new']);
 					}
 					if ($_POST['default_lang_new'] != $_POST['default_lang_old']) {
-						$updated = $options->OptionUpdate($_POST['default_lang_new'], $_POST['default_lang_old'], 'default_lang');
+						$updated = $options->OptionUpdate('default_lang', $_POST['default_lang_new']);
 					}
 					if ($_POST['allow_lang_change_new'] != $_POST['allow_lang_change_old']) {
-						$updated = $options->OptionUpdate($_POST['allow_lang_change_new'], $_POST['allow_lang_change_old'], 'allow_lang_change');
+						$updated = $options->OptionUpdate('allow_lang_change', $_POST['allow_lang_change_new']);
 					}
 					if ($_POST['translate_dates_new'] != $_POST['translate_dates_old']) {
-						$updated = $options->OptionUpdate($_POST['translate_dates_new'], $_POST['translate_dates_old'], 'translate_dates');
+						$updated = $options->OptionUpdate('translate_dates', $_POST['translate_dates_new']);
 					}
+					if ($_POST['profile_functions_new'] != $_POST['profile_functions_old']) {
+						$updated = $options->OptionUpdate('profile_functions', $_POST['profile_functions_new']);
+					}
+					
 					if ($_POST['db_host_new'] != $_POST['db_host_old']) { config_fail(_("MySQL Hostname")); }
 					if ($_POST['db_port_new'] != $_POST['db_port_old']) { config_fail(_("MySQL Port"));	}
 					if ($_POST['db_user_new'] != $_POST['db_user_old']) { config_fail(_("MySQL Username")); }
 					if ($_POST['db_pass_new'] != $_POST['db_pass_old']) { config_fail(_("MySQL Password")); }
 					if ($_POST['db_new'] != $_POST['db_old']) { config_fail(_("MySQL Database")); }
+					
+					# display status message
 					if ($updated == false) { echo _("Nothing to save."); }
 					else { echo _("Options updated."); }
-					//echo '</td></tr>';
-					//echo '<tr><td>&nbsp;</td></tr>';
 					
 					# re-initialize options object
 					$options->Initialize();
@@ -146,6 +149,7 @@
 					 		?> 
             </select>
 						<input name="default_lang_old" type="hidden" id="default_lang_old" value="<?php echo $options->GetOption('default_lang'); ?>"></td> 
+          <td>&nbsp;</td>
         </tr>
         <tr bgcolor="#CCCCCC">
           <td class="content-label"><?php echo _("Allow language changes"); ?>?</td>
@@ -156,6 +160,7 @@
           	</select>
 						<input name="allow_lang_change_old" type="hidden" id="allow_lang_change_old" value="<?php echo $options->GetOption('allow_lang_change'); ?>">
 					</td>
+          <td>&nbsp;</td>
         </tr>
         <tr bgcolor="#CCCCCC">
           <td class="content-label"><?php echo _("Translate Dates"); ?>?</td>
@@ -164,8 +169,38 @@
             <option value="0" <?php if ($options->GetOption('translate_dates') == 0) echo 'SELECTED'; ?>><?php echo _("No"); ?></option>
           </select>
             <input name="translate_dates_old" type="hidden" id="translate_dates_old" value="<?php echo $options->GetOption('translate_dates'); ?>"></td>
+          <td>&nbsp;</td>
         </tr> 
       </table>		</td> 
+  </tr>
+  <tr>
+    <td align="left" valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left" valign="top" class="content-subtitle"><?php echo _("Testing Configuration"); ?></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top" bgcolor="#CCCCCC"><table  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="250" class="content-label"><?php echo _("Profile Functions"); ?>?</td>
+        <td>
+					<select name="profile_functions_new" class="listbox" id="profile_functions_new">
+          	<option value="1" <?php if ($options->GetOption('profile_functions') == 1) echo 'SELECTED'; ?>><?php echo _("Yes"); ?></option>
+          	<option value="0" <?php if ($options->GetOption('profile_functions') == 0) echo 'SELECTED'; ?>><?php echo _("No"); ?></option>
+        	</select>
+					<input name="profile_functions_old" type="hidden" id="profile_functions_old" value="<?php echo $options->GetOption('profile_functions'); ?>">
+				</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">&nbsp;</td>
   </tr> 
 	<tr>
 	<td><input name="Save" type="submit" class="text" id="Save" value="<?php echo _("Save"); ?>"> 
