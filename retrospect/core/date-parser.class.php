@@ -51,7 +51,6 @@
 	define('DATE_MOD_EST',  'G0');
 	define('DATE_MOD_CAL',  'H0');
 	define('DATE_MOD_INVALID', 'XX');
-	
 	define('DATE_EMPTY', '00000000');
 	
 	$months = array(
@@ -315,6 +314,5 @@
 			}
 				return $modifier;
 		}
-	
 	}
 ?>

@@ -20,8 +20,6 @@
  * $Id$
  *
  */
-
-	define('DATE_EMPTY', '00000000');
 	
 	/**
 	* Push item onto keyword array and enforce size limit.
