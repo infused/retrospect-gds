@@ -30,6 +30,7 @@
 	$gname = isset($_GET['gname']) ? $_GET['gname'] : null;
 	$sname = isset($_GET['sname']) ? $_GET['sname'] : null;
 	$soundex = isset($_GET['soundex']) ? true : false;
+	$location = isset($_GET['location']) ? $_GET['location'] : null;
 	
 	# set page title
 	$g_title = _("Search");
@@ -66,12 +67,14 @@
 	# search form
 	if ($submitted == false) {
 		echo '<div class="tab-page">';
-		echo '<form name="form_search" method="get" action="'.$_SERVER['PHP_SELF'].'">';
+		
+		# name search form
+		echo '<form name="form_search_name" method="get" action="'.$_SERVER['PHP_SELF'].'">';
 		echo '<input name="option" type="hidden" value="search">';
+		echo '<table class="section" width="100%" cellspacing="0" cellpadding="0"><tr><td>';
 		echo '<table border="0" cellspacing="2" cellpadding="2">';
 		echo '<tr>';
-		echo '<td class="text">&nbsp;</td>';
-		echo '<td class="text">&nbsp;</td>';
+		echo '<td colspan="2" class="text"><b>'._("Name Search").'</b></td>';
 		echo '</tr>';
 		echo '<tr>';
 		echo '<td class="text">'._("Given Name").'</td>';
@@ -97,10 +100,11 @@
 		echo '<td colspan="2">';
 		echo '<input name="Submit" type="submit" class="text" value="'._("Search").'"> ';
 		echo '<input name="Reset" type="reset" class="text" value="'._("Reset").'"> ';
-		echo '<input name="Clear" type="button" class="text" value="'._("Clear").'" onMouseDown="MM_setTextOfTextfield(\'gname\',\'\',\'\');MM_setTextOfTextfield(\'sname\',\'\',\'\')">';
+		echo '<input name="Clear" type="button" class="text" value="'._("Clear").'" onMouseDown="MM_setTextOfTextfield(\'gname\',\'\',\'\');MM_setTextOfTextfield(\'sname\',\'\',\'\');">';
 		echo '</td>';
 		echo '</tr>';
 		echo '</table>';
+		echo '</td></tr></table>';
 		echo '</form>';
 		echo '</div>';
 	}

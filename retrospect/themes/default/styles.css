@@ -216,3 +216,11 @@ input.textbox {
 	border-bottom-style: solid;
 	width: 100%;
 }
+.section {
+	background-color: #EEEEEE;
+	border-color: #CCCCCC;
+	border-style: solid;
+	border-width: 1px;
+	margin-bottom: 10px;
+	padding: 5px;
+}
