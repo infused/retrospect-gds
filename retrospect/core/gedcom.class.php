@@ -311,8 +311,8 @@
 					$indiv['notekey'] = trim($match[1]);
 				}
 				# parse event and populate begin/end status
-				elseif (preg_match(REG_INDE, $line)) {
-					$event = $this->_ParseIndivEventDetail($line, $indiv['indkey']);
+				elseif (preg_match(REG_INDE, $line, $match)) {
+					$event = $this->_ParseIndivEventDetail($match, $indiv['indkey']);
 					array_push($events, $event);
 				}
 			}
@@ -530,21 +530,18 @@
 		* @param string $indfamkey
 		* @return array
 		*/
-		function _ParseIndivEventDetail($start_line, $indfamkey) {
+		function _ParseIndivEventDetail($match, $indfamkey) {
 			global $IND_EVENTS;
 			$this->factkey++;
 			$event = array();
 			$event['indfamkey'] = $indfamkey;
 			$event['factkey'] = $this->factkey;
-			preg_match(REG_INDE, $start_line, $match);
-			$key = &$match[1];
-			if ($key != 'EVEN') {
-				$event['type'] = $IND_EVENTS[$key];		
-			}
-			$comment = trim($match[2]);
-			if (!empty($comment)) {
-				$event['comment'] = $comment;
-			}
+			//preg_match(REG_INDE, $start_line, $match);
+			$key =& $match[1];
+			if ($key != 'EVEN') $event['type'] = $IND_EVENTS[$key];
+			# get the comment if available
+			if (!empty($match[2])) $event['comment'] = trim($match[2]);
+			
 			while (!feof($this->fhandle)) {
 				$poffset = ftell($this->fhandle);
 				$line = fgets($this->fhandle);
@@ -668,7 +665,7 @@
 		}
 		
 		function _DB_InsertRecord($rs, $record) {
-			$db = &$this->db;
+			$db =& $this->db;
 			$insertSQL = $db->GetInsertSQL($rs, $record);
 			$db->Execute($insertSQL);
 			//echo $insertSQL.'<br>';

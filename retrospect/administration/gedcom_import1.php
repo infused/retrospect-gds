@@ -76,7 +76,7 @@
   </tr>
   <tr> 
     <td align="left" valign="top" class="notification"><p><strong>WARNING!</strong><br>
-      If you continue, your current database will be overwritten with new data from this gedcom file. Make sure you current database is backed up before you continue. </p>
+      If you continue, your current database will be overwritten with new data from this gedcom file. Please make sure that your current database has been backed up before you continue. </p>
     </td> 
   </tr>
   <tr>
