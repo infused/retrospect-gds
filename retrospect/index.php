@@ -65,7 +65,7 @@
 	$smarty->assign('allow_lang_change', $options->GetOption('allow_lang_change'));
 	if (isset($lang_names)) $smarty->assign_by_ref('lang_names', $lang_names);
 	if (isset($lang_codes)) $smarty->assign_by_ref('lang_codes', $lang_codes);
-	$smarty->assign_by_ref('lang', $_SESSION['lang']);
+	$smarty->assign_by_ref('lang', $_SESSION['language']);
 	
 	# Display the appropriate template
 	if (isset($_GET['print']) AND $_GET['print'] == strtolower('y')) {

@@ -60,7 +60,7 @@
 	# Language options 
 	$smarty->assign('lang_names', $lang_names);
 	$smarty->assign('lang_codes', $lang_codes);
-	$smarty->assign('lang', $_SESSION['lang']);
+	$smarty->assign('lang', $_SESSION['language']);
 	
 	$smarty->assign('date_formats', array('1'=>'25 Nov 1859', '2'=>'Nov 25, 1859'));
 	

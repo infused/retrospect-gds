@@ -34,14 +34,14 @@
 		# determine current language
 		if (isset($_POST['lang'])) { 
 			$lang = $_POST['lang']; 
-			$_SESSION['lang'] = $lang; 
+			$_SESSION['language'] = $lang; 
 		}
-		elseif (isset($_SESSION['lang'])) { 
-			$lang = $_SESSION['lang']; 
+		elseif (isset($_SESSION['language'])) { 
+			$lang = $_SESSION['language']; 
 		}
 		else { 
 			$lang = $options->GetOption('default_lang'); 
-			$_SESSION['lang'] = $lang;
+			$_SESSION['language'] = $lang;
 		}
 		
 		# get charset
