@@ -79,16 +79,8 @@
 	
 	# define date formats
 	$DATE_FMTS = array();
-	$DATE_FMTS[1] = array(
-		'YMD'=>'j M Y',
-		'YM' =>'M Y',
-		'Y'  =>'Y'
-	);
-	$DATE_FMTS[2] = array(
-		'YMD'=>'M j, Y',
-		'YM' =>'M Y',
-		'Y'  =>'Y'
-	);
+	$DATE_FMTS[1] = array('YMD'=>'j M Y', 'YM' =>'M Y', 'Y'  =>'Y');
+	$DATE_FMTS[2] = array('YMD'=>'M j, Y', 'YM' =>'M Y', 'Y'  =>'Y');
 	
 	/**
  	* GedcomParser class
@@ -330,11 +322,11 @@
 				}
 				elseif ($day == '00') {
 					$ts = adodb_mktime(0,0,0, $month, 15, $year);
-					$date = lang_translate_date(adodb_date($date_fmt['YM'], $ts)); 
+					$date = $this->_translate_month(adodb_date($date_fmt['YM'], $ts)); 
 				}
 				else {
 					$ts = adodb_mktime('0','0','0', $month, $day, $year);
-					$date = lang_translate_date(adodb_date($date_fmt['YMD'], $ts)); 
+					$date = $this->_translate_month(adodb_date($date_fmt['YMD'], $ts)); 
 				}
 				
 				return $date;
@@ -344,9 +336,35 @@
 		function format_date_mod($mod_str) {
 			global $DATE_MODS;
 			if ($mod = array_search($mod_str, $DATE_MODS)) {
-				return lang_translate_mod($mod);
+				return $this->_translate_mod($mod);
 			}
 			else return;
+		}
+		
+		/**
+		* Translate month
+		* 
+		* Translates month names into the appropriate language
+		* @param string $p_date english language date
+		* @return string translated date string
+		*/
+		function _translate_month($date) {
+			$orig_mon = array('/jan/i','/feb/i','/mar/i','/apr/i','/may/i',
+				'/jun/i','/jul/i','/aug/i','/sep/i','/oct/i','/nov/i','/dec/i');
+			$repl_mon = array(gtc("Jan"),gtc("Feb"),gtc("Mar"),gtc("Apr"),gtc("May"),
+				gtc("Jun"),gtc("Jul"),gtc("Aug"),gtc("Sep"),gtc("Oct"),gtc("Nov"),gtc("Dec"));
+			return preg_replace($orig_mon, $repl_mon, $date);
+		}
+		
+		/**
+		* Translate date modifier
+		*
+		* Translates date modifiers such as Abt, Bet, Aft
+		* @param string $p_date english language modifier
+		* @return string translated date modifier
+		*/
+		function _translate_mod($mod) {
+			return gtc(strtolower($mod));
 		}
 	}
 ?>

@@ -16,9 +16,9 @@
 	<div class="col2">{$indiv->gender}</div>
 	<div class="col3">&nbsp;</div>
 	<div class="col1">{php}t("Father"){/php}:</div>
-	<div class="col2-2">{$father_link}</div>
+	<div class="col2-2">{$father_link|default:"&nbsp;"}</div>
 	<div class="col1">{php}t("Mother"){/php}:</div>
-  <div class="col2-2">{$mother_link}</div>
+  <div class="col2-2">{$mother_link|default:"&nbsp;"}</div>
 	{foreach from=$events item=event}
 		<div class="col1">{translate s=$event->type}:</div>
 		<div class="col2">{$event->date}</div>

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2004-11-06 23:33-0800\n"
+"PO-Revision-Date: 2004-11-09 23:13-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused-solutions.com>\n"
 "Language-Team: ENGLISH <keithm@infused-solutions.com>\n"
 "MIME-Version: 1.0\n"
@@ -779,9 +779,8 @@ msgstr "Reports"
 
 #: core/modules/results.php:54
 #: core/modules/results.php:58
-#, fuzzy
 msgid "Search Results"
-msgstr "Results"
+msgstr "Search Results"
 
 #: core/modules/results.php:55
 #: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:13
@@ -885,9 +884,8 @@ msgid "Families"
 msgstr "Families"
 
 #: themes/default/templates_c/%%7C^7C1^7C13AA49%%stats.tpl.php:41
-#, fuzzy
 msgid "Events"
-msgstr "Event"
+msgstr "Events"
 
 #: themes/default/templates_c/%%7C^7C1^7C13AA49%%stats.tpl.php:57
 msgid "Other"
@@ -978,7 +976,7 @@ msgstr "Keywords"
 #: themes/default/templates_c/search.tpl.php:71
 #: themes/default/templates_c/search.tpl.php:117
 msgid "separate with spaces"
-msgstr ""
+msgstr "separate with spaces"
 
 #: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:80
 #: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:126
@@ -1033,7 +1031,7 @@ msgstr "No search parameters were specified."
 
 #: themes/default/templates_c/results.tpl.php:21
 msgid "Please go back to the search page and enter some search criteria."
-msgstr ""
+msgstr "Please go back to the search page and enter some search criteria."
 
 #: themes/default/templates_c/results.tpl.php:51
 msgid "No matching records were found."

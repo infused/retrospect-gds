@@ -74,32 +74,6 @@
 	}
 	
 	/**
-	* Translate Date
-	* 
-	* Translates month names into the appropriate language
-	* @param string $p_date english language date
-	* @return string translated date string
-	*/
-	function lang_translate_date($date) {
-		$orig_mon = array('/jan/i','/feb/i','/mar/i','/apr/i','/may/i',
-			'/jun/i','/jul/i','/aug/i','/sep/i','/oct/i','/nov/i','/dec/i');
-		$repl_mon = array(gtc("Jan"),gtc("Feb"),gtc("Mar"),gtc("Apr"),gtc("May"),
-			gtc("Jun"),gtc("Jul"),gtc("Aug"),gtc("Sep"),gtc("Oct"),gtc("Nov"),gtc("Dec"));
-		return preg_replace($orig_mon, $repl_mon, $date);
-	}
-	
-	/**
-	* Translate date modifier
-	*
-	* Translates date modifiers such as Abt, Bet, Aft
-	* @param string $p_date english language modifier
-	* @return string translated date modifier
-	*/
-	function lang_translate_mod($mod) {
-		return gtc(strtolower($mod));
-	}
-	
-	/**
 	* Gettext wrapper function
 	*
 	* We use this wrapper instead of the native gettext function call so that

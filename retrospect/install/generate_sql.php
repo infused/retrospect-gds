@@ -28,7 +28,7 @@
 	* @return array Array of SQL commands or false if error
 	*/
 	function GetTableCreationSQL($db_type, $tbl_prefix) {
-		$db = NewAdoCOnnection($db_type);
+		$db = NewAdoConnection($db_type);
 		$schema = new adoSchema( $db );
 		$schema->setPrefix( $tbl_prefix );
 		if ($sql = $schema->ParseSchema('create.xml')) {
@@ -72,6 +72,7 @@
             <option value="postgres7">PostreSQL 7.x</option>
             <option value="mssql">Microsoft SQL (Native)</option>
             <option value="odbc-mssql">Microsoft SQL (ODBC)</option>
+            <option value="sqlite">SQLite</option>
           </select>
     </p>
       <p>Enter a table prefix:<br />

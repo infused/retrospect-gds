@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2004-11-06 23:33-0800\n"
+"PO-Revision-Date: 2004-11-09 23:19-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused-solutions.com>\n"
 "Language-Team: Spanish <keithm@infused-solutions.com>\n"
 "MIME-Version: 1.0\n"
@@ -381,27 +381,27 @@ msgstr "Citaciones De la Fuente"
 
 #: core/f_dummy.php:130
 msgid "abt"
-msgstr ""
+msgstr "alrededor"
 
 #: core/f_dummy.php:131
 msgid "cir"
-msgstr ""
+msgstr "aproximadamente"
 
 #: core/f_dummy.php:132
 msgid "aft"
-msgstr ""
+msgstr "después"
 
 #: core/f_dummy.php:133
 msgid "bef"
-msgstr ""
+msgstr "antes"
 
 #: core/f_dummy.php:134
 msgid "bet"
-msgstr ""
+msgstr "entre"
 
 #: core/f_dummy.php:135
 msgid "cal"
-msgstr ""
+msgstr "calculado"
 
 #: core/f_language.php:86
 msgid "Jan"
@@ -444,9 +444,8 @@ msgid "Oct"
 msgstr "Oct"
 
 #: core/f_language.php:87
-#, fuzzy
 msgid "Nov"
-msgstr "No"
+msgstr "Nov"
 
 #: core/f_language.php:87
 msgid "Dec"
@@ -656,7 +655,7 @@ msgstr "Ella murió en %s."
 # core/f_report.php:69
 # core/f_report.php:69
 #: core/f_report.php:128
-#, fuzzy, php-format
+#, php-format
 msgid ", son of %s and %s."
 msgstr ", hijo de %s y de %s."
 
@@ -673,7 +672,7 @@ msgstr ", hijo de %s y de %s."
 # core/f_report.php:73 core/f_report.php:77
 #: core/f_report.php:132
 #: core/f_report.php:136
-#, fuzzy, php-format
+#, php-format
 msgid ", son of %s."
 msgstr ", hijo de %s."
 
@@ -689,7 +688,7 @@ msgstr ", hijo de %s."
 # core/f_report.php:83
 # core/f_report.php:83
 #: core/f_report.php:142
-#, fuzzy, php-format
+#, php-format
 msgid ", daughter of %s and %s."
 msgstr ", hija de %s y de %s."
 
@@ -706,7 +705,7 @@ msgstr ", hija de %s y de %s."
 # core/f_report.php:87 core/f_report.php:91
 #: core/f_report.php:146
 #: core/f_report.php:150
-#, fuzzy, php-format
+#, php-format
 msgid ", daughter of %s."
 msgstr ", hija de %s."
 
@@ -994,9 +993,9 @@ msgstr "Hijos de %s y de %s"
 # family.php:251
 # family.php:251
 #: core/f_report.php:287
-#, fuzzy, php-format
+#, php-format
 msgid "Children of %s"
-msgstr "Hijos de %s y de %s"
+msgstr "Hijos de %s"
 
 #: core/modules/ahnentafel.php:40
 #: themes/default/templates_c/%%2E^2E7^2E77BCE6%%reports.tpl.php:32
@@ -1236,7 +1235,6 @@ msgstr "Informes"
 
 #: core/modules/results.php:54
 #: core/modules/results.php:58
-#, fuzzy
 msgid "Search Results"
 msgstr "Resultados"
 
@@ -1393,9 +1391,8 @@ msgid "Families"
 msgstr "Familias"
 
 #: themes/default/templates_c/%%7C^7C1^7C13AA49%%stats.tpl.php:41
-#, fuzzy
 msgid "Events"
-msgstr "Evento"
+msgstr "Eventos"
 
 # family.php:101
 # family.php:101
@@ -1478,9 +1475,8 @@ msgstr "Esta "
 # gen_menu.php:42
 #: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:27
 #: themes/default/templates_c/search.tpl.php:27
-#, fuzzy
 msgid "Name Search"
-msgstr "Buscar"
+msgstr "Buscar de Nombre"
 
 #: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:30
 #: themes/default/templates_c/search.tpl.php:30
@@ -1524,21 +1520,21 @@ msgstr "Limpiar"
 #: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:68
 #: themes/default/templates_c/search.tpl.php:68
 msgid "Location Search"
-msgstr ""
+msgstr "Buscar Por Ubicación"
 
 #: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:71
 #: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:117
 #: themes/default/templates_c/search.tpl.php:71
 #: themes/default/templates_c/search.tpl.php:117
 msgid "Keywords"
-msgstr ""
+msgstr "Palabras Claves"
 
 #: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:71
 #: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:117
 #: themes/default/templates_c/search.tpl.php:71
 #: themes/default/templates_c/search.tpl.php:117
 msgid "separate with spaces"
-msgstr ""
+msgstr "separar con espacios"
 
 #: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:80
 #: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:126
@@ -1573,14 +1569,14 @@ msgstr "Frase"
 #: themes/default/templates_c/search.tpl.php:86
 #: themes/default/templates_c/search.tpl.php:132
 msgid "Starts with"
-msgstr ""
+msgstr "Empieza con"
 
 #: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:87
 #: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:133
 #: themes/default/templates_c/search.tpl.php:87
 #: themes/default/templates_c/search.tpl.php:133
 msgid "Ends with"
-msgstr ""
+msgstr "Termina con"
 
 # core/header.php:7
 # core/header.php:7
@@ -1594,9 +1590,8 @@ msgstr ""
 # gen_menu.php:42
 #: themes/default/templates_c/%%D0^D0B^D0BAFE5D%%search.tpl.php:114
 #: themes/default/templates_c/search.tpl.php:114
-#, fuzzy
 msgid "Note Search"
-msgstr "Buscar"
+msgstr "Buscar de Notas"
 
 #: themes/default/templates_c/results.tpl.php:20
 msgid "No search parameters were specified."
@@ -1604,7 +1599,7 @@ msgstr "Busqueda no tiene parametros especificados."
 
 #: themes/default/templates_c/results.tpl.php:21
 msgid "Please go back to the search page and enter some search criteria."
-msgstr ""
+msgstr "Por favor regrese a la página de busqueda y entre palabras a buscar."
 
 #: themes/default/templates_c/results.tpl.php:51
 msgid "No matching records were found."
