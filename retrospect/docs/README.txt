@@ -6,19 +6,21 @@ Many popular genealogy reports are available in both HTML and PDF formats.
 Retrospect-GDS also supports multiple languages. 
 
 Retrospect-GDS is written entirely in PHP and support multiple databases. 
-It has been tested to work with MySQL 3.x, MySQL 4.x, and PostgreSQL 7.x. 
+It has been tested to work with MySQL 3.x, MySQL 4.x, PostgreSQL 7.x, and Oracle 11i. 
 
 FEATURES
-As of version 1.3.77:
-- Gedcom 5.5 import
-- Mutliple language support using gettext
+As of version 1.6.0:
+- Gedcom 5.5  import (tested with gedcom's containing over 250k individuals)
+- Mutliple language support
 - Search by given and/or surnames with or without soundex
+- Full text search of location and note fields
 - Reports in HTML and PDF formats
 - Template system
-- Output compliant with the XHTML 1.0 Transitional specifications 
-- Compatible with PHP's Safe Mode enabled (mostly) 
+- Output fully compliant with XHTML 1.0 Transitional specifications
+- Compatible with PHP's Safe Mode enabled
 - Compatible with PHP's Register Globals disabled
-- Auto meta keyword generation 
+- Auto meta keyword generation
+- All events, marriages, and children are sortable by date 
 
 Reports (all reports available as HTML and PDF):
 - Family Group
@@ -31,6 +33,7 @@ Databases Supported:
 - MySQL 4.x
 - PostgreSQL 7.x
 - Microsoft SQL (all versions) 
+- Oracle 11i (probably other versions as well) 
 
 INSTALLATION
 The latest installation instructions can always be found here:
