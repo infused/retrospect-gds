@@ -24,8 +24,13 @@
 	
 	# Define regular expressions
 	# DateParser structures
-	define('REG_DATE_EXACT', '/^([0-9]{1,2}) (JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC) ([0-9]{4}\/[0-9]{2}|[0-9]{1,4})/');
-	define('REG_DATE_YEAR','/^([0-9]{3,4}\/[0-9]{2}|[0-9]{3,4})/');
+	define('REG_DATE_GREG1','/^([0-9]{3,4}\/[0-9]{2}|[0-9]{3,4})/');
+	define('REG_DATE_GREG2','/^(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC) ([0-9]{4}\/[0-9]{2}|[0-9]{1,4})/');
+	define('REG_DATE_GREG3', '/^([0-9]{1,2}) (JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC) ([0-9]{4}\/[0-9]{2}|[0-9]{1,4})/');
+	
+	# Define some aliases
+	define('REG_DATE_YEAR', REG_DATE_GREG1);
+	define('REG_DATE_EXACT', REG_DATE_GREG3);
 	
 	$months = array(
 		'JAN'=>'01',
@@ -51,7 +56,7 @@
 		var $pdate;							// the latest parsed date returned from ParseDate()
 		var $sdate;							// the lastest date string passed to ParseDate()
 		
-		function ParseDate($string) {
+		function ParseDate ($string) {
 			# reset variables
 			$this->pdate = null;
 			$this->sdate = $string;
@@ -59,39 +64,63 @@
 			$datestr = strtoupper($string);
 			# process exact dates
 			if (preg_match(REG_DATE_YEAR, $datestr, $match)) {
-				$year = $this->_get_year($match[1]);
+				$year = $this->_get_greg1($match[1]);
 				$this->pdate = '000000'.$year.'0000000000';
 			}
 			elseif (preg_match(REG_DATE_EXACT, $datestr, $match)) {
-				$date = $this->_get_date_exact($match);
+				$date = $this->_get_date_greg3($match);
 				$this->pdate = $date;
 			}
 		}
 		
-		function _get_date_exact ($preg_match) {
+		/**
+		* Parses an exact date in the form of dd mmm yyyy
+		* Returns a date code for a valid date 
+		* Returns false for an invalid date
+		* @param array $preg_match [1]=>day, [2]=>month, [3]=>year
+		* @return string
+		*/
+		function _get_date_greg3 ($date_arr) {
 			global $months;
 			# get the day and pad to 2 digits
-			$day .= str_pad($preg_match[1], 2, '0', STR_PAD_LEFT);
+			$day .= str_pad($date_arr[1], 2, '0', STR_PAD_LEFT);
 			# get the month and pad to 2 digits
-			$month = str_pad($months[$preg_match[2]], 2, '0', STR_PAD_LEFT);
+			$month = str_pad($months[$date_arr[2]], 2, '0', STR_PAD_LEFT);
 			# get the year
-			$year = $this->_get_year($preg_match[3]);
+			$year = $this->_get_greg1($date_arr[3]);
 			$date = '00'.$day.$month.$year.'0000000000';
-			return $date;
+			if (checkdate($month, $day, $year)) {
+				return $date;
+			}
+			else {
+				return false;
+			}
 		}
 		
-		function _get_year($yearstr) {
+		/**
+		* Parses the year and converts dual years to new system years.
+		* - 1750/51 become 1751
+		* - 1733 stays 1733 (assumed new system)
+		* - Years are padded to 4 digits, so 809 becomes 0809
+		* @access private
+		* @param string $yearstring
+		* @return string
+		*/
+		function _get_greg1 ($yearstr) {
 			if (strpos($yearstr, '/') === false) {
 				$year = str_pad($yearstr, 4, '0', STR_PAD_LEFT);
 			}
 			else {
 				$old_sys_year = explode('/', $yearstr);
 				$new_sys_year = $old_sys_year[0] + 1;
+				# pad the year to 4 digits
 				$year = str_pad($new_sys_year, 4, '0', STR_PAD_LEFT);
 			}
 			return $year;
 		}
 		
-		//function _get_day ($daystring
+		function _get_greg2 ($date_arr) {
+			
+		}
 	}
 ?>
