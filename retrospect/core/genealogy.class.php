@@ -263,7 +263,7 @@ class Person {
 	*/
 	function _get_name() {
 		global $db;
-		$sql = 'SELECT * FROM '.TBL_INDIV.' WHERE indkey="'.$this->indkey.'"';
+		$sql = 'SELECT * FROM '.TBL_INDIV.' WHERE indkey='.$db->qstr($this->indkey);
 		$row = $db->GetRow($sql);
 		$this->prefix = trim(htmlentities($row['prefix']));
 		$this->suffix = trim(htmlentities($row['suffix']));
@@ -288,7 +288,7 @@ class Person {
 	function _get_events($p_fetch_sources = true) {
 		global $db;
 		$this->events = array();
-		$sql =  'SELECT * FROM '.TBL_FACT.' WHERE indfamkey="'.$this->indkey.'"';
+		$sql =  'SELECT * FROM '.TBL_FACT.' WHERE indfamkey='.$db->qstr($this->indkey);
 		$rs = $db->Execute($sql);
 		while ($row = $rs->FetchRow()) {
 			$event =& new event($row, $p_fetch_sources);
@@ -320,7 +320,7 @@ class Person {
 		$sql  = 'SELECT spouse1, spouse2 FROM '.TBL_FAMILY.' ';
 		$sql .= 'INNER JOIN '.TBL_CHILD.' ';
 		$sql .= 'ON '.TBL_FAMILY.'.famkey = '.TBL_CHILD.'.famkey ';
-		$sql .= 'WHERE '.TBL_CHILD.'.indkey = "'.$this->indkey.'"';
+		$sql .= 'WHERE '.TBL_CHILD.'.indkey = '.$db->qstr($this->indkey);
 		if ($row = $db->GetRow($sql)) {
 			$this->father_indkey = $row['spouse1'];
 			$this->mother_indkey = $row['spouse2'];
@@ -341,7 +341,7 @@ class Person {
 			$p_col = 'spouse2'; 
 			$s_col = 'spouse1'; 
 		}
-		$sql = 'SELECT * FROM '.TBL_FAMILY.' WHERE '.$p_col.'="'.$this->indkey.'"';
+		$sql = 'SELECT * FROM '.TBL_FAMILY.' WHERE '.$p_col.'='.$db->qstr($this->indkey);
 		$rs = $db->Execute($sql);
 		while ($row = $rs->FetchRow()) {
 			$famkey =& $row['famkey'];
@@ -468,8 +468,8 @@ class Event {
 		$sources = array();
 		$sql  = 'SELECT '.TBL_CITATION.'.source, '.TBL_SOURCE.'.text '; 
 		$sql .= 'FROM '.TBL_CITATION.' INNER JOIN '.TBL_SOURCE.' ';
-		$sql .= 'ON '.TBL_CITATION.'.srckey = '.TBL_SOURCE.'.srckey ';
-		$sql .= 'WHERE '.TBL_CITATION.'.factkey = "'.$this->factkey.'"';
+		$sql .= 'ON '.TBL_CITATION.'.srckey='.TBL_SOURCE.'.srckey ';
+		$sql .= 'WHERE '.TBL_CITATION.'.factkey='.$db->qstr($this->factkey);
 		$rs = $db->Execute($sql);
 		while ($row = $rs->FetchRow()) {
 			$srccitation = $row['source'];
@@ -670,7 +670,7 @@ class Marriage {
 	*/	
 	function _get_children() {	
 		global $db;
-		$sql = 'SELECT indkey FROM '.TBL_CHILD.' WHERE famkey = "'.$this->famkey.'"';
+		$sql = 'SELECT indkey FROM '.TBL_CHILD.' WHERE famkey='.$db->qstr($this->famkey);
 		$this->children = $db->GetCol($sql);
 		$this->child_count = count($this->children);
 	}
@@ -715,7 +715,7 @@ class Marriage {
 		$sql  = 'SELECT '.TBL_CITATION.'.source, '.TBL_SOURCE.'.text ';
 		$sql .= 'FROM '.TBL_CITATION.' INNER JOIN '.TBL_SOURCE.' ';
 		$sql .= 'ON '.TBL_CITATION.'.srckey = '.TBL_SOURCE.'.srckey ';
-		$sql .= 'WHERE '.TBL_CITATION.'.factkey = "'.$p_factkey.'"';
+		$sql .= 'WHERE '.TBL_CITATION.'.factkey='.$db->qstr($p_factkey);
 		$rs = $db->Execute($sql);
 		while ($row = $rs->FetchRow()) {
 			$source = htmlentities($row['text']).'<br />'.htmlentities($row['source']);
@@ -730,7 +730,7 @@ class Marriage {
 	function _get_events($p_fetch_sources = true) {
 		global $db;
 		$this->events = array();
-		$sql =  'SELECT * FROM '.TBL_FACT." WHERE indfamkey = '{$this->famkey}'";
+		$sql =  'SELECT * FROM '.TBL_FACT.' WHERE indfamkey='.$db->qstr($this->famkey);
 		$rs = $db->Execute($sql);
 		while ($row = $rs->FetchRow()) {
 			$event =& new event($row, $p_fetch_sources);
