@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2004-02-06 12:26-0800\n"
+"PO-Revision-Date: 2004-05-01 16:43-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused.org>\n"
 "Language-Team: Spanish <keithm@infused-solutions.com>\n"
 "MIME-Version: 1.0\n"
@@ -17,29 +17,145 @@ msgstr ""
 msgid "Retrospect-GDS Administration"
 msgstr "Retrospect-GDS Adminstración"
 
-#: administration/admin.php:62
+#: administration/admin.php:65
 #, php-format
 msgid "Logged in as %s"
 msgstr ""
 
-#: administration/admin.php:64
+#: administration/admin.php:67
 msgid "Logout"
 msgstr ""
 
 #: administration/db_edit_indiv.php:31
-#: administration/menubar.php:43
+#: administration/menubar.php:44
 msgid "Edit Individual"
 msgstr "Editar Individuo"
 
 #: administration/db_edit_indiv.php:34
-#: themes/default/multimedia.php:42
+#: themes/default/multimedia.php:43
 msgid "This feature has not been implemented yet."
 msgstr "Esta "
 
 #: administration/db_optimize.php:44
-#: administration/menubar.php:46
+#: administration/menubar.php:47
 msgid "Optimize Tables"
 msgstr "Optimizar Tablas"
+
+#: administration/gedcom_import.php:35
+#: administration/gedcom_import.php:65
+#: administration/gedcom_import1.php:38
+#: administration/gedcom_import2.php:38
+msgid "The gedcom directory is not writable. Check your server configuration."
+msgstr ""
+
+#: administration/gedcom_import.php:42
+msgid "No file was selected for upload."
+msgstr ""
+
+#: administration/gedcom_import.php:45
+msgid "The file upload did not complete.  Try again."
+msgstr ""
+
+#: administration/gedcom_import.php:48
+#: administration/gedcom_import.php:51
+msgid "The file is too large to upload."
+msgstr ""
+
+#: administration/gedcom_import.php:60
+msgid "Only .ged or .zip files are allowed."
+msgstr ""
+
+#: administration/gedcom_import.php:70
+msgid "A file with the same name already exists."
+msgstr ""
+
+#: administration/gedcom_import.php:75
+msgid "Error moving file to the gedcom directory.  Check your server configuration."
+msgstr ""
+
+#: administration/gedcom_import.php:108
+msgid "Unable to delete the selected file."
+msgstr ""
+
+#: administration/gedcom_import.php:111
+msgid "No file was selected for deletion."
+msgstr ""
+
+#: administration/gedcom_import.php:119
+msgid "Upload Gedcom"
+msgstr ""
+
+#: administration/gedcom_import.php:126
+#, php-format
+msgid "Your server is configured for a maximum file upload size of %s. If you wish to upload a gedcom file that is larger than %s either change the upload_max_filesize directive in php.ini or manually upload the file to the gedcom directory."
+msgstr ""
+
+#: administration/gedcom_import.php:132
+msgid "Gedcom File"
+msgstr ""
+
+#: administration/gedcom_import.php:138
+msgid "Upload"
+msgstr ""
+
+#: administration/gedcom_import.php:149
+#: administration/gedcom_import1.php:55
+#: administration/gedcom_import2.php:49
+#: administration/menubar.php:42
+msgid "Import Gedcom"
+msgstr ""
+
+#: administration/gedcom_import.php:155
+msgid "Select a gedcom file to begin the import process..."
+msgstr ""
+
+# family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+#: administration/gedcom_import.php:161
+#: administration/media_list.php:43
+#, fuzzy
+msgid "Filename"
+msgstr "Apellido %s"
+
+#: administration/gedcom_import.php:163
+msgid "Last Modified"
+msgstr ""
+
+#: administration/gedcom_import.php:165
+msgid "Size"
+msgstr ""
+
+#: administration/gedcom_import.php:184
+#, php-format
+msgid "%s bytes"
+msgstr ""
+
+#: administration/gedcom_import.php:186
+msgid "view"
+msgstr ""
+
+#: administration/gedcom_import.php:188
+#, fuzzy
+msgid "delete"
+msgstr "Título"
+
+#: administration/gedcom_import.php:201
+msgid "Begin Import..."
+msgstr ""
+
+#: administration/gedcom_import1.php:111
+#: administration/gedcom_import2.php:71
+msgid "Continue"
+msgstr ""
 
 #: administration/login.php:29
 msgid "phpGene Pro Administration Login"
@@ -64,11 +180,7 @@ msgstr ""
 msgid "Username"
 msgstr "Apellido %s"
 
-#: administration/login.php:59
-msgid "Login"
-msgstr ""
-
-#: administration/login.php:62
+#: administration/login.php:61
 msgid "Password"
 msgstr "Contraseña"
 
@@ -77,48 +189,31 @@ msgstr "Contraseña"
 # gen_menu.php:6
 # gen_menu.php:6
 # gen_menu.php:6
-#: administration/login.php:67
+#: administration/login.php:66
 #: themes/default/menu.php:34
 msgid "Language"
 msgstr "Lengua"
 
+#: administration/login.php:85
+msgid "Login"
+msgstr ""
+
 #: administration/media_list.php:31
-#: administration/menubar.php:51
-msgid "Media List"
+#: administration/menubar.php:52
+msgid "Media Manager"
 msgstr ""
 
-#: administration/media_list.php:37
-#: administration/menubar.php:43
-msgid "Individual"
-msgstr ""
-
-# family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-#: administration/media_list.php:38
-#, fuzzy
-msgid "Filename"
-msgstr "Apellido %s"
-
-#: administration/media_list.php:39
+#: administration/media_list.php:44
 #, fuzzy
 msgid "Caption"
 msgstr "Cremación"
 
-#: administration/media_list.php:40
-#: core/f_dummy.php:81
+#: administration/media_list.php:45
+#: core/f_dummy.php:82
 msgid "Description"
 msgstr "Descripción"
 
-#: administration/media_list.php:41
+#: administration/media_list.php:46
 msgid "Thumbnail"
 msgstr ""
 
@@ -174,46 +269,75 @@ msgstr ""
 msgid "Database"
 msgstr "Base de datos"
 
-#: administration/menubar.php:42
+#: administration/menubar.php:43
 msgid "Edit"
 msgstr ""
 
-#: administration/menubar.php:45
+#: administration/menubar.php:44
+msgid "Individual"
+msgstr ""
+
+#: administration/menubar.php:46
 msgid "Maintenance"
 msgstr ""
 
-#: administration/menubar.php:50
+#: administration/menubar.php:51
 #, fuzzy
 msgid "Media"
 msgstr "Multimedia"
 
-#: administration/status.php:39
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# gen_menu.php:31
+# gen_menu.php:31
+# gen_menu.php:31
+# gen_menu.php:31
+# gen_menu.php:31
+#: administration/status.php:40
+#, fuzzy
+msgid "System Status"
+msgstr "Estadística"
+
+# gen_menu.php:38
+# gen_menu.php:38
+# gen_menu.php:38
+# gen_menu.php:38
+# gen_menu.php:38
+#: administration/status.php:41
+#, fuzzy
+msgid "Database Records"
+msgstr "Base de datos"
+
+#: administration/status.php:48
 #, php-format
 msgid "You password has expired.  Go %s to change it immediately!"
 msgstr ""
 
-#: administration/sys_config.php:35
+#: administration/sys_config.php:34
 #, php-format
 msgid "You must edit core/config.php to change the %s setting."
 msgstr ""
 
-#: administration/sys_config.php:52
-#: administration/sys_config.php:93
+#: administration/sys_config.php:54
+#: administration/sys_config.php:97
 msgid "MySQL Hostname"
 msgstr ""
 
-#: administration/sys_config.php:53
-#: administration/sys_config.php:99
+#: administration/sys_config.php:55
+#: administration/sys_config.php:103
 msgid "MySQL Port"
 msgstr ""
 
-#: administration/sys_config.php:54
-#: administration/sys_config.php:105
+#: administration/sys_config.php:56
+#: administration/sys_config.php:109
 msgid "MySQL Username"
 msgstr ""
 
-#: administration/sys_config.php:55
-#: administration/sys_config.php:111
+#: administration/sys_config.php:57
+#: administration/sys_config.php:115
 msgid "MySQL Password"
 msgstr ""
 
@@ -222,40 +346,40 @@ msgstr ""
 # gen_menu.php:38
 # gen_menu.php:38
 # gen_menu.php:38
-#: administration/sys_config.php:56
-#: administration/sys_config.php:117
+#: administration/sys_config.php:58
+#: administration/sys_config.php:121
 #, fuzzy
 msgid "MySQL Database"
 msgstr "Base de datos"
 
-#: administration/sys_config.php:57
+#: administration/sys_config.php:61
 msgid "Nothing to save."
 msgstr ""
 
-#: administration/sys_config.php:58
+#: administration/sys_config.php:62
 msgid "Options updated."
 msgstr ""
 
-#: administration/sys_config.php:67
+#: administration/sys_config.php:71
 #, fuzzy
 msgid "Site Configuration"
 msgstr "Confirmación"
 
-#: administration/sys_config.php:72
+#: administration/sys_config.php:76
 #, fuzzy
 msgid "Default Page"
 msgstr "Página De la Familia"
 
-#: administration/sys_config.php:83
+#: administration/sys_config.php:87
 #, fuzzy
 msgid "Database Configuration"
 msgstr "Confirmación"
 
-#: administration/sys_config.php:88
+#: administration/sys_config.php:92
 msgid "The database settings are shown for reference only and can not be changed from this screen. You must edit core/config.php to change these settings."
 msgstr ""
 
-#: administration/sys_config.php:129
+#: administration/sys_config.php:133
 #, fuzzy
 msgid "Language Configuration"
 msgstr "Confirmación"
@@ -265,38 +389,49 @@ msgstr "Confirmación"
 # gen_menu.php:6
 # gen_menu.php:6
 # gen_menu.php:6
-#: administration/sys_config.php:134
+#: administration/sys_config.php:138
 #, fuzzy
 msgid "Default Language"
 msgstr "Lengua"
 
-#: administration/sys_config.php:150
+#: administration/sys_config.php:155
 msgid "Allow language changes"
 msgstr ""
 
-#: administration/sys_config.php:153
-#: administration/sys_config.php:162
+#: administration/sys_config.php:158
+#: administration/sys_config.php:168
+#: administration/sys_config.php:188
 msgid "Yes"
 msgstr "Si"
 
-#: administration/sys_config.php:154
-#: administration/sys_config.php:163
+#: administration/sys_config.php:159
+#: administration/sys_config.php:169
+#: administration/sys_config.php:189
 msgid "No"
 msgstr "No"
 
-#: administration/sys_config.php:160
+#: administration/sys_config.php:166
 msgid "Translate Dates"
 msgstr ""
 
-#: administration/sys_config.php:170
+#: administration/sys_config.php:180
+#, fuzzy
+msgid "Testing Configuration"
+msgstr "Confirmación"
+
+#: administration/sys_config.php:185
+msgid "Profile Functions"
+msgstr ""
+
+#: administration/sys_config.php:206
 #: administration/user_edit.php:114
 msgid "Save"
 msgstr ""
 
-#: administration/sys_config.php:171
+#: administration/sys_config.php:207
 #: administration/user_add.php:100
 #: administration/user_edit.php:115
-#: themes/default/search.php:92
+#: themes/default/search.php:96
 msgid "Reset"
 msgstr "Reiniciar"
 
@@ -391,13 +526,13 @@ msgid "Never"
 msgstr ""
 
 #: core/f_dummy.php:38
-#: core/f_dummy.php:93
+#: core/f_dummy.php:94
 #: themes/default/stats.php:96
 msgid "Marriage"
 msgstr "Unión"
 
 #: core/f_dummy.php:39
-#: core/f_dummy.php:62
+#: core/f_dummy.php:63
 #: core/f_report.php:161
 #: core/f_report.php:162
 #: themes/default/stats.php:91
@@ -425,206 +560,211 @@ msgid "Annulment"
 msgstr "Anulación"
 
 #: core/f_dummy.php:49
+#, fuzzy
+msgid "Divorce"
+msgstr "Pedigrí"
+
+#: core/f_dummy.php:50
 msgid "Divorce Filed"
 msgstr "Divorcio Presentado"
 
-#: core/f_dummy.php:50
+#: core/f_dummy.php:51
 msgid "Engagement"
 msgstr "Contrato"
 
-#: core/f_dummy.php:51
+#: core/f_dummy.php:52
 msgid "Husband"
 msgstr "Esposo"
 
 # core/f_language.php:64
 # core/f_dummy.php:5 core/f_dummy.php:13
-#: core/f_dummy.php:52
+#: core/f_dummy.php:53
 #, fuzzy
 msgid "Marriage Bann"
 msgstr "Hecho De la Unión"
 
 # core/f_language.php:64
 # core/f_dummy.php:5 core/f_dummy.php:13
-#: core/f_dummy.php:53
+#: core/f_dummy.php:54
 #, fuzzy
 msgid "Marriage Contract"
 msgstr "Hecho De la Unión"
 
-#: core/f_dummy.php:54
+#: core/f_dummy.php:55
 msgid "Marriage Fact"
 msgstr "Hecho De la Unión"
 
-#: core/f_dummy.php:55
+#: core/f_dummy.php:56
 msgid "Marriage License"
 msgstr "Licencia De la Unión"
 
 # core/f_language.php:64
 # core/f_dummy.php:5 core/f_dummy.php:13
-#: core/f_dummy.php:56
+#: core/f_dummy.php:57
 #, fuzzy
 msgid "Marriage Settlement"
 msgstr "Licencia De la Unión"
 
-#: core/f_dummy.php:57
+#: core/f_dummy.php:58
 msgid "Wife"
 msgstr "Esposa"
 
-#: core/f_dummy.php:60
+#: core/f_dummy.php:61
 #: themes/default/stats.php:89
 msgid "Male"
 msgstr "Masculino"
 
-#: core/f_dummy.php:61
+#: core/f_dummy.php:62
 #: themes/default/stats.php:90
 msgid "Female"
 msgstr "Femenino"
 
-#: core/f_dummy.php:65
+#: core/f_dummy.php:66
 msgid "Adoption"
 msgstr "Adopción"
 
-#: core/f_dummy.php:66
+#: core/f_dummy.php:67
 msgid "Adult Christening"
 msgstr "Bautizo Adulto"
 
-#: core/f_dummy.php:67
+#: core/f_dummy.php:68
 msgid "Baptism"
 msgstr "Bautizo"
 
 # core/f_dummy.php:14
-#: core/f_dummy.php:68
+#: core/f_dummy.php:69
 msgid "BaptismLDS"
 msgstr "Bautizo LDS"
 
-#: core/f_dummy.php:69
+#: core/f_dummy.php:70
 msgid "Bar Mitzah"
 msgstr "Bar Mitzah"
 
-#: core/f_dummy.php:70
+#: core/f_dummy.php:71
 msgid "Bas Mitzah"
 msgstr "Bas Mitzah"
 
-#: core/f_dummy.php:71
-#: themes/default/family.php:97
+#: core/f_dummy.php:72
+#: themes/default/family.php:96
 #: themes/default/family_pdf.php:134
 #: themes/default/pedigree_pdf.php:90
-#: themes/default/search.php:124
+#: themes/default/search.php:128
 #: themes/default/stats.php:94
-#: themes/default/surnames.php:127
+#: themes/default/surnames.php:136
 msgid "Birth"
 msgstr "Nació"
 
-#: core/f_dummy.php:72
+#: core/f_dummy.php:73
 msgid "Blessing"
 msgstr "Bendición"
 
-#: core/f_dummy.php:73
+#: core/f_dummy.php:74
 msgid "Burial"
 msgstr "Entierro"
 
-#: core/f_dummy.php:74
+#: core/f_dummy.php:75
 msgid "Caste"
 msgstr "Casta"
 
-#: core/f_dummy.php:75
+#: core/f_dummy.php:76
 msgid "Census"
 msgstr "Censo"
 
-#: core/f_dummy.php:76
+#: core/f_dummy.php:77
 msgid "Christening"
 msgstr "Bautismo"
 
-#: core/f_dummy.php:77
+#: core/f_dummy.php:78
 msgid "Confirmation"
 msgstr "Confirmación"
 
-#: core/f_dummy.php:78
+#: core/f_dummy.php:79
 msgid "Cremation"
 msgstr "Cremación"
 
-#: core/f_dummy.php:79
-#: themes/default/family.php:100
+#: core/f_dummy.php:80
+#: themes/default/family.php:99
 #: themes/default/family_pdf.php:152
 #: themes/default/pedigree_pdf.php:91
-#: themes/default/search.php:125
+#: themes/default/search.php:129
 #: themes/default/stats.php:95
-#: themes/default/surnames.php:128
+#: themes/default/surnames.php:137
 msgid "Death"
 msgstr "Murió"
 
-#: core/f_dummy.php:80
+#: core/f_dummy.php:81
 msgid "Degree"
 msgstr "Título"
 
-#: core/f_dummy.php:82
+#: core/f_dummy.php:83
 msgid "Education"
 msgstr "Educación"
 
-#: core/f_dummy.php:83
+#: core/f_dummy.php:84
 msgid "Election"
 msgstr "Elección"
 
-#: core/f_dummy.php:84
+#: core/f_dummy.php:85
 msgid "Emigration"
 msgstr "Emigración"
 
-#: core/f_dummy.php:85
+#: core/f_dummy.php:86
 msgid "Event"
 msgstr "Evento"
 
-#: core/f_dummy.php:86
+#: core/f_dummy.php:87
 msgid "First Communion"
 msgstr "Primer Communion"
 
-#: core/f_dummy.php:87
+#: core/f_dummy.php:88
 msgid "Funeral"
 msgstr "Funerales"
 
-#: core/f_dummy.php:88
+#: core/f_dummy.php:89
 msgid "Graduation"
 msgstr "Graduación"
 
-#: core/f_dummy.php:89
+#: core/f_dummy.php:90
 msgid "ID Number"
 msgstr "Número de la Identificación"
 
-#: core/f_dummy.php:90
+#: core/f_dummy.php:91
 msgid "Immigration"
 msgstr "Immigración"
 
-#: core/f_dummy.php:91
+#: core/f_dummy.php:92
 msgid "Land"
 msgstr "Tierra"
 
-#: core/f_dummy.php:92
+#: core/f_dummy.php:93
 msgid "Last Known Addr"
 msgstr "Último Domicilio"
 
-#: core/f_dummy.php:94
+#: core/f_dummy.php:95
 msgid "Military"
 msgstr "Militar"
 
-#: core/f_dummy.php:95
+#: core/f_dummy.php:96
 msgid "Military Award"
 msgstr "Los Militares Conceden"
 
-#: core/f_dummy.php:96
+#: core/f_dummy.php:97
 msgid "Military Discharge"
 msgstr "Descargan Militar"
 
-#: core/f_dummy.php:97
+#: core/f_dummy.php:98
 msgid "Military Enlist"
 msgstr "Alistamiento Militar"
 
-#: core/f_dummy.php:98
+#: core/f_dummy.php:99
 msgid "Military Service"
 msgstr "Servicio Militar"
 
-#: core/f_dummy.php:99
+#: core/f_dummy.php:100
 msgid "Nationality"
 msgstr "Nacionalidad"
 
-#: core/f_dummy.php:100
+#: core/f_dummy.php:101
 msgid "Naturalization"
 msgstr "Naturalización"
 
@@ -633,7 +773,7 @@ msgstr "Naturalización"
 # family.php:251
 # family.php:251
 # family.php:251
-#: core/f_dummy.php:101
+#: core/f_dummy.php:102
 msgid "Number of Children"
 msgstr "Número de Hijos"
 
@@ -646,59 +786,60 @@ msgstr "Número de Hijos"
 # ancestors.php:60
 # ancestors.php:60
 # ancestors.php:60
-#: core/f_dummy.php:102
+#: core/f_dummy.php:103
 msgid "Number of Marriages"
 msgstr "Número de Uniones"
 
-#: core/f_dummy.php:103
+#: core/f_dummy.php:104
 msgid "Occupation"
 msgstr "Ocupación"
 
-#: core/f_dummy.php:104
-msgid "Ordinance"
+#: core/f_dummy.php:105
+#, fuzzy
+msgid "Ordination"
 msgstr "Oredenanza"
 
-#: core/f_dummy.php:105
+#: core/f_dummy.php:106
 msgid "Possessions"
 msgstr "Posesiones"
 
-#: core/f_dummy.php:106
+#: core/f_dummy.php:107
 msgid "Probate"
 msgstr "Legalizar"
 
-#: core/f_dummy.php:107
+#: core/f_dummy.php:108
 msgid "Religion"
 msgstr "Religión"
 
-#: core/f_dummy.php:108
+#: core/f_dummy.php:109
 msgid "Researcher"
 msgstr "Investigador"
 
-#: core/f_dummy.php:109
+#: core/f_dummy.php:110
 msgid "Residence"
 msgstr "Residencia"
 
-#: core/f_dummy.php:110
+#: core/f_dummy.php:111
 msgid "Retirement"
 msgstr "Jubilación"
 
-#: core/f_dummy.php:111
+#: core/f_dummy.php:112
 msgid "Social Security Number"
 msgstr "Número De la Seguridad Social"
 
-#: core/f_dummy.php:112
+#: core/f_dummy.php:113
 msgid "SSN"
 msgstr "Número De la Seguridad Social"
 
-#: core/f_dummy.php:113
+#: core/f_dummy.php:114
 msgid "Title"
 msgstr "Título"
 
-#: core/f_dummy.php:114
+#: core/f_dummy.php:115
 msgid "Will"
 msgstr "Testamento"
 
-#: core/f_dummy.php:117
+#: core/f_dummy.php:118
 msgid "ALL"
 msgstr "TODOS"
 
@@ -707,7 +848,7 @@ msgstr "TODOS"
 # ancestors.php:88 gen_menu.php:12
 # ancestors.php:88 gen_menu.php:12
 # ancestors.php:88 gen_menu.php:12
-#: core/f_dummy.php:120
+#: core/f_dummy.php:121
 msgid "English"
 msgstr "Inglés"
 
@@ -716,15 +857,15 @@ msgstr "Inglés"
 # ancestors.php:89 gen_menu.php:13
 # ancestors.php:89 gen_menu.php:13
 # ancestors.php:89 gen_menu.php:13
-#: core/f_dummy.php:121
+#: core/f_dummy.php:122
 msgid "Spanish"
 msgstr "Español"
 
-#: core/f_dummy.php:122
+#: core/f_dummy.php:123
 msgid "Dutch"
 msgstr "Holandés"
 
-#: core/f_dummy.php:123
+#: core/f_dummy.php:124
 msgid "German"
 msgstr "Alemán"
 
@@ -1358,7 +1499,6 @@ msgid "Ahnentafel Report for %s"
 msgstr "Informe de Ahnentafel para %s"
 
 #: themes/default/ahnentafel.php:64
-#: themes/default/reports.php:49
 msgid "Ahnentafel Report"
 msgstr "Informe De Ahnentafel"
 
@@ -1395,17 +1535,17 @@ msgid "Genealogy"
 msgstr "Genealogía"
 
 #: themes/default/descendant.php:104
-#: themes/default/family.php:132
-#: themes/default/family.php:171
-#: themes/default/family_pdf.php:232
+#: themes/default/family.php:143
+#: themes/default/family.php:182
+#: themes/default/family_pdf.php:240
 #: themes/default/pedigree.php:68
 msgid "b."
 msgstr "n."
 
 #: themes/default/descendant.php:107
-#: themes/default/family.php:133
-#: themes/default/family.php:172
-#: themes/default/family_pdf.php:233
+#: themes/default/family.php:144
+#: themes/default/family.php:183
+#: themes/default/family_pdf.php:241
 #: themes/default/pedigree.php:69
 msgid "d."
 msgstr "m."
@@ -1423,7 +1563,7 @@ msgstr "Informe Del Descendiente"
 
 #: themes/default/email.php:29
 #: themes/default/email.php:65
-#: themes/default/template.php:64
+#: themes/default/template.php:70
 msgid "E-mail this to a friend"
 msgstr "E-mail esto a un amigo"
 
@@ -1472,16 +1612,12 @@ msgstr "Cierra"
 msgid "Family Page for %s"
 msgstr "Página de la familia para %s."
 
-#: themes/default/family.php:83
-msgid "Family Page"
-msgstr "Página De la Familia"
-
-#: themes/default/family.php:87
+#: themes/default/family.php:86
 #: themes/default/family_pdf.php:117
 msgid "Aka"
 msgstr "Alias"
 
-#: themes/default/family.php:90
+#: themes/default/family.php:89
 #: themes/default/family_pdf.php:126
 msgid "Gender"
 msgstr "Sexo"
@@ -1497,7 +1633,7 @@ msgstr "Sexo"
 # family.php:94 family.php:210
 # family.php:94 family.php:210
 # family.php:94 family.php:210
-#: themes/default/family.php:93
+#: themes/default/family.php:92
 #: themes/default/family_pdf.php:170
 msgid "Father"
 msgstr "Padre"
@@ -1513,7 +1649,7 @@ msgstr "Padre"
 # family.php:98 family.php:214
 # family.php:98 family.php:214
 # family.php:98 family.php:214
-#: themes/default/family.php:95
+#: themes/default/family.php:94
 #: themes/default/family_pdf.php:176
 msgid "Mother"
 msgstr "Madre"
@@ -1529,23 +1665,23 @@ msgstr "Madre"
 # family.php:123 family.php:166 family.php:238
 # family.php:123 family.php:166 family.php:238
 # family.php:123 family.php:166 family.php:238
-#: themes/default/family.php:114
-#: themes/default/family.php:152
-#: themes/default/family_pdf.php:204
-#: themes/default/family_pdf.php:272
+#: themes/default/family.php:125
+#: themes/default/family.php:163
+#: themes/default/family_pdf.php:212
+#: themes/default/family_pdf.php:280
 #: themes/default/stats.php:98
 msgid "Notes"
 msgstr "Notas"
 
-#: themes/default/family.php:125
-#: themes/default/family_pdf.php:225
+#: themes/default/family.php:136
+#: themes/default/family_pdf.php:233
 #, php-format
 msgid "Family %s"
 msgstr "Familia %s"
 
 # core/f_dummy.php:8
-#: themes/default/family.php:126
-#: themes/default/family_pdf.php:229
+#: themes/default/family.php:137
+#: themes/default/family_pdf.php:237
 msgid "Spouse/Partner"
 msgstr "Esposo/Socio"
 
@@ -1554,12 +1690,12 @@ msgstr "Esposo/Socio"
 # family.php:251
 # family.php:251
 # family.php:251
-#: themes/default/family.php:159
-#: themes/default/family_pdf.php:284
+#: themes/default/family.php:170
+#: themes/default/family_pdf.php:292
 msgid "Children"
 msgstr "Hijos"
 
-#: themes/default/family.php:182
+#: themes/default/family.php:193
 msgid "Source Citations"
 msgstr "Citaciones De la Fuente"
 
@@ -1571,10 +1707,10 @@ msgstr "Página de la familia para %s"
 
 #: themes/default/family_pdf.php:141
 #: themes/default/family_pdf.php:159
-#: themes/default/family_pdf.php:191
-#: themes/default/family_pdf.php:242
-#: themes/default/family_pdf.php:259
-#: themes/default/family_pdf.php:310
+#: themes/default/family_pdf.php:199
+#: themes/default/family_pdf.php:250
+#: themes/default/family_pdf.php:267
+#: themes/default/family_pdf.php:318
 #: themes/default/stats.php:99
 msgid "Sources"
 msgstr "Fuentes"
@@ -1596,9 +1732,9 @@ msgstr "Busque la base de datos"
 #: themes/default/menu.php:27
 #: themes/default/search.php:35
 #: themes/default/search.php:38
-#: themes/default/search.php:44
-#: themes/default/search.php:51
-#: themes/default/search.php:91
+#: themes/default/search.php:45
+#: themes/default/search.php:52
+#: themes/default/search.php:95
 msgid "Search"
 msgstr "Buscar"
 
@@ -1665,31 +1801,31 @@ msgstr "Multimedia para %s"
 # family.php:52 gen_menu.php:47
 # family.php:52 gen_menu.php:47
 # family.php:52 gen_menu.php:47
-#: themes/default/nav.php:29
-#: themes/default/nav.php:32
-#: themes/default/surnames.php:107
-#: themes/default/surnames.php:110
+#: themes/default/nav.php:30
+#: themes/default/nav.php:33
+#: themes/default/surnames.php:112
+#: themes/default/surnames.php:115
 #, php-format
 msgid "%s Surname"
 msgstr "Apellido %s"
 
-#: themes/default/nav.php:37
-#: themes/default/nav.php:40
+#: themes/default/nav.php:38
+#: themes/default/nav.php:41
 msgid "Family"
 msgstr "Familia"
 
-#: themes/default/nav.php:45
-#: themes/default/nav.php:48
+#: themes/default/nav.php:46
+#: themes/default/nav.php:49
 msgid "Pedigree"
 msgstr "Pedigrí"
 
-#: themes/default/nav.php:53
-#: themes/default/nav.php:56
+#: themes/default/nav.php:54
+#: themes/default/nav.php:57
 msgid "Reports"
 msgstr "Informes"
 
-#: themes/default/nav.php:61
-#: themes/default/nav.php:64
+#: themes/default/nav.php:62
+#: themes/default/nav.php:65
 msgid "Multimedia"
 msgstr "Multimedia"
 
@@ -1705,36 +1841,36 @@ msgstr "Pedigrí para %s"
 msgid "Reports for %s"
 msgstr "Informes para %s"
 
-#: themes/default/reports.php:52
+#: themes/default/reports.php:53
 msgid "Family Reports"
 msgstr "Informes de la Familia"
 
-#: themes/default/reports.php:53
+#: themes/default/reports.php:54
 msgid "Family PDF"
 msgstr "Familia PDF"
 
-#: themes/default/reports.php:55
+#: themes/default/reports.php:56
 msgid "Pedigree Reports"
 msgstr "Informes Pedigríes"
 
-#: themes/default/reports.php:56
+#: themes/default/reports.php:57
 msgid "Pedigree PDF"
 msgstr "Pedigrí PDF"
 
-#: themes/default/reports.php:58
+#: themes/default/reports.php:59
 msgid "Ancestor Reports"
 msgstr "Informes del Antepasado"
 
-#: themes/default/reports.php:61
-#: themes/default/reports.php:75
+#: themes/default/reports.php:62
+#: themes/default/reports.php:76
 msgid "Report type"
 msgstr "Divulgue el tipo"
 
-#: themes/default/reports.php:62
+#: themes/default/reports.php:63
 msgid "Ahnentafel"
 msgstr "Ahnentafel"
 
-#: themes/default/reports.php:62
+#: themes/default/reports.php:63
 msgid "Ahnentafel PDF"
 msgstr "Ahnentafel PDF"
 
@@ -1747,34 +1883,34 @@ msgstr "Ahnentafel PDF"
 # ancestors.php:60
 # ancestors.php:60
 # ancestors.php:60
-#: themes/default/reports.php:63
-#: themes/default/reports.php:77
+#: themes/default/reports.php:64
+#: themes/default/reports.php:78
 msgid "Number of Generations"
 msgstr "Generaciones"
 
-#: themes/default/reports.php:68
-#: themes/default/reports.php:82
+#: themes/default/reports.php:69
+#: themes/default/reports.php:83
 msgid "Apply"
 msgstr "Apliqúese"
 
-#: themes/default/reports.php:72
+#: themes/default/reports.php:73
 msgid "Descendant Reports"
 msgstr "Informes Del Descendiente"
 
-#: themes/default/reports.php:76
+#: themes/default/reports.php:77
 msgid "Descendant"
 msgstr "Descendiente"
 
-#: themes/default/reports.php:76
+#: themes/default/reports.php:77
 msgid "Descendant PDF"
 msgstr "Descendiente PDF"
 
-#: themes/default/search.php:56
+#: themes/default/search.php:57
 #, fuzzy
 msgid "Results"
 msgstr "Censo"
 
-#: themes/default/search.php:70
+#: themes/default/search.php:74
 msgid "Given Name"
 msgstr "Nombre de Pila"
 
@@ -1789,30 +1925,30 @@ msgstr "Nombre de Pila"
 # family.php:52 gen_menu.php:47
 # family.php:52 gen_menu.php:47
 # family.php:52 gen_menu.php:47
-#: themes/default/search.php:71
+#: themes/default/search.php:75
 #, fuzzy
 msgid "Surname"
 msgstr "Apellido %s"
 
-#: themes/default/search.php:93
+#: themes/default/search.php:97
 msgid "Clear"
 msgstr "Limpiar"
 
-#: themes/default/search.php:106
+#: themes/default/search.php:110
 msgid "No search parameters were specified."
 msgstr "Busqueda no tiene parametros especificados."
 
-#: themes/default/search.php:120
-#: themes/default/surnames.php:125
+#: themes/default/search.php:124
+#: themes/default/surnames.php:134
 msgid "Number of individuals listed"
 msgstr "Número de los individuos enumerados"
 
-#: themes/default/search.php:123
-#: themes/default/surnames.php:126
+#: themes/default/search.php:127
+#: themes/default/surnames.php:135
 msgid "Name"
 msgstr "Nombre"
 
-#: themes/default/search.php:140
+#: themes/default/search.php:144
 msgid "No matching records were found."
 msgstr ""
 
@@ -1875,11 +2011,11 @@ msgstr "Citaciones De la Fuente"
 # ancestors.php:60
 # ancestors.php:60
 # ancestors.php:60
-#: themes/default/surnames.php:88
+#: themes/default/surnames.php:92
 msgid "Number of surnames listed"
 msgstr "El número de apellidos enumeró"
 
-#: themes/default/template.php:63
+#: themes/default/template.php:69
 #: themes/default/template_print.php:36
 msgid "Print"
 msgstr "Imprimir"
