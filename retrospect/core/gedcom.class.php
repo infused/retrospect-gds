@@ -23,13 +23,16 @@
  */
  
 	# Define regular expressions
+	define('REG_NEWREC','/^0/'); # New record
 	define('REG_INDI','/^0 @(.+)@ INDI/'); 	# Beginning of Individual record
 	define('REG_FAM','/^0 @[a-zA-Z0-9]+@ FAM/');		# Beginning of Family record
 	define('REG_SOUR','/^0 @.+@ SOUR/');	# Beginning of Source record
 	define('REG_NOTE1','/^0 (@.+@) NOTE(.*)/');	# Note record
 	define('REG_NOTE2','/^[0-9]{1,2} NOTE [^@](.*)/');	# Alternate note record form
-	define('REG_NAME1','/^[1-9]{1,2} NAME (.*)(\/(.*)\/)(.*)?/');  # Name with surname enclosed in slashes
-	define('REG_NAME2','^[1-9]{1,2} NAME (.*)');  # Name with no surname
+	define('REG_NAME','/^[0-9]{1,2} NAME (.*)/');  # Name with no surname
+	define('REG_TITL','/^[0-9]{1,2} TITL (.*)/'); # Title (suffix)
+	define('REG_SEX','/^[0-9]{1,2} SEX (.?)/'); # Sex
+	
 	
 	/**
  	* GedcomParser class
@@ -182,27 +185,55 @@
 				$GLOBALS['profiler']->startTimer('class_GedcomParser_ParseIndividual');
 			}
 			# init vars
+			$name_count = -1;
+			$name_list = array();
+			$end = false;
 			$title = '';
 			$gname = '';
 			$sname = '';
+			$sex = '';
 			
 			$indkey = $match[1];
 			# let's get the rest of the record
 			while (!feof($this->fhandle)) {
 				$offset = ftell($this->fhandle); // get offset so we can back up at end of record
 				$line = fgets($this->fhandle);
-				if (preg_match(REG_NAME1, $line, $match)) {  
-					$gname = $match[1];
-					if (isset($match[3])) { 
-						$gname .= ' '.$match[4];
+				# process name tags
+				if (preg_match(REG_NAME, $line, $match)) {  
+					$name_count++;
+					$name = $match[1];
+					$name_array = explode(' ', $name);
+					foreach($name_array as $n) {
+						if (strpos($n,'/') !== false) {
+							$sname = trim(trim($n),'/');  
+							
+						}
+						else {
+							$gname .= trim($n).' ';
+						}
 					}
-					$sname = $match[3];
-					echo $gname.' '.$sname.'<br>';
-				} elseif(ereg(REG_NAME2, $line, $match)) {
-						$gname = $match[1];
-						echo $gname.' '.$sname.'<br>';
+					# stuff the name strings you know where
+					$name_list[$name_count]['sname'] = $sname;
+					$name_list[$name_count]['gname'] = trim($gname);
+				} 
+				elseif (preg_match(REG_TITL, $line, $match)) {
+					# obviously any alternate title will overwrite the last
+					$title = $match[1];
 				}
-				
+				elseif (preg_match(REG_SEX, $line, $match)) {
+					$sex = $match[1];
+				}
+				# detect end of record
+				elseif (preg_match(REG_NEWREC, $line)) {
+					$end = true;
+				} 
+				if ($end) {
+					# dump record details
+					# ignore alternate names (for now)
+					echo '"'.$indkey.'","'.$name_list[0]['sname'].'","'.$name_list[0]['gname'].'","'.$sex.'"<br>';
+					fseek($this->fhandle, $offset);
+					break;
+				}
 			}
 			if ($GLOBALS['profile'] == true) {
 				$GLOBALS['profiler']->stopTimer('class_GedcomParser_ParseIndividual');
