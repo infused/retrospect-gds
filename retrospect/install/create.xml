@@ -281,6 +281,14 @@
 		<query>INSERT INTO options VALUES (5, 'profile_functions', '0')</query>
 	</sql>
 	<sql prefixmethod="auto">
+		<descr>Add 'meta_copyright' record to options table</descr>
+		<query>INSERT INTO options VALUES (6, 'meta_copyright', '')</query>
+	</sql>
+	<sql prefixmethod="auto">
+		<descr>Add 'meta_keywords' record to options table</descr>
+		<query>INSERT INTO options VALUES (7, 'meta_keywords', 'genealogy, family history')</query>
+	</sql>
+	<sql prefixmethod="auto">
 		<descr>Add english language</descr>
 		<query>INSERT INTO language VALUES (1, 'en_US', 'iso-8895-1', 'English')</query>
 	</sql>

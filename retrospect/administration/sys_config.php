@@ -50,6 +50,12 @@
 					if ($_POST['profile_functions_new'] != $_POST['profile_functions_old']) {
 						$updated = $options->OptionUpdate('profile_functions', $_POST['profile_functions_new']);
 					}
+					if ($_POST['meta_copyright_new'] != $_POST['meta_copyright_old']) {
+						$updated = $options->OptionUpdate('meta_copyright', $_POST['meta_copyright_new']);
+					}
+					if ($_POST['meta_keywords_new'] != $_POST['meta_keywords_old']) {
+						$updated = $options->OptionUpdate('meta_keywords', $_POST['meta_keywords_new']);
+					}
 					
 					if ($_POST['db_host_new'] != $_POST['db_host_old']) { config_fail(_("MySQL Hostname")); }
 					if ($_POST['db_port_new'] != $_POST['db_port_old']) { config_fail(_("MySQL Port"));	}
@@ -133,7 +139,7 @@
     <td align="left" valign="top" class="content-subtitle"><?php echo _("Language Configuration"); ?></td> 
   </tr> 
   <tr> 
-    <td align="left" valign="top" bgcolor="#CCCCCC"><table  border="0" cellspacing="0" cellpadding="0"> 
+    <td align="left" valign="top" bgcolor="#CCCCCC"><table  border="0" cellspacing="0" cellpadding="2"> 
         <tr bgcolor="#CCCCCC"> 
           <td width="250" class="content-label"><?php echo _("Default Language"); ?>: </td> 
           <td>
@@ -177,10 +183,34 @@
     <td align="left" valign="top">&nbsp;</td>
   </tr>
   <tr>
+    <td align="left" valign="top" class="content-subtitle"><?php echo _("Meta Tag Generation"); ?>&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left" valign="top" bgcolor="#CCCCCC"><table  border="0" cellspacing="0" cellpadding="2">
+      <tr>
+        <td width="250" class="content-label">Copyright Notice: </td>
+        <td><input name="meta_copyright_new" type="text" class="textbox" id="meta_copyright_new" value="<?php echo $options->GetOption('meta_copyright'); ?>" size="50">
+          <input name="meta_copyright_old" type="hidden" id="meta_copyright_old" value="<?php echo $options->GetOption('meta_copyright'); ?>"></td>
+      </tr>
+      <tr>
+        <td class="content-label">Default Keywords: </td>
+        <td><input name="meta_keywords_new" type="text" class="textbox" id="meta_keywords_new" value="<?php echo $options->GetOption('meta_keywords'); ?>" size="50">
+          <input name="meta_keywords_old" type="hidden" id="meta_keywords_old" value="<?php echo $options->GetOption('meta_keywords'); ?>"></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top" class="content-subtitle">&nbsp;</td>
+  </tr>
+  <tr>
     <td align="left" valign="top" class="content-subtitle"><?php echo _("Testing Configuration"); ?></td>
   </tr>
   <tr>
-    <td align="left" valign="top" bgcolor="#CCCCCC"><table  border="0" cellspacing="0" cellpadding="0">
+    <td align="left" valign="top" bgcolor="#CCCCCC"><table  border="0" cellspacing="0" cellpadding="2">
       <tr>
         <td width="250" class="content-label"><?php echo _("Profile Functions"); ?>?</td>
         <td>

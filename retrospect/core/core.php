@@ -77,6 +77,7 @@
 	*/
 	require_once(CORE_PATH.'options.class.php');
 	$options =& new Options();
+	$keywords = explode(',', $options->GetOption('meta_keywords'));
 	
 	/**
 	* Load profiler and initialize
