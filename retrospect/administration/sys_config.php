@@ -156,8 +156,8 @@
             <tr>
               <td class="content-label">Allow language changes?</td>
               <td><select name="allow_lang_change_new" class="listbox" id="allow_lang_change_new">
-                  <option value="1" <?php if ($options->GetOption('allow_lang_change') == 1) echo 'SELECTED'; ?>><?php echo _("Yes"); ?></option>
-                  <option value="0" <?php if ($options->GetOption('allow_lang_change') == 0) echo 'SELECTED'; ?>><?php echo _("No"); ?></option>
+                  <option value="1" <?php if ($options->GetOption('allow_lang_change') == 1) echo 'SELECTED'; ?>><?php echo 'Yes'; ?></option>
+                  <option value="0" <?php if ($options->GetOption('allow_lang_change') == 0) echo 'SELECTED'; ?>><?php echo 'No'; ?></option>
                 </select>
                   <input name="allow_lang_change_old" type="hidden" id="allow_lang_change_old" value="<?php echo $options->GetOption('allow_lang_change'); ?>">
               </td>
@@ -166,8 +166,8 @@
             <tr>
               <td class="content-label">Translate Dates?</td>
               <td><select name="translate_dates_new" class="listbox" id="translate_dates_new">
-                  <option value="1" <?php if ($options->GetOption('translate_dates') == 1) echo 'SELECTED'; ?>><?php echo _("Yes"); ?></option>
-                  <option value="0" <?php if ($options->GetOption('translate_dates') == 0) echo 'SELECTED'; ?>><?php echo _("No"); ?></option>
+                  <option value="1" <?php if ($options->GetOption('translate_dates') == 1) echo 'SELECTED'; ?>><?php echo 'Yes'; ?></option>
+                  <option value="0" <?php if ($options->GetOption('translate_dates') == 0) echo 'SELECTED'; ?>><?php echo 'No'; ?></option>
                 </select>
                   <input name="translate_dates_old" type="hidden" id="translate_dates_old" value="<?php echo $options->GetOption('translate_dates'); ?>"></td>
               <td>&nbsp;</td>
@@ -207,8 +207,8 @@
             <tr>
               <td width="250" class="content-label">Profile Functions?</td>
               <td><select name="profile_functions_new" class="listbox" id="profile_functions_new">
-                  <option value="1" <?php if ($options->GetOption('profile_functions') == 1) echo 'SELECTED'; ?>><?php echo _("Yes"); ?></option>
-                  <option value="0" <?php if ($options->GetOption('profile_functions') == 0) echo 'SELECTED'; ?>><?php echo _("No"); ?></option>
+                  <option value="1" <?php if ($options->GetOption('profile_functions') == 1) echo 'SELECTED'; ?>><?php echo 'Yes'; ?></option>
+                  <option value="0" <?php if ($options->GetOption('profile_functions') == 0) echo 'SELECTED'; ?>><?php echo 'No'; ?></option>
                 </select>
                   <input name="profile_functions_old" type="hidden" id="profile_functions_old" value="<?php echo $options->GetOption('profile_functions'); ?>">
               </td>
@@ -225,7 +225,7 @@
   </tr>
 	<tr>
 	<td><input name="Save" type="submit" class="text" id="Save" value="Save"> 
-	<input name="<?php echo _("Reset"); ?>" type="reset" class="text" id="<?php echo _("Reset"); ?>" value="Reset"></td>
+	<input name="Reset" type="reset" class="text" id="Reset" value="Reset"></td>
 	</tr>
 </table> 
 </form>

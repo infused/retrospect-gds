@@ -23,15 +23,15 @@
  */
 
 	# main links
-  $g_menu = '<div class="menu-title">'._("Database").'</div>';
-	$g_menu .= '<a href="'.Theme::GetArgs('search').'" title="'._("Search the Database").'" class="menu-item">'._("Search").'</a><br />';
-	$g_menu .= '<a href="'.Theme::GetArgs('surnames').'" title="'._("Surname List").'" class="menu-item">'._("Surname List").'</a><br />';
-  $g_menu .= '<a href="'.Theme::GetArgs('stats').'" title="'._("Database Statistics").'" class="menu-item">'._("Statistics").'</a><br />';
+  $g_menu = '<div class="menu-title">'.gtc("Database").'</div>';
+	$g_menu .= '<a href="'.Theme::GetArgs('search').'" title="'.gtc("Search the Database").'" class="menu-item">'.gtc("Search").'</a><br />';
+	$g_menu .= '<a href="'.Theme::GetArgs('surnames').'" title="'.gtc("Surname List").'" class="menu-item">'.gtc("Surname List").'</a><br />';
+  $g_menu .= '<a href="'.Theme::GetArgs('stats').'" title="'.gtc("Database Statistics").'" class="menu-item">'.gtc("Statistics").'</a><br />';
   $g_menu .= '<br />';
 
 	# language selection
 	if ($options->GetOption('allow_lang_change') != null AND is_array($g_langs)) {
-		$g_menu .= '<div class="menu-title">'._("Language").'</div>';
+		$g_menu .= '<div class="menu-title">'.gtc("Language").'</div>';
 		$g_menu .= '<form name="form_change_lang" method="post" action="'.htmlentities(CURRENT_PAGE).'">';
 		$g_menu .= '<select name="lang" size="1" class="listbox" id="lang" onchange="document.forms.form_change_lang.submit();">';
 		foreach ($g_langs as $the_lang) {
@@ -41,7 +41,7 @@
 			if ($_SESSION['lang'] == $code) {
 				$g_menu .= ' selected="selected"';
 			}
-			$g_menu .= '>'._($name).'</option>';
+			$g_menu .= '>'.gtc($name).'</option>';
 		}
 		$g_menu .= '</select>';
 		$g_menu .= '</form>';

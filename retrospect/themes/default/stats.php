@@ -80,26 +80,26 @@
 	$cnt_citations = $db->GetOne($sql);
 	
  	# set title
-	$g_title = _("Statistics");
+	$g_title = gtc("Statistics");
 	
 	# populate keyword array
-	keyword_push(_("Statistics"));
+	keyword_push(gtc("Statistics"));
 	
 	# display results
-	echo '<p class="content-title">'._("Statistics").'</p>';
-	echo display_col1(_("Surnames")).display_col2($cnt_surnames);
-	echo display_col1(_("Individuals")).display_col2($cnt_indiv);
-	echo display_col1('- '._("Male")).display_col2($cnt_indiv_male);
-	echo display_col1('- '._("Female")).display_col2($cnt_indiv_female);
-	echo display_col1('- '._("Unknown")).display_col2($cnt_indiv_unknown);
-	echo display_col1(_("Families")).display_col2($cnt_families);
-	echo display_col1(_("Facts")).display_col2($cnt_facts);
-	echo display_col1('- '._("Birth")).display_col2($cnt_facts_birth);
-	echo display_col1('- '._("Death")).display_col2($cnt_facts_death);
-	echo display_col1('- '._("Marriage")).display_col2($cnt_facts_marriage);
-	echo display_col1('- '._("Other")).display_col2($cnt_facts_other);
-	echo display_col1(_("Notes")).display_col2($cnt_notes);
-	echo display_col1(_("Sources")).display_col2($cnt_sources);
-	echo display_col1('- '._("Citations")).display_col2($cnt_citations);
+	echo '<p class="content-title">'.gtc("Statistics").'</p>';
+	echo display_col1(gtc("Surnames")).display_col2($cnt_surnames);
+	echo display_col1(gtc("Individuals")).display_col2($cnt_indiv);
+	echo display_col1('- '.gtc("Male")).display_col2($cnt_indiv_male);
+	echo display_col1('- '.gtc("Female")).display_col2($cnt_indiv_female);
+	echo display_col1('- '.gtc("Unknown")).display_col2($cnt_indiv_unknown);
+	echo display_col1(gtc("Families")).display_col2($cnt_families);
+	echo display_col1(gtc("Facts")).display_col2($cnt_facts);
+	echo display_col1('- '.gtc("Birth")).display_col2($cnt_facts_birth);
+	echo display_col1('- '.gtc("Death")).display_col2($cnt_facts_death);
+	echo display_col1('- '.gtc("Marriage")).display_col2($cnt_facts_marriage);
+	echo display_col1('- '.gtc("Other")).display_col2($cnt_facts_other);
+	echo display_col1(gtc("Notes")).display_col2($cnt_notes);
+	echo display_col1(gtc("Sources")).display_col2($cnt_sources);
+	echo display_col1('- '.gtc("Citations")).display_col2($cnt_citations);
 	
 ?>

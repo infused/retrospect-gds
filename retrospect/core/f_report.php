@@ -39,25 +39,25 @@
 		# for males
 		if ($p_node->sex == 'M') { 
 			if ($p_node->birth->date AND $p_node->birth->place) {
-				return sprintf(_("He was born on %s in %s."), lang_translate_date($p_node->birth->date), $p_node->birth->place).' ';		
+				return sprintf(gtc("He was born on %s in %s."), lang_translate_date($p_node->birth->date), $p_node->birth->place).' ';		
 			}
 			elseif ($p_node->birth->date) {
-				return sprintf(_("He was born on %s."), lang_translate_date($p_node->birth->date)).' ';
+				return sprintf(gtc("He was born on %s."), lang_translate_date($p_node->birth->date)).' ';
 			}
 			elseif ($p_node->birth->place) {
-				return sprintf(_("He was born in %s."), $p_node->birth->place).' ';
+				return sprintf(gtc("He was born in %s."), $p_node->birth->place).' ';
 			}
 		}
 		# for females
 		if ($p_node->sex == 'F') { 
 			if ($p_node->birth->date AND $p_node->birth->place) {
-				return sprintf(_("She was born on %s in %s."), lang_translate_date($p_node->birth->date), $p_node->birth->place).' ';
+				return sprintf(gtc("She was born on %s in %s."), lang_translate_date($p_node->birth->date), $p_node->birth->place).' ';
 			}
 			elseif ($p_node->birth->date) {
-				return sprintf(_("She was born on %s."), lang_translate_date($p_node->birth->date)).' ';
+				return sprintf(gtc("She was born on %s."), lang_translate_date($p_node->birth->date)).' ';
 			}
 			elseif ($p_node->birth->place) {
-				return sprintf(_("She was born in %s."), $p_node->birth->place).' ';
+				return sprintf(gtc("She was born in %s."), $p_node->birth->place).' ';
 			}
 		}
 	}
@@ -79,25 +79,25 @@
 		# for males
 		if ($p_node->sex == 'M') { 
 			if ($p_node->death->date and $p_node->death->place) {
-				return sprintf(_("He died on %s in %s."), lang_translate_date($p_node->death->date), $p_node->death->place).' ';		
+				return sprintf(gtc("He died on %s in %s."), lang_translate_date($p_node->death->date), $p_node->death->place).' ';		
 			}
 			elseif ($p_node->death->date) {
-				return sprintf(_("He died on %s."), lang_translate_date($p_node->death->date)).' ';
+				return sprintf(gtc("He died on %s."), lang_translate_date($p_node->death->date)).' ';
 			}
 			elseif ($p_node->death->place) {
-				return sprintf(_("He died in %s."), $p_node->death->place).' ';
+				return sprintf(gtc("He died in %s."), $p_node->death->place).' ';
 			}
 		}
 		# for females
 		if ($p_node->sex == 'F') { 
 			if ($p_node->death->date and $p_node->death->place) {
-				return sprintf(_("She died on %s in %s."), lang_translate_date($p_node->death->date), $p_node->death->place).' ';		
+				return sprintf(gtc("She died on %s in %s."), lang_translate_date($p_node->death->date), $p_node->death->place).' ';		
 			}
 			elseif ($p_node->death->date) {
-				return sprintf(_("She died on %s."), lang_translate_date($p_node->death->date)).' ';
+				return sprintf(gtc("She died on %s."), lang_translate_date($p_node->death->date)).' ';
 			}
 			elseif ($p_node->death->place) {
-				return sprintf(_("She died in %s."), $p_node->death->place).' ';
+				return sprintf(gtc("She died in %s."), $p_node->death->place).' ';
 			}
 		}
 	}
@@ -119,35 +119,35 @@
 		keyword_push($p_father->name);
 		keyword_push($p_mother->name);
 		
-		$mother_link = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$p_mother->indkey.'">'.$p_mother->name.'</a>';
-		$father_link = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$p_father->indkey.'">'.$p_father->name.'</a>';
+		$mother_link = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?option=family&amp;indiv='.$p_mother->indkey.'">'.$p_mother->name.'</a>';
+		$father_link = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?option=family&amp;indiv='.$p_father->indkey.'">'.$p_father->name.'</a>';
 		if ($p_node->father_indkey || $p_node->mother_indkey) {
 			if ($p_node->sex == 'M') { 
 				# structure for son of father and mother
 				if ($p_node->father_indkey and $p_node->mother_indkey) {
-					return sprintf(_(", son of %s and %s."), $father_link, $mother_link).' ';
+					return sprintf(gtc(", son of %s and %s."), $father_link, $mother_link).' ';
 				}
 				# structure for son of father
 				elseif ($p_node->father_indkey) {
-					return sprintf(_(", son of %s."), $father_link).' ';
+					return sprintf(gtc(", son of %s."), $father_link).' ';
 				}
 				# structure for son of mother
 				elseif ($p_node->mother_indkey) {
-					return sprintf(_(", son of %s."), $mother_link).' ';
+					return sprintf(gtc(", son of %s."), $mother_link).' ';
 				}
 			}
 			if ($p_node->sex == 'F') { 
 				# structure for daughter of father and mother
 				if ($p_node->father_indkey and $p_node->mother_indkey) {
-					return sprintf(_(", daughter of %s and %s."), $father_link, $mother_link).' ';
+					return sprintf(gtc(", daughter of %s and %s."), $father_link, $mother_link).' ';
 				}
 				# structure for daugher of father
 				elseif ($p_node->father_indkey) {
-					return sprintf(_(", daughter of %s."), $father_link).' ';
+					return sprintf(gtc(", daughter of %s."), $father_link).' ';
 				}
 				# structure for daugher of mother
 				elseif ($p_node->mother_indkey) {
-					return sprintf(_(", daughter of %s."), $mother_link).' ';
+					return sprintf(gtc(", daughter of %s."), $mother_link).' ';
 				}
 			}
 		}
@@ -166,57 +166,57 @@
 			$marriage =& $p_node->marriages[$i];
 			if ($marriage->spouse) {
 				$spouse = new Person($marriage->spouse, 3);
-				$spouse_link = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$spouse->indkey.'">'.$spouse->name.'</a>';
+				$spouse_link = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?option=family&amp;indiv='.$spouse->indkey.'">'.$spouse->name.'</a>';
 				# populate keyword array
 				keyword_push($spouse->name);
 				
 				# fix some problems
-				if (!$spouse->name) { $spouse->name =  _("Unknown"); }
-				if ($spouse->name == 'Unknown Unknown') { $spouse->name = _("Unknown"); }
+				if (!$spouse->name) { $spouse->name =  gtc("Unknown"); }
+				if ($spouse->name == 'Unknown Unknown') { $spouse->name = gtc("Unknown"); }
 				
 				if ($marriage->beginstatus == 'Marriage') {
 					if ($p_node->sex == 'M') {
 						# structure for male married with date and place
 						if ($marriage->date and $marriage->place) {
-							$s .= sprintf(_("male %s married %s on %s in %s."), $p_node->fname, $spouse_link, lang_translate_date($marriage->date), $marriage->place);
+							$s .= sprintf(gtc("male %s married %s on %s in %s."), $p_node->fname, $spouse_link, lang_translate_date($marriage->date), $marriage->place);
 						}
 						# structure for male married with date only
 						elseif ($marriage->date) {
-							$s .= sprintf(_("male %s married %s on %s."), $p_node->fname, $spouse_link, lang_translate_date($marriage->date));
+							$s .= sprintf(gtc("male %s married %s on %s."), $p_node->fname, $spouse_link, lang_translate_date($marriage->date));
 						}
 						# structure for male married with place only
 						elseif ($marriage->place) {
-							$s .= sprintf(_("male %s married %s in %s."), $p_node->fname, $spouse_link, $marriage->place);
+							$s .= sprintf(gtc("male %s married %s in %s."), $p_node->fname, $spouse_link, $marriage->place);
 						}
 						# structure for male married with no date or place
 						else {
-							$s .= sprintf(_("male %s married %s."), $p_node->fname, $spouse_link);
+							$s .= sprintf(gtc("male %s married %s."), $p_node->fname, $spouse_link);
 						}
 						if ($marriage->endstatus) { 
 							$s .= ' ';
-							$s .= sprintf(_("This marriage ended in %s."), strtolower(_($marriage->endstatus))); 
+							$s .= sprintf(gtc("This marriage ended in %s."), strtolower(gtc($marriage->endstatus))); 
 						}
 					}
 					elseif ($p_node->sex == 'F') {
 						# structure for female married with date and place
 						if ($marriage->date and $marriage->place) {
-							$s .= sprintf(_("female %s married %s on %s in %s."), $p_node->fname, $spouse_link, lang_translate_date($marriage->date), $marriage->place);
+							$s .= sprintf(gtc("female %s married %s on %s in %s."), $p_node->fname, $spouse_link, lang_translate_date($marriage->date), $marriage->place);
 						}
 						# structure for female married with date only
 						elseif ($marriage->date) {
-							$s .= sprintf(_("female %s married %s on %s."), $p_node->fname, $spouse_link, lang_translate_date($marriage->date));
+							$s .= sprintf(gtc("female %s married %s on %s."), $p_node->fname, $spouse_link, lang_translate_date($marriage->date));
 						}
 						# structure for female married with place only
 						elseif ($marriage->place) {
-							$s .= sprintf(_("female %s married %s in %s."), $p_node->fname, $spouse_link, $marriage->place);
+							$s .= sprintf(gtc("female %s married %s in %s."), $p_node->fname, $spouse_link, $marriage->place);
 						}
 						# structure for female married with no date or place
 						else {
-							$s .= sprintf(_("female %s married %s."), $p_node->fname, $spouse_link);
+							$s .= sprintf(gtc("female %s married %s."), $p_node->fname, $spouse_link);
 						}
 						if ($marriage->endstatus) { 
 							$s .= ' ';
-							$s .= sprintf(_("This marriage ended in %s."), strtolower(_($marriage->endstatus))); 
+							$s .= sprintf(gtc("This marriage ended in %s."), strtolower(gtc($marriage->endstatus))); 
 						}
 					}
 				}
@@ -224,45 +224,45 @@
 					if ($p_node->sex == 'M') {
 						# structure for male relationship with date and place
 						if ($marriage->date and $marriage->place) {
-							$s .= sprintf(_("male %s had a relationship with %s on %s in %s."), $p_node->fname, $spouse_link, lang_translate_date($marriage->date), $marriage->place);
+							$s .= sprintf(gtc("male %s had a relationship with %s on %s in %s."), $p_node->fname, $spouse_link, lang_translate_date($marriage->date), $marriage->place);
 						}
 						# structure for male relationship with date only
 						elseif ($marriage->date) {
-							$s .= sprintf(_("male %s had a relationship with %s on %s."), $p_node->fname, $spouse_link, lang_translate_date($marriage->date));
+							$s .= sprintf(gtc("male %s had a relationship with %s on %s."), $p_node->fname, $spouse_link, lang_translate_date($marriage->date));
 						}
 						# structure for male relationship with place only
 						elseif ($marriage->place) {
-							$s .= sprintf(_("male %s had a relationship with %s in %s."), $p_node->fname, $spouse_link, $marriage->place);
+							$s .= sprintf(gtc("male %s had a relationship with %s in %s."), $p_node->fname, $spouse_link, $marriage->place);
 						}
 						# structure for male relationship with no date or place
 						else {
-							$s .= sprintf(_("male %s had a relationship with %s."), $p_node->fname, $spouse_link);
+							$s .= sprintf(gtc("male %s had a relationship with %s."), $p_node->fname, $spouse_link);
 						}
 						if ($marriage->endstatus) { 
 							$s .= ' ';
-							$s .= sprintf(_("This marriage ended in %s."), _($marriage->endstatus)); 
+							$s .= sprintf(gtc("This marriage ended in %s."), gtc($marriage->endstatus)); 
 						}
 					}
 					elseif ($p_node->sex == 'F') {
 						# structure for female relationship with date and place
 						if ($marriage->date and $marriage->place) {
-							$s .= sprintf(_("female %s had a relationship with %s on %s in %s."), $p_node->fname, $spouse_link, lang_translate_date($marriage->date), $marriage->place);
+							$s .= sprintf(gtc("female %s had a relationship with %s on %s in %s."), $p_node->fname, $spouse_link, lang_translate_date($marriage->date), $marriage->place);
 						}
 						# structure for female relationship with date only
 						elseif ($marriage->date) {
-							$s .= sprintf(_("female %s had a relationship with %s on %s."), $p_node->fname, $spouse_link, lang_translate_date($marriage->date));
+							$s .= sprintf(gtc("female %s had a relationship with %s on %s."), $p_node->fname, $spouse_link, lang_translate_date($marriage->date));
 						}
 						# structure for female relationship with place only
 						elseif ($marriage->place) {
-							$s .= sprintf(_("female %s had a relationship with %s in %s."), $p_node->fname, $spouse_link, $marriage->place);
+							$s .= sprintf(gtc("female %s had a relationship with %s in %s."), $p_node->fname, $spouse_link, $marriage->place);
 						}
 						# structure for female relationship with no date or place
 						else {
-							$s .= sprintf(_("female %s had a relationship with %s."), $p_node->fname, $spouse_link);
+							$s .= sprintf(gtc("female %s had a relationship with %s."), $p_node->fname, $spouse_link);
 						}
 						if ($marriage->endstatus) { 
 							$s .= ' ';
-							$s .= sprintf(_("This relationship ended in %s."), _($marriage->endstatus));
+							$s .= sprintf(gtc("This relationship ended in %s."), gtc($marriage->endstatus));
 						}
 					}			
 				}
@@ -281,10 +281,10 @@
 	function get_children_of_sentence($p_node, $p_s_node) {
 		$s = '';
 		if ($p_node->name and $p_s_node->name) {
-			$s .= sprintf(_("Children of %s and %s"), $p_node->name, $p_s_node->name);
+			$s .= sprintf(gtc("Children of %s and %s"), $p_node->name, $p_s_node->name);
 		}
 		else {
-			$s .= sprintf(_("Children of %s"), $p_node->name);
+			$s .= sprintf(gtc("Children of %s"), $p_node->name);
 		}
 		return $s;
 	}

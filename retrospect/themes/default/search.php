@@ -36,20 +36,20 @@
 	$note = isset($_GET['note']) ? $_GET['note'] : null;
 	
 	# set page title
-	$g_title = _("Search");
+	$g_title = gtc("Search");
 	
 	# populate keyword array
-	keyword_push(_("Search"));
+	keyword_push(gtc("Search"));
 	
 	# content title and psuedo menu
-	echo '<p class="content-title">'._("Search").'</p>';
+	echo '<p class="content-title">'.gtc("Search").'</p>';
 	if ($print === false) {
 		echo '<table class="tab-row" cellpadding="0" cellspacing="0">';
 		echo '<tr>';
 		echo '<td class="tab';
 		if ($submitted == false) { 
 			echo '-selected';
-			echo '">'._("Search").'</td>';
+			echo '">'.gtc("Search").'</td>';
 		}
 		else {
 			$search_params = '?option=search';
@@ -59,12 +59,12 @@
 			if ($location != null) { $search_params .= '&locat='.$location; }
 			if ($note != null) { $search_params .= '&note='.$note; }
 			if ($parts != null) { $search_params .= '&parts='.$parts; }
-			echo '"><a href="'.$_SERVER['PHP_SELF'].htmlentities($search_params).'">'._("Search").'</a></td>';
+			echo '"><a href="'.$_SERVER['PHP_SELF'].htmlentities($search_params).'">'.gtc("Search").'</a></td>';
 
 		}
 		echo '<td class="tab';
 		if ($submitted == true) echo '-selected';
-		echo '">'._("Results").'</td>';
+		echo '">'.gtc("Results").'</td>';
 		echo '<td class="tab-last">&nbsp;</td>';
 		echo '</tr>';
 		echo '</table>';
@@ -81,11 +81,11 @@
 		echo '<table class="section" width="100%" cellspacing="0" cellpadding="0"><tr><td>';
 		echo '<table border="0" cellspacing="2" cellpadding="2">';
 		echo '<tr>';
-		echo '<td colspan="2" class="text"><b>'._("Name Search").'</b></td>';
+		echo '<td colspan="2" class="text"><b>'.gtc("Name Search").'</b></td>';
 		echo '</tr>';
 		echo '<tr>';
-		echo '<td class="text">'._("Given Name").':</td>';
-		echo '<td class="text">'._("Surname").':</td>';
+		echo '<td class="text">'.gtc("Given Name").':</td>';
+		echo '<td class="text">'.gtc("Surname").':</td>';
 		echo '</tr>';
 		echo '<tr>';
 		echo '<td><input name="gname" type="text" class="textbox" id="gname" value="'.$gname.'" /></td>';
@@ -101,9 +101,9 @@
 		echo '</tr>';
 		echo '<tr>';
 		echo '<td colspan="2">';
-		echo '<input name="Submit" type="submit" class="text" value="'._("Search").'" /> ';
-		echo '<input name="Reset" type="reset" class="text" value="'._("Reset").'" /> ';
-		echo '<input name="Clear" type="button" class="text" value="'._("Clear").'" onmousedown="MM_setTextOfTextfield(\'gname\',\'\',\'\');MM_setTextOfTextfield(\'sname\',\'\',\'\');" />';
+		echo '<input name="Submit" type="submit" class="text" value="'.gtc("Search").'" /> ';
+		echo '<input name="Reset" type="reset" class="text" value="'.gtc("Reset").'" /> ';
+		echo '<input name="Clear" type="button" class="text" value="'.gtc("Clear").'" onmousedown="MM_setTextOfTextfield(\'gname\',\'\',\'\');MM_setTextOfTextfield(\'sname\',\'\',\'\');" />';
 		echo '</td>';
 		echo '</tr>';
 		echo '</table>';
@@ -117,31 +117,31 @@
 		echo '<table class="section" width="100%" cellspacing="0" cellpadding="0"><tr><td>';
 		echo '<table border="0" cellspacing="2" cellpadding="2">';
 		echo '<tr>';
-		echo '<td colspan="2" class="text"><b>'._("Location Search").'</b></td>';
+		echo '<td colspan="2" class="text"><b>'.gtc("Location Search").'</b></td>';
 		echo '</tr>';
 		echo '<tr>';
-		echo '<td colspan="2" class="text">'._("Keywords").':</td>';
+		echo '<td colspan="2" class="text">'.gtc("Keywords").':</td>';
 		echo '</tr>';
 		echo '<tr>';
 		echo '<td colspan="2"><input name="locat" size="40" type="text" class="textbox" id="locat" value="'.$location.'" /></td>';
 		echo '</tr>';
 		echo '<tr>';
-		echo '<td class="text">'._("Match Keywords").':</td>';
+		echo '<td class="text">'.gtc("Match Keywords").':</td>';
 		echo '<td>';
 		echo '<select name="parts" class="listbox">';
-		echo '<option value="all"'; if ($parts == 'all') echo ' selected'; echo '>'._("All").'</option>';
-		echo '<option value="any"'; if ($parts == 'any') echo ' selected'; echo '>'._("Any").'</option>';
-		echo '<option value="phrase"'; if ($parts == 'phrase') echo ' selected'; echo '>'._("Phrase").'</option>';
-		echo '<option value="starts"'; if ($parts == 'starts') echo ' selected'; echo '>'._("Starts with").'</option>';
-		echo '<option value="ends"'; if ($parts == 'ends') echo ' selected'; echo '>'._("Ends with").'</option>';
+		echo '<option value="all"'; if ($parts == 'all') echo ' selected'; echo '>'.gtc("All").'</option>';
+		echo '<option value="any"'; if ($parts == 'any') echo ' selected'; echo '>'.gtc("Any").'</option>';
+		echo '<option value="phrase"'; if ($parts == 'phrase') echo ' selected'; echo '>'.gtc("Phrase").'</option>';
+		echo '<option value="starts"'; if ($parts == 'starts') echo ' selected'; echo '>'.gtc("Starts with").'</option>';
+		echo '<option value="ends"'; if ($parts == 'ends') echo ' selected'; echo '>'.gtc("Ends with").'</option>';
 		echo '</select>';
 		echo '</td>';
 		echo '</tr>';
 		echo '<tr>';
 		echo '<td colspan="2">';
-		echo '<input name="Submit" type="submit" class="text" value="'._("Search").'" /> ';
-		echo '<input name="Reset" type="reset" class="text" value="'._("Reset").'" /> ';
-		echo '<input name="Clear" type="button" class="text" value="'._("Clear").'" onmousedown="MM_setTextOfTextfield(\'locat\',\'\',\'\')" />';
+		echo '<input name="Submit" type="submit" class="text" value="'.gtc("Search").'" /> ';
+		echo '<input name="Reset" type="reset" class="text" value="'.gtc("Reset").'" /> ';
+		echo '<input name="Clear" type="button" class="text" value="'.gtc("Clear").'" onmousedown="MM_setTextOfTextfield(\'locat\',\'\',\'\')" />';
 		echo '</td>';
 		echo '</tr>';
 		echo '</table>';
@@ -155,31 +155,31 @@
 		echo '<table class="section" width="100%" cellspacing="0" cellpadding="0"><tr><td>';
 		echo '<table border="0" cellspacing="2" cellpadding="2">';
 		echo '<tr>';
-		echo '<td colspan="2" class="text"><b>'._("Note Search").'</b></td>';
+		echo '<td colspan="2" class="text"><b>'.gtc("Note Search").'</b></td>';
 		echo '</tr>';
 		echo '<tr>';
-		echo '<td colspan="2" class="text">'._("Keywords").':</td>';
+		echo '<td colspan="2" class="text">'.gtc("Keywords").':</td>';
 		echo '</tr>';
 		echo '<tr>';
 		echo '<td colspan="2"><input name="note" size="40" type="text" class="textbox" id="note" value="'.$note.'" /></td>';
 		echo '</tr>';
 		echo '<tr>';
-		echo '<td class="text">'._("Match Keywords").':</td>';
+		echo '<td class="text">'.gtc("Match Keywords").':</td>';
 		echo '<td>';
 		echo '<select name="parts" class="listbox">';
-		echo '<option value="all"'; if ($parts == 'all') echo ' selected'; echo '>'._("All").'</option>';
-		echo '<option value="any"'; if ($parts == 'any') echo ' selected'; echo '>'._("Any").'</option>';
-		echo '<option value="phrase"'; if ($parts == 'phrase') echo ' selected'; echo '>'._("Phrase").'</option>';
-		echo '<option value="starts"'; if ($parts == 'starts') echo ' selected'; echo '>'._("Starts with").'</option>';
-		echo '<option value="ends"'; if ($parts == 'ends') echo ' selected'; echo '>'._("Ends with").'</option>';
+		echo '<option value="all"'; if ($parts == 'all') echo ' selected'; echo '>'.gtc("All").'</option>';
+		echo '<option value="any"'; if ($parts == 'any') echo ' selected'; echo '>'.gtc("Any").'</option>';
+		echo '<option value="phrase"'; if ($parts == 'phrase') echo ' selected'; echo '>'.gtc("Phrase").'</option>';
+		echo '<option value="starts"'; if ($parts == 'starts') echo ' selected'; echo '>'.gtc("Starts with").'</option>';
+		echo '<option value="ends"'; if ($parts == 'ends') echo ' selected'; echo '>'.gtc("Ends with").'</option>';
 		echo '</select>';
 		echo '</td>';
 		echo '</tr>';
 		echo '<tr>';
 		echo '<td colspan="2">';
-		echo '<input name="Submit" type="submit" class="text" value="'._("Search").'" /> ';
-		echo '<input name="Reset" type="reset" class="text" value="'._("Reset").'" /> ';
-		echo '<input name="Clear" type="button" class="text" value="'._("Clear").'" onmousedown="MM_setTextOfTextfield(\'note\',\'\',\'\')" />';
+		echo '<input name="Submit" type="submit" class="text" value="'.gtc("Search").'" /> ';
+		echo '<input name="Reset" type="reset" class="text" value="'.gtc("Reset").'" /> ';
+		echo '<input name="Clear" type="button" class="text" value="'.gtc("Clear").'" onmousedown="MM_setTextOfTextfield(\'note\',\'\',\'\')" />';
 		echo '</td>';
 		echo '</tr>';
 		echo '</table>';
@@ -194,7 +194,7 @@
 		echo '<div class="tab-page">';
 		# give error if no search parameters
 		if ($gname == null AND $sname == null AND $location == null AND $note == null) {
-			echo '<p class="text">'._("No search parameters were specified.").'</p>';
+			echo '<p class="text">'.gtc("No search parameters were specified.").'</p>';
 		}
 		# else display the results
 		else {
@@ -319,12 +319,12 @@
 
 			# display list of individual
 			if ($rs->RecordCount() > 0) {
-				echo '<p class="text">'._("Number of individuals listed").': '.$rs->RecordCount().'</p>';
+				echo '<p class="text">'.gtc("Number of individuals listed").': '.$rs->RecordCount().'</p>';
 				echo '<table border="0" cellspacing="2" cellpadding="0">';
 				echo '<tr>';
-				echo '<td class="text" width="250"><b>'._("Name").'</b></td>';
-				echo '<td class="text" width="150"><b>'._("Birth").'</b></td>';
-				echo '<td class="text" width="150"><b>'._("Death").'</b></td>';
+				echo '<td class="text" width="250"><b>'.gtc("Name").'</b></td>';
+				echo '<td class="text" width="150"><b>'.gtc("Birth").'</b></td>';
+				echo '<td class="text" width="150"><b>'.gtc("Death").'</b></td>';
 				echo '</tr>';
 				while ($row = $rs->FetchRow()) {
 					$o = new Person($row['indkey'], 1);
@@ -342,7 +342,7 @@
 				echo '</table>';
 			}
 			else {
-				echo '<p class="text">'._("No matching records were found.").'</p>';
+				echo '<p class="text">'.gtc("No matching records were found.").'</p>';
 			}
 		}
 		echo '</div>';

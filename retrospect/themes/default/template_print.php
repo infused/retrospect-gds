@@ -33,7 +33,7 @@
 <body>
 <div style="margin: 10px;">
 	<div style="position: relative; top: 0px; right: 0px; float: right;">
-		<a href="#" onclick="window.print(); return false;"><img src="themes/default/images/printbutton.gif" border="0" alt="<?php echo _("Print"); ?>" /></a>
+		<a href="#" onclick="window.print(); return false;"><img src="themes/default/images/printbutton.gif" border="0" alt="<?php echo gtc("Print"); ?>" /></a>
 	</div>
 	<?php echo $g_content; unset($g_content); ?>
 </div>

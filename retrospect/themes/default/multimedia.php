@@ -30,11 +30,11 @@
 	$o = new person($g_indiv);
 	
 	# populate keyword array
-	keyword_push(_("Multimedia"));
+	keyword_push(gtc("Multimedia"));
 	keyword_push($o->name);
 	
 	# title
-	$g_title = sprintf(_("Multimedia for %s"), $o->name);
+	$g_title = sprintf(gtc("Multimedia for %s"), $o->name);
 	
 	# name and menu
 	echo '<p class="content-title">'.$o->name;
@@ -44,6 +44,6 @@
 		include(Theme::getPage($g_theme, 'nav'));
 	}
 	echo '<div class="tab-page">';
-	echo '<p><b>'._("This feature has not been implemented yet.").'</b></p>';
+	echo '<p><b>'.gtc("This feature has not been implemented yet.").'</b></p>';
 	echo '</div>';
 ?>

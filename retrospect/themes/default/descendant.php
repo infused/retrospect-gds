@@ -5,17 +5,17 @@
  * @copyright 	Keith Morrison, Infused Solutions	2001-2004
  * @author			Keith Morrison <keithm@infused-solutions.com>
  * @package 		theme_default
- * @license http://opensource.org/licenses/gpl-license.php
+ * @cense http://opensource.org/censes/gpl-cense.php
  *
  * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
+ * modify it under the terms of the GNU General Pubc cense
+ * as pubshed by the Free Software Foundation; either version 2
+ * of the cense, or (at your option) any later version.
 
  * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License contained in the file GNU.txt for
+ * but WITHOUT ANY WARRANTY; without even the imped warranty of
+ * MERCHANTABITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Pubc cense contained in the file GNU.txt for
  * more details.
  *
  * $Id$
@@ -23,7 +23,7 @@
  */
  
 	/**
-	* @access public
+	* @access pubc
 	*/
 	require_once(CORE_PATH.'/f_report.php');
 	
@@ -58,26 +58,27 @@
 		
 		if ($p_generation > $g_generation ) {
 			$g_generation = $p_generation;
-			echo '<h3>'.sprintf(_("Generation %s"), $g_generation).'</h3>';
+			echo "\n\n";
+			echo '<h3>'.sprintf(gtc("Generation %s"), $g_generation).'</h3>';
 		}
-		
+		echo "\n";
 		echo '<ol><li value="'.$p_node->ns_number.'">';
-		echo '<a href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$p_node->indkey.'">'.$p_node->name.'</a>';
+		echo '<a href="'.$_SERVER['PHP_SELF'].'?option=family&amp;indiv='.$p_node->indkey.'">'.$p_node->name.'</a>';
 		# display parents
 		echo get_parents_sentence($p_node, $father, $mother);
-		echo '<br />';
+		echo '<br />'."\n";
 		# display birth sentence
 		echo get_birth_sentence($p_node);
 		# display marriage sentence(s)
 		echo get_marriage_sentences($p_node);
 		# display death sentence
 		echo get_death_sentence($p_node);
-		echo '<br />';
+		echo '<br />'."\n";
 		# children
 		foreach ($p_node->marriages as $marriage) {
 			$spouse = (!empty($marriage->spouse)) ? new Person($marriage->spouse, 3) : null;
 			if ($marriage->child_count > 0) {
-				echo '<br />';
+				echo '<br />'."\n";
 				echo get_children_of_sentence($p_node, $spouse).':<br />';
 				foreach ($marriage->children as $child_indkey) {
 					$child = new Person($child_indkey);
@@ -93,26 +94,30 @@
 							}
 						}
 					}
-					$child_link = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$child->indkey.'">'.$child->name.'</a>';
-					echo '<ol>';
+					$child_nk = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?option=family&amp;indiv='.$child->indkey.'">'.$child->name.'</a>';
+					
 					if ($child->ns_number) {	
+						echo '<ol>';
 						echo '<li value="'.$child->ns_number.'">';
-						echo $child_link;
+						echo $child_nk;
 						if ($child->birth->date || $child->death->date) { 
 							echo '&nbsp;&nbsp;'; 
 							if ($child->birth->date) {
-								echo _("b.").' '.$child->birth->date.' ';
+								echo gtc("b.").' '.$child->birth->date.' ';
 							}
 							if ($child->death->date) {
-								echo _("d.").' '.$child->death->date;
+								echo gtc("d.").' '.$child->death->date;
 							}
 						}
 						echo '</li>';
+						echo '</ol>';
 					}
 					else {
-						echo $child_link;
+						echo '<ul><li class="nobullet">';
+						echo $child_nk;
+						echo '</li></ul>';
 					}
-					echo '</ol>';
+					
 				}
 			}
 		}
@@ -121,7 +126,7 @@
 	}
 
 	# title
-	$g_title = sprintf(_("Descendant Report for %s"), $o->name);
+	$g_title = sprintf(gtc("Descendant Report for %s"), $o->name);
 	
 	# name and menu
 	echo '<p class="content-title">'.$o->name;
@@ -130,7 +135,7 @@
  	if ($print === false) {	
 		include(Theme::getPage($g_theme, 'nav'));
 	}
-	echo '<p class="content-subtitle">'._("Descendant Report").'</p>';
+	echo '<p class="content-subtitle">'.gtc("Descendant Report").'</p>';
 	
 	while (count($g_descendants) > 0) {
 		display_indiv(array_shift($g_descendants));

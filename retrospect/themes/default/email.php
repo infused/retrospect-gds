@@ -26,7 +26,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title><?php echo _("E-mail this to a friend"); ?></title>
+<title><?php echo gtc("E-mail this to a friend"); ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link href="<?php echo $g_site_root.'/themes/default/styles.css'; ?>" rel="stylesheet" type="text/css" />
 <script language="JavaScript" type="text/JavaScript">
@@ -62,28 +62,28 @@ function MM_validateForm() { //v4.0
 <form action="" method="post" name="form1" id="form1" onsubmit="MM_validateForm('emailto','','RisEmail','emailfrom','','RisEmail');return document.MM_returnValue">
 <table width="100%" border="0" cellspacing="0" cellpadding="6">
   <tr class="text">
-    <td colspan="2"><b><?php echo _("E-mail this to a friend"); ?></b></td>
+    <td colspan="2"><b><?php echo gtc("E-mail this to a friend"); ?></b></td>
     </tr>
   <tr class="text">
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
   <tr class="text">
-    <td width="150" nowrap="nowrap"><?php echo _("Your friend's e-mail"); ?>:</td>
+    <td width="150" nowrap="nowrap"><?php echo gtc("Your friend's e-mail"); ?>:</td>
     <td><input name="emailto" type="text" class="textbox" id="emailto" /></td>
   </tr>
   <tr class="text">
-    <td nowrap="nowrap"><?php echo _("Your name"); ?>:</td>
+    <td nowrap="nowrap"><?php echo gtc("Your name"); ?>:</td>
     <td><input name="namefrom" type="text" class="textbox" id="namefrom" /></td>
   </tr>
   <tr class="text">
-    <td nowrap="nowrap"><?php echo _("Your e-mail"); ?>:</td>
+    <td nowrap="nowrap"><?php echo gtc("Your e-mail"); ?>:</td>
     <td><input name="emailfrom" type="text" class="textbox" id="emailfrom" /></td>
   </tr>
   <tr class="text">
     <td nowrap="nowrap">&nbsp;</td>
-    <td><input name="<?php echo _("Send e-mail"); ?>" type="submit" class="text" id="Send2" value="<?php echo _("Send e-mail"); ?>" />
-      <input name="<?php echo _("Cancel"); ?>" type="submit" class="text" id="Cancel" onclick="javascript: window.close();" value="<?php echo _("Cancel"); ?>" /></td>
+    <td><input name="<?php echo gtc("Send e-mail"); ?>" type="submit" class="text" id="Send2" value="<?php echo gtc("Send e-mail"); ?>" />
+      <input name="<?php echo gtc("Cancel"); ?>" type="submit" class="text" id="Cancel" onclick="javascript: window.close();" value="<?php echo gtc("Cancel"); ?>" /></td>
   </tr>
 </table>
 </form>
@@ -97,7 +97,7 @@ function MM_validateForm() { //v4.0
 ?>
  <table width="100%" border="0" cellspacing="0" cellpadding="6">
   <tr class="text">
-    <td colspan="2"><b><?php echo _("Your message has been sent. "); ?></b></td>
+    <td colspan="2"><b><?php echo gtc("Your message has been sent. "); ?></b></td>
     </tr>
   <tr class="text">
     <td>&nbsp;</td>
@@ -117,7 +117,7 @@ function MM_validateForm() { //v4.0
   </tr>
   <tr class="text">
     <td>&nbsp;</td>
-    <td><input name="<?php echo _("Close"); ?>" type="submit" class="text" id="Cancel" onclick="javascript: window.close();" value="<?php echo _("Close"); ?>" /></td>
+    <td><input name="<?php echo gtc("Close"); ?>" type="submit" class="text" id="Cancel" onclick="javascript: window.close();" value="<?php echo gtc("Close"); ?>" /></td>
   </tr>
 </table>
 <?php } ?>

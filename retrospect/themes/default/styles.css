@@ -200,7 +200,7 @@ input.textbox {
 .tab-selected {
 	padding: 3px 5px;
 	font-weight: bold;
-	background-color: F9F9F9;
+	background-color: #F9F9F9;
 	border-width: 1px;
 	border-color: #CCCCCC;
 	border-bottom-style: none;
@@ -223,4 +223,7 @@ input.textbox {
 	border-width: 1px;
 	margin-bottom: 10px;
 	padding: 5px;
+}
+.nobullet {
+	list-style-type: none;
 }

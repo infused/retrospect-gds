@@ -27,42 +27,42 @@
 	
 	# surnames tab
 	if ($g_option == 'surnames') {
-		echo '<td class="tab-selected">'.sprintf(_("%s Surname"), $o->sname).'</td>';
+		echo '<td class="tab-selected">'.sprintf(gtc("%s Surname"), $o->sname).'</td>';
 	}
 	else {	
-		echo '<td class="tab"><a href="'.$_SERVER['PHP_SELF'].'?option=surnames&amp;sn='.$o->sname.'">'.sprintf(_("%s Surname"), $o->sname).'</a></td>';
+		echo '<td class="tab"><a href="'.$_SERVER['PHP_SELF'].'?option=surnames&amp;sn='.$o->sname.'">'.sprintf(gtc("%s Surname"), $o->sname).'</a></td>';
 	}
 	
 	# family tab
 	if ($g_option == 'family') {
-		echo '<td class="tab-selected">'._("Family").'</td>';
+		echo '<td class="tab-selected">'.gtc("Family").'</td>';
 	}
 	else {
-		echo '<td class="tab"><a href="'.$_SERVER['PHP_SELF'].'?option=family&amp;indiv='.$o->indkey.'">'._("Family").'</a></td>';
+		echo '<td class="tab"><a href="'.$_SERVER['PHP_SELF'].'?option=family&amp;indiv='.$o->indkey.'">'.gtc("Family").'</a></td>';
 	}
 	
 	# pedigree tab
 	if ($g_option == 'pedigree') {
-		echo '<td class="tab-selected">'._("Pedigree").'</td>';
+		echo '<td class="tab-selected">'.gtc("Pedigree").'</td>';
 	}
 	else {
-		echo '<td class="tab"><a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&amp;indiv='.$o->indkey.'">'._("Pedigree").'</a></td>';
+		echo '<td class="tab"><a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&amp;indiv='.$o->indkey.'">'.gtc("Pedigree").'</a></td>';
 	}
 	
 	# reports tab
 	if ($g_option == 'reports') {
-		echo '<td class="tab-selected"><a href="'.$_SERVER['PHP_SELF'].'?option=reports&amp;indiv='.$o->indkey.'">'._("Reports").'</a></td>';
+		echo '<td class="tab-selected"><a href="'.$_SERVER['PHP_SELF'].'?option=reports&amp;indiv='.$o->indkey.'">'.gtc("Reports").'</a></td>';
 	}
 	else {
-		echo '<td class="tab"><a href="'.$_SERVER['PHP_SELF'].'?option=reports&amp;indiv='.$o->indkey.'">'._("Reports").'</a></td>';
+		echo '<td class="tab"><a href="'.$_SERVER['PHP_SELF'].'?option=reports&amp;indiv='.$o->indkey.'">'.gtc("Reports").'</a></td>';
 	}
 	
 	# multimedia tab
 	if ($g_option == 'multimedia') {
-		echo '<td class="tab-selected">'._("Multimedia").'</td>';
+		echo '<td class="tab-selected">'.gtc("Multimedia").'</td>';
 	}
 	else {
-		echo '<td class="tab"><a href="'.$_SERVER['PHP_SELF'].'?option=multimedia&amp;indiv='.$o->indkey.'">'._("Multimedia").'</a></td>';
+		echo '<td class="tab"><a href="'.$_SERVER['PHP_SELF'].'?option=multimedia&amp;indiv='.$o->indkey.'">'.gtc("Multimedia").'</a></td>';
 	}
 	
 	echo '<td class="tab-last">&nbsp;</td>';

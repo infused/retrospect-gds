@@ -90,27 +90,33 @@
 		global $options;
 		if ($_SESSION['lang'] != 'en_US' and $options->GetOption('translate_dates') == 1) {
 			# replace month names
-			$p_date = str_replace(array('jan', 'Jan', 'JAN'), _("Jan"), $p_date);
-			$p_date = str_replace(array('feb', 'Feb', 'FEB'), _("Feb"), $p_date);
-			$p_date = str_replace(array('mar', 'Mar', 'MAR'), _("Mar"), $p_date);
-			$p_date = str_replace(array('apr', 'Apr', 'APR'), _("Apr"), $p_date);
-			$p_date = str_replace(array('may', 'May', 'MAY'), _("May"), $p_date);
-			$p_date = str_replace(array('jun', 'Jun', 'JUN'), _("Jun"), $p_date);
-			$p_date = str_replace(array('jul', 'Jul', 'JUL'), _("Jul"), $p_date);
-			$p_date = str_replace(array('aug', 'Aug', 'AUG'), _("Aug"), $p_date);
-			$p_date = str_replace(array('sep', 'Sep', 'SEP'), _("Sep"), $p_date);
-			$p_date = str_replace(array('oct', 'Oct', 'OCT'), _("Oct"), $p_date);
-			$p_date = str_replace(array('nov', 'Nov', 'NOV'), _("Nov"), $p_date);
-			$p_date = str_replace(array('dec', 'Dec', 'DEC'), _("Dec"), $p_date);
+			$p_date = str_replace(array('jan', 'Jan', 'JAN'), gtc("Jan"), $p_date);
+			$p_date = str_replace(array('feb', 'Feb', 'FEB'), gtc("Feb"), $p_date);
+			$p_date = str_replace(array('mar', 'Mar', 'MAR'), gtc("Mar"), $p_date);
+			$p_date = str_replace(array('apr', 'Apr', 'APR'), gtc("Apr"), $p_date);
+			$p_date = str_replace(array('may', 'May', 'MAY'), gtc("May"), $p_date);
+			$p_date = str_replace(array('jun', 'Jun', 'JUN'), gtc("Jun"), $p_date);
+			$p_date = str_replace(array('jul', 'Jul', 'JUL'), gtc("Jul"), $p_date);
+			$p_date = str_replace(array('aug', 'Aug', 'AUG'), gtc("Aug"), $p_date);
+			$p_date = str_replace(array('sep', 'Sep', 'SEP'), gtc("Sep"), $p_date);
+			$p_date = str_replace(array('oct', 'Oct', 'OCT'), gtc("Oct"), $p_date);
+			$p_date = str_replace(array('nov', 'Nov', 'NOV'), gtc("Nov"), $p_date);
+			$p_date = str_replace(array('dec', 'Dec', 'DEC'), gtc("Dec"), $p_date);
 		
 			# replace date qualifiers
-			$p_date = str_replace(array('abt', 'Abt', 'ABT', 'about', 'About', 'ABOUT'), _("abt"), $p_date);
-			$p_date = str_replace(array('cir', 'Cir', 'CIR', 'circa', 'Circa', 'CIRCA'), _("cir"), $p_date);
-			$p_date = str_replace(array('aft', 'Aft', 'AFT', 'after', 'After', 'AFTER'), _("aft"), $p_date);
-			$p_date = str_replace(array('bef', 'Bef', 'BEF', 'before', 'Before', 'BEFORE'), _("bef"), $p_date);
-			$p_date = str_replace(array('bet', 'Bet', 'BET', 'between', 'Between', 'BETWEEN'), _("bet"), $p_date);
-			$p_date = str_replace(array('cal', 'Cal', 'CAL', 'calculated', 'Calculated', 'CALCULATED'), _("cal"), $p_date);		
+			$p_date = str_replace(array('abt', 'Abt', 'ABT', 'about', 'About', 'ABOUT'), gtc("abt"), $p_date);
+			$p_date = str_replace(array('cir', 'Cir', 'CIR', 'circa', 'Circa', 'CIRCA'), gtc("cir"), $p_date);
+			$p_date = str_replace(array('aft', 'Aft', 'AFT', 'after', 'After', 'AFTER'), gtc("aft"), $p_date);
+			$p_date = str_replace(array('bef', 'Bef', 'BEF', 'before', 'Before', 'BEFORE'), gtc("bef"), $p_date);
+			$p_date = str_replace(array('bet', 'Bet', 'BET', 'between', 'Between', 'BETWEEN'), gtc("bet"), $p_date);
+			$p_date = str_replace(array('cal', 'Cal', 'CAL', 'calculated', 'Calculated', 'CALCULATED'), gtc("cal"), $p_date);		
 		}
 		return $p_date;
+	}
+	
+	function gtc($p_string) {
+		$string = gettext($p_string);
+		$clean = htmlentities($string);
+		return $clean;
 	}
 ?>

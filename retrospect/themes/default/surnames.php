@@ -27,7 +27,7 @@
 	$sn = isset($_GET['sn']) ? $_GET['sn'] : null;
 	
 	# populate keyword array
-	keyword_push(_("Surname List"));
+	keyword_push(gtc("Surname List"));
 	
 	/**
 	* Get the css class based on the selected alpha character
@@ -49,7 +49,7 @@
 	function get_alpha_link($p_alpha) {
 		global $db, $g_alpha;
 		$p_alpha = strtoupper($p_alpha);
-		return ($p_alpha == $g_alpha) ? $p_alpha : '<a href="'.$_SERVER['PHP_SELF'].'?option=surnames&amp;alpha='.$p_alpha.'">'._($p_alpha).'</a>';
+		return ($p_alpha == $g_alpha) ? $p_alpha : '<a href="'.$_SERVER['PHP_SELF'].'?option=surnames&amp;alpha='.$p_alpha.'">'.gtc($p_alpha).'</a>';
 	}
 
 	//Display list of surnames if one has not been selected
@@ -57,10 +57,10 @@
 		$g_alpha = (isset($_GET['alpha'])) ? $_GET['alpha'] : 'A';
 
 		#title
-		$g_title = _("Surname List");
+		$g_title = gtc("Surname List");
 		
 		# alphabet menu
-		echo '<div class="content-title">'._("Surname List").'</div>';
+		echo '<div class="content-title">'.gtc("Surname List").'</div>';
 		if ($print === false) {
 			echo '<table class="tab-row" cellpadding="0" cellspacing="0">';
 			echo '<tr>';
@@ -92,7 +92,7 @@
 		$max_rows = ceil($rs->RecordCount() / $max_cols);
 		
 		echo '<div class="tab-page">';
-		echo '<p class="text">'._("Number of surnames listed").': '.$rs->RecordCount().'</p>';
+		echo '<p class="text">'.gtc("Number of surnames listed").': '.$rs->RecordCount().'</p>';
 		echo '<table border="0" cellpadding="0" cellspacing="0">';
 		echo '<tr><td class="text" width="200" valign="top">';
 		$count = 0;
@@ -112,10 +112,10 @@
 	else {
 		
 		#title
-		$g_title = sprintf(_("%s Surname"), $sn);
+		$g_title = sprintf(gtc("%s Surname"), $sn);
 		
 		# alphabet menu
-		echo '<div class="content-title">'.sprintf(_("%s Surname"), $sn).'</div>';
+		echo '<div class="content-title">'.sprintf(gtc("%s Surname"), $sn).'</div>';
 		if ($print === false) {
 			echo '<table class="tab-row" cellpadding="0" cellspacing="0">';
 			echo '<tr>';
@@ -134,10 +134,10 @@
 		$rs = $db->Execute($sql);
 		
 		echo '<div class="tab-page">';
-		echo '<p class="text">'._("Number of individuals listed").': '.$rs->RecordCount().'</p>';
-		echo '<div class="text" style="width: 300px; float: left;"><b>'._("Name").'</b></div>';
-		echo '<div class="text" style="width: 150px; float: left;"><b>'._("Birth").'</b></div>';
-		echo '<div class="text" style="width: 150px;"><b>'._("Death").'</b></div>';
+		echo '<p class="text">'.gtc("Number of individuals listed").': '.$rs->RecordCount().'</p>';
+		echo '<div class="text" style="width: 300px; float: left;"><b>'.gtc("Name").'</b></div>';
+		echo '<div class="text" style="width: 150px; float: left;"><b>'.gtc("Birth").'</b></div>';
+		echo '<div class="text" style="width: 150px;"><b>'.gtc("Death").'</b></div>';
 
 		while ($row = $rs->FetchRow()) {
 			$o = new Person($row['indkey'], 3); 

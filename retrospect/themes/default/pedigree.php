@@ -32,8 +32,8 @@
 	$g_indiv = isset($_GET['indiv']) ? $_GET['indiv'] : exit;
 	
 	# populate keyword array
-	keyword_push(_("Pedigree"));
-	keyword_push(_("Ancestors"));
+	keyword_push(gtc("Pedigree"));
+	keyword_push(gtc("Ancestors"));
 
 	# get first person information
 	$o = new Person($g_indiv);
@@ -47,7 +47,7 @@
 	$g_content_height = 625;
 	
 	# title
-	$g_title = sprintf(_("Pedigree for %s"), $o->name);
+	$g_title = sprintf(gtc("Pedigree for %s"), $o->name);
 
 	# instantiate new tree
 	$tree = new ATree($g_indiv);
@@ -73,8 +73,8 @@
 		$g_node_strings[$p_node->ns_number]  = '<table width="148" cellpadding="2" cellspacing="0">';
 		$g_node_strings[$p_node->ns_number] .= '<tr><td class="pedbox-text" align="left" valign="middle">';
 		$g_node_strings[$p_node->ns_number] .= '<a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&amp;indiv='.$p_node->indkey.'">'.$p_node->name.'</a><br />';
-		$g_node_strings[$p_node->ns_number] .= _("b.").' '.$p_node->birth->date.'<br />';
-		$g_node_strings[$p_node->ns_number] .= _("d.").' '.$p_node->death->date.'</td></tr></table>';
+		$g_node_strings[$p_node->ns_number] .= gtc("b.").' '.$p_node->birth->date.'<br />';
+		$g_node_strings[$p_node->ns_number] .= gtc("d.").' '.$p_node->death->date.'</td></tr></table>';
 	}
 
 	# name and menu

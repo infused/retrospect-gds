@@ -37,10 +37,10 @@
 		$sources = array();
 		$o = new person($g_indiv);
 	
-		$g_title = sprintf(_("Reports for %s"), $o->name);
+		$g_title = sprintf(gtc("Reports for %s"), $o->name);
 		
 		# populate keyword array
-		keyword_push(_("Reports"));
+		keyword_push(gtc("Reports"));
 		keyword_push($o->name);
 
 		# name and menu
@@ -54,39 +54,39 @@
 		echo '<div class="tab-page">';
 		
 		# family reports
-		echo '<p class="content-subtitle">'._("Family Reports").'</p>';
-		echo '<a href="'.$_SERVER['PHP_SELF'].'?no_template=y&amp;option=family_pdf&amp;indiv='.$o->indkey.'">'._("Family PDF").'</a>';
+		echo '<p class="content-subtitle">'.gtc("Family Reports").'</p>';
+		echo '<a href="'.$_SERVER['PHP_SELF'].'?no_template=y&amp;option=family_pdf&amp;indiv='.$o->indkey.'">'.gtc("Family PDF").'</a>';
 		# pedigree reports
-		echo '<p class="content-subtitle">'._("Pedigree Reports").'</p>';
-		echo '<a href="'.$_SERVER['PHP_SELF'].'?no_template=y&amp;option=pedigree_pdf&amp;indiv='.$o->indkey.'">'._("Pedigree PDF").'</a>';
+		echo '<p class="content-subtitle">'.gtc("Pedigree Reports").'</p>';
+		echo '<a href="'.$_SERVER['PHP_SELF'].'?no_template=y&amp;option=pedigree_pdf&amp;indiv='.$o->indkey.'">'.gtc("Pedigree PDF").'</a>';
 		# ancestor reports
-		echo '<p class="content-subtitle">'._("Ancestor Reports").'</p>';
+		echo '<p class="content-subtitle">'.gtc("Ancestor Reports").'</p>';
 		echo '<form name="form_change_report" method="get" action="">';
 		echo '<table border="0" cellpadding="0" cellspacing="0"><tr>';
-		echo '<td class="text">'._("Report type").':&nbsp;</td>';
-		echo '<td width="125"><select name="report_type" class="listbox"><option value="ahnentafel">'._("Ahnentafel").'</option><option value="ahnentafel_pdf">'._("Ahnentafel PDF").'</option></select></td>';
-		echo '<td class="text">'.'&nbsp;'._("Number of Generations").':&nbsp;</td>';
+		echo '<td class="text">'.gtc("Report type").':&nbsp;</td>';
+		echo '<td width="125"><select name="report_type" class="listbox"><option value="ahnentafel">'.gtc("Ahnentafel").'</option><option value="ahnentafel_pdf">'.gtc("Ahnentafel PDF").'</option></select></td>';
+		echo '<td class="text">'.'&nbsp;'.gtc("Number of Generations").':&nbsp;</td>';
 		echo '<td><input name="max_gens" type="text" class="textbox" value="250" size="3" />';
 		echo '<input name="indiv" type="hidden" value="'.$_GET['indiv'].'" />';
 		echo '<input name="option" type="hidden" value="'.$_GET['option'].'" />';
 		echo '</td>';
 		echo '<td>&nbsp;&nbsp;&nbsp;</td>';
-		echo '<td><input name="" type="submit" class="text" value="'._("Apply").'" /></td>';
+		echo '<td><input name="" type="submit" class="text" value="'.gtc("Apply").'" /></td>';
 		echo '</tr></table>';
 		echo '</form>';
 		# descendant reports
-		echo '<p class="content-subtitle">'._("Descendant Reports").'</p>';
+		echo '<p class="content-subtitle">'.gtc("Descendant Reports").'</p>';
 		echo '<form name="form_change_report" method="get" action="">';
 		echo '<table border="0" cellpadding="0" cellspacing="0"><tr>';
-		echo '<td class="text">'._("Report type").':&nbsp;</td>';
-		echo '<td width="125"><select name="report_type" class="listbox"><option value="descendant">'._("Descendant").'</option><option value="descendant_pdf">'._("Descendant PDF").'</option></select></td>';
-		echo '<td class="text">'.'&nbsp;'._("Number of Generations").':&nbsp;</td>';
+		echo '<td class="text">'.gtc("Report type").':&nbsp;</td>';
+		echo '<td width="125"><select name="report_type" class="listbox"><option value="descendant">'.gtc("Descendant").'</option><option value="descendant_pdf">'.gtc("Descendant PDF").'</option></select></td>';
+		echo '<td class="text">'.'&nbsp;'.gtc("Number of Generations").':&nbsp;</td>';
 		echo '<td><input name="max_gens" type="text" class="textbox" value="250" size="3" />';
 		echo '<input name="indiv" type="hidden" value="'.$_GET['indiv'].'" />';
 		echo '<input name="option" type="hidden" value="'.$_GET['option'].'" />';
 		echo '</td>';
 		echo '<td>&nbsp;&nbsp;&nbsp;</td>';
-		echo '<td><input name="" type="submit" class="text" value="'._("Apply").'" /></td>';
+		echo '<td><input name="" type="submit" class="text" value="'.gtc("Apply").'" /></td>';
 		echo '</tr></table>';
 		echo '</form>';
 		

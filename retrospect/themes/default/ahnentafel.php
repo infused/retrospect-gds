@@ -40,8 +40,8 @@
 	$g_max_gens = isset($_GET['max_gens']) ? $_GET['max_gens'] : 250;
 	
 	# populate keyword array
-	keyword_push(_("Ahnentafel"));
-	keyword_push(_("Ancestors"));
+	keyword_push(gtc("Ahnentafel"));
+	keyword_push(gtc("Ancestors"));
 	
 	# initialize other variables
 	$g_generation = 0;	# current generation
@@ -56,7 +56,7 @@
 	$root = $tree->get_node_at_index(0);
 
 	# title
-	$g_title = sprintf(_("Ahnentafel Report for %s"), $o->name);
+	$g_title = sprintf(gtc("Ahnentafel Report for %s"), $o->name);
 
 	# name and menu
 	echo '<p class="content-title">'.$o->name;
@@ -65,7 +65,7 @@
 	if ($print === false) {
 		include(Theme::getPage($g_theme, 'nav'));
 	}
-	echo '<p class="content-subtitle">'._("Ahnentafel Report").'</p>';
+	echo '<p class="content-subtitle">'.gtc("Ahnentafel Report").'</p>';
 	
 	$tree->level_order_traversal($root, 'display_indiv');
 	unset($root, $tree, $o);
@@ -93,11 +93,11 @@
 		if ($p_generation > $g_generation ) {
 			$g_generation = $p_generation;
 			# display generation if it changed	
-			echo '<h3>'.sprintf(_("Generation %s"), $g_generation).'</h3>';
+			echo '<h3>'.sprintf(gtc("Generation %s"), $g_generation).'</h3>';
 		}
-		echo '<ol><li value='.$p_node->ns_number.'">';
+		echo '<ol><li value="'.$p_node->ns_number.'">';
 		# display ahnentafel number and name
-		echo '<a href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$p_node->indkey.'">'.$p_node->name.'</a>'; 
+		echo '<a href="'.$_SERVER['PHP_SELF'].'?option=family&amp;indiv='.$p_node->indkey.'">'.$p_node->name.'</a>'; 
 		# display parents
 		echo get_parents_sentence($p_node, $father, $mother).'<br />';
 		# display birth sentence
