@@ -58,6 +58,10 @@ input.textbox {
 .text {
 	font: 14px Verdana, Arial, Helvetica, sans-serif;
 }
+.tittext {
+	font: normal 20pt Verdana, Arial, Helvetica, sans-serif;
+	color: white;
+}
 .vertext {
 	font: normal 12px Verdana, Arial, Helvetica, sans-serif;
 	color: white;

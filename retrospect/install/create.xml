@@ -27,8 +27,9 @@
 		<field name="source" type="X">
 			<notnull />
 		</field>
-		<field name="citekey" type="C" size="20">
+		<field name="citekey" type="I">
 			<key />
+			<autoincrement />
 			<notnull />
 		</field>
 		<index name="factkey">
@@ -83,7 +84,7 @@
 		<field name="comment" type="C" size="250">
 			<notnull />
 		</field>
-		<field name="factkey" type="C" size="20">
+		<field name="factkey" type="I">
 			<key />
 			<notnull />
 		</field>

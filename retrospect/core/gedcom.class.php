@@ -148,7 +148,6 @@
 		var $rs_citation;				// citation adodb recordset object
 		var $db;								// local var for $GLOBALS['db']
 		var $factkey;
-		var $citekey;
 		var $date_parser;				// date parser object
 		
 		/**
@@ -158,7 +157,6 @@
 		function GedcomParser() {
 			$this->db = &$GLOBALS['db'];
 			$this->factkey = 0;
-			$this->citekey = 0;
 			$this->date_parser = new DateParser;
 			# get empty indiv recordset
 			$sql = 'SELECT * from '.TBL_INDIV.' where indkey=-1';
@@ -580,9 +578,7 @@
 		* @param integer $factkey
 		*/
 		function _ParseCitation($start_line, $factkey) {
-			$this->citekey++;
 			$citation = array();
-			$citation['citekey'] = $this->citekey;
 			$citation['factkey'] = $factkey;
 			# grab the source xref
 			preg_match(REG_SOURX, $start_line, $match);

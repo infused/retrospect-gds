@@ -37,6 +37,19 @@
 		}
 
 </script>
+<style type="text/css">
+<!--
+.style1 {
+	color: #FFFFFF;
+	font-size: 18pt;
+	font-weight: bold;
+}
+.style2 {
+	color: #FFFFFF;
+	font-size: 12pt;
+}
+-->
+</style>
 </head>
 <body onload="setFocus();">
 <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
@@ -45,10 +58,14 @@
       <form name="loginform" id="loginform" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <table width="450" border="1" cellpadding="0" cellspacing="0" bordercolor="#0066CC">
           <tr>
-            <td height="59" align="right" valign="top" background="images/logo.gif" class="vertext">(v<?php echo RGDS_VERSION; ?>)&nbsp;</td>
+            <td height="29" align="center" valign="bottom" nowrap="nowrap" background="images/logo.gif" bgcolor="#0066CC"><span class="style1">Retrospect-GDS</span><br />            </td>
+            <td rowspan="2" align="right" valign="bottom" background="images/logo.gif" bgcolor="#0066CC" class="vertext">(v<?php echo RGDS_VERSION; ?>)&nbsp;</td>
           </tr>
           <tr>
-            <td align="center" valign="middle">						<table width="100%"  border="0" cellspacing="0" cellpadding="20">
+            <td height="30" align="center" valign="bottom" nowrap="nowrap" background="images/logo.gif" bgcolor="#0066CC"><span class="style2">Administration</span></td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center" valign="middle">						<table width="100%"  border="0" cellspacing="0" cellpadding="20">
               <tr>
                 <td align="center" valign="middle"><table border="0" cellpadding="2" cellspacing="0">
                   <tr>
@@ -73,7 +90,7 @@
         </table>
       </form>
 			<br/>
-			 &copy;2003-2004 Keith Morrison, Infused Solutions
+			 <?php echo htmlentities(RGDS_COPYRIGHT); ?>
     </td>
   </tr>
 </table>
