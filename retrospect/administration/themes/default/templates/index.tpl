@@ -24,7 +24,8 @@
 {/if}
 <div id="content">{include file="$module.tpl"}</div>
 <div id="footer">
-	<a href="http://www.infused-solutions.com/retrospect/">Retrospect-GDS v{$RGDS_VERSION}</a> {$RGDS_COPYRIGHT}
+	Powered by
+	<a href="http://www.infused-solutions.com/retrospect/">Retrospect-GDS v{$RGDS_VERSION}</a>
 </div>
 </body>
 </html>

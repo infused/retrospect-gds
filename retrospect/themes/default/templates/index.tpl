@@ -30,7 +30,8 @@
 </div>
 <div id="footer">
 	{if $SITE_COPYRIGHT != ""}{$SITE_COPYRIGHT}<br />{/if}
-	<a href="http://www.infused-solutions.com/retrospect/">Retrospect-GDS v{$RGDS_VERSION}</a> {$RGDS_COPYRIGHT}
+	Powered by 
+	<a href="http://www.infused-solutions.com/retrospect/">Retrospect-GDS v{$RGDS_VERSION}</a>
 </div>
 </body>
 </html>

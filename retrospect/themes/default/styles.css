@@ -61,6 +61,9 @@ sup {
 	text-align: center;
 	padding: 0px 0px 10px;
 }
+#footer a {
+	font-weight: normal;
+}
 .col1 {
 	position: static;
 	height: 11pt;
