@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2004-01-10 23:42-0800\n"
+"PO-Revision-Date: 2004-01-18 13:07-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused.org>\n"
 "Language-Team: Spanish <keithm@infused-solutions.com>\n"
 "MIME-Version: 1.0\n"
@@ -354,81 +354,81 @@ msgstr "Español"
 
 #: core/f_dummy.php:122
 msgid "Dutch"
-msgstr ""
+msgstr "Holandés"
 
-#: core/f_language.php:76
+#: core/f_language.php:82
 msgid "Jan"
 msgstr "Ene"
 
-#: core/f_language.php:77
+#: core/f_language.php:83
 msgid "Feb"
 msgstr "Feb"
 
-#: core/f_language.php:78
+#: core/f_language.php:84
 msgid "Mar"
 msgstr "Mar"
 
-#: core/f_language.php:79
+#: core/f_language.php:85
 msgid "Apr"
 msgstr "Abr"
 
-#: core/f_language.php:80
+#: core/f_language.php:86
 msgid "May"
 msgstr "May"
 
-#: core/f_language.php:81
+#: core/f_language.php:87
 msgid "Jun"
 msgstr "Jun"
 
-#: core/f_language.php:82
+#: core/f_language.php:88
 msgid "Jul"
 msgstr "Jul"
 
-#: core/f_language.php:83
+#: core/f_language.php:89
 msgid "Aug"
 msgstr "Ago"
 
-#: core/f_language.php:84
+#: core/f_language.php:90
 msgid "Sep"
 msgstr "Sep"
 
-#: core/f_language.php:85
+#: core/f_language.php:91
 msgid "Oct"
 msgstr "Oct"
 
-#: core/f_language.php:86
+#: core/f_language.php:92
 #, fuzzy
 msgid "Nov"
 msgstr "No"
 
-#: core/f_language.php:87
+#: core/f_language.php:93
 msgid "Dec"
 msgstr "Dec"
 
-#: core/f_language.php:90
+#: core/f_language.php:96
 msgid "abv About"
 msgstr "Cerca"
 
-#: core/f_language.php:91
+#: core/f_language.php:97
 #, fuzzy
 msgid "abv Circa"
 msgstr "Mar"
 
-#: core/f_language.php:92
+#: core/f_language.php:98
 #, fuzzy
 msgid "abv After"
 msgstr "Oct"
 
-#: core/f_language.php:93
+#: core/f_language.php:99
 msgid "abv Before"
 msgstr ""
 
-#: core/f_language.php:94
+#: core/f_language.php:100
 #, fuzzy
 msgid "abv Between"
 msgstr "Sep"
 
-#: core/f_language.php:95
+#: core/f_language.php:101
 msgid "abv Calculated"
 msgstr ""
 
@@ -1001,8 +1001,8 @@ msgstr "Informe De Ahnentafel"
 # ancestors.php:112
 #: themes/default/ahnentafel.php:86
 #: themes/default/ahnentafel_pdf.php:107
-#: themes/default/descendant.php:53
-#: themes/default/descendant_pdf.php:91
+#: themes/default/descendant.php:56
+#: themes/default/descendant_pdf.php:93
 #, php-format
 msgid "Generation %s"
 msgstr "Generacion %s"
@@ -1016,13 +1016,13 @@ msgid "Send questions or comments to %s"
 msgstr "Envíe las preguntas o los comentarios a %s"
 
 #: themes/default/ahnentafel_pdf.php:88
-#: themes/default/descendant_pdf.php:175
+#: themes/default/descendant_pdf.php:178
 #: themes/default/family_pdf.php:79
 #: themes/default/pedigree_pdf.php:117
 msgid "Genealogy"
 msgstr "Genealogía"
 
-#: themes/default/descendant.php:96
+#: themes/default/descendant.php:99
 #: themes/default/family.php:131
 #: themes/default/family.php:168
 #: themes/default/family_pdf.php:232
@@ -1030,7 +1030,7 @@ msgstr "Genealogía"
 msgid "b."
 msgstr "n."
 
-#: themes/default/descendant.php:99
+#: themes/default/descendant.php:102
 #: themes/default/family.php:132
 #: themes/default/family.php:169
 #: themes/default/family_pdf.php:233
@@ -1038,14 +1038,14 @@ msgstr "n."
 msgid "d."
 msgstr "m."
 
-#: themes/default/descendant.php:116
+#: themes/default/descendant.php:119
 #: themes/default/descendant_pdf.php:58
-#: themes/default/descendant_pdf.php:174
+#: themes/default/descendant_pdf.php:177
 #, php-format
 msgid "Descendant Report for %s"
 msgstr "Informe del descendiente para %s"
 
-#: themes/default/descendant.php:125
+#: themes/default/descendant.php:128
 msgid "Descendant Report"
 msgstr "Informe Del Descendiente"
 
@@ -1296,6 +1296,10 @@ msgstr "Estadística"
 #: administration/login.php:71
 msgid "Language"
 msgstr "Lengua"
+
+#: themes/default/menu.php:51
+msgid "German"
+msgstr "Alemán"
 
 #: themes/default/multimedia.php:33
 #, php-format
