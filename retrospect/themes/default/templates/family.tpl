@@ -23,7 +23,7 @@
 		<div class="col1">{translate s=$event->type}:</div>
 		<div class="col2">{$event->date}</div>
 		<div class="col3">
-			{if $event->comment}{$event->comment}{if $event->place} / {/if}{/if}
+			{if $event->comment}<i>{$event->comment}</i>{if $event->place} / {/if}{/if}
 			{$event->place}
 			{foreach from=$event->sources item=source}
 				{counter assign=source_count print=no}
