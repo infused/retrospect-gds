@@ -45,36 +45,31 @@
 		$sql = "SELECT lang_charset FROM ".TBL_LANG." WHERE lang_code = '{$lang}'";
 		$charset = $db->GetOne($sql);
 
-		# if gettext is available initialize with the default language
 		# use LC_ALL because some operating systems do not support 
 		# the LC_MESSAGES domain
-		if (extension_loaded('gettext')) {
-			setlocale(LC_ALL, $lang);
-			bindtextdomain('messages', LOCALE_PATH); 
-			textdomain('messages');	
-			# do not try to set environment var if safe mode is on
-			# (this may break gettext on some windows platforms)
-			if (!ini_get('safe_mode')) {
-				putenv('LC_ALL='.$lang);
-				putenv('LANG='.$lang);
-				putenv('LANGUAGE='.$lang);
-			}
-			# set correct charset in header
-			header("Content-type: text/html; charset={$charset}");
+		setlocale(LC_ALL, $lang);
+		bindtextdomain('messages', LOCALE_PATH); 
+		textdomain('messages');	
+		# do not try to set environment var if safe mode is on
+		# (this may break gettext on some windows platforms)
+		if (!ini_get('safe_mode')) {
+			putenv('LC_ALL='.$lang);
+			putenv('LANG='.$lang);
+			putenv('LANGUAGE='.$lang);
 		}
-		# if gettext is not available redefine some simple gettext functions
-		else {
-			function gettext($p_string) {
-				return $p_string;
-			}
-			function _($p_string) {
-				return $p_string;
-			}
-		}
-		# get list of supported languages 
+		# set correct charset in header
+		header("Content-type: text/html; charset={$charset}");
+	}
+	
+	/** 
+	* Get list of supported languages
+	* @return array 
+	*/
+	function lang_get_langs() {
+		global $db, $options;
 		if ($options->GetOption('allow_lang_change') == 1) {
 			$sql = "SELECT lang_name, lang_code FROM ".TBL_LANG;
-			$g_langs = $db->GetAll($sql);
+			return $db->GetAll($sql);
 		}
 	}
 	
@@ -82,41 +77,38 @@
 	* Translate Date
 	* 
 	* Translates month names into the appropriate language
-	* @access public
 	* @param string $p_date english language date
 	* @return string translated date string
 	*/
-	function lang_translate_date($p_date) {
-		global $options;
-		if ($_SESSION['lang'] != 'en_US' and $options->GetOption('translate_dates') == 1) {
-			# replace month names
-			$p_date = str_replace(array('jan', 'Jan', 'JAN'), gtc("Jan"), $p_date);
-			$p_date = str_replace(array('feb', 'Feb', 'FEB'), gtc("Feb"), $p_date);
-			$p_date = str_replace(array('mar', 'Mar', 'MAR'), gtc("Mar"), $p_date);
-			$p_date = str_replace(array('apr', 'Apr', 'APR'), gtc("Apr"), $p_date);
-			$p_date = str_replace(array('may', 'May', 'MAY'), gtc("May"), $p_date);
-			$p_date = str_replace(array('jun', 'Jun', 'JUN'), gtc("Jun"), $p_date);
-			$p_date = str_replace(array('jul', 'Jul', 'JUL'), gtc("Jul"), $p_date);
-			$p_date = str_replace(array('aug', 'Aug', 'AUG'), gtc("Aug"), $p_date);
-			$p_date = str_replace(array('sep', 'Sep', 'SEP'), gtc("Sep"), $p_date);
-			$p_date = str_replace(array('oct', 'Oct', 'OCT'), gtc("Oct"), $p_date);
-			$p_date = str_replace(array('nov', 'Nov', 'NOV'), gtc("Nov"), $p_date);
-			$p_date = str_replace(array('dec', 'Dec', 'DEC'), gtc("Dec"), $p_date);
-		
-			# replace date qualifiers
-			$p_date = str_replace(array('abt', 'Abt', 'ABT', 'about', 'About', 'ABOUT'), gtc("abt"), $p_date);
-			$p_date = str_replace(array('cir', 'Cir', 'CIR', 'circa', 'Circa', 'CIRCA'), gtc("cir"), $p_date);
-			$p_date = str_replace(array('aft', 'Aft', 'AFT', 'after', 'After', 'AFTER'), gtc("aft"), $p_date);
-			$p_date = str_replace(array('bef', 'Bef', 'BEF', 'before', 'Before', 'BEFORE'), gtc("bef"), $p_date);
-			$p_date = str_replace(array('bet', 'Bet', 'BET', 'between', 'Between', 'BETWEEN'), gtc("bet"), $p_date);
-			$p_date = str_replace(array('cal', 'Cal', 'CAL', 'calculated', 'Calculated', 'CALCULATED'), gtc("cal"), $p_date);		
-		}
-		return $p_date;
+	function lang_translate_date($date) {
+		$orig_mon = array('/jan/i','/feb/i','/mar/i','/apr/i','/may/i',
+			'/jun/i','/jul/i','/aug/i','/sep/i','/oct/i','/nov/i','/dec/i');
+		$repl_mon = array(gtc("Jan"),gtc("Feb"),gtc("Mar"),gtc("Apr"),gtc("May"),
+			gtc("Jun"),gtc("Jul"),gtc("Aug"),gtc("Sep"),gtc("Oct"),gtc("Nov"),gtc("Dec"));
+		return preg_replace($orig_mon, $repl_mon, $date);
 	}
 	
-	function gtc($p_string) {
-		$string = gettext($p_string);
-		$clean = htmlentities($string);
-		return $clean;
+	/**
+	* Translate date modifier
+	*
+	* Translates date modifiers such as Abt, Bet, Aft
+	* @param string $p_date english language modifier
+	* @return string translated date modifier
+	*/
+	function lang_translate_mod($mod) {
+		return gtc(strtolower($mod));
+	}
+	
+	/**
+	* Gettext wrapper function
+	*
+	* We use this wrapper instead of the native gettext function call so that
+	* we have better control over the process.  This function returns strings that
+	* have been passed through htmlentities.
+	* @param string $string
+	* @return string
+	*/
+	function gtc($string) {
+		return htmlentities(gettext($string));
 	}
 ?>

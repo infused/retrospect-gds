@@ -24,15 +24,15 @@
 	
 	# Define regular expressions
 	# Gedcom compliant structures
-	define('REG_DATE_GREG1','/^(ABT|CIR|BEF|AFT|FROM|TO|EST|CAL|) *([0-9]{3,4}\/[0-9]{2}|[0-9]{3,4})$/');
-	define('REG_DATE_GREG2','/^(ABT|CIR|BEF|AFT|FROM|TO|EST|CAL|) *(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC) ([0-9]{4}\/[0-9]{2}|[0-9]{1,4})$/');
-	define('REG_DATE_GREG3', '/^(ABT|CIR|BEF|AFT|FROM|TO|EST|CAL|) *([0-9]{1,2}) (JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC) ([0-9]{4}\/[0-9]{2}|[0-9]{1,4})$/');
+	define('REG_DATE_GREG1','/^(ABT|CIR|BEF|AFT|FROM|TO|EST|CAL|) *([\d]{3,4}\/[\d]{2}|[\d]{3,4})$/');
+	define('REG_DATE_GREG2','/^(ABT|CIR|BEF|AFT|FROM|TO|EST|CAL|) *(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC) ([\d]{4}\/[\d]{2}|[\d]{1,4})$/');
+	define('REG_DATE_GREG3', '/^(ABT|CIR|BEF|AFT|FROM|TO|EST|CAL|) *([0-9]{1,2}) (JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC) ([\d]{4}\/[\d]{2}|[\d]{1,4})$/');
 	define('REG_DATE_PERIOD', '/^FROM (.+) TO (.+)/');
 	define('REG_DATE_RANGE', '/^BET (.+) AND (.+)/');
 	define('REG_DATE_RANGE2', '/^(ABT|CIR|BEF|AFT|FROM|TO|EST|CAL|BET|) *(.+)-(.+)/');
 	
 	# Gedcom non-compliant structures
-	define('REG_DATE_DYMO', '/^(ABT|CIR|BEF|AFT|FROM|TO|EST|CAL|) *([0-9]{1,2}) (JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)$/');
+	define('REG_DATE_DYMO', '/^(ABT|CIR|BEF|AFT|FROM|TO|EST|CAL|) *([\d]{1,2}) (JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)$/');
 	
 	# Define some aliases
 	define('REG_DATE_YEAR', REG_DATE_GREG1);
@@ -328,30 +328,26 @@
 				return $modifier;
 		}
 		
-		# todo:
-		# handle 'XX' modifier and return original string
-		# create 0 fmt to return original string
 		function FormatDateStr ($date_arr) {
-			# exit if no date
 			if ($date_arr['date_str'] == '') return;
-			
-			$date_str = $date_arr['date_str'];
-			
-			# format dates and modifier
-			$mod = $this->format_date_mod($date_arr['date_mod']);
-			$date1 = $this->format_date_str2($date_arr['date1']);
-			$date2 = $this->format_date_str2($date_arr['date2']);
-			
-			# format separator 
-			if (($date_arr['date2'] != DATE_EMPTY) AND ($date_arr['date2'] != '')) {
-				if ($date_arr['date_mod'] == DATE_MOD_FROM) $sep = gtc("to");
-				elseif ($date_arr['date_mod'] == DATE_MOD_BET) $sep = gtc("and");
-				else $sep = '-';
+			elseif ($date_arr['date_mod'] == 'XX') return $date_arr['date_str'];
+			else {
+				# format dates and modifier
+				$mod = $this->format_date_mod($date_arr['date_mod']);
+				$date1 = $this->format_date_str2($date_arr['date1']);
+				$date2 = $this->format_date_str2($date_arr['date2']);
+				
+				# format separator 
+				if (($date_arr['date2'] != DATE_EMPTY) AND ($date_arr['date2'] != '')) {
+					if ($date_arr['date_mod'] == DATE_MOD_FROM) $sep = gtc("to");
+					elseif ($date_arr['date_mod'] == DATE_MOD_BET) $sep = gtc("and");
+					else $sep = '-';
+				}
+				else $sep = '';
+				
+				$str = $mod.' '.$date1.' '.$sep.' '.$date2;
+				return trim($str);
 			}
-			else $sep = '';
-			
-			$str = $mod.' '.$date1.' '.$sep.' '.$date2;
-			return trim($str);
 		}
 		
 		function format_date_str2($date_str) {
@@ -371,13 +367,12 @@
 				}
 				elseif ($day == '00') {
 					$ts = adodb_mktime(0,0,0, $month, 15, $year);
-					$date = adodb_date($date_fmt['YM'], $ts); 
-					// need to translate month names here
+					$date = lang_translate_date(adodb_date($date_fmt['YM'], $ts)); 
 				}
 				else {
 					$ts = adodb_mktime('0','0','0', $month, $day, $year);
-					$date = adodb_date($date_fmt['YMD'], $ts); 
-					// need to translate month names here
+					$date = lang_translate_date(adodb_date($date_fmt['YMD'], $ts)); 
+					
 				}
 				return $date;
 			}
@@ -386,7 +381,7 @@
 		function format_date_mod($mod_str) {
 			global $DATE_MODS;
 			if ($mod = array_search($mod_str, $DATE_MODS)) {
-				return gtc(strtolower($mod));
+				return lang_translate_mod($mod);
 			}
 			else return;
 		}

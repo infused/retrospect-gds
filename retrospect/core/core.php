@@ -111,4 +111,5 @@
 
 	# Initialize the gettext engine
 	lang_init_gettext();
+	$g_langs = lang_get_langs();
 ?>
