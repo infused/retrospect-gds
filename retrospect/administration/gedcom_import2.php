@@ -41,6 +41,22 @@
 				$gedcomfile = $gedcomdir.$_POST['selectedfile'];
 				$gedcom = new GedcomParser();
 				$gedcom->Open($gedcomfile);
+				
+				# Empty tables
+				$sql = 'delete from '.$g_tbl_indiv;
+				$db->Execute($sql);
+				$sql = 'delete from '.$g_tbl_fact;
+				$db->Execute($sql);
+				$sql = 'delete from '.$g_tbl_note;
+				$db->Execute($sql);
+				$sql = 'delete from '.$g_tbl_family;
+				$db->Execute($sql);
+				$sql = 'delete from '.$g_tbl_child;
+				$db->Execute($sql);
+				$sql = 'delete from '.$g_tbl_source;
+				$db->Execute($sql);
+				$sql = 'delete from '.$g_tbl_citation;
+				$db->Execute($sql);
 			?>
 			&nbsp;
 		</td> 
@@ -51,7 +67,7 @@
   <tr> 
     <td align="left" valign="top"> <table width="100%"  border="0" cellpadding="2" cellspacing="0" bgcolor="#CCCCCC"> 
         <tr>
-          <td valign="middle" class="content-label">Locating individuals... </td>
+          <td valign="middle" class="content-label">Processing Records...</td>
         </tr>
         <tr>
           <td valign="middle" class="text">

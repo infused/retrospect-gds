@@ -53,6 +53,7 @@
 	define('REG_HUSB','/^1 HUSB @(.+)@/');			# Husband xref
 	define('REG_WIFE','/^1 WIFE @(.+)@/');			# Wife xref
 	define('REG_MARR','/^1 MARR/');							# Marriage
+	define('REG_CHIL','/^1 CHIL @(.+)@/');			# Child
 	
 	# Note substructures
 	define('REG_CONT','/^1 CONT (.+)/');				# Continuation
@@ -124,6 +125,7 @@
 		var $rs_note;						// note adodb recordset object
 		var $rs_family;					// family adodb recordset object
 		var $rs_fact;						// fact adodb recordset object
+		var $rs_child;					// child adodb recordset object
 		var $db;								// local var for $GLOBALS['db']
 		var $factkey;
 		
@@ -146,6 +148,9 @@
 			# get empty fact recordset
 			$sql = 'SELECT * from '.$GLOBALS['g_tbl_fact'].' where indfamkey=-1';
 			$this->rs_fact = $GLOBALS['db']->Execute($sql);
+			# get empty child recordset
+			$sql = 'SELECT * from '.$GLOBALS['g_tbl_child'].' where famkey=-1';
+			$this->rs_child = $GLOBALS['db']->Execute($sql);
 		}
 		
 		/**
@@ -264,6 +269,7 @@
 					//$this->_DB_InsertRecord($this->rs_indiv, $recordset);
 					$this->_DB_InsertRecord($this->rs_indiv, $recordset);
 					foreach ($events as $event) {
+						//$this->_DB_InsertRecord($this->rs_fact, $event);
 						$this->_DB_InsertRecord($this->rs_fact, $event);
 					}
 					fseek($this->fhandle, $poffset);
@@ -352,6 +358,13 @@
 				# create note link
 				elseif (preg_match(REG_NOTEX, $line, $match)) {
 					$family['notekey'] = trim($match[1]);
+				}
+				# format and dump child record to db
+				elseif (preg_match(REG_CHIL, $line, $match)) {
+					$child = array();
+					$child['famkey'] = $family['famkey'];
+					$child['indkey'] = $match[1];
+					$this->_DB_InsertRecord($this->rs_child, $child);
 				}
 				# parse event and populate begin/end status
 				elseif (preg_match(REG_FAME, $line)) {
@@ -540,7 +553,7 @@
 			$db = &$this->db;
 			$insertSQL = $db->GetInsertSQL($rs, $record);
 			$db->Execute($insertSQL);
-			echo $insertSQL.'<br>';
+			//echo $insertSQL.'<br>';
 		}
 
  	}
