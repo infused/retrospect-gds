@@ -334,7 +334,7 @@
 		* @return string
 		*/
 		function FormatMod ($date_str) {
-			return $this->_format_date_mod($date_mod);
+			return $this->_format_date_mod($date_str);
 		}
 		
 		/**

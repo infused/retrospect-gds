@@ -127,7 +127,7 @@
 		# event labels
 		gettext("Source Citations");
 		
-		# date modifers
+		# date modifers (abbreviated)
 		gettext("abt");
 		gettext("cir");
 		gettext("aft");

@@ -33,7 +33,6 @@
 	* @return string
 	*/
 	function get_birth_sentence($p) {
-		$dp = new DateParser();
 		$s 					= '';
 		$date 			= $p->birth->date;
 		$place 			= $p->birth->place;
@@ -43,7 +42,8 @@
 		
 		# populate keyword array
 		keyword_push($p->name);
-		if (!empty($p->birth->place)) { keyword_push($p->birth->place); }
+		if (!empty($place)) { keyword_push($place); }
+		
 		# for males
 		if ($p->sex == 'M') { 
 			if ($rdate_mod == '00') {
@@ -84,32 +84,40 @@
 	* @return string
 	*/
 	function get_death_sentence($p) {
-		$s = null;
+		$s 					= '';
+		$date 			= $p->death->date;
+		$place 			= $p->death->place;
+		$rdate_mod 	= $p->death->raw['mod'];
+		$rdate1 		= $p->death->raw['date1'];
+		$rdate2 		= $p->death->raw['date2'];
+		
 		# populate keyword array
-		if (!empty($p->death->place)) { keyword_push($p->death->place); }
+		if (!empty($place)) { keyword_push($place); }
 		
 		# for males
 		if ($p->sex == 'M') { 
-			if ($p->death->date and $p->death->place) {
-				$s = sprintf(gtc("He died on %s in %s."), $p->death->date, $p->death->place).' ';		
+			if ($rdate_mod == '00') {
+				if ($date AND $place) $s = sprintf(gtc("He died on %s in %s."), $date, $place);
+				elseif ($date) 				$s = sprintf(gtc("He died on %s."), $date);
+				elseif ($place) 			$s = sprintf(gtc("He died in %s."), $place);
 			}
-			elseif ($p->death->date) {
-				$s = sprintf(gtc("He died on %s."), $p->death->date).' ';
-			}
-			elseif ($p->death->place) {
-				$s = sprintf(gtc("He died in %s."), $p->death->place).' ';
+			else {
+				if ($date AND $place) $s = sprintf(gtc("He died %s in %s."), $date, $place);
+				elseif ($date) 				$s = sprintf(gtc("He died %s."), $date);
+				elseif ($place) 			$s = sprintf(gtc("He died in %s."), $place);
 			}
 		}
 		# for females
 		if ($p->sex == 'F') { 
-			if ($p->death->date and $p->death->place) {
-				$s = sprintf(gtc("She died on %s in %s."), $p->death->date, $p->death->place).' ';		
+			if ($rdate_mod == '00') {
+				if ($date AND $place) $s = sprintf(gtc("She died on %s in %s."), $date, $place);
+				elseif ($date) 				$s = sprintf(gtc("She died on %s."), $date);
+				elseif ($place) 			$s = sprintf(gtc("She died in %s."), $place);
 			}
-			elseif ($p->death->date) {
-				$s = sprintf(gtc("She died on %s."), $p->death->date).' ';
-			}
-			elseif ($p->death->place) {
-				$s = sprintf(gtc("She died in %s."), $p->death->place).' ';
+			else {
+				if ($date AND $place) $s = sprintf(gtc("She died %s in %s."), $date, $place);
+				elseif ($date) 				$s = sprintf(gtc("She died %s."), $date);
+				elseif ($place) 			$s = sprintf(gtc("She died in %s."), $place);
 			}
 		}
 		return $s;
