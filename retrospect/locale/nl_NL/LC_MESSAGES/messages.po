@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2004-11-06 23:33-0800\n"
+"PO-Revision-Date: 2005-01-05 12:49-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused-solutions.com>\n"
 "Language-Team: DUTCH <j.warnar@chello.nl>\n"
 "MIME-Version: 1.0\n"
@@ -367,19 +367,19 @@ msgstr "aanroep"
 
 #: core/f_language.php:86
 msgid "Jan"
-msgstr "januari"
+msgstr "jan"
 
 #: core/f_language.php:86
 msgid "Feb"
-msgstr "februari"
+msgstr "feb"
 
 #: core/f_language.php:86
 msgid "Mar"
-msgstr "maart"
+msgstr "mrt"
 
 #: core/f_language.php:86
 msgid "Apr"
-msgstr "april"
+msgstr "apr"
 
 #: core/f_language.php:86
 msgid "May"
@@ -395,23 +395,23 @@ msgstr "juli"
 
 #: core/f_language.php:87
 msgid "Aug"
-msgstr "augustus"
+msgstr "aug"
 
 #: core/f_language.php:87
 msgid "Sep"
-msgstr "september"
+msgstr "sept"
 
 #: core/f_language.php:87
 msgid "Oct"
-msgstr "oktober"
+msgstr "okt"
 
 #: core/f_language.php:87
 msgid "Nov"
-msgstr "november"
+msgstr "nov"
 
 #: core/f_language.php:87
 msgid "Dec"
-msgstr "december"
+msgstr "dec"
 
 #: core/f_report.php:42
 #, php-format
@@ -612,7 +612,7 @@ msgstr "Voorouders lijst"
 #: core/modules/ahnentafel_pdf.php:87
 #, php-format
 msgid "Ahnentafel Report for %s"
-msgstr "Vororouderlijst van %s"
+msgstr "Voorouderlijst van %s"
 
 #: core/modules/ahnentafel.php:63
 #: core/modules/descendant.php:47
