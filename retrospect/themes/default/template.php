@@ -28,8 +28,9 @@
 <head>
 <title><?php echo $g_title; unset($g_title); ?></title>
 <link rel="stylesheet" href="themes/default/styles.css" />
-<meta name="robots" content="FOLLOW,INDEX">
-<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="description" content="<?php echo $g_title; ?>" />
+<meta name="robots" content="FOLLOW,INDEX" />
+<meta name="MSSmartTagsPreventParsing" content="true" />
 <script language="JavaScript" type="text/JavaScript">
 <!--
 
