@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2005-02-13 21:55-0800\n"
+"PO-Revision-Date: 2005-02-14 13:38-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused-solutions.com>\n"
 "Language-Team: GERMAN <wil.feindt@t-online.de>\n"
 "MIME-Version: 1.0\n"
@@ -707,7 +707,7 @@ msgstr "Genealogie"
 #: themes/default/templates_c/nav.tpl.php:65
 #: themes/default/templates_c/nav.tpl.php:71
 msgid "Comments"
-msgstr ""
+msgstr "Opmerkingen"
 
 #: core/modules/commentadd.php:41
 #: core/modules/comments.php:41
@@ -899,7 +899,7 @@ msgstr "Familiennamen"
 #: themes/default/templates_c/commentadd.tpl.php:16
 #: themes/default/templates_c/commentadd.tpl.php:40
 msgid "Return to comment list"
-msgstr ""
+msgstr "Terug naar lijst met opmerkingen"
 
 #: themes/default/templates_c/commentadd.tpl.php:18
 msgid "The comment you submitted is show below."
@@ -916,7 +916,7 @@ msgstr ""
 
 #: themes/default/templates_c/comments.tpl.php:15
 msgid "Submit a comment"
-msgstr ""
+msgstr "Plaats een opmerking"
 
 #: themes/default/templates_c/comments.tpl.php:22
 #, fuzzy
