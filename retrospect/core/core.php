@@ -56,6 +56,11 @@
 	require_once(CORE_PATH.'f_compatibility.php');
 	
 	/**
+	* Require miscellaneous functions
+	*/
+	require_once(CORE_PATH.'f_misc.php');
+	
+	/**
 	* Require database functions and establish connection.
 	* Use the appropriate connection method based on the database type.
 	*/

@@ -20,6 +20,17 @@
  * $Id$
  *
  */
-	
+
+	/**
+	* Push item onto keyword array and enforce size limit.
+	* Only unique keywords are added to the array
+	*/
+	function keyword_push($keyword) {
+		global $keywords;
+		$max_size = 32;
+		if (count($keywords) < $max_size AND array_search($keyword, $keywords) === false) {
+			$keywords[] = $keyword;
+		}
+	}	
 
 ?>
