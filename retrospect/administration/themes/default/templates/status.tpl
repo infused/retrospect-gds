@@ -8,7 +8,9 @@
 	<div class="label">Sources:</div><div class="value">{$DB_COUNT_SOURCE|number_format}</div>
 	<div class="label">Citations:</div><div class="value">{$DB_COUNT_CITATION|number_format}</div>
 	<br />
-	<div class="label">Comments:</div><div class="value">0</div>
-	<div class="label">Images:</div><div class="value">0</div>
+	<div class="label">Comments:</div><div class="value">{$DB_COUNT_COMMENT|number_format}</div>
+
 </div>
-<div id="notifications">Notifications, warnings, and errors will go here.</div>
+<div id="notifications">Notifications:
+	<ol>{foreach from=$notify item="message"}<li>{$message}</li>{/foreach}</ol>
+</div>

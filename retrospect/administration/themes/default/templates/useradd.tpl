@@ -26,6 +26,7 @@
 			<td class="cfg-opt"><input name="fullname" class="textbox" size="40" maxlength="100" value="{$smarty.post.fullname}" /></td>
 			<td class="cfg-err">&nbsp;</td>
 		</tr>
+		<!--
 		<tr>
 			<td class="cfg-lbl"><label for="group">Group:</label></td>
 			<td class="cfg-opt">
@@ -35,6 +36,7 @@
 			</td>
 			<td class="cfg-err">&nbsp;</td>
 		</tr>
+		-->
 		<tr>
 			<td class="cfg-lbl"><label for="email">Email:</label></td>
 			<td class="cfg-opt"><input name="email" class="textbox" maxlength="100" value="{$smarty.post.email}" /></td>
