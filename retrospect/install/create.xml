@@ -296,7 +296,7 @@
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'date_format' record to options table</descr>
-		<query>INSERT INTO options VALUES (8, 'date_format', 'j M Y')</query>
+		<query>INSERT INTO options VALUES (8, 'date_format', '1')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add english language</descr>

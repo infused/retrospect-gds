@@ -331,7 +331,7 @@ class Person {
 	*/	
 	function _get_notes() {
 		$query = "SELECT text FROM ".TBL_NOTE." WHERE notekey='{$this->notekey}'";
-		$this->notes = htmlentities(nl2br($GLOBALS['db']->GetOne($query)));
+		$this->notes = nl2br($GLOBALS['db']->GetOne($query));
 	}
 }
 
@@ -394,12 +394,8 @@ class Event {
 		$this->place = htmlentities($event_data['place']);
 		$this->comment = htmlentities($event_data['comment']);
 		$this->factkey = $event_data['factkey'];
-		
-		$this->date = $event_data['date_str'];
-		
-		 $d =  format_date_str($event_data);
-		 if ($d) echo $d.'<br />';
-		
+		$dp = new DateParser();
+		$this->date = $dp->FormatDateStr($event_data);
 		if ($p_fetch_sources === true) $this->_get_sources();
 	}
 	
@@ -616,8 +612,8 @@ class Marriage {
 		$sql .= 'WHERE '.TBL_CITATION.'.factkey = "'.$p_factkey.'"';
 		$rs = $GLOBALS['db']->Execute($sql);
 		while ($row = $rs->FetchRow()) {
-			$source = $row['text'].'<br />'.$row['source'];
-			$sources[] = htmlentities($source);
+			$source = htmlentities($row['text']).'<br />'.htmlentities($row['source']);
+			$sources[] = $source;
 		}
 		return $sources;
 	}

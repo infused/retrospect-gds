@@ -187,8 +187,8 @@
             <tr>
               <td width="250" class="content-label">Date Format </td>
               <td><select name="date_format_new" class="listbox" id="date_format_new">
-                		<option value="j M Y" <?php if ($options->GetOption('date_format') == 'j M Y') echo 'selected'; ?>>25 Nov 1859</option>
-										<option value="M j, Y" <?php if ($options->GetOption('date_format') == 'M j, Y') echo 'selected'; ?>>Nov 25, 1859</option>
+                <option value="1" selected>25 Nov 1859</option>
+                <option value="2">Nov 25, 1859</option>
               		</select>
                 <input type="hidden" name="date_format_old" id="date_format_old" value="<?php echo $options->GetOption('date_format'); ?>" />
 							</td>

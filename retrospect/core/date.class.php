@@ -68,7 +68,7 @@
 		'DEC'=>'12'
 	);
 	
-	$modifiers = array(
+	$DATE_MODS = array(
 		'ABT'=>DATE_MOD_ABT,
 		'CIR'=>DATE_MOD_CIR,
 		'BEF'=>DATE_MOD_BEF,
@@ -78,6 +78,19 @@
 		'EST'=>DATE_MOD_EST,
 		'CAL'=>DATE_MOD_CAL,
 		'BET'=>DATE_MOD_BET
+	);
+	
+	# define date formats
+	$DATE_FMTS = array();
+	$DATE_FMTS[1] = array(
+		'YMD'=>'j M Y',
+		'YM' =>'M Y',
+		'Y'  =>'Y'
+	);
+	$DATE_FMTS[2] = array(
+		'YMD'=>'M j, Y',
+		'YM' =>'M Y',
+		'Y'  =>'Y'
 	);
 	
 	/**
@@ -305,14 +318,75 @@
 		* @return string
 		*/
 		function _get_modifier ($string) {
-			global $modifiers;
+			global $DATE_MODS;
 			if ($string == '') {
 				$modifier = DATE_MOD_NONE;
 			}
 			else {
-				$modifier = $modifiers[$string];
+				$modifier = $DATE_MODS[$string];
 			}
 				return $modifier;
+		}
+		
+		# todo:
+		# handle 'XX' modifier and return original string
+		# create 0 fmt to return original string
+		function FormatDateStr ($date_arr) {
+			# exit if no date
+			if ($date_arr['date_str'] == '') return;
+			
+			$date_str = $date_arr['date_str'];
+			
+			# format dates and modifier
+			$mod = $this->format_date_mod($date_arr['date_mod']);
+			$date1 = $this->format_date_str2($date_arr['date1']);
+			$date2 = $this->format_date_str2($date_arr['date2']);
+			
+			# format separator 
+			if (($date_arr['date2'] != DATE_EMPTY) AND ($date_arr['date2'] != '')) {
+				if ($date_arr['date_mod'] == DATE_MOD_FROM) $sep = gtc("to");
+				elseif ($date_arr['date_mod'] == DATE_MOD_BET) $sep = gtc("and");
+				else $sep = '-';
+			}
+			else $sep = '';
+			
+			$str = $mod.' '.$date1.' '.$sep.' '.$date2;
+			return trim($str);
+		}
+		
+		function format_date_str2($date_str) {
+			global $DATE_FMTS, $options;
+			if ($date_str == DATE_EMPTY or $date_str == '') return;
+			else {
+				$fmt = $options->GetOption('date_format');
+				$date_fmt = $DATE_FMTS[$fmt];
+				preg_match('/^([0-9]{4})([0-9]{2})([0-9]{2})/', $date_str, $match);
+				$year = $match[1];
+				$month = $match[2];
+				$day = $match[3];
+	
+				if ($month == '00' and $day == '00') {
+					$ts = adodb_mktime(0,0,0, 7, 15, $year);
+					$date = adodb_date($date_fmt['Y'], $ts); 
+				}
+				elseif ($day == '00') {
+					$ts = adodb_mktime(0,0,0, $month, 15, $year);
+					$date = adodb_date($date_fmt['YM'], $ts); 
+				}
+				else {
+					$ts = adodb_mktime('0','0','0', $month, $day, $year);
+					$date = adodb_date($date_fmt['YMD'], $ts); 
+				}
+				return $date;
+			}
+		}
+		
+		function format_date_mod($mod_str) {
+			global $DATE_MODS;
+			if ($mod = array_search($mod_str, $DATE_MODS)) {
+				return gtc(strtolower($mod));
+			}
+			else return;
 		}
 	}
 ?>

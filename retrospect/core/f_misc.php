@@ -21,39 +21,6 @@
  *
  */
 	
-	function format_date_str($date) {
-		global $modifiers;
-		# return false if no date
-		if ($date['date_str'] == '') return false;
-
-		$date_mod = $date['date_mod'];
-		$date1 = $date['date1'];
-		$date2 = $date['date2'];
-		$date_str = $date['date_str'];
-		
-		
-		
-		$str = '';
-		if (!empty($date['date_mod'])) {
-			if ($mod = array_search($date['date_mod'], $modifiers)) {
-				$str .= gtc($mod);
-		  }
-		}
-		return $str;
-	}
-	
-	function explode_yyyymmdd($datestr) {
-		if (($datestr == DATE_EMPTY) OR ($datestr == '')) return false;
-		else {
-			$date = array();
-			preg_match('/^([0-9]{4})([0-9]{2})([0-9]{2})/', $datestr, $match);
-			$date['year'] = $match[1];
-			$date['month'] = $match[2];
-			$date['day'] = $match[3];
-			return $date;
-		}
-	}
-	
 	/**
 	* Push item onto keyword array and enforce size limit.
 	* Only unique keywords are added to the array
