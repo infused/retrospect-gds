@@ -75,22 +75,8 @@
           <td valign="middle" class="text">Number of notes: <?php echo number_format($gedcom->note_count); ?></td>
         </tr>
         <tr>
-          <td valign="middle" class="text">Number of orphaned notes: <?php echo number_format($gedcom->onote_count); ?></td>
-        </tr>
-        <tr>
           <td valign="middle" class="text">&nbsp;</td>
         </tr>
-        <tr>
-          <td valign="middle" class="content-label">Header Information... </td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">
-						<?php
-							//$gedcom->ParseHeader();
-						?>
-						&nbsp;
-					</td>
-        </tr> 
       </table></td> 
   </tr> 
   <tr>

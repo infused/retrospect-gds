@@ -194,7 +194,7 @@
 		$src_count = 0;
 		foreach ($sources as $source) {
 			$src_count++;
-			echo '<li value="'.($src_count).'">'.$source.'<a name="s'.($src_count).'"></a></li>';
+			echo '<li value="'.($src_count).'">'.nl2br($source).'<a name="s'.($src_count).'"></a></li>';
 		}
 		echo '</ol>';
 		unset($sources);

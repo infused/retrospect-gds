@@ -24,47 +24,55 @@
  
 	# Define regular expressions
 	# Main record structures
-	define('REG_NEWREC','/^0/'); 								# New record
-	define('REG_HEAD','/^0 HEAD/');							# Beginning of Header record
-	define('REG_INDI','/^0 @(.+)@ INDI/'); 			# Beginning of Individual record
-	define('REG_FAM','/^0 @(.+)+@ FAM/');				# Beginning of Family record
-	define('REG_SOUR','/^0 @(.+)@ SOUR/');			# Beginning of Source record
-	define('REG_NOTE','/^0 @(.+)@ NOTE(.*)/');	# Beginning of Note record
+	define('REG_NEWREC','/^0/'); 									# New record
+	define('REG_HEAD','/^0 HEAD/');								# Beginning of Header record
+	define('REG_INDI','/^0 @(.+)@ INDI/'); 				# Beginning of Individual record
+	define('REG_FAM','/^0 @(.+)+@ FAM/');					# Beginning of Family record
+	define('REG_SOUR','/^0 @(.+)@ SOUR/');				# Beginning of Source record
+	define('REG_NOTE','/^0 @(.+)@ NOTE(.*)/');		# Beginning of Note record
 	
 	# Record substructures
 	# Header substructures
-	define('REG_HSOUR','/^1 SOUR (.*)/'); 			# Software
-	define('REG_HVERS','/^2 VERS (.*)/'); 			# Software version
-	define('REG_HNAME','/^2 NAME (.*)/'); 			# Software name
-	define('REG_HDATE','/^1 DATE (.*)/'); 			# Submission date
+	define('REG_HSOUR','/^1 SOUR (.*)/'); 				# Software
+	define('REG_HVERS','/^2 VERS (.*)/'); 				# Software version
+	define('REG_HNAME','/^2 NAME (.*)/'); 				# Software name
+	define('REG_HDATE','/^1 DATE (.*)/'); 				# Submission date
 	
 	# Individual substructures
-	define('REG_NAME','/^1 NAME (.*)/');  			# Name 
-	define('REG_GIVN','/^2 GIVN (.*)/'); 				# Given name
-	define('REG_SURN','/^2 SURN (.*)/'); 				# Surname
-	define('REG_NICK','/^2 NICK (.*)/'); 				# Nickname (aka)
-	define('REG_NPFX','/^2 NPFX (.*)/'); 				# Name prefix (ie. Captain)
-	define('REG_NSFX','/^2 NSFX (.*)/'); 				# Name suffic (ie. Jr.) 
-	define('REG_SEX','/^1 SEX (.?)/'); 					# Sex
-	define('REG_TITL','/^1 TITL (.*)/');				# Title (suffix)
-	define('REG_NOTEX','/^1 NOTE @(.+)@/'); 		# Note xref
+	define('REG_NAME','/^1 NAME (.*)/');  				# Name 
+	define('REG_GIVN','/^2 GIVN (.*)/'); 					# Given name
+	define('REG_SURN','/^2 SURN (.*)/'); 					# Surname
+	define('REG_NICK','/^2 NICK (.*)/'); 					# Nickname (aka)
+	define('REG_NPFX','/^2 NPFX (.*)/'); 					# Name prefix (ie. Captain)
+	define('REG_NSFX','/^2 NSFX (.*)/'); 					# Name suffic (ie. Jr.) 
+	define('REG_SEX','/^1 SEX (.?)/'); 						# Sex
+	define('REG_TITL','/^1 TITL (.*)/');					# Title (suffix)
+	define('REG_NOTEX','/^1 NOTE @(.+)@/'); 			# Note xref
 	
 	# Family substructures
-	define('REG_HUSB','/^1 HUSB @(.+)@/');			# Husband xref
-	define('REG_WIFE','/^1 WIFE @(.+)@/');			# Wife xref
-	define('REG_MARR','/^1 MARR/');							# Marriage
-	define('REG_CHIL','/^1 CHIL @(.+)@/');			# Child
+	define('REG_HUSB','/^1 HUSB @(.+)@/');				# Husband xref
+	define('REG_WIFE','/^1 WIFE @(.+)@/');				# Wife xref
+	define('REG_MARR','/^1 MARR/');								# Marriage
+	define('REG_CHIL','/^1 CHIL @(.+)@/');				# Child
 	
 	# Note substructures
-	define('REG_CONT','/^1 CONT (.+)/');				# Continuation
-	define('REG_CONC','/^1 CONC (.+)/');				# Concatenation
+	define('REG_CONT','/^[0-9]{1,2} CONT (.+)/');	# Continuation
+	define('REG_CONC','/^[0-9]{1,2} CONC (.+)/');	# Concatenation
 	
 	# Event substructures
 	define('REG_FAME','/^1 (ANUL|CENS|DIV|DIVF|ENGA|MARR|MARB|MARC|MARL|MARS|EVEN)(.+)/'); # Family Event
-	define('REG_INDE','/^1 (BIRT|CHR|DEAT|BURI|CREM|ADOP|BAPM|BARM|BASM|BLES|CHRA|CONF|FCOM|ORDN|NATU|EMIG|IMMI|CENS|PROB|WILL|GRAD|RETI|EVEN)(.+)/'); # Individual Event
-	define('REG_DATE','/^2 DATE (.+)/');				# Event date
-	define('REG_TYPE','/^2 TYPE (.+)/');				# Event type
-	define('REG_PLAC','/^2 PLAC (.+)/');				# Event place
+	define('REG_INDE','/^1 (BIRT|CHR|DEAT|BURI|CREM|ADOP|BAPM|BARM|BASM|BLES|CHRA|CONF|FCOM|ORDN|NATU|EMIG|IMMI|CENS|PROB|WILL|GRAD|RETI|RESI|OCCU|CAST|DSCR|EDUC|IDNO|NATI|PROP|RELI|SSN|EVEN)(.+)/'); # Individual Event
+	define('REG_DATE','/^2 DATE (.+)/');					# Event date
+	define('REG_TYPE','/^2 TYPE (.+)/');					# Event type
+	define('REG_PLAC','/^2 PLAC (.+)/');					# Event place
+	define('REG_SOURX','/^[0-9]{1,2} SOUR @(.+)@/');  # Source citation
+	
+	# Source substuctures
+	define('REG_AUTH','/^1 AUTH (.+)/');					# Author
+	define('REG_PUBL','/^1 PUBL (.+)/');					# Publication
+	define('REG_TEXT','/^1 TEXT (.+)/');					# Text
+	define('REG_PAGE','/^[0-9]{1,2} PAGE (.+)/');	# Page
+	define('REG_QUAY','/^[0-9]{1,2} QUAY (\d)/'); # Quality Assesment
 	
 	# Miscelaneous 
 	define('REG_LEVEL','/^([0-9]{1,2})/');	
@@ -103,7 +111,17 @@
 		'PROB'=>'Probate',
 		'WILL'=>'Will',
 		'GRAD'=>'Graduation',
-		'RETI'=>'Retirement'
+		'RETI'=>'Retirement',
+		'RESI'=>'Residence',
+		'OCCU'=>'Occupation',
+		'CAST'=>'Caste',
+		'DSCR'=>'Physical Description',
+		'EDUC'=>'Education',
+		'IDNO'=>'National ID Number',
+		'NATI'=>'Nationality',
+		'PROP'=>'Possessions',
+		'RELI'=>'Religion',
+		'SSN'=>'Social Security Number'
 		);
 	
 	/**
@@ -126,6 +144,8 @@
 		var $rs_family;					// family adodb recordset object
 		var $rs_fact;						// fact adodb recordset object
 		var $rs_child;					// child adodb recordset object
+		var $rs_source;					// source adodb recordset object
+		var $rs_citation;				// citation adodb recordset object
 		var $db;								// local var for $GLOBALS['db']
 		var $factkey;
 		
@@ -151,6 +171,12 @@
 			# get empty child recordset
 			$sql = 'SELECT * from '.$GLOBALS['g_tbl_child'].' where famkey=-1';
 			$this->rs_child = $GLOBALS['db']->Execute($sql);
+			# get empty source recordset
+			$sql = 'SELECT * from '.$GLOBALS['g_tbl_source'].' where srckey=-1';
+			$this->rs_source = $GLOBALS['db']->Execute($sql);
+			# get empty citation recordset
+			$sql = 'SELECT * from '.$GLOBALS['g_tbl_citation'].' where factkey=-1';
+			$this->rs_citation = $GLOBALS['db']->Execute($sql);
 		}
 		
 		/**
@@ -297,8 +323,59 @@
 		* Parse Source record
 		* @param string $start_line
 		*/
-		function _ParseSource($source_line) {
+		function _ParseSource($start_line) {
 			$source = array();
+			$text = '';
+			preg_match(REG_SOUR, $start_line, $match);
+			$source['srckey'] = $match[1];
+			while (!feof($this->fhandle)) {
+				$poffset = ftell($this->fhandle);
+				$line = fgets($this->fhandle);
+				$level = $this->_ExtractLevel($line);
+				if ($level == 0) {
+					$source['text'] = $text;
+					$this->_DB_InsertRecord($this->rs_source, $source);
+					fseek($this->fhandle, $poffset);
+					return;
+				}
+				elseif (preg_match(REG_TITL, $line, $match)) {
+					$begin_level = $this->_ExtractLevel($line);
+					$text .= $this->_ParseTextStruct($match[1], $begin_level);
+				}
+				elseif (preg_match(REG_AUTH, $line, $match) OR
+								preg_match(REG_PUBL, $line, $match) OR
+								preg_match(REG_TEXT, $line, $match)) {
+					$begin_level = $this->_ExtractLevel($line);
+					$text .= "\r\n".$this->_ParseTextStruct($match[1], $begin_level);
+				}
+				elseif (preg_match(REG_NOTEX, $line, $match)) {
+					$source['notekey'] = $match[1];
+				}
+			}
+		}
+		
+		/**
+		* Parse text structure
+		* @param string $first_line
+		* @return string
+		*/
+		function _ParseTextStruct($first_line, $begin_level) {
+			$text = trim($first_line);
+			while (!feof($this->fhandle)) {
+				$poffset = ftell($this->fhandle);
+				$line = fgets($this->fhandle);
+				$level = $this->_ExtractLevel($line);
+				if ($level <= $begin_level) {
+					fseek($this->fhandle, $poffset);
+					return $text;
+				}
+				elseif (preg_match(REG_CONC, $line, $match)) {
+					$text .= trim($match[1]);
+				}
+				elseif (preg_match(REG_CONT, $line, $match)) {
+					$text .= "\r\n".trim($match[1]);
+				}
+			}
 		}
 		
 		/**
@@ -440,6 +517,9 @@
 				elseif (preg_match(REG_PLAC, $line, $match)) {
 					$event['place'] = trim($match[1]);
 				}
+				elseif (preg_match(REG_SOURX, $line)) {
+					$this->_ParseCitation($line, $this->factkey);
+				}
 			}
 		}
 		
@@ -483,6 +563,36 @@
 				}
 				elseif (preg_match(REG_PLAC, $line, $match)) {
 					$event['place'] = trim($match[1]);
+				}
+				elseif (preg_match(REG_SOURX, $line)) {
+					$this->_ParseCitation($line, $this->factkey);
+				}
+			}
+		}
+		
+		/** 
+		* Parse source citation
+		* @param string $start_line
+		* @param integer $factkey
+		*/
+		function _ParseCitation($start_line, $factkey) {
+			$citation = array();
+			$citation['factkey'] = $factkey;
+			# grab the source xref
+			preg_match(REG_SOURX, $start_line, $match);
+			$citation['srckey'] = $match[1];
+			$begin_level = $this->_ExtractLevel($start_line);
+			while (!feof($this->fhandle)) {
+				$poffset = ftell($this->fhandle);
+				$line = fgets($this->fhandle);
+				$level = $this->_ExtractLevel($line);
+				if ($level <= $begin_level) {
+					$this->_DB_InsertRecord($this->rs_citation, $citation);
+					fseek($this->fhandle, $poffset);
+					return;
+				}
+				elseif (preg_match(REG_PAGE, $line, $match)) {
+					$citation['source'] = $match[1];
 				}
 			}
 		}

@@ -41,22 +41,6 @@
 				$gedcomfile = $gedcomdir.$_POST['selectedfile'];
 				$gedcom = new GedcomParser();
 				$gedcom->Open($gedcomfile);
-				
-				# Empty tables
-				$sql = 'delete from '.$g_tbl_indiv;
-				$db->Execute($sql);
-				$sql = 'delete from '.$g_tbl_fact;
-				$db->Execute($sql);
-				$sql = 'delete from '.$g_tbl_note;
-				$db->Execute($sql);
-				$sql = 'delete from '.$g_tbl_family;
-				$db->Execute($sql);
-				$sql = 'delete from '.$g_tbl_child;
-				$db->Execute($sql);
-				$sql = 'delete from '.$g_tbl_source;
-				$db->Execute($sql);
-				$sql = 'delete from '.$g_tbl_citation;
-				$db->Execute($sql);
 			?>
 			&nbsp;
 		</td> 
@@ -67,12 +51,74 @@
   <tr> 
     <td align="left" valign="top"> <table width="100%"  border="0" cellpadding="2" cellspacing="0" bgcolor="#CCCCCC"> 
         <tr>
-          <td valign="middle" class="content-label">Processing Records...</td>
+          <td valign="middle" class="content-label">Emptying tables... </td>
+        </tr>
+        <tr>
+          <td valign="middle" class="text">Individual table... 
+						<?php
+							$sql = 'delete from '.$g_tbl_indiv;
+							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
+						?>
+					</td>
+        </tr>
+        <tr>
+          <td valign="middle" class="text">Family table... 
+						<?php
+							$sql = 'delete from '.$g_tbl_family;
+							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
+						?>
+					</td>
+        </tr>
+        <tr>
+          <td valign="middle" class="text">Child table... 
+						<?php 
+							$sql = 'delete from '.$g_tbl_child;
+							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
+						?>
+					</td>
+        </tr>
+        <tr>
+          <td valign="middle" class="text">Fact table... 
+						<?php 
+							$sql = 'delete from '.$g_tbl_fact;
+							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
+						?>
+					</td>
+        </tr>
+        <tr>
+          <td valign="middle" class="text">Note table... 
+						<?php 
+							$sql = 'delete from '.$g_tbl_note;
+							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
+						?>
+					</td>
+        </tr>
+        <tr>
+          <td valign="middle" class="text">Source table... 
+						<?php 
+							$sql = 'delete from '.$g_tbl_citation;
+							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
+						?>
+					</td>
+        </tr>
+        <tr>
+          <td valign="middle" class="text">Citation table... 
+						<?php 
+							$sql = 'delete from '.$g_tbl_source;
+							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
+						?>
+					</td>
+        </tr>
+        <tr>
+          <td valign="middle" class="text">&nbsp;</td>
+        </tr>
+        <tr>
+          <td valign="middle" class="content-label">Processing gedcom...</td>
         </tr>
         <tr>
           <td valign="middle" class="text">
 						<?php
-							$gedcom->ParseGedcom();
+							//$gedcom->ParseGedcom();
 						?>
 						&nbsp;
 					</td>
@@ -84,7 +130,9 @@
   </tr> 
 	<tr>
 	<td>
+		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 		<input name="Continue" type="submit" class="text" id="Continue" value="<?php echo _("Continue"); ?>"> 
+		</form>
 	</td>
 	</tr>
 </table> 
