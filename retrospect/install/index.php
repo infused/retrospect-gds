@@ -100,15 +100,6 @@
           <td class="section_item">Required</td>
         </tr>
         <tr>
-          <td class="section_item">- XSLT support </td>
-          <td align="center" class="section_item">
-					<?php
-						echo function_exists('xslt_create') ? '<div class="yes">Yes</div>' : '<div class="no-not-req">No</div>';
-					?>
-					</td>
-          <td class="section_item">Required for automatic creation of tables </td>
-        </tr>
-        <tr>
           <td class="section_item">- Mmcache </td>
           <td align="center" class="section_item">
 					<?php
