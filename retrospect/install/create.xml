@@ -122,9 +122,6 @@
 			<key />
 			<notnull />
 		</field>
-		<field name="title" type="C" size="128">
-			<notnull />
-		</field>
 		<field name="surname" type="C" size="128">
 			<notnull />
 		</field>

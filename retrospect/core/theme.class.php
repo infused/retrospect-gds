@@ -21,13 +21,12 @@
  
  /**
  * Theme class
- * @package public
- * @access public
+ * @package themes
  */
 class Theme {
+	
 	/**
 	* Loads a themed page
-	* @access public
 	* @param string $p_theme Theme
 	* @param string $p_page Page Option
 	* @return string
@@ -38,25 +37,19 @@ class Theme {
 			return $themed_page;
 		} else { 
 			$default_page = 'themes/default/'.$p_page.'.php';
-			if (file_exists($default_page)) {
-				return $default_page;
-			} else {
-				die ( sprintf("Could not find page: %s", $themed_page));
-			}
+			if (file_exists($default_page)) return $default_page;
+			else die (sprintf("Could not find page: %s", $themed_page));
 		}
 	}
 	
 	/**
 	* Returns arguaments used to call the page
-	* @access public
 	* @param string $p_option
 	* @param array $p_args
 	* @return string
 	*/
 	function getArgs($p_option, $p_args = null) {
-		if (empty($p_option)) {
-			return false;
-		}
+		if (empty($p_option)) return false;
 		else {
 			$arg_string = $_SERVER['PHP_SELF'].'?option='.$p_option;
 			if (is_array($p_args)) {

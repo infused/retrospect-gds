@@ -60,7 +60,6 @@ ALTER TABLE rgds_family ADD  INDEX rgds_spouse2  (spouse2);
 
 CREATE TABLE rgds_indiv (
 indkey           VARCHAR(20) NOT NULL,
-title            VARCHAR(128) NOT NULL,
 surname          VARCHAR(128) NOT NULL,
 givenname        VARCHAR(128) NOT NULL,
 aka              VARCHAR(128) NOT NULL,

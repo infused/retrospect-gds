@@ -78,13 +78,6 @@ class Person {
 	var $name;
 	
 	/**
-	* Hold the title.
-	* Example: Earl of York
-	* @var string
-	*/
-	var $title;
-
-	/**
 	* Hold the aka or nickname.
 	* Example: Curly
 	* @var string
@@ -201,7 +194,6 @@ class Person {
 	* 1: Only vital statistics, parents, and sources<br />
 	* 2: Parents only (populates only $father_indkey and $mother_indkey)<br /> 
 	* 3: Vitals only - No Parents, No Sources
-	* @access public
 	* @param string $p_id indkey
 	* @param integer $p_level populate all class properties or only vital stats?
 	* @param integer $p_ns_number anhnentafel number
@@ -249,18 +241,15 @@ class Person {
 	
 	/**
 	* Gets name information from database
-	* @access private
 	*/
 	function _get_name() {
-		global $db;
-		$sql = 'SELECT * FROM '.TBL_INDIV." WHERE indkey = '{$this->indkey}'";
-		$row = $db->GetRow($sql);
+		$sql = 'SELECT * FROM '.TBL_INDIV.' WHERE indkey = "'.$this->indkey.'"';
+		$row = $GLOBALS['db']->GetRow($sql);
 		$this->gname = htmlentities($row['givenname']);
 		$this->sname = htmlentities($row['surname']);
 		$this->aka = htmlentities($row['aka']);
 		$this->notekey = $row['notekey'];
-		$this->title = htmlentities($row['title']);
-		$fnames = explode(' ', $this->gname); 
+		$fnames = explode(' ', $row['givenname']); 
 		$this->fname = $fnames[0];
 		$this->name = trim($this->gname.' '.$this->sname);
 		$this->sex = $row['sex'];
