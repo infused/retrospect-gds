@@ -35,7 +35,6 @@
 	require_once('core/f_report.php');
 	
 	# process expected get/post variables
-	$print = isset($_GET['print']) ? true : false;
 	$g_indiv = isset($_GET['indiv']) ? $_GET['indiv'] : exit;
 	$g_max_gens = isset($_GET['max_gens']) ? $_GET['max_gens'] : 250;
 	
@@ -45,31 +44,31 @@
 	
 	# initialize other variables
 	$g_generation = 0;	# current generation
+	$individuals = array();
+	
 	# get first person information
 	$o = new Person($g_indiv);
+	$smarty->assign('indiv', $o);
+	
 	# instantiate new tree
 	$tree = new ATree($g_indiv);
+	
 	# fill tree with ancestors
 	$tree->fill_tree($g_max_gens);
+	
 	# get root node and traverse tree
 	# each node of the tree is passed to the display_indiv function
 	$root = $tree->get_node_at_index(0);
 
-	# title
-	$g_title = sprintf(gtc("Ahnentafel Report for %s"), $o->name);
+	# assign other smarty variables
+	$smarty->assign('page_title', sprintf(gtc("Ahnentafel Report for %s"), $o->name));
+	$smarty->assign('surname_title', sprintf(gtc("%s Surname"), $o->sname));
+	$content_title = $o->prefix.' '.$o->name;
+	if ($o->suffix) $content_title .= ', '.$o->suffix;
+	$smarty->assign('content_title', $content_title);
 
-  # name and menu
-	echo '<p class="content-title">';
-	if (!empty($o->prefix)) echo $o->prefix.' ';
-	echo $o->name;
-	if (!empty($o->suffix)) echo ', '.$o->suffix; 
-	echo '</p>';
-	if ($print === false) {
-		include(Theme::getPage($g_theme, 'nav'));
-	}
-	echo '<p class="content-subtitle">'.gtc("Ahnentafel Report").'</p>';
-	
 	$tree->level_order_traversal($root, 'display_indiv');
+	$smarty->assign('individuals', $individuals);
 	unset($root, $tree, $o);
 	
 	/**
@@ -79,7 +78,8 @@
 	* @param integer $p_generation
 	*/
 	function display_indiv($p_node, $p_generation) { 
-		global $g_generation;
+		global $g_generation, $individuals;
+		$string = '';
 		if ($p_node->father_indkey) { 
 			$father = new Person($p_node->father_indkey, 3); 
 		} 
@@ -95,19 +95,20 @@
 		if ($p_generation > $g_generation ) {
 			$g_generation = $p_generation;
 			# display generation if it changed	
-			echo '<h3>'.sprintf(gtc("Generation %s"), $g_generation).'</h3>';
+			$string .= '<h3>'.sprintf(gtc("Generation %s"), $g_generation).'</h3>';
 		}
-		echo '<ol><li value="'.$p_node->ns_number.'">';
+		$string .= '<ol><li value="'.$p_node->ns_number.'">';
 		# display ahnentafel number and name
-		echo '<a href="'.$_SERVER['PHP_SELF'].'?option=family&amp;indiv='.$p_node->indkey.'">'.$p_node->name.'</a>'; 
+		$string .= '<a href="'.$_SERVER['PHP_SELF'].'?option=family&amp;indiv='.$p_node->indkey.'">'.$p_node->name.'</a>'; 
 		# display parents
-		echo get_parents_sentence($p_node, $father, $mother).'<br />';
+		$string .= get_parents_sentence($p_node, $father, $mother).'<br />';
 		# display birth sentence
-		echo get_birth_sentence($p_node);
+		$string .= get_birth_sentence($p_node);
 		# display marriage sentence(s)
-		echo get_marriage_sentences($p_node);
+		$string .= get_marriage_sentences($p_node);
 		# display death sentence
-		echo get_death_sentence($p_node);
-		echo '</li></ol>';
+		$string .= get_death_sentence($p_node);
+		$string .= '</li></ol>';
+		$individuals[] = $string;
 	}
 ?>
