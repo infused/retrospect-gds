@@ -29,6 +29,10 @@
 		{/if}
 		{if $option=="reports"}
 			<td class="tab-selected">{translate s="Reports"}</td>
+		{elseif $option=="ahnentafel" or $option=="descendant"}
+			<td class="tab-selected">
+				<a href="{$php_self}?option=reports&amp;indiv={$indiv->indkey}">{translate s="Reports"}</a>
+			</td>
 		{else}
 			<td class="tab">
 				<a href="{$php_self}?option=reports&amp;indiv={$indiv->indkey}">{translate s="Reports"}</a>

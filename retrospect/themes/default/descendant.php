@@ -40,6 +40,7 @@
 	# get first person information
 	$o = new Person($g_indiv, 0, 1);
 	array_push($g_descendants, array($o, 1));
+	$smarty->assign('indiv', $o);
 
 	# assign other smarty variables
 	$smarty->assign('page_title', sprintf(gtc("Descendant Report for %s"), $o->name));
