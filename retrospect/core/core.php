@@ -30,7 +30,7 @@
 	defined( '_RGDS_VALID' ) or die( 'Direct access to this file is not allowed.' );
 	
 	# Define some RGDS strings
-	define('RGDS_COPYRIGHT', '©2003-2004 Keith Morrison, Infused Solutions');
+	define('RGDS_COPYRIGHT', '©2003-2005 Keith Morrison, Infused Solutions');
 	define('RGDS_VERSION', '2.0.b2');
 	
 	# Load the configuration file
