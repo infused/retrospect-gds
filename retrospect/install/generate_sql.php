@@ -44,7 +44,7 @@
 		require_once('../libraries/adodb/adodb-xmlschema.inc.php');
 		$sql_str = '';
 		$db_type = $_POST['dbtype'];
-		$tbl_prefix = $_POST['prefix'];
+		$tbl_prefix = trim($_POST['prefix'],'_');
 		if ($sql_arr = GetTableCreationSQL($db_type, $tbl_prefix)) {
 			foreach ($sql_arr as $sql) {
 				$sql_str .= $sql.";\n\n";
@@ -72,10 +72,11 @@
             <option value="mysql">MySQL</option>
             <option value="postgres7">PostreSQL 7.x</option>
             <option value="mssql">Microsoft SQL (Native)</option>
-                      </select>
+            <option value="odbc-mssql">Microsoft SQL (ODBC)</option>
+          </select>
     </p>
       <p>Enter a table prefix:<br />
-        <input name="prefix" type="text" class="textbox" id="prefix2" value="rgds_" />
+        <input name="prefix" type="text" class="textbox" id="prefix" value="rgds" />
 </p>
       <p>
         <input name="Submit" type="submit" class="button" value="Submit" />
