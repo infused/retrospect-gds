@@ -74,6 +74,7 @@ sup {
 	position: relative;
 	background-color: #C6CBCE;
 	float: left;
+	width: 500px;
 }
 #statusbar {
 	background-color: #C6CBCE;

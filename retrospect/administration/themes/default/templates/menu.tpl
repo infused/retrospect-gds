@@ -11,13 +11,9 @@ var myMenu =
 	],
 	_cmSplit,
 	[null, 'Database', null, null, 'Database',
-		['<img src="{$THEME_URL}js/ThemeOffice/install.png" />', 'Import Gedcom', '{$PHP_SELF}?m=gedcom', null, 'Import Gedcom'],
-		['<img src="{$THEME_URL}js/ThemeOffice/edit.png" />', 'Edit', null, null, 'Edit',
-			['<img src="{$THEME_URL}js/ThemeOffice/new_user.png" />', 'Individual', 'url', null, 'Edit Individual']
-		],
-		['<img src="{$THEME_URL}js/ThemeOffice/db.png" />', 'Maintenance', null, null, 'Maintenance',
-			['<img src="{$THEME_URL}js/ThemeOffice/sysinfo.png" />', 'Optimize Tables', 'url', null, 'Optimize Tables']
-		]
+		['<img src="{$THEME_URL}js/ThemeOffice/install.png" />', 'Gedcom Manager', '{$PHP_SELF}?m=gedcom', null, 'Gedcom Manager'],
+		['<img src="{$THEME_URL}js/ThemeOffice/edit.png" />', 'Edit', '{$PHP_SELF}', null, 'Edit'],
+		['<img src="{$THEME_URL}js/ThemeOffice/db.png" />', 'Maintenance', '{$PHP_SELF}', null, 'Maintenance']
 	],
 	_cmSplit,
 	[null, 'Media', null, null, 'Media',   // a folder item
