@@ -25,34 +25,27 @@
  *
  */
 
-	$g_version = '1.3.17';
+	$g_version = '1.3.19';
 	
 	# Turn on error reporting
 	error_reporting(E_ALL);	
 	
 	# Print debug information
 	$debug = false;
-
-	# Create clean content and menu vars
-	$g_menu = '';
-	$g_custom_menu = '';
-	$g_content = '';
-	
-	require_once(LIB_PATH.'profiler/profiler.inc.php');
-	$profiler = new Profiler( true, true );
-	$profiler->startTimer( 'main' );
-
-	# Start output buffering 
-	ob_start();
-	
-	# Start or continue a session
-	session_start();
-	header("Cache-control: private"); # IE6 fix
 	
 	/**
-	* Load the configuration file.
-	* If a development configuration file exists (config-dev.php),
-	* it will be used instead of the default file (config.php).
+	* Load profiler and initialize
+	*/
+	require_once(LIB_PATH.'profiler/profiler.inc.php');
+	$profiler =& new Profiler( true, true );
+	$profiler->startTimer( 'main' );
+
+	# Start or continue a session
+	session_start();
+	header('Cache-control: private'); # IE6 fix
+	
+	/**
+	* Load the configuration file
 	*/
 	require_once(CORE_PATH.'config.php');
 

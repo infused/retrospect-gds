@@ -80,7 +80,6 @@
   
 	# vitals
 	?>
-	<p class="content-subtitle"><?php echo _("Family Page"); ?></p>
 	<div class="tab-page">
 	<?php
 	if (!empty($o->aka)) { ?>

@@ -176,7 +176,13 @@ input.textbox {
 .tab-page {
 	width: 100%;
 	margin: 0px;
-	padding: 5px;
+	padding: 10px;
+	background-color: #F9F9F9;
+	border-width: 1px;
+	border-color: #999999;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-style: solid;
 }
 .tab-row {
 	font: 8pt Verdana, Arial, Helvetica, sans-serif;

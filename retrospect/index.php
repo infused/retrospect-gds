@@ -22,6 +22,9 @@
  *
  */  
 
+	# Start output buffering 
+	ob_start();
+	
 	/**
 	* Root path
 	* @global string
