@@ -10,7 +10,7 @@
 <form action="{$PHP_SELF}?m=email" method="post">
 <table class="tab-row" cellpadding="0" cellspacing="0">
 	<tr>
-		<td class="tab-selected">Edit</td>
+		<td class="tab-selected">{php}t("Edit"){/php}</td>
 		<td class="tab-last">&nbsp;</td>
 	</tr>
 </table>
@@ -33,18 +33,16 @@
 		<a href="{$TRACKBACK_URL}">{$TRACKBACK_URL}</a>
 	</p>	
 	-->
-	<p>Your friend's email address:<br />
+	<p>{php}t("Your friend's email address"){/php}:<br />
 		<input name="to" type="text" class="textbox" size="40" maxlength="40" value="{$to}" />
 	</p>
-	<p>Your email address:<br />
+	<p>{php}t("Your email address"){/php}:<br />
 		<input name="from" type="text" class="textbox" size="40" maxlength="40" value="{$from}"/>
 	</p>
-	<p>
-		Your full name:<br />
+	<p>{php}t("Your full name"){/php}:<br />
 	  <input name="name" type="text" class="textbox" size="40" maxlength="40" value="{$name}" />
 	</p>
-	<p>
-		Add a personal message:<br />
+	<p>{php}t("Add a personal message"){/php}:<br />
 		<textarea name="message" cols="80" rows="10" class="textbox">{$message}</textarea>
 	</p>
 	<p>
@@ -53,7 +51,4 @@
 	</p>
 </div>
 </form>
-{else}
-
-
 {/if}
