@@ -101,8 +101,8 @@
 		$pdf->SetFont($font, 'B', 9);
 		$pdf->Write(5, $p_node->name);
 		$pdf->SetFont($font, '', 9);
-		$pdf->LN(5);
 		$pdf->Write(5, html_entity_decode(strip_tags(get_parents_sentence($p_node, $father, $mother))));
+		$pdf->LN(5);
 		$pdf->Write(5, html_entity_decode(strip_tags(get_birth_sentence($p_node))));
 		$pdf->Write(5, html_entity_decode(strip_tags(get_marriage_sentences($p_node))));
 		$pdf->Write(5, html_entity_decode(strip_tags(get_death_sentence($p_node))));
