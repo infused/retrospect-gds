@@ -27,7 +27,7 @@
 	
 	# Define some RGDS strings
 	define('RGDS_COPYRIGHT', '©2003-2004 Keith Morrison, Infused Solutions');
-	define('RGDS_VERSION', '1.5.0');
+	define('RGDS_VERSION', '1.5.1');
 	
 	/**
 	* Load the configuration file

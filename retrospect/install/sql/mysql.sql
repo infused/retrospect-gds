@@ -133,25 +133,33 @@ ALTER TABLE rgds_user ADD  INDEX rgds_pwd  (pwd);
 
 INSERT INTO  rgds_user VALUES  ('', 'Admin', '40be4e59b9a2a2b5dffb918c0e86b3d7', 'Administrator', 'root@someplace.com', null, '1');
 
-INSERT INTO  rgds_options VALUES  (1, 'default_lang', 'en_US');
+INSERT INTO  rgds_options VALUES  ('1', 'default_lang', 'en_US');
 
-INSERT INTO  rgds_options VALUES  (2, 'allow_lang_change', '1');
+INSERT INTO  rgds_options VALUES  ('2', 'allow_lang_change', '1');
 
-INSERT INTO  rgds_options VALUES  (3, 'default_page', 'surnames');
+INSERT INTO  rgds_options VALUES  ('3', 'default_page', 'surnames');
 
-INSERT INTO  rgds_options VALUES  (4, 'translate_dates', '1');
+INSERT INTO  rgds_options VALUES  ('4', 'translate_dates', '1');
 
-INSERT INTO  rgds_options VALUES  (5, 'profile_functions', '0');
+INSERT INTO  rgds_options VALUES  ('5', 'profile_functions', '0');
 
-INSERT INTO  rgds_options VALUES  (6, 'meta_copyright', '');
+INSERT INTO  rgds_options VALUES  ('6', 'meta_copyright', '');
 
-INSERT INTO  rgds_options VALUES  (7, 'meta_keywords', 'Genealogy,Family History');
+INSERT INTO  rgds_options VALUES  ('7', 'meta_keywords', 'Genealogy,Family History');
 
-INSERT INTO  rgds_language VALUES  (1, 'en_US', 'iso-8859-1', 'English');
+INSERT INTO  rgds_options VALUES  ('8', 'date_format', '1');
 
-INSERT INTO  rgds_language VALUES  (2, 'es_ES', 'iso-8859-1', 'Spanish');
+INSERT INTO  rgds_options VALUES  ('9', 'sort_children', '0');
 
-INSERT INTO  rgds_language VALUES  (3, 'de_DE', 'iso-8859-1', 'German');
+INSERT INTO  rgds_options VALUES  ('10', 'sort_marriages', '0');
 
-INSERT INTO  rgds_language VALUES  (4, 'nl_NL', 'iso-8859-1', 'Dutch');
+INSERT INTO  rgds_options VALUES  ('11', 'sort_events', '0');
+
+INSERT INTO  rgds_language VALUES  ('1', 'en_US', 'iso-8859-1', 'English');
+
+INSERT INTO  rgds_language VALUES  ('2', 'es_ES', 'iso-8859-1', 'Spanish');
+
+INSERT INTO  rgds_language VALUES  ('3', 'de_DE', 'iso-8859-1', 'German');
+
+INSERT INTO  rgds_language VALUES  ('4', 'nl_NL', 'iso-8859-1', 'Dutch');
 
