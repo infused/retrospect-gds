@@ -34,7 +34,9 @@
 	if (!is_writable($gedcomdir)) { 
 		notify('The gedcom directory is not writable. Check your server configuration.');
 	}
-	
+	# Bump the script execution time limit up to 5 minutes
+	# This will not work if safe_mode is On
+	@set_time_limit(300);
 	$gedcomfile = $gedcomdir.$_POST['selectedfile'];
 	$gedcom = new GedcomParser();
 	$gedcom->Open($gedcomfile);

@@ -123,3 +123,10 @@ td.section_body
 	padding: 5px;
 	background-color: #f0f0f0;
 }
+#footer {
+	font-size: 8pt;
+	text-align: center;
+	vertical-align: middle;
+	clear: both;
+	padding: 0px 0px 10px 0px;
+}

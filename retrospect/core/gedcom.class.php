@@ -48,6 +48,7 @@
 	define('REG_SEX','/^1 SEX (.?)/'); 						# Sex
 	define('REG_TITL','/^1 TITL (.*)/');					# Title (suffix)
 	define('REG_NOTEX','/^1 NOTE @(.+)@/'); 			# Note xref
+	define('REG_REFN','/^1 REFN (.*)/');					# Reference number
 	
 	# Family substructures
 	define('REG_HUSB','/^1 HUSB @(.+)@/');				# Husband xref
