@@ -27,7 +27,7 @@
  */
 	
 	# Ensure this file is being included by a parent file
-	defined( '_VALID_RGDS' ) or die( 'Direct access to this file is not allowed.' );
+	defined( '_RGDS_VALID' ) or die( 'Direct access to this file is not allowed.' );
 	
 	# Define some RGDS strings
 	define('RGDS_COPYRIGHT', '©2003-2004 Keith Morrison, Infused Solutions');

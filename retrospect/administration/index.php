@@ -28,7 +28,7 @@
 <?php
   
 	# Set flag that this is a parent file
-	define( '_VALID_RGDS', 1 );	
+	define( '_RGDS_VALID', 1 );	
 	
 	# Turn on error reporting
 	error_reporting(E_ALL);

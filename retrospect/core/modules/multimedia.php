@@ -24,7 +24,7 @@
  */
 
 	# Ensure this file is being included by a parent file
-	defined( '_VALID_RGDS' ) or die( 'Direct access to this file is not allowed.' );	
+	defined( '_RGDS_VALID' ) or die( 'Direct access to this file is not allowed.' );	
 	
 	# process expected get/post variables
 	$g_indiv = isset($_GET['id']) ? $_GET['id'] : exit;
