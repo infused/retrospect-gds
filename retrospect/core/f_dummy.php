@@ -126,6 +126,7 @@
 		gettext("Spanish");
 		gettext("Dutch");
 		gettext("German");
+		gettext("French");
 		
 		# event labels
 		gettext("Source Citations");

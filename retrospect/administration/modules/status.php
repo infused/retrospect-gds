@@ -22,5 +22,12 @@
 	*/	
 	
 	$smarty->assign('page_title', 'Retrospect-GDS Administration');
-
+	
+	# Database stats
+	$smarty->assign('DB_COUNT_INDIV', $db->GetOne('SELECT COUNT(*) FROM '.TBL_INDIV));
+	$smarty->assign('DB_COUNT_FAMILY', $db->GetOne('SELECT COUNT(*) FROM '.TBL_FAMILY));
+	$smarty->assign('DB_COUNT_FACT', $db->GetOne('SELECT COUNT(*) FROM '.TBL_FACT));
+	$smarty->assign('DB_COUNT_NOTE', $db->GetOne('SELECT COUNT(*) FROM '.TBL_NOTE));
+	$smarty->assign('DB_COUNT_SOURCE', $db->GetOne('SELECT COUNT(*) FROM '.TBL_SOURCE));
+	$smarty->assign('DB_COUNT_CITATION', $db->GetOne('SELECT COUNT(*) FROM '.TBL_CITATION));
 ?>

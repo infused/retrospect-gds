@@ -28,13 +28,13 @@ a:hover {
 		$db->Execute($sql);
 		$sql = 'SELECT * FROM '.$tbl;
 		$rs = $db->Execute($sql);
-		outputnow( 'Cleaning '.$tbl.'...', false);
+		outputnow( 'Cleaning '.$tbl.' table...', false);
 		outputnow( $rs->RecordCount > 0 ? 'Failed' : 'OK');
 	}
 	
 	$filename = $_GET['f'];
 	$filepath = GEDCOM_DIR.$filename;
-	//$maxtime = ini_get('max_execution_time');
+	//$maxtime = ini_get('max_execution_time') - 5;
 	$maxtime = 30;
 	$stime = time();
 	
@@ -78,21 +78,26 @@ a:hover {
 	# Begin processing
 	# We need to limit processing time to 25 seconds because the default php.ini setting is 30
 	# Maybe we can add this as a configuration option in the future
-	outputnow( 'Processing '.$filename.'...' );
+	outputnow( 'Processing '.$filename.' starting at line '.$offset );
 	while ($offset !== true) {
 		$offset = $gedcom->ParseGedcom($offset,5);
 		$complete = ($offset !== true) ? number_format($offset / $gedcom->file_end_offset * 100, 1) : 100;
 		if ($complete != 100) {
 			outputnow( 'Processing is '.$complete.'% complete...' );
 			$etime = time();
-			if ($etime - $stime > $maxtime - 10) {
-				$yes = '<a href="'.$_SERVER['PHP_SELF'].'?m=gedcom_process&f='.$filename.'&offset='.$offset.'">Yes</a>';
-				outputnow ( $yes );
+			if ($etime - $stime > $maxtime - 5) {
+				$yes = '<a href="'.$_SERVER['PHP_SELF'].'?m=gedcom_process&f='.$filename.'&offset='.$offset.'">Continue</a>';
+				$no = '<a href="'.BASE_SCRIPT.'?m=gedcom" target="_parent">Abort</a>';
+				outputnow( '' );
+				outputnow( 'Would you like to continue processing this gedcom file?' );
+				outputnow( $yes );
+				outputnow( $no );
 				exit;
 			}
 		} else {
 			$return = '<a href="'.BASE_SCRIPT.'" target="_parent">here</a>';
-			outputnow ('');
+			outputnow( 'Processing is '.$complete.'% complete...' );
+			outputnow('');
 			outputnow( 'The import process is complete.');
 			outputnow( 'Click '.$return.' to return to the main menu.' );
 		}
