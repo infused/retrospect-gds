@@ -62,15 +62,10 @@
 	
 	/**
 	* Load the configuration file.
-	* If a development configuration file exists,
-	* it will be used instead of the default file.
+	* If a development configuration file exists (config-dev.php),
+	* it will be used instead of the default file (config.php).
 	*/
-	if (file_exists(CORE_PATH.'config-dev.php')) {
-		require_once(CORE_PATH.'config-dev.php');
-	}
-	else {
-		require_once(CORE_PATH.'config.php');
-	}
+	require_once( file_exists(CORE_PATH.'config-dev.php') ? CORE_PATH.'config-dev.php' : CORE_PATH.'config.php');
 
 	/** 
 	* Require PHP compatibility functions
