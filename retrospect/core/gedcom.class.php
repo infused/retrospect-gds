@@ -21,4 +21,14 @@
  * $Id$
  *
  */
+ 
+  /**
+ * Gedcom class
+ * @package public
+ * @access public
+ */
+ class Gedcom {
+ 
+ }
+ 
 ?>
