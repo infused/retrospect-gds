@@ -44,7 +44,12 @@
 	* Current url w/query string
 	* @global string
 	*/
-	define('CURRENT_PAGE', $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
+	if (!empty($_SERVER['QUERY_STRING'])) {
+		define('CURRENT_PAGE', $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
+	}
+	else {
+		define('CURRENT_PAGE', $_SERVER['PHP_SELF']);
+	}
 	
 	/**
 	* Require core.php
