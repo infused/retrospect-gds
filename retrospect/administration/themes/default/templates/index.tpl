@@ -4,6 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>{$page_title}</title>
 <link rel="stylesheet" href="{$THEME_URL}styles.css" />
+{if $REDIRECT}
+	<META HTTP-EQUIV="refresh" content="5;URL={$PHP_SELF}">
+{/if}
 <meta name="copyright" content="{$copyright}" />
 </head>
 <body>
@@ -13,22 +16,7 @@
 	<div id="statusbar">Logged in as {$UID} | <a href="{$PHP_SELF}?auth=logout">Logout</a></div>
 	{include file="menu.tpl"}
 {/if}
-<div id="content">
-	{if $module != "login"}
-		<div id="utils">
-			{if $CURRENT_PAGE == $PHP_SELF}
-				<a href="{$CURRENT_PAGE}?print=y" target="_blank">
-					<img src="{$THEME_URL}images/printbutton.gif" border="0" alt="{php}t("Print"){/php}" />
-				</a>
-			{else}
-				<a href="{$CURRENT_PAGE}&print=y" target="_blank">
-					<img src="{$THEME_URL}images/printbutton.gif" border="0" alt="{php}t("Print"){/php}" />
-				</a>
-			{/if}
-		</div>
-	{/if}
-	{include file="$module.tpl"}
-</div>
+<div id="content">{include file="$module.tpl"}</div>
 <div id="footer">
 	<a href="http://www.infused-solutions.com/retrospect/">Retrospect-GDS v{$RGDS_VERSION}</a> {$RGDS_COPYRIGHT}
 </div>

@@ -82,10 +82,18 @@
 		* @param string $opt_key
 		* @return boolean
 		*/
-		function OptionUpdate($opt_key, $opt_val) {
+		function OptionUpdate($key, $val) {
 			global $db;
-			$sql = 'UPDATE '.TBL_OPTION.' SET opt_val="'.$opt_val.'" WHERE opt_key="'.$opt_key.'"';
-			return $db->Execute($sql); # returns true or false
+			$sql = 'SELECT opt_val FROM '.TBL_OPTION.' WHERE opt_key="'.$key.'"';
+			$old = $db->GetOne($sql);
+			if ($val == $old) { 
+				return false; 
+			}
+			else {
+				$sql = 'UPDATE '.TBL_OPTION.' SET opt_val="'.$val.'" WHERE opt_key="'.$key.'"';
+				$db->Execute($sql);
+				return $key;
+			}
 		}
 	}
 ?>
