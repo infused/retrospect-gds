@@ -828,7 +828,14 @@ class Marriage {
 		$this->spouse =& $p_spouse;
 		# work around wording discrepency
 		if ($p_beginstatus == 'Married') { $this->beginstatus = 'Marriage'; }
-		else { $this->beginstatus = $p_beginstatus; }
+		else { 
+			if (!empty($p_beginstatus)) {
+				$this->beginstatus = $p_beginstatus; 
+			}
+			else {
+				$this->beginstatus = 'Relationship';
+			}
+		}
 		$this->endstatus =& $p_endstatus;
 		$this->notekey =& $p_notekey;
 		$this->children = array();
