@@ -78,7 +78,9 @@
 	require_once(CORE_PATH.'f_compatibility.php');
 	
 	/**
-	* Require database functions and establish connection
+	* Require database functions and establish connection.
+	* (The host and port strings are concatenated with a colon if the port
+	* string is not empty)
 	*/
 	require_once(LIB_PATH.'adodb/adodb.inc.php');
 	$db = &AdoNewConnection('mysql');
@@ -89,6 +91,7 @@
 		$g_db_host_str = $g_db_host;
 	}
 	$db->Connect($g_db_host_str, $g_db_user, $g_db_pass, $g_db);
+	$db->SetFetchMode(ADODB_FETCH_ASSOC);
 
 	/**
 	* Require options file and instantiate options

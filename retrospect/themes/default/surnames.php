@@ -128,7 +128,7 @@
 		$g_content .= '<div class="text" style="width: 150px;"><b>'._("Death").'</b></div>';
 
 		while ($row = $rs->FetchRow()) {
-			$o = new Person($row[0], 3); 
+			$o = new Person($row['indkey'], 3); 
 			$o_link = '<a href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$o->indkey.'">'.$o->sname.', '.$o->gname.'</a>';
 			$g_content .= '<div class="text" style="width: 300px; float: left; height: 10pt; overflow:hidden;">'.$o_link.'</div>';
 			$g_content .= '<div class="text" style="width: 150px; float: left; height: 10pt; overflow:hidden;">'.$o->birth->date.'</div>';
