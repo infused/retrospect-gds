@@ -2,10 +2,10 @@ body {
 	margin: 0px;
 	padding: 0px;
 	background-color: white;
-	font: normal 8pt Georgia, Arial, Helvetica, sans-serif;
+	font: normal 12px Georgia, Arial, Helvetica, sans-serif;
 }
 p {
-	font: normal 8pt Georgia, Arial, Helvetica, sans-serif;
+	font: normal 12px Georgia, Arial, Helvetica, sans-serif;
 }
 a {
 	font-weight: bold;
@@ -57,7 +57,7 @@ sup {
 	background-color: #0066CC;
 }
 #footer {
-	font-size: 8pt;
+	font-size: 12px;
 	text-align: center;
 	padding: 0px 0px 10px;
 }
@@ -102,11 +102,11 @@ form {
 	margin: 0px;
 }
 select.listbox {
-	font: normal 8pt Georgia, Arial, Helvetica, sans-serif;
+	font: normal 12px Georgia, Arial, Helvetica, sans-serif;
 	margin: 2px 1px 2px 0px;
 }
 input.textbox {
-	font: normal 8pt Georgia, Arial, Helvetica, sans-serif;
+	font: normal 12px Georgia, Arial, Helvetica, sans-serif;
 	color: #FF0000;
 	margin: 0px;
 	border: 1px solid #666666;
@@ -114,7 +114,7 @@ input.textbox {
 	padding-left: 3px;
 }
 textarea.textbox {
-	font: normal 8pt Georgia, Arial, Helvetica, sans-serif;
+	font: normal 12px Georgia, Arial, Helvetica, sans-serif;
 	color: #FF0000;
 	margin: 0px;
 	border: 1px solid #666666;
@@ -138,29 +138,29 @@ textarea.textbox {
 	height: 60px;
 }
 .text {
-	font: normal 8pt Georgia, Arial, Helvetica, sans-serif
+	font: normal 12px Georgia, Arial, Helvetica, sans-serif
 }
 .menu-title {
-	font-size: 11pt;
+	font-size: 14px;
 	font-weight: bold;
 	color: #333333;
 	padding: 0px;
 	margin: 5px 0px 5px 0px;
 }
 .menu-item {
-	font-size: 9pt;
+	font-size: 14px;
 	font-weight: bold;
 }
 .content-title {
 	font-weight: bold;
-	font-size: 14pt;
+	font-size: 20px;
 	margin:0px 0px 10px 0px;
 	padding:0px;
 	color: #666666;
 }
 .content-subtitle {
 	font-weight: bold;
-	font-size: 10pt;
+	font-size: 14px;
 	border-width: 1px;
 	border-bottom-style: dotted;
 	border-color: #999999;
@@ -170,7 +170,7 @@ textarea.textbox {
 }
 .content-menubar {
 	font-weight: bold;
-	font-size: 10pt;
+	font-size: 14px;
 	border-width: 1px;
 	border-top-style: solid;
 	border-bottom-style: solid;
@@ -192,7 +192,7 @@ textarea.textbox {
 	min-height: 400px;
 }
 .tab-row {
-	font: 8pt Georgia, Arial, Helvetica, sans-serif;
+	font: 12px Georgia, Arial, Helvetica, sans-serif;
 	text-align: center;
 	white-space: nowrap;
 	margin: 0px 0px 0px 1px !important;
