@@ -495,7 +495,7 @@ class Person {
 			$profiler->startTimer('class_person_get_notes');
 		}
 		$query = "SELECT text FROM $this->tbl_note WHERE notekey='$this->notekey'";
-		$this->notes = $db->GetOne($query);
+		$this->notes = nl2br($db->GetOne($query));
 		if ($profile == true) {
 			$profiler->stopTimer('class_person_get_notes');
 		}

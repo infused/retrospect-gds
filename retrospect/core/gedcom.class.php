@@ -24,38 +24,44 @@
  
 	# Define regular expressions
 	# Main record structures
-	define('REG_NEWREC','/^0/'); # New record
-	define('REG_HEAD','/^0 HEAD/');
-	define('REG_INDI','/^0 @(.+)@ INDI/'); 	# Beginning of Individual record
-	define('REG_FAM','/^0 @(.+)+@ FAM/');		# Beginning of Family record
-	define('REG_SOUR','/^0 @(.+)@ SOUR/');	# Beginning of Source record
-	define('REG_NOTE','/^0 (@.+@) NOTE(.*)/');	# Note record
+	define('REG_NEWREC','/^0/'); 								# New record
+	define('REG_HEAD','/^0 HEAD/');							# Beginning of Header record
+	define('REG_INDI','/^0 @(.+)@ INDI/'); 			# Beginning of Individual record
+	define('REG_FAM','/^0 @(.+)+@ FAM/');				# Beginning of Family record
+	define('REG_SOUR','/^0 @(.+)@ SOUR/');			# Beginning of Source record
+	define('REG_NOTE','/^0 @(.+)@ NOTE(.*)/');	# Beginning of Note record
 	
 	# Record substructures
 	# Header substructures
-	define('REG_HSOUR','/^1 SOUR (.*)/'); # Software
-	define('REG_HVERS','/^2 VERS (.*)/'); # Software version
-	define('REG_HNAME','/^2 NAME (.*)/'); # Software name
-	define('REG_HDATE','/^1 DATE (.*)/'); # Submission date
-	
-	define('REG_NOTE2','/^[1-9][0-9]? NOTE [^@](.*)/');	# Alternate note form
+	define('REG_HSOUR','/^1 SOUR (.*)/'); 			# Software
+	define('REG_HVERS','/^2 VERS (.*)/'); 			# Software version
+	define('REG_HNAME','/^2 NAME (.*)/'); 			# Software name
+	define('REG_HDATE','/^1 DATE (.*)/'); 			# Submission date
 	
 	# Individual substructures
-	define('REG_NAME','/^1 NAME (.*)/');  # Name 
-	define('REG_GIVN','/^1 GIVN (.*)/'); # Given name
-	define('REG_SURN','/^1 SURN (.*)/'); # Surname
-	define('REG_NICK','/^1 NICK (.*)/'); # Nickname (aka)
-	define('REG_NPFX','/^1 NPFX (.*)/'); # Name prefix (ie. Captain)
-	define('REG_NSFX','/^1 NSFX (.*)/'); # Name suffic (ie. Jr.) 
-	define('REG_SEX','/^1 SEX (.?)/'); # Sex
-	define('REG_TITL','/^[1-9][0-9]? TITL (.*)/'); # Title (suffix)
-
+	define('REG_NAME','/^1 NAME (.*)/');  			# Name 
+	define('REG_GIVN','/^2 GIVN (.*)/'); 				# Given name
+	define('REG_SURN','/^2 SURN (.*)/'); 				# Surname
+	define('REG_NICK','/^2 NICK (.*)/'); 				# Nickname (aka)
+	define('REG_NPFX','/^2 NPFX (.*)/'); 				# Name prefix (ie. Captain)
+	define('REG_NSFX','/^2 NSFX (.*)/'); 				# Name suffic (ie. Jr.) 
+	define('REG_SEX','/^1 SEX (.?)/'); 					# Sex
+	define('REG_TITL','/^1 TITL (.*)/');				# Title (suffix)
+	define('REG_NOTEX','/^1 NOTE @(.+)@/'); 		# Note xref
+	
+	# Family substructures
+	define('REG_HUSB','/^1 HUSB @(.+)@/');				# Husband xref
+	define('REG_WIFE','/^1 WIFE @(.+)@/');				# Wife xref
+	
+	# Note substructures
+	define('REG_CONT','/^1 CONT (.+)/');
+	define('REG_CONC','/^1 CONC (.+)/');
 	
 	# Miscelaneous 
 	define('REG_LEVEL','/^([0-9]{1,2})/');	
 	
 	/**
- 	* GedcomParser class
+ 	* GedcomParser class 
  	* @package public
  	* @access public
  	*/
@@ -70,6 +76,8 @@
 		var $note_count;				// count of note records
 		var $onote_count;				// count of orphaned note records
 		var $rs_indiv;					// indiv adodb recordeset object
+		var $rs_note;						// note adodb recordset object
+		var $rs_family;					// family adodb recordset object
 		var $db;								// local var for $GLOBALS['db']
 		
 		/**
@@ -81,6 +89,12 @@
 			# get empty indiv recordset
 			$sql = 'SELECT * from '.$GLOBALS['g_tbl_indiv'].' where indkey=-1';
 			$this->rs_indiv = $GLOBALS['db']->Execute($sql);
+			# get empty note recordset
+			$sql = 'SELECT * from '.$GLOBALS['g_tbl_note'].' where notekey=-1';
+			$this->rs_note = $GLOBALS['db']->Execute($sql);
+			# get empty family recordset
+			$sql = 'SELECT * from '.$GLOBALS['g_tbl_family'].' where notekey=-1';
+			$this->rs_family = $GLOBALS['db']->Execute($sql);
 		}
 		
 		/**
@@ -147,9 +161,6 @@
 				elseif (preg_match(REG_NOTE, $line)) {
 					$ncount++;
 				} 
-				elseif (preg_match(REG_NOTE2, $line)) {
-					$ocount++;
-				}
 			}
 			$this->individual_count = $icount;
 			$this->family_count = $fcount;
@@ -171,17 +182,14 @@
 					$this->_ParseIndividual($line);
 				} 
 				elseif (preg_match(REG_FAM, $line)) {
-
+					$this->_ParseFamily($line);
 				} 
 				elseif (preg_match(REG_SOUR, $line)) {
 
 				} 
 				elseif (preg_match(REG_NOTE, $line)) {
-
+					$this->_ParseNote($line);
 				} 
-				elseif (preg_match(REG_NOTE2, $line)) {
-
-				}
 			}
 
 		}
@@ -202,7 +210,7 @@
 				# dump record to db if reached end of indi record
 				if ($level == 0) { 
 					$recordset = array_merge($indiv, $names[0]);
-					$this->_DB_InsertIndividual($recordset);
+					$this->_DB_InsertRecord($this->rs_indiv, $recordset);
 					fseek($this->fhandle, $poffset);
 					return;
 				}
@@ -212,6 +220,68 @@
 				}
 				elseif (preg_match(REG_SEX, $line, $match)) {
 					$indiv['sex'] = trim($match[1]);
+				}
+				elseif (preg_match(REG_NOTEX, $line, $match)) {
+					$indiv['notekey'] = trim($match[1]);
+				}
+			}
+		}
+		
+		/**
+		* Parse Note record
+		* @param string $start_line
+		*/
+		function _ParseNote($start_line) {
+			$note = array();
+			$text = '';
+			preg_match(REG_NOTE, $start_line, $match);
+			$note['notekey'] = $match[1];
+			if (isset($match[2])) {
+				$text .= $match[2];
+			}
+			while (!feof($this->fhandle)) {
+				$poffset = ftell($this->fhandle);
+				$line = fgets($this->fhandle);
+				$level = $this->_ExtractLevel($line);
+				# dump record to db if reached end of note record
+				if ($level == 0) {
+					$note['text'] = trim($text);
+					$this->_DB_InsertRecord($this->rs_note, $note);
+					fseek($this->fhandle, $poffset);
+					return;
+				}
+				elseif (preg_match(REG_CONC, $line, $match)) {
+					$text .= trim($match[1]);
+				}
+				elseif (preg_match(REG_CONT, $line, $match)) {
+					$text .= "\r\n".trim($match[1]);
+				}
+			}
+		}
+		
+		/**
+		* Parse Family record
+		* @param string $start_line
+		*/
+		function _ParseFamily($start_line) {
+			$family = array();
+			preg_match(REG_FAM, $start_line, $match);
+			$family['famkey'] = $match[1];
+			while (!feof($this->fhandle)) {
+				$poffset = ftell($this->fhandle);
+				$line = fgets($this->fhandle);
+				$level = $this->_ExtractLevel($line);
+				# dump record to db if reached end of family record
+				if ($level == 0) {
+					$this->_DB_InsertRecord($this->rs_family, $family);
+					fseek($this->fhandle, $poffset);
+					return;
+				}
+				elseif (preg_match(REG_HUSB, $line, $match)) {
+					$family['spouse1'] = $match[1];
+				}
+				elseif (preg_match(REG_WIFE, $line, $match)) {
+					$family['spouse2'] = $match[1];
 				}
 			}
 		}
@@ -286,9 +356,9 @@
 			return $level;
 		}
 		
-		function _DB_InsertIndividual($record) {
+		function _DB_InsertRecord($rs, $record) {
 			$db = &$this->db;
-			$insertSQL = $db->GetInsertSQL($this->rs_indiv, $record);
+			$insertSQL = $db->GetInsertSQL($rs, $record);
 			//$db->Execute($insertSQL);
 			echo $insertSQL.'<br>';
 		}
