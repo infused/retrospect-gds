@@ -24,18 +24,18 @@
  */
  
  	# Disable error reporting
-	error_reporting(E_ALL);
+	error_reporting(0);
 	
 	# Set flag that this is a parent file
 	define( '_RGDS_VALID', 1 );	
-	
+
 	# Define all application paths
 	define('ROOT_PATH', realpath(dirname($_SERVER['SCRIPT_FILENAME']).'/..'));
 	define('CORE_PATH', ROOT_PATH.'/core/');
 	define('LIB_PATH', ROOT_PATH.'/libraries/');
 	$cfg_filename = CORE_PATH.'config.php';
 	
-	@require_once('installer.class.php');
+	require_once('installer.class.php');
 	$inst = new Installer();
 	$yes = '<div class="yes">Yes</div>';
 	$no = '<div class="no">No</div>';
@@ -153,22 +153,17 @@ You should correct these if possible before proceeding.
         </tr>
         <tr>
           <td class="section_item">Safe Mode = Off </td>
-          <td align="center" class="section_item"><?php echo ini_get('safe_mode') ? '<div class="no">On</div>' : '<div class="yes">Off</div>'; ?></td>
+          <td align="center" class="section_item"><?php echo ini_get('safe_mode'); ?></td>
           <td class="section_item">&nbsp;</td>
         </tr>
         <tr>
           <td class="section_item">Register Globals = Off </td>
-          <td align="center" class="section_item"><?php echo ini_get('regiser_globals') ? '<div class="no">On</div>' : '<div class="yes">Off</div>'; ?></td>
+          <td align="center" class="section_item"><?php echo ini_get('register_globals') ? 'On' : 'Off'; ?></td>
           <td class="section_item">&nbsp;</td>
         </tr>
         <tr>
           <td class="section_item">File Uploads = On </td>
-          <td align="center" class="section_item"><?php echo ini_get('file_uploads') ? '<div class="yes">On</div>' : '<div class="no">Off</div>'; ?></td>
-          <td class="section_item">&nbsp;</td>
-        </tr>
-        <tr>
-          <td class="section_item">Magic Quotes = Off</td>
-          <td align="center" class="section_item"><?php echo ini_get('magic_quotes') ? '<div class="no">On</div>' : '<div class="yes">Off</div>'; ?></td>
+          <td align="center" class="section_item"><?php echo ini_get('file_uploads') ? 'On' : 'Off'; ?></td>
           <td class="section_item">&nbsp;</td>
         </tr>
       </table> </td>
