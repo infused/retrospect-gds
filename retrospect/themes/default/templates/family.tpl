@@ -6,6 +6,7 @@
 */
 -->
 <p class="content-title">{$content_title}</p>
+{include file="nav.tpl"}
 <div class="tab-page">
 	{if $indiv->aka}
 		<div class="col1">{translate s="Aka"}:</div>

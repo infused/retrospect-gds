@@ -38,8 +38,9 @@
 	if (!empty($o->birth->place)) { keyword_push($o->birth->place); }
 	if (!empty($o->death->place)) { keyword_push($o->death->place); }
 	
-	# create page title
+	# assign other smarty variables
 	$smarty->assign('page_title', sprintf(gtc("Family Page for %s"), $o->name));
+	$smarty->assign('surname_title', sprintf(gtc("%s Surname"), $o->sname));
 	
 	# content title
 	$content_title = $o->prefix.' '.$o->name;

@@ -14,7 +14,7 @@
 	<div id="utils">
 		<a href="{$CURRENT_PAGE}&print=y" target="_blank"><img src="themes/default/images/printbutton.gif" border="0" alt="{translate s="Print"}" /></a>
 	</div>
-	{include file = "$option.tpl"}
+	{include file="$option.tpl"}
 </div>
 <div id="footer">
 	<a href="http://www.infused-solutions.com/retrospect/">Retrospect-GDS v{$RGDS_VERSION}</a> {$RGDS_COPYRIGHT}
