@@ -286,14 +286,14 @@
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add english language</descr>
-		<query>INSERT INTO language VALUES (1, 'en_US', 'English', 'iso-8859-1')</query>
+		<query>INSERT INTO language VALUES (1, 'en_US', 'iso-8895-1', 'English')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add spanish language</descr>
-		<query>INSERT INTO language VALUES (2, 'es_ES', 'Spanish', 'iso-8859-1')</query>
+		<query>INSERT INTO language VALUES (2, 'es_ES', 'iso-8895-1', 'Spanish')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add german language</descr>
-		<query>INSERT INTO language VALUES (3, 'de_DE', 'German', 'iso-8859-1')</query>
+		<query>INSERT INTO language VALUES (3, 'de_DE', 'iso-8859-1', 'German')</query>
 	</sql>
 </schema>
