@@ -211,7 +211,9 @@ class Person {
 			$this->marriages = array();
 			$this->children = array();
 			$this->_get_marriages();
-			$this->_get_children();
+			if ($GLOBALS['options']->sort_marriages) {
+				$this->_sort_marriages();
+			}
 			$this->_get_notes();
 		}
 		# 1: Vitals only
@@ -236,6 +238,9 @@ class Person {
 			$this->_get_parents();
 			$this->marriages = array();
 			$this->_get_marriages(false);
+			if ($GLOBALS['options']->sort_marriages) {
+				$this->_sort_marriages();
+			}
 		}
 	}
 	
@@ -311,18 +316,14 @@ class Person {
 		}
 		$this->marriage_count = count($this->marriages);
 	}
-
-	/**
-	* Gets children from database
-	*/	
-	function _get_children() {
-		foreach ($this->marriages as $marriage) {	
-			$famkey = $marriage['famkey'];
-			$sql = "SELECT indkey FROM ".TBL_CHILD." WHERE famkey='{$famkey}'";
-			$children = $GLOBALS['db']->GetCol($sql);
-			foreach ($children as $child) {
-				$this->children[] = $child;
-			}
+	
+	function _sort_marriages() {
+		// declare internal compare function
+		function datecmp($arr1, $arr2) {
+			return strcmp($arr1->sort_date, $arr2->sort_date);
+		}
+		if ($this->marriage_count > 0) {
+			usort($this->marriages, 'datecmp');
 		}
 	}
 
@@ -352,6 +353,12 @@ class Event {
 	*/
 	var $date;
 
+	/**
+	* Sort Date
+	* @var string
+	*/
+	var $sort_date;
+	
 	/**
 	* Event Place
 	* @var string	
@@ -394,6 +401,7 @@ class Event {
 		$this->place = htmlentities($event_data['place']);
 		$this->comment = htmlentities($event_data['comment']);
 		$this->factkey = $event_data['factkey'];
+		$this->sort_date = $event_data['date1'];
 		$dp = new DateParser();
 		$this->date = $dp->FormatDateStr($event_data);
 		if ($p_fetch_sources === true) $this->_get_sources();
@@ -454,6 +462,12 @@ class Marriage {
 	* @var string
 	*/
 	var $date;
+	
+	/**
+	* Sort date
+	* @var string
+	*/
+	var $sort_date;
 	
 	/**
 	* Place of marriage
@@ -559,18 +573,22 @@ class Marriage {
 	* @param boolean $fetch_sources
 	*/
 	function Marriage($p_famkey, $p_spouse, $p_beginstatus, $p_endstatus, $p_notekey, $fetch_sources = true) {
-		$this->famkey =& $p_famkey;
-		$this->spouse =& $p_spouse;
+		$this->famkey = $p_famkey;
+		$this->spouse = $p_spouse;
 		# work around wording discrepency
 		if ($p_beginstatus == 'Married') { $this->beginstatus = 'Marriage'; }
 		else { 
 			if (!empty($p_beginstatus)) $this->beginstatus = $p_beginstatus; 
 			else $this->beginstatus = 'Relationship';
 		}
-		$this->endstatus =& $p_endstatus;
-		$this->notekey =& $p_notekey;
+		$this->endstatus = $p_endstatus;
+		$this->notekey = $p_notekey;
 		$this->children = array();
 		$this->_get_children();
+		# sort children
+		if ($GLOBALS['options']->sort_children) {
+			$this->_sort_children();
+		}
 		$this->_get_notes();
 		$this->_get_beginstatus_event();
 		$this->_get_endstatus_event();
@@ -591,6 +609,28 @@ class Marriage {
 		$sql = 'SELECT indkey FROM '.TBL_CHILD.' WHERE famkey = "'.$this->famkey.'"';
 		$this->children = $GLOBALS['db']->GetCol($sql);
 		$this->child_count = count($this->children);
+	}
+	
+	/** 
+	* Sort children
+	*/
+	function _sort_children() {
+		// declare internal compare function
+		function datecmp($arr1, $arr2) {
+			return strcmp($arr1->birth->sort_date, $arr2->birth->sort_date);
+		}
+		if ($this->child_count > 0) {
+			$tmp_arr = array();
+			foreach ($this->children as $indkey) {
+				$c = new Person($indkey, 3);
+				$tmp_arr[] = $c;
+			}
+			usort($tmp_arr, 'datecmp');
+			foreach ($tmp_arr as $child) {
+				$children[] = $child->indkey;
+			}
+			$this->children = $children;
+		}
 	}
 	
 	/**
@@ -625,7 +665,9 @@ class Marriage {
 		$query = 'SELECT * FROM '.TBL_FACT.' WHERE (indfamkey="'.$this->famkey.'") AND (type="'.$this->beginstatus.'")';
 		if ($row = $GLOBALS['db']->GetRow($query)) {
 			$this->beginstatus_factkey = $row['factkey'];
-			$this->date = lang_translate_date(ucwords(strtolower($row['date_str'])));
+			$dp = new DateParser();
+			$this->date = $dp->FormatDateStr($row);
+			$this->sort_date = $row['date1'];
 			$this->place = htmlentities($row['place']);
 		}
 	}
@@ -637,7 +679,8 @@ class Marriage {
 		$sql = "SELECT factkey, date_str, place FROM ".TBL_FACT." WHERE (indfamkey='{$this->famkey}') AND (type='{$this->endstatus}') LIMIT 1";
 		if ($row = $GLOBALS['db']->GetRow($sql)) {
 			$this->endstatus_factkey = $row['factkey'];
-			$this->enddate = lang_translate_date(ucwords(strtolower($row['date_str'])));
+			$dp = new DateParser();
+			$this->enddate = $dp->FormatDateStr($row);
 			$this->endplace = htmlentities($row['place']);	
 		}		
 	}

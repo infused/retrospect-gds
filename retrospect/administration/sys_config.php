@@ -48,6 +48,12 @@
 		if ($_POST['date_format_new'] != $_POST['date_format_old']) {
 			$updated = $options->OptionUpdate('date_format', $_POST['date_format_new']);
 		}
+		if ($_POST['sort_children_new'] != $_POST['sort_children_old']) {
+			$updated = $options->OptionUpdate('sort_children', $_POST['sort_children_new']);
+		}
+		if ($_POST['sort_marriages_new'] != $_POST['sort_marriages_old']) {
+			$updated = $options->OptionUpdate('sort_marriages', $_POST['sort_marriages_new']);
+		}
 		if ($_POST['profile_functions_new'] != $_POST['profile_functions_old']) {
 			$updated = $options->OptionUpdate('profile_functions', $_POST['profile_functions_new']);
 		}
@@ -194,6 +200,29 @@
 							</td>
               <td>&nbsp;</td>
             </tr>
+            <tr>
+              <td class="content-label">Sort children? </td>
+              <td><select name="sort_children_new" class="listbox" id="sort_children_new">
+                <option value="1" <?php if ($options->GetOption('sort_children') == 1) echo 'selected'; ?>><?php echo 'Yes'; ?></option>
+                <option value="0" <?php if ($options->GetOption('sort_children') == 0) echo 'selected'; ?>><?php echo 'No'; ?></option>
+              </select>
+							<input type="hidden" name="sort_children_old" id="sort_children_old" value="<?php echo $options->GetOption('sort_children'); ?>" /></td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="content-label">Sort marriages?</td>
+              <td><select name="sort_marriages_new" class="listbox" id="sort_marriages_new">
+                <option value="1" <?php if ($options->GetOption('sort_marriages') == 1) echo 'selected'; ?>><?php echo 'Yes'; ?></option>
+                <option value="0" <?php if ($options->GetOption('sort_marriages') == 0) echo 'selected'; ?>><?php echo 'No'; ?></option>
+              </select>
+                <input type="hidden" name="sort_marriages_old" id="sort_marriages_old" value="<?php echo $options->GetOption('sort_marriages'); ?>" /></td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="content-label">&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
           </table></td>
         </tr>
       </table>
@@ -213,10 +242,6 @@
               <td><input name="meta_keywords_new" type="text" class="textbox" id="meta_keywords_new" value="<?php echo $options->GetOption('meta_keywords'); ?>" size="50">
                   <input name="meta_keywords_old" type="hidden" id="meta_keywords_old" value="<?php echo $options->GetOption('meta_keywords'); ?>"></td>
             </tr>
-            <tr>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-            </tr>
           </table></td>
         </tr>
       </table>
@@ -234,11 +259,6 @@
                 </select>
                   <input name="profile_functions_old" type="hidden" id="profile_functions_old" value="<?php echo $options->GetOption('profile_functions'); ?>">
               </td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
               <td>&nbsp;</td>
             </tr>
           </table></td>

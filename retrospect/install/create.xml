@@ -268,50 +268,58 @@
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'default_lang' record to options table</descr>
-		<query>INSERT INTO options VALUES (1, 'default_lang', 'en_US')</query>
+		<query>INSERT INTO options VALUES ('1', 'default_lang', 'en_US')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'allow_lang_change' record to options table</descr>
-		<query>INSERT INTO options VALUES (2, 'allow_lang_change', '1')</query>
+		<query>INSERT INTO options VALUES ('2', 'allow_lang_change', '1')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'default_page' record to options table</descr>
-		<query>INSERT INTO options VALUES (3, 'default_page', 'surnames')</query>
+		<query>INSERT INTO options VALUES ('3', 'default_page', 'surnames')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'translate_dates' record to options table</descr>
-		<query>INSERT INTO options VALUES (4, 'translate_dates', '1')</query>
+		<query>INSERT INTO options VALUES ('4', 'translate_dates', '1')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'profile_functions' record to options table</descr>
-		<query>INSERT INTO options VALUES (5, 'profile_functions', '0')</query>
+		<query>INSERT INTO options VALUES ('5', 'profile_functions', '0')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'meta_copyright' record to options table</descr>
-		<query>INSERT INTO options VALUES (6, 'meta_copyright', '')</query>
+		<query>INSERT INTO options VALUES ('6', 'meta_copyright', '')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'meta_keywords' record to options table</descr>
-		<query>INSERT INTO options VALUES (7, 'meta_keywords', 'Genealogy,Family History')</query>
+		<query>INSERT INTO options VALUES ('7', 'meta_keywords', 'Genealogy,Family History')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'date_format' record to options table</descr>
-		<query>INSERT INTO options VALUES (8, 'date_format', '1')</query>
+		<query>INSERT INTO options VALUES ('8', 'date_format', '1')</query>
+	</sql>
+	<sql prefixmethod="auto">
+		<descr>Add 'sort_children' record to options table</descr>
+		<query>INSERT INTO options VALUES ('9', 'sort_children', '0')</query>
+	</sql>
+	<sql prefixmethod="auto">
+		<descr>Add 'sort_marriages' record to options table</descr>
+		<query>INSERT INTO options VALUES ('10', 'sort_marriages', '0')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add english language</descr>
-		<query>INSERT INTO language VALUES (1, 'en_US', 'iso-8859-1', 'English')</query>
+		<query>INSERT INTO language VALUES ('1', 'en_US', 'iso-8859-1', 'English')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add spanish language</descr>
-		<query>INSERT INTO language VALUES (2, 'es_ES', 'iso-8859-1', 'Spanish')</query>
+		<query>INSERT INTO language VALUES ('2', 'es_ES', 'iso-8859-1', 'Spanish')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add german language</descr>
-		<query>INSERT INTO language VALUES (3, 'de_DE', 'iso-8859-1', 'German')</query>
+		<query>INSERT INTO language VALUES ('3', 'de_DE', 'iso-8859-1', 'German')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add dutch language</descr>
-		<query>INSERT INTO language VALUES (4, 'nl_NL', 'iso-8859-1', 'Dutch')</query>
+		<query>INSERT INTO language VALUES ('4', 'nl_NL', 'iso-8859-1', 'Dutch')</query>
 	</sql>
 </schema>
