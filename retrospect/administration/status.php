@@ -106,38 +106,73 @@
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td><?php echo $g_tbl_indiv; ?></td>
+        <td>
+					<?php 
+						$sql = "SELECT COUNT(*) FROM $g_tbl_indiv";
+						echo $db->GetOne($sql);
+				 	?>
+				</td>
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td><?php echo $g_tbl_lang; ?></td>
+        <td>
+					<?php 
+						$sql = "SELECT COUNT(*) FROM $g_tbl_lang";
+						echo $db->GetOne($sql);
+				 	?>
+				</td>
         <td>&nbsp;</td>
       </tr>
       <tr>
+        <td><?php echo $g_tbl_media; ?></td>
+        <td>
+					<?php 
+						$sql = "SELECT COUNT(*) FROM $g_tbl_media";
+						echo $db->GetOne($sql);
+				 	?>
+				</td>
         <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><?php echo $g_tbl_note; ?></td>
+        <td>
+					<?php 
+						$sql = "SELECT COUNT(*) FROM $g_tbl_note";
+						echo $db->GetOne($sql);
+				 	?>
+				</td>
         <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><?php echo $g_tbl_option; ?></td>
+        <td>
+					<?php 
+						$sql = "SELECT COUNT(*) FROM $g_tbl_option";
+						echo $db->GetOne($sql);
+				 	?>
+				</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><?php echo $g_tbl_source; ?></td>
+        <td>
+					<?php 
+						$sql = "SELECT COUNT(*) FROM $g_tbl_source";
+						echo $db->GetOne($sql);
+				 	?>
+				</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><?php echo $g_tbl_user; ?></td>
+        <td>
+					<?php 
+						$sql = "SELECT COUNT(*) FROM $g_tbl_user";
+						echo $db->GetOne($sql);
+				 	?>
+				</td>
         <td>&nbsp;</td>
       </tr>
     </table>      
