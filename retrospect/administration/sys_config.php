@@ -54,6 +54,9 @@
 		if ($_POST['sort_marriages_new'] != $_POST['sort_marriages_old']) {
 			$updated = $options->OptionUpdate('sort_marriages', $_POST['sort_marriages_new']);
 		}
+		if ($_POST['sort_events_new'] != $_POST['sort_events_old']) {
+			$updated = $options->OptionUpdate('sort_events', $_POST['sort_events_new']);
+		}
 		if ($_POST['profile_functions_new'] != $_POST['profile_functions_old']) {
 			$updated = $options->OptionUpdate('profile_functions', $_POST['profile_functions_new']);
 		}
@@ -219,8 +222,12 @@
               <td>&nbsp;</td>
             </tr>
             <tr>
-              <td class="content-label">&nbsp;</td>
-              <td>&nbsp;</td>
+              <td class="content-label">Sort events? </td>
+              <td><select name="sort_events_new" class="listbox" id="sort_events_new">
+                <option value="1" <?php if ($options->GetOption('sort_events') == 1) echo 'selected'; ?>><?php echo 'Yes'; ?></option>
+                <option value="0" <?php if ($options->GetOption('sort_events') == 0) echo 'selected'; ?>><?php echo 'No'; ?></option>
+              </select>
+                <input type="hidden" name="sort_events_old" id="sort_events_old" value="<?php echo $options->GetOption('sort_events'); ?>" /></td>
               <td>&nbsp;</td>
             </tr>
           </table></td>

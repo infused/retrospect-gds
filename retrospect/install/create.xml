@@ -307,6 +307,10 @@
 		<query>INSERT INTO options VALUES ('10', 'sort_marriages', '0')</query>
 	</sql>
 	<sql prefixmethod="auto">
+		<descr>Add 'sort_events' record to options table</descr>
+		<query>INSERT INTO options VALUES ('11', 'sort_events', '0')</query>
+	</sql>
+	<sql prefixmethod="auto">
 		<descr>Add english language</descr>
 		<query>INSERT INTO language VALUES ('1', 'en_US', 'iso-8859-1', 'English')</query>
 	</sql>

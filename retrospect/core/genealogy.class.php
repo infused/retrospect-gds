@@ -199,21 +199,20 @@ class Person {
 	* @param integer $p_ns_number anhnentafel number
 	*/
 	function Person($p_id, $p_level = 0, $p_ns_number = null) {
-		$this->indkey =& $p_id;
-		$this->ns_number =& $p_ns_number;
+		$this->indkey = $p_id;
+		$this->ns_number = $p_ns_number;
 		$this->sources = array();
 		
 		# 0: All data
 		if ($p_level == 0) {
 			$this->_get_name();
 			$this->_get_events();
+			if ($GLOBALS['options']->sort_events) $this->_sort_events();
 			$this->_get_parents();
 			$this->marriages = array();
 			$this->children = array();
 			$this->_get_marriages();
-			if ($GLOBALS['options']->sort_marriages) {
-				$this->_sort_marriages();
-			}
+			if ($GLOBALS['options']->sort_marriages) $this->_sort_marriages();
 			$this->_get_notes();
 		}
 		# 1: Vitals only
@@ -238,9 +237,7 @@ class Person {
 			$this->_get_parents();
 			$this->marriages = array();
 			$this->_get_marriages(false);
-			if ($GLOBALS['options']->sort_marriages) {
-				$this->_sort_marriages();
-			}
+			if ($GLOBALS['options']->sort_marriages) $this->_sort_marriages();
 		}
 	}
 	
@@ -279,6 +276,19 @@ class Person {
 			else array_push($this->events, $event);
 		}
 		$this->event_count = count($this->events);
+	}
+	
+	/**
+	* Sort events by date
+	*/
+	function _sort_events() {
+		// declare internal compare function
+		function datecmp($arr1, $arr2) {
+			return strcmp($arr1->sort_date, $arr2->sort_date);
+		}
+		if ($this->event_count > 0) {
+			usort($this->events, 'datecmp');
+		}
 	}
 
 	/**
@@ -612,7 +622,7 @@ class Marriage {
 	}
 	
 	/** 
-	* Sort children
+	* Sort children by date
 	*/
 	function _sort_children() {
 		// declare internal compare function
