@@ -145,6 +145,9 @@
 		<field name="sex" type="C" size="1">
 			<notnull />
 		</field>
+		<field name="refn" type="C" size="128">
+			<notnull />
+		</field>
 		<field name="notekey" type="C" size="20">
 			<notnull />
 		</field>

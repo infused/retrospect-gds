@@ -318,6 +318,9 @@
 					$event = $this->_ParseIndivEventDetail($match, $indiv['indkey']);
 					array_push($events, $event);
 				}
+				elseif (preg_match(REG_REFN, $line, $match)) {
+					$indiv['refn'] = $match[1];
+				}
 			}
 		}
 		

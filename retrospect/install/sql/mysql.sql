@@ -10,7 +10,9 @@ ALTER TABLE rgds_children ADD  INDEX rgds_indkey  (indkey);
 CREATE TABLE rgds_citation (
 factkey          VARCHAR(20) NOT NULL,
 srckey           VARCHAR(20) NOT NULL,
-source           LONGTEXT
+source           LONGTEXT,
+citekey          INTEGER NOT NULL AUTO_INCREMENT,
+                 PRIMARY KEY (citekey)
 );
 
 ALTER TABLE rgds_citation ADD  INDEX rgds_factkey  (factkey);
@@ -36,7 +38,7 @@ date2            VARCHAR(8) NOT NULL,
 date_str         VARCHAR(128) NOT NULL,
 place            VARCHAR(250) NOT NULL,
 comment          VARCHAR(250) NOT NULL,
-factkey          VARCHAR(20) NOT NULL,
+factkey          INTEGER NOT NULL,
                  PRIMARY KEY (factkey)
 );
 
@@ -66,6 +68,7 @@ aka              VARCHAR(128) NOT NULL,
 prefix           VARCHAR(128) NOT NULL,
 suffix           VARCHAR(128) NOT NULL,
 sex              VARCHAR(1) NOT NULL,
+refn             VARCHAR(128) NOT NULL,
 notekey          VARCHAR(20) NOT NULL,
                  PRIMARY KEY (indkey)
 );
@@ -162,4 +165,3 @@ INSERT INTO  rgds_language VALUES  ('2', 'es_ES', 'iso-8859-1', 'Spanish');
 INSERT INTO  rgds_language VALUES  ('3', 'de_DE', 'iso-8859-1', 'German');
 
 INSERT INTO  rgds_language VALUES  ('4', 'nl_NL', 'iso-8859-1', 'Dutch');
-
