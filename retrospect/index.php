@@ -56,16 +56,15 @@
 	* @access public
 	*/
 	require_once(CORE_PATH.'core.php');
-
-	$g_option = isset($_GET['option']) ? $_GET['option'] : $g_opts->default_page;
 	
 	/**
 	* Load the appropriate theme option page.
-	* Use output buffering to capture any output into $g_content
+	* Uses output buffering to capture any output into $g_content
 	* for display later in the theme template.
 	* @access public
 	*/
 	ob_flush();
+	$g_option = isset($_GET['option']) ? $_GET['option'] : $g_opts->default_page;
 	include(Theme::getPage($g_theme, $g_option));
 	$g_content = ob_get_contents();
 	ob_clean();
