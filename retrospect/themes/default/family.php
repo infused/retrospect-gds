@@ -71,102 +71,106 @@
 	}
 
   # name and menu
-	$g_content = '<p class="content-title">'.$o->name;
+	echo '<p class="content-title">'.$o->name;
 	if (isset($o->title) and $o->title != '') { $g_content .= ', '.$o->title; }
-	$g_content .= '</p>';
+	echo '</p>';
 	if ($print === false) {
 		include(Theme::getPage($g_theme, 'nav'));
 	}
   
 	# vitals
-	$g_content .= '<p class="content-subtitle">'._("Family Page").'</p>';
-	$g_content .= '<div class="tab-page">';
-	if (!empty($o->aka)) {
-		$g_content .= '<div class="col1">'._("Aka").':</div>';
-		$g_content .= '<div class="col2-2">'.$o->aka.'</div>';
-	}
-	$g_content .= '<div class="col1">'._("Gender").':</div>';
-  $g_content .= '<div class="col2">'._($o->gender).'</div>';
-  $g_content .= '<div class="col3"></div>';
-	$g_content .= '<div class="col1">'._("Father").':</div>';
-	$g_content .= '<div class="col2-2">'.$father_link.'</div>';
-	unset($father_link);
-	$g_content .= '<div class="col1">'._("Mother").':</div>';
-  $g_content .= '<div class="col2-2">'.$mother_link.'</div>';
-	unset($mother_link);
-  $g_content .= '<div class="col1">'._("Birth").':</div>';
-	$g_content .= '<div class="col2">'.$o->birth->date.'</div>';
-  $g_content .= '<div class="col3">'.$o->birth->place . disp_sources($o->birth->sources).'</div>';
-	$g_content .= '<div class="col1">'._("Death").':</div>';
-  $g_content .= '<div class="col2">'.$o->death->date.'</div>';
-  $g_content .= '<div class="col3">'.$o->death->place . disp_sources($o->death->sources).'</div>';
+	?>
+	<p class="content-subtitle"><?php echo _("Family Page"); ?></p>
+	<div class="tab-page">
+	<?php
+	if (!empty($o->aka)) { ?>
+		<div class="col1"><?php echo _("Aka"); ?></div>
+		<div class="col2-2"><?php echo $o->aka; ?></div>
+	<?php } ?>
+	<div class="col1"><?php echo _("Gender"); ?></div>
+	<div class="col2"><?php echo _($o->gender); ?></div>
+  <div class="col3">&nbsp;</div>
+	<div class="col1"><?php echo _("Father"); ?>:</div>
+	<div class="col2-2"><?php echo $father_link; unset($father_link); ?></div>
+	<div class="col1"><?php echo _("Mother"); ?>:</div>
+  <div class="col2-2"><?php echo $mother_link; unset($mother_link); ?></div>
+  <div class="col1"><?php echo _("Birth"); ?>:</div>
+	<div class="col2"><?php echo $o->birth->date; ?></div>
+  <div class="col3"><?php echo $o->birth->place . disp_sources($o->birth->sources); ?></div>
+	<div class="col1"><?php echo _("Death"); ?>:</div>
+  <div class="col2"><?php echo $o->death->date; ?></div>
+  <div class="col3"><?php echo $o->death->place . disp_sources($o->death->sources); ?></div>
 	
+	<?php
 	# events
-	foreach($o->events as $event) {
-		$g_content .= '<div class="col1">'._($event->type).':</div>';
-		$g_content .= '<div class="col2">'.$event->date.'</div>';
-		$g_content .= '<div class="col3">'.$event->place . disp_sources($event->sources).'</div>';
-	}
+	foreach($o->events as $event) { ?>
+		<div class="col1"><?php echo _($event->type); ?>:</div>
+		<div class="col2"><?php echo $event->date; ?></div>
+		<div class="col3"><?php echo $event->place . disp_sources($event->sources); ?></div>
+	<?php } 
 	
 	# notes
-	if ($o->notes) {
-		$g_content .= '<div class="col1">'._("Notes").':</div>';
-  	$g_content .= '<div class="col2-2">'.$o->notes.'</div>';
-  }
+	if ($o->notes) { ?>
+		<div class="col1"><?php echo _("Notes"); ?>:</div>
+  	<div class="col2-2"><?php echo $o->notes; ?></div>
+  <?php }
   
 	# marriages
   foreach ($o->marriages as $m) {
 		$fam_count++;
 		$s = (!empty($m->spouse)) ? new person($m->spouse, 3) : null;
 		$spouse_link = '<a href="'.Theme::GetArgs('family', array('indiv'=>$s->indkey)).'">'.$s->name.'</a>';
+		?>
+		<br />
+ 	 	<p class="content-subtitle"><?php printf(_("Family %s"), $fam_count); ?></p>
+		<div class="col1"><?php echo _("Spouse/Partner"); ?>:</div>
+		<div class="col2-2">
+		<?php 
+			echo $spouse_link; 
+			unset($spouse_link);
+			if ($s->birth->date || $s->death->date) { echo '&nbsp;&nbsp;'; }
+			if ($s->birth->date) { echo ' '._("b.").' '.$s->birth->date; }
+			if ($s->death->date) { echo ' '._("d.").' '.$s->death->date; } 
+			unset($s);
+		?>
+		</div>
 		
-		$g_content .= '<br />';
- 	 	$g_content .= '<p class="content-subtitle">'.sprintf(_("Family %s"), $fam_count).'</p>';
-		$g_content .= '<div class="col1">'._("Spouse/Partner").':</div>';
-		$g_content .= '<div class="col2-2">';
-		$g_content .= $spouse_link;
-		unset($spouse_link);
-		if ($s->birth->date || $s->death->date) { $g_content .= '&nbsp;&nbsp;'; }
-		if ($s->birth->date) { $g_content .= ' '._("b.").' '.$s->birth->date; }
-		if ($s->death->date) { $g_content .= ' '._("d.").' '.$s->death->date; } 
-		$g_content .= '</div>';
-		unset($s);
-
+		<?php
 		if ($m->beginstatus) {
-			$g_content .= '<div class="col1">'._($m->beginstatus).':</div>';
-			$g_content .= '<div class="col2">'.$m->date.'</div>';
-			$g_content .= '<div class="col3">'.$m->place . disp_sources($m->sources).'</div>';
+			echo '<div class="col1">'._($m->beginstatus).':</div>';
+			echo '<div class="col2">'.$m->date.'</div>';
+			echo '<div class="col3">'.$m->place . disp_sources($m->sources).'</div>';
 		}
 
  		if ($m->endstatus) {
-		  $g_content .= '<div class="col1">'._($m->endstatus).':</div>';
-			$g_content .= '<div class="col2">'.$m->enddate.'</div>';
-			$g_content .= '<div class="col3">'.$m->endplace . disp_sources($m->end_sources).'</div>';
+		  echo '<div class="col1">'._($m->endstatus).':</div>';
+			echo '<div class="col2">'.$m->enddate.'</div>';
+			echo '<div class="col3">'.$m->endplace . disp_sources($m->end_sources).'</div>';
 		}
   	
 		if ($m->notes) {
-		  $g_content .= '<div class="col1">'._("Notes").'</div>';
-			$g_content .= '<div class="col2-2">'.$m->notes.'</div>';
+		  echo '<div class="col1">'._("Notes").'</div>';
+			echo '<div class="col2-2">'.$m->notes.'</div>';
 		}
 		
 		# children
 		if ($m->child_count > 0) {
-			$g_content .= '<br />';
-			$g_content .= '<div class="col1">'._("Children").':</div>';
+			echo '<br />';
+			echo '<div class="col1">'._("Children").':</div>';
 			$k = 0;
 			foreach ($m->children as $child_indkey) {
 				$c = new person($child_indkey, 3);
 				$child_link = '<a href="'.Theme::GetArgs('family', array('indiv'=>$c->indkey)).'">'.$c->name.'</a>';
 				if ($k != 0) {
-					$g_content .= '<div class="col1"></div>';
+					echo '<div class="col1"></div>';
 				}
-				$g_content .= '<div class="col2-2">';
-				$g_content .= $child_link;
+				echo '<div class="col2-2">';
+				echo $child_link;
 				unset($child_link);
-				if ($c->birth->date || $c->death->date) { $g_content .= '&nbsp;&nbsp;'; }
-				if ($c->birth->date) { $g_content .= _("b.").' '.$c->birth->date.'&nbsp;&nbsp;'; }
-				if ($c->death->date) { $g_content .= _("d.").' '.$c->death->date; }
-				$g_content .= '</div>';
+				if ($c->birth->date || $c->death->date) { echo '&nbsp;&nbsp;'; }
+				if ($c->birth->date) { echo _("b.").' '.$c->birth->date.'&nbsp;&nbsp;'; }
+				if ($c->death->date) { echo _("d.").' '.$c->death->date; }
+				echo '</div>';
 				$k++;
 				unset($c);
 			}
@@ -175,15 +179,15 @@
 	}
 
 	if (count($sources) > 0) {
-		$g_content .= '<br /><p class="content-subtitle">'._("Source Citations").'</p><ol>';
+		echo '<br /><p class="content-subtitle">'._("Source Citations").'</p><ol>';
 		$src_count = 0;
 		foreach ($sources as $source) {
 			$src_count++;
-			$g_content .= '<li value="'.($src_count).'">'.$source.'<a name="s'.($src_count).'"></a></li>';
+			echo '<li value="'.($src_count).'">'.$source.'<a name="s'.($src_count).'"></a></li>';
 		}
-		$g_content .= '</ol>';
+		echo '</ol>';
 		unset($sources);
 		unset($src_count);
 	}
-	$g_content .= '</div>';
+	echo '</div>';
 ?>

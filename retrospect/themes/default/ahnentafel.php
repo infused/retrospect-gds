@@ -55,13 +55,13 @@
 	$g_title = sprintf(_("Ahnentafel Report for %s"), $o->name);
 
 	# name and menu
-	$g_content = '<p class="content-title">'.$o->name;
-	if (isset($o->title) and $o->title != '') { $g_content .= ', '.$o->title; }
-	$g_content .= '</p>';
+	echo '<p class="content-title">'.$o->name;
+	if (isset($o->title) and $o->title != '') { echo ', '.$o->title; }
+	echo '</p>';
 	if ($print === false) {
 		include(Theme::getPage($g_theme, 'nav'));
 	}
-	$g_content .= '<p class="content-subtitle">'._("Ahnentafel Report").'</p>';
+	echo '<p class="content-subtitle">'._("Ahnentafel Report").'</p>';
 	
 	$tree->level_order_traversal($root, 'display_indiv');
 	unset($root);
@@ -83,19 +83,19 @@
 		if ($p_generation > $g_generation ) {
 			$g_generation = $p_generation;
 			# display generation if it changed	
-			$g_content .= '<h3>'.sprintf(_("Generation %s"), $g_generation).'</h3>';
+			echo '<h3>'.sprintf(_("Generation %s"), $g_generation).'</h3>';
 		}
-		$g_content .= '<ol><li value='.$p_node->ns_number.'">';
+		echo '<ol><li value='.$p_node->ns_number.'">';
 		# display ahnentafel number and name
-		$g_content .= '<a href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$p_node->indkey.'">'.$p_node->name.'</a>'; 
+		echo '<a href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$p_node->indkey.'">'.$p_node->name.'</a>'; 
 		# display parents
-		$g_content .= get_parents_sentence($p_node, $father, $mother).'<br />';
+		echo get_parents_sentence($p_node, $father, $mother).'<br />';
 		# display birth sentence
-		$g_content .= get_birth_sentence($p_node);
+		echo get_birth_sentence($p_node);
 		# display marriage sentence(s)
-		$g_content .= get_marriage_sentences($p_node);
+		echo get_marriage_sentences($p_node);
 		# display death sentence
-		$g_content .= get_death_sentence($p_node);
-		$g_content .= '</li></ol>';
+		echo get_death_sentence($p_node);
+		echo '</li></ol>';
 	}
 ?>

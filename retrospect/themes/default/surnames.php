@@ -57,16 +57,16 @@
 		$g_title = _("Surname List");
 		
 		# alphabet menu
+		echo '<div class="content-title">'._("Surname List").'</div>';
 		if ($print === false) {
-			$g_content = '<div class="content-title">'._("Surname List").'</div>';
-			$g_content .= '<div class="tab-row">';
+			echo '<div class="tab-row">';
 			$alphabet = range('A', 'Z');
 			$alphabet[] = 'ALL';
 			$alphabet[] = 'TOP100';
 			foreach ($alphabet as $alpha) {
-				$g_content .= '<div class="'.get_alpha_class($alpha).'">'.get_alpha_link($alpha).'</div>'."\n"; 
+				echo '<div class="'.get_alpha_class($alpha).'">'.get_alpha_link($alpha).'</div>'."\n"; 
 			}
-			$g_content .= '</div>';
+			echo '</div>';
 		}
 			
 		if ($g_alpha == 'ALL') {
@@ -85,20 +85,20 @@
 		$max_cols = 4;
 		$max_rows = ceil($rs->RecordCount() / $max_cols);
 		
-		$g_content .= '<p class="text">'._("Number of surnames listed").': '.$rs->RecordCount().'</p>';
-		$g_content .= '<table border="0" cellpadding="0" cellspacing="0">';
-		$g_content .= '<tr><td class="text" width="200" valign="top">';
+		echo '<p class="text">'._("Number of surnames listed").': '.$rs->RecordCount().'</p>';
+		echo '<table border="0" cellpadding="0" cellspacing="0">';
+		echo '<tr><td class="text" width="200" valign="top">';
 		$count = 0;
 		while ($row = $rs->FetchRow()) {
 			$count++;			
 			$letter = strtoupper(substr($row["surname"],0,1));
-			$g_content .= "<a href=\"".$_SERVER["PHP_SELF"]."?option=surnames&sn=".$row["surname"]."\">";
-			$g_content .= $row["surname"];
-			$g_content .= "&nbsp;(".$row["number"].")";
-			$g_content .= "</a><br />";
-			if ($count % $max_rows == 0) { $g_content .= '</td><td class="text" width="200" valign="top">'; }
+			echo "<a href=\"".$_SERVER["PHP_SELF"]."?option=surnames&sn=".$row["surname"]."\">";
+			echo $row["surname"];
+			echo "&nbsp;(".$row["number"].")";
+			echo "</a><br />";
+			if ($count % $max_rows == 0) { echo '</td><td class="text" width="200" valign="top">'; }
 		}
-		$g_content .= '</td></tr></table>';
+		echo '</td></tr></table>';
 }
 	
 	else {
@@ -107,32 +107,32 @@
 		$g_title = sprintf(_("%s Surname"), $sn);
 		
 		# alphabet menu
-		$g_content = '<div class="content-title">'.sprintf(_("%s Surname"), $sn).'</div>';
-		if (! isset($_GET['print'])) {
-			$g_content .= '<div class="tab-row">';
+		echo '<div class="content-title">'.sprintf(_("%s Surname"), $sn).'</div>';
+		if ($print === false) {
+			echo '<div class="tab-row">';
 			$alphabet = range('A', 'Z');
 			$alphabet[] = 'ALL';
 			$alphabet[] = 'TOP100';
 			foreach ($alphabet as $alpha) {
-				$g_content .= '<div class="'.get_alpha_class($alpha).'">'.get_alpha_link($alpha).'</div>'."\n"; 
+				echo '<div class="'.get_alpha_class($alpha).'">'.get_alpha_link($alpha).'</div>'."\n"; 
 			}
-			$g_content .= '</div>';
+			echo '</div>';
 		}
 		
 		$sql = "SELECT indkey FROM $g_tbl_indiv WHERE surname = '$sn' ORDER BY givenname";
 		$rs = $db->Execute($sql);
 		
-		$g_content .= '<p class="text">'._("Number of individuals listed").': '.$rs->RecordCount().'</p>';
-		$g_content .= '<div class="text" style="width: 300px; float: left;"><b>'._("Name").'</b></div>';
-		$g_content .= '<div class="text" style="width: 150px; float: left;"><b>'._("Birth").'</b></div>';
-		$g_content .= '<div class="text" style="width: 150px;"><b>'._("Death").'</b></div>';
+		echo '<p class="text">'._("Number of individuals listed").': '.$rs->RecordCount().'</p>';
+		echo '<div class="text" style="width: 300px; float: left;"><b>'._("Name").'</b></div>';
+		echo '<div class="text" style="width: 150px; float: left;"><b>'._("Birth").'</b></div>';
+		echo '<div class="text" style="width: 150px;"><b>'._("Death").'</b></div>';
 
 		while ($row = $rs->FetchRow()) {
 			$o = new Person($row['indkey'], 3); 
 			$o_link = '<a href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$o->indkey.'">'.$o->sname.', '.$o->gname.'</a>';
-			$g_content .= '<div class="text" style="width: 300px; float: left; height: 10pt; overflow:hidden;">'.$o_link.'</div>';
-			$g_content .= '<div class="text" style="width: 150px; float: left; height: 10pt; overflow:hidden;">'.$o->birth->date.'</div>';
-			$g_content .= '<div class="text" style="width: 150px; height: 10pt; overflow:hidden;">'.$o->death->date.'</div>';
+			echo '<div class="text" style="width: 300px; float: left; height: 10pt; overflow:hidden;">'.$o_link.'</div>';
+			echo '<div class="text" style="width: 150px; float: left; height: 10pt; overflow:hidden;">'.$o->birth->date.'</div>';
+			echo '<div class="text" style="width: 150px; height: 10pt; overflow:hidden;">'.$o->death->date.'</div>';
 		}
 	}
 ?>

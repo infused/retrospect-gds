@@ -53,27 +53,27 @@
 		
 		if ($p_generation > $g_generation ) {
 			$g_generation = $p_generation;
-			$g_content .= '<h3>'.sprintf(_("Generation %s"), $g_generation).'</h3>';
+			echo '<h3>'.sprintf(_("Generation %s"), $g_generation).'</h3>';
 		}
 		
-		$g_content .= '<ol><li value="'.$p_node->ns_number.'">';
-		$g_content .= '<a href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$p_node->indkey.'">'.$p_node->name.'</a>';
+		echo '<ol><li value="'.$p_node->ns_number.'">';
+		echo '<a href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$p_node->indkey.'">'.$p_node->name.'</a>';
 		# display parents
-		$g_content .= get_parents_sentence($p_node, $father, $mother);
-		$g_content .= '<br />';
+		echo get_parents_sentence($p_node, $father, $mother);
+		echo '<br />';
 		# display birth sentence
-		$g_content .= get_birth_sentence($p_node);
+		echo get_birth_sentence($p_node);
 		# display marriage sentence(s)
-		$g_content .= get_marriage_sentences($p_node);
+		echo get_marriage_sentences($p_node);
 		# display death sentence
-		$g_content .= get_death_sentence($p_node);
-		$g_content .= '<br />';
+		echo get_death_sentence($p_node);
+		echo '<br />';
 		# children
 		foreach ($p_node->marriages as $marriage) {
 			$spouse = (!empty($marriage->spouse)) ? new Person($marriage->spouse, 3) : null;
 			if ($marriage->child_count > 0) {
-				$g_content .= '<br />';
-				$g_content .= get_children_of_sentence($p_node, $spouse).':<br />';
+				echo '<br />';
+				echo get_children_of_sentence($p_node, $spouse).':<br />';
 				foreach ($marriage->children as $child_indkey) {
 					$child = new Person($child_indkey);
 					if ($child->marriage_count > 0) {
@@ -89,43 +89,43 @@
 						}
 					}
 					$child_link = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$child->indkey.'">'.$child->name.'</a>';
-					$g_content .= '<ol>';
+					echo '<ol>';
 					if ($child->ns_number) {	
-						$g_content .= '<li value="'.$child->ns_number.'">';
-						$g_content .= $child_link;
+						echo '<li value="'.$child->ns_number.'">';
+						echo $child_link;
 						if ($child->birth->date || $child->death->date) { 
-							$g_content .= '&nbsp;&nbsp;'; 
+							echo '&nbsp;&nbsp;'; 
 							if ($child->birth->date) {
-								$g_content .= _("b.").' '.$child->birth->date.' ';
+								echo _("b.").' '.$child->birth->date.' ';
 							}
 							if ($child->death->date) {
-								$g_content .= _("d.").' '.$child->death->date;
+								echo _("d.").' '.$child->death->date;
 							}
 						}
-						$g_content .= '</li>';
+						echo '</li>';
 					}
 					else {
-						$g_content .= $child_link;
+						echo $child_link;
 					}
-					$g_content .= '</ol>';
+					echo '</ol>';
 				}
 			}
 		}
 
-		$g_content .= '</li></ol>';
+		echo '</li></ol>';
 	}
 
 	# title
 	$g_title = sprintf(_("Descendant Report for %s"), $o->name);
 	
 	# name and menu
-	$g_content = '<p class="content-title">'.$o->name;
-	if (isset($o->title) and $o->title != '') { $g_content .= ', '.$o->title; }
-	$g_content .= '</p>';
+	echo '<p class="content-title">'.$o->name;
+	if (isset($o->title) and $o->title != '') { echo ', '.$o->title; }
+	echo '</p>';
  	if ($print === false) {	
 		include(Theme::getPage($g_theme, 'nav'));
 	}
-	$g_content .= '<p class="content-subtitle">'._("Descendant Report").'</p>';
+	echo '<p class="content-subtitle">'._("Descendant Report").'</p>';
 	
 	while (count($g_descendants) > 0) {
 		display_indiv(array_shift($g_descendants));

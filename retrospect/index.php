@@ -60,10 +60,15 @@
 	$g_option = isset($_GET['option']) ? $_GET['option'] : $g_opts->default_page;
 	
 	/**
-	* Load the appropriate theme option page
+	* Load the appropriate theme option page.
+	* Use output buffering to capture any output into $g_content
+	* for display later in the theme template.
 	* @access public
 	*/
+	ob_flush();
 	include(Theme::getPage($g_theme, $g_option));
+	$g_content = ob_get_contents();
+	ob_clean();
 	
 	/**
 	* Load the appropriate theme menu page

@@ -35,68 +35,68 @@
 	$g_title = _("Search");
 	
 	# content title and psuedo menu
-	$g_content .= '<p class="content-title">'._("Search").'</p>';
+	echo '<p class="content-title">'._("Search").'</p>';
 	if ($print === false) {
-		$g_content .= '<div class="tab-row">';
-		$g_content .= '<div class="tab ';
+		echo '<div class="tab-row">';
+		echo '<div class="tab ';
 		if ($submitted == false) { 
-			$g_content .= 'selected';
-			$g_content .= '">'._("Search").'</div>';
+			echo 'selected';
+			echo '">'._("Search").'</div>';
 		}
 		else {
 			$search_params = '?option=search';
 			if ($gname != null) { $search_params .= '&gname='.$gname; }
 			if ($sname != null) { $search_params .= '&sname='.$sname; }
 			if ($soundex == true) { $search_params .= '&soundex=1'; }
-			$g_content .= '"><a href="'.$_SERVER['PHP_SELF'].$search_params.'">'._("Search").'</a></div>';
+			echo '"><a href="'.$_SERVER['PHP_SELF'].$search_params.'">'._("Search").'</a></div>';
 
 		}
-		$g_content .= '<div class="tab ';
-		if ($submitted == true) $g_content .= 'selected';
-		$g_content .= '">'._("Results").'</div>';
-		$g_content .= '</div>';
+		echo '<div class="tab ';
+		if ($submitted == true) echo 'selected';
+		echo '">'._("Results").'</div>';
+		echo '</div>';
 	}
 	
 	# search form
 	if ($submitted == false) {
-		$g_content .= '<form name="form_search" method="get" action="'.$_SERVER['PHP_SELF'].'">';
-		$g_content .= '<input name="option" type="hidden" value="search">';
-		$g_content .= '<table border="0" cellspacing="2" cellpadding="2">';
-		$g_content .= '<tr>';
-		$g_content .= '<td class="text">&nbsp;</td>';
-		$g_content .= '<td class="text">&nbsp;</td>';
-		$g_content .= '</tr>';
-		$g_content .= '<tr>';
-		$g_content .= '<td class="text">'._("Given Name").'</td>';
-		$g_content .= '<td class="text">'._("Surname").'</td>';
-		$g_content .= '</tr>';
-		$g_content .= '<tr>';
-		$g_content .= '<td><input name="gname" type="text" class="textbox" id="gname" value="'.$gname.'"></td>';
-		$g_content .= '<td><input name="sname" type="text" class="textbox" id="sname" value="'.$sname.'"></td>';
-		$g_content .= '</tr>';
-		$g_content .= '<tr>';
-		$g_content .= '<td>&nbsp;</td>';
-		$g_content .= '<td class="text">';
-		$g_content .= '<input name="soundex" type="checkbox" id="soundex" value="1" ';
-			if ($soundex == '1') { $g_content .= 'checked'; }
-		$g_content .= '>Use Soundex?';
-		$g_content .= '</td>';
-		$g_content .= '</tr>';
-		$g_content .= '<tr>';
-		$g_content .= '<td>&nbsp;</td>';
-		$g_content .= '<td>&nbsp;</td>';
-		$g_content .= '</tr>';
-		$g_content .= '<tr>';
-		$g_content .= '<td colspan="2">';
-		$g_content .= '<input name="Submit" type="submit" class="text" value="'._("Search").'"> ';
-		$g_content .= '<input name="Reset" type="reset" class="text" value="'._("Reset").'"> ';
-		$g_content .= '<input name="Clear" type="button" class="text" value="'._("Clear").'" onMouseDown="MM_setTextOfTextfield(\'gname\',\'\',\'\');MM_setTextOfTextfield(\'sname\',\'\',\'\')">';
-		$g_content .= '</td>';
-		$g_content .= '</tr>';
-		$g_content .= '</table>';
-		$g_content .= '</form>';
-		$g_content .= '<br /><br /><br /><br /><br /><br /><br />';
-		$g_content .= '<br /><br /><br /><br /><br /><br /><br />';
+		echo '<form name="form_search" method="get" action="'.$_SERVER['PHP_SELF'].'">';
+		echo '<input name="option" type="hidden" value="search">';
+		echo '<table border="0" cellspacing="2" cellpadding="2">';
+		echo '<tr>';
+		echo '<td class="text">&nbsp;</td>';
+		echo '<td class="text">&nbsp;</td>';
+		echo '</tr>';
+		echo '<tr>';
+		echo '<td class="text">'._("Given Name").'</td>';
+		echo '<td class="text">'._("Surname").'</td>';
+		echo '</tr>';
+		echo '<tr>';
+		echo '<td><input name="gname" type="text" class="textbox" id="gname" value="'.$gname.'"></td>';
+		echo '<td><input name="sname" type="text" class="textbox" id="sname" value="'.$sname.'"></td>';
+		echo '</tr>';
+		echo '<tr>';
+		echo '<td>&nbsp;</td>';
+		echo '<td class="text">';
+		echo '<input name="soundex" type="checkbox" id="soundex" value="1" ';
+			if ($soundex == '1') { echo 'checked'; }
+		echo '>Use Soundex?';
+		echo '</td>';
+		echo '</tr>';
+		echo '<tr>';
+		echo '<td>&nbsp;</td>';
+		echo '<td>&nbsp;</td>';
+		echo '</tr>';
+		echo '<tr>';
+		echo '<td colspan="2">';
+		echo '<input name="Submit" type="submit" class="text" value="'._("Search").'"> ';
+		echo '<input name="Reset" type="reset" class="text" value="'._("Reset").'"> ';
+		echo '<input name="Clear" type="button" class="text" value="'._("Clear").'" onMouseDown="MM_setTextOfTextfield(\'gname\',\'\',\'\');MM_setTextOfTextfield(\'sname\',\'\',\'\')">';
+		echo '</td>';
+		echo '</tr>';
+		echo '</table>';
+		echo '</form>';
+		echo '<br /><br /><br /><br /><br /><br /><br />';
+		echo '<br /><br /><br /><br /><br /><br /><br />';
 	}
 	
 	# show results
@@ -106,7 +106,7 @@
 		
 		# give error if no search parameters
 		if ($gname == null and $sname == null) {
-			$g_content .= '<p class="text">'._("No search parameters were specified.").'</p>';
+			echo '<p class="text">'._("No search parameters were specified.").'</p>';
 		}
 		# else display the results
 		else {
@@ -120,27 +120,27 @@
 
 			# display list of individual
 			if ($rs->RecordCount() > 0) {
-				$g_content .= '<p class="text">'._("Number of individuals listed").': '.$rs->RecordCount().'</p>';
-				$g_content .= '<table border="0" cellspacing="2" cellpadding="0">';
-				$g_content .= '<tr>';
-				$g_content .= '<td class="text" width="250"><b>'._("Name").'</b></td>';
-				$g_content .= '<td class="text" width="150"><b>'._("Birth").'</b></td>';
-				$g_content .= '<td class="text" width="150"><b>'._("Death").'</b></td>';
-				$g_content .= '</tr>';
+				echo '<p class="text">'._("Number of individuals listed").': '.$rs->RecordCount().'</p>';
+				echo '<table border="0" cellspacing="2" cellpadding="0">';
+				echo '<tr>';
+				echo '<td class="text" width="250"><b>'._("Name").'</b></td>';
+				echo '<td class="text" width="150"><b>'._("Birth").'</b></td>';
+				echo '<td class="text" width="150"><b>'._("Death").'</b></td>';
+				echo '</tr>';
 				while ($row = $rs->FetchRow()) {
 					$o = new Person($row['indkey'], 1);
-					$g_content .= '<tr>';
-					$g_content .= '<td class="text">';
-					$g_content .= '<a href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$o->indkey.'">'.$o->name.'</a>';
-					$g_content .= '</td>';
-					$g_content .= '<td class="text">'.$o->birth->date.'</td>';
-					$g_content .= '<td class="text">'.$o->death->date.'</td>';
-					$g_content .= '</tr>';
+					echo '<tr>';
+					echo '<td class="text">';
+					echo '<a href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$o->indkey.'">'.$o->name.'</a>';
+					echo '</td>';
+					echo '<td class="text">'.$o->birth->date.'</td>';
+					echo '<td class="text">'.$o->death->date.'</td>';
+					echo '</tr>';
 				}
-				$g_content .= '</table>';
+				echo '</table>';
 			}
 			else {
-				$g_content .= '<p class="text">'._("No matching records were found.").'</p>';
+				echo '<p class="text">'._("No matching records were found.").'</p>';
 			}
 		}
 	}

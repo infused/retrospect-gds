@@ -83,20 +83,20 @@
 	$g_title = _("Statistics");
 	
 	# display results
-	$g_content .= '<p class="content-title">'._("Statistics").'</p>';
-	$g_content .= display_col1(_("Surnames")).display_col2($cnt_surnames);
-	$g_content .= display_col1(_("Individuals")).display_col2($cnt_indiv);
-	$g_content .= display_col1('- '._("Male")).display_col2($cnt_indiv_male);
-	$g_content .= display_col1('- '._("Female")).display_col2($cnt_indiv_female);
-	$g_content .= display_col1('- '._("Unknown")).display_col2($cnt_indiv_unknown);
-	$g_content .= display_col1(_("Families")).display_col2($cnt_families);
-	$g_content .= display_col1(_("Facts")).display_col2($cnt_facts);
-	$g_content .= display_col1('- '._("Birth")).display_col2($cnt_facts_birth);
-	$g_content .= display_col1('- '._("Death")).display_col2($cnt_facts_death);
-	$g_content .= display_col1('- '._("Marriage")).display_col2($cnt_facts_marriage);
-	$g_content .= display_col1('- '._("Other")).display_col2($cnt_facts_other);
-	$g_content .= display_col1(_("Notes")).display_col2($cnt_notes);
-	$g_content .= display_col1(_("Sources")).display_col2($cnt_sources);
-	$g_content .= display_col1('- '._("Citations")).display_col2($cnt_citations);
+	echo '<p class="content-title">'._("Statistics").'</p>';
+	echo display_col1(_("Surnames")).display_col2($cnt_surnames);
+	echo display_col1(_("Individuals")).display_col2($cnt_indiv);
+	echo display_col1('- '._("Male")).display_col2($cnt_indiv_male);
+	echo display_col1('- '._("Female")).display_col2($cnt_indiv_female);
+	echo display_col1('- '._("Unknown")).display_col2($cnt_indiv_unknown);
+	echo display_col1(_("Families")).display_col2($cnt_families);
+	echo display_col1(_("Facts")).display_col2($cnt_facts);
+	echo display_col1('- '._("Birth")).display_col2($cnt_facts_birth);
+	echo display_col1('- '._("Death")).display_col2($cnt_facts_death);
+	echo display_col1('- '._("Marriage")).display_col2($cnt_facts_marriage);
+	echo display_col1('- '._("Other")).display_col2($cnt_facts_other);
+	echo display_col1(_("Notes")).display_col2($cnt_notes);
+	echo display_col1(_("Sources")).display_col2($cnt_sources);
+	echo display_col1('- '._("Citations")).display_col2($cnt_citations);
 	
 ?>

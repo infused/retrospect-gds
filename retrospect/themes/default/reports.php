@@ -28,8 +28,7 @@
 		* @access public
 		*/
 		include(Theme::getPage($g_theme, strtolower($_GET['report_type'])));
-	}
-	else {
+	} else {
 		# process expected get/post variables
 		$print = isset($_GET['print']) ? true : false;
 		$g_indiv = isset($_GET['indiv']) ? $_GET['indiv'] : exit;
@@ -41,47 +40,47 @@
 		$g_title = sprintf(_("Reports for %s"), $o->name);
 
 		# name and menu
-		$g_content = '<p class="content-title">'.$o->name;
-		if (isset($o->title) and $o->title != '') { $g_content .= ', '.$o->title; }
-		$g_content .= '</p>';
+		echo '<p class="content-title">'.$o->name;
+		if (isset($o->title) and $o->title != '') { echo ', '.$o->title; }
+		echo '</p>';
 		if ($print === false) {
 			include(Theme::getPage($g_theme, 'nav'));
 		}
-		$g_content .= '<p class="content-subtitle">'._("Ahnentafel Report").'</p>';
+		echo '<p class="content-subtitle">'._("Ahnentafel Report").'</p>';
 		
 		# family reports
-		$g_content .= '<p class="content-subtitle">'._("Family Reports").'</p>';
-		$g_content .= '<a href="'.$_SERVER['PHP_SELF'].'?no_template=y&option=family_pdf&indiv='.$o->indkey.'">'._("Family PDF").'</a>';
+		echo '<p class="content-subtitle">'._("Family Reports").'</p>';
+		echo '<a href="'.$_SERVER['PHP_SELF'].'?no_template=y&option=family_pdf&indiv='.$o->indkey.'">'._("Family PDF").'</a>';
 		# pedigree reports
-		$g_content .= '<p class="content-subtitle">'._("Pedigree Reports").'</p>';
-		$g_content .= '<a href="'.$_SERVER['PHP_SELF'].'?no_template=y&option=pedigree_pdf&indiv='.$o->indkey.'">'._("Pedigree PDF").'</a>';
+		echo '<p class="content-subtitle">'._("Pedigree Reports").'</p>';
+		echo '<a href="'.$_SERVER['PHP_SELF'].'?no_template=y&option=pedigree_pdf&indiv='.$o->indkey.'">'._("Pedigree PDF").'</a>';
 		# ancestor reports
-		$g_content .= '<p class="content-subtitle">'._("Ancestor Reports").'</p>';
-		$g_content .= '<form name="form_change_report" method="get" action="">';
-		$g_content .= '<table border="0" cellpadding="0" cellspacing="0"><tr>';
-		$g_content .= '<td class="text">'._("Report type").':&nbsp;</td>';
-		$g_content .= '<td width="125"><select name="report_type" class="listbox" id="report_type"><option value="ahnentafel">'._("Ahnentafel").'</option><option value="ahnentafel_pdf">'._("Ahnentafel PDF").'</option></select></td>';
-		$g_content .= '<td class="text">'.'&nbsp;'._("Number of Generations").':&nbsp;</td>';
-		$g_content .= '<td><input name="max_gens" type="textfield" class="textbox" id="max_gens" value="250" size="3" /></td>';
-		$g_content .= '<input name="indiv" type="hidden" id="indiv" value="'.$_GET['indiv'].'" />';
-		$g_content .= '<input name="option" type="hidden" value="'.$_GET['option'].'" />';
-		$g_content .= '<td>&nbsp;&nbsp;&nbsp;</td>';
-		$g_content .= '<td><input name="" type="submit" class="text" value="'._("Apply").'" /></td>';
-		$g_content .= '</tr></table>';
-		$g_content .= '</form>';
+		echo '<p class="content-subtitle">'._("Ancestor Reports").'</p>';
+		echo '<form name="form_change_report" method="get" action="">';
+		echo '<table border="0" cellpadding="0" cellspacing="0"><tr>';
+		echo '<td class="text">'._("Report type").':&nbsp;</td>';
+		echo '<td width="125"><select name="report_type" class="listbox" id="report_type"><option value="ahnentafel">'._("Ahnentafel").'</option><option value="ahnentafel_pdf">'._("Ahnentafel PDF").'</option></select></td>';
+		echo '<td class="text">'.'&nbsp;'._("Number of Generations").':&nbsp;</td>';
+		echo '<td><input name="max_gens" type="textfield" class="textbox" id="max_gens" value="250" size="3" /></td>';
+		echo '<input name="indiv" type="hidden" id="indiv" value="'.$_GET['indiv'].'" />';
+		echo '<input name="option" type="hidden" value="'.$_GET['option'].'" />';
+		echo '<td>&nbsp;&nbsp;&nbsp;</td>';
+		echo '<td><input name="" type="submit" class="text" value="'._("Apply").'" /></td>';
+		echo '</tr></table>';
+		echo '</form>';
 		# descendant reports
-		$g_content .= '<p class="content-subtitle">'._("Descendant Reports").'</p>';
-		$g_content .= '<form name="form_change_report" method="get" action="">';
-		$g_content .= '<table border="0" cellpadding="0" cellspacing="0"><tr>';
-		$g_content .= '<td class="text">'._("Report type").':&nbsp;</td>';
-		$g_content .= '<td width="125"><select name="report_type" class="listbox" id="report_type"><option value="descendant">'._("Descendant").'</option><option value="descendant_pdf">'._("Descendant PDF").'</option></select></td>';
-		$g_content .= '<td class="text">'.'&nbsp;'._("Number of Generations").':&nbsp;</td>';
-		$g_content .= '<td><input name="max_gens" type="textfield" class="textbox" id="max_gens" value="250" size="3" /></td>';
-		$g_content .= '<input name="indiv" type="hidden" id="indiv" value="'.$_GET['indiv'].'" />';
-		$g_content .= '<input name="option" type="hidden" value="'.$_GET['option'].'" />';
-		$g_content .= '<td>&nbsp;&nbsp;&nbsp;</td>';
-		$g_content .= '<td><input name="" type="submit" class="text" value="'._("Apply").'" /></td>';
-		$g_content .= '</tr></table>';
-		$g_content .= '</form>';
+		echo '<p class="content-subtitle">'._("Descendant Reports").'</p>';
+		echo '<form name="form_change_report" method="get" action="">';
+		echo '<table border="0" cellpadding="0" cellspacing="0"><tr>';
+		echo '<td class="text">'._("Report type").':&nbsp;</td>';
+		echo '<td width="125"><select name="report_type" class="listbox" id="report_type"><option value="descendant">'._("Descendant").'</option><option value="descendant_pdf">'._("Descendant PDF").'</option></select></td>';
+		echo '<td class="text">'.'&nbsp;'._("Number of Generations").':&nbsp;</td>';
+		echo '<td><input name="max_gens" type="textfield" class="textbox" id="max_gens" value="250" size="3" /></td>';
+		echo '<input name="indiv" type="hidden" id="indiv" value="'.$_GET['indiv'].'" />';
+		echo '<input name="option" type="hidden" value="'.$_GET['option'].'" />';
+		echo '<td>&nbsp;&nbsp;&nbsp;</td>';
+		echo '<td><input name="" type="submit" class="text" value="'._("Apply").'" /></td>';
+		echo '</tr></table>';
+		echo '</form>';
 	}
 ?>

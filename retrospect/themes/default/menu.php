@@ -34,9 +34,9 @@
 		$g_menu .= '<div class="menu-title">'._("Language").'</div>';
 		$g_menu .= '<form name="form_change_lang" method="post" action="'.CURRENT_PAGE.'">';
 		$g_menu .= '<select name="lang" size="1" class="listbox" id="lang" onChange="document.forms.form_change_lang.submit();">';
-		foreach ($g_langs as $lang) {
-			$code = $lang['lang_code'];
-			$name = $lang['lang_name'];
+		foreach ($g_langs as $the_lang) {
+			$code = $the_lang['lang_code'];
+			$name = $the_lang['lang_name'];
 			$g_menu .= '<option value="'.$code.'"';
 			if ($_SESSION['lang'] == $code) {
 				$g_menu .= ' SELECTED';

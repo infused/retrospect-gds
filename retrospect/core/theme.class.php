@@ -48,6 +48,15 @@ class Theme {
 		}
 	}
 	
+	function getPageContent($p_file) {
+		global $g_content, $g_title;
+		ob_flush();
+		include($p_file);
+		$g_content = ob_get_contents();
+		ob_clean();
+		return $g_content;
+	}
+	
 	/**
 	* Returns arguaments used to call the page
 	* @access public
