@@ -28,8 +28,9 @@
 <head>
 <title><?php echo $g_title; ?></title>
 <link rel="stylesheet" href="themes/default/styles.css" />
+<meta name="copyright" content="<?php echo $copyright; ?>" ? />
 <meta name="description" content="<?php echo $g_title; ?>" />
-<mata name="keywords" content="<?php echo implode(', ', $keywords); ?>" />
+<meta name="keywords" content="<?php echo implode(', ', $keywords); ?>" />
 <meta name="robots" content="FOLLOW,INDEX" />
 <meta name="MSSmartTagsPreventParsing" content="true" />
 <script language="JavaScript" type="text/JavaScript">
@@ -75,7 +76,7 @@ function MM_setTextOfTextfield(objName,x,newText) { //v3.0
 	<?php	echo $g_content; 	unset($g_content); ?>
 </div>
 <div id="footer">
-	<a href="http://www.infused-solutions.com/retrospect" target="_blank">Retrospect-GDS v<?php echo $g_version; ?></a> &copy;2003-2004 Keith Morrison, Infused Solutions
+	<a href="http://www.infused-solutions.com/retrospect" target="_blank">Retrospect-GDS v<?php echo $g_version; ?></a> <?php echo htmlentities(RGDS_COPYRIGHT); ?>
 </div>
 <?php
 	# print profile info

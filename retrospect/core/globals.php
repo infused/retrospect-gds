@@ -17,6 +17,11 @@
 	*/
 	define('_MEDIA_THUMBS','media/thumbs/');
 	
+	/** 
+	* Retrospect Copyright
+	*/
+	define('RGDS_COPYRIGHT', '©2003-2004 Keith Morrison, Infused Solutions');
+	
 	# Initialize table vars
 	
 	/**
