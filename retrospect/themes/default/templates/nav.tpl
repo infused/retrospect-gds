@@ -45,12 +45,14 @@
 				<a href="{$PHP_SELF}?m=multimedia&amp;id={$indiv->indkey}">{php}t("Multimedia"){/php}</a>
 			</td>
 		{/if}
-		{if $module=="comments" or $module=="commentadd"}
-			<td class="tab-selected">{php}t("Comments"){/php} ({$comment_count})</td>
-		{else}
-			<td class="tab">
-				<a href="{$PHP_SELF}?m=comments&amp;id={$indiv->indkey}">{php}t("Comments"){/php} ({$comment_count})</a>
-			</td>
+		{if $allow_comments}
+			{if $module=="comments" or $module=="commentadd"}
+				<td class="tab-selected">{php}t("Comments"){/php} ({$comment_count})</td>
+			{else}
+				<td class="tab">
+					<a href="{$PHP_SELF}?m=comments&amp;id={$indiv->indkey}">{php}t("Comments"){/php} ({$comment_count})</a>
+				</td>
+			{/if}
 		{/if}
 		<td class="tab-last">&nbsp;</td>
 	</tr>
