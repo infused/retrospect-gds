@@ -31,7 +31,8 @@
 <div id="footer">
 	{if $SITE_COPYRIGHT != ""}{$SITE_COPYRIGHT}<br />{/if}
 	Powered by 
-	<a href="http://www.infused-solutions.com/retrospect/">Retrospect-GDS v{$RGDS_VERSION}</a>
+	<a href="http://www.infused-solutions.com/retrospect/">Retrospect-GDS v{$RGDS_VERSION}</a> |
+	<a href="{$BASE_URL}/administration">Adminstration</a>
 </div>
 </body>
 </html>
