@@ -1,6 +1,6 @@
 <?php
 /**
- * Admin - System Configuration Module
+ * Admin - Gedcom Import Module - Upload and Select
  *
  * @copyright 	Keith Morrison, Infused Solutions	2001-2004
  * @author			Keith Morrison <keithm@infused-solutions.com>
@@ -149,7 +149,7 @@
     <td align="left" valign="top" class="content-subtitle"><?php echo _("Import Gedcom"); ?>&nbsp;</td>
   </tr>
   <tr>
-    <td align="left" valign="top"><form action="<?php echo $_SERVER['PHP_SELF'].'?option=gedcom_import2'; ?>" method="post" enctype="multipart/form-data" name="gedcom_import_form1" id="gedcom_import_form1">
+    <td align="left" valign="top"><form action="<?php echo $_SERVER['PHP_SELF'].'?option=gedcom_import1'; ?>" method="post" enctype="multipart/form-data" name="gedcom_import_form1" id="gedcom_import_form1">
         <table width="100%"  border="0" cellpadding="2" cellspacing="0" bgcolor="#CCCCCC">
           <tr>
             <td colspan="5"><?php echo _("Select a gedcom file to begin the import process..."); ?></td>

@@ -23,16 +23,28 @@
  */
  
 	# Define regular expressions
+	# Main record structures
 	define('REG_NEWREC','/^0/'); # New record
+	define('REG_HEAD','/^0 HEAD/');
 	define('REG_INDI','/^0 @(.+)@ INDI/'); 	# Beginning of Individual record
-	define('REG_FAM','/^0 @[a-zA-Z0-9]+@ FAM/');		# Beginning of Family record
-	define('REG_SOUR','/^0 @.+@ SOUR/');	# Beginning of Source record
-	define('REG_NOTE1','/^0 (@.+@) NOTE(.*)/');	# Note record
-	define('REG_NOTE2','/^[0-9]{1,2} NOTE [^@](.*)/');	# Alternate note record form
-	define('REG_NAME','/^[0-9]{1,2} NAME (.*)/');  # Name with no surname
-	define('REG_TITL','/^[0-9]{1,2} TITL (.*)/'); # Title (suffix)
-	define('REG_SEX','/^[0-9]{1,2} SEX (.?)/'); # Sex
+	define('REG_FAM','/^0 @(.+)+@ FAM/');		# Beginning of Family record
+	define('REG_SOUR','/^0 @(.+)@ SOUR/');	# Beginning of Source record
+	define('REG_NOTE','/^0 (@.+@) NOTE(.*)/');	# Note record
 	
+	# Record substructures
+	# Header substructures
+	define('REG_HSOUR','/^1 SOUR (.*)/'); # Software
+	define('REG_HVERS','/^2 VERS (.*)/'); # Software version
+	define('REG_HNAME','/^2 NAME (.*)/'); # Software name
+	define('REG_HDATE','/^1 DATE (.*)/'); # Submission date
+	
+	define('REG_NOTE2','/^[1-9][0-9]? NOTE [^@](.*)/');	# Alternate note form
+	define('REG_NAME','/^[1-9][0-9]? NAME (.*)/');  # Name with no surname
+	define('REG_TITL','/^[1-9][0-9]? TITL (.*)/'); # Title (suffix)
+	define('REG_SEX','/^[1-9][0-9]? SEX (.?)/'); # Sex
+	
+	# Miscelaneous 
+	define('REG_LEVEL','/^([0-9]{1,2})/');	
 	
 	/**
  	* GedcomParser class
@@ -41,17 +53,19 @@
  	*/
 	class GedcomParser {
 	
-		var $filename; 
-		var $fhandle;
-		var $fsize;
-		var $errors;
-		var $lasterror;
-		var $lines;
-		var $individual_count;
-		var $family_count;		
-		var $source_count;
-		var $note_count;
-		var $onote_count;
+		var $filename; 					// filename 
+		var $fhandle; 					// file handle
+		var $fsize;							// file size
+		var $errors;						// array of all errors
+		var $lasterror;					// text of last error
+		var $individual_count;	// count of individual records
+		var $family_count;			// count of family records
+		var $source_count;			// count of source records
+		var $note_count;				// count of note records
+		var $onote_count;				// count of orphaned note records
+		var $previous;					// offset of previous line
+		var $line; 							// text of current line
+		var $level;							// level of current line
 		
 		/**
 		* GedcomParser class constructor
@@ -108,7 +122,6 @@
 		function GetStatistics() {
 			$handle = &$this->fhandle;
 			$this->fsize = sprintf("%u", filesize($this->filename));
-			$this->lines = $this->_CountLines();
 			$icount = 0;
 			$fcount = 0;
 			$scount = 0;
@@ -123,7 +136,7 @@
 					$fcount++;
 				} elseif (preg_match(REG_SOUR, $line)) {
 					$scount++;
-				} elseif (preg_match(REG_NOTE1, $line)) {
+				} elseif (preg_match(REG_NOTE, $line)) {
 					$ncount++;
 				} elseif (preg_match(REG_NOTE2, $line)) {
 					$ocount++;
@@ -144,7 +157,6 @@
 				$GLOBALS['profiler']->startTimer('class_GedcomParser_ParseGedcom');
 			}
 			$this->fsize = sprintf("%u", filesize($this->filename));
-			$this->lines = $this->_CountLines();
 			$icount = 0;
 			$fcount = 0;
 			$scount = 0;
@@ -155,14 +167,18 @@
 				$line = fgets($this->fhandle);
 				if (preg_match(REG_INDI, $line, $match)) {
 					$icount++;
-					$this->ParseIndividual($line, $match);
-				} elseif (preg_match(REG_FAM, $line)) {
+					$this->_ParseIndividual($line, $match);
+				} 
+				elseif (preg_match(REG_FAM, $line)) {
 					$fcount++;
-				} elseif (preg_match(REG_SOUR, $line)) {
+				} 
+				elseif (preg_match(REG_SOUR, $line)) {
 					$scount++;
-				} elseif (preg_match(REG_NOTE1, $line)) {
+				} 
+				elseif (preg_match(REG_NOTE, $line)) {
 					$ncount++;
-				} elseif (preg_match(REG_NOTE2, $line)) {
+				} 
+				elseif (preg_match(REG_NOTE2, $line)) {
 					$ocount++;
 				}
 			}
@@ -179,8 +195,10 @@
 		
 		/**
 		* Parse Individual
+		* @param string $line
+		* @param array $match
 		*/
-		function ParseIndividual($line, $match) {
+		function _ParseIndividual($line, $match) {
 			if ($GLOBALS['profile'] == true) {
 				$GLOBALS['profiler']->startTimer('class_GedcomParser_ParseIndividual');
 			}
@@ -241,29 +259,11 @@
 		}
 		
 		/**
-		* Count the total number of lines in the file
-		*/
-		function _CountLines() {
-			$handle = &$this->fhandle;
-			$lines = -1;
-			rewind($handle);
-			while (!feof($handle)) {
-				fgets($handle);
-				$lines++;
-			}
-			return $lines;
-		}
-		
-		/**
 		* Logs errors into $errors array and $lasterror
 		*/
 		function _LogError($message) {
 			$this->lasterror = $message;
 			$this->errors[] = $message;
-		}
-		
-		function _IsXREF($text) {
-			return ereg('^@[a-zA-Z0-9]*@', $text);
 		}
 		
  	}

@@ -1,6 +1,6 @@
 <?php
 /**
- * Admin - System Configuration Module
+ * Admin - Gedcom Import Module - Step 2
  *
  * @copyright 	Keith Morrison, Infused Solutions	2001-2004
  * @author			Keith Morrison <keithm@infused-solutions.com>
@@ -41,7 +41,6 @@
 				$gedcomfile = $gedcomdir.$_POST['selectedfile'];
 				$gedcom = new GedcomParser();
 				$gedcom->Open($gedcomfile);
-				$gedcom->GetStatistics();
 			?>
 			&nbsp;
 		</td> 
@@ -51,33 +50,6 @@
   </tr> 
   <tr> 
     <td align="left" valign="top"> <table width="100%"  border="0" cellpadding="2" cellspacing="0" bgcolor="#CCCCCC"> 
-        <tr> 
-          <td valign="middle" class="content-label">Analyzing gedcom file...</td> 
-        </tr>
-        <tr>
-          <td valign="middle" class="text">File size: <?php echo filesize_format($gedcom->fsize); ?></td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">Number of lines: <?php echo number_format($gedcom->lines); ?></td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">Number of individuals: <?php echo number_format($gedcom->individual_count); ?></td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">Number of families: <?php echo number_format($gedcom->family_count); ?></td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">Number of sources: <?php echo number_format($gedcom->source_count); ?></td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">Number of notes: <?php echo number_format($gedcom->note_count); ?></td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">Number of orphaned notes: <?php echo number_format($gedcom->onote_count); ?></td>
-        </tr>
-        <tr>
-          <td valign="middle" class="text">&nbsp;</td>
-        </tr>
         <tr>
           <td valign="middle" class="content-label">Locating individuals... </td>
         </tr>
