@@ -265,11 +265,11 @@
 				if (preg_match(REG_INDI, $line, $match)) {
 					$this->_ParseIndividual($match);
 				} 
-				elseif (preg_match(REG_FAM, $line)) {
-					$this->_ParseFamily($line);
+				elseif (preg_match(REG_FAM, $line, $match)) {
+					$this->_ParseFamily($match);
 				} 
-				elseif (preg_match(REG_SOUR, $line)) {
-					$this->_ParseSource($line);
+				elseif (preg_match(REG_SOUR, $line, $match)) {
+					$this->_ParseSource($match);
 				} 
 				elseif (preg_match(REG_NOTE, $line)) {
 					$this->_ParseNote($line);
@@ -293,16 +293,14 @@
 				# dump record to db if reached end of indi record
 				if ($level == 0) { 
 					$recordset = array_merge($indiv, $names[0]);
-					//$this->_DB_InsertRecord($this->rs_indiv, $recordset);
 					$this->_DB_InsertRecord($this->rs_indiv, $recordset);
 					foreach ($events as $event) {
-						//$this->_DB_InsertRecord($this->rs_fact, $event);
 						$this->_DB_InsertRecord($this->rs_fact, $event);
 					}
 					fseek($this->fhandle, $poffset);
 					return;
 				}
-				elseif (preg_match(REG_NAME, $line)) {							// name structure
+				elseif (preg_match(REG_NAME, $line)) {	// name structure
 					$name = $this->_ParseNameStruct($line);
 					array_push($names, $name);
 				}
@@ -324,10 +322,9 @@
 		* Parse Source record
 		* @param string $start_line
 		*/
-		function _ParseSource($start_line) {
+		function _ParseSource($match) {
 			$source = array();
 			$text = '';
-			preg_match(REG_SOUR, $start_line, $match);
 			$source['srckey'] = $match[1];
 			while (!feof($this->fhandle)) {
 				$poffset = ftell($this->fhandle);
@@ -415,10 +412,9 @@
 		* Parse Family record
 		* @param string $start_line
 		*/
-		function _ParseFamily($start_line) {
+		function _ParseFamily($match) {
 			$family = array();
 			$events = array();
-			preg_match(REG_FAM, $start_line, $match);
 			$family['famkey'] = $match[1];
 			while (!feof($this->fhandle)) {
 				$poffset = ftell($this->fhandle);
@@ -441,16 +437,16 @@
 				elseif (preg_match(REG_WIFE, $line, $match)) {
 					$family['spouse2'] = $match[1];
 				}
-				# create note link
-				elseif (preg_match(REG_NOTEX, $line, $match)) {
-					$family['notekey'] = trim($match[1]);
-				}
 				# format and dump child record to db
 				elseif (preg_match(REG_CHIL, $line, $match)) {
 					$child = array();
 					$child['famkey'] = $family['famkey'];
 					$child['indkey'] = $match[1];
 					$this->_DB_InsertRecord($this->rs_child, $child);
+				}
+				# create note link
+				elseif (preg_match(REG_NOTEX, $line, $match)) {
+					$family['notekey'] = trim($match[1]);
 				}
 				# parse event and populate begin/end status
 				elseif (preg_match(REG_FAME, $line)) {
