@@ -90,10 +90,9 @@
 	# Start Smarty template engine
 	$smarty = new Smarty;
 	$smarty->php_handling = SMARTY_PHP_REMOVE;
-	$smarty->template_dir = ROOT_PATH.'/themes/'.$g_theme.'/templates/';
-	$smarty->compile_dir = ROOT_PATH.'/themes/'.$g_theme.'/templates_c/';
-	$smarty->config_dir = ROOT_PATH.'/themes/'.$g_theme.'/configs/';
-	$smarty->cache_dir = ROOT_PATH.'/cache/';
+	$smarty->template_dir = THEME_PATH.$g_theme.'/templates/';
+	$smarty->compile_dir = THEME_PATH.$g_theme.'/templates_c/';
+	$smarty->config_dir = THEME_PATH.$g_theme.'/configs/';
 	$smarty->register_function('translate', 'lang_translate_smarty');
 	$smarty->assign('RGDS_COPYRIGHT', RGDS_COPYRIGHT);
 	$smarty->assign('RGDS_VERSION', RGDS_VERSION);

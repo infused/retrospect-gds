@@ -14,7 +14,7 @@
 </table>
 <div class="tab-page">
 <!-- Begin name search form -->
-<form name="form_search_name" method="post" action="{$php_self}?option=results">
+<form name="form_search_name" method="post" action="{$php_self}?m=results">
 	<input name="search_type" type="hidden" value="name" />
 	<table class="section" width="100%" cellspacing="0" cellpadding="0">
 		<tr>
@@ -52,7 +52,7 @@
 </form>
 <!-- End name search form -->
 <!-- Begin location search form -->
-<form name="form_search_location" method="post" action="{$php_self}?option=results">
+<form name="form_search_location" method="post" action="{$php_self}?m=results">
 	<input name="search_type" type="hidden" value="location" />
 	<table class="section" width="100%" cellspacing="0" cellpadding="0">
 		<tr>
@@ -95,7 +95,7 @@
 </form>
 <!-- End location search form -->
 <!-- Begin note search form -->
-<form name="form_search_note" method="post" action="{$php_self}?option=results">
+<form name="form_search_note" method="post" action="{$php_self}?m=results">
 
 	<input name="search_type" type="hidden" value="note" />
 	<table class="section" width="100%" cellspacing="0" cellpadding="0">

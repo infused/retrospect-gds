@@ -1,0 +1,7 @@
+RewriteEngine On
+
+RewriteBase /retrospect
+RewriteRule	^/(family|pedigree|reports|multimedia|ahnentafel|descendant)/(.*)    index.php?m=$1&id=$2
+RewriteRule ^/(search)[/]?$ index.php?m=$1
+RewriteRule ^/(surnames)[/]?$	index.php?m=$1
+RewriteRule ^/(surnames)/(.*) index.php?m=$1&sn=$2

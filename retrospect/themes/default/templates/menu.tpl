@@ -8,13 +8,13 @@
 <br />
 <div class="menu-title">{php}t("Database"){/php}</div>
 <div class="menu-item">
-	<a href="{$php_self}?option=search">{php}t("Search"){/php}</a>
+	<a href="{$php_self}?m=search">{php}t("Search"){/php}</a>
 </div>
 <div class="menu-item">
-	<a href="{$php_self}?option=surnames">{php}t("Surname List"){/php}</a>
+	<a href="{$php_self}?m=surnames">{php}t("Surname List"){/php}</a>
 </div>
 <div class="menu-item">
-	<a href="{$php_self}?option=stats">{php}t("Statistics"){/php}</a>
+	<a href="{$php_self}?m=stats">{php}t("Statistics"){/php}</a>
 </div>
 <br />
 <div class="menu-title">{php}t("Language"){/php}</div>

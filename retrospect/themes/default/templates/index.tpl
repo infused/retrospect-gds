@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>{$page_title}</title>
-<link rel="stylesheet" href="themes/default/styles.css" />
+<link rel="stylesheet" href="{$THEME_URL}styles.css" />
 <meta name="copyright" content="{$copyright}" />
 <meta name="description" content="{$page_title}" />
 <meta name="keywords" content="{$meta_keywords}" />
@@ -30,14 +30,14 @@ function MM_setTextOfTextfield(objName,x,newText) { //v3.0
 </script>
 {/literal}
 </head>
-<div id="header"><img src="themes/default/images/logo.gif" align="left" alt="Retrospect-GDS"/></div>
+<div id="header"><img src="{$THEME_URL}images/logo.gif" align="left" alt="Retrospect-GDS"/></div>
 <div id="menu">{include file="menu.tpl"}</div>
 <div id="content">
 	<div id="utils">
 		{if $CURRENT_PAGE == $PHP_SELF}
-			<a href="{$CURRENT_PAGE}?print=y" target="_blank"><img src="themes/default/images/printbutton.gif" border="0" alt="{php}t("Print"){/php}" /></a>
+			<a href="{$CURRENT_PAGE}?print=y" target="_blank"><img src="{$THEME_URL}images/printbutton.gif" border="0" alt="{php}t("Print"){/php}" /></a>
 		{else}
-			<a href="{$CURRENT_PAGE}&print=y" target="_blank"><img src="themes/default/images/printbutton.gif" border="0" alt="{php}t("Print"){/php}" /></a>
+			<a href="{$CURRENT_PAGE}&print=y" target="_blank"><img src="{$THEME_URL}images/printbutton.gif" border="0" alt="{php}t("Print"){/php}" /></a>
 		{/if}
 	</div>
 	{include file="$module.tpl"}

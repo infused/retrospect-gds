@@ -54,7 +54,7 @@
 	function get_alpha_link($p_alpha) {
 		global $db, $g_alpha;
 		$p_alpha = strtoupper($p_alpha);
-		return ($p_alpha == $g_alpha) ? $p_alpha : '<a href="'.$_SERVER['PHP_SELF'].'?option=surnames&amp;alpha='.$p_alpha.'">'.gtc($p_alpha).'</a>';
+		return ($p_alpha == $g_alpha) ? $p_alpha : '<a href="'.$_SERVER['PHP_SELF'].'?m=surnames&amp;alpha='.$p_alpha.'">'.gtc($p_alpha).'</a>';
 	}
 
 	$alphabet = range('A', 'Z');

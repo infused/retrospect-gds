@@ -3,14 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>{$page_title}</title>
-<link rel="stylesheet" href="themes/default/styles.css" />
+<link rel="stylesheet" href="{$THEME_URL}styles.css" />
 <meta name="copyright" content="{$copyright}" />
 <meta name="description" content="{$page_title}" />
 <meta name="keywords" content="{$meta_keywords}" />
 </head>
 <div id="content_printable">
 	<div id="utils">
-		<a href="#" onclick="window.print(); return false;"><img src="themes/default/images/printbutton.gif" border="0" alt="{translate s="Print"}" /></a>
+		<a href="#" onclick="window.print(); return false;"><img src="{$THEME_URL}images/printbutton.gif" border="0" alt="{translate s="Print"}" /></a>
 	</div>
 	{include file = "$module.tpl"}
 </div>

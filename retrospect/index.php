@@ -39,16 +39,16 @@
 	define('ROOT_PATH', dirname($_SERVER['PATH_TRANSLATED'])); # Path to root Retrospect-GDS directory
 	define('CORE_PATH', ROOT_PATH.'/core/'); # Path to core files
 	define('MODULE_PATH', CORE_PATH.'modules/'); # Path to module files
+	define('THEME_PATH', ROOT_PATH.'/themes/'); # Path to themes
 	define('LIB_PATH', ROOT_PATH.'/libraries/'); # Path to 3rd party libraries
 	define('LOCALE_PATH', ROOT_PATH.'/locale/'); # Path to gettext locale files
 	define('FPDF_FONTPATH', LIB_PATH.'fpdf/font/'); # FPDF font path
+	define('BASE_URL', dirname($_SERVER['PHP_SELF']));
 
 	# Load the Restrospect-GDS core
 	@require_once(CORE_PATH.'core.php');
 	
-	/**
-	* Store the current url w/query string
-	*/
+	# Store the current url w/query string
 	$current_page = $_SERVER['PHP_SELF'];
 	if (!empty($_SERVER['QUERY_STRING'])) $current_page .= '?'.$_SERVER['QUERY_STRING'];
 	define('CURRENT_PAGE', $current_page);
@@ -62,10 +62,12 @@
 	$smarty->assign('meta_keywords', implode(', ', $keywords));
 	$smarty->assign('PHP_SELF', $_SERVER['PHP_SELF']);
 	$smarty->assign('CURRENT_PAGE', CURRENT_PAGE);
+	$smarty->assign('BASE_URL', BASE_URL);
+	$smarty->assign('THEME_URL', BASE_URL.'/themes/'.$g_theme.'/');
 	$smarty->assign('lang_names', $lang_names);
 	$smarty->assign('lang_codes', $lang_codes);
 	$smarty->assign('lang', $_SESSION['lang']);
-	if (isset($_GET['print'])) {
+	if (isset($_GET['print']) AND $_GET['print'] == strtolower('y')) {
 		$smarty->display('index_printable.tpl');
 	} else {
 		$smarty->display('index.tpl');
