@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2004-07-14 12:33-0800\n"
+"PO-Revision-Date: 2004-07-22 17:00-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused.org>\n"
 "Language-Team: GERMAN <wil.feindt@t-online.de>\n"
 "MIME-Version: 1.0\n"
@@ -15,7 +15,7 @@ msgstr ""
 
 #: core/date.class.php:347
 msgid "to"
-msgstr ""
+msgstr "zu"
 
 #: core/date.class.php:348
 #, fuzzy
@@ -421,7 +421,7 @@ msgstr "Er wurde %s geboren."
 #: core/f_report.php:48
 #, php-format
 msgid "He was born in %s."
-msgstr "Er wurde in %s geboren"
+msgstr "Er wurde in %s geboren."
 
 #: core/f_report.php:54
 #, php-format
@@ -958,7 +958,7 @@ msgstr ""
 #: themes/default/search.php:132
 #: themes/default/search.php:170
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 #: themes/default/search.php:133
 #: themes/default/search.php:171

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2004-07-14 12:33-0800\n"
+"PO-Revision-Date: 2004-07-22 17:03-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused.org>\n"
 "Language-Team: DUTCH <j.warnar@chello.nl>\n"
 "MIME-Version: 1.0\n"
@@ -15,7 +15,7 @@ msgstr ""
 
 #: core/date.class.php:347
 msgid "to"
-msgstr ""
+msgstr "aan"
 
 #: core/date.class.php:348
 #, fuzzy
@@ -475,7 +475,7 @@ msgstr ", zoon van %s en %s."
 #: core/f_report.php:136
 #, php-format
 msgid ", son of %s."
-msgstr ",  zoon van %s."
+msgstr ", zoon van %s."
 
 #: core/f_report.php:142
 #, php-format
@@ -955,7 +955,7 @@ msgstr ""
 #: themes/default/search.php:132
 #: themes/default/search.php:170
 msgid "All"
-msgstr ""
+msgstr "Allen"
 
 #: themes/default/search.php:133
 #: themes/default/search.php:171

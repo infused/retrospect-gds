@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2004-07-14 12:33-0800\n"
+"PO-Revision-Date: 2004-07-22 16:58-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused.org>\n"
 "Language-Team: Spanish <keithm@infused-solutions.com>\n"
 "MIME-Version: 1.0\n"
@@ -15,7 +15,7 @@ msgstr ""
 
 #: core/date.class.php:347
 msgid "to"
-msgstr ""
+msgstr "a"
 
 #: core/date.class.php:348
 msgid "and"
@@ -56,9 +56,8 @@ msgid "Annulment"
 msgstr "Anulación"
 
 #: core/f_dummy.php:49
-#, fuzzy
 msgid "Divorce"
-msgstr "Pedigrí"
+msgstr "Divorcio"
 
 #: core/f_dummy.php:50
 msgid "Divorce Filed"
@@ -995,9 +994,8 @@ msgstr "Ahnentafel"
 
 #: themes/default/ahnentafel.php:44
 #: themes/default/pedigree.php:36
-#, fuzzy
 msgid "Ancestors"
-msgstr "Informes del Antepasado"
+msgstr "Antepasados"
 
 #: themes/default/ahnentafel.php:59
 #: themes/default/ahnentafel_pdf.php:60
@@ -1474,9 +1472,8 @@ msgstr "Nombre de Pila"
 # family.php:52 gen_menu.php:47
 # family.php:52 gen_menu.php:47
 #: themes/default/search.php:88
-#, fuzzy
 msgid "Surname"
-msgstr "Apellido %s"
+msgstr "Apellido"
 
 #: themes/default/search.php:105
 #: themes/default/search.php:143
@@ -1507,18 +1504,17 @@ msgstr ""
 #: themes/default/search.php:132
 #: themes/default/search.php:170
 msgid "All"
-msgstr ""
+msgstr "Todos"
 
 #: themes/default/search.php:133
 #: themes/default/search.php:171
 msgid "Any"
-msgstr ""
+msgstr "Cualesquiera"
 
 #: themes/default/search.php:134
 #: themes/default/search.php:172
-#, fuzzy
 msgid "Phrase"
-msgstr "Legalizar"
+msgstr "Frase"
 
 #: themes/default/search.php:135
 #: themes/default/search.php:173
@@ -1561,7 +1557,7 @@ msgstr "Nombre"
 
 #: themes/default/search.php:345
 msgid "No matching records were found."
-msgstr ""
+msgstr "No se encontró ningunos expedientes que emparejaban."
 
 # family.php:59
 # core/header.php:7 family.php:59
@@ -1575,18 +1571,16 @@ msgstr ""
 # family.php:52 gen_menu.php:47
 # family.php:52 gen_menu.php:47
 #: themes/default/stats.php:90
-#, fuzzy
 msgid "Surnames"
-msgstr "Apellido %s"
+msgstr "Apellidos"
 
 #: themes/default/stats.php:91
 msgid "Individuals"
 msgstr "Individuos"
 
 #: themes/default/stats.php:95
-#, fuzzy
 msgid "Families"
-msgstr "Familia"
+msgstr "Familias"
 
 #: themes/default/stats.php:96
 msgid "Facts"
@@ -1604,14 +1598,12 @@ msgstr "Hechos"
 # family.php:94 family.php:210
 # family.php:94 family.php:210
 #: themes/default/stats.php:100
-#, fuzzy
 msgid "Other"
-msgstr "Padre"
+msgstr "Otro"
 
 #: themes/default/stats.php:103
-#, fuzzy
 msgid "Citations"
-msgstr "Citaciones De la Fuente"
+msgstr "Citaciones"
 
 # ancestors.php:54
 # ancestors.php:54
