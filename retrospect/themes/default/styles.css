@@ -106,6 +106,7 @@ input.textbox {
 	margin: 0px;
 	border: 1px solid #666666;
 	background: white;
+	padding-left: 3px;
 }
 .pedbox {
 	background-color: #CCCCCC;
@@ -194,7 +195,7 @@ input.textbox {
 	border-bottom-style: solid;
 	text-align: center;
 	white-space: nowrap;
-	padding: 3px 7px;
+	padding: 3px 5px;
 }
 .tab-selected {
 	padding: 3px 7px;

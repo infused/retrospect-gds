@@ -28,7 +28,6 @@
 	require_once('core/atree.class.php');
 	
 	# process expected get/post variables
-	$print = isset($_GET['print']) ? true : false;
 	$g_indiv = isset($_GET['indiv']) ? $_GET['indiv'] : exit;
 	
 	# populate keyword array

@@ -23,7 +23,6 @@
  */
 
 	# process expected get/post variables
-	$print = isset($_GET['print']) ? true : false;
 	$sn = isset($_GET['sn']) ? $_GET['sn'] : null;
 	$g_alpha = (isset($_GET['alpha'])) ? $_GET['alpha'] : 'A';
 	$smarty->assign('sn', $sn);
