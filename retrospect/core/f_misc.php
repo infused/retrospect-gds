@@ -52,7 +52,7 @@
 		return round($size, 2).$ext;
 	}
 	
-	function is_email($string) {
+	function rgds_is_email($string) {
 		if (preg_match('/^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/', $string)) return true;
 		else return false;
 	}
