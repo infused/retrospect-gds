@@ -22,6 +22,9 @@
  *
  */
 	
+	# Ensure this file is being included by a parent file
+	defined( '_VALID_RGDS' ) or die( 'Direct access to this file is not allowed.' );	
+	
 	require_once(LIB_PATH.'fpdf/fpdf.php'); 
 	require_once(CORE_PATH.'atree.class.php');
 	require_once(CORE_PATH.'f_report.php');

@@ -17,11 +17,15 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License contained in the file GNU.txt for
  * more details.
- *
+ */
+ 
+ /**
  * $Id$
- *
  */
 
+	# Ensure this file is being included by a parent file
+	defined( '_VALID_RGDS' ) or die( 'Direct access to this file is not allowed.' );
+	
 	# process expected get/post variables
 	$sn = isset($_GET['sn']) ? $_GET['sn'] : null;
 	$g_alpha = (isset($_GET['alpha'])) ? $_GET['alpha'] : 'A';

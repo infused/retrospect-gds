@@ -4,6 +4,8 @@
 * $Id$
 */
 -->
+<div class="menu-item"><a href="index.php">Home</a></div>
+<br />
 <div class="menu-title">{php}t("Database"){/php}</div>
 <div class="menu-item">
 	<a href="{$php_self}?option=search">{php}t("Search"){/php}</a>

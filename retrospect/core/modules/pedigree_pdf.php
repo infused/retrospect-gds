@@ -17,11 +17,15 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License contained in the file GNU.txt for
  * more details.
- *
+ */
+ 
+ /**
  * $Id$
- *
  */
 
+	# Ensure this file is being included by a parent file
+	defined( '_VALID_RGDS' ) or die( 'Direct access to this file is not allowed.' );
+	
 	require_once(CORE_PATH.'core.php');
 	require_once(CORE_PATH.'atree.class.php');
 	require_once(LIB_PATH.'fpdf/fpdf.php'); 

@@ -17,11 +17,15 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License contained in the file GNU.txt for
  * more details.
- *
+ */
+ 
+ /**
  * $Id$
- *
  */
 
+	# Ensure this file is being included by a parent file
+	defined( '_VALID_RGDS' ) or die( 'Direct access to this file is not allowed.' );
+	
 	/**
 	* Require Atree class
 	*/
@@ -48,15 +52,9 @@
 	$o = new Person($g_indiv);
 	$smarty->assign('indiv', $o);
 	
-	# instantiate new tree
+	# instantiate new tree and populate with ancestors
 	$tree = new ATree($g_indiv);
-	
-	# fill tree with ancestors
 	$tree->fill_tree($g_max_gens);
-	
-	# get root node and traverse tree
-	# each node of the tree is passed to the display_indiv function
-	$root = $tree->get_node_at_index(0);
 
 	# assign other smarty variables
 	$smarty->assign('page_title', sprintf(gtc("Ahnentafel Report for %s"), $o->name));
@@ -64,49 +62,35 @@
 	$content_title = $o->prefix.' '.$o->name;
 	if ($o->suffix) $content_title .= ', '.$o->suffix;
 	$smarty->assign('content_title', $content_title);
-
-	$tree->level_order_traversal($root, 'display_indiv');
+	
+	# get root node and traverse tree
+	# each node of the tree is passed to the process_indiv function
+	$root = $tree->get_node_at_index(0);
+	$tree->level_order_traversal($root, 'process_indiv');
 	$smarty->assign('individuals', $individuals);
 	unset($root, $tree, $o);
 	
 	/**
-	* Display individual
 	* @access public
 	* @param string $p_node
 	* @param integer $p_generation
 	*/
-	function display_indiv($p_node, $p_generation) { 
+	function process_indiv($p_node, $p_generation) { 
 		global $g_generation, $individuals;
-		$string = '';
-		if ($p_node->father_indkey) { 
-			$father = new Person($p_node->father_indkey, 3); 
-		} 
-		else {
-			$father = null;
-		}
-		if ($p_node->mother_indkey) { 
-			$mother = new Person($p_node->mother_indkey, 3); 
-		} 
-		else {
-			$mother = null;
-		}
-		if ($p_generation > $g_generation ) {
-			$g_generation = $p_generation;
-			# display generation if it changed	
-			$string .= '<h3>'.sprintf(gtc("Generation %s"), $g_generation).'</h3>';
-		}
-		$string .= '<ol><li value="'.$p_node->ns_number.'">';
-		# display ahnentafel number and name
-		$string .= '<a href="'.$_SERVER['PHP_SELF'].'?option=family&amp;id='.$p_node->indkey.'">'.$p_node->name.'</a>'; 
-		# display parents
-		$string .= get_parents_sentence($p_node, $father, $mother).'<br />';
-		# display birth sentence
-		$string .= get_birth_sentence($p_node);
-		# display marriage sentence(s)
-		$string .= get_marriage_sentences($p_node);
-		# display death sentence
-		$string .= get_death_sentence($p_node);
-		$string .= '</li></ol>';
-		$individuals[] = $string;
+		$father = ($p_node->father_indkey) ? new Person($p_node->father_indkey, 3) : null;  
+		$mother = ($p_node->mother_indkey) ? new Person($p_node->mother_indkey, 3) : null;  
+		
+		# increment $g_generation if generation has changed
+		if ($p_generation > $g_generation ) $g_generation = $p_generation;
+		
+		$individual['generation'] = $g_generation;
+		$individual['generation_title'] = sprintf(gtc("Generation %s"), $g_generation);
+		$individual['ns_number'] = $p_node->ns_number;
+		$individual['name_link'] = '<a href="'.$_SERVER['PHP_SELF'].'?option=family&amp;id='.$p_node->indkey.'">'.$p_node->name.'</a>';
+		$individual['parent_sentence'] = get_parents_sentence($p_node, $father, $mother);
+		$individual['birth_sentence'] = get_birth_sentence($p_node);
+		$individual['marriage_sentence'] = get_marriage_sentences($p_node);
+		$individual['death_sentence'] = get_death_sentence($p_node);
+		$individuals[] = $individual;
 	}
 ?>

@@ -17,11 +17,15 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License contained in the file GNU.txt for
  * more details.
- *
- * $Id$
- *
  */
  
+ /**
+ * $Id$
+ */
+ 
+	# Ensure this file is being included by a parent file
+	defined( '_VALID_RGDS' ) or die( 'Direct access to this file is not allowed.' );
+	
 	# set title
 	$smarty->assign('page_title', gtc("Statistics"));
 	$smarty->assign('content_title', gtc("Statistics"));

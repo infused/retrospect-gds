@@ -22,6 +22,9 @@
  *
  */
 
+	# Set flag that this is a parent file
+	define( '_VALID_RGDS', 1 );	
+	
 	# Turn on error reporting
 	error_reporting(E_ALL);
 	
@@ -49,8 +52,6 @@
 	$current_page = $_SERVER['PHP_SELF'];
 	if (!empty($_SERVER['QUERY_STRING'])) $current_page .= '?'.$_SERVER['QUERY_STRING'];
 	define('CURRENT_PAGE', $current_page);
-	$smarty->assign('CURRENT_PAGE', CURRENT_PAGE);
-	unset($current_page);
 
 	# Make sure a valid module is set or get the default page
 	$g_option = isset($_GET['option']) ? $_GET['option'] : $options->GetOption('default_page');

@@ -39,11 +39,34 @@ class Theme {
 			$arg_string = $_SERVER['PHP_SELF'].'?option='.$p_option;
 			if (is_array($p_args)) {
 				foreach($p_args as $arg => $val) {
-					$arg_string .= '&'.$arg.'='.$val;
+					$arg_string .= '&'.urlencode($arg).'='.urlencode($val);
 				}
 			}
 			return htmlentities($arg_string);
 		}
+	}
+	
+	function BuildUrl ($parameters) {
+		$baseurl = $_SERVER['PHP_SELF'];
+		$params = '';  
+		$sep = '?';
+		if (is_array($parameters)) {
+			foreach($parameters as $key => $value) {
+				$params .= $sep.urlencode($key).'='.urlencode($value);
+				$sep = '&';
+			}
+		}
+		return htmlentities($params);
+	}
+	
+	function BuildLink ($url, $text) {
+		if (is_string($url)) { 
+			return '<a href="'.htmlentities($url).'">'.$text.'</a>';
+		}
+		elseif (is_array($url)) {
+			return '<a href="'.Theme::BuildUrl($url).'">'.$text.'</a>';
+		}
+		else return null;
 	}
 }
 ?>

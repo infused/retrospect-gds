@@ -17,11 +17,15 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License contained in the file GNU.txt for
  * more details.
- *
+ */
+ 
+ /**
  * $Id$
- *
  */
 
+	# Ensure this file is being included by a parent file
+	defined( '_VALID_RGDS' ) or die( 'Direct access to this file is not allowed.' );	
+	
 	# process expected get/post variables
 	$g_indiv = isset($_GET['id']) ? $_GET['id'] : exit;
 
@@ -47,19 +51,19 @@
 	# create father link
 	if ($o->father_indkey) { 
 		$f = new person($o->father_indkey, 3); 
-		$args = Theme::GetArgs('family', array('id'=>$f->indkey));
-		$smarty->assign('father_link', '<a href="'.$args.'">'.$f->name.'</a>');
+		$params = array('option'=>'family','id'=>$f->indkey);
+		$smarty->assign('father_link', Theme::BuildLink($params, $f->name));
 		keyword_push($f->name);
-		unset($f, $args);
+		unset($f, $params);
 	}
 	
 	# create mother link
 	if ($o->mother_indkey) { 
 		$m = new person($o->mother_indkey, 3); 
-		$args = Theme::GetArgs('family', array('id'=>$m->indkey));
-		$smarty->assign('mother_link', '<a href="'.$args.'">'.$m->name.'</a>');
+		$params = array('option'=>'family','id'=>$m->indkey);
+		$smarty->assign('mother_link', Theme::BuildLink($params, $m->name));
 		keyword_push($m->name);
-		unset($m, $args);
+		unset($m, $params);
 	}
 	
 	# assign events to the events array
@@ -93,10 +97,9 @@
 			}
 		}
 		# spouse
-		$args = Theme::GetArgs('family', array('id'=>$s->indkey)); 
-		$spouse_link = '<a href="'.$args.'">'.$s->name.'</a>';
+		$params = array('option'=>'family','id'=>$s->indkey); 
 		$marriages[$i]['spouse'] = $s;
-		$marriages[$i]['spouse_link'] = $spouse_link;
+		$marriages[$i]['spouse_link'] = Theme::BuildLink($params, $s->name);
 		$marriages[$i]['spouse_birth'] = $s->birth->date;
 		$marriages[$i]['spouse_death'] = $s->death->date;
 		# children
@@ -106,9 +109,8 @@
 			foreach ($m->children as $child_indkey) {
 				$c = new person($child_indkey, 3);
 				keyword_push($c->name);
-				$args = Theme::GetArgs('family', array('id'=>$c->indkey));
-				$child_link = '<a href="'.$args.'">'.$c->name.'</a>';
-				$children[] = array('child_link'=>$child_link, 'child'=>$c);
+				$params = array('option'=>'family','id'=>$c->indkey);
+				$children[] = array('child_link'=>Theme::BuildLink($params, $c->name), 'child'=>$c);
 			}
 			$marriages[$i]['children'] = $children;
 		}
@@ -118,6 +120,6 @@
 	$smarty->assign('sources', $sources);
 	$smarty->assign('marriage_count', count($marriages));
 	$smarty->assign('source_count', count($sources));
-	unset($s, $m, $c, $args, $spouse_link, $marriages, $events, $children, $child_link);
+	unset($s, $m, $c, $params, $spouse_link, $marriages, $events, $children, $child_link);
 	
 ?>

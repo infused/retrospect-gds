@@ -22,6 +22,9 @@
  *
  */
  
+	# Ensure this file is being included by a parent file
+	defined( '_VALID_RGDS' ) or die( 'Direct access to this file is not allowed.' );	
+	
 	/**
 	* Require Atree class
 	*/
@@ -49,6 +52,7 @@
 	if ($o->suffix) $content_title .= ', '.$o->suffix;
 	$smarty->assign('content_title', $content_title);
 	
+	# iterate through the descendants array
 	while (count($g_descendants) > 0) {
 		display_indiv(array_shift($g_descendants));
 	}
@@ -59,35 +63,12 @@
 		$string = '';
 		$p_node = $p_array[0];
 		$p_generation  = $p_array[1];
-		if ($p_node->father_indkey) { 
-			$father = new Person($p_node->father_indkey, 3); 
-		} else { 
-			$father = null; 
-		}		
-		if ($p_node->mother_indkey) { 
-			$mother = new Person($p_node->mother_indkey, 3); 
-		} else { 
-			$mother = null; 
-		}	
 		
-		if ($p_generation > $g_generation ) {
-			$g_generation = $p_generation;
-			$string .= "\n\n";
-			$string .= '<h3>'.sprintf(gtc("Generation %s"), $g_generation).'</h3>';
-		}
-		$string .= "\n";
-		$string .= '<ol><li value="'.$p_node->ns_number.'">';
-		$string .= '<a href="'.$_SERVER['PHP_SELF'].'?option=family&amp;id='.$p_node->indkey.'">'.$p_node->name.'</a>';
-		# display parents
-		$string .= get_parents_sentence($p_node, $father, $mother);
-		$string .= '<br />'."\n";
-		# display birth sentence
-		$string .= get_birth_sentence($p_node);
-		# display marriage sentence(s)
-		$string .= get_marriage_sentences($p_node);
-		# display death sentence
-		$string .= get_death_sentence($p_node);
-		$string .= '<br />'."\n";
+		$father = ($p_node->father_indkey) ? new Person($p_node->father_indkey, 3) : null;		
+		$mother = ($p_node->mother_indkey) ? new Person($p_node->mother_indkey, 3) : null;
+		
+		if ($p_generation > $g_generation ) $g_generation = $p_generation;
+			
 		# children
 		foreach ($p_node->marriages as $marriage) {
 			$spouse = (!empty($marriage->spouse)) ? new Person($marriage->spouse, 3) : null;
@@ -123,24 +104,26 @@
 								$string .= gtc("d.").' '.$child->death->date;
 							}
 						}
-						$string .= '</li>';
-						$string .= '</ol>';
+						$string .= '</li></ol>';
 					}
 					else {
-						$string .= '<ul><li class="nobullet">';
-						$string .= $child_nk;
-						$string .= '</li></ul>';
+						$string .= '<ul><li class="nobullet">'.$child_nk.'</li></ul>';
 					}
-					
 				}
 			}
 		}
 
 		$string .= '</li></ol>';
-		$individuals[] = $string;
+		
+		$individual['generation'] = $p_generation;
+		$individual['generation_title'] = sprintf(gtc("Generation %s"), $g_generation);
+		$individual['ns_number'] = $p_node->ns_number;
+		$individual['name_link'] = '<a href="'.$_SERVER['PHP_SELF'].'?option=family&amp;id='.$p_node->indkey.'">'.$p_node->name.'</a>';
+		$individual['parent_sentence'] = get_parents_sentence($p_node, $father, $mother);
+		$individual['birth_sentence'] = get_birth_sentence($p_node);
+		$individual['marriage_sentence'] = get_marriage_sentences($p_node);
+		$individual['death_sentence'] = get_death_sentence($p_node);
+		$individual['children_string'] = $string;
+		$individuals[] = $individual;
 	}
-	
-	
-
-
 ?>

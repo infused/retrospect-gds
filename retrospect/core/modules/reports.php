@@ -17,23 +17,27 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License contained in the file GNU.txt for
  * more details.
- *
+ */
+ 
+ /**
  * $Id$
- *
  */
 
-		# process expected get/post variables
-		$g_indiv = isset($_GET['id']) ? $_GET['id'] : exit;
+	# Ensure this file is being included by a parent file
+	defined( '_VALID_RGDS' ) or die( 'Direct access to this file is not allowed.' );
 	
-		# initialize other variables
-		$o = new person($g_indiv, 3);
-		$smarty->assign('indiv', $o);
-		$smarty->assign('page_title', sprintf(gtc("Reports for %s"), $o->name));
-		$smarty->assign('content_title', sprintf(gtc("Reports for %s"), $o->name));
-		$smarty->assign('surname_title', sprintf(gtc("%s Surname"), $o->sname));
-		
-		# populate keyword array
-		keyword_push(gtc("Reports"));
-		keyword_push($o->name);
+	# process expected get/post variables
+	$g_indiv = isset($_GET['id']) ? $_GET['id'] : exit;
+
+	# initialize other variables
+	$o = new person($g_indiv, 3);
+	$smarty->assign('indiv', $o);
+	$smarty->assign('page_title', sprintf(gtc("Reports for %s"), $o->name));
+	$smarty->assign('content_title', sprintf(gtc("Reports for %s"), $o->name));
+	$smarty->assign('surname_title', sprintf(gtc("%s Surname"), $o->sname));
+	
+	# populate keyword array
+	keyword_push(gtc("Reports"));
+	keyword_push($o->name);
 
 ?>

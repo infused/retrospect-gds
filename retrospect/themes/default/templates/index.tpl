@@ -34,7 +34,11 @@ function MM_setTextOfTextfield(objName,x,newText) { //v3.0
 <div id="menu">{include file="menu.tpl"}</div>
 <div id="content">
 	<div id="utils">
-		<a href="{$CURRENT_PAGE}&print=y" target="_blank"><img src="themes/default/images/printbutton.gif" border="0" alt="{php}t("Print"){/php}" /></a>
+		{if $CURRENT_PAGE == $PHP_SELF}
+			<a href="{$CURRENT_PAGE}?print=y" target="_blank"><img src="themes/default/images/printbutton.gif" border="0" alt="{php}t("Print"){/php}" /></a>
+		{else}
+			<a href="{$CURRENT_PAGE}&print=y" target="_blank"><img src="themes/default/images/printbutton.gif" border="0" alt="{php}t("Print"){/php}" /></a>
+		{/if}
 	</div>
 	{include file="$option.tpl"}
 </div>
