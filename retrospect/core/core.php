@@ -11,7 +11,7 @@
  *     <li>Start output buffering</li>
  *     <li>Start or resume a session</li>
  *     <li>Load configuration options from config file</li>
- *     <li>Establish database connection</li>
+ *     <li>Load adodb library and establish connection</li>
  *     <li>Load additional configuration options from database</li>
  *     <li>Initialize gettext functions with the default or user selected language</li>
  *     <li>Load genealogy classes</li>
@@ -163,13 +163,24 @@
 	
 	/**
 	* Require database functions and establish connection.
-	* (The host and port strings are concatenated with a colon if the port
-	* string is not empty)
+	* Use the appropriate connection method based on the database type.
 	*/
 	require_once(LIB_PATH.'adodb/adodb.inc.php');
-	$db = &AdoNewConnection($g_db_type);
-	$g_db_host_str = ($g_db_port != '') ? $g_db_host.':'.$g_db_port : $g_db_host;
-	$db->Connect($g_db_host_str, $g_db_user, $g_db_pass, $g_db_name);
+	$db = AdoNewConnection($g_db_type);
+	if ($g_db_type == 'odbc_mssql') {
+		# Microsoft SQL ODBC connection
+		$dsn = 'Driver={SQL Server};Server='.$g_db_host.';Database='.$g_db_name.';';
+		$db->Connect($dsn, $g_db_user, $g_db_pass);
+	} elseif ($g_db_type == 'ado_mssql') {
+		# Microsft SQL DSN-less connection 
+		$dsn  = 'PROVIDER=MSDASQL;DRIVER={SQL Server};SERVER='.$g_db_host.';DATABASE='.$g_db_name.';';
+		$dsn .= 'UID='.$g_db_user.';PWD='.$g_db_pass.';';
+		$db->Connect($dsn);
+	} else {
+		# MySQL, PostrgreSQL, etc...
+		$host = ($g_db_port != '') ? $g_db_host.':'.$g_db_port : $g_db_host;
+		$db->Connect($host, $g_db_user, $g_db_pass, $g_db_name);
+	}
 	$db->SetFetchMode(ADODB_FETCH_ASSOC);
 
 	/**

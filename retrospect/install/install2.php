@@ -134,7 +134,22 @@
 							echo '<div class="no">Skipping</div>';
 						} else {
 							# Attempt db connection
-							if ($db->Connect($db_serv, $db_user, $db_pass, $db_name)) {
+							if ($g_db_type == 'odbc_mssql') {
+								# Microsoft SQL ODBC connection
+								$dsn = 'Driver={SQL Server};Server='.$g_db_host.';Database='.$g_db_name.';';
+								$db->Connect($dsn, $g_db_user, $g_db_pass);
+							} elseif ($g_db_type == 'ado_mssql') {
+								# Microsft SQL DSN-less connection 
+								$dsn  = 'PROVIDER=MSDASQL;DRIVER={SQL Server};SERVER='.$g_db_host.';DATABASE='.$g_db_name.';';
+								$dsn .= 'UID='.$g_db_user.';PWD='.$g_db_pass.';';
+								$db->Connect($dsn);
+							} else {
+								# MySQL, PostrgreSQL, etc...
+								$host = ($g_db_port != '') ? $g_db_host.':'.$g_db_port : $g_db_host;
+								$db->Connect($host, $g_db_user, $g_db_pass, $g_db_name);
+							}
+							
+							if ($db)) {
 								echo '<div class="yes">OK</div>';
 							} else {
 								echo '<div class="no">Failed</div>';
