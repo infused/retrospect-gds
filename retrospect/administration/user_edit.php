@@ -62,9 +62,8 @@
 			$db->Execute($sql);
 			echo '<tr><td class="notification">';
 			echo sprintf(_("User %s was deleted."), $_POST['username']).' ';
-			redirect_j($_SERVER['PHP_SELF'].'?option=user_list', 2);
 			echo '</td></tr>';
-			echo '<tr><td>&nbsp;</td></tr>';
+			redirect_j($_SERVER['PHP_SELF'].'?option=user_list', 2);
 		}
 		else {
 			$id = $_GET['id'];
