@@ -229,9 +229,9 @@ textarea.textbox {
 	border: solid 1px #CCCCCC;
 }
 .cfg-lbl {
-	width: 200px;
+	width: 150px;
 	vertical-align: top;
-	padding: 5px;
+	padding: 5px 20px 5px 5px;
 }
 .cfg-opt {
 	width: 200px;
@@ -248,7 +248,7 @@ textarea.textbox {
 	color: #FF0000;
 }
 .cfg-lbl2 {
-	width: 200px;
+	width: 150px;
 	vertical-align: top;
 	padding: 5px;
 	background-color: #E5E5E5;
@@ -276,4 +276,10 @@ textarea.textbox {
 }
 .list_item {
 	padding: 3px;
+}
+#zippy {
+	position: relative;	
+	right: 0px;
+	top: 0px;
+	float: right;
 }

@@ -29,7 +29,7 @@
 		<tr>
 			<td class="cfg-lbl"><label for="group">Group:</label></td>
 			<td class="cfg-opt">
-				<select name="group" class="list">
+				<select name="group" class="listbox">
 					{html_options options=$groups}
 				</select>
 			</td>
