@@ -5,6 +5,7 @@
 	*
 	*/
 *}
+{if $indiv}
 <table width="100%" cellpadding="0" cellspacing="0">
 	<tr>
 		<td class="pedbox-text">
@@ -18,3 +19,4 @@
 		<td class="pedbox-text">{php}t("d."){/php} {$indiv->death->date}</td>
 	</tr>
 </table>
+{/if}
