@@ -1,0 +1,49 @@
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #000000;
+}
+.title {
+	font-size: 24px;
+	text-align: center;
+	color: #0066CC;
+}
+table.section {
+	border: 1px solid #000000;
+	margin: 20px 0px 0px;
+	padding: 0px;
+}
+td.section_head {
+	padding: 5px;
+	background-color: #7B869A;
+	color: white;
+	font-weight: bold;
+}
+td.section_body {
+	padding: 5px;
+	background-color: #f0f0f0;
+}
+td.section_item {
+	padding: 2px 0px;
+	border-top: 1px none #666666;
+	border-right: 1px none #666666;
+	border-bottom: 1px dotted #666666;
+	border-left: 1px none #666666;
+}
+div.yes {
+	font-weight: bold;
+	color: green;
+}
+div.no {
+	font-weight: bold;
+	color: red;
+}
+.button {
+	font-size: 14px;
+}
+.listbox {
+	font-size: 14px;
+}
+.textbox {
+	font-size: 14px;
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<schema>
+  <table name="children">
+		<drop />
+  </table>
+	<table name="citation">
+		<drop />
+	</table>
+	<table name="comment">
+		<drop />
+	</table>
+	<table name="fact">
+		<drop />
+	</table>
+	<table name="family">
+		<drop />
+	</table>
+	<table name="indiv">
+		<drop />
+	</table>
+	<table name="language">
+		<drop />
+	</table>
+	<table name="media">
+		<drop />
+	</table>
+	<table name="note">
+		<drop />
+	</table>
+	<table name="options">
+		<drop />
+	</table>
+	<table name="relation">
+		<drop />
+	</table>
+	<table name="source">
+		<drop />
+	</table>
+	<table name="user">
+		<drop />
+	</table>
+</schema>

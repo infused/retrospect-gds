@@ -1,0 +1,265 @@
+<?xml version="1.0"?>
+<schema>
+  <table name="children">
+    <descr>Relates children to families</descr>
+		<field name="famkey" type="C" size="20">
+			<notnull />
+    </field>
+    <field name="indkey" type="C" size="20">
+			<notnull />
+    </field>
+  </table>
+	<index name="famkey" table="children">
+		<col>famkey</col>
+	</index>
+	<index name="indkey" table="children">
+		<col>indkey</col>
+	</index>
+	<table name="citation">
+		<descr>Source citations</descr>
+		<field name="factkey" type="C" size="20">
+		 <notnull />
+		</field>
+		<field name="srckey" type="C" size="20">
+			<notnull />
+		</field>
+		<field name="text" type="X">
+			<notnull />
+		</field>
+	</table>
+	<index name="factkey" table="citation">
+		<col>factkey</col>
+	</index>
+	<table name="comment">
+		<field name="id" type="I4">
+			<key />
+			<notnull />
+			<autoincrement />
+		</field>
+		<field name="indkey" type="C" size="20">
+			<notnull />
+		</field>
+		<field name="email" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="received" type="T">
+			<notnull />
+		</field>
+		<field name="comment" type="X">
+			<notnull />
+		</field>
+		<field name="reviewed" type="L">
+			<default value="0" />
+		</field>
+	</table>
+	<index name="indkey" table="comment">
+		<col>indkey</col>
+	</index>
+	<table name="fact">
+		<field name="indfamkey" type="C" size="20">
+			<notnull />
+		</field>
+		<field name="type" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="date" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="place" type="C" size="250">
+			<notnull />
+		</field>
+		<field name="factkey" type="C" size="20">
+			<key />
+			<notnull />
+		</field>
+	</table>
+	<index name="indfamkey" table="fact">
+		<col>indfamkey</col>
+	</index>
+	<index name="type" table="fact" platform="mysql">
+		<descr>MySQL supports indexing partial columns</descr>
+		<col>type(10)</col>
+	</index>
+	<index name="type" table="fact">
+		<col>type</col>
+	</index>
+	<table name="family">
+		<field name="famkey" type="C" size="20">
+			<key />
+			<notnull />
+		</field>
+		<field name="spouse1" type="C" size="20">
+			<notnull />
+		</field>
+		<field name="spouse2" type="C" size="20">
+			<notnull />
+		</field>
+		<field name="beginstatus" type="C" size="128" />
+		<field name="endstatus" type="C" size="128" />
+		<field name="notekey" type="C" size="20" />	
+	</table>
+	<index name="spouse1" table="family">
+		<col>spouse1</col>
+	</index>
+	<index name="spouse2" table="family">
+		<col>spouse2</col>
+	</index>
+	<table name="indiv">
+		<field name="indkey" type="C" size="20">
+			<key />
+			<notnull />
+		</field>
+		<field name="title" type="C" size="128" />
+		<field name="surname" type="C" size="128" />
+		<field name="givenname" type="C" size="128" />
+		<field name="aka" type="C" size="128" />
+		<field name="sex" type="C" size="1" />
+		<field name="notekey" type="C" size="20" />
+	</table>
+	<index name="surname" table="indiv">
+		<col>surname</col>
+	</index>
+	<index name="givenname" table="indiv">
+		<col>givenname</col>
+	</index>
+	<index name="sex" table="indiv">
+		<col>sex</col>
+	</index>
+	<table name="language">
+		<field name="lang_id" type="I2">
+			<key />
+			<notnull />
+			<autoincrement />
+		</field>
+		<field name="lang_code" type="C" size="5">
+		 <notnull />
+		</field>
+		<field name="lang_name" type="C" size="20">
+			<notnull />
+		</field>
+	</table>
+	<table name="media">
+		<field name="id" type="I">
+			<key />
+			<notnull />
+			<autoincrement />
+		</field>
+		<field name="filename" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="caption" type="C" size="40">
+			<notnull />
+		</field>
+		<field name="description" type="C" size="250">
+			<notnull />
+		</field>
+		<field name="indfamkey" type="C" size="20">
+			<notnull />
+		</field>
+	</table>
+	<index name="indfamkey" table="media">
+		<col>indfamkey</col>
+	</index>
+	<table name="note">
+		<field name="notekey" type="C" size="20">
+			<key />
+			<notnull />
+		</field>
+		<field name="text" type="X">
+			<notnull />
+		</field>
+	</table>
+	<table name="options">
+		<field name="opt_id" type="I" size="3">
+			<key />
+			<notnull />
+		</field>
+		<field name="opt_key" type="C" size="20">
+			<unique />
+			<notnull />
+		</field>
+		<field name="opt_val" type="C" size="250">
+			<notnull />
+		</field>
+	</table>
+	<index name="opt_key" table="options">
+		<col>opt_key</col>
+		<unique />
+	</index>
+	<table name="relation">
+		<field name="indkey" type="C" size="20">
+			<key />
+			<notnull />
+		</field>
+		<field name="famkey" type="C" size="20">
+			<notnull />
+		</field>
+	</table>
+	<index name="famkey" table="relation">
+		<col>famkey</col>
+	</index>
+	<table name="source">
+		<field name="srckey" type="C" size="20">
+			<key />
+			<notnull />
+		</field>
+		<field name="text" type="X">
+			<notnull />
+		</field>
+		<field name="notekey" type="C" size="20">
+			<notnull />
+		</field>
+	</table>
+	<table name="user">
+		<field name="id" type="I">
+			<key />
+			<notnull />
+			<autoincrement />
+		</field>
+		<field name="uid" type="C" size="16">
+			<notnull />
+		</field>
+		<field name="pwd" type="C" size="32">
+			<notnull />
+		</field>
+		<field name="fullname" type="C" size="100">
+			<notnull />
+		</field>
+		<field name="email" type="C" size="100">
+			<notnull />
+		</field>
+		<field name="last" type ="T" />
+	</table>
+	<index name="uid" table="user">
+		<col>uid</col>
+		<unique />
+	</index>
+	<sql>
+		<descr>Create admin account with password "welcome"</descr>
+		<query>INSERT INTO user VALUES ('', 'Admin', '40be4e59b9a2a2b5dffb918c0e86b3d7', 'Administrator', 'root@someplace.com', '')</query>
+	</sql>
+	<sql>
+		<descr>Add 'default_lang' record to options table</descr>
+		<query>INSERT INTO options VALUES (1, 'default_lang', 'en_US')</query>
+	</sql>
+	<sql>
+		<descr>Add 'allow_lang_change' record to options table</descr>
+		<query>INSERT INTO options VALUES (2, 'allow_lang_change', '1')</query>
+	</sql>
+	<sql>
+		<descr>Add 'default_page' record to options table</descr>
+		<query>INSERT INTO options VALUES (3, 'default_page', 'surnames')</query>
+	</sql>
+	<sql>
+		<descr>Add 'translate_dates' record to options table</descr>
+		<query>INSERT INTO `rgds_options` VALUES (4, 'translate_dates', '1')</query>
+	</sql>
+	<sql>
+		<descr>Add english language</descr>
+		<query>INSERT INTO language VALUES (1, 'en_US', 'English')</query>
+	</sql>
+	<sql>
+		<descr>Add spanish language</descr>
+		<query>INSERT INTO `rgds_language` VALUES (2, 'es_ES', 'Spanish')</query>
+	</sql>
+</schema>
