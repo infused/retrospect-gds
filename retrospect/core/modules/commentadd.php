@@ -49,7 +49,7 @@
 	if (!empty($_POST)) {
 		if (empty($_POST['email'])) {
 			$form_errors['email'] = gtc("YOU MUST ENTER AN EMAIL ADDRESS");
-		} elseif (!is_email(trim($_POST['email']))) {
+		} elseif (!rgds_is_email(trim($_POST['email']))) {
 			$form_errors['email'] = gtc("THE EMAIL ADDRESS YOU ENTERED IS NOT VALID");
 		}
 		if (empty($_POST['comment'])) {

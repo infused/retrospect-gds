@@ -2,7 +2,7 @@
 /**
  * Main index file
  *
- * @copyright         Keith Morrison, Infused Solutions        2001-2004
+ * @copyright         Keith Morrison, Infused Solutions 2001-2005
  * @author            Keith Morrison <keithm@infused-solutions.com>
  * @package           core
  * @license           http://opensource.org/licenses/gpl-license.php
@@ -44,16 +44,17 @@
 	@require_once(CORE_PATH.'core.php');
 	
 	# Store the current url w/query string
-	$cp = (empty($_SERVER['QUERY_STRING'])) ? $_SERVER['PHP_SELF'] : $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
+	$qs = $_SERVER['QUERY_STRING'];
+	$cp = (empty($qs)) ? $_SERVER['PHP_SELF'] : $_SERVER['PHP_SELF'].'?'.$qs;
 	$smarty->assign_by_ref('CURRENT_PAGE', $cp);
 	
 	$trackback_encoded = urlencode(base64_encode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']));
 	$smarty->assign_by_ref('TRACKBACK_ENCODED', $trackback_encoded);
 
-	# Make sure a valid module is set or get the default page
+	# If a valid module is not selected then show the default page
 	$module = isset($_GET['m']) ? $_GET['m'] : $options->GetOption('default_page');
 	
-	# Load the module's script
+	# Load the module's controller script
 	@require_once(MODULE_PATH.$module.'.php');
 	
 	# Assign Smarty variables
