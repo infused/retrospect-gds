@@ -1,7 +1,7 @@
 <!--
 /** 
 *	Family sub-template
-* $ID:
+* $Id$
 *
 */
 -->
