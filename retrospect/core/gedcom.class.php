@@ -23,21 +23,23 @@
  */
  
   /**
- 	* Gedcom class
+ 	* GedcomParser class
  	* @package public
  	* @access public
  	*/
-	class Gedcom {
+	class GedcomParser {
 	
 		var $filename; 
 		var $fhandle;
+		var $fsize;
+		
 		
 		/**
-		* Gedcom class constructor
+		* GedcomParser class constructor
 		* @access public
 		*/
-		function Gedcom {
-			
+		function GedcomParser() {
+			# initialize 
 		}
 		
 		/** 
@@ -54,6 +56,7 @@
 				return false;
 			} else {
 				$this->fhandle = $handle;
+				$this->fsize = sprintf("%u", filesize($filename));
 				return true;
 			}
 		}

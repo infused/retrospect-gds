@@ -113,10 +113,11 @@
     <td align="left" valign="top" class="content-subtitle"><?php echo _("Upload Gedcom"); ?></td>
   </tr>
   <tr>
-    <td align="left" valign="top"><form action="" method="post" enctype="multipart/form-data" name="gedcom_upload_form" id="gedcom_upload_form">
+    <td align="left" valign="top">
+			<form action="" method="post" enctype="multipart/form-data" name="gedcom_upload_form" id="gedcom_upload_form">
         <table width="100%"  border="0" cellpadding="2" cellspacing="0" bgcolor="#CCCCCC">
           <tr>
-            <td colspan="3" valign="middle" class="text"><?php echo sprintf(_("PHP is configured for a maximum file upload size of %s. If you wish to upload a gedcom file that is larger than %s either change the upload_max_filesize directive in php.ini or manually upload the file to the gedcom directory."), ini_get('upload_max_filesize'), ini_get('upload_max_filesize')); ?></td>
+            <td colspan="3" valign="middle" class="text"><?php echo sprintf(_("Your server is configured for a maximum file upload size of %s. If you wish to upload a gedcom file that is larger than %s either change the upload_max_filesize directive in php.ini or manually upload the file to the gedcom directory."), ini_get('upload_max_filesize'), ini_get('upload_max_filesize')); ?></td>
           </tr>
           <tr>
             <td colspan="3" valign="middle">&nbsp;</td>
@@ -132,7 +133,8 @@
             <td align="left" valign="top">&nbsp;</td>
           </tr>
         </table>
-      </form></td>
+      </form>
+		</td>
   </tr>
   <tr>
     <td align="left" valign="top">&nbsp;</td>
@@ -150,11 +152,11 @@
             <td colspan="5"><table border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
                 <tr>
                   <td align="center" nowrap>&nbsp;</td>
-                  <td nowrap><?php echo _("Filename"); ?></td>
+                  <td nowrap><em><?php echo _("Filename"); ?></em></td>
                   <td width="20" nowrap>&nbsp;</td>
-                  <td nowrap><?php echo _("Last Modified"); ?></td>
+                  <td nowrap><em><?php echo _("Last Modified"); ?></em></td>
                   <td width="20" nowrap>&nbsp;</td>
-                  <td nowrap><?php echo _("Size"); ?></td>
+                  <td nowrap><em><?php echo _("Size"); ?></em></td>
                   <td width="20" nowrap>&nbsp;</td>
                   <td nowrap>&nbsp;</td>
                   <td width="20" nowrap>&nbsp;</td>
@@ -185,6 +187,9 @@
 								$dir->close();
 							?>
               </table></td>
+          </tr>
+          <tr>
+            <td colspan="5">&nbsp;</td>
           </tr>
           <tr>
             <td colspan="5"><input name="Import" type="submit" class="text" id="Import" value="<?php echo _("Begin Import..."); ?>">

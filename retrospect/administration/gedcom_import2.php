@@ -25,7 +25,16 @@
 <link href="styles.css" rel="stylesheet" type="text/css">
 <table width="100%"  border="0" cellpadding="0" cellspacing="5"> 
   <tr> 
-    <td align="left" valign="top" class="notification">&nbsp;	</td> 
+    <td align="left" valign="top" class="notification">
+			<?php
+				require_once(CORE_PATH.'gedcom.class.php');
+				$gedcomdir = ROOT_PATH . '/../gedcom/';
+				$gedcomfile = $gedcomdir.$_POST['selectedfile'];
+				$gedcom = new GedcomParser();
+				$gedcom->Open($gedcomfile);
+			?>
+			&nbsp;
+		</td> 
   </tr> 
   <tr> 
     <td align="left" valign="top" class="content-subtitle"><?php echo _("Import Gedcom"); ?></td> 
@@ -33,13 +42,13 @@
   <tr> 
     <td align="left" valign="top"> <table width="100%"  border="0" cellpadding="2" cellspacing="0" bgcolor="#CCCCCC"> 
         <tr> 
-          <td valign="middle" class="content-label"> Filename: <?php echo $_POST['filename']; ?></td> 
+          <td valign="middle" class="content-label">Analyzing gedcom file...</td> 
         </tr>
         <tr>
-          <td valign="middle" class="content-label">Temp Filename: <?php echo $_FILES['file']['tmp_name']; ?></td>
+          <td valign="middle" class="text">File size: <?php echo filesize_format($gedcom->fsize); ?></td>
         </tr>
         <tr>
-          <td valign="middle" class="content-label">Size: <?php echo $_FILES['file']['size'] ?></td>
+          <td valign="middle" class="content-label">&nbsp;</td>
         </tr> 
       </table></td> 
   </tr> 
