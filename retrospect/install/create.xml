@@ -198,15 +198,6 @@
 		<col>opt_key</col>
 		<unique />
 	</index>
-	<table name="relation">
-		<field name="indkey" type="C" size="20">
-			<key />
-			<notnull />
-		</field>
-		<field name="famkey" type="C" size="20">
-			<notnull />
-		</field>
-	</table>
 	<index name="famkey" table="relation">
 		<col>famkey</col>
 	</index>

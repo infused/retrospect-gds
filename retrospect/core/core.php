@@ -107,12 +107,6 @@
 	*/
 	$g_tbl_family 			= $g_db_prefix . 'family';
 	
-	/** 
-	* Relation table.
-	* @global string $g_tbl_relation
-	*/
-	$g_tbl_relation 		= $g_db_prefix . 'relation';
-	
 	/**
 	*
 	* Citation table.

@@ -251,14 +251,6 @@ class Person {
 	*/
 	var $tbl_family;
 
-	/**
-	* Local class variable for $g_tbl_relation
-	* @access private
-	* @see g_tbl_relation
-	* @var string
-	*/
-	var $tbl_relation;
-	
 	/** 
 	* Local class variable for $g_tbl_citation
 	* @access private
@@ -309,7 +301,6 @@ class Person {
 		$this->tbl_indiv = $GLOBALS['g_tbl_indiv'];
 		$this->tbl_fact = $GLOBALS['g_tbl_fact'];
 		$this->tbl_family = $GLOBALS['g_tbl_family'];
-		$this->tbl_relation = $GLOBALS['g_tbl_relation'];
 		$this->tbl_citation = $GLOBALS['g_tbl_citation'];
 		$this->tbl_source = $GLOBALS['g_tbl_source'];
 		$this->tbl_note = $GLOBALS['g_tbl_note'];
@@ -407,6 +398,25 @@ class Person {
 	}
 
 	/**
+	* Gets parents from database
+	* @access private
+	*/	
+	function _get_parents() {
+		global $db;
+		
+		# grab the famkey
+		$sql = "SELECT famkey FROM {$this->tbl_child} WHERE indkey='{$this->indkey}'";
+		$famkey = $db->GetOne($sql);
+		
+		$sql = "SELECT spouse1, spouse2 FROM {$this->tbl_family} WHERE famkey='{$famkey}'";
+		
+		
+		$row = $db->GetRow($sql);
+		$this->father_indkey = isset($row['spouse1']) ? $row['spouse1'] : null;
+		$this->mother_indkey = isset($row['spouse2']) ? $row['spouse2'] : null;
+	}
+
+	/**
 	* Gets marriages/family units from database
 	* @access private
 	*/	
@@ -432,27 +442,13 @@ class Person {
 		foreach ($this->marriages as $marriage) {	
 			$childlist = array();
 			$famkey = $marriage['famkey'];
-			$sql = "SELECT indkey FROM {$this->tbl_relation} WHERE famkey='{$famkey}'";
+			$sql = "SELECT indkey FROM {$this->tbl_child} WHERE famkey='{$famkey}'";
 			$children = $db->GetCol($sql);
 			foreach ($children as $child) {
 				array_push($childlist, $child);
 			}
 			array_push($this->children, $childlist);
 		}
-	}
-
-	/**
-	* Gets parents from database
-	* @access private
-	*/	
-	function _get_parents() {
-		global $db;
-		$query  = "SELECT spouse1, spouse2	FROM $this->tbl_family, $this->tbl_relation ";
-		$query .= "WHERE $this->tbl_relation.indkey = '$this->indkey' ";
-		$query .= "AND $this->tbl_family.famkey = $this->tbl_relation.famkey";
-		$row = $db->GetRow($query);
-		$this->father_indkey = isset($row['spouse1']) ? $row['spouse1'] : null;
-		$this->mother_indkey = isset($row['spouse2']) ? $row['spouse2'] : null;
 	}
 
 	/**
@@ -716,12 +712,6 @@ class Marriage {
 	var $end_sources_count;
 	
 	# private properties
-
-	/**
-	* @access private
-	* @var string
-	*/
-	var $tbl_relation;
 	
 	/**
 	* @access private
@@ -763,7 +753,6 @@ class Marriage {
 	* @param string $p_notekey
 	*/
 	function Marriage($p_famkey, $p_spouse, $p_beginstatus, $p_endstatus, $p_notekey) {
-		$this->tbl_relation = $GLOBALS['g_tbl_relation'];
 		$this->tbl_note = $GLOBALS['g_tbl_note'];
 		$this->tbl_citation = $GLOBALS['g_tbl_citation'];
 		$this->tbl_source = $GLOBALS['g_tbl_source'];

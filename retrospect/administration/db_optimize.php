@@ -51,7 +51,7 @@ function optimize_table($p_table) {
     <td class="content-label">Status</td>
   </tr>
   <?php 
-		$tables = array($g_tbl_indiv, $g_tbl_fact, $g_tbl_family, $g_tbl_relation, $g_tbl_citation, $g_tbl_source, $g_tbl_note, $g_tbl_child, $g_tbl_user, $g_tbl_lang, $g_tbl_option, $g_tbl_media);
+		$tables = array($g_tbl_indiv, $g_tbl_fact, $g_tbl_family, $g_tbl_citation, $g_tbl_source, $g_tbl_note, $g_tbl_child, $g_tbl_user, $g_tbl_lang, $g_tbl_option, $g_tbl_media);
 		foreach($tables as $table) {
 			$result = optimize_table($table);
 			?>
