@@ -24,6 +24,7 @@
 	/**
 	* Push item onto keyword array and enforce size limit.
 	* Only unique keywords are added to the array
+	* @param string $keyword
 	*/
 	function keyword_push($keyword) {
 		global $keywords;
@@ -32,5 +33,20 @@
 			$keywords[] = $keyword;
 		}
 	}	
+	
+	/**
+	* Format file size
+	* @param integer $size Size in bytes
+	* @return string
+	*/
+	function filesize_format($size) {
+		$sizes = Array('B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
+		$ext = $sizes[0];
+		for ($i=1; (($i < count($sizes)) && ($size >= 1024)); $i++) {
+		 $size = $size / 1024;
+		 $ext  = $sizes[$i];
+		}
+		return round($size, 2).$ext;
+	}
 
 ?>

@@ -38,7 +38,7 @@
 	* Load the configuration file
 	*/
 	if (file_exists(CORE_PATH.'config.php')) {
-		require_once(CORE_PATH.'config.php');
+		@require_once(CORE_PATH.'config.php');
 	}
 	else {
 		echo 'Could not find configuration file.'; 

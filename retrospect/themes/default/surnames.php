@@ -141,7 +141,7 @@
 
 		while ($row = $rs->FetchRow()) {
 			$o = new Person($row['indkey'], 3); 
-			$o_link = htmlentities('<a href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$o->indkey.'">'.$o->sname.', '.$o->gname.'</a>');
+			$o_link = '<a href="'.$_SERVER['PHP_SELF'].'?option=family&amp;indiv='.$o->indkey.'">'.$o->sname.', '.$o->gname.'</a>';
 			echo '<div class="text" style="width: 300px; float: left; height: 10pt; overflow:hidden;">'.$o_link.'</div>';
 			echo '<div class="text" style="width: 150px; float: left; height: 10pt; overflow:hidden;">'.$o->birth->date.'</div>';
 			echo '<div class="text" style="width: 150px; height: 10pt; overflow:hidden;">'.$o->death->date.'</div>';
