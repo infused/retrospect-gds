@@ -32,6 +32,9 @@
 				$gedcomfile = $gedcomdir.$_POST['selectedfile'];
 				$gedcom = new GedcomParser();
 				$gedcom->Open($gedcomfile);
+				$gedcom->GetStatistics();
+				
+				$gedcom->Close();
 			?>
 			&nbsp;
 		</td> 
@@ -48,7 +51,19 @@
           <td valign="middle" class="text">File size: <?php echo filesize_format($gedcom->fsize); ?></td>
         </tr>
         <tr>
-          <td valign="middle" class="content-label">&nbsp;</td>
+          <td valign="middle" class="text">Number of lines: <?php echo number_format($gedcom->lines); ?></td>
+        </tr>
+        <tr>
+          <td valign="middle" class="text">Number of individuals: <?php echo number_format($gedcom->individual_count); ?></td>
+        </tr>
+        <tr>
+          <td valign="middle" class="text">Number of families: <?php echo number_format($gedcom->family_count); ?></td>
+        </tr>
+        <tr>
+          <td valign="middle" class="text">Number of sources: <?php echo number_format($gedcom->source_count); ?></td>
+        </tr>
+        <tr>
+          <td valign="middle" class="text">Number of notes: <?php echo number_format($gedcom->note_count); ?></td>
         </tr> 
       </table></td> 
   </tr> 
