@@ -68,9 +68,6 @@
 	$db_pref = isset( $_POST['frm_db_pref'] ) ? rtrim( $_POST['frm_db_pref'], '_' ) : '';
 	$db_drop = isset( $_POST['frm_db_drop'] ) ? true : false;
 	
-	# Create server connection string
-	$db_serv = ($db_port != '') ? $db_host.':'.$db_port : $db_host;
-	
 	# Load adodb library w/xmlschema
 	require_once(LIB_PATH . 'adodb/adodb.inc.php');
 	require_once(LIB_PATH . 'adodb/adodb-xmlschema.inc.php');
@@ -92,7 +89,7 @@
 	
 	# is config.php writable
 	$cfg_filename = CORE_PATH.'config.php';
-	$cfg_writable = is_writable($cfg_filename);
+	$cfg_writable = is_writable(CORE_PATH);
 	
 ?>
 <table width="100%"  border="0" cellspacing="0" cellpadding="0">
@@ -134,17 +131,16 @@
 							echo '<div class="no">Skipping</div>';
 						} else {
 							# Attempt db connection
-							if ($g_db_type == 'odbc_mssql') {
+							if ($db_type == 'odbc_mssql') {
 								# Microsoft SQL ODBC connection
-								$dsn = 'Driver={SQL Server};Server='.$g_db_host.';Database='.$g_db_name.';';
-								$db->Connect($dsn, $g_db_user, $g_db_pass);
+								$dsn = 'Driver={SQL Server};Server='.$db_host.';Database='.$db_name.';';
+								$db->Connect($dsn, $db_user, $db_pass);
 							} else {
 								# MySQL, PostrgreSQL, etc...
-								$host = ($g_db_port != '') ? $g_db_host.':'.$g_db_port : $g_db_host;
-								$db->Connect($host, $g_db_user, $g_db_pass, $g_db_name);
+								$host = ($db_port != '') ? $db_host.':'.$db_port : $db_host;
+								$db->Connect($host, $db_user, $db_pass, $db_name);
 							}
-							
-							if ($db)) {
+							if ($db) {
 								echo '<div class="yes">OK</div>';
 							} else {
 								echo '<div class="no">Failed</div>';
@@ -173,7 +169,7 @@
 									$cfg_writable = false;
 								}
 							} 
-							if (!cfg_writable) {
+							if ($cfg_writable === false) {
 								echo '<div class="no">Skipping... config.php not writable</div>';
 							}
 						}
@@ -182,7 +178,8 @@
         <td align="left" valign="top" class="section_item">
 					<?php
 						echo ($cfg_writable) ? filesize($cfg_filename) . ' bytes written' : '';
-					?>				</td>
+					?>&nbsp;
+				</td>
       </tr>
       <tr>
         <td align="left" valign="top" class="section_item">Creating tables, indexes, and default settings...</td>

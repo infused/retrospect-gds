@@ -42,6 +42,8 @@
 	* @global string
 	*/
 	define('LIB_PATH', ROOT_PATH.'/../libraries/');
+	
+	$cfg_filename = CORE_PATH.'config.php';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -78,7 +80,7 @@
         </tr> 
         <tr>
           <td class="section_item">Configuration file writable </td>
-          <td align="center" class="section_item"><?php echo is_writable( '..' ) ? '<div class="yes">Yes</div>' : '<div="no">No</div>';?></td>
+          <td align="center" class="section_item"><?php echo is_writable( CORE_PATH ) ? '<div class="yes">Yes</div>' : '<div class="no-not-req">No</div>';?></td>
           <td class="section_item">Optional</td>
         </tr>
         <tr>
