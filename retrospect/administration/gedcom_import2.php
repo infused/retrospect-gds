@@ -23,29 +23,29 @@
  */  
 ?>
 <link href="styles.css" rel="stylesheet" type="text/css">
-<form action="<?php echo CURRENT_PAGE.'2'; ?>" method="post" enctype="multipart/form-data" name="gedcom_import_form" id="gedcom_import_form">
 <table width="100%"  border="0" cellpadding="0" cellspacing="5"> 
   <tr> 
     <td align="left" valign="top">&nbsp;</td> 
-  </tr>
+  </tr> 
+	<?php 
+		if (isset($_POST['Import']) and $_POST['Import'] == 'Import') {
+			// Do something here
+		}
+	?>
   <tr> 
     <td align="left" valign="top" class="content-subtitle"><?php echo _("Import Gedcom"); ?></td> 
   </tr> 
   <tr> 
     <td align="left" valign="top"> <table width="100%"  border="0" cellpadding="2" cellspacing="0" bgcolor="#CCCCCC"> 
-        <tr>
-          <td colspan="2" valign="middle" class="content-label">&nbsp;</td>
-        </tr>
-        <tr>
-          <td colspan="2" valign="middle" class="content-label">&nbsp;</td>
-          </tr>
-        <tr>
-          <td colspan="2" valign="middle" class="content-label">Max File Size: <?php echo ini_get('upload_max_filesize'); ?></td>
-        </tr>
         <tr> 
-          <td width="125" valign="middle" class="content-label"><?php echo _("Gedcom File"); ?>:</td> 
-          <td valign="middle"><input name="file" type="file" class="textbox"></td> 
-          </tr> 
+          <td valign="middle" class="content-label">Original Filename: <?php echo $_FILES['file']['name']; ?></td> 
+        </tr>
+        <tr>
+          <td valign="middle" class="content-label">Temp Filename: <?php echo $_FILES['file']['tmp_name']; ?></td>
+        </tr>
+        <tr>
+          <td valign="middle" class="content-label">Size: <?php echo $_FILES['file']['size'] ?></td>
+        </tr> 
       </table></td> 
   </tr> 
   <tr> 
@@ -53,8 +53,7 @@
   </tr> 
 	<tr>
 	<td>
-		<input name="Import" type="submit" class="text" id="Import" value="<?php echo _("Import"); ?>"> 
-		<input name="<?php echo _("Reset"); ?>" type="reset" class="text" id="<?php echo _("Reset"); ?>" value="<?php echo _("Reset"); ?>"></td>
+		<input name="Continue" type="submit" class="text" id="Continue" value="<?php echo _("Continue"); ?>"> 
+	</td>
 	</tr>
 </table> 
-</form>
