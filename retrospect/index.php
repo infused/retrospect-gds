@@ -30,7 +30,6 @@
 	
 	# Start or continue a session
 	session_start();
-	header('Cache-control: private'); # IE6 fix
 
 	# Define all application paths
 	define('ROOT_PATH', dirname($_SERVER['PATH_TRANSLATED'])); # Path to root Retrospect-GDS directory
