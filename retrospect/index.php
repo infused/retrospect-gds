@@ -60,7 +60,8 @@
 
 	$smarty->assign('option', $g_option);
 	$smarty->assign('meta_keywords', implode(', ', $keywords));
-	$smarty->assign('php_self', $_SERVER['PHP_SELF']);
+	$smarty->assign('PHP_SELF', $_SERVER['PHP_SELF']);
+	$smarty->assign('CURRENT_PAGE', CURRENT_PAGE);
 	$smarty->assign('lang_names', $lang_names);
 	$smarty->assign('lang_codes', $lang_codes);
 	$smarty->assign('lang', $_SESSION['lang']);

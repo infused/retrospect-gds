@@ -89,6 +89,7 @@
 	
 	# Start Smarty template engine
 	$smarty = new Smarty;
+	$smarty->php_handling = SMARTY_PHP_REMOVE;
 	$smarty->template_dir = ROOT_PATH.'/themes/'.$g_theme.'/templates/';
 	$smarty->compile_dir = ROOT_PATH.'/themes/'.$g_theme.'/templates_c/';
 	$smarty->config_dir = ROOT_PATH.'/themes/'.$g_theme.'/configs/';
