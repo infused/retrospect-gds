@@ -6,31 +6,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2004-06-04 17:47-0800\n"
+"PO-Revision-Date: 2004-06-12 08:25-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused.org>\n"
 "Language-Team: Spanish <keithm@infused-solutions.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: administration/sys_config.php:159
-#: administration/sys_config.php:169
-#: administration/sys_config.php:210
-msgid "Yes"
-msgstr "Si"
-
-#: administration/sys_config.php:160
-#: administration/sys_config.php:170
-#: administration/sys_config.php:211
-msgid "No"
-msgstr "No"
-
-#: administration/sys_config.php:228
-#: themes/default/search.php:105
-#: themes/default/search.php:143
-#: themes/default/search.php:181
-msgid "Reset"
-msgstr "Reiniciar"
 
 #: core/f_dummy.php:38
 #: core/f_dummy.php:94
@@ -1488,6 +1469,12 @@ msgstr "Nombre de Pila"
 #, fuzzy
 msgid "Surname"
 msgstr "Apellido %s"
+
+#: themes/default/search.php:105
+#: themes/default/search.php:143
+#: themes/default/search.php:181
+msgid "Reset"
+msgstr "Reiniciar"
 
 #: themes/default/search.php:106
 #: themes/default/search.php:144
