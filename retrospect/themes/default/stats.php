@@ -22,84 +22,74 @@
  *
  */
  
-	function display_col1($p_string) {
-		$out = '<div class="col1">'.$p_string.':</div>';
-		return $out;
-	}
-	
-	function display_col2($p_string) {
-		$out = '<div class="col2-2">'.number_format($p_string).'</div>';
-		return $out;
-	}
+	# set title
+	$smarty->assign('page_title', gtc("Statistics"));
+	$smarty->assign('content_title', gtc("Statistics"));
 	
 	# surnames
 	$sql = "SELECT COUNT(DISTINCT surname) FROM ".TBL_INDIV;
-	$cnt_surnames = $db->GetOne($sql);
+	$smarty->assign('cnt_surnames', $db->GetOne($sql));
 	
 	# individuals
 	$sql = "SELECT COUNT(*) FROM ".TBL_INDIV;
 	$cnt_indiv = $db->GetOne($sql);
+	$smarty->assign('cnt_indiv', $cnt_indiv);
+	
 	# individuals - male
 	$sql = "SELECT COUNT(*) FROM ".TBL_INDIV." WHERE sex='M'";
 	$cnt_indiv_male = $db->GetOne($sql);
+	$smarty->assign('cnt_indiv_male', $cnt_indiv_male);
+	
 	# individuals - female
 	$sql = "SELECT COUNT(*) FROM ".TBL_INDIV." WHERE sex='F'";
 	$cnt_indiv_female = $db->GetOne($sql);
+	$smarty->assign('cnt_indiv_female', $cnt_indiv_female);
+	
 	# individuals - unknown
 	$cnt_indiv_unknown = $cnt_indiv - $cnt_indiv_male - $cnt_indiv_female;
+	$smarty->assign('cnt_indiv_unknown', $cnt_indiv_unknown);
 	
 	# families
 	$sql = "SELECT COUNT(*) FROM ".TBL_FAMILY;
-	$cnt_families = $db->GetOne($sql);
+	$smarty->assign('cnt_families',$db->GetOne($sql));
 	
-	# facts
+	# events
 	$sql = "SELECT COUNT(*) FROM ".TBL_FACT;
-	$cnt_facts = $db->GetOne($sql);
-	# facts - birth
+	$cnt_events = $db->GetOne($sql);
+	$smarty->assign('cnt_events', $cnt_events);
+	
+	# events - birth
 	$sql = "SELECT COUNT(*) FROM ".TBL_FACT." WHERE type='Birth'";
-	$cnt_facts_birth = $db->GetOne($sql);
-	# facts - death
+	$cnt_events_birth = $db->GetOne($sql);
+	$smarty->assign('cnt_events_birth', $cnt_events_birth);
+	
+	# events - death
 	$sql = "SELECT COUNT(*) FROM ".TBL_FACT." WHERE type='Death'";
-	$cnt_facts_death = $db->GetOne($sql);	
-	# facts - marriage
+	$cnt_events_death = $db->GetOne($sql);	
+	$smarty->assign('cnt_events_death', $cnt_events_death);
+	
+	# events - marriage
 	$sql = "SELECT COUNT(*) FROM ".TBL_FACT." WHERE type='Marriage'";
-	$cnt_facts_marriage = $db->GetOne($sql);		
+	$cnt_events_marriage = $db->GetOne($sql);	
+	$smarty->assign('cnt_events_marriage', $cnt_events_marriage);	
+	
 	# facts - other
-	$cnt_facts_other = $cnt_facts - $cnt_facts_birth - $cnt_facts_death - $cnt_facts_marriage;
+	$cnt_events_other = $cnt_events-$cnt_events_birth-$cnt_events_death-$cnt_events_marriage;
+	$smarty->assign('cnt_events_other', $cnt_events_other);
 	
 	# notes 
 	$sql = "SELECT COUNT(*) FROM ".TBL_NOTE;
-	$cnt_notes = $db->GetOne($sql);
+	$smarty->assign('cnt_notes', $db->GetOne($sql));
 	
 	# sources
 	$sql = "SELECT COUNT(*) FROM ".TBL_SOURCE;
-	$cnt_sources = $db->GetOne($sql);
+	$smarty->assign('cnt_sources', $db->GetOne($sql));
 	
 	# source citations
 	$sql = "SELECT COUNT(*) FROM ".TBL_CITATION;
-	$cnt_citations = $db->GetOne($sql);
-	
- 	# set title
-	$g_title = gtc("Statistics");
+	$smarty->assign('cnt_citations', $db->GetOne($sql));
 	
 	# populate keyword array
 	keyword_push(gtc("Statistics"));
-	
-	# display results
-	echo '<p class="content-title">'.gtc("Statistics").'</p>';
-	echo display_col1(gtc("Surnames")).display_col2($cnt_surnames);
-	echo display_col1(gtc("Individuals")).display_col2($cnt_indiv);
-	echo display_col1('- '.gtc("Male")).display_col2($cnt_indiv_male);
-	echo display_col1('- '.gtc("Female")).display_col2($cnt_indiv_female);
-	echo display_col1('- '.gtc("Unknown")).display_col2($cnt_indiv_unknown);
-	echo display_col1(gtc("Families")).display_col2($cnt_families);
-	echo display_col1(gtc("Facts")).display_col2($cnt_facts);
-	echo display_col1('- '.gtc("Birth")).display_col2($cnt_facts_birth);
-	echo display_col1('- '.gtc("Death")).display_col2($cnt_facts_death);
-	echo display_col1('- '.gtc("Marriage")).display_col2($cnt_facts_marriage);
-	echo display_col1('- '.gtc("Other")).display_col2($cnt_facts_other);
-	echo display_col1(gtc("Notes")).display_col2($cnt_notes);
-	echo display_col1(gtc("Sources")).display_col2($cnt_sources);
-	echo display_col1('- '.gtc("Citations")).display_col2($cnt_citations);
-	
+
 ?>
