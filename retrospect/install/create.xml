@@ -309,4 +309,8 @@
 		<descr>Add german language</descr>
 		<query>INSERT INTO language VALUES (3, 'de_DE', 'iso-8859-1', 'German')</query>
 	</sql>
+	<sql prefixmethod="auto">
+		<descr>Add dutch language</descr>
+		<query>INSERT INTO language VALUES (4, 'nl_NL', 'iso-8859-1', 'Dutch')</query>
+	</sql>
 </schema>
