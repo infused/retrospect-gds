@@ -1,0 +1,1179 @@
+# PHPGENE PRO ENGLISH (US) TRANSLATION
+# Copyright (C) 2003 Infused Solutions
+# Keith Morrison <keithm@infused-solutions.com>, 2003.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"POT-Creation-Date: 2003-07-14 20:17-0700\n"
+"PO-Revision-Date: 2003-12-12 23:25-0800\n"
+"Last-Translator: Keith Morrison <keithm@infused.org>\n"
+"Language-Team: ENGLISH <keithm@infused-solutions.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: core/f_database.php:25
+msgid "Connection failed with error"
+msgstr "Connection failed with error"
+
+#: core/f_database.php:26
+msgid "DB selection failed with error"
+msgstr "DB selection failed with error"
+
+#: core/f_database.php:37
+#: core/f_database.php:49
+#: core/f_database.php:62
+#: core/f_database.php:74
+msgid "Query failed with error"
+msgstr "Query failed with error"
+
+#: core/f_dummy.php:25
+#: core/f_dummy.php:80
+#: themes/default/stats.php:83
+msgid "Marriage"
+msgstr "Marriage"
+
+#: core/f_dummy.php:26
+#: core/f_dummy.php:49
+#: core/f_report.php:146
+#: core/f_report.php:147
+#: themes/default/stats.php:78
+msgid "Unknown"
+msgstr "Unknown"
+
+#: core/f_dummy.php:27
+msgid "Friends"
+msgstr "Friends"
+
+#: core/f_dummy.php:28
+msgid "Partners"
+msgstr "Partners"
+
+#: core/f_dummy.php:31
+msgid "Death of one spouse"
+msgstr "Death of one spouse"
+
+#: core/f_dummy.php:32
+msgid "Divorced"
+msgstr "Divorce"
+
+#: core/f_dummy.php:33
+msgid "Annulment"
+msgstr "Annulment"
+
+#: core/f_dummy.php:36
+msgid "Divorce Filed"
+msgstr "Divorce Filed"
+
+#: core/f_dummy.php:37
+msgid "Engagement"
+msgstr "Engagement"
+
+#: core/f_dummy.php:38
+msgid "Husband"
+msgstr "Husband"
+
+#: core/f_dummy.php:39
+msgid "Marriage Bann"
+msgstr "Marriage Bann"
+
+#: core/f_dummy.php:40
+msgid "Marriage Contract"
+msgstr "Marriage Contract"
+
+#: core/f_dummy.php:41
+msgid "Marriage Fact"
+msgstr "Marriage Fact"
+
+#: core/f_dummy.php:42
+msgid "Marriage License"
+msgstr "Marriage License"
+
+#: core/f_dummy.php:43
+msgid "Marriage Settlement"
+msgstr "Marriage Settlement"
+
+#: core/f_dummy.php:44
+msgid "Wife"
+msgstr "Wife"
+
+#: core/f_dummy.php:47
+#: themes/default/stats.php:76
+msgid "Male"
+msgstr "Male"
+
+#: core/f_dummy.php:48
+#: themes/default/stats.php:77
+msgid "Female"
+msgstr "Female"
+
+#: core/f_dummy.php:52
+msgid "Adoption"
+msgstr "Adoption"
+
+#: core/f_dummy.php:53
+msgid "Adult Christening"
+msgstr "Adult Christening"
+
+#: core/f_dummy.php:54
+msgid "Baptism"
+msgstr "Baptism"
+
+#: core/f_dummy.php:55
+msgid "BaptismLDS"
+msgstr "BaptismLDS"
+
+#: core/f_dummy.php:56
+msgid "Bar Mitzah"
+msgstr "Bar Mitzah"
+
+#: core/f_dummy.php:57
+msgid "Bas Mitzah"
+msgstr "Bas Mitzah"
+
+#: core/f_dummy.php:58
+#: themes/default/family.php:79
+#: themes/default/family_pdf.php:111
+#: themes/default/pedigree_pdf.php:77
+#: themes/default/search.php:114
+#: themes/default/stats.php:81
+#: themes/default/surnames.php:110
+msgid "Birth"
+msgstr "Birth"
+
+#: core/f_dummy.php:59
+msgid "Blessing"
+msgstr "Blessing"
+
+#: core/f_dummy.php:60
+msgid "Burial"
+msgstr "Burial"
+
+#: core/f_dummy.php:61
+msgid "Caste"
+msgstr "Caste"
+
+#: core/f_dummy.php:62
+msgid "Census"
+msgstr "Census"
+
+#: core/f_dummy.php:63
+msgid "Christening"
+msgstr "Christening"
+
+#: core/f_dummy.php:64
+msgid "Confirmation"
+msgstr "Confirmation"
+
+#: core/f_dummy.php:65
+msgid "Cremation"
+msgstr "Cremation"
+
+#: core/f_dummy.php:66
+#: themes/default/family.php:82
+#: themes/default/family_pdf.php:129
+#: themes/default/pedigree_pdf.php:78
+#: themes/default/search.php:115
+#: themes/default/stats.php:82
+#: themes/default/surnames.php:111
+msgid "Death"
+msgstr "Death"
+
+#: core/f_dummy.php:67
+msgid "Degree"
+msgstr "Degree"
+
+#: administrator/media_list.php:16
+#: core/f_dummy.php:68
+msgid "Description"
+msgstr "Description"
+
+#: core/f_dummy.php:69
+msgid "Education"
+msgstr "Education"
+
+#: core/f_dummy.php:70
+msgid "Election"
+msgstr "Election"
+
+#: core/f_dummy.php:71
+msgid "Emigration"
+msgstr "Emigration"
+
+#: core/f_dummy.php:72
+msgid "Event"
+msgstr "Event"
+
+#: core/f_dummy.php:73
+msgid "First Communion"
+msgstr "First Communion"
+
+#: core/f_dummy.php:74
+msgid "Funeral"
+msgstr "Funeral"
+
+#: core/f_dummy.php:75
+msgid "Graduation"
+msgstr "Graduation"
+
+#: core/f_dummy.php:76
+msgid "ID Number"
+msgstr "ID Number"
+
+#: core/f_dummy.php:77
+msgid "Immigration"
+msgstr "Immigration"
+
+#: core/f_dummy.php:78
+msgid "Land"
+msgstr "Land"
+
+#: core/f_dummy.php:79
+msgid "Last Known Addr"
+msgstr "Last Known Addr"
+
+#: core/f_dummy.php:81
+msgid "Military"
+msgstr "Military"
+
+#: core/f_dummy.php:82
+msgid "Military Award"
+msgstr "Military Award"
+
+#: core/f_dummy.php:83
+msgid "Military Discharge"
+msgstr "Military Discharge"
+
+#: core/f_dummy.php:84
+msgid "Military Enlist"
+msgstr "Military Enlist"
+
+#: core/f_dummy.php:85
+msgid "Military Service"
+msgstr "Military Service"
+
+#: core/f_dummy.php:86
+msgid "Nationality"
+msgstr "Nationality"
+
+#: core/f_dummy.php:87
+msgid "Naturalization"
+msgstr "Naturalization"
+
+#: core/f_dummy.php:88
+msgid "Number of Children"
+msgstr "Number of Children"
+
+#: core/f_dummy.php:89
+msgid "Number of Marriages"
+msgstr "Number of Marriages"
+
+#: core/f_dummy.php:90
+msgid "Occupation"
+msgstr "Occupation"
+
+#: core/f_dummy.php:91
+msgid "Ordinance"
+msgstr "Ordinance"
+
+#: core/f_dummy.php:92
+msgid "Possessions"
+msgstr "Possessions"
+
+#: core/f_dummy.php:93
+msgid "Probate"
+msgstr "Probate"
+
+#: core/f_dummy.php:94
+msgid "Religion"
+msgstr "Religion"
+
+#: core/f_dummy.php:95
+msgid "Researcher"
+msgstr "Researcher"
+
+#: core/f_dummy.php:96
+msgid "Residence"
+msgstr "Residence"
+
+#: core/f_dummy.php:97
+msgid "Retirement"
+msgstr "Retirement"
+
+#: core/f_dummy.php:98
+msgid "Social Security Number"
+msgstr "Social Security Number"
+
+#: core/f_dummy.php:99
+msgid "SSN"
+msgstr "SSN"
+
+#: core/f_dummy.php:100
+msgid "Title"
+msgstr "Title"
+
+#: core/f_dummy.php:101
+msgid "Will"
+msgstr "Will"
+
+#: core/f_dummy.php:104
+msgid "ALL"
+msgstr "ALL"
+
+#: administrator/login.php:49
+#: core/f_dummy.php:107
+#: themes/default/menu.php:28
+msgid "English"
+msgstr "English"
+
+#: administrator/login.php:50
+#: core/f_dummy.php:108
+#: themes/default/menu.php:33
+msgid "Spanish"
+msgstr "Spanish"
+
+#: core/f_language.php:62
+msgid "Jan"
+msgstr "Jan"
+
+#: core/f_language.php:63
+msgid "Feb"
+msgstr "Feb"
+
+#: core/f_language.php:64
+msgid "Mar"
+msgstr "Mar"
+
+#: core/f_language.php:65
+msgid "Apr"
+msgstr "Apr"
+
+#: core/f_language.php:66
+msgid "May"
+msgstr "May"
+
+#: core/f_language.php:67
+msgid "Jun"
+msgstr "Jun"
+
+#: core/f_language.php:68
+msgid "Jul"
+msgstr "Jul"
+
+#: core/f_language.php:69
+msgid "Aug"
+msgstr "Aug"
+
+#: core/f_language.php:70
+msgid "Sep"
+msgstr "Sep"
+
+#: core/f_language.php:71
+msgid "Oct"
+msgstr "Oct"
+
+#: core/f_language.php:72
+msgid "Nov"
+msgstr "Nov"
+
+#: core/f_language.php:73
+msgid "Dec"
+msgstr "Dec"
+
+#: core/f_language.php:76
+msgid "abv About"
+msgstr "Abt"
+
+#: core/f_language.php:77
+msgid "abv Circa"
+msgstr "Cir"
+
+#: core/f_language.php:78
+msgid "abv After"
+msgstr "Aft"
+
+#: core/f_language.php:79
+msgid "abv Before"
+msgstr "Bef"
+
+#: core/f_language.php:80
+msgid "abv Between"
+msgstr "Bet"
+
+#: core/f_language.php:81
+msgid "abv Calculated"
+msgstr "Cal"
+
+#: core/f_report.php:24
+#, c-format
+msgid "He was born on %s in %s."
+msgstr "He was born on %s in %s."
+
+#: core/f_report.php:27
+#, c-format
+msgid "He was born on %s."
+msgstr "He was born on %s."
+
+#: core/f_report.php:30
+#, c-format
+msgid "He was born in %s."
+msgstr "He was born in %s."
+
+#: core/f_report.php:36
+#, c-format
+msgid "She was born on %s in %s."
+msgstr "She was born on %s in %s."
+
+#: core/f_report.php:39
+#, c-format
+msgid "She was born on %s."
+msgstr "She was born on %s."
+
+#: core/f_report.php:42
+#, c-format
+msgid "She was born in %s."
+msgstr "She was born in %s."
+
+#: core/f_report.php:61
+#, c-format
+msgid "He died on %s in %s."
+msgstr "He died on %s in %s."
+
+#: core/f_report.php:64
+#, c-format
+msgid "He died on %s."
+msgstr "He died on %s."
+
+#: core/f_report.php:67
+#, c-format
+msgid "He died in %s."
+msgstr "He died in %s."
+
+#: core/f_report.php:73
+#, c-format
+msgid "She died on %s in %s."
+msgstr "She died on %s in %s."
+
+#: core/f_report.php:76
+#, c-format
+msgid "She died on %s."
+msgstr "She died on %s."
+
+#: core/f_report.php:79
+#, c-format
+msgid "She died in %s."
+msgstr "She died in %s."
+
+#: core/f_report.php:103
+#, c-format
+msgid ", son of %s and %s."
+msgstr ", son of %s and %s."
+
+#: core/f_report.php:107
+#: core/f_report.php:111
+#, c-format
+msgid ", son of %s."
+msgstr ", son of %s."
+
+#: core/f_report.php:117
+#, c-format
+msgid ", daughter of %s and %s."
+msgstr ", daughter of %s and %s."
+
+#: core/f_report.php:121
+#: core/f_report.php:125
+#, c-format
+msgid ", daughter of %s."
+msgstr ", daughter of %s."
+
+#: core/f_report.php:153
+#, c-format
+msgid "male %s married %s on %s in %s."
+msgstr "%s married %s on %s in %s."
+
+#: core/f_report.php:157
+#, c-format
+msgid "male %s married %s on %s."
+msgstr "%s married %s on %s."
+
+#: core/f_report.php:161
+#, c-format
+msgid "male %s married %s in %s."
+msgstr "%s married %s in %s."
+
+#: core/f_report.php:165
+#, c-format
+msgid "male %s married %s."
+msgstr "%s married %s."
+
+#: core/f_report.php:169
+#: core/f_report.php:191
+#: core/f_report.php:215
+#, c-format
+msgid "This marriage ended in %s."
+msgstr "This marriage ended in %s."
+
+#: core/f_report.php:175
+#, c-format
+msgid "female %s married %s on %s in %s."
+msgstr "%s married %s on %s in %s."
+
+#: core/f_report.php:179
+#, c-format
+msgid "female %s married %s on %s."
+msgstr "%s married %s on %s."
+
+#: core/f_report.php:183
+#, c-format
+msgid "female %s married %s in %s."
+msgstr "%s married %s in %s."
+
+#: core/f_report.php:187
+#, c-format
+msgid "female %s married %s."
+msgstr "%s married %s."
+
+#: core/f_report.php:199
+#, c-format
+msgid "male %s had a relationship with %s on %s in %s."
+msgstr "%s had a relationship with %s on %s in %s."
+
+#: core/f_report.php:203
+#, c-format
+msgid "male %s had a relationship with %s on %s."
+msgstr "%s had a relationship with %s on %s."
+
+#: core/f_report.php:207
+#, c-format
+msgid "male %s had a relationship with %s in %s."
+msgstr "%s had a relationship with %s in %s."
+
+#: core/f_report.php:211
+#, c-format
+msgid "male %s had a relationship with %s."
+msgstr "%s had a relationship with %s."
+
+#: core/f_report.php:221
+#, c-format
+msgid "female %s had a relationship with %s on %s in %s."
+msgstr "%s had a relationship with %s on %s in %s."
+
+#: core/f_report.php:225
+#, c-format
+msgid "female %s had a relationship with %s on %s."
+msgstr "%s had a relationship with %s on %s."
+
+#: core/f_report.php:229
+#, c-format
+msgid "female %s had a relationship with %s in %s."
+msgstr "%s had a relationship with %s in %s."
+
+#: core/f_report.php:233
+#, c-format
+msgid "female %s had a relationship with %s."
+msgstr "%s had a relationship with %s."
+
+#: core/f_report.php:237
+#, c-format
+msgid "This relationship ended in %s."
+msgstr "This relationship ended in %s."
+
+#: core/f_report.php:255
+#, c-format
+msgid "Children of %s and %s"
+msgstr "Children of %s and %s"
+
+#: core/f_report.php:258
+#, c-format
+msgid "Children of %s"
+msgstr "Children of %s."
+
+#: themes/default/ahnentafel.php:42
+#: themes/default/ahnentafel_pdf.php:47
+#: themes/default/ahnentafel_pdf.php:74
+#, c-format
+msgid "Ahnentafel Report for %s"
+msgstr "Ahnentafel Report for %s"
+
+#: themes/default/ahnentafel.php:51
+#: themes/default/reports.php:37
+msgid "Ahnentafel Report"
+msgstr "Ahnentafel Report"
+
+#: themes/default/ahnentafel.php:73
+#: themes/default/ahnentafel_pdf.php:94
+#: themes/default/descendant.php:40
+#: themes/default/descendant_pdf.php:78
+#, c-format
+msgid "Generation %s"
+msgstr "Generation %s"
+
+#: themes/default/ahnentafel_pdf.php:60
+#: themes/default/descendant_pdf.php:55
+#: themes/default/family_pdf.php:51
+#: themes/default/pedigree_pdf.php:60
+#, c-format
+msgid "Send questions or comments to %s"
+msgstr "Send questions or comments to %s"
+
+#: themes/default/ahnentafel_pdf.php:75
+#: themes/default/descendant_pdf.php:163
+#: themes/default/family_pdf.php:66
+#: themes/default/pedigree_pdf.php:104
+msgid "Genealogy"
+msgstr "Genealogy"
+
+#: themes/default/descendant.php:83
+#: themes/default/family.php:112
+#: themes/default/family.php:149
+#: themes/default/family_pdf.php:209
+#: themes/default/pedigree.php:57
+msgid "b."
+msgstr "b."
+
+#: themes/default/descendant.php:86
+#: themes/default/family.php:113
+#: themes/default/family.php:150
+#: themes/default/family_pdf.php:210
+#: themes/default/pedigree.php:58
+msgid "d."
+msgstr "d."
+
+#: themes/default/descendant.php:103
+#: themes/default/descendant_pdf.php:45
+#: themes/default/descendant_pdf.php:162
+#, c-format
+msgid "Descendant Report for %s"
+msgstr "Descendant Report for %s"
+
+#: themes/default/descendant.php:112
+msgid "Descendant Report"
+msgstr "Descendant Report"
+
+#: themes/default/email.php:16
+#: themes/default/email.php:52
+msgid "E-mail this to a friend"
+msgstr "E-mail this to a friend"
+
+#: themes/default/email.php:59
+msgid "Your friend's e-mail"
+msgstr "Your friend's e-mail"
+
+#: themes/default/email.php:63
+msgid "Your name"
+msgstr "Your name"
+
+#: themes/default/email.php:67
+msgid "Your e-mail"
+msgstr "Your e-mail"
+
+#: themes/default/email.php:87
+msgid "Your message has been sent. "
+msgstr "Your message has been sent. "
+
+#: themes/default/family.php:23
+#, c-format
+msgid "Family Page for %s"
+msgstr "Family Page for %s"
+
+#: themes/default/family.php:68
+msgid "Family Page"
+msgstr "Family Page"
+
+#: themes/default/family.php:70
+#: themes/default/family_pdf.php:103
+msgid "Gender"
+msgstr "Sex"
+
+#: themes/default/family.php:73
+#: themes/default/family_pdf.php:147
+msgid "Father"
+msgstr "Father"
+
+#: themes/default/family.php:76
+#: themes/default/family_pdf.php:153
+msgid "Mother"
+msgstr "Mother"
+
+#: themes/default/family.php:95
+#: themes/default/family.php:130
+#: themes/default/family_pdf.php:181
+#: themes/default/family_pdf.php:249
+#: themes/default/stats.php:85
+msgid "Notes"
+msgstr "Notes"
+
+#: themes/default/family.php:106
+#: themes/default/family_pdf.php:202
+#, c-format
+msgid "Family %s"
+msgstr "Family %s"
+
+#: themes/default/family.php:107
+#: themes/default/family_pdf.php:206
+msgid "Spouse/Partner"
+msgstr "Spouse/Partner"
+
+#: themes/default/family.php:137
+#: themes/default/family_pdf.php:261
+msgid "Children"
+msgstr "Children"
+
+#: themes/default/family.php:160
+msgid "Source Citations"
+msgstr "Source Citations"
+
+#: themes/default/family_pdf.php:41
+#: themes/default/family_pdf.php:65
+#, c-format
+msgid "Family Group Sheet for %s"
+msgstr "Family Group Sheet for %s"
+
+#: themes/default/family_pdf.php:118
+#: themes/default/family_pdf.php:136
+#: themes/default/family_pdf.php:168
+#: themes/default/family_pdf.php:219
+#: themes/default/family_pdf.php:236
+#: themes/default/family_pdf.php:287
+#: themes/default/stats.php:86
+msgid "Sources"
+msgstr "Sources"
+
+#: themes/default/menu.php:13
+msgid "Database"
+msgstr "Database"
+
+#: themes/default/menu.php:14
+msgid "Search the Database"
+msgstr "Search the Database"
+
+#: themes/default/menu.php:14
+#: themes/default/search.php:22
+#: themes/default/search.php:25
+#: themes/default/search.php:31
+#: themes/default/search.php:38
+msgid "Search"
+msgstr "Search"
+
+#: themes/default/menu.php:15
+#: themes/default/surnames.php:44
+#: themes/default/surnames.php:48
+msgid "Surname List"
+msgstr "Surname List"
+
+#: themes/default/menu.php:16
+msgid "Database Statistics"
+msgstr "Database Statistics"
+
+#: themes/default/menu.php:16
+#: themes/default/stats.php:70
+#: themes/default/stats.php:73
+msgid "Statistics"
+msgstr "Statistics"
+
+#: administrator/login.php:47
+#: themes/default/menu.php:21
+msgid "Language"
+msgstr "Language"
+
+#: themes/default/multimedia.php:20
+#, c-format
+msgid "Multimedia for %s"
+msgstr "Multimedia for %s"
+
+#: administrator/db_edit_indiv.php:10
+#: themes/default/multimedia.php:29
+msgid "This feature has not been implemented yet."
+msgstr "This feature has not been implemented yet."
+
+#: themes/default/nav.php:16
+#: themes/default/nav.php:19
+#: themes/default/surnames.php:90
+#: themes/default/surnames.php:93
+#, c-format
+msgid "%s Surname"
+msgstr "%s Surname"
+
+#: themes/default/nav.php:24
+#: themes/default/nav.php:27
+msgid "Family"
+msgstr "Family"
+
+#: themes/default/nav.php:32
+#: themes/default/nav.php:35
+msgid "Pedigree"
+msgstr "Pedigree"
+
+#: themes/default/nav.php:40
+#: themes/default/nav.php:43
+msgid "Reports"
+msgstr "Reports"
+
+#: themes/default/nav.php:48
+#: themes/default/nav.php:51
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#: themes/default/pedigree.php:33
+#: themes/default/pedigree_pdf.php:50
+#: themes/default/pedigree_pdf.php:103
+#, c-format
+msgid "Pedigree for %s"
+msgstr "Pedigree for %s"
+
+#: themes/default/reports.php:28
+#, c-format
+msgid "Reports for %s"
+msgstr "Reports for %s"
+
+#: themes/default/reports.php:40
+msgid "Family Reports"
+msgstr "Family Reports"
+
+#: themes/default/reports.php:41
+msgid "Family PDF"
+msgstr "Family PDF"
+
+#: themes/default/reports.php:43
+msgid "Pedigree Reports"
+msgstr "Pedigree Reports"
+
+#: themes/default/reports.php:44
+msgid "Pedigree PDF"
+msgstr "Pedigree PDF"
+
+#: themes/default/reports.php:46
+msgid "Ancestor Reports"
+msgstr "Ancestor Reports"
+
+#: themes/default/reports.php:49
+#: themes/default/reports.php:63
+msgid "Report type"
+msgstr "Report type"
+
+#: themes/default/reports.php:50
+msgid "Ahnentafel"
+msgstr "Ahnentafel"
+
+#: themes/default/reports.php:50
+msgid "Ahnentafel PDF"
+msgstr "Ahnentafel PDF"
+
+#: themes/default/reports.php:51
+#: themes/default/reports.php:65
+msgid "Number of Generations"
+msgstr "Generations"
+
+#: themes/default/reports.php:56
+#: themes/default/reports.php:70
+msgid "Apply"
+msgstr "Apply"
+
+#: themes/default/reports.php:60
+msgid "Descendant Reports"
+msgstr "Descendant Reports"
+
+#: themes/default/reports.php:64
+msgid "Descendant"
+msgstr "Descendant"
+
+#: themes/default/reports.php:64
+msgid "Descendant PDF"
+msgstr "Descendant PDF"
+
+#: themes/default/search.php:43
+msgid "Results"
+msgstr "Results"
+
+#: themes/default/search.php:57
+msgid "Given Name"
+msgstr "Given Name"
+
+#: themes/default/search.php:58
+msgid "Surname"
+msgstr "Surname"
+
+#: themes/default/search.php:78
+msgid "Submit"
+msgstr "Submit"
+
+#: themes/default/search.php:79
+msgid "Reset"
+msgstr "Reset"
+
+#: themes/default/search.php:80
+msgid "Clear"
+msgstr "Clear"
+
+#: themes/default/search.php:96
+msgid "No search parameters were spedfgcified."
+msgstr "No search parameters were spedfgcified."
+
+#: themes/default/search.php:110
+#: themes/default/surnames.php:108
+msgid "Number of individuals listed"
+msgstr "Number of individuals listed"
+
+#: themes/default/search.php:113
+#: themes/default/surnames.php:109
+msgid "Name"
+msgstr "Name"
+
+#: themes/default/search.php:130
+msgid "No matching records were found."
+msgstr "No matching records were found."
+
+#: themes/default/stats.php:74
+msgid "Surnames"
+msgstr "Surnames"
+
+#: themes/default/stats.php:75
+msgid "Individuals"
+msgstr "Individuals"
+
+#: themes/default/stats.php:79
+msgid "Families"
+msgstr "Families"
+
+#: themes/default/stats.php:80
+msgid "Facts"
+msgstr "Facts"
+
+#: themes/default/stats.php:84
+msgid "Other"
+msgstr "Other"
+
+#: themes/default/stats.php:87
+msgid "Citations"
+msgstr "Citations"
+
+#: themes/default/surnames.php:71
+msgid "Number of surnames listed"
+msgstr "Number of surnames listed"
+
+#: administrator/admin.php:5
+msgid "phpGene Pro Administration"
+msgstr "phpGene Pro Administration"
+
+#: administrator/admin.php:19
+#, c-format
+msgid "Logged in as %s"
+msgstr "Logged in as %s"
+
+#: administrator/admin.php:19
+msgid "Logout"
+msgstr "Logout"
+
+#: administrator/db_edit_indiv.php:7
+msgid "Edit Individual"
+msgstr "Edit Individual"
+
+#: administrator/db_optimize.php:19
+msgid "Optimize Tables"
+msgstr "Optimize Tables"
+
+#: administrator/login.php:5
+msgid "phpGene Pro Administration Login"
+msgstr "phpGene Pro Administration Login"
+
+#: administrator/login.php:36
+msgid "User ID"
+msgstr "User ID"
+
+#: administrator/login.php:42
+msgid "Password"
+msgstr "Password"
+
+#: administrator/media_list.php:7
+msgid "Media List"
+msgstr "Media List"
+
+#: administrator/media_list.php:13
+msgid "Individual"
+msgstr "Individual"
+
+#: administrator/media_list.php:14
+msgid "Filename"
+msgstr "Filename"
+
+#: administrator/media_list.php:15
+msgid "Caption"
+msgstr "Caption"
+
+#: administrator/media_list.php:17
+msgid "Thumbnail"
+msgstr "Thumbnail"
+
+#: administrator/sys_config.php:15
+#, c-format
+msgid "Changed %s from %s to %s."
+msgstr "Changed %s from %s to %s."
+
+#: administrator/sys_config.php:24
+#, c-format
+msgid "You must edit core/config.php to change the %s setting."
+msgstr "You must edit core/config.php to change the %s setting."
+
+#: administrator/sys_config.php:41
+#: administrator/sys_config.php:80
+msgid "MySQL Hostname"
+msgstr "MySQL Hostname"
+
+#: administrator/sys_config.php:42
+#: administrator/sys_config.php:85
+msgid "MySQL Port"
+msgstr "MySQL Port"
+
+#: administrator/sys_config.php:43
+#: administrator/sys_config.php:90
+msgid "MySQL Username"
+msgstr "MySQL Username"
+
+#: administrator/sys_config.php:44
+#: administrator/sys_config.php:95
+msgid "MySQL Password"
+msgstr "MySQL Password"
+
+#: administrator/sys_config.php:45
+#: administrator/sys_config.php:100
+msgid "MySQL Database"
+msgstr "MySQL Database"
+
+#: administrator/sys_config.php:46
+msgid "Nothing to save."
+msgstr "Nothing to save."
+
+#: administrator/sys_config.php:55
+msgid "Site Configuration"
+msgstr "Site Configuration"
+
+#: administrator/sys_config.php:60
+msgid "Default Page"
+msgstr "Default Page"
+
+#: administrator/sys_config.php:70
+msgid "Database Configuration"
+msgstr "Database Configuration"
+
+#: administrator/sys_config.php:75
+msgid "The database settings are shown for reference only and can not be changed from this screen. You must edit core/config.php to change these settings."
+msgstr "The database settings are shown for reference only and can not be changed from this screen. You must edit core/config.php to change these settings."
+
+#: administrator/sys_config.php:111
+msgid "Language Configuration"
+msgstr "Language Configuration"
+
+#: administrator/sys_config.php:116
+msgid "Default Language"
+msgstr "Default Language"
+
+#: administrator/sys_config.php:133
+msgid "Allow language changes"
+msgstr "Allow language changes"
+
+#: administrator/sys_config.php:136
+#: administrator/sys_config.php:145
+msgid "Yes"
+msgstr "Yes"
+
+#: administrator/sys_config.php:137
+#: administrator/sys_config.php:146
+msgid "No"
+msgstr "No"
+
+#: administrator/sys_config.php:143
+msgid "Translate Dates"
+msgstr "Translate Dates"
+
+#: administrator/user_add.php:14
+#: administrator/user_edit.php:14
+msgid "All fields are required.  Please correct the error."
+msgstr "All fields are required.  Please correct the error."
+
+#: administrator/user_add.php:18
+msgid "The username must be between 6 and 16 characters long and contain only alphanumeric characters."
+msgstr "The username must be between 6 and 16 characters long and contain only alphanumeric characters."
+
+#: administrator/user_add.php:22
+#: administrator/user_edit.php:18
+msgid "Both password fields must be the same.  Please re-type them."
+msgstr "Both password fields must be the same.  Please re-type them."
+
+#: administrator/user_add.php:26
+msgid "The password must be between 6 and 16 characters long and contain only alphanumeric characters."
+msgstr "The password must be between 6 and 16 characters long and contain only alphanumeric characters."
+
+#: administrator/user_add.php:31
+#, c-format
+msgid "User %s already exists.  Please use a different username."
+msgstr "User %s already exists.  Please use a different username."
+
+#: administrator/user_add.php:34
+#, c-format
+msgid "User %s was successfully added."
+msgstr "User %s was successfully added."
+
+#: administrator/user_add.php:45
+#: administrator/user_edit.php:53
+msgid "Add User"
+msgstr "Add User"
+
+#: administrator/user_add.php:50
+#: administrator/user_edit.php:58
+#: administrator/user_list.php:13
+msgid "Username"
+msgstr "Username"
+
+#: administrator/user_add.php:56
+#: administrator/user_edit.php:64
+#: administrator/user_list.php:14
+msgid "Full Name"
+msgstr "Full Name"
+
+#: administrator/user_add.php:62
+#: administrator/user_edit.php:70
+msgid "Email Address"
+msgstr "Email Address"
+
+#: administrator/user_add.php:68
+#: administrator/user_edit.php:76
+msgid "New Password"
+msgstr "New Password"
+
+#: administrator/user_add.php:74
+#: administrator/user_edit.php:82
+msgid "Verify Password"
+msgstr "Verify Password"
+
+#: administrator/user_edit.php:24
+#, c-format
+msgid "User %s was successfully modified."
+msgstr "User %s was successfully modified."
+
+#: administrator/user_edit.php:28
+#, c-format
+msgid "User %s was not modified."
+msgstr "User %s was not modified."
+
+#: administrator/user_edit.php:40
+#, c-format
+msgid "User %s was deleted."
+msgstr "User %s was deleted."
+
+#: administrator/user_list.php:7
+msgid "User List"
+msgstr "User List"
+
+#: administrator/user_list.php:15
+msgid "Email"
+msgstr "Email"
+
+#: administrator/user_list.php:16
+msgid "Last Login"
+msgstr "Last Login"
+
+#: administrator/user_list.php:29
+msgid "Never"
+msgstr "Never"
+

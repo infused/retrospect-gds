@@ -1,0 +1,1811 @@
+# PHPGENE PRO SPANISH TRANSLATION
+# Copyright (C) 2003 Infused Solutions
+# Keith Morrison <keithm@infused-solutions.com>, 2003.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"POT-Creation-Date: 2003-07-14 20:17-0700\n"
+"PO-Revision-Date: 2003-12-12 23:24-0800\n"
+"Last-Translator: Keith Morrison <keithm@infused.org>\n"
+"Language-Team: Spanish <keithm@infused-solutions.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: core/f_database.php:25
+msgid "Connection failed with error"
+msgstr "La conexión falló con error"
+
+#: core/f_database.php:26
+#, fuzzy
+msgid "DB selection failed with error"
+msgstr "La conexión falló con error"
+
+#: core/f_database.php:37
+#: core/f_database.php:49
+#: core/f_database.php:62
+#: core/f_database.php:74
+msgid "Query failed with error"
+msgstr "La pregunta falló con error"
+
+#: core/f_dummy.php:25
+#: core/f_dummy.php:80
+#: themes/default/stats.php:83
+msgid "Marriage"
+msgstr "Unión"
+
+#: core/f_dummy.php:26
+#: core/f_dummy.php:49
+#: core/f_report.php:146
+#: core/f_report.php:147
+#: themes/default/stats.php:78
+msgid "Unknown"
+msgstr "Desconocido"
+
+#: core/f_dummy.php:27
+msgid "Friends"
+msgstr "Amigos"
+
+#: core/f_dummy.php:28
+msgid "Partners"
+msgstr "Socios"
+
+#: core/f_dummy.php:31
+msgid "Death of one spouse"
+msgstr "Muerte de un esposo"
+
+#: core/f_dummy.php:32
+msgid "Divorced"
+msgstr "Pedigrí"
+
+#: core/f_dummy.php:33
+msgid "Annulment"
+msgstr "Anulación"
+
+#: core/f_dummy.php:36
+msgid "Divorce Filed"
+msgstr "Divorcio Presentado"
+
+#: core/f_dummy.php:37
+msgid "Engagement"
+msgstr "Contrato"
+
+#: core/f_dummy.php:38
+msgid "Husband"
+msgstr "Esposo"
+
+# core/f_language.php:64
+# core/f_dummy.php:5 core/f_dummy.php:13
+#: core/f_dummy.php:39
+#, fuzzy
+msgid "Marriage Bann"
+msgstr "Hecho De la Unión"
+
+# core/f_language.php:64
+# core/f_dummy.php:5 core/f_dummy.php:13
+#: core/f_dummy.php:40
+#, fuzzy
+msgid "Marriage Contract"
+msgstr "Hecho De la Unión"
+
+#: core/f_dummy.php:41
+msgid "Marriage Fact"
+msgstr "Hecho De la Unión"
+
+#: core/f_dummy.php:42
+msgid "Marriage License"
+msgstr "Licencia De la Unión"
+
+# core/f_language.php:64
+# core/f_dummy.php:5 core/f_dummy.php:13
+#: core/f_dummy.php:43
+#, fuzzy
+msgid "Marriage Settlement"
+msgstr "Licencia De la Unión"
+
+#: core/f_dummy.php:44
+msgid "Wife"
+msgstr "Esposa"
+
+#: core/f_dummy.php:47
+#: themes/default/stats.php:76
+msgid "Male"
+msgstr "Masculino"
+
+#: core/f_dummy.php:48
+#: themes/default/stats.php:77
+msgid "Female"
+msgstr "Femenino"
+
+#: core/f_dummy.php:52
+msgid "Adoption"
+msgstr "Adopción"
+
+#: core/f_dummy.php:53
+msgid "Adult Christening"
+msgstr "Bautizo Adulto"
+
+#: core/f_dummy.php:54
+msgid "Baptism"
+msgstr "Bautizo"
+
+# core/f_dummy.php:14
+#: core/f_dummy.php:55
+msgid "BaptismLDS"
+msgstr "Bautizo LDS"
+
+#: core/f_dummy.php:56
+msgid "Bar Mitzah"
+msgstr "Bar Mitzah"
+
+#: core/f_dummy.php:57
+msgid "Bas Mitzah"
+msgstr "Bas Mitzah"
+
+#: core/f_dummy.php:58
+#: themes/default/family.php:79
+#: themes/default/family_pdf.php:111
+#: themes/default/pedigree_pdf.php:77
+#: themes/default/search.php:114
+#: themes/default/stats.php:81
+#: themes/default/surnames.php:110
+msgid "Birth"
+msgstr "Nacimiento"
+
+#: core/f_dummy.php:59
+msgid "Blessing"
+msgstr "Bendición"
+
+#: core/f_dummy.php:60
+msgid "Burial"
+msgstr "Entierro"
+
+#: core/f_dummy.php:61
+msgid "Caste"
+msgstr ""
+
+#: core/f_dummy.php:62
+msgid "Census"
+msgstr "Censo"
+
+#: core/f_dummy.php:63
+msgid "Christening"
+msgstr "Bautismo"
+
+#: core/f_dummy.php:64
+msgid "Confirmation"
+msgstr "Confirmación"
+
+#: core/f_dummy.php:65
+msgid "Cremation"
+msgstr "Cremación"
+
+#: core/f_dummy.php:66
+#: themes/default/family.php:82
+#: themes/default/family_pdf.php:129
+#: themes/default/pedigree_pdf.php:78
+#: themes/default/search.php:115
+#: themes/default/stats.php:82
+#: themes/default/surnames.php:111
+msgid "Death"
+msgstr "Fallecimiento"
+
+#: core/f_dummy.php:67
+msgid "Degree"
+msgstr "Título"
+
+#: administrator/media_list.php:16
+#: core/f_dummy.php:68
+msgid "Description"
+msgstr "Descripción"
+
+#: core/f_dummy.php:69
+msgid "Education"
+msgstr "Educación"
+
+#: core/f_dummy.php:70
+msgid "Election"
+msgstr "Elección"
+
+#: core/f_dummy.php:71
+msgid "Emigration"
+msgstr "Emigración"
+
+#: core/f_dummy.php:72
+msgid "Event"
+msgstr "Evento"
+
+#: core/f_dummy.php:73
+msgid "First Communion"
+msgstr "Primer Communion"
+
+#: core/f_dummy.php:74
+msgid "Funeral"
+msgstr "Funerales"
+
+#: core/f_dummy.php:75
+msgid "Graduation"
+msgstr "Graduación"
+
+#: core/f_dummy.php:76
+msgid "ID Number"
+msgstr "Número de la Identificación"
+
+#: core/f_dummy.php:77
+msgid "Immigration"
+msgstr "Immigración"
+
+#: core/f_dummy.php:78
+msgid "Land"
+msgstr "Tierra"
+
+#: core/f_dummy.php:79
+msgid "Last Known Addr"
+msgstr "Último Domicilio"
+
+#: core/f_dummy.php:81
+msgid "Military"
+msgstr "Militar"
+
+#: core/f_dummy.php:82
+msgid "Military Award"
+msgstr "Los Militares Conceden"
+
+#: core/f_dummy.php:83
+msgid "Military Discharge"
+msgstr "Descargan Militar"
+
+#: core/f_dummy.php:84
+msgid "Military Enlist"
+msgstr "Alistamiento Militar"
+
+#: core/f_dummy.php:85
+msgid "Military Service"
+msgstr "Servicio Militar"
+
+#: core/f_dummy.php:86
+msgid "Nationality"
+msgstr "Nacionalidad"
+
+#: core/f_dummy.php:87
+msgid "Naturalization"
+msgstr "Naturalización"
+
+# family.php:251
+# family.php:251
+# family.php:251
+# family.php:251
+# family.php:251
+#: core/f_dummy.php:88
+msgid "Number of Children"
+msgstr "Número de Hijos"
+
+# ancestors.php:54
+# ancestors.php:54
+# ancestors.php:54
+# ancestors.php:54
+# ancestors.php:60
+# ancestors.php:60
+# ancestors.php:60
+# ancestors.php:60
+# ancestors.php:60
+#: core/f_dummy.php:89
+msgid "Number of Marriages"
+msgstr "Número de Uniones"
+
+#: core/f_dummy.php:90
+msgid "Occupation"
+msgstr "Ocupación"
+
+#: core/f_dummy.php:91
+msgid "Ordinance"
+msgstr "Oredenanza"
+
+#: core/f_dummy.php:92
+msgid "Possessions"
+msgstr "Posesiones"
+
+#: core/f_dummy.php:93
+msgid "Probate"
+msgstr "Legalizar"
+
+#: core/f_dummy.php:94
+msgid "Religion"
+msgstr "Religión"
+
+#: core/f_dummy.php:95
+msgid "Researcher"
+msgstr "Investigador"
+
+#: core/f_dummy.php:96
+msgid "Residence"
+msgstr "Residencia"
+
+#: core/f_dummy.php:97
+msgid "Retirement"
+msgstr "Jubilación"
+
+#: core/f_dummy.php:98
+msgid "Social Security Number"
+msgstr "Número De la Seguridad Social"
+
+#: core/f_dummy.php:99
+msgid "SSN"
+msgstr "Número De la Seguridad Social"
+
+#: core/f_dummy.php:100
+msgid "Title"
+msgstr "Título"
+
+#: core/f_dummy.php:101
+msgid "Will"
+msgstr "Testamento"
+
+#: core/f_dummy.php:104
+msgid "ALL"
+msgstr "TODOS"
+
+# ancestors.php:88 gen_menu.php:12
+# ancestors.php:88 gen_menu.php:12
+# ancestors.php:88 gen_menu.php:12
+# ancestors.php:88 gen_menu.php:12
+# ancestors.php:88 gen_menu.php:12
+#: administrator/login.php:49
+#: core/f_dummy.php:107
+#: themes/default/menu.php:28
+msgid "English"
+msgstr "Inglés"
+
+# ancestors.php:89 gen_menu.php:13
+# ancestors.php:89 gen_menu.php:13
+# ancestors.php:89 gen_menu.php:13
+# ancestors.php:89 gen_menu.php:13
+# ancestors.php:89 gen_menu.php:13
+#: administrator/login.php:50
+#: core/f_dummy.php:108
+#: themes/default/menu.php:33
+msgid "Spanish"
+msgstr "Español"
+
+#: core/f_language.php:62
+msgid "Jan"
+msgstr ""
+
+#: core/f_language.php:63
+msgid "Feb"
+msgstr ""
+
+#: core/f_language.php:64
+msgid "Mar"
+msgstr ""
+
+#: core/f_language.php:65
+msgid "Apr"
+msgstr ""
+
+#: core/f_language.php:66
+msgid "May"
+msgstr ""
+
+#: core/f_language.php:67
+msgid "Jun"
+msgstr ""
+
+#: core/f_language.php:68
+msgid "Jul"
+msgstr ""
+
+#: core/f_language.php:69
+msgid "Aug"
+msgstr ""
+
+#: core/f_language.php:70
+msgid "Sep"
+msgstr ""
+
+#: core/f_language.php:71
+msgid "Oct"
+msgstr ""
+
+#: core/f_language.php:72
+#, fuzzy
+msgid "Nov"
+msgstr "No"
+
+#: core/f_language.php:73
+msgid "Dec"
+msgstr ""
+
+#: core/f_language.php:76
+msgid "abv About"
+msgstr "Cerca"
+
+#: core/f_language.php:77
+#, fuzzy
+msgid "abv Circa"
+msgstr "Mar"
+
+#: core/f_language.php:78
+#, fuzzy
+msgid "abv After"
+msgstr "Oct"
+
+#: core/f_language.php:79
+msgid "abv Before"
+msgstr ""
+
+#: core/f_language.php:80
+#, fuzzy
+msgid "abv Between"
+msgstr "Sep"
+
+#: core/f_language.php:81
+msgid "abv Calculated"
+msgstr ""
+
+# core/f_report.php:14
+# core/f_report.php:14
+# core/f_report.php:14
+# core/f_report.php:14
+# core/f_report.php:14
+# core/f_report.php:14
+# core/f_report.php:14
+# core/f_report.php:14
+# core/f_report.php:14
+# core/f_report.php:14
+# core/f_report.php:14
+#: core/f_report.php:24
+#, c-format
+msgid "He was born on %s in %s."
+msgstr "Él nació en %s en %s."
+
+# core/f_report.php:17
+# core/f_report.php:17
+# core/f_report.php:17
+# core/f_report.php:17
+# core/f_report.php:17
+# core/f_report.php:17
+# core/f_report.php:17
+# core/f_report.php:17
+# core/f_report.php:17
+# core/f_report.php:17
+# core/f_report.php:17
+#: core/f_report.php:27
+#, c-format
+msgid "He was born on %s."
+msgstr "Él nació en %s."
+
+# core/f_report.php:20
+# core/f_report.php:20
+# core/f_report.php:20
+# core/f_report.php:20
+# core/f_report.php:20
+# core/f_report.php:20
+# core/f_report.php:20
+# core/f_report.php:20
+# core/f_report.php:20
+# core/f_report.php:20
+# core/f_report.php:20
+#: core/f_report.php:30
+#, c-format
+msgid "He was born in %s."
+msgstr "Él nació en %s."
+
+# core/f_report.php:26
+# core/f_report.php:26
+# core/f_report.php:26
+# core/f_report.php:26
+# core/f_report.php:26
+# core/f_report.php:26
+# core/f_report.php:26
+# core/f_report.php:26
+# core/f_report.php:26
+# core/f_report.php:26
+# core/f_report.php:26
+#: core/f_report.php:36
+#, c-format
+msgid "She was born on %s in %s."
+msgstr "Ella nació en %s en %s. "
+
+# core/f_report.php:29
+# core/f_report.php:29
+# core/f_report.php:29
+# core/f_report.php:29
+# core/f_report.php:29
+# core/f_report.php:29
+# core/f_report.php:29
+# core/f_report.php:29
+# core/f_report.php:29
+# core/f_report.php:29
+# core/f_report.php:29
+#: core/f_report.php:39
+#, c-format
+msgid "She was born on %s."
+msgstr "Ella nació en %s. "
+
+# core/f_report.php:32
+# core/f_report.php:32
+# core/f_report.php:32
+# core/f_report.php:32
+# core/f_report.php:32
+# core/f_report.php:32
+# core/f_report.php:32
+# core/f_report.php:32
+# core/f_report.php:32
+# core/f_report.php:32
+# core/f_report.php:32
+#: core/f_report.php:42
+#, c-format
+msgid "She was born in %s."
+msgstr "Ella nació en %s. "
+
+# core/f_report.php:41
+# core/f_report.php:41
+# core/f_report.php:41
+# core/f_report.php:41
+# core/f_report.php:41
+# core/f_report.php:41
+# core/f_report.php:41
+# core/f_report.php:41
+# core/f_report.php:41
+# core/f_report.php:41
+# core/f_report.php:41
+#: core/f_report.php:61
+#, c-format
+msgid "He died on %s in %s."
+msgstr "Él murió el %s en %s."
+
+# core/f_report.php:44
+# core/f_report.php:44
+# core/f_report.php:44
+# core/f_report.php:44
+# core/f_report.php:44
+# core/f_report.php:44
+# core/f_report.php:44
+# core/f_report.php:44
+# core/f_report.php:44
+# core/f_report.php:44
+# core/f_report.php:44
+#: core/f_report.php:64
+#, c-format
+msgid "He died on %s."
+msgstr "Él murió el %s."
+
+# core/f_report.php:47
+# core/f_report.php:47
+# core/f_report.php:47
+# core/f_report.php:47
+# core/f_report.php:47
+# core/f_report.php:47
+# core/f_report.php:47
+# core/f_report.php:47
+# core/f_report.php:47
+# core/f_report.php:47
+# core/f_report.php:47
+#: core/f_report.php:67
+#, c-format
+msgid "He died in %s."
+msgstr "Él murió en %s."
+
+# core/f_report.php:53
+# core/f_report.php:53
+# core/f_report.php:53
+# core/f_report.php:53
+# core/f_report.php:53
+# core/f_report.php:53
+# core/f_report.php:53
+# core/f_report.php:53
+# core/f_report.php:53
+# core/f_report.php:53
+# core/f_report.php:53
+#: core/f_report.php:73
+#, c-format
+msgid "She died on %s in %s."
+msgstr "Ella murió el %s en %s."
+
+# core/f_report.php:56
+# core/f_report.php:56
+# core/f_report.php:56
+# core/f_report.php:56
+# core/f_report.php:56
+# core/f_report.php:56
+# core/f_report.php:56
+# core/f_report.php:56
+# core/f_report.php:56
+# core/f_report.php:56
+# core/f_report.php:56
+#: core/f_report.php:76
+#, c-format
+msgid "She died on %s."
+msgstr "Ella murió el %s."
+
+# core/f_report.php:59
+# core/f_report.php:59
+# core/f_report.php:59
+# core/f_report.php:59
+# core/f_report.php:59
+# core/f_report.php:59
+# core/f_report.php:59
+# core/f_report.php:59
+# core/f_report.php:59
+# core/f_report.php:59
+# core/f_report.php:59
+#: core/f_report.php:79
+#, c-format
+msgid "She died in %s."
+msgstr "Ella murió en %s."
+
+# core/f_report.php:69
+# core/f_report.php:69
+# core/f_report.php:69
+# core/f_report.php:69
+# core/f_report.php:69
+# core/f_report.php:69
+# core/f_report.php:69
+# core/f_report.php:69
+# core/f_report.php:69
+# core/f_report.php:69
+# core/f_report.php:69
+#: core/f_report.php:103
+#, fuzzy, c-format
+msgid ", son of %s and %s."
+msgstr ", hijo de %s y de %s."
+
+# core/f_report.php:73 core/f_report.php:77
+# core/f_report.php:73 core/f_report.php:77
+# core/f_report.php:73 core/f_report.php:77
+# core/f_report.php:73 core/f_report.php:77
+# core/f_report.php:73 core/f_report.php:77
+# core/f_report.php:73 core/f_report.php:77
+# core/f_report.php:73 core/f_report.php:77
+# core/f_report.php:73 core/f_report.php:77
+# core/f_report.php:73 core/f_report.php:77
+# core/f_report.php:73 core/f_report.php:77
+# core/f_report.php:73 core/f_report.php:77
+#: core/f_report.php:107
+#: core/f_report.php:111
+#, fuzzy, c-format
+msgid ", son of %s."
+msgstr ", hijo de %s."
+
+# core/f_report.php:83
+# core/f_report.php:83
+# core/f_report.php:83
+# core/f_report.php:83
+# core/f_report.php:83
+# core/f_report.php:83
+# core/f_report.php:83
+# core/f_report.php:83
+# core/f_report.php:83
+# core/f_report.php:83
+# core/f_report.php:83
+#: core/f_report.php:117
+#, fuzzy, c-format
+msgid ", daughter of %s and %s."
+msgstr ", hija de %s y de %s."
+
+# core/f_report.php:87 core/f_report.php:91
+# core/f_report.php:87 core/f_report.php:91
+# core/f_report.php:87 core/f_report.php:91
+# core/f_report.php:87 core/f_report.php:91
+# core/f_report.php:87 core/f_report.php:91
+# core/f_report.php:87 core/f_report.php:91
+# core/f_report.php:87 core/f_report.php:91
+# core/f_report.php:87 core/f_report.php:91
+# core/f_report.php:87 core/f_report.php:91
+# core/f_report.php:87 core/f_report.php:91
+# core/f_report.php:87 core/f_report.php:91
+#: core/f_report.php:121
+#: core/f_report.php:125
+#, fuzzy, c-format
+msgid ", daughter of %s."
+msgstr ", hija de %s."
+
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:150
+# ancestors.php:150
+# ancestors.php:150
+# ancestors.php:150
+# ancestors.php:150
+#: core/f_report.php:153
+#, c-format
+msgid "male %s married %s on %s in %s."
+msgstr "%s casó a %s el %s en %s."
+
+# ancestors.php:125
+# ancestors.php:125
+# ancestors.php:125
+# ancestors.php:125
+# ancestors.php:125
+# ancestors.php:125
+# ancestors.php:154
+# ancestors.php:154
+# ancestors.php:154
+# ancestors.php:154
+# ancestors.php:154
+#: core/f_report.php:157
+#, c-format
+msgid "male %s married %s on %s."
+msgstr "%s casó a %s el %s."
+
+# ancestors.php:129
+# ancestors.php:129
+# ancestors.php:129
+# ancestors.php:129
+# ancestors.php:129
+# ancestors.php:129
+# ancestors.php:158
+# ancestors.php:158
+# ancestors.php:158
+# ancestors.php:158
+# ancestors.php:158
+#: core/f_report.php:161
+#, c-format
+msgid "male %s married %s in %s."
+msgstr "%s casó a %s en %s."
+
+# ancestors.php:133
+# ancestors.php:133
+# ancestors.php:133
+# ancestors.php:133
+# ancestors.php:133
+# ancestors.php:133
+# ancestors.php:162
+# ancestors.php:162
+# ancestors.php:162
+# ancestors.php:162
+# ancestors.php:162
+#: core/f_report.php:165
+#, c-format
+msgid "male %s married %s."
+msgstr "%s casó a %s."
+
+#: core/f_report.php:169
+#: core/f_report.php:191
+#: core/f_report.php:215
+#, c-format
+msgid "This marriage ended in %s."
+msgstr "Esta unión terminó en %s."
+
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:172
+# ancestors.php:172
+# ancestors.php:172
+# ancestors.php:172
+# ancestors.php:172
+#: core/f_report.php:175
+#, c-format
+msgid "female %s married %s on %s in %s."
+msgstr "%s casó a %s el %s en %s."
+
+# ancestors.php:147
+# ancestors.php:147
+# ancestors.php:147
+# ancestors.php:147
+# ancestors.php:147
+# ancestors.php:147
+# ancestors.php:176
+# ancestors.php:176
+# ancestors.php:176
+# ancestors.php:176
+# ancestors.php:176
+#: core/f_report.php:179
+#, c-format
+msgid "female %s married %s on %s."
+msgstr "%s casó a %s el %s."
+
+# ancestors.php:151
+# ancestors.php:151
+# ancestors.php:151
+# ancestors.php:151
+# ancestors.php:151
+# ancestors.php:151
+# ancestors.php:180
+# ancestors.php:180
+# ancestors.php:180
+# ancestors.php:180
+# ancestors.php:180
+#: core/f_report.php:183
+#, c-format
+msgid "female %s married %s in %s."
+msgstr "%s casó a %s en %s."
+
+# ancestors.php:155
+# ancestors.php:155
+# ancestors.php:155
+# ancestors.php:155
+# ancestors.php:155
+# ancestors.php:155
+# ancestors.php:184
+# ancestors.php:184
+# ancestors.php:184
+# ancestors.php:184
+# ancestors.php:184
+#: core/f_report.php:187
+#, c-format
+msgid "female %s married %s."
+msgstr "%s casó a %s."
+
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:150
+# ancestors.php:150
+# ancestors.php:150
+# ancestors.php:150
+# ancestors.php:150
+#: core/f_report.php:199
+#, fuzzy, c-format
+msgid "male %s had a relationship with %s on %s in %s."
+msgstr "%s casó a %s el %s en %s."
+
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:150
+# ancestors.php:150
+# ancestors.php:150
+# ancestors.php:150
+# ancestors.php:150
+#: core/f_report.php:203
+#, fuzzy, c-format
+msgid "male %s had a relationship with %s on %s."
+msgstr "%s tenía una relación con Maria."
+
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:150
+# ancestors.php:150
+# ancestors.php:150
+# ancestors.php:150
+# ancestors.php:150
+#: core/f_report.php:207
+#, fuzzy, c-format
+msgid "male %s had a relationship with %s in %s."
+msgstr "%s casó a %s el %s en %s."
+
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:121
+# ancestors.php:150
+# ancestors.php:150
+# ancestors.php:150
+# ancestors.php:150
+# ancestors.php:150
+#: core/f_report.php:211
+#, c-format
+msgid "male %s had a relationship with %s."
+msgstr "%s tenía una relación con %s."
+
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:172
+# ancestors.php:172
+# ancestors.php:172
+# ancestors.php:172
+# ancestors.php:172
+#: core/f_report.php:221
+#, fuzzy, c-format
+msgid "female %s had a relationship with %s on %s in %s."
+msgstr "%s casó a %s el %s en %s."
+
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:172
+# ancestors.php:172
+# ancestors.php:172
+# ancestors.php:172
+# ancestors.php:172
+#: core/f_report.php:225
+#, fuzzy, c-format
+msgid "female %s had a relationship with %s on %s."
+msgstr "%s casó a %s el %s en %s."
+
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:172
+# ancestors.php:172
+# ancestors.php:172
+# ancestors.php:172
+# ancestors.php:172
+#: core/f_report.php:229
+#, fuzzy, c-format
+msgid "female %s had a relationship with %s in %s."
+msgstr "%s casó a %s el %s en %s."
+
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:143
+# ancestors.php:172
+# ancestors.php:172
+# ancestors.php:172
+# ancestors.php:172
+# ancestors.php:172
+#: core/f_report.php:233
+#, c-format
+msgid "female %s had a relationship with %s."
+msgstr "%s tenía una relación con %s."
+
+#: core/f_report.php:237
+#, c-format
+msgid "This relationship ended in %s."
+msgstr "Esta relación terminó en %s."
+
+# family.php:251
+# family.php:251
+# family.php:251
+# family.php:251
+# family.php:251
+#: core/f_report.php:255
+#, c-format
+msgid "Children of %s and %s"
+msgstr "Hijos de %s y de %s"
+
+# family.php:251
+# family.php:251
+# family.php:251
+# family.php:251
+# family.php:251
+#: core/f_report.php:258
+#, c-format
+msgid "Children of %s"
+msgstr "Hijos de %s y de %s"
+
+#: themes/default/ahnentafel.php:42
+#: themes/default/ahnentafel_pdf.php:47
+#: themes/default/ahnentafel_pdf.php:74
+#, c-format
+msgid "Ahnentafel Report for %s"
+msgstr "Informe de Ahnentafel para %s"
+
+#: themes/default/ahnentafel.php:51
+#: themes/default/reports.php:37
+msgid "Ahnentafel Report"
+msgstr "Informe De Ahnentafel"
+
+# ancestors.php:54
+# ancestors.php:83
+# ancestors.php:83
+# ancestors.php:83
+# ancestors.php:112
+# ancestors.php:112
+# ancestors.php:112
+# ancestors.php:112
+# ancestors.php:112
+#: themes/default/ahnentafel.php:73
+#: themes/default/ahnentafel_pdf.php:94
+#: themes/default/descendant.php:40
+#: themes/default/descendant_pdf.php:78
+#, c-format
+msgid "Generation %s"
+msgstr "Generacion %s"
+
+#: themes/default/ahnentafel_pdf.php:60
+#: themes/default/descendant_pdf.php:55
+#: themes/default/family_pdf.php:51
+#: themes/default/pedigree_pdf.php:60
+#, c-format
+msgid "Send questions or comments to %s"
+msgstr "Envíe las preguntas o los comentarios a %s"
+
+#: themes/default/ahnentafel_pdf.php:75
+#: themes/default/descendant_pdf.php:163
+#: themes/default/family_pdf.php:66
+#: themes/default/pedigree_pdf.php:104
+msgid "Genealogy"
+msgstr "Genealogía"
+
+#: themes/default/descendant.php:83
+#: themes/default/family.php:112
+#: themes/default/family.php:149
+#: themes/default/family_pdf.php:209
+#: themes/default/pedigree.php:57
+msgid "b."
+msgstr ""
+
+#: themes/default/descendant.php:86
+#: themes/default/family.php:113
+#: themes/default/family.php:150
+#: themes/default/family_pdf.php:210
+#: themes/default/pedigree.php:58
+msgid "d."
+msgstr ""
+
+#: themes/default/descendant.php:103
+#: themes/default/descendant_pdf.php:45
+#: themes/default/descendant_pdf.php:162
+#, c-format
+msgid "Descendant Report for %s"
+msgstr "Informe del descendiente para %s"
+
+#: themes/default/descendant.php:112
+msgid "Descendant Report"
+msgstr "Informe Del Descendiente"
+
+#: themes/default/email.php:16
+#: themes/default/email.php:52
+msgid "E-mail this to a friend"
+msgstr "E-mail esto a un amigo"
+
+#: themes/default/email.php:59
+msgid "Your friend's e-mail"
+msgstr "E-mail de su amigo"
+
+# family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+#: themes/default/email.php:63
+msgid "Your name"
+msgstr "Su nombre"
+
+#: themes/default/email.php:67
+msgid "Your e-mail"
+msgstr "Su e-mail"
+
+#: themes/default/email.php:87
+msgid "Your message has been sent. "
+msgstr "Se ha enviado su mensaje."
+
+#: themes/default/family.php:23
+#, c-format
+msgid "Family Page for %s"
+msgstr "Página de la familia para %s."
+
+#: themes/default/family.php:68
+msgid "Family Page"
+msgstr "Página De la Familia"
+
+#: themes/default/family.php:70
+#: themes/default/family_pdf.php:103
+msgid "Gender"
+msgstr "Sexo"
+
+# family.php:101
+# family.php:101
+# family.php:101
+# family.php:101
+# family.php:101
+# family.php:101 family.php:217
+# family.php:94 family.php:210
+# family.php:94 family.php:210
+# family.php:94 family.php:210
+# family.php:94 family.php:210
+# family.php:94 family.php:210
+#: themes/default/family.php:73
+#: themes/default/family_pdf.php:147
+msgid "Father"
+msgstr "Padre"
+
+# family.php:105
+# family.php:105
+# family.php:105
+# family.php:105
+# family.php:105
+# family.php:105 family.php:221
+# family.php:98 family.php:214
+# family.php:98 family.php:214
+# family.php:98 family.php:214
+# family.php:98 family.php:214
+# family.php:98 family.php:214
+#: themes/default/family.php:76
+#: themes/default/family_pdf.php:153
+msgid "Mother"
+msgstr "Madre"
+
+# family.php:130
+# family.php:130
+# family.php:130
+# family.php:130
+# family.php:130
+# family.php:130 family.php:173 family.php:245
+# family.php:123 family.php:166 family.php:238
+# family.php:123 family.php:166 family.php:238
+# family.php:123 family.php:166 family.php:238
+# family.php:123 family.php:166 family.php:238
+# family.php:123 family.php:166 family.php:238
+#: themes/default/family.php:95
+#: themes/default/family.php:130
+#: themes/default/family_pdf.php:181
+#: themes/default/family_pdf.php:249
+#: themes/default/stats.php:85
+msgid "Notes"
+msgstr "Notas"
+
+#: themes/default/family.php:106
+#: themes/default/family_pdf.php:202
+#, c-format
+msgid "Family %s"
+msgstr "Familia %s"
+
+# core/f_dummy.php:8
+#: themes/default/family.php:107
+#: themes/default/family_pdf.php:206
+msgid "Spouse/Partner"
+msgstr "Esposo/Socio"
+
+# family.php:251
+# family.php:251
+# family.php:251
+# family.php:251
+# family.php:251
+#: themes/default/family.php:137
+#: themes/default/family_pdf.php:261
+msgid "Children"
+msgstr "Hijos"
+
+#: themes/default/family.php:160
+msgid "Source Citations"
+msgstr "Citaciones De la Fuente"
+
+#: themes/default/family_pdf.php:41
+#: themes/default/family_pdf.php:65
+#, c-format
+msgid "Family Group Sheet for %s"
+msgstr "Página de la familia para %s"
+
+#: themes/default/family_pdf.php:118
+#: themes/default/family_pdf.php:136
+#: themes/default/family_pdf.php:168
+#: themes/default/family_pdf.php:219
+#: themes/default/family_pdf.php:236
+#: themes/default/family_pdf.php:287
+#: themes/default/stats.php:86
+msgid "Sources"
+msgstr "Fuentes"
+
+# gen_menu.php:38
+# gen_menu.php:38
+# gen_menu.php:38
+# gen_menu.php:38
+# gen_menu.php:38
+#: themes/default/menu.php:13
+msgid "Database"
+msgstr "Base de datos"
+
+#: themes/default/menu.php:14
+msgid "Search the Database"
+msgstr "Busque la base de datos"
+
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# gen_menu.php:42
+# gen_menu.php:42
+# gen_menu.php:42
+# gen_menu.php:42
+# gen_menu.php:42
+#: themes/default/menu.php:14
+#: themes/default/search.php:22
+#: themes/default/search.php:25
+#: themes/default/search.php:31
+#: themes/default/search.php:38
+msgid "Search"
+msgstr "Buscar"
+
+# family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+#: themes/default/menu.php:15
+#: themes/default/surnames.php:44
+#: themes/default/surnames.php:48
+msgid "Surname List"
+msgstr "Lista Del Apellido"
+
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# gen_menu.php:31
+# gen_menu.php:31
+# gen_menu.php:31
+# gen_menu.php:31
+# gen_menu.php:31
+#: themes/default/menu.php:16
+msgid "Database Statistics"
+msgstr "Estadística de la Base de datos"
+
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# gen_menu.php:31
+# gen_menu.php:31
+# gen_menu.php:31
+# gen_menu.php:31
+# gen_menu.php:31
+#: themes/default/menu.php:16
+#: themes/default/stats.php:70
+#: themes/default/stats.php:73
+msgid "Statistics"
+msgstr "Estadística"
+
+# gen_menu.php:6
+# gen_menu.php:6
+# gen_menu.php:6
+# gen_menu.php:6
+# gen_menu.php:6
+#: administrator/login.php:47
+#: themes/default/menu.php:21
+msgid "Language"
+msgstr "Lengua"
+
+#: themes/default/multimedia.php:20
+#, c-format
+msgid "Multimedia for %s"
+msgstr "Multimedia para %s"
+
+#: administrator/db_edit_indiv.php:10
+#: themes/default/multimedia.php:29
+msgid "This feature has not been implemented yet."
+msgstr ""
+
+# family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+#: themes/default/nav.php:16
+#: themes/default/nav.php:19
+#: themes/default/surnames.php:90
+#: themes/default/surnames.php:93
+#, c-format
+msgid "%s Surname"
+msgstr "Apellido %s"
+
+#: themes/default/nav.php:24
+#: themes/default/nav.php:27
+msgid "Family"
+msgstr "Familia"
+
+#: themes/default/nav.php:32
+#: themes/default/nav.php:35
+msgid "Pedigree"
+msgstr "Pedigrí"
+
+#: themes/default/nav.php:40
+#: themes/default/nav.php:43
+msgid "Reports"
+msgstr "Informes"
+
+#: themes/default/nav.php:48
+#: themes/default/nav.php:51
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#: themes/default/pedigree.php:33
+#: themes/default/pedigree_pdf.php:50
+#: themes/default/pedigree_pdf.php:103
+#, c-format
+msgid "Pedigree for %s"
+msgstr "Pedigrí para %s"
+
+#: themes/default/reports.php:28
+#, c-format
+msgid "Reports for %s"
+msgstr "Informes para %s"
+
+#: themes/default/reports.php:40
+msgid "Family Reports"
+msgstr "Informes de la Familia"
+
+#: themes/default/reports.php:41
+msgid "Family PDF"
+msgstr "Familia PDF"
+
+#: themes/default/reports.php:43
+msgid "Pedigree Reports"
+msgstr "Informes Pedigríes"
+
+#: themes/default/reports.php:44
+msgid "Pedigree PDF"
+msgstr "Pedigrí PDF"
+
+#: themes/default/reports.php:46
+msgid "Ancestor Reports"
+msgstr "Informes del Antepasado"
+
+#: themes/default/reports.php:49
+#: themes/default/reports.php:63
+msgid "Report type"
+msgstr "Divulgue el tipo"
+
+#: themes/default/reports.php:50
+msgid "Ahnentafel"
+msgstr "Ahnentafel"
+
+#: themes/default/reports.php:50
+msgid "Ahnentafel PDF"
+msgstr "Ahnentafel PDF"
+
+# ancestors.php:54
+# ancestors.php:54
+# ancestors.php:54
+# ancestors.php:54
+# ancestors.php:60
+# ancestors.php:60
+# ancestors.php:60
+# ancestors.php:60
+# ancestors.php:60
+#: themes/default/reports.php:51
+#: themes/default/reports.php:65
+msgid "Number of Generations"
+msgstr "Generaciones"
+
+#: themes/default/reports.php:56
+#: themes/default/reports.php:70
+msgid "Apply"
+msgstr "Apliqúese"
+
+#: themes/default/reports.php:60
+msgid "Descendant Reports"
+msgstr "Informes Del Descendiente"
+
+#: themes/default/reports.php:64
+msgid "Descendant"
+msgstr "Descendiente"
+
+#: themes/default/reports.php:64
+msgid "Descendant PDF"
+msgstr "Descendiente PDF"
+
+#: themes/default/search.php:43
+#, fuzzy
+msgid "Results"
+msgstr "Censo"
+
+#: themes/default/search.php:57
+msgid "Given Name"
+msgstr ""
+
+# family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+#: themes/default/search.php:58
+#, fuzzy
+msgid "Surname"
+msgstr "Apellido %s"
+
+#: themes/default/search.php:78
+msgid "Submit"
+msgstr ""
+
+#: themes/default/search.php:79
+msgid "Reset"
+msgstr ""
+
+#: themes/default/search.php:80
+msgid "Clear"
+msgstr ""
+
+#: themes/default/search.php:96
+msgid "No search parameters were spedfgcified."
+msgstr ""
+
+#: themes/default/search.php:110
+#: themes/default/surnames.php:108
+msgid "Number of individuals listed"
+msgstr "Número de los individuos enumerados"
+
+#: themes/default/search.php:113
+#: themes/default/surnames.php:109
+msgid "Name"
+msgstr "Nombre"
+
+#: themes/default/search.php:130
+msgid "No matching records were found."
+msgstr ""
+
+# family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+#: themes/default/stats.php:74
+#, fuzzy
+msgid "Surnames"
+msgstr "Apellido %s"
+
+#: themes/default/stats.php:75
+msgid "Individuals"
+msgstr ""
+
+#: themes/default/stats.php:79
+#, fuzzy
+msgid "Families"
+msgstr "Familia"
+
+#: themes/default/stats.php:80
+msgid "Facts"
+msgstr ""
+
+# family.php:101
+# family.php:101
+# family.php:101
+# family.php:101
+# family.php:101
+# family.php:101 family.php:217
+# family.php:94 family.php:210
+# family.php:94 family.php:210
+# family.php:94 family.php:210
+# family.php:94 family.php:210
+# family.php:94 family.php:210
+#: themes/default/stats.php:84
+#, fuzzy
+msgid "Other"
+msgstr "Padre"
+
+#: themes/default/stats.php:87
+#, fuzzy
+msgid "Citations"
+msgstr "Citaciones De la Fuente"
+
+# ancestors.php:54
+# ancestors.php:54
+# ancestors.php:54
+# ancestors.php:54
+# ancestors.php:60
+# ancestors.php:60
+# ancestors.php:60
+# ancestors.php:60
+# ancestors.php:60
+#: themes/default/surnames.php:71
+msgid "Number of surnames listed"
+msgstr "El número de apellidos enumeró"
+
+#: administrator/admin.php:5
+msgid "phpGene Pro Administration"
+msgstr ""
+
+#: administrator/admin.php:19
+#, c-format
+msgid "Logged in as %s"
+msgstr ""
+
+#: administrator/admin.php:19
+msgid "Logout"
+msgstr ""
+
+#: administrator/db_edit_indiv.php:7
+msgid "Edit Individual"
+msgstr ""
+
+#: administrator/db_optimize.php:19
+msgid "Optimize Tables"
+msgstr ""
+
+#: administrator/login.php:5
+msgid "phpGene Pro Administration Login"
+msgstr ""
+
+#: administrator/login.php:36
+msgid "User ID"
+msgstr ""
+
+#: administrator/login.php:42
+msgid "Password"
+msgstr ""
+
+#: administrator/media_list.php:7
+msgid "Media List"
+msgstr ""
+
+#: administrator/media_list.php:13
+msgid "Individual"
+msgstr ""
+
+# family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+#: administrator/media_list.php:14
+#, fuzzy
+msgid "Filename"
+msgstr "Apellido %s"
+
+#: administrator/media_list.php:15
+#, fuzzy
+msgid "Caption"
+msgstr "Cremación"
+
+#: administrator/media_list.php:17
+msgid "Thumbnail"
+msgstr ""
+
+# ancestors.php:125
+# ancestors.php:125
+# ancestors.php:125
+# ancestors.php:125
+# ancestors.php:125
+# ancestors.php:125
+# ancestors.php:154
+# ancestors.php:154
+# ancestors.php:154
+# ancestors.php:154
+# ancestors.php:154
+#: administrator/sys_config.php:15
+#, fuzzy, c-format
+msgid "Changed %s from %s to %s."
+msgstr "%s casó a %s el %s."
+
+#: administrator/sys_config.php:24
+#, c-format
+msgid "You must edit core/config.php to change the %s setting."
+msgstr ""
+
+#: administrator/sys_config.php:41
+#: administrator/sys_config.php:80
+msgid "MySQL Hostname"
+msgstr ""
+
+#: administrator/sys_config.php:42
+#: administrator/sys_config.php:85
+msgid "MySQL Port"
+msgstr ""
+
+#: administrator/sys_config.php:43
+#: administrator/sys_config.php:90
+msgid "MySQL Username"
+msgstr ""
+
+#: administrator/sys_config.php:44
+#: administrator/sys_config.php:95
+msgid "MySQL Password"
+msgstr ""
+
+# gen_menu.php:38
+# gen_menu.php:38
+# gen_menu.php:38
+# gen_menu.php:38
+# gen_menu.php:38
+#: administrator/sys_config.php:45
+#: administrator/sys_config.php:100
+#, fuzzy
+msgid "MySQL Database"
+msgstr "Base de datos"
+
+#: administrator/sys_config.php:46
+msgid "Nothing to save."
+msgstr ""
+
+#: administrator/sys_config.php:55
+#, fuzzy
+msgid "Site Configuration"
+msgstr "Confirmación"
+
+#: administrator/sys_config.php:60
+#, fuzzy
+msgid "Default Page"
+msgstr "Página De la Familia"
+
+#: administrator/sys_config.php:70
+#, fuzzy
+msgid "Database Configuration"
+msgstr "Confirmación"
+
+#: administrator/sys_config.php:75
+msgid "The database settings are shown for reference only and can not be changed from this screen. You must edit core/config.php to change these settings."
+msgstr ""
+
+#: administrator/sys_config.php:111
+#, fuzzy
+msgid "Language Configuration"
+msgstr "Confirmación"
+
+# gen_menu.php:6
+# gen_menu.php:6
+# gen_menu.php:6
+# gen_menu.php:6
+# gen_menu.php:6
+#: administrator/sys_config.php:116
+#, fuzzy
+msgid "Default Language"
+msgstr "Lengua"
+
+#: administrator/sys_config.php:133
+msgid "Allow language changes"
+msgstr ""
+
+#: administrator/sys_config.php:136
+#: administrator/sys_config.php:145
+msgid "Yes"
+msgstr "Si"
+
+#: administrator/sys_config.php:137
+#: administrator/sys_config.php:146
+msgid "No"
+msgstr "No"
+
+#: administrator/sys_config.php:143
+msgid "Translate Dates"
+msgstr ""
+
+#: administrator/user_add.php:14
+#: administrator/user_edit.php:14
+msgid "All fields are required.  Please correct the error."
+msgstr ""
+
+#: administrator/user_add.php:18
+msgid "The username must be between 6 and 16 characters long and contain only alphanumeric characters."
+msgstr ""
+
+#: administrator/user_add.php:22
+#: administrator/user_edit.php:18
+msgid "Both password fields must be the same.  Please re-type them."
+msgstr ""
+
+#: administrator/user_add.php:26
+msgid "The password must be between 6 and 16 characters long and contain only alphanumeric characters."
+msgstr ""
+
+#: administrator/user_add.php:31
+#, c-format
+msgid "User %s already exists.  Please use a different username."
+msgstr ""
+
+#: administrator/user_add.php:34
+#, c-format
+msgid "User %s was successfully added."
+msgstr ""
+
+#: administrator/user_add.php:45
+#: administrator/user_edit.php:53
+msgid "Add User"
+msgstr ""
+
+# family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# core/header.php:7 family.php:59
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+# family.php:52 gen_menu.php:47
+#: administrator/user_add.php:50
+#: administrator/user_edit.php:58
+#: administrator/user_list.php:13
+#, fuzzy
+msgid "Username"
+msgstr "Apellido %s"
+
+#: administrator/user_add.php:56
+#: administrator/user_edit.php:64
+#: administrator/user_list.php:14
+#, fuzzy
+msgid "Full Name"
+msgstr "Nombre"
+
+#: administrator/user_add.php:62
+#: administrator/user_edit.php:70
+msgid "Email Address"
+msgstr ""
+
+#: administrator/user_add.php:68
+#: administrator/user_edit.php:76
+msgid "New Password"
+msgstr ""
+
+#: administrator/user_add.php:74
+#: administrator/user_edit.php:82
+msgid "Verify Password"
+msgstr ""
+
+#: administrator/user_edit.php:24
+#, c-format
+msgid "User %s was successfully modified."
+msgstr ""
+
+#: administrator/user_edit.php:28
+#, c-format
+msgid "User %s was not modified."
+msgstr ""
+
+#: administrator/user_edit.php:40
+#, c-format
+msgid "User %s was deleted."
+msgstr ""
+
+#: administrator/user_list.php:7
+msgid "User List"
+msgstr ""
+
+#: administrator/user_list.php:15
+msgid "Email"
+msgstr ""
+
+#: administrator/user_list.php:16
+msgid "Last Login"
+msgstr ""
+
+#: administrator/user_list.php:29
+msgid "Never"
+msgstr ""
+
