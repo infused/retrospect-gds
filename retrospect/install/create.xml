@@ -291,8 +291,8 @@
 		<query>INSERT INTO options VALUES ('4', 'translate_dates', '1')</query>
 	</sql>
 	<sql prefixmethod="auto">
-		<descr>Add 'profile_functions' record to options table</descr>
-		<query>INSERT INTO options VALUES ('5', 'profile_functions', '0')</query>
+		<descr>Add 'debug' record to options table</descr>
+		<query>INSERT INTO options VALUES ('5', 'debug', '0')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'meta_copyright' record to options table</descr>

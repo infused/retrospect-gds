@@ -29,6 +29,7 @@
 	{include file="$module.tpl"}
 </div>
 <div id="footer">
+	{if $SITE_COPYRIGHT != ""}{$SITE_COPYRIGHT}<br />{/if}
 	<a href="http://www.infused-solutions.com/retrospect/">Retrospect-GDS v{$RGDS_VERSION}</a> {$RGDS_COPYRIGHT}
 </div>
 </body>

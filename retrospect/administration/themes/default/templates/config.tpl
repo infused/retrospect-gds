@@ -18,9 +18,59 @@
 			<td class="cfg-dsc">This is the default page that is displayed when opening the site. It is only used if no other module is selected. It must be a module that does not require any other parameters.</td>
 		</tr>
 		<tr>
-			<td class="cfg-lbl">oo</td>
-			<td class="cfg-opt">oo</td>
-			<td class="cfg-dsc">oo</td>
+			<td class="cfg-lbl2"><label for="sort_children_new">Sort Children?</label></td>
+			<td class="cfg-opt2">
+				<select name="sort_children_new" class="listbox" id="sort_children_new">
+					{html_options options=$yesno selected=$options.sort_children}
+				</select>
+				<input type="hidden" name="sort_children_old" id="sort_children_old" value="{$options.sort_children}" />
+			</td>
+			<td class="cfg-dsc2">
+				If set to Yes, children will be listed in chronological order by birth date. Children with no birth date will be listed first.<br />
+			  If set to No, children will be listed in the order they were found in the original gedcom file.
+			</td>
+		</tr>
+		<tr>
+			<td class="cfg-lbl"><label for="sort_marriages_new">Sort Marriages?</label></td>
+			<td class="cfg-opt">
+				<select name="sort_marriages_new" class="listbox" id="sort_marriages_new">
+					{html_options options=$yesno selected=$options.sort_marriages}
+				</select>
+				<input type="hidden" name="sort_marriages_old" id="sort_marriages_old" value="{$options.sort_marriages}" />
+			</td>
+			<td class="cfg-dsc">
+				If set to Yes, marriages will be listed in chronological order by marriage date. Marriages with no date will be listed first.<br />
+			  If set to No, marriages will be listed in the order they were found in the original gedcom file.
+			</td>
+		</tr>
+		<tr>
+			<td class="cfg-lbl2"><label for="sort_events_new">Sort Events?</label></td>
+			<td class="cfg-opt2">
+				<select name="sort_events_new" class="listbox" id="sort_events_new">
+					{html_options options=$yesno selected=$options.sort_events}
+				</select>
+				<input type="hidden" name="sort_events_old" id="sort_events_old" value="{$options.sort_events}" />
+			</td>
+			<td class="cfg-dsc2">
+				If set to Yes, events will be listed in chronological order by the event's date. Events with no date will be listed first.<br />
+				If set to No, events will be listed in the order they were found in the original gedcom file.
+			</td>
+		</tr>
+		<tr>
+			<td class="cfg-lbl"><label for="meta_copyright_new">Copyright Notice:</label></td>
+			<td class="cfg-opt">
+				<textarea name="meta_copyright_new" cols="30" rows="2" class="textbox" id="meta_copyright_new">{$options.meta_copyright}</textarea>
+        <input name="meta_copyright_old" type="hidden" id="meta_copyright_old" value="{$options.meta_copyright}">
+			</td>
+			<td class="cfg-dsc">This populates the $SITE_COPYRIGHT variable used in the template system.</td>
+		</tr>
+		<tr>
+			<td class="cfg-lbl2"><label for="meta_keywords_new">Default Keywords:</label></td>
+			<td class="cfg-opt2">
+				<textarea name="meta_keywords_new" cols="30" rows="2" class="textbox" id="meta_keywords_new">{$options.meta_keywords}</textarea>
+        <input name="meta_keywords_old" type="hidden" id="meta_keywords_old" value="{$options.meta_keywords}">
+			</td>
+			<td class="cfg-dsc2">ok</td>
 		</tr>
 	</table>
 </div>
@@ -74,7 +124,7 @@
 		</tr>
 		<tr>
 			<td class="cfg-lbl"><label for="db_name_new">Database:</label></td>
-			<td class="cfg=opt">
+			<td class="cfg-opt">
 				<input name="db_new" type="text" class="textbox" id="db_new" value="{$db_name}" readonly="true">
 				<input name="db_old" type="hidden" id="db_old" value="{$db_name}">
 			</td>
@@ -123,14 +173,36 @@
 			<td class="cfg-dsc">&nbsp;</td>
 		</tr>
 		<tr>
-			<td class="cfg-lbl"><label for="sort_children_new">Date Format:</label></td>
+			<td class="cfg-lbl"><label for="date_format_new">Date Format:</label></td>
 			<td class="cfg-opt">
-				<select name="sort_children_new" class="listbox" id="sort_children_new">
+				<select name="date_format_new" class="listbox" id="date_format_new">
 					{html_options options=$date_formats selected=$options.date_format}
 				</select>
-				<input type="hidden" name="sort_children_old" id="sort_children_old" value="{$options.sort_children}" />
+				<input type="hidden" name="date_format_old" id="date_format_old" value="{$options.date_format}" />
 			</td>
 			<td class="cfg-dsc"></td>
+		</tr>
+	</table>
+</div>
+<br />
+<!-- DEBUG OPTIONS -->
+<table class="tab-row" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="tab-selected">Debug Options</td>
+		<td class="tab-last">&nbsp;</td>
+	</tr>
+</table>
+<div class="tab-page">
+	<table cellpadding="0" cellspacing="0">
+		<tr>
+			<td class="cfg-lbl"><label for="debug_new">Debugging Console?</label></td>
+			<td class="cfg-opt">
+				<select name="debug_new" class="listbox" id="debug_new">
+					{html_options options=$yesno selected=$options.debug}
+				</select>
+				<input type="hidden" name="debug_old" id="debug_old" value="{$options.debug}">
+			</td>
+			<td class="cfg-dsc">&nbsp;</td>
 		</tr>
 	</table>
 </div>

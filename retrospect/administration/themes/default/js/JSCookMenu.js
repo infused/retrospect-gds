@@ -1,5 +1,5 @@
 /*
-	JSCookMenu v1.23.  (c) Copyright 2002 by Heng Yuan
+	JSCookMenu v1.3.  (c) Copyright 2002-2004 by Heng Yuan
 
 	Permission is hereby granted, free of charge, to any person obtaining a
 	copy of this software and associated documentation files (the "Software"),
@@ -28,6 +28,7 @@ var _cmTimeOut = null;			// how long the menu would stay
 var _cmCurrentItem = null;		// the current menu item being selected;
 
 var _cmNoAction = new Object ();	// indicate that the item cannot be hovered.
+var _cmNoClick = new Object ();		// similar to _cmNoAction but does not respond to mouseup/mousedown events
 var _cmSplit = new Object ();		// indicate that the item is a menu split
 
 var _cmItemList = new Array ();		// a simple list of items
@@ -66,7 +67,7 @@ var _cmNodeProperties =
 	mainSpacing: 0,
 	// cell spacing for sub menus
 	subSpacing: 0,
-	// auto dispear time for submenus in milli-seconds
+	// auto disappear time for submenus in milli-seconds
 	delay: 500
 };
 
@@ -96,6 +97,21 @@ function cmActionItem (item, prefix, isMain, idSub, orient, nodeProperties)
 	orient = '\'' + orient + '\'';
 	prefix = '\'' + prefix + '\'';
 	return ' onmouseover="cmItemMouseOver (this,' + prefix + ',' + isMain + ',' + idSub + ',' + orient + ',' + index + ')" onmouseout="cmItemMouseOut (this,' + nodeProperties.delay + ')" onmousedown="cmItemMouseDown (this,' + index + ')" onmouseup="cmItemMouseUp (this,' + index + ')"';
+}
+
+//
+// this one is used by _cmNoClick to only take care of onmouseover and onmouseout
+// events which are associated with menu but not actions associated with menu clicking/closing
+//
+function cmNoClickItem (item, prefix, isMain, idSub, orient, nodeProperties)
+{
+	// var index = _cmItemList.push (item) - 1;
+	_cmItemList[_cmItemList.length] = item;
+	var index = _cmItemList.length - 1;
+	idSub = (!idSub) ? 'null' : ('\'' + idSub + '\'');
+	orient = '\'' + orient + '\'';
+	prefix = '\'' + prefix + '\'';
+	return ' onmouseover="cmItemMouseOver (this,' + prefix + ',' + isMain + ',' + idSub + ',' + orient + ',' + index + ')" onmouseout="cmItemMouseOut (this,' + nodeProperties.delay + ')"';
 }
 
 function cmNoActionItem (item, prefix)
@@ -145,7 +161,12 @@ function cmDrawSubMenu (subMenu, prefix, id, orient, nodeProperties)
 		hasChild = (item.length > 5);
 		idSub = hasChild ? cmNewID () : null;
 
-		str += '<tr class="' + prefix + 'MenuItem"' + cmActionItem (item, prefix, 0, idSub, orient, nodeProperties) + '>';
+		str += '<tr class="' + prefix + 'MenuItem"';
+		if (item[0] != _cmNoClick)
+			str += cmActionItem (item, prefix, 0, idSub, orient, nodeProperties);
+		else
+			str += cmNoClickItem (item, prefix, 0, idSub, orient, nodeProperties);
+		str += '>'
 
 		if (item == _cmSplit)
 		{
@@ -154,7 +175,7 @@ function cmDrawSubMenu (subMenu, prefix, id, orient, nodeProperties)
 			continue;
 		}
 
-		if (item[0] == _cmNoAction)
+		if (item[0] == _cmNoAction || item[0] == _cmNoClick)
 		{
 			str += cmNoActionItem (item, prefix);
 			str += '</tr>';
@@ -166,7 +187,7 @@ function cmDrawSubMenu (subMenu, prefix, id, orient, nodeProperties)
 
 		str += '<td class="' + classStr + 'Left">';
 
-		if (item[0] != null && item[0] != _cmNoAction)
+		if (item[0] != null)
 			str += item[0];
 		else
 			str += hasChild ? nodeProperties.folderLeft : nodeProperties.itemLeft;
@@ -260,7 +281,7 @@ function cmDraw (id, menu, orient, nodeProperties, prefix)
 			continue;
 		}
 
-		if (item[0] == _cmNoAction)
+		if (item[0] == _cmNoAction || item[0] == _cmNoClick)
 		{
 			str += cmNoActionItem (item, prefix);
 			str += vertical? '</tr>' : '</td>';
@@ -426,8 +447,8 @@ function cmItemMouseUp (obj, index)
 
 	if (item.length > 2)
 		link = item[2];
-	if (item.length > 3)
-		target = item[3] ? item[3] : target;
+	if (item.length > 3 && item[3])
+		target = item[3];
 
 	if (link != null)
 	{
@@ -478,28 +499,72 @@ function cmMoveSubMenu (obj, subMenu, orient)
 {
 	var mode = String (orient);
 	var p = subMenu.offsetParent;
+	var subMenuWidth = cmGetWidth (subMenu);
+	var horiz = cmGetHorizontalAlign (obj, mode, p, subMenuWidth);
 	if (mode.charAt (0) == 'h')
 	{
 		if (mode.charAt (1) == 'b')
-			subMenu.style.top = (cmGetYAt (obj, p) + obj.offsetHeight) + 'px';
+			subMenu.style.top = (cmGetYAt (obj, p) + cmGetHeight (obj)) + 'px';
 		else
-			subMenu.style.top = (cmGetYAt (obj, p) - subMenu.offsetHeight) + 'px';
-		if (mode.charAt (2) == 'r')
+			subMenu.style.top = (cmGetYAt (obj, p) - cmGetHeight (subMenu)) + 'px';
+		if (horiz == 'r')
 			subMenu.style.left = (cmGetXAt (obj, p)) + 'px';
 		else
-			subMenu.style.left = (cmGetXAt (obj, p) + obj.offsetWidth - subMenu.offsetWidth) + 'px';
+			subMenu.style.left = (cmGetXAt (obj, p) + cmGetWidth (obj) - subMenuWidth) + 'px';
 	}
 	else
 	{
-		if (mode.charAt (2) == 'r')
-			subMenu.style.left = (cmGetXAt (obj, p) + obj.offsetWidth) + 'px';
+		if (horiz == 'r')
+			subMenu.style.left = (cmGetXAt (obj, p) + cmGetWidth (obj)) + 'px';
 		else
-			subMenu.style.left = (cmGetXAt (obj, p) - subMenu.offsetWidth) + 'px';
+			subMenu.style.left = (cmGetXAt (obj, p) - subMenuWidth) + 'px';
 		if (mode.charAt (1) == 'b')
 			subMenu.style.top = (cmGetYAt (obj, p)) + 'px';
 		else
-			subMenu.style.top = (cmGetYAt (obj, p) + obj.offsetHeight - subMenu.offsetHeight) + 'px';
-		//alert (subMenu.style.top + ', ' + cmGetY (obj) + ', ' + obj.offsetHeight);
+			subMenu.style.top = (cmGetYAt (obj, p) + cmGetHeight (obj) - cmGetHeight (subMenu)) + 'px';
+	}
+}
+
+//
+// automatically re-adjust the menu position based on available screen size.
+//
+function cmGetHorizontalAlign (obj, mode, p, subMenuWidth)
+{
+	var horiz = mode.charAt (2);
+	if (!(document.body))
+		return horiz;
+	var body = document.body;
+	var browserLeft;
+	var browserRight;
+	if (window.innerWidth)
+	{
+		// DOM window attributes
+		browserLeft = window.pageXOffset;
+		browserRight = window.innerWidth + browserLeft;
+	}
+	else if (body.clientWidth)
+	{
+		// IE attributes
+		browserLeft = body.clientLeft;
+		browserRight = body.clientWidth + browserLeft;
+	}
+	else
+		return horiz;
+	if (mode.charAt (0) == 'h')
+	{
+		if (horiz == 'r' && (cmGetXAt (obj) + subMenuWidth) > browserRight)
+			horiz = 'l';
+		if (horiz == 'l' && (cmGetXAt (obj) + cmGetWidth (obj) - subMenuWidth) < browserLeft)
+			horiz = 'r';
+		return horiz;
+	}
+	else
+	{
+		if (horiz == 'r' && (cmGetXAt (obj, p) + cmGetWidth (obj) + subMenuWidth) > browserRight)
+			horiz = 'l';
+		if (horiz == 'l' && (cmGetXAt (obj, p) - subMenuWidth) < browserLeft)
+			horiz = 'r';
+		return horiz;
 	}
 }
 
@@ -530,14 +595,19 @@ function cmShowSubMenu (obj, prefix, subMenu, orient)
 
 	//
 	// On IE, controls such as SELECT, OBJECT, IFRAME (before 5.5)
-	// are window based controls.  So, if sub menu and these controls
-	// overlap, sub menu would be hid behind them.  Thus, one needs to
-	// turn the visibility of these controls off when the
+	// are window based controls.  So, if the sub menu and these
+	// controls overlap, sub menu would be hidden behind them.  Thus
+	// one needs to turn the visibility of these controls off when the
 	// sub menu is showing, and turn their visibility back on
+	// when the sub menu is hiding.
 	//
 	if (document.all)	// it is IE
 	{
-		subMenu.cmOverlap = new Array ();
+		/* part of Felix Zaslavskiy's fix on hiding controls
+		   not really sure if this part is necessary, but shouldn't
+		   hurt. */
+		if (!subMenu.cmOverlap)
+			subMenu.cmOverlap = new Array ();
 /*@cc_on @*/
 /*@if (@_jscript_version >= 5.5)
 @else @*/
@@ -665,6 +735,14 @@ function cmHideControl (tagName, subMenu)
 			continue;
 		if (oy > (y + h) || (oy + oh) < y)
 			continue;
+
+		// if object is already made hidden by a different
+		// submenu then we dont want to put it on overlap list of
+		// of a submenu a second time.
+		// - bug fixed by Felix Zaslavskiy
+		if(obj.style.visibility == "hidden")
+			continue;
+
 		//subMenu.cmOverlap.push (obj);
 		subMenu.cmOverlap[subMenu.cmOverlap.length] = obj;
 		obj.style.visibility = "hidden";
@@ -707,7 +785,7 @@ function cmGetThisMenu (obj, prefix)
 //
 function cmIsDefaultItem (item)
 {
-	if (item == _cmSplit || item[0] == _cmNoAction)
+	if (item == _cmSplit || item[0] == _cmNoAction || item[0] == _cmNoClick)
 		return false;
 	return true;
 }
@@ -720,6 +798,37 @@ function cmGetObject (id)
 	if (document.all)
 		return document.all[id];
 	return document.getElementById (id);
+}
+
+//
+// functions that obtain the width of an HTML element.
+//
+function cmGetWidth (obj)
+{
+	var width = obj.offsetWidth;
+	if (width > 0 || !cmIsTRNode (obj))
+		return width;
+	if (!obj.firstChild)
+		return 0;
+	// use TABLE's length can cause an extra pixel gap
+	//return obj.parentNode.parentNode.offsetWidth;
+
+	// use the left and right child instead
+	return obj.lastChild.offsetLeft - obj.firstChild.offsetLeft + cmGetWidth (obj.lastChild);
+}
+
+//
+// functions that obtain the height of an HTML element.
+//
+function cmGetHeight (obj)
+{
+	var height = obj.offsetHeight;
+	if (height > 0 || !cmIsTRNode (obj))
+		return height;
+	if (!obj.firstChild)
+		return 0;
+	// use the first child's height
+	return obj.firstChild.offsetHeight;
 }
 
 //
@@ -747,7 +856,9 @@ function cmGetXAt (obj, elm)
 		x += obj.offsetLeft;
 		obj = obj.offsetParent;
 	}
-	return x;
+	if (obj == elm)
+		return x;
+	return cmGetX (elm) - x;
 }
 
 function cmGetY (obj)
@@ -762,16 +873,36 @@ function cmGetY (obj)
 	return y;
 }
 
+function cmIsTRNode (obj)
+{
+	var tagName = obj.tagName;
+	return tagName == "TR" || tagName == "tr" || tagName == "Tr" || tagName == "tR";
+}
+
+//
+// get the Y position of the object.  In case of TR element though,
+// we attempt to adjust the value.
+//
 function cmGetYAt (obj, elm)
 {
 	var y = 0;
+
+	if (!obj.offsetHeight && cmIsTRNode (obj))
+	{
+		var firstTR = obj.parentNode.firstChild;
+		obj = obj.firstChild;
+		y -= firstTR.firstChild.offsetTop;
+	}
 
 	while (obj && obj != elm)
 	{
 		y += obj.offsetTop;
 		obj = obj.offsetParent;
 	}
-	return y;
+
+	if (obj == elm)
+		return y;
+	return cmGetY (elm) - y;
 }
 
 //
@@ -791,6 +922,19 @@ function cmGetProperties (obj)
 	return msg;
 }
 
+/* JSCookMenu v1.3	1. automatically realign (left and right) the submenu when
+					   client space is not enough.
+					2. add _cmNoClick to get rid of menu closing behavior
+					   on the particular menu item, to make it possible for things
+					   such as search box to be inside the menu.
+*/
+/* JSCookMenu v1.25	1. fix Safari positioning issue.  The problem is that all TR elements are located
+					   at the top left corner.  Thus, need to obtain the "virtual"
+					   position of these element could be at.
+*/
+/* JSCookMenu v1.24	1. fix window based control hiding bug
+					   thanks to Felix Zaslavskiy <felix@bebinary.com> for the fix.
+*/
 /* JSCookMenu v1.23	1. correct a position bug when the container is positioned.
 					  thanks to Andre <anders@netspace.net.au> for narrowing down
 					  the problem.

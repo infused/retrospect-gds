@@ -264,7 +264,7 @@
                   <option value="1" <?php if ($options->GetOption('profile_functions') == 1) echo 'SELECTED'; ?>><?php echo 'Yes'; ?></option>
                   <option value="0" <?php if ($options->GetOption('profile_functions') == 0) echo 'SELECTED'; ?>><?php echo 'No'; ?></option>
                 </select>
-                  <input name="profile_functions_old" type="hidden" id="profile_functions_old" value="<?php echo $options->GetOption('profile_functions'); ?>">
+                  <input name="profile_functions_old" type="hidden" id="profile_functions_old" value="{$options.profile_functions}">
               </td>
               <td>&nbsp;</td>
             </tr>

@@ -86,9 +86,13 @@
 	# Make sure that RecordSets are always returned as associative arrays
 	$db->SetFetchMode(ADODB_FETCH_ASSOC);
 	
+	# Create options object
+	$options =& new Options();
+
 	# Start Smarty template engine
 	$theme = (defined('_RGDS_ADMIN')) ? $g_admin_theme : $g_theme;
 	$smarty =& new Smarty;
+	if ($options->GetOption('debug') == 1) $smarty->debugging = true;
 	$smarty->php_handling = SMARTY_PHP_REMOVE;
 	$smarty->template_dir = THEME_PATH.$theme.'/templates/';
 	$smarty->compile_dir = THEME_PATH.$theme.'/templates_c/';
@@ -96,30 +100,12 @@
 	$smarty->register_function('translate', 'lang_translate_smarty');
 	$smarty->assign('RGDS_COPYRIGHT', RGDS_COPYRIGHT);
 	$smarty->assign('RGDS_VERSION', RGDS_VERSION);
-
-	# Create options object
-	$options =& new Options();
 	
 	# Get general keywords that will be added to the meta keyword list on each page
 	$keywords = explode(',', $options->GetOption('meta_keywords'));
 	
-	# Generate the copyright info for all pages
-	# The $copyright var is a combination of the RGDS_COPYRIGHT constant
-	# and the administrator configurable copyright string
-	$copyright = htmlentities(trim(RGDS_COPYRIGHT));
-	if ($options->GetOption('meta_copyright')) {
-		$copyright .= '; '.htmlentities($options->GetOption('meta_copyright'));
-	}
-	$smarty->assign('copyright', $copyright);
-	unset($copyright);
-	
-	# Load profiler and initialize
-	$profile = $options->profile_functions;
-	if ($profile == true) {
-		@require_once(LIB_PATH.'profiler/profiler.inc.php');
-		$profiler =& new Profiler( true, false );
-		$profiler->startTimer( 'all' );
-	}
+	# Generate the site copyright info for all pages
+	$smarty->assign('SITE_COPYRIGHT', $options->GetOption('meta_copyright'));
 
 	# Initialize the gettext engine
 	lang_init_gettext();
