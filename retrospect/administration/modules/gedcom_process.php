@@ -12,15 +12,16 @@ a:hover {
 }
 -->
 </style>
-<span class="log">
+<div class="log">
 <?php
-	# helper function
+	# helper functions
 	function outputnow($s, $nl=true) {
 		echo $s;
 		if ($nl == true) echo '<br />';
 		ob_flush();
 		flush();
 	}
+	
 	function cleantable($tbl) {
 		global $db;
 		$sql = 'DELETE FROM '.$tbl;
@@ -33,6 +34,7 @@ a:hover {
 	
 	$filename = $_GET['f'];
 	$filepath = GEDCOM_DIR.$filename;
+	$maxtime = ini_get('max_execution_time');
 	
 	# initialize gedcom parser
 	outputnow( 'Initializing gedcom parser...');
@@ -71,9 +73,11 @@ a:hover {
 	}
 	
 	# Begin processing
+	# We need to limit processing time to 25 seconds because the default php.ini setting is 30
+	# Maybe we can add this as a configuration option in the future
 	outputnow( 'Processing '.$filename.'...' );
 	while ($offset !== true) {
-		$offset = $gedcom->ParseGedcom($offset);
+		$offset = $gedcom->ParseGedcom($offset,1);
 		$complete = ($offset !== true) ? number_format($offset / $gedcom->file_end_offset * 100, 1) : 100;
 		if ($complete != 100) {
 			outputnow( 'Processing is '.$complete.'% complete...' );
@@ -81,9 +85,10 @@ a:hover {
 			outputnow( 'Processing is '.$complete.'% complete.' );
 			# link back to start page now...
 			
+			
 		}
 	}
 	
 
 ?>
-</span>
+</div>
