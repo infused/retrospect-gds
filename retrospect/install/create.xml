@@ -258,8 +258,15 @@
 		<field name="email" type="C" size="100">
 			<notnull />
 		</field>
+		<field name="grp" type="I">
+			<notnull />
+		</field>
+		<field name="created" type ="T" />
 		<field name="last" type ="T" />
 		<field name="pwd_expired" type="L">
+			<notnull />
+		</field>
+		<field name="enabled" type="L">
 			<notnull />
 		</field>
 		<index name="uid">
@@ -272,7 +279,7 @@
 	</table>
 	<sql prefixmethod="auto">
 		<descr>Create admin account with password "welcome"</descr>
-		<query>INSERT INTO user VALUES ('', 'admin', '40be4e59b9a2a2b5dffb918c0e86b3d7', 'Administrator', 'root@someplace.com', null, '1')</query>
+		<query>INSERT INTO user VALUES ('1', 'admin', '40be4e59b9a2a2b5dffb918c0e86b3d7', 'Administrator', 'root@oo.com', 1, null, null, 1, 1)</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'default_lang' record to options table</descr>
@@ -333,5 +340,9 @@
 	<sql prefixmethod="auto">
 		<descr>Add dutch language</descr>
 		<query>INSERT INTO language VALUES ('4', 'nl_NL', 'iso-8859-1', 'Dutch')</query>
+	</sql>
+		<sql prefixmethod="auto">
+		<descr>Add french language</descr>
+		<query>INSERT INTO language VALUES ('5', 'fr_FR', 'iso-8859-1', 'French')</query>
 	</sql>
 </schema>

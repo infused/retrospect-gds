@@ -40,22 +40,8 @@
 	# Disable error reporting
 	error_reporting(0);
 	
-	/**
-	* Root path
-	* @global string
-	*/
 	define('ROOT_PATH', dirname($_SERVER['PATH_TRANSLATED']));
-
-	/**
-	* Location of core files
-	* @global string
-	*/
 	define('CORE_PATH', ROOT_PATH.'/../core/');	
-	
-	/** 
-	* Location of library files
-	* @global string
-	*/
 	define('LIB_PATH', ROOT_PATH.'/../libraries/');
 	
 	# Process post vars
@@ -85,6 +71,7 @@
 	$cfg_innards .= "\$g_db_pass = '{$db_pass}';\n";
 	$cfg_innards .= "\$g_db_prefix = '{$db_pref}_';\n";
 	$cfg_innards .= "\$g_theme = 'default';\n";
+	$cfg_innards .= "\$g_admin_theme = 'default';\n";
 	$cfg_innards .= "?>";
 	
 	# is config.php writable
@@ -201,7 +188,9 @@
 							$schema->setPrefix( $db_pref );
 							$sql = $schema->ParseSchema('create.xml');
 							$result = $schema->ExecuteSchema( $sql );
+							$error = $db->ErrorMsg(); 
 							echo ($result) ? '<div class="yes">OK</div>' : '<div class="no">Failed</div>';
+							echo $error;
 						}
 					?>
 			  </td>

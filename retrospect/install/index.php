@@ -17,32 +17,18 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License contained in the file GNU.txt for
  * more details.
- *
+ */
+ 
+ /**
  * $Id$
- *
  */
  
  	# Disable error reporting
 	error_reporting(0);
-	
-	/**
-	* Root path
-	* @global string
-	*/
-	define('ROOT_PATH', dirname($_SERVER['PATH_TRANSLATED']));
 
-	/**
-	* Location of core files
-	* @global string
-	*/
+	define('ROOT_PATH', dirname($_SERVER['PATH_TRANSLATED']));
 	define('CORE_PATH', ROOT_PATH.'/../core/');	
-	
-	/** 
-	* Location of library files
-	* @global string
-	*/
 	define('LIB_PATH', ROOT_PATH.'/../libraries/');
-	
 	$cfg_filename = CORE_PATH.'config.php';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -55,7 +41,7 @@
 <body> 
 <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
   <tr> 
-    <td class="title">Welcome to Retrospect-GDS Installation </td> 
+    <td class="title">Retrospect-GDS Installation </td> 
   </tr> 
 </table> 
 <table width="100%"  border="0" cellpadding="0" cellspacing="0" class="section"> 
@@ -63,7 +49,8 @@
     <td class="section_head">Pre-Installation Checks</td> 
   </tr> 
   <tr> 
-    <td class="section_body">If any of the items below are highlighted in red then please take actions to correct them. Failure to do so could lead to your Retrospect-GDS installation not functioning correctly.<table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+    <td class="section_body">If any of the items below are highlighted in red then please take correct them before proceeding. Failure to do so could lead to  Retrospect-GDS  not functioning correctly.
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
         <tr>
           <td class="section_item">&nbsp;</td>
           <td width="100" nowrap="nowrap" class="section_item">&nbsp;</td>
@@ -75,7 +62,8 @@
 						<?php 
 							$php_ver = phpversion();
 							echo (version_compare($php_ver, '4.2.3') > 0) ? '<div class="yes">'.$php_ver.'</div>' : '<div class="no">'.$php_ver.'</div>';
-						?></td> 
+						?>
+					</td> 
           <td class="section_item">(4.2.3 or greater required)</td>
         </tr> 
         <tr>
