@@ -96,6 +96,9 @@
 		function ParseDate ($string) {
 			# reset variables
 			$this->pdate = null;
+			$this->mod = null;
+			$this->date1 = null;
+			$this->date2 = null;
 			$this->sdate = $string;
 			
 			# convert date string to uppercase
@@ -135,9 +138,9 @@
 				$date = ':'.$datestr;
 				$this->pdate = $date;
 			}
-			$this->mod =& $this->pdate['mod'];
-			$this->date1 =& $this->pdate['date1'];
-			$this->date2 =& $this->pdate['date2'];
+			$this->mod = $this->pdate['mod'];
+			$this->date1 = $this->pdate['date1'];
+			$this->date2 = $this->pdate['date2'];
 		}
 		
 		function _parse_date_string ($string) {
@@ -240,7 +243,7 @@
 			$month_str =& $date_arr[3];
 			$year_str =& $date_arr[4];
 			# get the day and pad to 2 digits
-			$day .= str_pad($day_str, 2, '0', STR_PAD_LEFT);
+			$day = str_pad($day_str, 2, '0', STR_PAD_LEFT);
 			# get the month and pad to 2 digits
 			$month = str_pad($months[$month_str], 2, '0', STR_PAD_LEFT);
 			# get the year

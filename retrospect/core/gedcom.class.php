@@ -148,6 +148,7 @@
 		var $rs_citation;				// citation adodb recordset object
 		var $db;								// local var for $GLOBALS['db']
 		var $factkey;
+		var $date_parser;				// date parser object
 		
 		/**
 		* GedcomParser class constructor
@@ -156,6 +157,7 @@
 		function GedcomParser() {
 			$this->db = &$GLOBALS['db'];
 			$this->factkey = 0;
+			$this->date_parser = new DateParser;
 			# get empty indiv recordset
 			$sql = 'SELECT * from '.$GLOBALS['g_tbl_indiv'].' where indkey=-1';
 			$this->rs_indiv = $GLOBALS['db']->Execute($sql);
@@ -509,7 +511,11 @@
 					return $event;
 				}
 				elseif (preg_match(REG_DATE, $line, $match)) {
+					$this->date_parser->ParseDate($match[1]);
 					$event['date_str'] = trim($match[1]);
+					$event['date_mod'] = $this->date_parser->pdate['mod'];
+					$event['date1'] = $this->date_parser->pdate['date1'];
+					$event['date2'] = $this->date_parser->pdate['date2'];
 				}
 				elseif (preg_match(REG_TYPE, $line, $match)) {
 					$event['type'] = trim($match[1]);
@@ -556,7 +562,11 @@
 					return $event;
 				}
 				elseif (preg_match(REG_DATE, $line, $match)) {
+					$this->date_parser->ParseDate($match[1]);
 					$event['date_str'] = trim($match[1]);
+					$event['date_mod'] = $this->date_parser->pdate['mod'];
+					$event['date1'] = $this->date_parser->pdate['date1'];
+					$event['date2'] = $this->date_parser->pdate['date2'];
 				}
 				elseif (preg_match(REG_TYPE, $line, $match)) {
 					$event['type'] = trim($match[1]);

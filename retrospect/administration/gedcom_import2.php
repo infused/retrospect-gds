@@ -24,8 +24,9 @@
 ?>
 <link href="styles.css" rel="stylesheet" type="text/css">
 <?php
-	# Load the gedcom classes
+	# Load the gedcom and date classes
 	require_once(CORE_PATH.'gedcom.class.php');
+	require_once(CORE_PATH.'date.class.php');
 	
 	# Set some variables
 	$gedcomdir = ROOT_PATH . '/../gedcom/';
