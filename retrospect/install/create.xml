@@ -170,9 +170,6 @@
 		<field name="description" type="C" size="250">
 			<notnull />
 		</field>
-		<field name="indfamkey" type="C" size="20">
-			<notnull />
-		</field>
 	</table>
 	<index name="indfamkey" table="media">
 		<col>indfamkey</col>

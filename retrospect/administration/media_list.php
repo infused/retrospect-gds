@@ -25,17 +25,22 @@
 <link href="styles.css" rel="stylesheet" type="text/css">
 <table width="100%"  border="0" cellspacing="5" cellpadding="0">
 	<tr>
-	  <td align="left" valign="top" colspan="5">&nbsp;</td>
+	  <td align="left" valign="top" colspan="4">&nbsp;</td>
   </tr>
 	<tr>
-    <td align="left" valign="top" colspan="5" class="content-subtitle"><?php echo _("Media List"); ?></td>
+    <td align="left" valign="top" colspan="4" class="content-subtitle"><?php echo _("Media Manager"); ?></td>
   </tr>
 	<tr>
-	  <td align="left" valign="top" colspan="5">&nbsp;</td>
+	  <td align="left" valign="top" colspan="4">&nbsp;</td>
   </tr>
 	<tr>
-	  <td width="100" align="left" valign="top" class="content-label"><a style="text-decoration: underline;" href="<?php echo $_SERVER['PHP_SELF'].'?option=media_list'; ?>"><?php echo _("Individual"); ?></a></td>
-    <td width="150" align="left" valign="top" class="content-label"><a style="text-decoration: underline;" href="<?php echo $_SERVER['PHP_SELF'].'?option=media_list&orderby=filename'; ?>"><?php echo _("Filename"); ?></a></td>
+	  <td align="left" valign="top" colspan="4">&nbsp;</td>
+  </tr>
+	<tr>
+	  <td align="left" valign="top" colspan="4">&nbsp;</td>
+  </tr>
+	<tr>
+	  <td width="150" align="left" valign="top" class="content-label"><a style="text-decoration: underline;" href="<?php echo $_SERVER['PHP_SELF'].'?option=media_list&orderby=filename'; ?>"><?php echo _("Filename"); ?></a></td>
     <td width="150" align="left" valign="top" class="content-label"><?php echo _("Caption"); ?></td>
 	  <td align="left" valign="top" class="content-label"><?php echo _("Description"); ?></td>
 		<td align="left" valign="top" class="content-label"><?php echo _("Thumbnail"); ?></td> 
@@ -54,7 +59,6 @@
 		$rs = $db->Execute($sql);
 		while ($row = $rs->FetchRow()) {
 			echo '<tr>';
-			echo '<td class="text"><a target="_blank" href="../index.php?option=family&indiv='.$row['indfamkey'].'">'.$row['indfamkey'].'</a></td>';
 			echo '<td class="text">'.$row['filename'].'</td>';
 			echo '<td class="text">'.$row['caption'].'</td>';
 			echo '<td class="text">'.$row['description'].'</td>';

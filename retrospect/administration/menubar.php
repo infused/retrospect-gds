@@ -48,7 +48,7 @@ var myMenu =
 		],
     _cmSplit,
     [null, 'Media', null, null, '<?php echo _("Media"); ?>',   // a folder item
-        ['<img src="js/ThemeOffice/content.png" />', '<?php echo _("Media List"); ?>', '<?php echo $_SERVER['PHP_SELF']; ?>?option=media_list', null, '<?php echo _("Media List"); ?>']
+        ['<img src="js/ThemeOffice/content.png" />', '<?php echo _("Media Manager"); ?>', '<?php echo $_SERVER['PHP_SELF']; ?>?option=media_list', null, '<?php echo _("Media Manager"); ?>']
     ]
 ];
 --></script>

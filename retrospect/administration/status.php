@@ -42,19 +42,19 @@
     <td class="content-subtitle">Database Status</td>
   </tr>
   <tr>
-    <td><?php 
-							if (auth::PasswordExpired($_SESSION['uid'])) { 
-								$here = '<a href="'.$_SERVER['PHP_SELF'].'?option=user_edit&id='.$_SESSION['uid'].'">here</a>';
-								printf(_("You password has expired.  Go %s to change it immediately!"), $here);
-							} 
-						?>
+    <td align="left" valign="top">
+		<?php 
+				if (auth::PasswordExpired($_SESSION['uid'])) { 
+					$here = '<a href="'.$_SERVER['PHP_SELF'].'?option=user_edit&id='.$_SESSION['uid'].'">here</a>';
+					printf(_("You password has expired.  Go %s to change it immediately!"), $here);
+				} 
+		?>
     </td>
-    <td><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+    <td width="300" align="right"><table width="300"  border="0" cellspacing="0" cellpadding="0">
       <tr bgcolor="#CCCCCC">
         <td>Table</td>
         <td>Records</td>
-        <td>Something</td>
-      </tr>
+        </tr>
       <tr>
         <td><?php echo $g_tbl_child; ?></td>
         <td>
@@ -63,8 +63,7 @@
 						echo $db->GetOne($sql);
 				 	?>
 				</td>
-        <td>&nbsp;</td>
-      </tr>
+        </tr>
       <tr>
         <td><?php echo $g_tbl_citation; ?></td>
         <td>
@@ -73,8 +72,7 @@
 						echo $db->GetOne($sql);
 				 	?>
 				</td>
-        <td>&nbsp;</td>
-      </tr>
+        </tr>
       <tr>
         <td><?php echo $g_tbl_comment; ?></td>
         <td>
@@ -83,8 +81,7 @@
 						echo $db->GetOne($sql);
 				 	?>
 				</td>
-        <td>&nbsp;</td>
-      </tr>
+        </tr>
       <tr>
         <td><?php echo $g_tbl_fact; ?></td>
         <td>
@@ -93,8 +90,7 @@
 						echo $db->GetOne($sql);
 				 	?>
 				</td>
-        <td>&nbsp;</td>
-      </tr>
+        </tr>
       <tr>
         <td><?php echo $g_tbl_family; ?></td>
         <td>
@@ -103,8 +99,7 @@
 						echo $db->GetOne($sql);
 					?>
 					</td>
-        <td>&nbsp;</td>
-      </tr>
+        </tr>
       <tr>
         <td><?php echo $g_tbl_indiv; ?></td>
         <td>
@@ -113,8 +108,7 @@
 						echo $db->GetOne($sql);
 				 	?>
 				</td>
-        <td>&nbsp;</td>
-      </tr>
+        </tr>
       <tr>
         <td><?php echo $g_tbl_lang; ?></td>
         <td>
@@ -123,8 +117,7 @@
 						echo $db->GetOne($sql);
 				 	?>
 				</td>
-        <td>&nbsp;</td>
-      </tr>
+        </tr>
       <tr>
         <td><?php echo $g_tbl_media; ?></td>
         <td>
@@ -133,8 +126,7 @@
 						echo $db->GetOne($sql);
 				 	?>
 				</td>
-        <td>&nbsp;</td>
-      </tr>
+        </tr>
       <tr>
         <td><?php echo $g_tbl_note; ?></td>
         <td>
@@ -143,8 +135,7 @@
 						echo $db->GetOne($sql);
 				 	?>
 				</td>
-        <td>&nbsp;</td>
-      </tr>
+        </tr>
       <tr>
         <td><?php echo $g_tbl_option; ?></td>
         <td>
@@ -153,8 +144,7 @@
 						echo $db->GetOne($sql);
 				 	?>
 				</td>
-        <td>&nbsp;</td>
-      </tr>
+        </tr>
       <tr>
         <td><?php echo $g_tbl_source; ?></td>
         <td>
@@ -163,8 +153,7 @@
 						echo $db->GetOne($sql);
 				 	?>
 				</td>
-        <td>&nbsp;</td>
-      </tr>
+        </tr>
       <tr>
         <td><?php echo $g_tbl_user; ?></td>
         <td>
@@ -173,8 +162,7 @@
 						echo $db->GetOne($sql);
 				 	?>
 				</td>
-        <td>&nbsp;</td>
-      </tr>
+        </tr>
     </table>      
      </td>
   </tr>

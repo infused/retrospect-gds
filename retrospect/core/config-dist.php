@@ -30,8 +30,8 @@
 
 /**
 * Database type.
-* One of database types supported by adodb, such as (but, not limited to)
-* 'mysql', 'mssql', 'db2', 'odbc'
+* One of following supported database type strings:
+* mysql, mssql, postgres7, odbc-mssql
 */
 $g_db_type = 'mysql';
 
@@ -44,7 +44,8 @@ $g_db_host = 'localhost';
 
 /**
 * Database port.
-* The default MySQL installation uses port 3306
+* The default port that your database software uses.
+* Leave this blank if you don't know.
 * @global integer $g_db_port
 */
 $g_db_port = '';
@@ -58,7 +59,7 @@ $g_db_name   = 'database';
 
 /**
 * Database table prefix.
-* An underscore will automatically be appended to the prefix
+* Don't change this unless you really need to.
 * @global string $g_db_prefix
 */
 $g_db_prefix = 'rgds_';
@@ -79,7 +80,8 @@ $g_db_pass = 'password';
 
 /** 
 * Default theme.
-* Specifies the default theme for page display
+* Specifies the default theme for page display.
+* Don't change this unless you really need to.
 * @global string $g_theme
 */
 $g_theme	= 'default';
