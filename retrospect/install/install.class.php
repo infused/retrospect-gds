@@ -1,6 +1,6 @@
 <?php 
 /**
- * @copyright 	Infused Solutions	2001-2003
+ * @copyright 	Keith Morrison, Infused Solutions	2001-2004
  * @author			Keith Morrison <keithm@infused-solutions.com>
  * @package 		installation
  * @license http://opensource.org/licenses/gpl-license.php
