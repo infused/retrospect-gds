@@ -59,14 +59,17 @@
 		# alphabet menu
 		echo '<div class="content-title">'._("Surname List").'</div>';
 		if ($print === false) {
-			echo '<div class="tab-row">';
+			echo '<table class="tab-row" cellpadding="0" cellspacing="0">';
+			echo '<tr>';
 			$alphabet = range('A', 'Z');
 			$alphabet[] = 'ALL';
 			$alphabet[] = 'TOP100';
 			foreach ($alphabet as $alpha) {
-				echo '<div class="'.get_alpha_class($alpha).'">'.get_alpha_link($alpha).'</div>'."\n"; 
+				echo '<td class="'.get_alpha_class($alpha).'">'.get_alpha_link($alpha).'</td>'."\n"; 
 			}
-			echo '</div>';
+			echo '<td class="tab-last">&nbsp;</td>';
+			echo '</tr>';
+			echo '</table>';
 		}
 			
 		if ($g_alpha == 'ALL') {
@@ -109,14 +112,17 @@
 		# alphabet menu
 		echo '<div class="content-title">'.sprintf(_("%s Surname"), $sn).'</div>';
 		if ($print === false) {
-			echo '<div class="tab-row">';
+			echo '<table class="tab-row" cellpadding="0" cellspacing="0">';
+			echo '<tr>';
 			$alphabet = range('A', 'Z');
 			$alphabet[] = 'ALL';
 			$alphabet[] = 'TOP100';
 			foreach ($alphabet as $alpha) {
-				echo '<div class="'.get_alpha_class($alpha).'">'.get_alpha_link($alpha).'</div>'."\n"; 
+				echo '<td class="'.get_alpha_class($alpha).'">'.get_alpha_link($alpha).'</td>'."\n"; 
 			}
-			echo '</div>';
+			echo '<td class="tab-last">&nbsp;</td>';
+			echo '</tr>';
+			echo '</table>';
 		}
 		
 		$sql = "SELECT indkey FROM $g_tbl_indiv WHERE surname = '$sn' ORDER BY givenname";
