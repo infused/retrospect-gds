@@ -12,6 +12,10 @@ a {
 	color: #0066CC;
 	text-decoration: none;
 }
+a.decor {
+	font-weight: normal;
+	text-decoration: underline;
+}
 ol {
 	margin-top: 5px;
 }
@@ -264,4 +268,7 @@ textarea.textbox {
 .list_header {
 	padding: 3px;
 	background-color: #C6CBCE;
+}
+.list_item {
+	padding: 3px;
 }

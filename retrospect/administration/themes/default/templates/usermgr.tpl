@@ -7,24 +7,29 @@
 	</tr>
 </table>
 <div class="tab-page">
-	<table cellpadding="0" cellspacing="0">
+	<table width="100%" cellpadding="0" cellspacing="0">
 		<tr>
-			<td class="list_header" width="100">Username</td>
 			<td class="list_header" width="200">Full Name</td>
+			<td class="list_header" width="100">Username</td>
 			<td class="list_header" width="100">Group</td>
 			<td class="list_header" width="200">Email</td>
 			<td class="list_header" width="200">Last Visit</td>
-			<td class="list_header" width="100">Enabled</td>
+			<td align="center" class="list_header" width="100">Enabled</td>
 		</tr>
 		{foreach from=$users item="user"}
 		<tr>
-			<td>{$user.uid}</td>
-			<td>{$user.fullname}</td>
-			<td>{$user.group}</td>
-			<td><a href="mailto:{$user.email}">{$user.email}</a></td>
-			<td>{$user.last}</td>
-			<td>{$user.disabled}</td>
-			
+			<td class="list_item"><a href="{$PHP_SELF}?m=useredit&u={$user.uid}">{$user.fullname}</a></td>
+			<td class="list_item">{$user.uid}</td>
+			<td class="list_item">{$user.group}</td>
+			<td class="list_item"><a class="decor" href="mailto:{$user.email}">{$user.email}</a></td>
+			<td class="list_item">{$user.last}</td>
+			<td align="center" class="list_item">
+			{if $user.enabled == "1"}
+				<img src="{$THEME_URL}images/tick.png" alt="Enabled" />
+			{else}
+				<img src="{$THEME_URL}images/redx.png" alt="Disabled" />
+			{/if}
+			</td>
 		</tr>
 		{/foreach}
 	</table>
