@@ -147,7 +147,7 @@
 		var $rs_source;					// source adodb recordset object
 		var $rs_citation;				// citation adodb recordset object
 		var $db;								// local var for $GLOBALS['db']
-		var $factkey;
+		var $factkey;						
 		
 		/**
 		* GedcomParser class constructor
@@ -292,10 +292,8 @@
 				# dump record to db if reached end of indi record
 				if ($level == 0) { 
 					$recordset = array_merge($indiv, $names[0]);
-					//$this->_DB_InsertRecord($this->rs_indiv, $recordset);
 					$this->_DB_InsertRecord($this->rs_indiv, $recordset);
 					foreach ($events as $event) {
-						//$this->_DB_InsertRecord($this->rs_fact, $event);
 						$this->_DB_InsertRecord($this->rs_fact, $event);
 					}
 					fseek($this->fhandle, $poffset);
