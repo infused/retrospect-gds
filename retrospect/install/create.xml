@@ -23,7 +23,7 @@
 		<field name="srckey" type="C" size="20">
 			<notnull />
 		</field>
-		<field name="text" type="X">
+		<field name="source" type="X">
 			<notnull />
 		</field>
 	</table>
