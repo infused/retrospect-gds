@@ -267,13 +267,13 @@ class Person {
 		$row = $db->GetRow($sql);
 		$this->prefix = trim(htmlentities($row['prefix']));
 		$this->suffix = trim(htmlentities($row['suffix']));
-		$this->gname = htmlentities($row['givenname']);
-		$this->sname = htmlentities($row['surname']);
+		$this->gname = $row['givenname'];
+		$this->sname = $row['surname'];
 		$this->aka = htmlentities($row['aka']);
 		$this->notekey = $row['notekey'];
 		# split out the first name
 		$fnames = explode(' ', $row['givenname']); 
-		$this->fname = htmlentities($fnames[0]);
+		$this->fname = $fnames[0];
 		$this->name = trim($this->gname.' '.$this->sname);
 		$this->sex = $row['sex'];
 		# determine correct gender string
