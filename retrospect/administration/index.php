@@ -41,8 +41,8 @@
 	//header('Cache-control: private'); # IE6 fix
 	
 	# Define all application paths
-	define('ADMIN_PATH', dirname($_SERVER['PATH_TRANSLATED']));
-	define('ROOT_PATH', dirname($_SERVER['PATH_TRANSLATED']).'/..'); # Path to root Retrospect-GDS directory
+	define('ADMIN_PATH', realpath(dirname($_SERVER['PATH_TRANSLATED'])));
+	define('ROOT_PATH', realpath(dirname($_SERVER['PATH_TRANSLATED']).'/..')); # Path to root Retrospect-GDS directory
 	define('CORE_PATH', ROOT_PATH.'/core/'); # Path to core files
 	define('MODULE_PATH', ADMIN_PATH.'/modules/'); # Path to module files
 	define('LIB_PATH', ROOT_PATH.'/libraries/'); # Path to 3rd party libraries
