@@ -44,7 +44,7 @@ function MM_setTextOfTextfield(objName,x,newText) { //v3.0
 			</a>
 		{/if}
 		<a href="{$PHP_SELF}?m=emailthis&ln={$TRACKBACK_ENCODED}">
-			<img src="{$THEME_URL}images/emailbutton.gif" border="0" alt="{php}t("Email"){/php}" />
+			<img src="{$THEME_URL}images/emailbutton.gif" border="0" alt="{php}t("Email this page"){/php}" />
 		</a>
 	</div>
 	{include file="$module.tpl"}

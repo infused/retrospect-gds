@@ -110,6 +110,14 @@ input.textbox {
 	background: white;
 	padding-left: 3px;
 }
+textarea.textbox {
+	font: normal 8pt Georgia, Arial, Helvetica, sans-serif;
+	color: #FF0000;
+	margin: 0px;
+	border: 1px solid #666666;
+	background: white;
+	padding: 5px;
+}
 .pedbox {
 	background-color: #CCCCCC;
 	position:absolute; 
