@@ -99,6 +99,12 @@ class Person {
 	* @var string
 	*/
 	var $aka;
+	
+	/**
+	* Hold the reference number.
+	* @var string
+	*/
+	var $refn;
 
 	/**
 	* Holds the gender
@@ -270,6 +276,7 @@ class Person {
 		$this->gname = $row['givenname'];
 		$this->sname = $row['surname'];
 		$this->aka = $row['aka'];
+		$this->refn = $row['refn'];
 		$this->notekey = $row['notekey'];
 		# split out the first name
 		$fnames = explode(' ', $row['givenname']); 

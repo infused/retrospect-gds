@@ -31,6 +31,10 @@
 			{/foreach}
 		</div>
 	{/foreach}
+	{if $indiv->refn}
+		<div class="col1">{php}t("Reference Number"){/php}:</div>
+		<div class="col2-2">{$indiv->refn}</div>
+	{/if}
 	{if $indiv->notes}
 		<div class="col1">{php}t("Notes"){/php}:</div>
 		<div class="col2-2">
