@@ -229,7 +229,7 @@ textarea.textbox {
 	border: solid 1px #CCCCCC;
 }
 .cfg-lbl {
-	width: 250px;
+	width: 200px;
 	vertical-align: top;
 	padding: 5px;
 }
@@ -242,8 +242,13 @@ textarea.textbox {
 	padding: 5px;
 	vertical-align: top;
 }
+.cfg-err {
+	padding: 5px;
+	vertical-align: top;
+	color: #FF0000;
+}
 .cfg-lbl2 {
-	width: 250px;
+	width: 200px;
 	vertical-align: top;
 	padding: 5px;
 	background-color: #E5E5E5;

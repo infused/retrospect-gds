@@ -57,6 +57,7 @@
 	define('TBL_NOTE', $g_db_prefix.'note');
 	define('TBL_CHILD', $g_db_prefix.'children');
 	define('TBL_USER', $g_db_prefix.'user');
+	define('TBL_USERTYPE', $g_db_prefix.'usertype');
 	define('TBL_LANG', $g_db_prefix.'language');
 	define('TBL_OPTION', $g_db_prefix.'options');
 	define('TBL_MEDIA', $g_db_prefix.'media');

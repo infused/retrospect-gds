@@ -18,7 +18,7 @@
 		</tr>
 		{foreach from=$users item="user"}
 		<tr>
-			<td class="list_item"><a href="{$PHP_SELF}?m=useredit&u={$user.uid}">{$user.fullname}</a></td>
+			<td class="list_item"><a href="{$PHP_SELF}?m=useredit&id={$user.id}">{$user.fullname}</a></td>
 			<td class="list_item">{$user.uid}</td>
 			<td class="list_item">{$user.group}</td>
 			<td class="list_item"><a class="decor" href="mailto:{$user.email}">{$user.email}</a></td>

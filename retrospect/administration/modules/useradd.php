@@ -23,5 +23,32 @@
 	
 	$smarty->assign('page_title', 'Retrospect-GDS Administration');
 	
+	# Get list of groups and assign to Smarty variable
+	$smarty->assign('groups', $db->GetAssoc('SELECT * FROM '.TBL_USERTYPE));
+	
+	# Form has been posted
+	if (isset($_POST['Save']) and $_POST['Save'] == 'Save') {
+		# Check for valid input
+		$username = strtolower($_POST['username']);
+		if (strlen($username) > 16 OR strlen($username) < 4) { 
+			$error = true;
+			$username_errors[] = 'Username must be between 4 and 16 characters long.';
+		}
+		if (preg_match('/^[a-z0-9]+$/', $username) == 0) {
+			$error = true;
+			$username_errors[] = 'Username may only contain alphanumeric characters.';
+		}
+		
+		# 
+		if ($error) {
+			$smarty->assign('username_errors', $username_errors);
+		}
+		
+	}
+	else {
+	
+		
+	}
+	
 	
 ?>
