@@ -78,18 +78,14 @@ function MM_setTextOfTextfield(objName,x,newText) { //v3.0
 	<?php	echo $g_content; 	unset($g_content); ?>
 </div>
 <div id="footer">
-	<a href="http://www.infused-solutions.com/retrospect" target="_blank">Retrospect-GDS v<?php echo $g_version; ?></a> &copy;2003-2004 Keith Morrison, Infused Solutions<br />
- 	<?php 
-		$end = time_get_micro();
-		$time = $end - $start;
-		echo 'Processing time: '.$time.' sec(s)<br />';
-		// memory_get_usage only available in PHP > 4.3.2
-		// works on unix-like systems only
-		if (function_exists('memory_get_usage')) {
-			echo 'Memory Usage: '.number_format(memory_get_usage()).' bytes';
-		}
-	?>  
-	<br />&nbsp;
+	<a href="http://www.infused-solutions.com/retrospect" target="_blank">Retrospect-GDS v<?php echo $g_version; ?></a> &copy;2003-2004 Keith Morrison, Infused Solutions
 </div>
+<?php
+	# print debug info
+	$profiler->stopTimer( "main" );
+	if ($debug) {
+		$profiler->printTimers( true );
+	}
+?>
 </body>
 </html>

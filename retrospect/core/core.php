@@ -5,19 +5,6 @@
  * This file loads all the other required modules and initializes 
  * global configuration variables, etc. 
  *
- * Detailed list of operations handled by the core (in order):
- * <ol><li>Gets start time for timing the script</li>
- *		 <li>Set error reporting level</li>
- *     <li>Start output buffering</li>
- *     <li>Start or resume a session</li>
- *     <li>Load configuration options from config file</li>
- *     <li>Load adodb library and establish connection</li>
- *     <li>Load additional configuration options from database</li>
- *     <li>Initialize gettext functions with the default or user selected language</li>
- *     <li>Load genealogy classes</li>
- *		 <li>Load theme functions</li>
- * </ol>
- *
  * @copyright 	Keith Morrison, Infused Solutions	2001-2004
  * @author			Keith Morrison <keithm@infused-solutions.com>
  * @package 		core
@@ -38,22 +25,22 @@
  *
  */
 
-	$g_version = '1.3.15';
+	$g_version = '1.3.17';
 	
 	# Turn on error reporting
 	error_reporting(E_ALL);	
+	
+	# Print debug information
+	$debug = false;
 
 	# Create clean content and menu vars
 	$g_menu = '';
 	$g_custom_menu = '';
 	$g_content = '';
 	
-	/** 
-	* Require datetime functions.
-	* Used only during development
-	*/
-	require_once(CORE_PATH.'f_datetime.php');
-	$start =  time_get_micro();
+	require_once(LIB_PATH.'profiler/profiler.inc.php');
+	$profiler = new Profiler( true, true );
+	$profiler->startTimer( 'main' );
 
 	# Start output buffering 
 	ob_start();
