@@ -89,27 +89,27 @@
 		</tr>
 		<tr>
 			<td class="cfg-lbl"><label for="db_host">Hostname:</label></td>
-			<td class="cfg-opt"><input name="db_host" type="text" class="textbox" id="db_host" value="{$db_host}" readonly="true"></td>
+			<td class="cfg-opt"><input name="db_host" type="text" class="textbox" value="{$db_host}" readonly="true"></td>
 			<td class="cfg-dsc">&nbsp;</td>
 		</tr>
 		<tr>
 			<td class="cfg-lbl2"><label for="db_port">Port:</label></td>
-			<td class="cfg-opt2"><input name="db_port" type="text" class="textbox" id="db_port" value="{$db_port}" readonly="true"></td>
+			<td class="cfg-opt2"><input name="db_port" type="text" class="textbox" value="{$db_port}" readonly="true"></td>
 			<td class="cfg-dsc2">&nbsp;</td>
 		</tr>
 		<tr>
 			<td class="cfg-lbl"><label for="db_user">User:</label></td>
-			<td class="cfg-opt"><input name="db_user" type="text" class="textbox" id="db_user" value="{$db_user}" readonly="true"></td>
+			<td class="cfg-opt"><input name="db_user" type="text" class="textbox" value="{$db_user}" readonly="true"></td>
 			<td class="cfg-dsc">&nbsp;</td>
 		</tr>
 		<tr>
 			<td class="cfg-lbl2"><label for="db_pass">Password:</label></td>
-			<td class="cfg-opt2"><input name="db_pass" type="password" class="textbox" id="db_pass" value="{$db_pass}" readonly="true"></td>
+			<td class="cfg-opt2"><input name="db_pass" type="password" class="textbox" value="{$db_pass}" readonly="true"></td>
 			<td class="cfg-dsc2">&nbsp;</td>
 		</tr>
 		<tr>
 			<td class="cfg-lbl"><label for="db_name">Database:</label></td>
-			<td class="cfg-opt"><input name="db" type="text" class="textbox" id="db" value="{$db_name}" readonly="true"></td>
+			<td class="cfg-opt"><input name="db" type="text" class="textbox" value="{$db_name}" readonly="true"></td>
 			<td class="cfg-dsc">&nbsp;</td>
 		</tr>
 	</table>
