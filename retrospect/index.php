@@ -51,24 +51,12 @@
 	$smarty->assign('CURRENT_PAGE', CURRENT_PAGE);
 	unset($current_page);
 
-	/**
-	* Load the appropriate theme option page
-	*/
+	# Make sure a valid option is set or get the default page
 	$g_option = isset($_GET['option']) ? $_GET['option'] : $options->GetOption('default_page');
+	
+	# Load the option's script
 	include(Theme::getPage($g_theme, $g_option));
 
-	/**
-	* Load the appropriate theme menu page
-	*/
-	//include(Theme::getPage($g_theme, 'menu'));
-	// THIS NEEDS FIXING!
-	//$smarty->assign('g_menu', $g_menu);
-
-	/**
-	* Load the appropriate theme template page
-	*/
-	//isset($_GET['print']) ? include(Theme::getPage($g_theme, 'template_print')) : include(Theme::getPage($g_theme, 'template'));
-	
 	$smarty->assign('option', $g_option);
 	$smarty->assign('meta_keywords', implode(', ', $keywords));
 	$smarty->assign('php_self', $_SERVER['PHP_SELF']);
