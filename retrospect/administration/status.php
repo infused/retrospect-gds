@@ -22,6 +22,15 @@
  *
  */  
 ?>
+<?
+	# gather table statistcs
+	
+	# individuals
+	$sql = "SELECT COUNT(*) FROM $g_tbl_indiv";
+	$cnt_indiv = $db->GetOne($sql);
+?>
+
+
 <link href="styles.css" rel="stylesheet" type="text/css">
 <table width="100%"  border="0" cellspacing="4" cellpadding="4">
   <tr>
@@ -29,8 +38,8 @@
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td class="content-subtitle">Notices</td>
-    <td>&nbsp;</td>
+    <td class="content-subtitle">System Status </td>
+    <td class="content-subtitle">Database Status</td>
   </tr>
   <tr>
     <td><?php 
@@ -40,6 +49,57 @@
 							} 
 						?>
     </td>
-    <td>&nbsp;</td>
+    <td><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+      <tr bgcolor="#CCCCCC">
+        <td>Table</td>
+        <td>Records</td>
+        <td>Something</td>
+      </tr>
+      <tr>
+        <td>Individual</td>
+        <td>42452345</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>Family</td>
+        <td>2345</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>       </td>
   </tr>
 </table>
