@@ -87,22 +87,22 @@ class Auth {
 		$c_fullname = $db->Qstr($p_fullname);
 		$c_email = $db->Qstr($p_email);
 		$c_pwd = $db->Qstr(md5($p_pwd));
-		$sql = "INSERT INTO {$g_tbl_user} VALUES('', {$c_uid}, {$c_pwd}, {$c_fullname}, {$c_email},'')";
+		$sql = "INSERT INTO {$g_tbl_user} VALUES('', {$c_uid}, {$c_pwd}, {$c_fullname}, {$c_email},'','0')";
 		if ($db->Execute($sql) !== false) { return true; }
 		else { return false; }
 	}
 	
 	function UpdateUser($p_id, $p_uid, $p_fullname, $p_email, $p_pwd) {
 		global $db, $g_tbl_user;
-		$c_id = (int) $p_id;
+		$c_id = $p_id;
 		$c_uid = $db->Qstr($p_uid);
 		$c_fullname = $db->Qstr($p_fullname);
 		$c_email = $db->Qstr($p_email);
 		$c_pwd = $db->Qstr(md5($p_pwd));
 		if (!$p_pwd) { 
-			$sql = "UPDATE {$g_tbl_user} SET uid={$c_uid}, fullname={$c_fullname}, email={$c_email} WHERE id='{$c_id}'";
+			$sql = "UPDATE {$g_tbl_user} SET uid={$c_uid}, fullname={$c_fullname}, email={$c_email} WHERE uid='{$c_id}'";
 		} else {
-			$sql = "UPDATE {$g_tbl_user} SET uid={$c_uid}, fullname={$c_fullname}, email={$c_email}, pwd={$c_pwd} WHERE id='{$c_id}'";
+			$sql = "UPDATE {$g_tbl_user} SET uid={$c_uid}, fullname={$c_fullname}, email={$c_email}, pwd={$c_pwd}, pwd_expired='0' WHERE uid='{$c_id}'";
 		}
 		return ($db->Execute($sql) !== false) ? true : false;
 	}
@@ -112,6 +112,21 @@ class Auth {
 		$sql = "SELECT * FROM {$g_tbl_user} WHERE uid='{$p_uid}'";
 		$rs = $db->Execute($sql);
 		return ($rs->RecordCount() > 0) ? true : false;
+	}
+	
+	function PasswordExpired($p_uid) {
+		global $db, $g_tbl_user;
+		$sql = "SELECT * FROM {$g_tbl_user} WHERE uid='{$p_uid}'";
+		$rs = $db->Execute($sql);
+		if ($row = $rs->FetchRow()) {
+			if ($row['pwd_expired'] == 1) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
 	}
 }
 ?>

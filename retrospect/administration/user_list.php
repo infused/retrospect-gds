@@ -1,6 +1,6 @@
 <?php
 /**
- * Admin - User List Module
+ * Admin - Status Module
  *
  * @copyright 	Keith Morrison, Infused Solutions	2001-2004
  * @author			Keith Morrison <keithm@infused-solutions.com>
@@ -46,8 +46,9 @@
 			$uid = $row['uid'];
 			$fullname = $row['fullname'];
 			$email = $row['email'];
+			$pwd_expired = $row['pwd_expired'];
 			echo '<tr>';
-			echo '<td class="text" width="200"><a href="'.$_SERVER['PHP_SELF'].'?option=user_edit&id='.$row['id'].'">'.$uid.'</a></td>';
+			echo '<td class="text" width="200"><a href="'.$_SERVER['PHP_SELF'].'?option=user_edit&id='.$uid.'">'.$uid.'</a></td>';
 			echo '<td class="text" width="200">'.$fullname.'</td>';
 			echo '<td class="text">'.$email.'</td>';
 			$last = ($row['last'] == '0000-00-00 00:00:00') ? _("Never") : $row['last'];

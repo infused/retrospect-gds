@@ -237,6 +237,9 @@
 			<notnull />
 		</field>
 		<field name="last" type ="T" />
+		<field name="pwd_expired" type="L">
+			<notnull />
+		</field>
 	</table>
 	<index name="uid" table="user">
 		<col>uid</col>
@@ -247,7 +250,7 @@
 	</index>
 	<sql>
 		<descr>Create admin account with password "welcome"</descr>
-		<query>INSERT INTO user VALUES ('', 'Admin', '40be4e59b9a2a2b5dffb918c0e86b3d7', 'Administrator', 'root@someplace.com', null)</query>
+		<query>INSERT INTO user VALUES ('', 'Admin', '40be4e59b9a2a2b5dffb918c0e86b3d7', 'Administrator', 'root@someplace.com', null, '1')</query>
 	</sql>
 	<sql>
 		<descr>Add 'default_lang' record to options table</descr>

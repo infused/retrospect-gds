@@ -28,8 +28,9 @@
 <script language="JavaScript"><!--
 var myMenu =
 [
-	[null, '<?php echo _("Configuration"); ?>', null, null, '<?php echo _("Configuration"); ?>',
-		['<img src="js/ThemeOffice/config.png" />', '<?php echo _("System"); ?>', '<?php echo $_SERVER['PHP_SELF']; ?>?option=sys_config', null, '<?php echo _("System"); ?>'],
+	[null, '<?php echo _("System"); ?>', null, null, '<?php echo _("System"); ?>',
+		['<img src="js/ThemeOffice/help.png" />', '<?php echo _("Status"); ?>', '<?php echo $_SERVER['PHP_SELF']; ?>?option=status', null, '<?php echo _("Status"); ?>'],
+		['<img src="js/ThemeOffice/config.png" />', '<?php echo _("Configuration"); ?>', '<?php echo $_SERVER['PHP_SELF']; ?>?option=sys_config', null, '<?php echo _("Configuration"); ?>'],
 		['<img src="js/ThemeOffice/user.png" />', '<?php echo _("User Admin"); ?>', null, null, '<?php echo _("User Admin"); ?>',
 			['<img src="js/ThemeOffice/edit.png" />', '<?php echo _("User List"); ?>', '<?php echo $_SERVER['PHP_SELF']; ?>?option=user_list', null, '<?php echo _("Edit Users"); ?>'],
 			['<img src="js/ThemeOffice/new_user.png" />', '<?php echo _("Add User"); ?>', '<?php echo $_SERVER['PHP_SELF']; ?>?option=user_add', null, '<?php echo _("Add User"); ?>']

@@ -67,7 +67,7 @@
 		}
 		else {
 			$id = $_GET['id'];
-			$sql = "SELECT * FROM $g_tbl_user WHERE id='$id'";
+			$sql = "SELECT * FROM $g_tbl_user WHERE uid='$id'";
 			$rs = $db->Execute($sql);
 			$u = $rs->FetchRow($rs);
 		//}

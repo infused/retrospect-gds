@@ -65,10 +65,21 @@
                   </tr>
                   <tr>
                     <td align="right" valign="middle" class="text"><?php echo _("Language"); ?>:</td>
-                    <td><select name="lang" class="listbox" tabindex="3">
-                        <option value="en_US"<?php if ($_SESSION['lang'] == 'en_US') { echo ' SELECTED'; } ?>><?php echo _("English"); ?></option>
-                        <option value="es_ES"<?php if ($_SESSION['lang'] == 'es_ES') { echo ' SELECTED'; } ?>><?php echo _("Spanish"); ?></option>
-                    </select></td>
+                    <td>
+											<?php 
+												echo '<select name="lang" size="1" class="listbox" id="lang" onChange="document.forms.form_change_lang.submit();">';
+												foreach ($g_langs as $the_lang) {
+													$code = $the_lang['lang_code'];
+													$name = $the_lang['lang_name'];
+													echo '<option value="'.$code.'"';
+													if ($_SESSION['lang'] == $code) {
+														echo ' SELECTED';
+													}
+													echo '>'._($name).'</option>';
+												}
+												echo '</select>';
+											?>
+										</td>
                   </tr>
                 </table></td>
               </tr>

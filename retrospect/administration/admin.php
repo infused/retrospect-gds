@@ -70,14 +70,17 @@
       </table></td> 
   </tr> 
   <tr> 
-    <td colspan="2" align="left" valign="top"> <?php 
-			if (isset($_GET['option']) AND file_exists($_GET['option'].'.php')) {
-				include($_GET['option'].'.php');
-			}
-		?> </td> 
+    <td colspan="2" align="left" valign="top">
+			<?php 
+				$g_option = (isset($_GET['option'])) ? $_GET['option'] : 'status';
+				if (file_exists($g_option.'.php')) {
+					include($g_option.'.php');
+				}
+			?> 
+		</td> 
   </tr> 
   <tr> 
-    <td height="20" colspan="2" align="center">&nbsp;</td> 
+    <td height="20" colspan="2" align="center">&nbsp;</td>
   </tr> 
 </table> 
 <?php include('menubar.php'); ?> 
