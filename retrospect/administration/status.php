@@ -37,16 +37,23 @@
     <td colspan="2" class="notification">&nbsp;</td>
   </tr>
   <tr>
-    <td class="content-subtitle"><?php echo _("System Status");  ?></td>
+    <td class="content-subtitle"><?php echo _("System Alerts");  ?></td>
     <td class="content-subtitle"><?php echo _("Database Records");  ?></td>
   </tr>
   <tr>
     <td align="left" valign="top">
 		<?php 
 				if (auth::PasswordExpired($_SESSION['uid'])) { 
+					echo '<p>';
 					$here = '<a href="'.$_SERVER['PHP_SELF'].'?option=user_edit&id='.$_SESSION['uid'].'">here</a>';
-					printf(_("You password has expired.  Go %s to change it immediately!"), $here);
+					printf(_("The admin password has expired.  Go %s to change it immediately!"), $here);
+					echo '</p>';
 				} 
+				if (file_exists(ROOT_PATH.'/../install')) {
+					echo '<p>';
+					echo _("The install directory should be deleted immediately.");
+					echo '</p>';
+				}
 		?>
     </td>
     <td width="300" align="right"><table width="300"  border="0" cellpadding="2" cellspacing="0" bgcolor="#CCCCCC">
