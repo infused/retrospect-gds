@@ -65,10 +65,10 @@
 			<notnull />
 		</field>
 		<field name="date1" type="C" size="8">
-			</notnull>
+			<notnull />
 		</field>
 		<field name="date2" type="C" size="8">
-			</notnull>
+			<notnull />
 		</field>
 		<field name="date_str" type="C" size="128">
 			<notnull />

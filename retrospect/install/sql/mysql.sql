@@ -3,11 +3,17 @@ famkey           VARCHAR(20) NOT NULL,
 indkey           VARCHAR(20) NOT NULL
 );
 
+ALTER TABLE rgds_children ADD  INDEX rgds_famkey  (famkey);
+
+ALTER TABLE rgds_children ADD  INDEX rgds_indkey  (indkey);
+
 CREATE TABLE rgds_citation (
 factkey          VARCHAR(20) NOT NULL,
 srckey           VARCHAR(20) NOT NULL,
 source           LONGTEXT
 );
+
+ALTER TABLE rgds_citation ADD  INDEX rgds_factkey  (factkey);
 
 CREATE TABLE rgds_comment (
 id               INTEGER NOT NULL AUTO_INCREMENT,
@@ -19,15 +25,24 @@ reviewed         TINYINT DEFAULT 0,
                  PRIMARY KEY (id)
 );
 
+ALTER TABLE rgds_comment ADD  INDEX rgds_indkey  (indkey);
+
 CREATE TABLE rgds_fact (
 indfamkey        VARCHAR(20) NOT NULL,
 type             VARCHAR(128) NOT NULL,
-date             VARCHAR(128) NOT NULL,
+date_mod         VARCHAR(2) NOT NULL,
+date1            VARCHAR(8) NOT NULL,
+date2            VARCHAR(8) NOT NULL,
+date_str         VARCHAR(128) NOT NULL,
 place            VARCHAR(250) NOT NULL,
 comment          VARCHAR(250) NOT NULL,
 factkey          VARCHAR(20) NOT NULL,
                  PRIMARY KEY (factkey)
 );
+
+ALTER TABLE rgds_fact ADD  INDEX rgds_indfamkey  (indfamkey);
+
+ALTER TABLE rgds_fact ADD  INDEX rgds_type  (type);
 
 CREATE TABLE rgds_family (
 famkey           VARCHAR(20) NOT NULL,
@@ -38,6 +53,10 @@ endstatus        VARCHAR(128) NOT NULL,
 notekey          VARCHAR(20) NOT NULL,
                  PRIMARY KEY (famkey)
 );
+
+ALTER TABLE rgds_family ADD  INDEX rgds_spouse1  (spouse1);
+
+ALTER TABLE rgds_family ADD  INDEX rgds_spouse2  (spouse2);
 
 CREATE TABLE rgds_indiv (
 indkey           VARCHAR(20) NOT NULL,
@@ -52,6 +71,12 @@ notekey          VARCHAR(20) NOT NULL,
                  PRIMARY KEY (indkey)
 );
 
+ALTER TABLE rgds_indiv ADD  INDEX rgds_surname  (surname);
+
+ALTER TABLE rgds_indiv ADD  INDEX rgds_givenname  (givenname);
+
+ALTER TABLE rgds_indiv ADD  INDEX rgds_sex  (sex);
+
 CREATE TABLE rgds_language (
 lang_id          INTEGER NOT NULL AUTO_INCREMENT,
 lang_code        VARCHAR(5) NOT NULL,
@@ -59,6 +84,8 @@ lang_charset     VARCHAR(20) NOT NULL,
 lang_name        VARCHAR(20) NOT NULL,
                  PRIMARY KEY (lang_id)
 );
+
+ALTER TABLE rgds_language ADD  INDEX rgds_lang_code  (lang_code);
 
 CREATE TABLE rgds_media (
 id               INTEGER NOT NULL AUTO_INCREMENT,
@@ -81,6 +108,8 @@ opt_val          VARCHAR(250) NOT NULL,
                  PRIMARY KEY (opt_id)
 );
 
+ALTER TABLE rgds_options ADD  UNIQUE INDEX rgds_opt_key  (opt_key);
+
 CREATE TABLE rgds_source (
 srckey           VARCHAR(20) NOT NULL,
 text             LONGTEXT,
@@ -99,6 +128,10 @@ pwd_expired      TINYINT NOT NULL,
                  PRIMARY KEY (id)
 );
 
+ALTER TABLE rgds_user ADD  UNIQUE INDEX rgds_uid  (uid);
+
+ALTER TABLE rgds_user ADD  INDEX rgds_pwd  (pwd);
+
 INSERT INTO  rgds_user VALUES  ('', 'Admin', '40be4e59b9a2a2b5dffb918c0e86b3d7', 'Administrator', 'root@someplace.com', null, '1');
 
 INSERT INTO  rgds_options VALUES  (1, 'default_lang', 'en_US');
@@ -109,10 +142,17 @@ INSERT INTO  rgds_options VALUES  (3, 'default_page', 'surnames');
 
 INSERT INTO  rgds_options VALUES  (4, 'translate_dates', '1');
 
-INSERT INTO  rgds_options VALUES  (4, 'profile_functions', '0');
+INSERT INTO  rgds_options VALUES  (5, 'profile_functions', '0');
 
-INSERT INTO  rgds_language VALUES  (1, 'en_US', 'English');
+INSERT INTO  rgds_options VALUES  (6, 'meta_copyright', '');
 
-INSERT INTO  rgds_language VALUES  (2, 'es_ES', 'Spanish');
+INSERT INTO  rgds_options VALUES  (7, 'meta_keywords', 'Genealogy,Family History');
 
-INSERT INTO  rgds_language VALUES  (3, 'de_DE', 'German');
+INSERT INTO  rgds_language VALUES  (1, 'en_US', 'iso-8859-1', 'English');
+
+INSERT INTO  rgds_language VALUES  (2, 'es_ES', 'iso-8859-1', 'Spanish');
+
+INSERT INTO  rgds_language VALUES  (3, 'de_DE', 'iso-8859-1', 'German');
+
+INSERT INTO  rgds_language VALUES  (4, 'nl_NL', 'iso-8859-1', 'Dutch');
+
