@@ -26,7 +26,7 @@
 		{foreach from=$individuals item=indiv}
 		<tr>
 			<td class="surname_col1">
-				<a href="{$php_self}?m=family&amp;id={$indiv->indkey}">{$indiv->sname}, {$indiv->gname}</a>
+				<a href="{$PHP_SELF}?m=family&amp;id={$indiv->indkey}">{$indiv->sname}, {$indiv->gname}</a>
 			</td>
 			<td class="surname_col2">{$indiv->birth->date}</td>
 			<td class="surname_col2">{$indiv->death->date}</td>
@@ -44,11 +44,11 @@
 				{assign var="count" value="1"}
 				{section name=i loop=$surnames}
 					{if $count % $max_rows == 0}
-						<a href="{$php_self}?m=surnames&sn={$surnames[i].surname}">{$surnames[i].surname}</a>&nbsp;({$surnames[i].count})
+						<a href="{$PHP_SELF}?m=surnames&sn={$surnames[i].surname}">{$surnames[i].surname}</a>&nbsp;({$surnames[i].count})
 						</td><td class="text" width="200" valign="top">
 						{assign var="count" value="`$count+1`"}
 					{else}
-						<a href="{$php_self}?m=surnames&sn={$surnames[i].surname}">{$surnames[i].surname}</a>&nbsp;({$surnames[i].count})
+						<a href="{$PHP_SELF}?m=surnames&sn={$surnames[i].surname}">{$surnames[i].surname}</a>&nbsp;({$surnames[i].count})
 						<br />
 						{assign var="count" value="`$count+1`"}
 					{/if}

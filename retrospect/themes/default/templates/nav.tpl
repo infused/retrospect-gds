@@ -29,7 +29,7 @@
 		{/if}
 		{if $module=="reports"}
 			<td class="tab-selected">{php}t("Reports"){/php}</td>
-		{elseif $option=="ahnentafel" or $option=="descendant"}
+		{elseif $module=="ahnentafel" or $module=="descendant"}
 			<td class="tab-selected">
 				<a href="{$PHP_SELF}?m=reports&amp;id={$indiv->indkey}">{php}t("Reports"){/php}</a>
 			</td>
