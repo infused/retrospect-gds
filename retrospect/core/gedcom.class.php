@@ -60,6 +60,7 @@
 	
 	# Event substructures
 	define('REG_FAME','/^1 (ANUL|CENS|DIV|DIVF|ENGA|MARR|MARB|MARC|MARL|MARS|EVEN)(.+)/'); # Family Event
+	define('REG_INDE','/^1 (BIRT|CHR|DEAT|BURI|CREM|ADOP|BAPM|BARM|BASM|BLES|CHRA|CONF|FCOM|ORDN|NATU|EMIG|IMMI|CENS|PROB|WILL|GRAD|RETI|EVEN)(.+)/'); # Individual Event
 	define('REG_DATE','/^2 DATE (.+)/');				# Event date
 	define('REG_TYPE','/^2 TYPE (.+)/');				# Event type
 	define('REG_PLAC','/^2 PLAC (.+)/');				# Event place
@@ -70,7 +71,7 @@
 	$FAM_EVENTS = array(
 		'ANUL'=>'Annulment',
 		'CENS'=>'Census',
-		'DIV'=>'Divorce',
+		'DIV' =>'Divorce',
 		'DIVF'=>'Divorce Filed',
 		'ENGA'=>'Engagement',
 		'MARR'=>'Marriage',
@@ -78,6 +79,30 @@
 		'MARC'=>'Marriage Contract',
 		'MARL'=>'Marriage License',
 		'MARS'=>'Marriage Settlement'
+		);
+	$IND_EVENTS = array(
+		'BIRT'=>'Birth',
+		'CHR' =>'Christening',
+		'DEAT'=>'Death',
+		'BURI'=>'Burial',
+		'CREM'=>'Cremation',
+		'ADOP'=>'Adoption',
+		'BAPM'=>'Baptism',
+		'BARM'=>'Bar Mitzvah',
+		'BASM'=>'Bas Mitzvah',
+		'BLES'=>'Blessing',
+		'CHRA'=>'Adult Christening',
+		'CONF'=>'Confirmation',
+		'FCOM'=>'First Communion',
+		'ORDN'=>'Ordination',
+		'NATU'=>'Naturalization',
+		'EMIG'=>'Emigration',
+		'IMMI'=>'Immigration',
+		'CENS'=>'Census',
+		'PROB'=>'Probate',
+		'WILL'=>'Will',
+		'GRAD'=>'Graduation',
+		'RETI'=>'Retirement'
 		);
 	
 	/**
@@ -100,6 +125,7 @@
 		var $rs_family;					// family adodb recordset object
 		var $rs_fact;						// fact adodb recordset object
 		var $db;								// local var for $GLOBALS['db']
+		var $factkey;
 		
 		/**
 		* GedcomParser class constructor
@@ -107,6 +133,7 @@
 		*/
 		function GedcomParser() {
 			$this->db = &$GLOBALS['db'];
+			$this->factkey = 0;
 			# get empty indiv recordset
 			$sql = 'SELECT * from '.$GLOBALS['g_tbl_indiv'].' where indkey=-1';
 			$this->rs_indiv = $GLOBALS['db']->Execute($sql);
@@ -224,6 +251,7 @@
 		function _ParseIndividual($start_line) {
 			$indiv = array();
 			$names = array();  
+			$events = array();
 			preg_match(REG_INDI, $start_line, $match);
 			$indiv['indkey'] = $match[1];
 			while (!feof($this->fhandle)) {
@@ -233,7 +261,11 @@
 				# dump record to db if reached end of indi record
 				if ($level == 0) { 
 					$recordset = array_merge($indiv, $names[0]);
+					//$this->_DB_InsertRecord($this->rs_indiv, $recordset);
 					$this->_DB_InsertRecord($this->rs_indiv, $recordset);
+					foreach ($events as $event) {
+						$this->_DB_InsertRecord($this->rs_fact, $event);
+					}
 					fseek($this->fhandle, $poffset);
 					return;
 				}
@@ -246,6 +278,11 @@
 				}
 				elseif (preg_match(REG_NOTEX, $line, $match)) {
 					$indiv['notekey'] = trim($match[1]);
+				}
+				# parse event and populate begin/end status
+				elseif (preg_match(REG_INDE, $line)) {
+					$event = $this->_ParseIndivEventDetail($line, $indiv['indkey']);
+					array_push($events, $event);
 				}
 			}
 		}
@@ -349,7 +386,10 @@
 		*/
 		function _ParseFamilyEventDetail($start_line, $indfamkey) {
 			global $FAM_EVENTS;
+			$this->factkey++;
 			$event = array();
+			$event['indfamkey'] = $indfamkey;
+			$event['factkey'] = $this->factkey;
 			preg_match(REG_FAME, $start_line, $match);
 			$key = &$match[1];
 			if ($key != 'EVEN') {
@@ -377,7 +417,47 @@
 					$event['place'] = trim($match[1]);
 				}
 			}
-
+		}
+		
+		/**
+		* Parse event detail
+		* @param string $start_line
+		* @param string $indfamkey
+		* @return array
+		*/
+		function _ParseIndivEventDetail($start_line, $indfamkey) {
+			global $IND_EVENTS;
+			$this->factkey++;
+			$event = array();
+			$event['indfamkey'] = $indfamkey;
+			$event['factkey'] = $this->factkey;
+			preg_match(REG_INDE, $start_line, $match);
+			$key = &$match[1];
+			if ($key != 'EVEN') {
+				$event['type'] = $IND_EVENTS[$key];		
+			}
+			else { 
+				echo $start_line.' - '.$match[2].'<br>';
+			}
+			while (!feof($this->fhandle)) {
+				$poffset = ftell($this->fhandle);
+				$line = fgets($this->fhandle);
+				$level = $this->_ExtractLevel($line);
+				# return record to calling function if end of structure
+				if ($level <= 1) {
+					fseek($this->fhandle, $poffset);
+					return $event;
+				}
+				elseif (preg_match(REG_DATE, $line, $match)) {
+					$event['date'] = trim($match[1]);
+				}
+				elseif (preg_match(REG_TYPE, $line, $match)) {
+					$event['type'] = trim($match[1]);
+				}
+				elseif (preg_match(REG_PLAC, $line, $match)) {
+					$event['place'] = trim($match[1]);
+				}
+			}
 		}
 		
 		/**
@@ -454,7 +534,7 @@
 			$db = &$this->db;
 			$insertSQL = $db->GetInsertSQL($rs, $record);
 			//$db->Execute($insertSQL);
-			//////echo $insertSQL.'<br>';
+			echo $insertSQL.'<br>';
 		}
 
  	}
