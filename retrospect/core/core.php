@@ -32,10 +32,9 @@
 	/**
 	* Load the configuration file
 	*/
-	if (file_exists(CORE_PATH.'config.php')) require_once(CORE_PATH.'config.php');
+	if (file_exists(CORE_PATH.'config.php')) @require_once(CORE_PATH.'config.php');
 	else {
-		echo 'Could not find configuration file.'; 
-		exit;
+		exit('Could not find configuration file.'); 
 	}
 
 	# Define all database table names
@@ -51,22 +50,26 @@
 	define('TBL_OPTION', $g_db_prefix.'options');
 	define('TBL_MEDIA', $g_db_prefix.'media');
 	define('TBL_COMMENT', $g_db_prefix.'comment');
+
+	# Require PHP compatibility functions
+	@require_once(CORE_PATH.'f_compatibility.php');
+	# Require miscellaneous functions
+	@require_once(CORE_PATH.'f_misc.php');
+	# Require ADODB database library
+	@require_once(LIB_PATH.'adodb/adodb.inc.php');
+	# Require options class
+	@require_once(CORE_PATH.'options.class.php');
+	# Require language functions
+	@require_once(CORE_PATH.'f_language.php');
+	# Require genealogy classes
+	@require_once(CORE_PATH.'genealogy.class.php');
+	# Require HTML class
+	@require_once(CORE_PATH.'html.class.php');
+  # Require theme class
+	@require_once(CORE_PATH.'theme.class.php');
 	
-	/** 
-	* Require PHP compatibility functions
-	*/
-	require_once(CORE_PATH.'f_compatibility.php');
-	
-	/**
-	* Require miscellaneous functions
-	*/
-	require_once(CORE_PATH.'f_misc.php');
-	
-	/**
-	* Require database functions and establish connection.
-	* Use the appropriate connection method based on the database type.
-	*/
-	require_once(LIB_PATH.'adodb/adodb.inc.php');
+	# Establish the database connection and use
+	# the appropriate connection method based on the database type
 	$db =& AdoNewConnection($g_db_type);
 	if ($g_db_type == 'odbc_mssql') {
 		# Microsoft SQL ODBC connection
@@ -77,50 +80,33 @@
 		$host = ($g_db_port != '') ? $g_db_host.':'.$g_db_port : $g_db_host;
 		$db->Connect($host, $g_db_user, $g_db_pass, $g_db_name);
 	}
+	# Make sure that RecordSets are always returned as associative arrays
 	$db->SetFetchMode(ADODB_FETCH_ASSOC);
 
-	/**
-	* Require options file and instantiate options
-	*/
-	require_once(CORE_PATH.'options.class.php');
+	# Create options object
 	$options =& new Options();
+	
+	# Get general keywords that will be added to the meta keyword list on each page
 	$keywords = explode(',', $options->GetOption('meta_keywords'));
+	
+	# Generate the copyright info for all pages
+	# The $copyright var is a combination of the RGDS_COPYRIGHT constant
+	# and the administrator configurable copyright string
 	$copyright = htmlentities(trim(RGDS_COPYRIGHT));
-	$test = '';
 	if ($options->GetOption('meta_copyright')) {
 		$copyright .= '; '.htmlentities($options->GetOption('meta_copyright'));
 	}
 	
-	/**
-	* Load profiler and initialize
-	*/
+	# Load profiler and initialize
 	if ($options->profile_functions == true) {
 		$profile = true;
-		require_once(LIB_PATH.'profiler/profiler.inc.php');
+		@require_once(LIB_PATH.'profiler/profiler.inc.php');
 		$profiler = new Profiler( true, false );
 		$profiler->startTimer( 'all' );
 	} else {
 		$profile = false;
 	}
 
-	/**
-	* Require language functions and initialize gettext
-	*/
-	require_once(CORE_PATH.'f_language.php');
+	# Initialize the gettext engine
 	lang_init_gettext();
-	
-	/**
-	* Require genealogy classes
-	*/
-	require_once(CORE_PATH.'genealogy.class.php');
-	
-	/**
-	* Require html class
-	*/
-	require_once(CORE_PATH.'html.class.php');
-	
-	/**
-	* Require theme functions
-	*/
-	require_once(CORE_PATH.'theme.class.php');
 ?>
