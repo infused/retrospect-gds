@@ -32,12 +32,12 @@
 	session_start();
 
 	# Define all application paths
-	define('ROOT_PATH', dirname($_SERVER['PATH_TRANSLATED'])); # Path to root Retrospect-GDS directory
-	define('CORE_PATH', ROOT_PATH.'/core/'); # Path to core files
-	define('MODULE_PATH', CORE_PATH.'modules/'); # Path to module files
-	define('THEME_PATH', ROOT_PATH.'/themes/'); # Path to themes
-	define('LIB_PATH', ROOT_PATH.'/libraries/'); # Path to 3rd party libraries
-	define('LOCALE_PATH', ROOT_PATH.'/locale/'); # Path to gettext locale files
+	define('ROOT_PATH', dirname($_SERVER['SCRIPT_FILENAME'])); 	# Path to root Retrospect-GDS directory
+	define('CORE_PATH', ROOT_PATH.'/core/'); 										# Path to core files
+	define('MODULE_PATH', CORE_PATH.'modules/'); 								# Path to module files
+	define('THEME_PATH', ROOT_PATH.'/themes/'); 								# Path to themes
+	define('LIB_PATH', ROOT_PATH.'/libraries/'); 								# Path to 3rd party libraries
+	define('LOCALE_PATH', ROOT_PATH.'/locale/'); 								# Path to gettext locale files
 	define('BASE_URL', dirname($_SERVER['PHP_SELF']));
 
 	# Load the Restrospect-GDS core
