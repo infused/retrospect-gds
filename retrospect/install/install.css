@@ -38,6 +38,10 @@ div.no {
 	font-weight: bold;
 	color: red;
 }
+div.no-not-req {
+	font-weight: bold;
+	color: orange;
+}
 .button {
 	font-size: 14px;
 }

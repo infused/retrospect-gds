@@ -285,7 +285,7 @@ class Person {
 	
 	/**
 	* Person Constructor
-	*
+	* 
 	* The $p_level parameter specifies that amount of information that is populated.
 	* Levels:<br />
 	* 0: All data<br />
@@ -298,6 +298,10 @@ class Person {
 	* @param integer $p_ns_number anhnentafel number
 	*/
 	function Person($p_id, $p_level = 0, $p_ns_number = null) {
+		global $profiler, $profile;
+		if ($profile == true) {
+			$profiler->startTimer('class_person_constructor');
+		}
 		$this->tbl_indiv =& $GLOBALS['g_tbl_indiv'];
 		$this->tbl_fact =& $GLOBALS['g_tbl_fact'];
 		$this->tbl_family =& $GLOBALS['g_tbl_family'];
@@ -343,6 +347,9 @@ class Person {
 			$this->marriages = array();
 			$this->_get_marriages(false);
 		}
+		if ($profile == true) {
+			$profiler->stopTimer('class_person_constructor');
+		}
 	}
 	
 	/**
@@ -350,7 +357,10 @@ class Person {
 	* @access private
 	*/
 	function _get_name() {
-		global $db;
+		global $db, $profiler, $profile;
+		if ($profile == true) {
+			$profiler->startTimer('class_person_get_name');
+		}
 		$sql = "SELECT * FROM {$this->tbl_indiv} WHERE indkey = '{$this->indkey}'";
 		$row = $db->GetRow($sql);
 		$this->gname = $row['givenname'];
@@ -371,6 +381,9 @@ class Person {
 		else { 
 			$this->gender = 'Unknown'; 
 		}
+		if ($profile == true) {
+			$profiler->stopTimer('class_person_get_name');
+		}
 	}
 
 	/**
@@ -378,7 +391,10 @@ class Person {
 	* @access private
 	*/
 	function _get_events($p_fetch_sources = true) {
-		global $db;
+		global $db, $profiler, $profile;
+		if ($profile == true) {
+			$profiler->startTimer('class_person_get_events');
+		}
 		$this->events = array();
 		$sql =  "SELECT * FROM {$this->tbl_fact} WHERE indfamkey = '{$this->indkey}'";
 		$rs = $db->Execute($sql);
@@ -387,7 +403,7 @@ class Person {
 			if (strtolower($event->type) == 'birth') {
 				$this->birth = $event;
 			}
-			else if (strtolower($event->type) == 'death') {
+			elseif (strtolower($event->type) == 'death') {
 				$this->death = $event;
 			}
 			else {
@@ -396,6 +412,9 @@ class Person {
 			
 		}
 		$this->event_count = count($this->events);
+		if ($profile == true) {
+			$profiler->stopTimer('class_person_get_events');
+		}
 	}
 
 	/**
@@ -403,7 +422,10 @@ class Person {
 	* @access private
 	*/	
 	function _get_parents() {
-		global $db;
+		global $db, $profiler, $profile;
+		if ($profile == true) {
+			$profiler->startTimer('class_person_get_parents');
+		}
 		$sql  = "SELECT spouse1, spouse2 FROM {$this->tbl_family} ";
 		$sql .= "INNER JOIN {$this->tbl_child} ";
 		$sql .= "ON {$this->tbl_family}.famkey = {$this->tbl_child}.famkey ";
@@ -411,6 +433,9 @@ class Person {
 		if ($row = $db->GetRow($sql)) {
 			$this->father_indkey = isset($row['spouse1']) ? $row['spouse1'] : null;
 			$this->mother_indkey = isset($row['spouse2']) ? $row['spouse2'] : null;
+		}
+		if ($profile == true) {
+			$profiler->stopTimer('class_person_get_parents');
 		}
 	}
 
@@ -420,7 +445,10 @@ class Person {
 	* @access private
 	*/	
 	function _get_marriages($fetch_sources = true) {
-		global $db;
+		global $db, $profiler, $profile;
+		if ($profile == true) {
+			$profiler->startTimer('class_person_get_marriages');
+		}
 		if ($this->sex == 'M') { $p_col = 'spouse1'; $s_col = 'spouse2'; }
 		else { $p_col = 'spouse2'; $s_col = 'spouse1'; }
 		$sql = "SELECT * FROM {$this->tbl_family} WHERE {$p_col}='{$this->indkey}'";
@@ -430,6 +458,9 @@ class Person {
 			array_push($this->marriages, $marriage);
 		}
 		$this->marriage_count = count($this->marriages);
+		if ($profile == true) {
+			$profiler->stopTimer('class_person_get_marriages');
+		}
 	}
 
 	/**
@@ -437,7 +468,10 @@ class Person {
 	* @access private
 	*/	
 	function _get_children() {
-		global $db;
+		global $db, $profiler, $profile;
+		if ($profile == true) {
+			$profiler->startTimer('class_person_get_children');
+		}
 		foreach ($this->marriages as $marriage) {	
 			$famkey = $marriage['famkey'];
 			$sql = "SELECT indkey FROM {$this->tbl_child} WHERE famkey='{$famkey}'";
@@ -446,6 +480,9 @@ class Person {
 				array_push($this->children, $child);
 			}
 		}
+		if ($profile == true) {
+			$profiler->stopTimer('class_person_get_children');
+		}
 	}
 
 	/**
@@ -453,9 +490,15 @@ class Person {
 	* @access private
 	*/	
 	function _get_notes() {
-		global $db;
+		global $db, $profiler, $profile;
+		if ($profile == true) {
+			$profiler->startTimer('class_person_get_notes');
+		}
 		$query = "SELECT text FROM $this->tbl_note WHERE notekey='$this->notekey'";
 		$this->notes = $db->GetOne($query);
+		if ($profile == true) {
+			$profiler->stopTimer('class_person_get_notes');
+		}
 	}
 }
 
@@ -533,6 +576,10 @@ class Event {
 	* @param string $p_factkey 
 	*/
 	function Event($p_type, $p_date, $p_place, $p_factkey, $p_fetch_sources = true) {
+		global $profiler, $profile;
+		if ($profile == true) {
+			$profiler->startTimer('class_event_constructor');
+		}
 		$this->tbl_citation =& $GLOBALS['g_tbl_citation'];
 		$this->tbl_source =& $GLOBALS['g_tbl_source'];
 		$this->type = ucwords(strtolower($p_type));
@@ -542,6 +589,9 @@ class Event {
 		if ($p_fetch_sources === true) {
 			$this->_get_sources();
 		}
+		if ($profile == true) {
+			$profiler->stopTimer('class_event_constructor');
+		}
 	}
 	
 	/** 
@@ -549,7 +599,10 @@ class Event {
 	* @access private
 	*/
 	function _get_sources() {
-		global $db;
+		global $db, $profiler, $profile;
+		if ($profile == true) {
+			$profiler->startTimer('class_event_get_sources');
+		}
 		$sources = array();
 		$sql  = "SELECT {$this->tbl_citation}.source, {$this->tbl_source}.text "; 
 		$sql .= "FROM {$this->tbl_citation} INNER JOIN {$this->tbl_source} ";
@@ -565,6 +618,9 @@ class Event {
 		}
 		$this->sources = $sources;
 		$this->source_count = count($this->sources);
+		if ($profile == true) {
+			$profiler->stopTimer('class_event_get_sources');
+		}
 	}
 }
 
@@ -751,6 +807,10 @@ class Marriage {
 	* @param boolean $fetch_sources
 	*/
 	function Marriage($p_famkey, $p_spouse, $p_beginstatus, $p_endstatus, $p_notekey, $fetch_sources = true) {
+		global $profiler, $profile;
+		if ($profile == true) {
+			$profiler->startTimer('class_marriage_constructor');
+		}
 		$this->tbl_note =& $GLOBALS['g_tbl_note'];
 		$this->tbl_citation =& $GLOBALS['g_tbl_citation'];
 		$this->tbl_source =& $GLOBALS['g_tbl_source'];
@@ -776,6 +836,9 @@ class Marriage {
 			$this->end_sources = $this->_get_sources($this->endstatus_factkey); 
 		}
 		$this->end_source_count = count($this->end_sources);
+		if ($profile == true) {
+			$profiler->stopTimer('class_marriage_constructor');
+		}
 	}
 		
 	/**
@@ -783,10 +846,16 @@ class Marriage {
 	* @access private
 	*/	
 	function _get_children() {	
-		global $db;
+		global $db, $profiler, $profile;
+		if ($profile == true) {
+			$profiler->startTimer('class_marriage_get_children');
+		}
 		$sql = "SELECT indkey FROM {$this->tbl_child} WHERE famkey = '{$this->famkey}'";
 		$this->children = $db->GetCol($sql);
 		$this->child_count = count($this->children);
+		if ($profile == true) {
+			$profiler->stopTimer('class_marriage_get_children');
+		}
 	}
 	
 	/**
@@ -794,9 +863,15 @@ class Marriage {
 	* @access private
 	*/
 	function _get_notes() {
-		global $db;
+		global $db, $profiler, $profile;
+		if ($profile == true) {
+			$profiler->startTimer('class_marriage_get_notes');
+		}
 		$query = "SELECT text FROM {$this->tbl_note} WHERE notekey='{$this->notekey}'";
 		$this->notes = htmlspecialchars($db->GetOne($query));
+		if ($profile == true) {
+			$profiler->stopTimer('class_marriage_get_notes');
+		}
 	}
 	
 	/**
@@ -804,7 +879,10 @@ class Marriage {
 	* @access private
 	*/
 	function _get_sources($p_factkey) {
-		global $db;
+		global $db, $profiler, $profile;
+		if ($profile == true) {
+			$profiler->startTimer('class_marriage_get_sources');
+		}
 		$sources = array();
 		$sql  = "SELECT {$this->tbl_citation}.source, {$this->tbl_source}.text ";
 		$sql .= "FROM {$this->tbl_citation} INNER JOIN {$this->tbl_source} ";
@@ -817,7 +895,11 @@ class Marriage {
 			$source = $msrc.'<br>'.$srccitation;
 			array_push($sources, $source);
 		}
+		if ($profile == true) {
+			$profiler->stopTimer('class_marriage_get_sources');
+		}
 		return $sources;
+
 	}
 	
 	/**
@@ -825,12 +907,18 @@ class Marriage {
 	* @access private
 	*/
 	function _get_beginstatus_event() {
-		global $db;
+		global $db, $profiler, $profile;
+		if ($profile == true) {
+			$profiler->startTimer('class_marriage_get_beginstatus_event');
+		}
 		$query = "SELECT factkey, date, place FROM {$this->tbl_fact} WHERE (indfamkey='{$this->famkey}') AND (type='{$this->beginstatus}')";
 		if ($row = $db->GetRow($query)) {
 			$this->beginstatus_factkey = $row['factkey'];
 			$this->date = lang_translate_date(ucwords(strtolower($row['date'])));
 			$this->place = $row['place'];
+		}
+		if ($profile == true) {
+			$profiler->stopTimer('class_marriage_get_beginstatus_event');
 		}
 	}
 	
@@ -839,12 +927,18 @@ class Marriage {
 	* @access private
 	*/
 	function _get_endstatus_event() {
-		global $db;
+		global $db, $profiler, $profile;
+		if ($profile == true) {
+			$profiler->startTimer('class_marriage_get_endstatus_event');
+		}
 		$query = "SELECT factkey, date, place FROM {$this->tbl_fact} WHERE (indfamkey='{$this->famkey}') AND (type='{$this->endstatus}') LIMIT 1";
 		if ($row = $db->GetRow($query)) {
 			$this->endstatus_factkey = $row['factkey'];
 			$this->enddate = lang_translate_date(ucwords(strtolower($row['date'])));
 			$this->endplace = $row['place'];	
+		}		
+		if ($profile == true) {
+			$profiler->stopTimer('class_marriage_get_endstatus_event');
 		}
 	}
 }

@@ -31,12 +31,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <script language="JavaScript" type="text/JavaScript">
 <!--
-function MM_reloadPage(init) {  //reloads the window if Nav4 resized
-  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
-    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
-  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
-}
-MM_reloadPage(true);
 
 function MM_openBrWindow(theURL,winName,features) { //v2.0
   window.open(theURL,winName,features);
@@ -81,10 +75,12 @@ function MM_setTextOfTextfield(objName,x,newText) { //v3.0
 	<a href="http://www.infused-solutions.com/retrospect" target="_blank">Retrospect-GDS v<?php echo $g_version; ?></a> &copy;2003-2004 Keith Morrison, Infused Solutions
 </div>
 <?php
-	# print debug info
-	$profiler->stopTimer( "main" );
-	if ($debug) {
-		$profiler->printTimers( true );
+	# print profile info
+	if ($profile == true) {
+		$profiler->stopTimer( 'all' );
+		echo '<center><table><tr><td>';
+		$profiler->printTimers(true);
+		echo '</td></tr></table></center>';
 	}
 ?>
 </body>

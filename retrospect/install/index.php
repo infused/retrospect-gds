@@ -69,7 +69,7 @@
         </tr>
         <tr> 
           <td width="400" class="section_item"><span class="item">PHP version</span></td> 
-          <td nowrap="nowrap" class="section_item">
+          <td align="center" nowrap="nowrap" class="section_item">
 						<?php 
 							$php_ver = phpversion();
 							echo (version_compare($php_ver, '4.2.3') > 0) ? '<div class="yes">'.$php_ver.'</div>' : '<div class="no">'.$php_ver.'</div>';
@@ -78,24 +78,42 @@
         </tr> 
         <tr>
           <td class="section_item">Configuration file writable </td>
-          <td class="section_item"><?php echo is_writable( '..' ) ? '<div class="yes">Yes</div>' : '<div="no">No</div>';?></td>
+          <td align="center" class="section_item"><?php echo is_writable( '..' ) ? '<div class="yes">Yes</div>' : '<div="no">No</div>';?></td>
           <td class="section_item">Optional</td>
         </tr>
         <tr>
           <td class="section_item">Misc Extensions:</td>
-          <td class="section_item">&nbsp;</td>
+          <td align="center" class="section_item">&nbsp;</td>
           <td class="section_item">&nbsp;</td>
         </tr>
         <tr> 
           <td class="section_item"> - Gettext support </td> 
-          <td class="section_item">
+          <td align="center" class="section_item">
 						<?php 
 							$cfg_filename = CORE_PATH.'config.php';
 							@chmod($cfg_filename, 666);
-							echo extension_loaded('gettext') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>';
+							echo extension_loaded('gettext') ? '<div class="yes">Yes</div>' : '<div class="no-not-req">No</div>';
 						?>
 					</td> 
           <td class="section_item">Required</td>
+        </tr>
+        <tr>
+          <td class="section_item">- Mmcache </td>
+          <td align="center" class="section_item">
+					<?php
+						echo function_exists('mmcache_cache_page') ? '<div class="yes">Yes</div>' : '<div class="no-not-req">No</div>';
+					?>
+					</td>
+          <td class="section_item">Optional</td>
+        </tr>
+        <tr>
+          <td class="section_item">- Adodb zend extension</td>
+          <td align="center" class="section_item">
+					<?php 
+						echo extension_loaded('ADOdb') ? '<div class="yes">Yes</div>' : '<div class="no-not-req">No</div>';
+					?>
+					</td>
+          <td class="section_item">Optional</td>
         </tr>
     </table></td></tr> 
 </table> 
@@ -108,42 +126,42 @@
       <table width="100%"  border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td class="section_item">&nbsp;</td>
-          <td width="100" class="section_item">&nbsp;</td>
+          <td width="100" align="center" class="section_item">&nbsp;</td>
           <td class="section_item">&nbsp;</td>
         </tr>
         <tr>
           <td width="400" class="section_item">MySQL</td>
-          <td class="section_item"><?php echo extension_loaded('mysql') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>'; ?></td>
+          <td align="center" class="section_item"><?php echo extension_loaded('mysql') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>'; ?></td>
           <td class="section_item"><a href="http://www.php.net/manual/en/ref.mysql.php">http://www.php.net/manual/en/ref.mysql.php</a></td>
         </tr>
         <tr>
           <td class="section_item">MySQLi</td>
-          <td class="section_item"><?php echo extension_loaded('mysqli') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>'; ?></td>
+          <td align="center" class="section_item"><?php echo extension_loaded('mysqli') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>'; ?></td>
           <td class="section_item"><a href="http://www.php.net/manual/en/ref.mysqli.php" target="_blank">http://www.php.net/manual/en/ref.mysqli.php</a></td>
         </tr>
         <tr>
           <td class="section_item">Microsoft SQL</td>
-          <td class="section_item"><?php echo extension_loaded('mssql') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>'; ?></td>
+          <td align="center" class="section_item"><?php echo extension_loaded('mssql') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>'; ?></td>
           <td class="section_item"><a href="http://www.php.net/manual/en/ref.mssql.php" target="_blank">http://www.php.net/manual/en/ref.mssql.php</a></td>
         </tr>
         <tr>
           <td class="section_item">Oracle</td>
-          <td class="section_item"><?php echo extension_loaded('oracle') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>'; ?></td>
+          <td align="center" class="section_item"><?php echo extension_loaded('oracle') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>'; ?></td>
           <td class="section_item"><a href="http://www.php.net/manual/en/ref.oracle.php" target="_blank">http://www.php.net/manual/en/ref.oracle.php</a></td>
         </tr>
         <tr>
           <td class="section_item">Oracle 8</td>
-          <td class="section_item"><?php echo extension_loaded('oci8') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>'; ?></td>
+          <td align="center" class="section_item"><?php echo extension_loaded('oci8') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>'; ?></td>
           <td class="section_item"><a href="http://www.php.net/manual/en/ref.oci8.php" target="_blank">http://www.php.net/manual/en/ref.oci8.php</a></td>
         </tr>
         <tr>
           <td class="section_item">PostgreSQL</td>
-          <td class="section_item"><?php echo extension_loaded('pgsql') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>'; ?></td>
+          <td align="center" class="section_item"><?php echo extension_loaded('pgsql') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>'; ?></td>
           <td class="section_item"><a href="http://www.php.net/manual/en/ref.pgsql.php" target="_blank">http://www.php.net/manual/en/ref.pgsql.php</a></td>
         </tr>
         <tr>
           <td class="section_item">SQLite</td>
-          <td class="section_item"><?php echo extension_loaded('sqlite') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>'; ?></td>
+          <td align="center" class="section_item"><?php echo extension_loaded('sqlite') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>'; ?></td>
           <td class="section_item"><a href="http://www.php.net/manual/en/ref.sqlite.php" target="_blank">http://www.php.net/manual/en/ref.sqlite.php</a></td>
         </tr>
       </table>      </td>
@@ -157,28 +175,33 @@
     <td class="section_body">The following are recommendations only. Retrospect-GDS should still function regardless of the actual setting used.
       <table width="100%"  border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td width="400" class="section_item">&nbsp;</td>
-          <td width="100" class="section_item">&nbsp;</td>
+          <td class="section_item">&nbsp;</td>
+          <td class="section_item">&nbsp;</td>
+          <td class="section_item">&nbsp;</td>
+        </tr>
+        <tr>
+          <td width="400" class="section_item"><strong>Recommended Setting</strong></td>
+          <td width="100" align="center" class="section_item"><strong>Current Setting </strong></td>
           <td class="section_item">&nbsp;</td>
         </tr>
         <tr>
           <td class="section_item">Safe Mode = Off </td>
-          <td class="section_item"><?php echo ini_get('safe_mode') ? '<div class="no">On</div>' : '<div class="yes">Off</div>'; ?></td>
+          <td align="center" class="section_item"><?php echo ini_get('safe_mode') ? '<div class="no">On</div>' : '<div class="yes">Off</div>'; ?></td>
           <td class="section_item">&nbsp;</td>
         </tr>
         <tr>
           <td class="section_item">Register Globals = Off </td>
-          <td class="section_item"><?php echo ini_get('regiser_globals') ? '<div class="no">On</div>' : '<div class="yes">Off</div>'; ?></td>
+          <td align="center" class="section_item"><?php echo ini_get('regiser_globals') ? '<div class="no">On</div>' : '<div class="yes">Off</div>'; ?></td>
           <td class="section_item">&nbsp;</td>
         </tr>
         <tr>
           <td class="section_item">File Uploads = On </td>
-          <td class="section_item"><?php echo ini_get('file_uploads') ? '<div class="yes">On</div>' : '<div class="no">Off</div>'; ?></td>
+          <td align="center" class="section_item"><?php echo ini_get('file_uploads') ? '<div class="yes">On</div>' : '<div class="no">Off</div>'; ?></td>
           <td class="section_item">&nbsp;</td>
         </tr>
         <tr>
           <td class="section_item">Magic Quotes = Off</td>
-          <td class="section_item"><?php echo ini_get('magic_quotes') ? '<div class="no">On</div>' : '<div class="yes">Off</div>'; ?></td>
+          <td align="center" class="section_item"><?php echo ini_get('magic_quotes') ? '<div class="no">On</div>' : '<div class="yes">Off</div>'; ?></td>
           <td class="section_item">&nbsp;</td>
         </tr>
       </table> </td>

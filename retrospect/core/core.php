@@ -24,21 +24,23 @@
  * $Id$
  *
  */
-
-	$g_version = '1.3.19';
+	
+	$g_version = '1.3.21';
 	
 	# Turn on error reporting
 	error_reporting(E_ALL);	
 	
-	# Print debug information
-	$debug = false;
+	# Print profiler information
+	$profile = false;
 	
 	/**
 	* Load profiler and initialize
 	*/
-	require_once(LIB_PATH.'profiler/profiler.inc.php');
-	$profiler =& new Profiler( true, true );
-	$profiler->startTimer( 'main' );
+	if ($profile == true) {
+		require_once(LIB_PATH.'profiler/profiler.inc.php');
+		$profiler = new Profiler( true, false );
+		$profiler->startTimer( 'all' );
+	}
 
 	# Start or continue a session
 	session_start();

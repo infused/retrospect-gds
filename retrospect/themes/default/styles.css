@@ -1,16 +1,11 @@
-/* FIX IE6 Scrollbars bug - Leave this in! */
-html { 
-	overflow-x: auto; 
-}
 body {
-	color:#333;
-	background-color:white;
 	margin: 0px;
 	padding: 0px;
+	background-color: white;
 	font: normal 8pt Verdana, Arial, Helvetica, sans-serif;
 }
 p {
-	font: 8pt/1.2em Verdana, Arial, Helvetica, sans-serif;
+	font: normal 8pt Verdana, Arial, Helvetica, sans-serif;
 }
 a {
 	font-weight: bold;
@@ -143,7 +138,6 @@ input.textbox {
 .menu-item {
 	font-size: 9pt;
 	font-weight: bold;
-	line-height: 1.4em;
 }
 .content-title {
 	font-weight: bold;
