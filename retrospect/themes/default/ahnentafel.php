@@ -58,9 +58,11 @@
 	# title
 	$g_title = sprintf(gtc("Ahnentafel Report for %s"), $o->name);
 
-	# name and menu
-	echo '<p class="content-title">'.$o->name;
-	if (isset($o->title) and $o->title != '') { echo ', '.$o->title; }
+  # name and menu
+	echo '<p class="content-title">';
+	if (!empty($o->prefix)) echo $o->prefix.' ';
+	echo $o->name;
+	if (!empty($o->suffix)) echo ', '.$o->suffix; 
 	echo '</p>';
 	if ($print === false) {
 		include(Theme::getPage($g_theme, 'nav'));

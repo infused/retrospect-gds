@@ -77,11 +77,13 @@
 		$g_node_strings[$p_node->ns_number] .= gtc("d.").' '.$p_node->death->date.'</td></tr></table>';
 	}
 
-	# name and menu
-	echo '<p class="content-title">'.$o->name;
-	if (isset($o->title) and $o->title != '') { echo ', '.$o->title; }
+  # name and menu
+	echo '<p class="content-title">';
+	if (!empty($o->prefix)) echo $o->prefix.' ';
+	echo $o->name;
+	if (!empty($o->suffix)) echo ', '.$o->suffix; 
 	echo '</p>';
- 	if ($print === false) {
+	if ($print === false) {
 		include(Theme::getPage($g_theme, 'nav'));
 	}
 	unset($o);

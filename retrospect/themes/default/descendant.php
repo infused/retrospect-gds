@@ -128,11 +128,13 @@
 	# title
 	$g_title = sprintf(gtc("Descendant Report for %s"), $o->name);
 	
-	# name and menu
-	echo '<p class="content-title">'.$o->name;
-	if (isset($o->title) and $o->title != '') { echo ', '.$o->title; }
+  # name and menu
+	echo '<p class="content-title">';
+	if (!empty($o->prefix)) echo $o->prefix.' ';
+	echo $o->name;
+	if (!empty($o->suffix)) echo ', '.$o->suffix; 
 	echo '</p>';
- 	if ($print === false) {	
+	if ($print === false) {
 		include(Theme::getPage($g_theme, 'nav'));
 	}
 	echo '<p class="content-subtitle">'.gtc("Descendant Report").'</p>';

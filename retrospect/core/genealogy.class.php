@@ -77,6 +77,9 @@ class Person {
 	*/
 	var $name;
 	
+	var $prefix;
+	var $suffix;
+	
 	/**
 	* Hold the aka or nickname.
 	* Example: Curly
@@ -127,14 +130,14 @@ class Person {
 	* Number of events contained in $events
 	* @var integer
 	*/
-	var $event_count;			# count of events
+	var $event_count;
 	
 	/**
 	* An array of Marriage objects
 	* @see Marriage
 	* @var array
 	*/
-	var $marriages; 			# array of marriage objects
+	var $marriages;
 	
 	/**
 	* The count of Marriage objects in $marriages
@@ -247,6 +250,8 @@ class Person {
 	function _get_name() {
 		$sql = 'SELECT * FROM '.TBL_INDIV.' WHERE indkey = "'.$this->indkey.'"';
 		$row = $GLOBALS['db']->GetRow($sql);
+		$this->prefix = trim(htmlentities($row['prefix']));
+		$this->suffix = trim(htmlentities($row['suffix']));
 		$this->gname = htmlentities($row['givenname']);
 		$this->sname = htmlentities($row['surname']);
 		$this->aka = htmlentities($row['aka']);
@@ -525,6 +530,19 @@ class Marriage {
 	var $endplace;
 	
 	/**
+	* An array of Event objects
+	* @see Event
+	* @var array
+	*/
+	var $events;
+	
+	/**
+	* Number of events contained in $events
+	* @var integer
+	*/
+	var $event_count;
+	
+	/**
 	* Marriage notes
 	* @var string
 	*/
@@ -600,8 +618,7 @@ class Marriage {
 			$this->_sort_children();
 		}
 		$this->_get_notes();
-		$this->_get_beginstatus_event();
-		$this->_get_endstatus_event();
+		$this->_get_events();
 		if ($this->beginstatus_factkey AND $fetch_sources == true) { 
 			$this->sources = $this->_get_sources($this->beginstatus_factkey); 
 		}
@@ -669,30 +686,30 @@ class Marriage {
 	}
 	
 	/**
-	* Get Begin Status Event
+	* Gets events from database
 	*/
-	function _get_beginstatus_event() {
-		$query = 'SELECT * FROM '.TBL_FACT.' WHERE (indfamkey="'.$this->famkey.'") AND (type="'.$this->beginstatus.'")';
-		if ($row = $GLOBALS['db']->GetRow($query)) {
-			$this->beginstatus_factkey = $row['factkey'];
-			$dp = new DateParser();
-			$this->date = $dp->FormatDateStr($row);
-			$this->sort_date = $row['date1'];
-			$this->place = htmlentities($row['place']);
+	function _get_events($p_fetch_sources = true) {
+		$this->events = array();
+		$sql =  'SELECT * FROM '.TBL_FACT." WHERE indfamkey = '{$this->famkey}'";
+		$rs = $GLOBALS['db']->Execute($sql);
+		while ($row = $rs->FetchRow()) {
+			$event = new event($row, $p_fetch_sources);
+			if ($event->type == $this->beginstatus) {
+				$this->beginstatus_factkey = $row['factkey'];
+				$dp = new DateParser();
+				$this->date = $dp->FormatDateStr($row);
+				$this->sort_date = $row['date1'];
+				$this->place = htmlentities($row['place']);
+			} 
+			elseif ($event->type == $this->endstatus) {
+				$this->endstatus_factkey = $row['factkey'];
+				$dp = new DateParser();
+				$this->enddate = $dp->FormatDateStr($row);
+				$this->endplace = htmlentities($row['place']);
+			}
+			else array_push($this->events, $event);
 		}
-	}
-	
-	/** 
-	* Get End Status Event
-	*/
-	function _get_endstatus_event() {
-		$sql = "SELECT factkey, date_str, place FROM ".TBL_FACT." WHERE (indfamkey='{$this->famkey}') AND (type='{$this->endstatus}') LIMIT 1";
-		if ($row = $GLOBALS['db']->GetRow($sql)) {
-			$this->endstatus_factkey = $row['factkey'];
-			$dp = new DateParser();
-			$this->enddate = $dp->FormatDateStr($row);
-			$this->endplace = htmlentities($row['place']);	
-		}		
+		$this->event_count = count($this->events);
 	}
 }
 ?>

@@ -80,8 +80,10 @@
 	}
 
   # name and menu
-	echo '<p class="content-title">'.$o->name;
-	if (isset($o->title) and $o->title != '') { $g_content .= ', '.$o->title; }
+	echo '<p class="content-title">';
+	if (!empty($o->prefix)) echo $o->prefix.' ';
+	echo $o->name;
+	if (!empty($o->suffix)) echo ', '.$o->suffix; 
 	echo '</p>';
 	if ($print === false) {
 		include(Theme::getPage($g_theme, 'nav'));
@@ -201,6 +203,27 @@
 			echo '<div class="col2">'.$m->enddate.'</div>';
 			echo '<div class="col3">'.$m->endplace . disp_sources($m->end_sources).'</div>';
 		}
+		# events
+		foreach($m->events as $event) { ?>
+			<div class="col1"><?php echo gtc($event->type); ?>:</div>
+			<div class="col2"><?php echo $event->date; ?></div>
+			<div class="col3">
+				<?php 
+					if (!empty($event->comment) AND !empty($event->place)) {
+						echo $event->comment.' / '.$event->place . disp_sources($event->sources);
+					}
+					elseif (!empty($event->comment)) {
+						echo $event->comment . disp_sources($event->sources);
+					}
+					elseif (!empty($event->place)) {
+						echo $event->place . disp_sources($event->sources);
+					}
+					elseif (!empty($event->sources)) {
+						echo disp_sources($event->sources);
+					}
+				?>
+			</div>
+		<?php } 
   	
 		if ($m->notes) {
 		  echo '<div class="col1">'.gtc("Notes").'</div>';

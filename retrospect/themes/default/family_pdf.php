@@ -102,12 +102,10 @@
 		if ($p_node->father_indkey) { $f = new Person($p_node->father_indkey, 3); }
 		if ($p_node->mother_indkey) { $m = new Person($p_node->mother_indkey, 3); }
 		$pdf->SetFont($font, 'B', 11);
-		if ($p_node->title != '') { 
-			$namestr = $p_node->name.', '.$p_node->title;
-		}
-		else {
-			$namestr = $p_node->name;
-		}
+		$namestr = '';
+		if ($p_node->prefix) $namestr .= $p_node->prefix;
+		$namestr .= $p_node->name;
+		if ($p_node->suffix) $namestr .= ', '.$p_node->suffix;
 		$pdf->Cell(0, 5, $namestr);
 		
 		# print aka string
@@ -276,6 +274,38 @@
 			}
 			$pdf->MultiCell(0, 5, $endplace, 0, 'L');
 		}
+			# print misc events
+		foreach ($p_marriage->events as $event) {
+			$eventplace = '';
+			$pdf->SetFont($font, 'I', 10);
+			$pdf->Cell(0, 5, _($event->type).':');
+			$pdf->SetX($factcol);
+			$pdf->SetFont($font, '', 10);
+			$pdf->Cell(0, 5, $event->date);
+			$pdf->SetX($placecol);
+			if (!empty($event->place) AND !empty($event->comment)) {
+				$eventstring = $event->comment.' / '.$event->place;
+			}
+			elseif (!empty($event->comment)) {
+				$eventstring = $event->comment;
+			}
+			elseif (!empty($event->place)) {
+				$eventstring = $event->place;
+			}
+			else {
+				$eventstring = '';
+			}
+			if ($event->sources) {
+				$eventplace .= ' ('._("Sources").': '; 
+				foreach ($event->sources as $source)  {
+					array_push($sources, $source);
+					$eventplace .= ' '.count($sources);
+				}
+				$eventplace .= ')';
+			}
+			$pdf->MultiCell(0, 5, $eventstring, 0, 'L');
+		}
+
 		# print marriage notes
 		if ($p_marriage->notes) {
 			$noteparagraphs = explode('<br>', $mnotes);
