@@ -84,7 +84,7 @@
         </tr>
         <tr>
           <td class="section_item">Host name:</td>
-          <td class="section_item"><input name="frm_db_host" type="text" class="textbox" id="frm_db_host" value="<?php echo isset($g_db_host) ? $g_db_host : ''; ?>"></td>
+          <td class="section_item"><input name="frm_db_host" type="text" class="textbox" id="frm_db_host" value="<?php echo isset($g_db_host) ? $g_db_host : 'localhost'; ?>"></td>
           <td class="section_item">This is usually &quot;localhost&quot; unless the database is hosted on a remote server. </td>
         </tr>
         <tr>
@@ -109,7 +109,7 @@
         </tr>
         <tr>
           <td class="section_item">Table prefix: </td>
-          <td class="section_item"><input name="frm_db_pref" type="text" class="textbox" id="frm_db_pref" value="<?php echo isset($g_db_prefix) ? $g_db_prefix : ''; ?>" /></td>
+          <td class="section_item"><input name="frm_db_pref" type="text" class="textbox" id="frm_db_pref" value="<?php echo isset($g_db_prefix) ? $g_db_prefix : 'rgds_'; ?>" /></td>
           <td class="section_item">&nbsp;</td>
         </tr>
         <tr>
