@@ -60,9 +60,9 @@
 	/**
 	* Load the appropriate theme menu page
 	*/
-	include(Theme::getPage($g_theme, 'menu'));
+	//include(Theme::getPage($g_theme, 'menu'));
 	// THIS NEEDS FIXING!
-	$smarty->assign('g_menu', $g_menu);
+	//$smarty->assign('g_menu', $g_menu);
 
 	/**
 	* Load the appropriate theme template page
@@ -72,6 +72,9 @@
 	$smarty->assign('option', $g_option);
 	$smarty->assign('meta_keywords', implode(', ', $keywords));
 	$smarty->assign('php_self', $_SERVER['PHP_SELF']);
+	$smarty->assign('lang_names', $lang_names);
+	$smarty->assign('lang_codes', $lang_codes);
+	$smarty->assign('lang', $_SESSION['lang']);
 	if (isset($_GET['print'])) {
 		$smarty->display('index_printable.tpl');
 	} else {

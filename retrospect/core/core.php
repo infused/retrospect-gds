@@ -126,4 +126,10 @@
 	# Initialize the gettext engine
 	lang_init_gettext();
 	$g_langs = lang_get_langs();
+	$lang_names = array();
+	$lang_codes = array();
+	foreach ($g_langs as $lang) {
+		$lang_names[] = gtc($lang['lang_name']);
+		$lang_codes[] = $lang['lang_code'];
+	}
 ?>

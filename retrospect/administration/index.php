@@ -42,7 +42,7 @@
 	define('CORE_PATH', ROOT_PATH.'/../core/'); # Path to core files
 	define('LIB_PATH', ROOT_PATH.'/../libraries/'); # Path to 3rd party libraries
 	define('LOCALE_PATH', ROOT_PATH.'/../locale/'); # Path to gettext locale files
-	
+
 	/**
 	* Current url w/query string
 	* @global string
