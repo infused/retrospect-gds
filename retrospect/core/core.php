@@ -30,7 +30,7 @@
 	defined( '_RGDS_VALID' ) or die( 'Direct access to this file is not allowed.' );
 	
 	# Define some RGDS strings
-	define('RGDS_VERSION', '2.0.b3');
+	define('RGDS_VERSION', '2.0.b4');
 	
 	# Load the configuration file
 	if (file_exists(CORE_PATH.'config.php')) @require_once(CORE_PATH.'config.php');
