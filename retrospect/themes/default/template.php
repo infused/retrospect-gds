@@ -65,7 +65,7 @@ function MM_setTextOfTextfield(objName,x,newText) { //v3.0
 ?>
 </div>
 <div id="footer">
-	phpGene Pro &copy; 2003 Keith Morrison, Infused Solutions<br />
+	<a href="http://www.infused-solutions.com/retrospect" target="_blank">Retrospect-GDS</a> &copy; 2003 Keith Morrison, Infused Solutions<br />
  	<?php 
 		$end = time_get_micro();
 		$time = $end - $start;
@@ -76,7 +76,6 @@ function MM_setTextOfTextfield(objName,x,newText) { //v3.0
 			echo 'Memory Usage: '.number_format(memory_get_usage()).' bytes';
 		}
 	?>  
-	<br />&nbsp;
-</div>
+<br />&nbsp;</div>
 </body>
 </html>
