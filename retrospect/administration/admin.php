@@ -88,5 +88,14 @@
   </tr> 
 </table> 
 <?php include('menubar.php'); ?> 
+<?php
+	# print profile info
+	if ($profile == true) {
+		$profiler->stopTimer( 'all' );
+		echo '<center><table><tr><td>';
+		$profiler->printTimers(true);
+		echo '</td></tr></table></center>';
+	}
+?>
 </body>
 </html>
