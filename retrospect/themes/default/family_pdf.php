@@ -195,6 +195,9 @@
 			elseif (!empty($event->place)) {
 				$eventstring = $event->place;
 			}
+			else {
+				$eventstring = '';
+			}
 			if ($event->sources) {
 				$eventplace .= ' ('._("Sources").': '; 
 				foreach ($event->sources as $source)  {

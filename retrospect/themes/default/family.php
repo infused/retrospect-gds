@@ -32,6 +32,11 @@
 	
 	# get first person information
 	$o = new person($g_indiv);
+	
+	# populate keywords array
+	keyword_push($o->name);
+	if (!empty($o->birth->place)) { keyword_push($o->birth->place); }
+	if (!empty($o->death->place)) { keyword_push($o->death->place); }
 
 	# create page title
 	$g_title = sprintf(_("Family Page for %s"), $o->name);
@@ -40,6 +45,8 @@
 	if ($o->father_indkey) { 
 		$f = new person($o->father_indkey, 3); 
 		$father_link = '<a href="'.Theme::GetArgs('family', array('indiv'=>$f->indkey)).'">'.$f->name.'</a>';	
+		# populate keywords array
+		keyword_push($f->name);
 		unset($f);
 	}
 	else { $father_link = '&nbsp;'; }
@@ -48,6 +55,8 @@
 	if ($o->mother_indkey) { 
 		$m = new person($o->mother_indkey, 3); 
 		$mother_link = '<a href="'.Theme::GetArgs('family', array('indiv'=>$m->indkey)).'">'.$m->name.'</a>';	
+		# populate keywords array
+		keyword_push($m->name);
 		unset($m);
 	}
 	else { $mother_link = '&nbsp;'; }
@@ -130,6 +139,8 @@
   foreach ($o->marriages as $m) {
 		$fam_count++;
 		$s = (!empty($m->spouse)) ? new person($m->spouse, 3) : null;
+		# populate keywords array
+		if ($s->name) { keyword_push($s->name); }
 		$spouse_link = '<a href="'.Theme::GetArgs('family', array('indiv'=>$s->indkey)).'">'.$s->name.'</a>';
 		?>
 		<br />
@@ -171,6 +182,8 @@
 			$k = 0;
 			foreach ($m->children as $child_indkey) {
 				$c = new person($child_indkey, 3);
+				# populate keywords array
+				keyword_push($c->name);
 				$child_link = '<a href="'.Theme::GetArgs('family', array('indiv'=>$c->indkey)).'">'.$c->name.'</a>';
 				if ($k != 0) {
 					echo '<div class="col1"></div>';

@@ -26,9 +26,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title><?php echo $g_title; unset($g_title); ?></title>
+<title><?php echo $g_title; ?></title>
 <link rel="stylesheet" href="themes/default/styles.css" />
 <meta name="description" content="<?php echo $g_title; ?>" />
+<mata name="keywords" content="<?php echo implode(', ', $keywords); ?>" />
 <meta name="robots" content="FOLLOW,INDEX" />
 <meta name="MSSmartTagsPreventParsing" content="true" />
 <script language="JavaScript" type="text/JavaScript">

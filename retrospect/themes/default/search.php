@@ -34,6 +34,9 @@
 	# set page title
 	$g_title = _("Search");
 	
+	# populate keyword array
+	keyword_push(_("Search"));
+	
 	# content title and psuedo menu
 	echo '<p class="content-title">'._("Search").'</p>';
 	if ($print === false) {
@@ -130,6 +133,9 @@
 				echo '</tr>';
 				while ($row = $rs->FetchRow()) {
 					$o = new Person($row['indkey'], 1);
+					# populate keyword array
+					keyword_push($o->name);
+					
 					echo '<tr>';
 					echo '<td class="text">';
 					echo '<a href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$o->indkey.'">'.$o->name.'</a>';

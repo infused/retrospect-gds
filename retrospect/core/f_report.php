@@ -32,6 +32,10 @@
 	* @return string
 	*/
 	function get_birth_sentence($p_node) {
+		# populate keyword array
+		keyword_push($p_node->name);
+		if (!empty($p_node->birth->place)) { keyword_push($p_node->birth->place); }
+		
 		# for males
 		if ($p_node->sex == 'M') { 
 			if ($p_node->birth->date AND $p_node->birth->place) {
@@ -69,6 +73,9 @@
 	* @return string
 	*/
 	function get_death_sentence($p_node) {
+		# populate keyword array
+		if (!empty($p_node->death->place)) { keyword_push($p_node->death->place); }
+		
 		# for males
 		if ($p_node->sex == 'M') { 
 			if ($p_node->death->date and $p_node->death->place) {
@@ -108,6 +115,10 @@
 	* @return string
 	*/
 	function get_parents_sentence($p_node, $p_father, $p_mother) {
+		# populate keyword array
+		keyword_push($p_father->name);
+		keyword_push($p_mother->name);
+		
 		$mother_link = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$p_mother->indkey.'">'.$p_mother->name.'</a>';
 		$father_link = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$p_father->indkey.'">'.$p_father->name.'</a>';
 		if ($p_node->father_indkey || $p_node->mother_indkey) {
@@ -156,6 +167,8 @@
 			if ($marriage->spouse) {
 				$spouse = new Person($marriage->spouse, 3);
 				$spouse_link = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$spouse->indkey.'">'.$spouse->name.'</a>';
+				# populate keyword array
+				keyword_push($spouse->name);
 				
 				# fix some problems
 				if (!$spouse->name) { $spouse->name =  _("Unknown"); }

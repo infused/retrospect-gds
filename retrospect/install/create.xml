@@ -286,7 +286,7 @@
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add 'meta_keywords' record to options table</descr>
-		<query>INSERT INTO options VALUES (7, 'meta_keywords', 'genealogy, family history')</query>
+		<query>INSERT INTO options VALUES (7, 'meta_keywords', 'Genealogy,Family History')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add english language</descr>

@@ -39,6 +39,10 @@
 	$g_indiv = isset($_GET['indiv']) ? $_GET['indiv'] : exit;
 	$g_max_gens = isset($_GET['max_gens']) ? $_GET['max_gens'] : 250;
 	
+	# populate keyword array
+	keyword_push(_("Ahnentafel"));
+	keyword_push(_("Ancestors"));
+	
 	# initialize other variables
 	$g_generation = 0;	# current generation
 	# get first person information
@@ -76,12 +80,14 @@
 		global $g_generation;
 		if ($p_node->father_indkey) { 
 			$father = new Person($p_node->father_indkey, 3); 
-		} else {
+		} 
+		else {
 			$father = null;
 		}
 		if ($p_node->mother_indkey) { 
 			$mother = new Person($p_node->mother_indkey, 3); 
-		} else {
+		} 
+		else {
 			$mother = null;
 		}
 		if ($p_generation > $g_generation ) {

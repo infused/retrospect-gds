@@ -29,6 +29,10 @@
 	# get first person information
 	$o = new person($g_indiv);
 	
+	# populate keyword array
+	keyword_push(_("Multimedia"));
+	keyword_push($o->name);
+	
 	# title
 	$g_title = sprintf(_("Multimedia for %s"), $o->name);
 	

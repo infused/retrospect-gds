@@ -30,6 +30,10 @@
 	# process expected get/post variables
 	$print = isset($_GET['print']) ? true : false;
 	$g_indiv = isset($_GET['indiv']) ? $_GET['indiv'] : exit;
+	
+	# populate keyword array
+	keyword_push(_("Pedigree"));
+	keyword_push(_("Ancestors"));
 
 	# get first person information
 	$o = new Person($g_indiv);
@@ -56,6 +60,10 @@
 	
 	function process_indiv($p_node) {
 		global $g_node_strings, $g_node_parents, $g_node_indkey;
+		
+		# populate keyword array
+		keyword_push($p_node->name);
+		
 		$g_node_indkey[$p_node->ns_number] = $p_node->indkey;
 		if ($p_node->father_indkey || $p_node->mother_indkey) {
 			$g_node_parents[$p_node->ns_number] = true;

@@ -82,6 +82,9 @@
  	# set title
 	$g_title = _("Statistics");
 	
+	# populate keyword array
+	keyword_push(_("Statistics"));
+	
 	# display results
 	echo '<p class="content-title">'._("Statistics").'</p>';
 	echo display_col1(_("Surnames")).display_col2($cnt_surnames);

@@ -26,6 +26,9 @@
 	$print = isset($_GET['print']) ? true : false;
 	$sn = isset($_GET['sn']) ? $_GET['sn'] : null;
 	
+	# populate keyword array
+	keyword_push(_("Surname List"));
+	
 	/**
 	* Get the css class based on the selected alpha character
 	* @access public

@@ -38,6 +38,10 @@
 		$o = new person($g_indiv);
 	
 		$g_title = sprintf(_("Reports for %s"), $o->name);
+		
+		# populate keyword array
+		keyword_push(_("Reports"));
+		keyword_push($o->name);
 
 		# name and menu
 		echo '<p class="content-title">'.$o->name;
