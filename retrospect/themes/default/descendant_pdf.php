@@ -64,7 +64,7 @@
     	global $font;
 			$this->SetY(-10);
     	$this->SetFont($font,'',8);
-    	$this->Cell(0, 4, '©2002-2003 Keith Morrison, Infused Solutions - www.infused.org', 0, 1, 'C', 0, 'http://www.infused.org');
+    	$this->Cell(0, 4, '©2002-2004 Keith Morrison, Infused Solutions - www.infused.org', 0, 1, 'C', 0, 'http://www.infused.org');
 			$this->Cell(0, 4, sprintf(_("Send questions or comments to %s"), 'keithm@infused.org'), 0, 0, 'C', 0, 'mailto:keithm@infused.org');
 		}
 	}
@@ -79,7 +79,9 @@
 		$p_node = $p_array[0];
 		$p_generation  = $p_array[1];
 		if ($p_node->father_indkey) { $father = new Person($p_node->father_indkey, 3); }
+		else { $father = null; }
 		if ($p_node->mother_indkey) { $mother = new Person($p_node->mother_indkey, 3); }
+		else { $mother = null; }
 		
 		if ($p_generation > $g_generation ) {
 			$g_generation = $p_generation;
@@ -97,7 +99,7 @@
 		$pdf->Write(5, $p_node->ns_number.'.');
 		$pdf->SetLeftMargin($factcol);
 		$pdf->SetFont($font, 'B', 9);
-		$pdf->Write(5, $p_node->name);
+		$pdf->Write(5, $p_node->name.' - ');
 		$pdf->SetFont($font, '', 9);
 		$pdf->Write(5, html_entity_decode(strip_tags(get_parents_sentence($p_node, $father, $mother))));
 		$pdf->Write(5, html_entity_decode(strip_tags(get_birth_sentence($p_node))));

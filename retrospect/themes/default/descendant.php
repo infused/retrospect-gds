@@ -46,7 +46,10 @@
 		$p_node = $p_array[0];
 		$p_generation  = $p_array[1];
 		if ($p_node->father_indkey) { $father = new Person($p_node->father_indkey, 3); }
+		else { $father = null; }		
 		if ($p_node->mother_indkey) { $mother = new Person($p_node->mother_indkey, 3); }
+		else { $mother = null; }
+		
 		
 		if ($p_generation > $g_generation ) {
 			$g_generation = $p_generation;

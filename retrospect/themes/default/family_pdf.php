@@ -170,13 +170,13 @@
 		$pdf->Cell(0, 5, _("Father").':');
 		$pdf->SetX($factcol);
 		$pdf->SetFont($font, '', 10);
-		$pdf->MultiCell(0, 5, $f->name, 0, 'L');
+		$pdf->MultiCell(0, 5, isset($f->name) ? $f->name : '', 0, 'L');
 		# print mother
 		$pdf->SetFont($font, 'I', 10);
 		$pdf->Cell(0,5, _("Mother").':');
 		$pdf->SetX($factcol);
 		$pdf->SetFont($font, '', 10);
-		$pdf->MultiCell(0, 5, $m->name, 0, 'L');			
+		$pdf->MultiCell(0, 5, isset($m->name) ? $m->name : '', 0, 'L');			
 		# print misc events
 		foreach ($p_node->events as $event) {
 			$eventplace = '';
