@@ -47,9 +47,9 @@
 			<td class="list_item" nowrap="nowrap">{if $user.last == null}Never{else}{$user.last}{/if}</td>
 			<td align="center" class="list_item" nowrap="nowrap">
 				{if $user.enabled == "1"}
-					<img src="{$THEME_URL}images/tick.png" alt="Enabled" border="0" />
+					<img src="{$THEME_URL}images/ledgreen.png" alt="Enabled" border="0" />
 				{else}
-					<img src="{$THEME_URL}images/redx.png" alt="Disabled" border="0" />
+					<img src="{$THEME_URL}images/ledred.png" alt="Disabled" border="0" />
 				{/if}
 			</td>
 		</tr>
