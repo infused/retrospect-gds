@@ -23,27 +23,20 @@
  */
 
 	# process expected get/post variables
-	$print = isset($_GET['print']) ? true : false;
 	$g_indiv = isset($_GET['indiv']) ? $_GET['indiv'] : exit;
 	
 	# get first person information
 	$o = new person($g_indiv);
+	$smarty->assign('indiv', $o);
 	
 	# populate keyword array
 	keyword_push(gtc("Multimedia"));
 	keyword_push($o->name);
 	
-	# title
-	$g_title = sprintf(gtc("Multimedia for %s"), $o->name);
-	
-	# name and menu
-	echo '<p class="content-title">'.$o->name;
-	if (isset($o->title) and $o->title != '') { echo ', '.$o->title; }
-	echo '</p>';
-	if ($print === false) {
-		include(Theme::getPage($g_theme, 'nav'));
-	}
-	echo '<div class="tab-page">';
-	echo '<p><b>'.gtc("This feature has not been implemented yet.").'</b></p>';
-	echo '</div>';
+	# assign other smarty variables
+	$smarty->assign('page_title', sprintf(gtc("Multimedia for %s"), $o->name));
+	$smarty->assign('surname_title', sprintf(gtc("%s Surname"), $o->sname));
+	$content_title = $o->prefix.' '.$o->name;
+	if ($o->suffix) $content_title .= ', '.$o->suffix;
+	$smarty->assign('content_title', $content_title);
 ?>
