@@ -50,7 +50,7 @@
 	define('TBL_OPTION', $g_db_prefix.'options');
 	define('TBL_MEDIA', $g_db_prefix.'media');
 	define('TBL_COMMENT', $g_db_prefix.'comment');
-
+	
 	# Require PHP compatibility functions
 	@require_once(CORE_PATH.'f_compatibility.php');
 	# Require miscellaneous functions
@@ -67,7 +67,7 @@
 	@require_once(CORE_PATH.'html.class.php');
   # Require theme class
 	@require_once(CORE_PATH.'theme.class.php');
-	
+
 	# Establish the database connection and use
 	# the appropriate connection method based on the database type
 	$db =& AdoNewConnection($g_db_type);

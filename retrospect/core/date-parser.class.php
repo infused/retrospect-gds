@@ -1,6 +1,6 @@
 <?php
 /**
- * Gedcom date classes
+ * Gedcom date parser class
  *
  * @copyright 	Keith Morrison, Infused Solutions	2001-2004
  * @author			Keith Morrison <keithm@infused-solutions.com>
