@@ -95,8 +95,16 @@ class ATreeNode {
 		$this->ahnentafel = $p_ahnentafel;
 		$this->node_index = $p_node_index;
 		$this->child_index = $p_child_index;
-		$this->father_index = null;
-		$this->father_index = null;
+		$this->SetFatherIndex(null);
+		$this->SetMotherIndex(null);
+	}
+	
+	function SetFatherIndex($p_index) {
+		$this->father_index = $p_index;
+	}
+	
+	function SetMotherIndex($p_index) {
+		$this->mother_index = $p_index;
 	}
 }
 
@@ -128,12 +136,6 @@ class ATree {
 	var $root_index;
 	
 	/**
-	* Index of current node
-	* @var integer
-	*/
-	var $current_index;
-	
-	/**
 	* ATree Constructor
 	*
 	* Initializes the ATree
@@ -142,11 +144,9 @@ class ATree {
 	function ATree($p_data) {
 		# point root_node to the first node
 		$this->root_index = 0;
-		# create the first node, set ahnentafel number to 1
+		# create the first node, set generation andf ahnentafel to 1
 		$t_node = new ATreeNode($p_data, null, $this->root_index, 1, 1);
 		$this->nodes[0] = $t_node;
-		# point current_node to the first node
-		$this->current_index = $this->root_index;
 	}
 	
 	/**
@@ -172,10 +172,9 @@ class ATree {
 		
 		# set childs parent property
 		if ($p_parent_type == 'f') {
-			$this->nodes[$child_index]->father_index = $this->current_index;
-		}
-		elseif ($p_parent_type == 'm') {
-			$this->nodes[$child_index]->mother_index = $this->current_index;
+			$this->nodes[$child_index]->SetFatherIndex($this->current_index);
+		} else {
+			$this->nodes[$child_index]->SetMotherIndex($this->current_index);
 		}
 	}
 
@@ -197,8 +196,7 @@ class ATree {
 	* @return ATreeNode
 	*/
 	function get_root_node() {
-		return $this->nodes[0];
-
+		return reset($this->nodes);
 	}
 	
 	/**
@@ -208,7 +206,7 @@ class ATree {
 	*	@return ATreeNode
 	*/
 	function get_current_node() {
-		return $this->nodes[$this->current_index];
+		return current($this->nodes);
 	}
 	
 	/**
@@ -239,11 +237,11 @@ class ATree {
 			$person = new Person($node->data, 4, $node->ahnentafel);
 			call_user_func($p_callback_func, $person, $node->generation);
 			
-			if ( ! is_null( $node->father_index ) ) {
+			if ( is_integer( $node->father_index ) ) {
 				$nodes[] = $this->get_node_at_index($node->father_index);
 			}			
 			
-			if ( ! is_null( $node->mother_index ) ) { 
+			if ( is_integer( $node->mother_index ) ) { 
 				$nodes[] = $this->get_node_at_index($node->mother_index);
 			}
 		}
@@ -257,7 +255,7 @@ class ATree {
 	*/
 	function fill_tree($p_max_depth = 250) {
 		# get root node and stuff into nodes array
-		$nodes = array($this->nodes[0]);
+		$nodes[] = reset($this->nodes);
 		
 		for ($i = 0; $i <  count($nodes); $i++) {
 			$node = $nodes[$i];

@@ -57,7 +57,7 @@ function MM_setTextOfTextfield(objName,x,newText) { //v3.0
 </script>
 </head>
 <body>
-<div id="header"><img src="themes/default/images/logo.png" align="left" /></div>
+<div id="header"><img src="themes/default/images/logo.gif" align="left" alt="Retrospect-GDS"/></div>
 <div id="content">
 	<div id="utils">
 		<a href="#" onclick="MM_openBrWindow('<?php echo CURRENT_PAGE.'&print=y'; ?>','','scrollbars=yes,resizable=yes,width=640,height=480')"><img src="themes/default/images/printbutton.gif" border="0" alt="<?php echo _("Print"); ?>" /></a>

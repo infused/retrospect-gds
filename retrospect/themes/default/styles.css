@@ -54,11 +54,12 @@ body>#navAlpha {
 	width: 180px;
 }
 #header {
-	height: 50px;
-	margin: 10px;
+	height: 60px;
+	margin: 0px 0px 10px;
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 	border-bottom-color: #000000;
+	background-color: #0066CC;
 }
 #footer {
 	font-size: 8pt;
