@@ -22,6 +22,7 @@
  * @author			Keith Morrison <keithm@infused-solutions.com>
  * @package 		core
  * @license http://opensource.org/licenses/gpl-license.php
+ *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; either version 2
@@ -32,6 +33,8 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License contained in the file GNU.txt for
  * more details.
+ *
+ * $Id$
  *
  */
 	
