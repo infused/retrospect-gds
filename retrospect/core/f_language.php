@@ -97,6 +97,6 @@
 	}
 	
 	function t($string) {
-		echo gettext($string);
+		echo htmlentities(gettext($string));
 	}
 ?>

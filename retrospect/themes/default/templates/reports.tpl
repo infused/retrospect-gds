@@ -10,12 +10,12 @@
 <div class="tab-page">
 	<!-- Begin family reports -->
 	<p class="content-subtitle">{php}t("Family Reports"){/php}</p>
-	<a href="{$php_self}?m=family_pdf&amp;id={$indiv->indkey}">{php}t("Family PDF"){/php}</a>
+	<a target="_blank" href="{$php_self}?m=family_pdf&amp;id={$indiv->indkey}">{php}t("Family PDF"){/php}</a>
 	<!-- End family reports -->
 	
 	<!-- Begin pedigree reports -->
 	<p class="content-subtitle">{php}t("Pedigree Reports"){/php}</p>
-	<a href="{$php_self}?m=pedigree_pdf&amp;id={$indiv->indkey}">{php}t("Pedigree PDF"){/php}</a>
+	<a target="_blank" href="{$php_self}?m=pedigree_pdf&amp;id={$indiv->indkey}">{php}t("Pedigree PDF"){/php}</a>
 	<!-- End pedigree reports -->
 	
 	<!-- Begin ancestor reports -->
