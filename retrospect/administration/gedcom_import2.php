@@ -25,13 +25,7 @@
 <link href="styles.css" rel="stylesheet" type="text/css">
 <table width="100%"  border="0" cellpadding="0" cellspacing="5"> 
   <tr> 
-    <td align="left" valign="top" class="notification">
-			<?php 
-				if (isset($_POST['Import'])) {
-					echo $_POST['selectedfile'];
-				}
-			?>
-		</td> 
+    <td align="left" valign="top" class="notification">&nbsp;	</td> 
   </tr> 
   <tr> 
     <td align="left" valign="top" class="content-subtitle"><?php echo _("Import Gedcom"); ?></td> 
@@ -39,7 +33,7 @@
   <tr> 
     <td align="left" valign="top"> <table width="100%"  border="0" cellpadding="2" cellspacing="0" bgcolor="#CCCCCC"> 
         <tr> 
-          <td valign="middle" class="content-label">Original Filename: <?php echo $_FILES['file']['name']; ?></td> 
+          <td valign="middle" class="content-label"> Filename: <?php echo $_POST['filename']; ?></td> 
         </tr>
         <tr>
           <td valign="middle" class="content-label">Temp Filename: <?php echo $_FILES['file']['tmp_name']; ?></td>

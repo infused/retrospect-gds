@@ -48,7 +48,7 @@
 		* @param $filename
 		* @return boolean
 		*/
-		function OpenFile($filename) {
+		function OpenReadOnly($filename) {
 			$handle = @fopen($filename, 'rb');
 			if ($handle == false) {
 				return false;
@@ -56,6 +56,19 @@
 				$this->fhandle = $handle;
 				return true;
 			}
+		}
+		
+		/**
+		* Open
+		* 
+		* Alias for OpenReadOnly
+		* @access public
+		* @param $filename
+		* @return boolean
+		*/
+		function Open($filename) {
+			$tmp = $this->OpenReadOnly($filename);
+			return $tmp;
 		}
 		
 		

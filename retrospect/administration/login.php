@@ -43,9 +43,9 @@
   <tr>
     <td align="center" valign="middle">
       <form name="loginform" id="loginform" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <table width="400" border="1" cellpadding="0" cellspacing="0" bordercolor="#0066CC">
+        <table width="450" border="1" cellpadding="0" cellspacing="0" bordercolor="#0066CC">
           <tr>
-            <td><img src="images/logo.gif" width="600" height="59" /></td>
+            <td height="59" background="images/logo.gif">&nbsp;</td>
           </tr>
           <tr>
             <td align="center" valign="middle">						<table width="100%"  border="0" cellspacing="0" cellpadding="20">
@@ -56,8 +56,7 @@
                     <td>
                       <input name="uid" type="text" class="textbox" tabindex="1" />
                     </td>
-                    <td width="200" rowspan="3" align="center" valign="bottom"><input name="Submit" type="submit" class="text" tabindex="4" value="<?php echo _("Login"); ?>" /></td>
-                  </tr>
+                    </tr>
                   <tr>
                     <td align="right" valign="middle" class="text"><?php echo _("Password"); ?>:</td>
                     <td><input name="pwd" type="password" class="textbox" id="password" tabindex="2" />
@@ -81,6 +80,10 @@
 											?>
 										</td>
                   </tr>
+                  <tr>
+                    <td align="right" valign="middle" class="text">&nbsp;</td>
+                    <td><input name="Submit" type="submit" class="text" tabindex="4" value="<?php echo _("Login"); ?>" /></td>
+                    </tr>
                 </table></td>
               </tr>
             </table></td>
