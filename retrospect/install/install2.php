@@ -86,7 +86,7 @@
 	$cfg_innards .= "\$g_db_name = '{$db_name}';\n";
 	$cfg_innards .= "\$g_db_user = '{$db_user}';\n";
 	$cfg_innards .= "\$g_db_pass = '{$db_pass}';\n";
-	$cfg_innards .= "\$g_db_prefix = '{$db_pref}';\n";
+	$cfg_innards .= "\$g_db_prefix = '{$db_pref}_';\n";
 	$cfg_innards .= "\$g_theme = 'default';\n";
 	$cfg_innards .= "?>";
 	
