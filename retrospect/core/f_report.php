@@ -203,19 +203,19 @@
 					if ($p->sex == 'M') {
 						# structure for male married with date and place
 						if ($marriage->date and $marriage->place) {
-							$s .= sprintf(gtc("male %s married %s on %s in %s."), $p->fname, $spouse_link, $marriage->date, $marriage->place);
+							$s .= sprintf(gtc("male %s married %s on %s in %s."), htmlentities($p->fname), $spouse_link, $marriage->date, $marriage->place);
 						}
 						# structure for male married with date only
 						elseif ($marriage->date) {
-							$s .= sprintf(gtc("male %s married %s on %s."), $p->fname, $spouse_link, $marriage->date);
+							$s .= sprintf(gtc("male %s married %s on %s."), htmlentities($p->fname), $spouse_link, $marriage->date);
 						}
 						# structure for male married with place only
 						elseif ($marriage->place) {
-							$s .= sprintf(gtc("male %s married %s in %s."), $p->fname, $spouse_link, $marriage->place);
+							$s .= sprintf(gtc("male %s married %s in %s."), htmlentities($p->fname), $spouse_link, $marriage->place);
 						}
 						# structure for male married with no date or place
 						else {
-							$s .= sprintf(gtc("male %s married %s."), $p->fname, $spouse_link);
+							$s .= sprintf(gtc("male %s married %s."), htmlentities($p->fname), $spouse_link);
 						}
 						if ($marriage->endstatus) { 
 							$s .= ' ';
@@ -225,19 +225,19 @@
 					elseif ($p->sex == 'F') {
 						# structure for female married with date and place
 						if ($marriage->date and $marriage->place) {
-							$s .= sprintf(gtc("female %s married %s on %s in %s."), $p->fname, $spouse_link, $marriage->date, $marriage->place);
+							$s .= sprintf(gtc("female %s married %s on %s in %s."), htmlentities($p->fname), $spouse_link, $marriage->date, $marriage->place);
 						}
 						# structure for female married with date only
 						elseif ($marriage->date) {
-							$s .= sprintf(gtc("female %s married %s on %s."), $p->fname, $spouse_link, $marriage->date);
+							$s .= sprintf(gtc("female %s married %s on %s."), htmlentities($p->fname), $spouse_link, $marriage->date);
 						}
 						# structure for female married with place only
 						elseif ($marriage->place) {
-							$s .= sprintf(gtc("female %s married %s in %s."), $p->fname, $spouse_link, $marriage->place);
+							$s .= sprintf(gtc("female %s married %s in %s."), htmlentities($p->fname), $spouse_link, $marriage->place);
 						}
 						# structure for female married with no date or place
 						else {
-							$s .= sprintf(gtc("female %s married %s."), $p->fname, $spouse_link);
+							$s .= sprintf(gtc("female %s married %s."), htmlentities($p->fname), $spouse_link);
 						}
 						if ($marriage->endstatus) { 
 							$s .= ' ';
@@ -249,19 +249,19 @@
 					if ($p->sex == 'M') {
 						# structure for male relationship with date and place
 						if ($marriage->date and $marriage->place) {
-							$s .= sprintf(gtc("male %s had a relationship with %s on %s in %s."), $p->fname, $spouse_link, $marriage->date, $marriage->place);
+							$s .= sprintf(gtc("male %s had a relationship with %s on %s in %s."), htmlentities($p->fname), $spouse_link, $marriage->date, $marriage->place);
 						}
 						# structure for male relationship with date only
 						elseif ($marriage->date) {
-							$s .= sprintf(gtc("male %s had a relationship with %s on %s."), $p->fname, $spouse_link, $marriage->date);
+							$s .= sprintf(gtc("male %s had a relationship with %s on %s."), htmlentities($p->fname), $spouse_link, $marriage->date);
 						}
 						# structure for male relationship with place only
 						elseif ($marriage->place) {
-							$s .= sprintf(gtc("male %s had a relationship with %s in %s."), $p->fname, $spouse_link, $marriage->place);
+							$s .= sprintf(gtc("male %s had a relationship with %s in %s."), htmlentities($p->fname), $spouse_link, $marriage->place);
 						}
 						# structure for male relationship with no date or place
 						else {
-							$s .= sprintf(gtc("male %s had a relationship with %s."), $p->fname, $spouse_link);
+							$s .= sprintf(gtc("male %s had a relationship with %s."), htmlentities($p->fname), $spouse_link);
 						}
 						if ($marriage->endstatus) { 
 							$s .= ' ';
@@ -271,19 +271,19 @@
 					elseif ($p->sex == 'F') {
 						# structure for female relationship with date and place
 						if ($marriage->date and $marriage->place) {
-							$s .= sprintf(gtc("female %s had a relationship with %s on %s in %s."), $p->fname, $spouse_link, $marriage->date, $marriage->place);
+							$s .= sprintf(gtc("female %s had a relationship with %s on %s in %s."), htmlentities($p->fname), $spouse_link, $marriage->date, $marriage->place);
 						}
 						# structure for female relationship with date only
 						elseif ($marriage->date) {
-							$s .= sprintf(gtc("female %s had a relationship with %s on %s."), $p->fname, $spouse_link, $marriage->date);
+							$s .= sprintf(gtc("female %s had a relationship with %s on %s."), htmlentities($p->fname), $spouse_link, $marriage->date);
 						}
 						# structure for female relationship with place only
 						elseif ($marriage->place) {
-							$s .= sprintf(gtc("female %s had a relationship with %s in %s."), $p->fname, $spouse_link, $marriage->place);
+							$s .= sprintf(gtc("female %s had a relationship with %s in %s."), htmlentities($p->fname), $spouse_link, $marriage->place);
 						}
 						# structure for female relationship with no date or place
 						else {
-							$s .= sprintf(gtc("female %s had a relationship with %s."), $p->fname, $spouse_link);
+							$s .= sprintf(gtc("female %s had a relationship with %s."), htmlentities($p->fname), $spouse_link);
 						}
 						if ($marriage->endstatus) { 
 							$s .= ' ';
