@@ -50,7 +50,7 @@
 	
 	# reports tab
 	if ($g_option == 'reports') {
-		$g_content .= '<div class="tab selected">'._("Reports").'</div>';
+		$g_content .= '<div class="tab selected"><a href="'.$_SERVER['PHP_SELF'].'?option=reports&indiv='.$o->indkey.'">'._("Reports").'</a></div>';
 	}
 	else {
 		$g_content .= '<div class="tab"><a href="'.$_SERVER['PHP_SELF'].'?option=reports&indiv='.$o->indkey.'">'._("Reports").'</a></div>';

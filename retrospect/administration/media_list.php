@@ -51,8 +51,8 @@
 				$sql .= "ORDER BY indfamkey";
 			}
 		}
-		$result = db_query_r($sql);
-		while ($row = mysql_fetch_array($result)) {
+		$rs = $db->Execute($sql);
+		while ($row = $rs->FetchRow()) {
 			echo '<tr>';
 			echo '<td class="text"><a target="_blank" href="../index.php?option=family&indiv='.stripslashes($row['indfamkey']).'">'.stripslashes($row['indfamkey']).'</a></td>';
 			echo '<td class="text">'.stripslashes($row['filename']).'</td>';

@@ -44,7 +44,7 @@
 	* @param string $p_alpha
 	*/
 	function get_alpha_link($p_alpha) {
-		global $g_alpha;
+		global $db, $g_alpha;
 		$p_alpha = strtoupper($p_alpha);
 		return ($p_alpha == $g_alpha) ? $p_alpha : '<a href="'.$_SERVER['PHP_SELF'].'?option=surnames&alpha='.$p_alpha.'">'._($p_alpha).'</a>';
 	}
@@ -70,22 +70,26 @@
 		}
 			
 		if ($g_alpha == 'ALL') {
-			$query = "SELECT surname, count(surname) AS number FROM $g_tbl_indiv surname GROUP BY surname";		
+			$sql = "SELECT surname, count(surname) AS number FROM $g_tbl_indiv surname GROUP BY surname";		
+			$rs = $db->Execute($sql);
 		}
 		elseif ($g_alpha == 'TOP100') {
-			$query = "SELECT surname, count(surname) AS number FROM $g_tbl_indiv surname GROUP BY surname ORDER BY number DESC LIMIT 100";		
+			$sql = "SELECT surname, count(surname) AS number FROM $g_tbl_indiv surname GROUP BY surname ORDER BY number DESC";		
+			$rs = $db->SelectLimit($sql, 100);
 		}
 		else {
-			$query = "SELECT surname, count(surname) AS number FROM $g_tbl_indiv surname WHERE surname LIKE '$g_alpha%' GROUP BY surname";
+			$sql = "SELECT surname, count(surname) AS number FROM $g_tbl_indiv surname WHERE surname LIKE '$g_alpha%' GROUP BY surname";
+			$rs = $db->Execute($sql);
+			
 		}
-		$result = db_query_r($query);
 		$max_cols = 4;
-		$max_rows = ceil(mysql_num_rows($result) / $max_cols);
-		$g_content .= '<p class="text">'._("Number of surnames listed").': '.mysql_num_rows($result).'</p>';
+		$max_rows = ceil($rs->RecordCount() / $max_cols);
+		
+		$g_content .= '<p class="text">'._("Number of surnames listed").': '.$rs->RecordCount().'</p>';
 		$g_content .= '<table border="0" cellpadding="0" cellspacing="0">';
 		$g_content .= '<tr><td class="text" width="200" valign="top">';
 		$count = 0;
-		while ($row = mysql_fetch_array($result)) {
+		while ($row = $rs->FetchRow()) {
 			$count++;			
 			$letter = strtoupper(substr($row["surname"],0,1));
 			$g_content .= "<a href=\"".$_SERVER["PHP_SELF"]."?option=surnames&sn=".$row["surname"]."\">";
@@ -115,16 +119,16 @@
 			$g_content .= '</div>';
 		}
 		
-		$query = "SELECT indkey FROM $g_tbl_indiv WHERE surname = '$sn' ORDER BY givenname";
-		$result = db_query_r($query);
+		$sql = "SELECT indkey FROM $g_tbl_indiv WHERE surname = '$sn' ORDER BY givenname";
+		$rs = $db->Execute($sql);
 		
-		$g_content .= '<p class="text">'._("Number of individuals listed").': '.mysql_num_rows($result).'</p>';
+		$g_content .= '<p class="text">'._("Number of individuals listed").': '.$rs->RecordCount().'</p>';
 		$g_content .= '<div class="text" style="width: 300px; float: left;"><b>'._("Name").'</b></div>';
 		$g_content .= '<div class="text" style="width: 150px; float: left;"><b>'._("Birth").'</b></div>';
 		$g_content .= '<div class="text" style="width: 150px;"><b>'._("Death").'</b></div>';
 
-		while($row = mysql_fetch_array($result)) {
-			$o = new Person($row['indkey'], 1); 
+		while ($row = $rs->FetchRow()) {
+			$o = new Person($row[0], 3); 
 			$o_link = '<a href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$o->indkey.'">'.$o->sname.', '.$o->gname.'</a>';
 			$g_content .= '<div class="text" style="width: 300px; float: left; height: 10pt; overflow:hidden;">'.$o_link.'</div>';
 			$g_content .= '<div class="text" style="width: 150px; float: left; height: 10pt; overflow:hidden;">'.$o->birth->date.'</div>';

@@ -116,18 +116,18 @@
 			else {
 				$sql = "SELECT * FROM $g_tbl_indiv WHERE surname LIKE '$sname%' AND givenname LIKE '%$gname%' ORDER BY surname, givenname";
 			}	 
-			$result = db_query_r($sql);
+			$rs = $db->Execute($sql);
 
 			# display list of individual
-			if (mysql_num_rows($result) > 0) {
-				$g_content .= '<p class="text">'._("Number of individuals listed").': '.mysql_num_rows($result).'</p>';
+			if ($rs->RecordCount() > 0) {
+				$g_content .= '<p class="text">'._("Number of individuals listed").': '.$rs->RecordCount().'</p>';
 				$g_content .= '<table border="0" cellspacing="2" cellpadding="0">';
 				$g_content .= '<tr>';
 				$g_content .= '<td class="text" width="250"><b>'._("Name").'</b></td>';
 				$g_content .= '<td class="text" width="150"><b>'._("Birth").'</b></td>';
 				$g_content .= '<td class="text" width="150"><b>'._("Death").'</b></td>';
 				$g_content .= '</tr>';
-				while ($row = mysql_fetch_array($result)) {
+				while ($row = $rs->FetchRow()) {
 					$o = new Person($row['indkey'], 1);
 					$g_content .= '<tr>';
 					$g_content .= '<td class="text">';

@@ -43,7 +43,7 @@
 	* Location of library files
 	* @global string
 	*/
-	define('LIB_PATH', ROOT_PATH.'/libraries/');
+	define('LIB_PATH', ROOT_PATH.'/../libraries/');
 	
 	/**
 	* Current url w/query string

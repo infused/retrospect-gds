@@ -34,50 +34,50 @@
 	
 	# surnames
 	$sql = "SELECT COUNT(DISTINCT surname) FROM $g_tbl_indiv";
-	$cnt_surnames = db_query_r1($sql);
+	$cnt_surnames = $db->GetOne($sql);
 	
 	# individuals
 	$sql = "SELECT COUNT(*) FROM $g_tbl_indiv";
-	$cnt_indiv = db_query_r1($sql);
+	$cnt_indiv = $db->GetOne($sql);
 	# individuals - male
 	$sql = "SELECT COUNT(*) FROM $g_tbl_indiv WHERE sex='M'";
-	$cnt_indiv_male = db_query_r1($sql);
+	$cnt_indiv_male = $db->GetOne($sql);
 	# individuals - female
 	$sql = "SELECT COUNT(*) FROM $g_tbl_indiv WHERE sex='F'";
-	$cnt_indiv_female = db_query_r1($sql);
+	$cnt_indiv_female = $db->GetOne($sql);
 	# individuals - unknown
 	$cnt_indiv_unknown = $cnt_indiv - $cnt_indiv_male - $cnt_indiv_female;
 	
 	# families
 	$sql = "SELECT COUNT(*) FROM $g_tbl_family";
-	$cnt_families = db_query_r1($sql);
+	$cnt_families = $db->GetOne($sql);
 	
 	# facts
 	$sql = "SELECT COUNT(*) FROM $g_tbl_fact";
-	$cnt_facts = db_query_r1($sql);
+	$cnt_facts = $db->GetOne($sql);
 	# facts - birth
 	$sql = "SELECT COUNT(*) FROM $g_tbl_fact WHERE type='Birth'";
-	$cnt_facts_birth = db_query_r1($sql);
+	$cnt_facts_birth = $db->GetOne($sql);
 	# facts - death
 	$sql = "SELECT COUNT(*) FROM $g_tbl_fact WHERE type='Death'";
-	$cnt_facts_death = db_query_r1($sql);	
+	$cnt_facts_death = $db->GetOne($sql);	
 	# facts - marriage
 	$sql = "SELECT COUNT(*) FROM $g_tbl_fact WHERE type='Marriage'";
-	$cnt_facts_marriage = db_query_r1($sql);		
+	$cnt_facts_marriage = $db->GetOne($sql);		
 	# facts - other
 	$cnt_facts_other = $cnt_facts - $cnt_facts_birth - $cnt_facts_death - $cnt_facts_marriage;
 	
 	# notes 
 	$sql = "SELECT COUNT(*) FROM $g_tbl_note";
-	$cnt_notes = db_query_r1($sql);
+	$cnt_notes = $db->GetOne($sql);
 	
 	# sources
 	$sql = "SELECT COUNT(*) FROM $g_tbl_source";
-	$cnt_sources = db_query_r1($sql);
+	$cnt_sources = $db->GetOne($sql);
 	
 	# source citations
 	$sql = "SELECT COUNT(*) FROM $g_tbl_citation";
-	$cnt_citations = db_query_r1($sql);
+	$cnt_citations = $db->GetOne($sql);
 	
  	# set title
 	$g_title = _("Statistics");

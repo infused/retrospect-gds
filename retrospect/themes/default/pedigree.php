@@ -57,8 +57,6 @@
 	function process_indiv($p_node) {
 		global $g_node_strings, $g_node_parents, $g_node_indkey;
 		$g_node_indkey[$p_node->ns_number] = $p_node->indkey;
-		$birth = $p_node->birth->date;
-		$death = $p_node->death->date;
 		if ($p_node->father_indkey || $p_node->mother_indkey) {
 			$g_node_parents[$p_node->ns_number] = true;
 		}
@@ -67,8 +65,8 @@
 		$g_node_strings[$p_node->ns_number]  = '<table width="148" height="58" callpadding="0" cellspacing="0">';
 		$g_node_strings[$p_node->ns_number] .= '<tr><td class="pedbox-text" align="left" valign="middle">';
 		$g_node_strings[$p_node->ns_number] .= '<a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&indiv='.$p_node->indkey.'">'.$p_node->name.'</a><br />';
-		$g_node_strings[$p_node->ns_number] .= _("b.").' '.$birth.'<br />';
-		$g_node_strings[$p_node->ns_number] .= _("d.").' '.$death.'</td></tr></table>';
+		$g_node_strings[$p_node->ns_number] .= _("b.").' '.$p_node->birth->date.'<br />';
+		$g_node_strings[$p_node->ns_number] .= _("d.").' '.$p_node->death->date.'</td></tr></table>';
 	}
 
 	# name and menu

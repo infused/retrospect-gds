@@ -41,8 +41,8 @@
 	</tr>
 	<?php
 		$sql = "SELECT * FROM $g_tbl_user";
-		$result = db_query_r($sql);
-		while ($row = mysql_fetch_array($result)) {
+		$rs = $db->Execute($sql);
+		while ($row = $rs->FetchRow()) {
 			$uid = stripslashes($row['uid']);
 			$fullname = stripslashes($row['fullname']);
 			$email = stripslashes($row['email']);

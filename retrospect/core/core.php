@@ -80,8 +80,12 @@
 	/**
 	* Require database functions and establish connection
 	*/
-	require_once(CORE_PATH.'f_database.php');
-	db_connect($g_db_host, $g_db_port, $g_db_user, $g_db_pass, $g_db);
+	//require_once(CORE_PATH.'f_database.php');
+	//db_connect($g_db_host, $g_db_port, $g_db_user, $g_db_pass, $g_db);
+	
+	require_once(LIB_PATH.'adodb/adodb.inc.php');
+	$db = &AdoNewConnection('mysql');
+	$db->Connect($g_db_host, $g_db_user, $g_db_pass, $g_db);
 
 	/**
 	* Require options file and instantiate options

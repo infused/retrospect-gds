@@ -32,10 +32,9 @@
 		$updated = false;
 		
 		function config_update($p_opt_val_new, $p_opt_val_old, $p_opt_key) {
-			global $g_tbl_option;
-			$query = "UPDATE $g_tbl_option SET opt_val='$p_opt_val_new' WHERE opt_key='$p_opt_key'";
-			$result = db_query_a($query);
-			if ($result > 0) {
+			global $db, $g_tbl_option;
+			$sql = "UPDATE {$g_tbl_option} SET opt_val='{$p_opt_val_new}' WHERE opt_key='{$p_opt_key}'";
+			if ($db->Execute($sql)) {
 				echo sprintf(_("Changed %s from %s to %s."), $p_opt_key, $p_opt_val_old, $p_opt_val_new).'<br />';
 				return true;
 			}
@@ -135,23 +134,22 @@
     <td align="left" valign="top" class="content-subtitle"><?php echo _("Language Configuration"); ?></td> 
   </tr> 
   <tr> 
-    <td align="left" valign="top"><table width="100%"  border="0" cellspacing="0" cellpadding="4"> 
+    <td align="left" valign="top" bgcolor="#CCCCCC"><table  border="0" cellspacing="0" cellpadding="4"> 
         <tr bgcolor="#CCCCCC"> 
           <td width="200" class="content-label"><?php echo _("Default Language"); ?>: </td> 
           <td>
 						<select name="default_lang_new" class="listbox" id="default_lang_new"> 
               <?php
 					 			$sql = "SELECT * FROM $g_tbl_lang";
-								$result = db_query_r($sql);
-								while ($row = mysql_fetch_array($result)) {
+								$rs = $db->Execute($sql);
+								while ($row = $rs->FetchRow()) {
 									echo '<option value="'.$row['lang_code'].'"';
 									if ($g_opts->default_lang == $row['lang_code']) { echo ' SELECTED'; }
 									echo '>'.$row['lang_name'].'</option>';
 					 			}
 					 		?> 
             </select>
-						<input name="default_lang_old" type="hidden" id="default_lang_old" value="<?php echo $g_opts->default_lang; ?>">
-					</td> 
+						<input name="default_lang_old" type="hidden" id="default_lang_old" value="<?php echo $g_opts->default_lang; ?>"></td> 
         </tr>
         <tr bgcolor="#CCCCCC">
           <td class="content-label"><?php echo _("Allow language changes"); ?>?</td>
@@ -171,12 +169,7 @@
           </select>
             <input name="translate_dates_old" type="hidden" id="translate_dates_old" value="<?php echo $g_opts->translate_dates; ?>"></td>
         </tr> 
-        <tr> 
-          <td>&nbsp;</td> 
-          <td>&nbsp;</td> 
-        </tr> 
-      </table>
-		</td> 
+      </table>		</td> 
   </tr> 
 	<tr>
 	<td><input name="Save" type="submit" class="text" id="Save" value="<?php echo _("Save"); ?>"> 

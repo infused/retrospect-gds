@@ -24,9 +24,10 @@
 ?>
 <?php 
 function optimize_table($p_table) {
+	global $db;
 	$sql = "OPTIMIZE TABLE $p_table";
-	if ($result = db_query_r($sql)) {
-		$row = mysql_fetch_array($result);
+	if ($rs = $db->Execute($sql)) {
+		$row = $rs->FetchRow();
 		return $row['Msg_text'];
 	}
 	else {

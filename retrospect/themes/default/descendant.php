@@ -45,8 +45,8 @@
 		global $g_content, $g_descendants, $g_generation, $g_max_gens, $g_count;
 		$p_node = $p_array[0];
 		$p_generation  = $p_array[1];
-		if ($p_node->father_indkey) { $father = new Person($p_node->father_indkey, 1); }
-		if ($p_node->mother_indkey) { $mother = new Person($p_node->mother_indkey, 1); }
+		if ($p_node->father_indkey) { $father = new Person($p_node->father_indkey, 3); }
+		if ($p_node->mother_indkey) { $mother = new Person($p_node->mother_indkey, 3); }
 		
 		if ($p_generation > $g_generation ) {
 			$g_generation = $p_generation;
@@ -67,7 +67,7 @@
 		$g_content .= '<br />';
 		# children
 		foreach ($p_node->marriages as $marriage) {
-			$spouse = new Person($marriage->spouse, 1);
+			$spouse = new Person($marriage->spouse, 3);
 			if ($marriage->child_count > 0) {
 				$g_content .= '<br />';
 				$g_content .= get_children_of_sentence($p_node, $spouse).':<br />';

@@ -38,7 +38,7 @@
 	
 	# create father link
 	if ($o->father_indkey) { 
-		$f = new person($o->father_indkey, 1); 
+		$f = new person($o->father_indkey, 3); 
 		$father_link = '<a href="'.Theme::GetArgs('family', array('indiv'=>$f->indkey)).'">'.$f->name.'</a>';	
 		unset($f);
 	}
@@ -46,7 +46,7 @@
 	
 	# create mother link
 	if ($o->mother_indkey) { 
-		$m = new person($o->mother_indkey, 1); 
+		$m = new person($o->mother_indkey, 3); 
 		$mother_link = '<a href="'.Theme::GetArgs('family', array('indiv'=>$m->indkey)).'">'.$m->name.'</a>';	
 		unset($m);
 	}
@@ -118,7 +118,7 @@
 	# marriages
   foreach ($o->marriages as $m) {
 		$fam_count++;
-		$s = new person($m->spouse);
+		$s = new person($m->spouse, 3);
 		$spouse_link = '<a href="'.Theme::GetArgs('family', array('indiv'=>$s->indkey)).'">'.$s->name.'</a>';
 		
 		$g_content .= '<br />';
@@ -156,7 +156,7 @@
 			$g_content .= '<div class="col1">'._("Children").':</div>';
 			$k = 0;
 			foreach ($m->children as $child_indkey) {
-				$c = new person($child_indkey, 1);
+				$c = new person($child_indkey, 3);
 				$child_link = '<a href="'.Theme::GetArgs('family', array('indiv'=>$c->indkey)).'">'.$c->name.'</a>';
 				if ($k != 0) {
 					$g_content .= '<div class="col1"></div>';

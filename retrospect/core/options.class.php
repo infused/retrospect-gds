@@ -67,10 +67,10 @@
 		* @access public
 		*/
 		function Options() {
-			global $g_tbl_option;
-			$query = "SELECT * FROM $g_tbl_option";
-			$result = db_query_r($query);
-			while ($row = mysql_fetch_array($result)) {
+			global $g_tbl_option, $db;
+			$sql = "SELECT * FROM $g_tbl_option";
+			$rs = $db->Execute($sql);
+			while ($row = $rs->FetchRow()) {
 				$optkey = $row['opt_key'];
 				$this->{$optkey} = $row['opt_val'];
 			}

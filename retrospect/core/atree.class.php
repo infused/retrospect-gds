@@ -237,7 +237,7 @@ class ATree {
 			$node = array_shift($nodes);
 
 			# do something with the node here
-			$person = new Person($node->data, 1, $node->ahnentafel);
+			$person = new Person($node->data, 0, $node->ahnentafel);
 			$p_callback_func($person, $node->generation);
 			
 			if ($node->father_index != null) {
@@ -267,7 +267,7 @@ class ATree {
 		for ($i = 0; $i <  count($nodes); $i++) {
 			$node = $nodes[$i];
 			# process each person
-			$person = new Person($node->data, 1, $node->ahnentafel);
+			$person = new Person($node->data, 2, $node->ahnentafel);
 		
 			# stop after max_depth reached
 			if ($node->generation == $p_max_depth) { break; }

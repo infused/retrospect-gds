@@ -99,8 +99,8 @@
 	*/
 	function display_indiv($p_node) {
 		global $pdf, $font, $factcol, $placecol, $shownotes, $sources, $linespace;
-		if ($p_node->father_indkey) { $f = new Person($p_node->father_indkey, 1); }
-		if ($p_node->mother_indkey) { $m = new Person($p_node->mother_indkey, 1); }
+		if ($p_node->father_indkey) { $f = new Person($p_node->father_indkey, 3); }
+		if ($p_node->mother_indkey) { $m = new Person($p_node->mother_indkey, 3); }
 		$pdf->SetFont($font, 'B', 11);
 		if ($p_node->title != '') { 
 			$namestr = $p_node->name.', '.$p_node->title;
@@ -219,7 +219,7 @@
 	*/
 	function display_marriage($p_marriage, $p_mnum) {
 		global $pdf, $font, $factcol, $placecol, $namecol, $birthcol, $deathcol, $sources;
-		$spouse = new Person($p_marriage->spouse, 1);
+		$spouse = new Person($p_marriage->spouse, 3);
 		$pdf->Ln(5);		
 		$pdf->SetFont($font, 'I', 10);
 		$pdf->Cell(0, 5, sprintf(_("Family %s"), $p_mnum).' :', 0, 1);
@@ -285,7 +285,7 @@
 			$cnum = 0;
 			foreach ($p_marriage->children as $child) {
 				$cnum++;
-				$c = new Person($child, 1);
+				$c = new Person($child, 3);
 				$pdf->Cell(0, 5, $cnum.'.');
 				$pdf->SetX($namecol);
 				$pdf->Cell(0, 5, $c->name);

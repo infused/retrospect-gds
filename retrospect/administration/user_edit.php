@@ -59,7 +59,7 @@
 		elseif (isset($_POST['Delete'])) {
 			$uid = $_POST['username'];
 			$sql = "DELETE FROM $g_tbl_user WHERE uid='$uid'";
-			db_query_n($sql);
+			$db->Execute($sql);
 			echo '<tr><td class="notification">';
 			echo sprintf(_("User %s was deleted."), $_POST['username']).' ';
 			redirect_j($_SERVER['PHP_SELF'].'?option=user_list', 2);
@@ -69,8 +69,8 @@
 		else {
 			$id = $_GET['id'];
 			$sql = "SELECT * FROM $g_tbl_user WHERE id='$id'";
-			$result = db_query_r($sql);
-			$u = mysql_fetch_array($result);
+			$rs = $db->Execute($sql);
+			$u = $rs->FetchRow($rs);
 		//}
 	?>
   <tr>

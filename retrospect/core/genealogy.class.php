@@ -298,7 +298,8 @@ class Person {
 	* Levels:<br />
 	* 0: All data<br />
 	* 1: Only vital statistics, parents, and sources<br />
-	* 2: Parents only (populates on $father_indkey and $mother_indkey)<br /> 
+	* 2: Parents only (populates only $father_indkey and $mother_indkey)<br /> 
+	* 3: Vitals only - No Parents, No Sources
 	* @access public
 	* @param string $p_id indkey
 	* @param integer $p_level populate all class properties or only vital stats?
@@ -317,17 +318,31 @@ class Person {
 		$this->ns_number = $p_ns_number;
 		$this->sources = array();
 		
-		if ($p_level != 2) {
+		# 0: All data
+		if ($p_level == 0) {
 			$this->_get_name();
 			$this->_get_events();
-		}
-		$this->_get_parents();
-		if ($p_level == 0) {
+			$this->_get_parents();
 			$this->marriages = array();
 			$this->children = array();
 			$this->_get_marriages();
 			$this->_get_children();
 			$this->_get_notes();
+		}
+		# 1: Vitals only
+		elseif($p_level == 1) {
+			$this->_get_name();
+			$this->_get_events();
+			$this->_get_parents();
+		}
+		# 2: Parents only
+		elseif($p_level == 2) {
+			$this->_get_parents();
+		}
+		# 3: Vitals (No Parents, No Sources)
+		elseif($p_level == 3) {
+			$this->_get_name();
+			$this->_get_events(false);
 		}
 	}
 	
@@ -336,24 +351,34 @@ class Person {
 	* @access private
 	*/
 	function _get_name() {
-		$query = "SELECT * FROM {$this->tbl_indiv} WHERE indkey = '{$this->indkey}' LIMIT 1";
-		$result = db_query_r($query);
-		if ($row = mysql_fetch_array($result)) {
-			$this->gname = $row['givenname'];
-			$this->sname = $row['surname'];
-			$this->aka = $row['aka'];
-			$this->notekey = $row['notekey'];
-			$this->title = $row['title'];
-			$fnames = explode(' ', $this->gname); 
-			$this->fname = $fnames[0];
-			if ($row['givenname'] and $row['surname']) {	$this->name = $row['givenname'].' '.$row['surname']; }
-			elseif ($row['givenname']) { $this->name = $row['givenname']; }
-			elseif ($row['surname']) { $this->name = $row['surname']; }
-		
-			$this->sex = $row['sex'];
-			if ($this->sex == 'M') { $this->gender = 'Male'; }
-			elseif ($this->sex == 'F') { $this->gender = 'Female'; }
-			else { $this->gender = 'Unknown'; }
+		global $db;
+		$sql = "SELECT * FROM {$this->tbl_indiv} WHERE indkey = '{$this->indkey}'";
+		$row = $db->GetRow($sql);
+		$this->gname = $row['givenname'];
+		$this->sname = $row['surname'];
+		$this->aka = $row['aka'];
+		$this->notekey = $row['notekey'];
+		$this->title = $row['title'];
+		$fnames = explode(' ', $this->gname); 
+		$this->fname = $fnames[0];
+		if ($row['givenname'] and $row['surname']) {	
+			$this->name = $row['givenname'].' '.$row['surname']; 
+		}
+		elseif ($row['givenname']) { 
+			$this->name = $row['givenname']; 
+		}
+		elseif ($row['surname']) { 
+			$this->name = $row['surname']; 
+		}
+		$this->sex = $row['sex'];
+		if ($this->sex == 'M') { 
+			$this->gender = 'Male'; 
+		}
+		elseif ($this->sex == 'F') { 
+			$this->gender = 'Female'; 
+		}
+		else { 
+			$this->gender = 'Unknown'; 
 		}
 	}
 
@@ -361,12 +386,13 @@ class Person {
 	* Gets events from database
 	* @access private
 	*/
-	function _get_events() {
+	function _get_events($p_fetch_sources = true) {
+		global $db;
 		$this->events = array();
-		$query =  "SELECT * FROM $this->tbl_fact WHERE indfamkey = '$this->indkey'";
-		$result = db_query_r($query);
-		while ($row = mysql_fetch_array($result)) {
-			$event = new event($row['type'], $row['date'], $row['place'], $row['factkey']);
+		$sql =  "SELECT * FROM {$this->tbl_fact} WHERE indfamkey = '{$this->indkey}'";
+		$rs = $db->Execute($sql);
+		while ($row = $rs->FetchRow()) {
+			$event = new event($row['type'], $row['date'], $row['place'], $row['factkey'], $p_fetch_sources);
 			if (strtolower($event->type) == 'birth') {
 				$this->birth = $event;
 			}
@@ -385,11 +411,12 @@ class Person {
 	* @access private
 	*/	
 	function _get_marriages() {
+		global $db;
 		if ($this->sex == 'M') { $p_col = 'spouse1'; $s_col = 'spouse2'; }
 		else { $p_col = 'spouse2'; $s_col = 'spouse1'; }
-		$query = "SELECT * FROM $this->tbl_family WHERE $p_col='$this->indkey'";
-		$result = db_query_r($query);
-		while ($row = mysql_fetch_array($result)) {
+		$sql = "SELECT * FROM {$this->tbl_family} WHERE {$p_col}='{$this->indkey}'";
+		$rs = $db->Execute($sql);
+		while ($row = $rs->FetchRow()) {
 			$m = new marriage($row['famkey'], $row[$s_col], $row['beginstatus'], $row['endstatus'], $row['notekey']);
 			$this->marriages[] = $m;
 		}
@@ -401,13 +428,13 @@ class Person {
 	* @access private
 	*/	
 	function _get_children() {
+		global $db;
 		foreach ($this->marriages as $marriage) {	
 			$childlist = array();
 			$famkey = $marriage['famkey'];
-			$query = "SELECT indkey FROM $this->tbl_relation WHERE famkey='$famkey'";
-			$result = db_query_r($query);
-			while ($row = mysql_fetch_array($result)) {
-				$child = $row['indkey'];
+			$sql = "SELECT indkey FROM {$this->tbl_relation} WHERE famkey='{$famkey}'";
+			$children = $db->GetCol($sql);
+			foreach ($children as $child) {
 				array_push($childlist, $child);
 			}
 			array_push($this->children, $childlist);
@@ -419,13 +446,13 @@ class Person {
 	* @access private
 	*/	
 	function _get_parents() {
+		global $db;
 		$query  = "SELECT spouse1, spouse2	FROM $this->tbl_family, $this->tbl_relation ";
 		$query .= "WHERE $this->tbl_relation.indkey = '$this->indkey' ";
 		$query .= "AND $this->tbl_family.famkey = $this->tbl_relation.famkey";
-		$result = db_query_r($query);
-		$row = mysql_fetch_array($result);
-		$this->father_indkey = $row['spouse1'];
-		$this->mother_indkey = $row['spouse2'];
+		$row = $db->GetRow($query);
+		$this->father_indkey = isset($row['spouse1']) ? $row['spouse1'] : null;
+		$this->mother_indkey = isset($row['spouse2']) ? $row['spouse2'] : null;
 	}
 
 	/**
@@ -433,10 +460,9 @@ class Person {
 	* @access private
 	*/	
 	function _get_notes() {
-		$query = "SELECT text FROM $this->tbl_note WHERE notekey = '$this->notekey' LIMIT 1";
-		$result = db_query_r($query);
-		$row = mysql_fetch_array($result);
-		$this->notes = stripslashes($row['text']);
+		global $db;
+		$query = "SELECT text FROM $this->tbl_note WHERE notekey='$this->notekey'";
+		$this->notes = $db->GetOne($query);
 	}
 }
 
@@ -513,14 +539,16 @@ class Event {
 	* @param string $p_place Where the event occured
 	* @param string $p_factkey 
 	*/
-	function Event($p_type, $p_date, $p_place, $p_factkey) {
+	function Event($p_type, $p_date, $p_place, $p_factkey, $p_fetch_sources = true) {
 		$this->tbl_citation = $GLOBALS['g_tbl_citation'];
 		$this->tbl_source = $GLOBALS['g_tbl_source'];
 		$this->type = ucwords(strtolower($p_type));
 		$this->date = lang_translate_date(ucwords(strtolower($p_date)));
-		$this->place = $p_place;
+		$this->place = htmlspecialchars($p_place);
 		$this->factkey = $p_factkey;
-		$this->_get_sources();
+		if ($p_fetch_sources === true) {
+			$this->_get_sources();
+		}
 	}
 	
 	/** 
@@ -528,20 +556,21 @@ class Event {
 	* @access private
 	*/
 	function _get_sources() {
-		$this->sources = array();
-		$query  = "SELECT $this->tbl_citation.factkey, $this->tbl_citation.source, $this->tbl_source.text, "; 
-		$query .= "$this->tbl_source.notekey ";
-		$query .= "FROM $this->tbl_citation INNER JOIN $this->tbl_source ";
-		$query .= "ON $this->tbl_citation.srckey = $this->tbl_source.srckey ";
-		$query .= "WHERE $this->tbl_citation.factkey = '$this->factkey'";
-		$result = db_query_r($query);
-		while ($row = mysql_fetch_array($result)) {
+		global $db;
+		$sources = array();
+		$sql  = "SELECT {$this->tbl_citation}.source, {$this->tbl_source}.text "; 
+		$sql .= "FROM {$this->tbl_citation} INNER JOIN {$this->tbl_source} ";
+		$sql .= "ON {$this->tbl_citation}.srckey = {$this->tbl_source}.srckey ";
+		$sql .= "WHERE {$this->tbl_citation}.factkey = '{$this->factkey}'";
+		$rs = $db->Execute($sql);
+		while ($row = $rs->FetchRow()) {
 			$srccitation = stripslashes($row['source']);
 			$msrc = stripslashes($row['text']);
 			$source = $msrc.'<br>'.$srccitation;
-			$source = ereg_replace('<br>$', '', $source);
-			array_push($this->sources, $source);
+			$source = ereg_replace('<br>$', '', $source);  //trim ending breaks
+			array_push($sources, $source);
 		}
+		$this->sources = $sources;
 		$this->source_count = count($this->sources);
 	}
 }
@@ -752,9 +781,13 @@ class Marriage {
 		$this->_get_notes();
 		$this->_get_beginstatus_event();
 		$this->_get_endstatus_event();
-		if ($this->beginstatus_factkey) { $this->sources = $this->_get_sources($this->beginstatus_factkey); }
+		if ($this->beginstatus_factkey) { 
+			$this->sources = $this->_get_sources($this->beginstatus_factkey); 
+		}
 		$this->source_count = count($this->sources);
-		if ($this->endstatus_factkey) { $this->end_sources = $this->_get_sources($this->endstatus_factkey); }
+		if ($this->endstatus_factkey) { 
+			$this->end_sources = $this->_get_sources($this->endstatus_factkey); 
+		}
 		$this->end_source_count = count($this->end_sources);
 	}
 		
@@ -763,12 +796,9 @@ class Marriage {
 	* @access private
 	*/	
 	function _get_children() {	
-		$query = "SELECT indkey FROM $this->tbl_child WHERE famkey = '$this->famkey'";
-		$result = db_query_r($query);
-		while ($row = mysql_fetch_array($result)) {
-			$child = $row["indkey"];
-			array_push($this->children, $child);
-		}
+		global $db;
+		$sql = "SELECT indkey FROM {$this->tbl_child} WHERE famkey = '{$this->famkey}'";
+		$this->children = $db->GetCol($sql);
 		$this->child_count = count($this->children);
 	}
 	
@@ -777,10 +807,9 @@ class Marriage {
 	* @access private
 	*/
 	function _get_notes() {
-		$query = "SELECT text FROM $this->tbl_note WHERE notekey='$this->notekey'";
-		$result = db_query_r($query);
-		$row = mysql_fetch_array($result);
-		$this->notes = stripslashes($row['text']);
+		global $db;
+		$query = "SELECT text FROM {$this->tbl_note} WHERE notekey='{$this->notekey}'";
+		$this->notes = htmlspecialchars($db->GetOne($query));
 	}
 	
 	/**
@@ -788,14 +817,14 @@ class Marriage {
 	* @access private
 	*/
 	function _get_sources($p_factkey) {
+		global $db;
 		$sources = array();
-		$query  = "SELECT $this->tbl_citation.factkey, $this->tbl_citation.source, ";
-		$query .= "$this->tbl_source.text, $this->tbl_source.notekey ";
-		$query .= "FROM $this->tbl_citation INNER JOIN $this->tbl_source ";
-		$query .= "ON $this->tbl_citation.srckey = $this->tbl_source.srckey ";
-		$query .= "WHERE $this->tbl_citation.factkey = '$p_factkey'";
-		$result = db_query_r($query);
-		while ($row = mysql_fetch_array($result)) {
+		$sql  = "SELECT {$this->tbl_citation}.source, {$this->tbl_source}.text ";
+		$sql .= "FROM {$this->tbl_citation} INNER JOIN {$this->tbl_source} ";
+		$sql .= "ON {$this->tbl_citation}.srckey = {$this->tbl_source}.srckey ";
+		$sql .= "WHERE {$this->tbl_citation}.factkey = '{$p_factkey}'";
+		$rs = $db->Execute($sql);
+		while ($row = $rs->FetchRow()) {
 			$srccitation = stripslashes($row['source']);
 			$msrc = stripslashes($row['text']);
 			$source = $msrc.'<br>'.$srccitation;
@@ -809,12 +838,13 @@ class Marriage {
 	* @access private
 	*/
 	function _get_beginstatus_event() {
-		$query = "SELECT factkey, date, place FROM $this->tbl_fact WHERE (indfamkey='$this->famkey') AND (type='$this->beginstatus') LIMIT 1";
-		$result = db_query_r($query);
-		$row = mysql_fetch_array($result);
-		$this->beginstatus_factkey = $row['factkey'];
-		$this->date = lang_translate_date(ucwords(strtolower($row['date'])));
-		$this->place = stripslashes($row['place']);
+		global $db;
+		$query = "SELECT factkey, date, place FROM {$this->tbl_fact} WHERE (indfamkey='{$this->famkey}') AND (type='{$this->beginstatus}')";
+		if ($row = $db->GetRow($query)) {
+			$this->beginstatus_factkey = $row['factkey'];
+			$this->date = lang_translate_date(ucwords(strtolower($row['date'])));
+			$this->place = stripslashes($row['place']);
+		}
 	}
 	
 	/** 
@@ -822,12 +852,13 @@ class Marriage {
 	* @access private
 	*/
 	function _get_endstatus_event() {
-		$query = "SELECT factkey, date, place FROM $this->tbl_fact WHERE (indfamkey='$this->famkey') AND (type='$this->endstatus') LIMIT 1";
-		$result = db_query_r($query);
-		$row = mysql_fetch_array($result);
-		$this->endstatus_factkey = $row['factkey'];
-		$this->enddate = lang_translate_date(ucwords(strtolower($row['date'])));
-		$this->endplace = stripslashes($row['place']);	
+		global $db;
+		$query = "SELECT factkey, date, place FROM {$this->tbl_fact} WHERE (indfamkey='{$this->famkey}') AND (type='{$this->endstatus}') LIMIT 1";
+		if ($row = $db->GetRow($query)) {
+			$this->endstatus_factkey = $row['factkey'];
+			$this->enddate = lang_translate_date(ucwords(strtolower($row['date'])));
+			$this->endplace = stripslashes($row['place']);	
+		}
 	}
 }
 ?>
