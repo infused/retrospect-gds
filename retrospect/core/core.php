@@ -67,7 +67,7 @@
 	* If a development configuration file exists (config-dev.php),
 	* it will be used instead of the default file (config.php).
 	*/
-	require_once( file_exists(CORE_PATH.'config-dev.php') ? CORE_PATH.'config-dev.php' : CORE_PATH.'config.php');
+	require_once(CORE_PATH.'config.php');
 
 	/** 
 	* Location of FPDF font definitions
