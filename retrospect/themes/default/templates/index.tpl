@@ -30,6 +30,7 @@ function MM_setTextOfTextfield(objName,x,newText) { //v3.0
 </script>
 {/literal}
 </head>
+<body>
 <div id="header"><img src="{$THEME_URL}images/logo.gif" align="left" alt="Retrospect-GDS"/></div>
 <div id="menu">{include file="menu.tpl"}</div>
 <div id="content">
@@ -52,6 +53,5 @@ function MM_setTextOfTextfield(objName,x,newText) { //v3.0
 <div id="footer">
 	<a href="http://www.infused-solutions.com/retrospect/">Retrospect-GDS v{$RGDS_VERSION}</a> {$RGDS_COPYRIGHT}
 </div>
-<body>
 </body>
 </html>

@@ -55,8 +55,10 @@
 	# Make sure a valid module is set or get the default page
 	$module = isset($_GET['m']) ? $_GET['m'] : $options->GetOption('default_page');
 	
-	# Load the option's script
+	# Load the module's script
 	@require_once(MODULE_PATH.$module.'.php');
+	
+	# Assign Smarty variables
 	$smarty->assign('module', $module);
 	$smarty->assign('meta_keywords', implode(', ', $keywords));
 	$smarty->assign('PHP_SELF', $_SERVER['PHP_SELF']);
@@ -66,6 +68,8 @@
 	if (isset($lang_names)) $smarty->assign('lang_names', $lang_names);
 	if (isset($lang_codes)) $smarty->assign('lang_codes', $lang_codes);
 	$smarty->assign('lang', $_SESSION['lang']);
+	
+	# Display the appropriate template
 	if (isset($_GET['print']) AND $_GET['print'] == strtolower('y')) {
 		$smarty->display('index_printable.tpl');
 	} else {

@@ -8,6 +8,7 @@
 <meta name="description" content="{$page_title}" />
 <meta name="keywords" content="{$meta_keywords}" />
 </head>
+<body>
 <div id="content_printable">
 	<div id="utils">
 		<a href="#" onclick="window.print(); return false;"><img src="{$THEME_URL}images/printbutton.gif" border="0" alt="{php}t("Print"){/php}" /></a>
@@ -17,6 +18,5 @@
 <div id="footer">
 	<a href="http://www.infused-solutions.com/retrospect/">Retrospect-GDS v{$RGDS_VERSION}</a> {$RGDS_COPYRIGHT}
 </div>
-<body>
 </body>
 </html>

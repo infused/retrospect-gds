@@ -2,7 +2,7 @@
 
 .ThemeOfficeMenu,.ThemeOfficeSubMenuTable
 {
-	font:	normal 9pt Verdana, Arial, Helvetica, sans-serif;
+	font:	normal 8pt Verdana, Arial, Helvetica, sans-serif;
 	padding:	0;
 	white-space:	nowrap;
 	cursor:		default;
@@ -40,7 +40,7 @@
 
 .ThemeOfficeMainItem
 {
-	background-color:	#CCCCCC;
+	background-color:	#C6CBCE;
 }
 
 .ThemeOfficeMainItemHover,.ThemeOfficeMainItemActive

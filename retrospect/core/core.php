@@ -121,16 +121,13 @@
 		$profiler->startTimer( 'all' );
 	}
 
-	# Initialize the gettext engine unless running in admin mode
-	if (!defined('_RGDS_ADMIN')) {
-		lang_init_gettext();
-		if ($options->GetOption('allow_lang_change') == 1) {
-			$g_langs = lang_get_langs();
-			foreach ($g_langs as $lang) {
-				$lang_name = $lang['lang_name'];
-				$lang_names[] = gtc($lang_name);
-				$lang_codes[] = $lang['lang_code'];
-			}
-		}
+	# Initialize the gettext engine
+	lang_init_gettext();
+	$g_langs = lang_get_langs();
+	foreach ($g_langs as $lang) {
+		$lang_name = $lang['lang_name'];
+		$lang_names[] = gtc($lang_name);
+		$lang_codes[] = $lang['lang_code'];
 	}
+
 ?>

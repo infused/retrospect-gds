@@ -76,9 +76,9 @@ class Auth {
 	}
 	
 	function Logout() {
-		unset($_SESSION['uid']);
-		unset($_SESSION['pwd']);
-		return session_destroy();
+		$_SESSION = array();
+		unset($_COOKIE[session_name()]);
+		@session_destroy();
 	}
 	
 	function AddUser($p_uid, $p_fullname, $p_email, $p_pwd) {
