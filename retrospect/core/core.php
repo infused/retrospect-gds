@@ -83,10 +83,10 @@
 	require_once(CORE_PATH.'options.class.php');
 	$options =& new Options();
 	$keywords = explode(',', $options->GetOption('meta_keywords'));
-	$copyright = trim(RGDS_COPYRIGHT);
+	$copyright = htmlentities(trim(RGDS_COPYRIGHT));
 	$test = '';
 	if ($options->GetOption('meta_copyright')) {
-		$copyright .= '; '.$options->GetOption('meta_copyright');
+		$copyright .= '; '.htmlentities($options->GetOption('meta_copyright'));
 	}
 	
 	/**

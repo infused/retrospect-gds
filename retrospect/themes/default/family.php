@@ -127,7 +127,7 @@
 				if (!empty($o->death->comment) AND !empty($o->death->place)) {
 					echo $o->death->comment.' / '.$o->death->place . disp_sources($o->death->sources);
 				}
-				elseif (!empty($o->death->comment)) {
+				elseif (!empty($o->death->comment) AND $o->death->comment != 'Y') {
 					echo $o->death->comment . disp_sources($o->death->sources);
 				}
 				elseif (!empty($o->death->place)) {

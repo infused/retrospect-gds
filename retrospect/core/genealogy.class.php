@@ -620,8 +620,8 @@ class Event {
 		while ($row = $rs->FetchRow()) {
 			$srccitation = $row['source'];
 			$msrc = $row['text'];
-			$source = $msrc.'<br>'.$srccitation;
-			$source = ereg_replace('<br>$', '', $source);  //trim ending breaks
+			$source = $msrc.'<br />'.$srccitation;
+			$source = ereg_replace('<br />$', '', $source);  //trim ending breaks
 			array_push($sources, $source);
 		}
 		$this->sources = $sources;

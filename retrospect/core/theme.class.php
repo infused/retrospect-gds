@@ -64,7 +64,7 @@ class Theme {
 					$arg_string .= '&'.$arg.'='.$val;
 				}
 			}
-			return $arg_string;
+			return htmlentities($arg_string);
 		}
 	}
 }
