@@ -34,7 +34,7 @@
 	function get_alpha_class($p_alpha) {
 		global $g_alpha;
 		$p_alpha = strtoupper($p_alpha);
-		if ($p_alpha == $g_alpha) { return 'tab selected'; }
+		if ($p_alpha == $g_alpha) { return 'tab-selected'; }
 		else { return 'tab'; }
 	}
 		
