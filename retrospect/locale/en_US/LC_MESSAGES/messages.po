@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2004-01-10 09:56-0800\n"
+"PO-Revision-Date: 2004-01-10 23:35-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused.org>\n"
 "Language-Team: ENGLISH <keithm@infused-solutions.com>\n"
 "MIME-Version: 1.0\n"
@@ -761,6 +761,7 @@ msgstr "Search the Database"
 #: themes/default/search.php:38
 #: themes/default/search.php:44
 #: themes/default/search.php:51
+#: themes/default/search.php:91
 msgid "Search"
 msgstr "Search"
 
@@ -902,10 +903,6 @@ msgstr "Given Name"
 msgid "Surname"
 msgstr "Surname"
 
-#: themes/default/search.php:91
-msgid "Submit"
-msgstr "Submit"
-
 #: themes/default/search.php:92
 #: administration/sys_config.php:176
 #: administration/user_add.php:107
@@ -918,8 +915,8 @@ msgid "Clear"
 msgstr "Clear"
 
 #: themes/default/search.php:109
-msgid "No search parameters were spedfgcified."
-msgstr "No search parameters were spedfgcified."
+msgid "No search parameters were specified."
+msgstr "No search parameters were specified."
 
 #: themes/default/search.php:123
 #: themes/default/surnames.php:125

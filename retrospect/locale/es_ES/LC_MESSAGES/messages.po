@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2004-01-10 09:41-0800\n"
+"PO-Revision-Date: 2004-01-10 23:42-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused.org>\n"
 "Language-Team: Spanish <keithm@infused-solutions.com>\n"
 "MIME-Version: 1.0\n"
@@ -135,7 +135,7 @@ msgstr "Bas Mitzah"
 #: themes/default/stats.php:94
 #: themes/default/surnames.php:127
 msgid "Birth"
-msgstr "Nacimiento"
+msgstr "Nació"
 
 #: core/f_dummy.php:72
 msgid "Blessing"
@@ -147,7 +147,7 @@ msgstr "Entierro"
 
 #: core/f_dummy.php:74
 msgid "Caste"
-msgstr ""
+msgstr "Casta"
 
 #: core/f_dummy.php:75
 msgid "Census"
@@ -173,7 +173,7 @@ msgstr "Cremación"
 #: themes/default/stats.php:95
 #: themes/default/surnames.php:128
 msgid "Death"
-msgstr "Fallecimiento"
+msgstr "Murió"
 
 #: core/f_dummy.php:80
 msgid "Degree"
@@ -358,43 +358,43 @@ msgstr ""
 
 #: core/f_language.php:76
 msgid "Jan"
-msgstr ""
+msgstr "Ene"
 
 #: core/f_language.php:77
 msgid "Feb"
-msgstr ""
+msgstr "Feb"
 
 #: core/f_language.php:78
 msgid "Mar"
-msgstr ""
+msgstr "Mar"
 
 #: core/f_language.php:79
 msgid "Apr"
-msgstr ""
+msgstr "Abr"
 
 #: core/f_language.php:80
 msgid "May"
-msgstr ""
+msgstr "May"
 
 #: core/f_language.php:81
 msgid "Jun"
-msgstr ""
+msgstr "Jun"
 
 #: core/f_language.php:82
 msgid "Jul"
-msgstr ""
+msgstr "Jul"
 
 #: core/f_language.php:83
 msgid "Aug"
-msgstr ""
+msgstr "Ago"
 
 #: core/f_language.php:84
 msgid "Sep"
-msgstr ""
+msgstr "Sep"
 
 #: core/f_language.php:85
 msgid "Oct"
-msgstr ""
+msgstr "Oct"
 
 #: core/f_language.php:86
 #, fuzzy
@@ -403,7 +403,7 @@ msgstr "No"
 
 #: core/f_language.php:87
 msgid "Dec"
-msgstr ""
+msgstr "Dec"
 
 #: core/f_language.php:90
 msgid "abv About"
@@ -1028,7 +1028,7 @@ msgstr "Genealogía"
 #: themes/default/family_pdf.php:232
 #: themes/default/pedigree.php:68
 msgid "b."
-msgstr ""
+msgstr "n."
 
 #: themes/default/descendant.php:99
 #: themes/default/family.php:132
@@ -1036,7 +1036,7 @@ msgstr ""
 #: themes/default/family_pdf.php:233
 #: themes/default/pedigree.php:69
 msgid "d."
-msgstr ""
+msgstr "m."
 
 #: themes/default/descendant.php:116
 #: themes/default/descendant_pdf.php:58
@@ -1085,7 +1085,7 @@ msgstr "E-mail de su amigo"
 
 #: themes/default/email.php:86
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: themes/default/email.php:100
 msgid "Your message has been sent. "
@@ -1093,7 +1093,7 @@ msgstr "Se ha enviado su mensaje."
 
 #: themes/default/email.php:120
 msgid "Close"
-msgstr ""
+msgstr "Cierra"
 
 #: themes/default/family.php:37
 #, php-format
@@ -1107,7 +1107,7 @@ msgstr "Página De la Familia"
 #: themes/default/family.php:85
 #: themes/default/family_pdf.php:117
 msgid "Aka"
-msgstr ""
+msgstr "Alias"
 
 #: themes/default/family.php:89
 #: themes/default/family_pdf.php:126
@@ -1236,6 +1236,7 @@ msgstr "Busque la base de datos"
 #: themes/default/search.php:38
 #: themes/default/search.php:44
 #: themes/default/search.php:51
+#: themes/default/search.php:91
 msgid "Search"
 msgstr "Buscar"
 
@@ -1304,7 +1305,7 @@ msgstr "Multimedia para %s"
 #: themes/default/multimedia.php:42
 #: administration/db_edit_indiv.php:34
 msgid "This feature has not been implemented yet."
-msgstr ""
+msgstr "Esta "
 
 # family.php:59
 # core/header.php:7 family.php:59
@@ -1428,7 +1429,7 @@ msgstr "Censo"
 
 #: themes/default/search.php:70
 msgid "Given Name"
-msgstr ""
+msgstr "Nombre de Pila"
 
 # family.php:59
 # core/header.php:7 family.php:59
@@ -1446,24 +1447,20 @@ msgstr ""
 msgid "Surname"
 msgstr "Apellido %s"
 
-#: themes/default/search.php:91
-msgid "Submit"
-msgstr ""
-
 #: themes/default/search.php:92
 #: administration/sys_config.php:176
 #: administration/user_add.php:107
 #: administration/user_edit.php:116
 msgid "Reset"
-msgstr ""
+msgstr "Reiniciar"
 
 #: themes/default/search.php:93
 msgid "Clear"
-msgstr ""
+msgstr "Limpiar"
 
 #: themes/default/search.php:109
-msgid "No search parameters were spedfgcified."
-msgstr ""
+msgid "No search parameters were specified."
+msgstr "Busqueda no tiene parametros especificados."
 
 #: themes/default/search.php:123
 #: themes/default/surnames.php:125
@@ -1497,7 +1494,7 @@ msgstr "Apellido %s"
 
 #: themes/default/stats.php:88
 msgid "Individuals"
-msgstr ""
+msgstr "Individuos"
 
 #: themes/default/stats.php:92
 #, fuzzy
@@ -1506,7 +1503,7 @@ msgstr "Familia"
 
 #: themes/default/stats.php:93
 msgid "Facts"
-msgstr ""
+msgstr "Hechos"
 
 # family.php:101
 # family.php:101
@@ -1545,11 +1542,11 @@ msgstr "El número de apellidos enumeró"
 #: themes/default/template.php:63
 #: themes/default/template_print.php:36
 msgid "Print"
-msgstr ""
+msgstr "Imprimir"
 
 #: administration/admin.php:29
 msgid "Retrospect-GDS Administration"
-msgstr ""
+msgstr "Retrospect-GDS Adminstración"
 
 #: administration/admin.php:47
 #, php-format
@@ -1563,12 +1560,12 @@ msgstr ""
 #: administration/db_edit_indiv.php:31
 #: administration/menubar.php:42
 msgid "Edit Individual"
-msgstr ""
+msgstr "Editar Individuo"
 
 #: administration/db_optimize.php:44
 #: administration/menubar.php:45
 msgid "Optimize Tables"
-msgstr ""
+msgstr "Optimizar Tablas"
 
 #: administration/login.php:29
 msgid "phpGene Pro Administration Login"
@@ -1580,7 +1577,7 @@ msgstr ""
 
 #: administration/login.php:66
 msgid "Password"
-msgstr ""
+msgstr "Contraseña"
 
 #: administration/login.php:79
 msgid "Login"

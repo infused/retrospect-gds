@@ -88,7 +88,7 @@
 		$g_content .= '</tr>';
 		$g_content .= '<tr>';
 		$g_content .= '<td colspan="2">';
-		$g_content .= '<input name="Submit" type="submit" class="text" value="'._("Submit").'"> ';
+		$g_content .= '<input name="Submit" type="submit" class="text" value="'._("Search").'"> ';
 		$g_content .= '<input name="Reset" type="reset" class="text" value="'._("Reset").'"> ';
 		$g_content .= '<input name="Clear" type="button" class="text" value="'._("Clear").'" onMouseDown="MM_setTextOfTextfield(\'gname\',\'\',\'\');MM_setTextOfTextfield(\'sname\',\'\',\'\')">';
 		$g_content .= '</td>';
@@ -106,7 +106,7 @@
 		
 		# give error if no search parameters
 		if ($gname == null and $sname == null) {
-			$g_content .= '<p class="text">'._("No search parameters were spedfgcified.").'</p>';
+			$g_content .= '<p class="text">'._("No search parameters were specified.").'</p>';
 		}
 		# else display the results
 		else {
