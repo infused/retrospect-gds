@@ -61,7 +61,7 @@
 			putenv('LANGUAGE='.$lang);
 		}
 		# set correct charset in header
-		header("Content-type: text/html; charset={$charset}");
+		header('Content-type: text/html; charset='.$charset);
 	}
 	
 	/** 
@@ -70,7 +70,7 @@
 	*/
 	function lang_get_langs() {
 		global $db;
-		$sql = "SELECT lang_name, lang_code FROM ".TBL_LANG;
+		$sql = 'SELECT lang_name, lang_code FROM '.TBL_LANG;
 		return $db->GetAll($sql);
 	}
 	
@@ -94,9 +94,7 @@
 		if ($params['s']) {
 			$s = $params['s'];
 			return gtc($s);
-		} else {
-			return '';
-		}
+		} else return '';
 	}
 	
 	function t($string) {

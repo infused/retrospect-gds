@@ -109,10 +109,6 @@
 		*/
 		function ParseDate ($string) {
 			# reset variables
-			//$this->pdate = null;
-			//$this->mod = null;
-			//$this->date1 = null;
-			//$this->date2 = null;
 			$this->sdate = $string;
 			
 			# convert date string to uppercase

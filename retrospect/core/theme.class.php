@@ -29,25 +29,6 @@
 * @subpackage classes
 */
 class Theme {
-		
-	/**
-	* Returns arguaments used to call the page
-	* @param string $p_option
-	* @param array $p_args
-	* @return string
-	*/
-	function getArgs($p_option, $p_args = null) {
-		if (empty($p_option)) return false;
-		else {
-			$arg_string = $_SERVER['PHP_SELF'].'?option='.$p_option;
-			if (is_array($p_args)) {
-				foreach($p_args as $arg => $val) {
-					$arg_string .= '&'.urlencode($arg).'='.urlencode($val);
-				}
-			}
-			return htmlentities($arg_string);
-		}
-	}
 	
 	function BuildUrl ($parameters) {
 		$baseurl = $_SERVER['PHP_SELF'];
@@ -63,12 +44,8 @@ class Theme {
 	}
 	
 	function BuildLink ($url, $text) {
-		if (is_string($url)) { 
-			return '<a href="'.htmlentities($url).'">'.$text.'</a>';
-		}
-		elseif (is_array($url)) {
-			return '<a href="'.Theme::BuildUrl($url).'">'.$text.'</a>';
-		}
+		if (is_string($url)) return '<a href="'.htmlentities($url).'">'.$text.'</a>';
+		elseif (is_array($url)) return '<a href="'.Theme::BuildUrl($url).'">'.$text.'</a>';
 		else return null;
 	}
 }

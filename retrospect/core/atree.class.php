@@ -212,11 +212,11 @@ class ATree {
 			$person = new Person($node->data, 4, $node->ahnentafel);
 			call_user_func($p_callback_func, $person, $node->generation);
 			
-			if ( is_integer( $node->father_index ) ) {
+			if (is_integer($node->father_index)) {
 				$nodes[] = $this->get_node_at_index($node->father_index);
 			}			
 			
-			if ( is_integer( $node->mother_index ) ) { 
+			if (is_integer($node->mother_index)) { 
 				$nodes[] = $this->get_node_at_index($node->mother_index);
 			}
 		}
@@ -240,8 +240,8 @@ class ATree {
 			# stop after max_depth reached
 			if ($node->generation == $p_max_depth) { break; }
 
-			if ($person->father_indkey != null) { $this->insert_node($person->father_indkey, $node, 'f'); }
-			if ($person->mother_indkey != null) { $this->insert_node($person->mother_indkey, $node, 'm'); }
+			if ($person->father_indkey != null) $this->insert_node($person->father_indkey, $node, 'f');
+			if ($person->mother_indkey != null) $this->insert_node($person->mother_indkey, $node, 'm');
 			
 			$node = $this->get_node_at_index($node->node_index);
 

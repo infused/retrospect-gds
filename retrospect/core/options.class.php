@@ -46,8 +46,9 @@
 		}
 		
 		function Initialize() {
+			global $db;
 			$sql = "SELECT * FROM ".TBL_OPTION;
-			$rs = $GLOBALS['db']->Execute($sql);
+			$rs = $db->Execute($sql);
 			while ($row = $rs->FetchRow()) {
 				$optkey = $row['opt_key'];
 				$this->{$optkey} = $row['opt_val'];
@@ -75,7 +76,7 @@
 		*/
 		function OptionUpdate($opt_key, $opt_val) {
 			global $db;
-			$sql = 'UPDATE '.TBL_OPTION." SET opt_val='{$opt_val}' WHERE opt_key='{$opt_key}'";
+			$sql = 'UPDATE '.TBL_OPTION.' SET opt_val="'.$opt_val.'" WHERE opt_key="'.$opt_key.'"';
 			return $db->Execute($sql); # returns true or false
 		}
 	}

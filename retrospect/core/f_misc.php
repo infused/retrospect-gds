@@ -44,11 +44,11 @@
 	* @return string
 	*/
 	function filesize_format($size) {
-		$sizes = Array('B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
+		$sizes = Array('B','KB','MB','GB','TB','PB','EB');
 		$ext = $sizes[0];
-		for ($i=1; (($i < count($sizes)) && ($size >= 1024)); $i++) {
+		for ($i = 1; (($i < count($sizes)) AND ($size >= 1024)); $i++) {
 		 $size = $size / 1024;
-		 $ext  = $sizes[$i];
+		 $ext = $sizes[$i];
 		}
 		return round($size, 2).$ext;
 	}
