@@ -50,15 +50,35 @@
 	define('REG_NOTEX','/^1 NOTE @(.+)@/'); 		# Note xref
 	
 	# Family substructures
-	define('REG_HUSB','/^1 HUSB @(.+)@/');				# Husband xref
-	define('REG_WIFE','/^1 WIFE @(.+)@/');				# Wife xref
+	define('REG_HUSB','/^1 HUSB @(.+)@/');			# Husband xref
+	define('REG_WIFE','/^1 WIFE @(.+)@/');			# Wife xref
+	define('REG_MARR','/^1 MARR/');							# Marriage
 	
 	# Note substructures
-	define('REG_CONT','/^1 CONT (.+)/');
-	define('REG_CONC','/^1 CONC (.+)/');
+	define('REG_CONT','/^1 CONT (.+)/');				# Continuation
+	define('REG_CONC','/^1 CONC (.+)/');				# Concatenation
+	
+	# Event substructures
+	define('REG_FAME','/^1 (ANUL|CENS|DIV|DIVF|ENGA|MARR|MARB|MARC|MARL|MARS|EVEN)(.+)/'); # Family Event
+	define('REG_DATE','/^2 DATE (.+)/');				# Event date
+	define('REG_TYPE','/^2 TYPE (.+)/');				# Event type
+	define('REG_PLAC','/^2 PLAC (.+)/');				# Event place
 	
 	# Miscelaneous 
 	define('REG_LEVEL','/^([0-9]{1,2})/');	
+	
+	$FAM_EVENTS = array(
+		'ANUL'=>'Annulment',
+		'CENS'=>'Census',
+		'DIV'=>'Divorce',
+		'DIVF'=>'Divorce Filed',
+		'ENGA'=>'Engagement',
+		'MARR'=>'Marriage',
+		'MARB'=>'Marriage Bann',
+		'MARC'=>'Marriage Contract',
+		'MARL'=>'Marriage License',
+		'MARS'=>'Marriage Settlement'
+		);
 	
 	/**
  	* GedcomParser class 
@@ -78,6 +98,7 @@
 		var $rs_indiv;					// indiv adodb recordeset object
 		var $rs_note;						// note adodb recordset object
 		var $rs_family;					// family adodb recordset object
+		var $rs_fact;						// fact adodb recordset object
 		var $db;								// local var for $GLOBALS['db']
 		
 		/**
@@ -93,8 +114,11 @@
 			$sql = 'SELECT * from '.$GLOBALS['g_tbl_note'].' where notekey=-1';
 			$this->rs_note = $GLOBALS['db']->Execute($sql);
 			# get empty family recordset
-			$sql = 'SELECT * from '.$GLOBALS['g_tbl_family'].' where notekey=-1';
+			$sql = 'SELECT * from '.$GLOBALS['g_tbl_family'].' where famkey=-1';
 			$this->rs_family = $GLOBALS['db']->Execute($sql);
+			# get empty fact recordset
+			$sql = 'SELECT * from '.$GLOBALS['g_tbl_fact'].' where indfamkey=-1';
+			$this->rs_fact = $GLOBALS['db']->Execute($sql);
 		}
 		
 		/**
@@ -191,7 +215,6 @@
 					$this->_ParseNote($line);
 				} 
 			}
-
 		}
 		
 		/**
@@ -231,7 +254,7 @@
 		* Parse Note record
 		* @param string $start_line
 		*/
-		function _ParseNote($start_line) {
+		function _ParseNote($start_line) {	
 			$note = array();
 			$text = '';
 			preg_match(REG_NOTE, $start_line, $match);
@@ -265,6 +288,7 @@
 		*/
 		function _ParseFamily($start_line) {
 			$family = array();
+			$events = array();
 			preg_match(REG_FAM, $start_line, $match);
 			$family['famkey'] = $match[1];
 			while (!feof($this->fhandle)) {
@@ -274,16 +298,86 @@
 				# dump record to db if reached end of family record
 				if ($level == 0) {
 					$this->_DB_InsertRecord($this->rs_family, $family);
+					foreach ($events as $event) {
+						$this->_DB_InsertRecord($this->rs_fact, $event);
+					}
 					fseek($this->fhandle, $poffset);
 					return;
 				}
+				# create husband link
 				elseif (preg_match(REG_HUSB, $line, $match)) {
 					$family['spouse1'] = $match[1];
 				}
+				# create wife link
 				elseif (preg_match(REG_WIFE, $line, $match)) {
 					$family['spouse2'] = $match[1];
 				}
+				# create note link
+				elseif (preg_match(REG_NOTEX, $line, $match)) {
+					$family['notekey'] = trim($match[1]);
+				}
+				# parse event and populate begin/end status
+				elseif (preg_match(REG_FAME, $line)) {
+					$event = $this->_ParseFamilyEventDetail($line, $family['famkey']);
+					array_push($events, $event);
+					switch ($event['type']) {
+						case 'Marriage':
+							$family['beginstatus'] = 'Married';
+							break;
+						case 'Friends':
+							$family['beginstatus'] = 'Friends';
+							break;
+						case 'Partners':
+							$family['beginstatus'] = 'Partners';
+							break;
+						case 'Divorce':
+							$family['endstatus'] = 'Divorced';
+							break;
+						case 'Annulment':
+							$family['endstatus'] = 'Anulled';
+							break;
+					}
+				}
 			}
+		}
+		
+		/**
+		* Parse event detail
+		* @param string $start_line
+		* @param string $indfamkey
+		* @return array
+		*/
+		function _ParseFamilyEventDetail($start_line, $indfamkey) {
+			global $FAM_EVENTS;
+			$event = array();
+			preg_match(REG_FAME, $start_line, $match);
+			$key = &$match[1];
+			if ($key != 'EVEN') {
+				$event['type'] = $FAM_EVENTS[$key];		
+			}
+			else { 
+				echo $start_line.' - '.$match[2].'<br>';
+			}
+			while (!feof($this->fhandle)) {
+				$poffset = ftell($this->fhandle);
+				$line = fgets($this->fhandle);
+				$level = $this->_ExtractLevel($line);
+				# return record to calling function if end of structure
+				if ($level <= 1) {
+					fseek($this->fhandle, $poffset);
+					return $event;
+				}
+				elseif (preg_match(REG_DATE, $line, $match)) {
+					$event['date'] = trim($match[1]);
+				}
+				elseif (preg_match(REG_TYPE, $line, $match)) {
+					$event['type'] = trim($match[1]);
+				}
+				elseif (preg_match(REG_PLAC, $line, $match)) {
+					$event['place'] = trim($match[1]);
+				}
+			}
+
 		}
 		
 		/**
@@ -360,7 +454,7 @@
 			$db = &$this->db;
 			$insertSQL = $db->GetInsertSQL($rs, $record);
 			//$db->Execute($insertSQL);
-			echo $insertSQL.'<br>';
+			//////echo $insertSQL.'<br>';
 		}
 
  	}
