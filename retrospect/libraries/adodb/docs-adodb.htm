@@ -11,7 +11,7 @@
 <body bgcolor="#FFFFFF">
 
 <h2>ADOdb Library for PHP</h2>
-<p>V4.05 13 Dec 2003 (c) 2000-2003 John Lim (jlim#natsoft.com)</p>
+<p>V4.10 12 Jan 2003 (c) 2000-2004 John Lim (jlim#natsoft.com)</p>
 <p><font size="1">This software is dual licensed using BSD-Style and LGPL. This 
   means you can use it in compiled proprietary and commercial products.</font></p>
 	<p>Useful ADOdb links:  <a href=http://php.weblogs.com/adodb>Download</a> &nbsp; <a href=http://php.weblogs.com/adodb_manual>Other Docs</a>
@@ -324,18 +324,20 @@ using the ADOdb library and Microsoft's ADO:
     <td><p align="center">Connect, PConnect, NConnect<br>
         Execute, CacheExecute<br>
         SelectLimit, SelectLimit<br>
-        MoveNext, Close </p></td>
+        MoveNext, Close <br>
+		qstr, Affected_Rows, Insert_ID</p></td>
   </tr>
 </table>
 <p>The fastest way to access the fields is by accessing the array $recordset->fields 
   directly. Also set the global variables <a href="#adodb_fetch_mode">$ADODB_FETCH_MODE</a> 
-  = ADODB_FETCH_NUM, and <a href="#adodb_countrecs">$ADODB_COUNTRECS</a> = false 
-  before you connect to your database.</p>
+  = ADODB_FETCH_NUM, and (for oci8, ibase/firebird and odbc) <a href="#adodb_countrecs">$ADODB_COUNTRECS</a> = false 
+  before you connect to your database. At the time of writing (Dec 2003).</p>
 <p>Consider using bind parameters if your database supports it, as it improves 
   query plan reuse. Use ADOdb's performance tuning system to identify bottlenecks 
-  quickly.</p>
+  quickly. At the time of writing (Dec 2003), this means oci8 and odbc drivers.</p>
 <p>Lastly make sure you have a PHP accelerator cache installed such as APC, Turck 
   MMCache, Zend Accelerator or ionCube.</p>
+ <p>Informix tips: Disable scrollable cursors with $db->cursorType = 0.
 <p><a name=hack></a> </p>
 <h2>Hacking ADOdb Safely</h2>
 <p>You might want to modify ADOdb for your own purposes. Luckily you can
@@ -1197,7 +1199,7 @@ include('tohtml.inc.php');
 $c = NewADOConnection('mysql');
 $c->PConnect('localhost','root','','northwind');
 $rs=$c->Execute('select * from productsz'); #invalid table productsz');
-if ($rs) $rs2html($rs);
+if ($rs) rs2html($rs);
 ?>
 </pre>
 <p> If you want to log the error message, you can do so by defining the following 
@@ -1218,7 +1220,7 @@ include('tohtml.inc.php');
 $c = NewADOConnection('mysql');
 $c->PConnect('localhost','root','','northwind');
 $rs=$c->Execute('select * from productsz'); ## invalid table productsz
-if ($rs) $rs2html($rs);
+if ($rs) rs2html($rs);
 ?>
 </pre>
 The following message will be logged in the error.log file: 
@@ -1237,7 +1239,7 @@ include('tohtml.inc.php');
 $c = NewADOConnection('mysql');
 $c->PConnect('localhost','root','','northwind');
 $rs=$c->Execute('select * from productsz'); #invalid table productsz');
-if ($rs) $rs2html($rs);
+if ($rs) rs2html($rs);
 else &#123;
 	<b>$e = ADODB_Pear_Error();
 	echo '&lt;p>',$e->message,'&lt;/p>';</b>
@@ -1664,6 +1666,7 @@ ADODB_NEVER_PERSIST  before you call PConnect.
 Variable binding speeds the compilation and caching of SQL statements, leading 
 to higher performance. Currently Oracle, Interbase and ODBC supports variable binding. 
 Interbase/ODBC style ? binding is emulated in databases that do not support binding. 
+Note that you do not have to quote strings if you use binding.
 <p> Variable binding in the odbc, interbase and oci8po drivers. 
 <pre>
 $rs = $db->Execute('select * from table where val=?', array('10'));
@@ -2448,6 +2451,24 @@ printf(&quot;&lt;p&gt;Total queries=%d; total cached=%d&lt;/p&gt;&quot;,$EXECS+$
 <p><font color="#000000">Returns an array containing column names that are the 
   primary keys of $table. Supported by mysql, odbc (including db2, odbc_mssql, 
   etc), mssql, postgres, interbase/firebird, oci8 currently. </font><font color="#000000"> 
+<p>Views (and some tables) have primary keys, but sometimes this information is not available from the
+database. You can define a function  ADODB_View_PrimaryKeys($databaseType, $database, $view, $owner) that
+should return an array containing the fields that make up the primary key. If that function exists,
+it will be called when MetaPrimaryKeys() cannot find a primary key for a table or view.
+<pre>
+// In this example: dbtype = 'oci8', $db = 'mydb', $view = 'dataView', $owner = false 
+function ADODB_View_PrimaryKeys($dbtype,$db,$view,$owner)
+{
+	switch(strtoupper($view)) {
+	case 'DATAVIEW': return array('DATAID');
+	default: return false;
+	}
+}
+
+$db = NewADOConnection('oci8');
+$db->Connect('localhost','root','','mydb'); 
+$db->MetaPrimaryKeys('dataView');
+</pre>
 <p><font color="#000000"><b>ServerInfo<a name="serverinfo" id="serverinfo"></a>($table)</b></font></font> 
 <p><font color="#000000">Returns an array of containing two elements 'description' 
   and 'version'. The 'description' element contains the string description of 
@@ -2892,7 +2913,29 @@ $<font color="#663300">rs</font>   = $<font color="#663300">conn</font>->Execute
   PHP</a>. </p>
 </font> 
 <h2>Change Log<a name="Changes"></a><a name="changes"></a><a name="changelog"></a></h2>
+<p><b>4.10 12 Jan 2004</b>
+<p>Dan Cech contributed extensive changes to data dictionary to support name quoting (with `), and drop table/index.
+<p>Informix added cursorType property. Default remains IFX_SCROLL, but you can change to 0 (non-scrollable cursor) for performance.
+<p>Added ADODB_View_PrimaryKeys() for returning view primary keys to MetaPrimaryKeys().
+<p>Simplified chinese file, adodb-cn.inc.php from cysoft.
+<p>Added check for ctype_alnum in adodb-datadict.inc.php. Thx to Jason Judge.
+<p>Added connection parameter to ibase Prepare(). Fix by Daniel Hassan.
+<p>Added nameQuote for quoting identifiers and names to connection obj. Requested by Jason Judge. Also the
+data dictionary parser now detects `field name` and generates column names with spaces correctly.
+<p>BOOL type not recognised correctly as L. Fixed.
+<p>Fixed paths in ADODB_DIR for session files, and back-ported it to 4.05 (15 Dec 2003)
+<p>Added Schema to postgresql MetaTables. Thx to col#gear.hu
+<p>Empty postgresql recordsets that had blob fields did not set EOF properly. Fixed.
+<p>CacheSelectLimit internal parameters to SelectLimit were wrong. Thx to Nio.
+<p>Modified adodb_pr() and adodb_backtrace() to support command-line usage (eg. no html).
+<p>Fixed some fr and it lang errors. Thx to Gaetano G.
+<p>Added contrib directory, with adodb rs to xmlrpc convertor by Gaetano G.
+<p>Fixed array recordset bugs when _skiprow1 is true. Thx to Gaetano G.
+<p>Fixed pivot table code when count is false.
+<p>
 <p><b>4.05 13 Dec 2003 </b>
+<p>Added MetaIndexes - thx to Dan Cech.
+<p>Rewritten session code by Ross Smith. Moved code to adodb/session directory.
 <p>Added function exists check on connecting to most drivers, so we don't crash with the unknown function error.
 <p>Smart Transactions failed with GenID() when it no seq table has been created because the sql
 	statement fails. Fix by Mark Newnham.

@@ -11,7 +11,7 @@
 <body bgcolor="#FFFFFF">
 <h3>ADODB Session Management Manual</h3>
 <p>
-V4.05 13 Dec 2003 (c) 2000-2003 John Lim (jlim#natsoft.com.my)
+V4.10 12 Jan 2003 (c) 2000-2004 John Lim (jlim#natsoft.com.my)
 <p> <font size=1>This software is dual licensed using BSD-Style and LGPL. This 
   means you can use it in compiled proprietary and commercial products. </font> 
 <p>Useful ADOdb links:  <a href=http://php.weblogs.com/adodb>Download</a> &nbsp; <a href=http://php.weblogs.com/adodb_manual>Other Docs</a>
@@ -191,7 +191,22 @@ When a session is first created, we check a global variable $ADODB_SESSION_EXPIR
     NOTE: If you want to change the EXPIREREF after the session record has been
     created, you will need to modify any session variable to force a database
     record update.
+<h4>Compression/Encryption Schemes</h4>
+Since ADOdb 4.05, thanks to Ross Smith,  multiple encryption and compression schemes are supported.
+  Currently, supported:
+<pre>
+  MD5Crypt (crypt.inc.php)
+  MCrypt
+  Secure (Horde's emulation of MCrypt, if MCrypt module is not available.)
+  GZip
+  BZip2
 </pre>
+These are stackable. E.g. 
+<pre>
+ADODB_Session::filter(new ADODB_Compress_Bzip2());
+ADODB_Session::filter(new ADODB_Encrypt_MD5());
+</pre>
+will compress and then encrypt the record in the database.
 <p>
 Also see the <a href=docs-adodb.htm>core ADOdb documentation</a>.
 </body>

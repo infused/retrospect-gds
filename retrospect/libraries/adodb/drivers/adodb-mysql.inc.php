@@ -1,6 +1,6 @@
 <?php
 /*
-V4.05 13 Dec 2003  (c) 2000-2003 John Lim (jlim@natsoft.com.my). All rights reserved.
+V4.10 12 Jan 2003  (c) 2000-2004 John Lim (jlim@natsoft.com.my). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence.
@@ -34,8 +34,8 @@ class ADODB_mysql extends ADOConnection {
 	var $forceNewConnect = false;
 	var $poorAffectedRows = true;
 	var $clientFlags = 0;
-	var $dbxDriver = 1;
 	var $substr = "substring";
+	var $nameQuote = '`';		/// string to use to quote identifiers and names
 	
 	function ADODB_mysql() 
 	{			
@@ -43,7 +43,7 @@ class ADODB_mysql extends ADOConnection {
 	
 	function ServerInfo()
 	{
-		$arr['description'] = $this->GetOne("select version()");
+		$arr['description'] = ADOConnection::GetOne("select version()");
 		$arr['version'] = ADOConnection::_findvers($arr['description']);
 		return $arr;
 	}

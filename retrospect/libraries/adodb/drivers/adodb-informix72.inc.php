@@ -1,6 +1,6 @@
 <?php
 /*
-V4.05 13 Dec 2003  (c) 2000-2003 John Lim. All rights reserved.
+V4.10 12 Jan 2003  (c) 2000-2004 John Lim. All rights reserved.
   Released under both BSD license and Lesser GPL library license.
   Whenever there is any discrepancy between the two licenses,
   the BSD license will take precedence.
@@ -13,6 +13,8 @@ V4.05 13 Dec 2003  (c) 2000-2003 John Lim. All rights reserved.
   Further mods by "Samuel CARRIERE" <samuel_carriere@hotmail.com>
 
 */
+
+if (!defined('IFX_SCROLL')) define('IFX_SCROLL',1);
 
 class ADODB_informix72 extends ADOConnection {
 	var $databaseType = "informix72";
@@ -40,6 +42,7 @@ class ADODB_informix72 extends ADOConnection {
 	var $_bindInputArray = true;  // set to true if ADOConnection.Execute() permits binding of array parameters.
 	var $sysDate = 'TODAY';
 	var $sysTimeStamp = 'CURRENT';
+	var $cursorType = IFX_SCROLL; // IFX_SCROLL or IFX_HOLD or 0
    
 	function ADODB_informix72()
 	{
@@ -232,10 +235,10 @@ class ADODB_informix72 extends ADOConnection {
 	  // to be able to call "move", or "movefirst" statements
 	  if (!$ADODB_COUNTRECS && preg_match("/^\s*select/is", $sql)) {
 		 if ($inputarr) {
-			$this->lastQuery = ifx_query($sql,$this->_connectionID, IFX_SCROLL, $tab);
+			$this->lastQuery = ifx_query($sql,$this->_connectionID, $this->cursorType, $tab);
 		 }
 		 else {
-			$this->lastQuery = ifx_query($sql,$this->_connectionID, IFX_SCROLL);
+			$this->lastQuery = ifx_query($sql,$this->_connectionID, $this->cursorType);
 		 }
 	  }
 	  else {

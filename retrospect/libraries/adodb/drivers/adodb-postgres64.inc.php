@@ -1,6 +1,6 @@
 <?php
 /*
- V4.05 13 Dec 2003  (c) 2000-2003 John Lim (jlim@natsoft.com.my). All rights reserved.
+ V4.10 12 Jan 2003  (c) 2000-2004 John Lim (jlim@natsoft.com.my). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence.
@@ -69,8 +69,17 @@ class ADODB_postgres64 extends ADOConnection{
 		FROM pg_class c, pg_attribute a,pg_type t 
 		WHERE relkind = 'r' AND (c.relname='%s' or c.relname = lower('%s')) and a.attname not like '....%%'
 AND a.attnum > 0 AND a.atttypid = t.oid AND a.attrelid = c.oid ORDER BY a.attnum";
+
+	var $metaColumnsSQL1 = "SELECT a.attname, t.typname, a.attlen, a.atttypmod, a.attnotnull, a.atthasdef, a.attnum 
+FROM pg_class c, pg_attribute a, pg_type t, pg_namespace n 
+WHERE relkind = 'r' AND (c.relname='%s' or c.relname = lower('%s'))
+ and c.relnamespace=n.oid and n.nspname='%s' 
+	and a.attname not like '....%%' AND a.attnum > 0 
+	AND a.atttypid = t.oid AND a.attrelid = c.oid ORDER BY a.attnum";
+	
 	// get primary key etc -- from Freek Dijkstra
-	var $metaKeySQL = "SELECT ic.relname AS index_name, a.attname AS column_name,i.indisunique AS unique_key, i.indisprimary AS primary_key FROM pg_class bc, pg_class ic, pg_index i, pg_attribute a WHERE bc.oid = i.indrelid AND ic.oid = i.indexrelid AND (i.indkey[0] = a.attnum OR i.indkey[1] = a.attnum OR i.indkey[2] = a.attnum OR i.indkey[3] = a.attnum OR i.indkey[4] = a.attnum OR i.indkey[5] = a.attnum OR i.indkey[6] = a.attnum OR i.indkey[7] = a.attnum) AND a.attrelid = bc.oid AND bc.relname = '%s'";
+	var $metaKeySQL = "SELECT ic.relname AS index_name, a.attname AS column_name,i.indisunique AS unique_key, i.indisprimary AS primary_key 
+	FROM pg_class bc, pg_class ic, pg_index i, pg_attribute a WHERE bc.oid = i.indrelid AND ic.oid = i.indexrelid AND (i.indkey[0] = a.attnum OR i.indkey[1] = a.attnum OR i.indkey[2] = a.attnum OR i.indkey[3] = a.attnum OR i.indkey[4] = a.attnum OR i.indkey[5] = a.attnum OR i.indkey[6] = a.attnum OR i.indkey[7] = a.attnum) AND a.attrelid = bc.oid AND bc.relname = '%s'";
 	
 	var $hasAffectedRows = true;
 	var $hasLimit = false;	// set to true for pgsql 7 only. support pgsql/mysql SELECT * FROM TABLE LIMIT 10
@@ -349,6 +358,8 @@ select viewname,'V' from pg_views where viewname like $mask";
 	function BlobEncode($blob)
 	{
 		if (ADODB_PHPVER >= 0x4200) return pg_escape_bytea($blob);
+		
+		/*92=backslash, 0=null, 39=single-quote*/
 		$badch = array(chr(92),chr(0),chr(39)); # \  null  '
 		$fixch = array('\\\\134','\\\\000','\\\\047');
 		return adodb_str_replace($badch,$fixch,$blob);
@@ -358,8 +369,8 @@ select viewname,'V' from pg_views where viewname like $mask";
 	
 	function UpdateBlob($table,$column,$val,$where,$blobtype='BLOB')
 	{
-		return $this->Execute("UPDATE $table SET $column=? WHERE $where",
-			array($this->BlobEncode($val))) != false;
+		// do not use bind params which uses qstr(), as blobencode() already quotes data
+		return $this->Execute("UPDATE $table SET $column='".$this->BlobEncode($val)."'::bytea WHERE $where");
 	}
 	
 	function OffsetDate($dayFraction,$date=false)
@@ -370,107 +381,107 @@ select viewname,'V' from pg_views where viewname like $mask";
 	
 
 	// converts field names to lowercase 
-	function &MetaColumns($table) 
+	function &MetaColumns($table,$upper=true,$schema=false) 
 	{
 	global $ADODB_FETCH_MODE;
 	
 		//if (strncmp(PHP_OS,'WIN',3) === 0);
 		$table = strtolower($table);
-	
-		if (!empty($this->metaColumnsSQL)) { 
-			$save = $ADODB_FETCH_MODE;
-			$ADODB_FETCH_MODE = ADODB_FETCH_NUM;
-			if ($this->fetchMode !== false) $savem = $this->SetFetchMode(false);
-			$rs = $this->Execute(sprintf($this->metaColumnsSQL,$table,$table));
+
+		$save = $ADODB_FETCH_MODE;
+		$ADODB_FETCH_MODE = ADODB_FETCH_NUM;
+		if ($this->fetchMode !== false) $savem = $this->SetFetchMode(false);
+		
+		if ($schema) $rs =& $this->Execute(sprintf($this->metaColumnsSQL1,$table,$table,$schema));
+		else $rs =& $this->Execute(sprintf($this->metaColumnsSQL,$table,$table));
+		if (isset($savem)) $this->SetFetchMode($savem);
+		$ADODB_FETCH_MODE = $save;
+		
+		if ($rs === false) return false;
+		
+		if (!empty($this->metaKeySQL)) {
+			// If we want the primary keys, we have to issue a separate query
+			// Of course, a modified version of the metaColumnsSQL query using a 
+			// LEFT JOIN would have been much more elegant, but postgres does 
+			// not support OUTER JOINS. So here is the clumsy way.
+			
+			$ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
+			
+			$rskey = $this->Execute(sprintf($this->metaKeySQL,($table)));
+			// fetch all result in once for performance.
+			$keys =& $rskey->GetArray();
 			if (isset($savem)) $this->SetFetchMode($savem);
 			$ADODB_FETCH_MODE = $save;
 			
-			if ($rs === false) return false;
-			
-			if (!empty($this->metaKeySQL)) {
-				// If we want the primary keys, we have to issue a separate query
-				// Of course, a modified version of the metaColumnsSQL query using a 
-				// LEFT JOIN would have been much more elegant, but postgres does 
-				// not support OUTER JOINS. So here is the clumsy way.
-				
-				$ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
-				
-				$rskey = $this->Execute(sprintf($this->metaKeySQL,($table)));
-				// fetch all result in once for performance.
-				$keys =& $rskey->GetArray();
-				if (isset($savem)) $this->SetFetchMode($savem);
-				$ADODB_FETCH_MODE = $save;
-				
-				$rskey->Close();
-				unset($rskey);
-			}
-
-			$rsdefa = array();
-			if (!empty($this->metaDefaultsSQL)) {
-				$ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
-				$sql = sprintf($this->metaDefaultsSQL, ($table));
-				$rsdef = $this->Execute($sql);
-				if (isset($savem)) $this->SetFetchMode($savem);
-				$ADODB_FETCH_MODE = $save;
-				
-				if ($rsdef) {
-					while (!$rsdef->EOF) {
-						$num = $rsdef->fields['num'];
-						$s = $rsdef->fields['def'];
-						if (substr($s, 0, 1) == "'") { /* quoted strings hack... for now... fixme */
-							$s = substr($s, 1);
-							$s = substr($s, 0, strlen($s) - 1);
-						}
-	
-						$rsdefa[$num] = $s;
-						$rsdef->MoveNext();
-					}
-				} else {
-					ADOConnection::outp( "==> SQL => " . $sql);
-				}
-				unset($rsdef);
-			}
-		
-			$retarr = array();
-			while (!$rs->EOF) { 	
-				$fld = new ADOFieldObject();
-				$fld->name = $rs->fields[0];
-				$fld->type = $rs->fields[1];
-				$fld->max_length = $rs->fields[2];
-				if ($fld->max_length <= 0) $fld->max_length = $rs->fields[3]-4;
-				if ($fld->max_length <= 0) $fld->max_length = -1;
-				
-				// dannym
-				// 5 hasdefault; 6 num-of-column
-				$fld->has_default = ($rs->fields[5] == 't');
-				if ($fld->has_default) {
-					$fld->default_value = $rsdefa[$rs->fields[6]];
-				}
-
-				//Freek
-				if ($rs->fields[4] == $this->true) {
-					$fld->not_null = true;
-				}
-				
-				// Freek
-				if (is_array($keys)) {
-					foreach($keys as $key) {
-						if ($fld->name == $key['column_name'] AND $key['primary_key'] == $this->true) 
-							$fld->primary_key = true;
-						if ($fld->name == $key['column_name'] AND $key['unique_key'] == $this->true) 
-							$fld->unique = true; // What name is more compatible?
-					}
-				}
-				
-				if ($ADODB_FETCH_MODE == ADODB_FETCH_NUM) $retarr[] = $fld;	
-				else $retarr[strtoupper($fld->name)] = $fld;
-				
-				$rs->MoveNext();
-			}
-			$rs->Close();
-			return $retarr;	
+			$rskey->Close();
+			unset($rskey);
 		}
-		return false;
+
+		$rsdefa = array();
+		if (!empty($this->metaDefaultsSQL)) {
+			$ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
+			$sql = sprintf($this->metaDefaultsSQL, ($table));
+			$rsdef = $this->Execute($sql);
+			if (isset($savem)) $this->SetFetchMode($savem);
+			$ADODB_FETCH_MODE = $save;
+			
+			if ($rsdef) {
+				while (!$rsdef->EOF) {
+					$num = $rsdef->fields['num'];
+					$s = $rsdef->fields['def'];
+					if (substr($s, 0, 1) == "'") { /* quoted strings hack... for now... fixme */
+						$s = substr($s, 1);
+						$s = substr($s, 0, strlen($s) - 1);
+					}
+
+					$rsdefa[$num] = $s;
+					$rsdef->MoveNext();
+				}
+			} else {
+				ADOConnection::outp( "==> SQL => " . $sql);
+			}
+			unset($rsdef);
+		}
+	
+		$retarr = array();
+		while (!$rs->EOF) { 	
+			$fld = new ADOFieldObject();
+			$fld->name = $rs->fields[0];
+			$fld->type = $rs->fields[1];
+			$fld->max_length = $rs->fields[2];
+			if ($fld->max_length <= 0) $fld->max_length = $rs->fields[3]-4;
+			if ($fld->max_length <= 0) $fld->max_length = -1;
+			
+			// dannym
+			// 5 hasdefault; 6 num-of-column
+			$fld->has_default = ($rs->fields[5] == 't');
+			if ($fld->has_default) {
+				$fld->default_value = $rsdefa[$rs->fields[6]];
+			}
+
+			//Freek
+			if ($rs->fields[4] == $this->true) {
+				$fld->not_null = true;
+			}
+			
+			// Freek
+			if (is_array($keys)) {
+				foreach($keys as $key) {
+					if ($fld->name == $key['column_name'] AND $key['primary_key'] == $this->true) 
+						$fld->primary_key = true;
+					if ($fld->name == $key['column_name'] AND $key['unique_key'] == $this->true) 
+						$fld->unique = true; // What name is more compatible?
+				}
+			}
+			
+			if ($ADODB_FETCH_MODE == ADODB_FETCH_NUM) $retarr[] = $fld;	
+			else $retarr[($upper) ? strtoupper($fld->name) : $fld->name] = $fld;
+			
+			$rs->MoveNext();
+		}
+		$rs->Close();
+		return $retarr;	
+		
 	}
 
 	  function &MetaIndexes ($table, $primary = FALSE)
@@ -819,9 +830,8 @@ class ADORecordSet_postgres64 extends ADORecordSet{
 			$this->_currentRow++;
 			if ($this->_numOfRows < 0 || $this->_numOfRows > $this->_currentRow) {
 				$this->fields = @pg_fetch_array($this->_queryID,$this->_currentRow,$this->fetchMode);
-			
-				if (is_array($this->fields)) {
-					if (isset($this->_blobArr)) $this->_fixblobs();
+				if (is_array($this->fields) && $this->fields) {
+					if ($this->fields && isset($this->_blobArr)) $this->_fixblobs();
 					return true;
 				}
 			}
@@ -833,11 +843,13 @@ class ADORecordSet_postgres64 extends ADORecordSet{
 	
 	function _fetch()
 	{
+				
 		if ($this->_currentRow >= $this->_numOfRows && $this->_numOfRows >= 0)
         	return false;
 
 		$this->fields = @pg_fetch_array($this->_queryID,$this->_currentRow,$this->fetchMode);
-		if (isset($this->_blobArr)) $this->_fixblobs();
+		
+	if ($this->fields && isset($this->_blobArr)) $this->_fixblobs();
 			
 		return (is_array($this->fields));
 	}

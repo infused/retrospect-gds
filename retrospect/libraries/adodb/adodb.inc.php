@@ -14,7 +14,7 @@
 /**
 	\mainpage 	
 	
-	 @version V4.05 13 Dec 2003 (c) 2000-2003 John Lim (jlim\@natsoft.com.my). All rights reserved.
+	 @version V4.10 12 Jan 2003 (c) 2000-2004 John Lim (jlim\@natsoft.com.my). All rights reserved.
 
 	Released under both BSD license and Lesser GPL library license. You can choose which license
 	you prefer.
@@ -147,7 +147,7 @@
 		/**
 		 * ADODB version as a string.
 		 */
-		$ADODB_vers = 'V4.05 13 Dec 2003 (c) 2000-2003 John Lim (jlim#natsoft.com.my). All rights reserved. Released BSD & LGPL.';
+		$ADODB_vers = 'V4.10 12 Jan 2003 (c) 2000-2004 John Lim (jlim#natsoft.com.my). All rights reserved. Released BSD & LGPL.';
 	
 		/**
 		 * Determines whether recordset->RecordCount() is used. 
@@ -226,6 +226,7 @@
 	var $true = '1'; 			/// string that represents TRUE for a database
 	var $false = '0'; 			/// string that represents FALSE for a database
 	var $replaceQuote = "\\'"; 	/// string to use to replace quotes
+	var $nameQuote = '"';		/// string to use to quote identifiers and names
 	var $charSet=false; 		/// character set to use - only for interbase
 	var $metaDatabasesSQL = '';
 	var $metaTablesSQL = '';
@@ -881,7 +882,7 @@
 		$holdtransOK = $this->_transOK;
 		$rs = @$this->Execute($getnext);
 		if (!$rs) {
-			if ($holdtransOK) $this->_transOK = true; //if the status was ok before reset
+			$this->_transOK = $holdtransOK; //if the status was ok before reset
 			$createseq = $this->Execute(sprintf($this->_genSeqSQL,$seqname,$startID));
 			$rs = $this->Execute($getnext);
 		}
@@ -987,6 +988,8 @@
 			}
 		}
 		if (sizeof($p)) return $p;
+		if (function_exists('ADODB_VIEW_PRIMARYKEYS'))
+			return ADODB_VIEW_PRIMARYKEYS($this->databaseType, $this->database, $table, $owner);
 		return false;
 	}
 	
@@ -1386,7 +1389,7 @@
 			if ($sql === false) $sql = -1;
 			if ($offset == -1) $offset = false;
 									  // sql,	nrows, offset,inputarr
-			$rs =& $this->SelectLimit($secs2cache,$sql,$nrows,$offset,$inputarr,$this->cacheSecs);
+			$rs =& $this->SelectLimit($secs2cache,$sql,$nrows,$offset,$this->cacheSecs);
 		} else {
 			if ($sql === false) ADOConnection::outp( "Warning: \$sql missing from CacheSelectLimit()");
 			$rs =& $this->SelectLimit($sql,$nrows,$offset,$inputarr,$secs2cache);
@@ -1878,7 +1881,7 @@
 	 *
 	 * @return  array of ADOFieldObjects for current table.
 	 */ 
-	function &MetaColumns($table,$upper=true) 
+	function &MetaColumns($table,$upper=true,$schema=false) 
 	{
 	global $ADODB_FETCH_MODE;
 
@@ -2226,7 +2229,7 @@
 	var $dataProvider = "native";
 	var $fields = false; 	/// holds the current row data
 	var $blobSize = 100; 	/// any varchar/char field this size or greater is treated as a blob
-							/// in other words, we use a text area for editting.
+							/// in other words, we use a text area for editing.
 	var $canSeek = false; 	/// indicates that seek is supported
 	var $sql; 				/// sql text
 	var $EOF = false;		/// Indicates that the current record position is after the last record in a Recordset object. 
@@ -3013,6 +3016,7 @@
 		'TIMESTAMPTZ' => 'T',
 		'T' => 'T',
 		##
+		'BOOL' => 'L',
 		'BOOLEAN' => 'L', 
 		'BIT' => 'L',
 		'L' => 'L',
@@ -3191,8 +3195,10 @@
 			if ($colnames) {
 				$this->_skiprow1 = false;
 				$this->_colnames = $colnames;
-			} else $this->_colnames = $array[0];
-			
+			} else  {
+				$this->_skiprow1 = true;
+				$this->_colnames = $array[0];
+			}
 			$this->Init();
 		}
 		/**
@@ -3262,7 +3268,9 @@
 			
 		function _seek($row)
 		{
-			if (sizeof($this->_array) && $row < $this->_numOfRows) {
+			if (sizeof($this->_array) && 0 <= $row && $row < $this->_numOfRows) {
+				$this->_currentRow = $row;
+				if ($this->_skiprow1) $row += 1;
 				$this->fields = $this->_array[$row];
 				return true;
 			}
@@ -3275,11 +3283,11 @@
 				$this->_currentRow++;
 				
 				$pos = $this->_currentRow;
-				if ($this->_skiprow1) $pos += 1;
 				
 				if ($this->_numOfRows <= $pos) {
 					if (!$this->compat) $this->fields = false;
 				} else {
+					if ($this->_skiprow1) $pos += 1;
 					$this->fields = $this->_array[$pos];
 					return true;
 				}		
@@ -3292,13 +3300,12 @@
 		function _fetch()
 		{
 			$pos = $this->_currentRow;
-			if ($this->_skiprow1) $pos += 1;
 			
 			if ($this->_numOfRows <= $pos) {
 				if (!$this->compat) $this->fields = false;
 				return false;
 			}
-
+			if ($this->_skiprow1) $pos += 1;
 			$this->fields = $this->_array[$pos];
 			return true;
 		}
@@ -3462,6 +3469,7 @@
 		$dict->dataProvider = $conn->dataProvider;
 		$dict->connection = &$conn;
 		$dict->upperName = strtoupper($drivername);
+		$dict->quote = $conn->nameQuote;
 		if (is_resource($conn->_connectionID))
 			$dict->serverInfo = $conn->ServerInfo();
 		
@@ -3488,8 +3496,6 @@
 		if (strncmp(PHP_OS,'WIN',3) === 0) {
 			// skip the decimal place
 			$mtime = substr(str_replace(' ','_',microtime()),2); 
-			// unlink will let some latencies develop, so uniqid() is more random
-			@unlink($filename);
 			// getmypid() actually returns 0 on Win98 - never mind!
 			$tmpname = $filename.uniqid($mtime).getmypid();
 			if (!($fd = fopen($tmpname,'a'))) return false;
@@ -3497,6 +3503,8 @@
 			if (!fwrite($fd,$contents)) $ok = false;
 			fclose($fd);
 			chmod($tmpname,0644);
+			// the tricky moment
+			@unlink($filename);
 			if (!@rename($tmpname,$filename)) {
 				unlink($tmpname);
 				$ok = false;
@@ -3525,7 +3533,10 @@
 	*/
 	function adodb_pr($var)
 	{
-		echo " <pre>\n";print_r($var);echo "</pre>\n";
+		if (isset($_SERVER['HTTP_USER_AGENT'])) { 
+			echo " <pre>\n";print_r($var);echo "</pre>\n";
+		} else
+			print_r($var);
 	}
 	
 	/*
@@ -3537,47 +3548,52 @@
 	function adodb_backtrace($printOrArr=true,$levels=9999)
 	{
 		$s = '';
-		if (PHPVERSION() >= 4.3) {
+		if (PHPVERSION() < 4.3) return;
+		 
+		$html =  (isset($_SERVER['HTTP_USER_AGENT']));
+		$fmt =  ($html) ? "</font><font color=#808080 size=-1> %% line %4d, file: <a href=\"file:/%s\">%s</a></font>" : "%% line %4d, file: %s";
+
+		$MAXSTRLEN = 64;
+	
+		$s = ($html) ? '<pre align=left>' : '';
 		
-			$MAXSTRLEN = 64;
+		if (is_array($printOrArr)) $traceArr = $printOrArr;
+		else $traceArr = debug_backtrace();
+		array_shift($traceArr);
+		$tabs = sizeof($traceArr)-1;
 		
-			$s = '<pre align=left>';
+		foreach ($traceArr as $arr) {
+			$levels -= 1;
+			if ($levels < 0) break;
 			
-			if (is_array($printOrArr)) $traceArr = $printOrArr;
-			else $traceArr = debug_backtrace();
-			array_shift($traceArr);
-			$tabs = sizeof($traceArr)-1;
-			
-			foreach ($traceArr as $arr) {
-				$levels -= 1;
-				if ($levels < 0) break;
-				
-				$args = array();
-				for ($i=0; $i < $tabs; $i++) $s .= ' &nbsp; ';
-				$tabs -= 1;
-				$s .= '<font face="Courier New,Courier">';
-				if (isset($arr['class'])) $s .= $arr['class'].'.';
-				if (isset($arr['args']))
-				 foreach($arr['args'] as $v) {
-					if (is_null($v)) $args[] = 'null';
-					else if (is_array($v)) $args[] = 'Array['.sizeof($v).']';
-					else if (is_object($v)) $args[] = 'Object:'.get_class($v);
-					else if (is_bool($v)) $args[] = $v ? 'true' : 'false';
-					else {
-						$v = (string) @$v;
-						$str = htmlspecialchars(substr($v,0,$MAXSTRLEN));
-						if (strlen($v) > $MAXSTRLEN) $str .= '...';
-						$args[] = $str;
-					}
+			$args = array();
+			for ($i=0; $i < $tabs; $i++) $s .=  ($html) ? ' &nbsp; ' : "\t";
+			$tabs -= 1;
+			if ($html) $s .= '<font face="Courier New,Courier">';
+			if (isset($arr['class'])) $s .= $arr['class'].'.';
+			if (isset($arr['args']))
+			 foreach($arr['args'] as $v) {
+				if (is_null($v)) $args[] = 'null';
+				else if (is_array($v)) $args[] = 'Array['.sizeof($v).']';
+				else if (is_object($v)) $args[] = 'Object:'.get_class($v);
+				else if (is_bool($v)) $args[] = $v ? 'true' : 'false';
+				else {
+					$v = (string) @$v;
+					$str = htmlspecialchars(substr($v,0,$MAXSTRLEN));
+					if (strlen($v) > $MAXSTRLEN) $str .= '...';
+					$args[] = $str;
 				}
-				$s .= $arr['function'].'('.implode(', ',$args).')';
-				$s .= @sprintf("</font><font color=#808080 size=-1> %% line %4d, file: <a href=\"file:/%s\">%s</a></font>",
-					$arr['line'],$arr['file'],$arr['file']);
-				$s .= "\n";
-			}	
-			$s .= '</pre>';
-			if ($printOrArr) print $s;
-		}
+			}
+			$s .= $arr['function'].'('.implode(', ',$args).')';
+			
+			
+			$s .= @sprintf($fmt, $arr['line'],$arr['file'],basename($arr['file']));
+				
+			$s .= "\n";
+		}	
+		if ($html) $s .= '</pre>';
+		if ($printOrArr) print $s;
+		
 		return $s;
 	}
 

@@ -4,7 +4,7 @@ global $ADODB_INCLUDED_LIB;
 $ADODB_INCLUDED_LIB = 1;
 
 /* 
-V4.05 13 Dec 2003  (c) 2000-2003 John Lim (jlim@natsoft.com.my). All rights reserved.
+V4.10 12 Jan 2003  (c) 2000-2004 John Lim (jlim@natsoft.com.my). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence. See License.txt. 
@@ -51,19 +51,15 @@ function _adodb_replace(&$zthis, $table, $fieldArray, $keyCol, $autoQuote, $has_
 				$uSet .= ",$k=$v";
 		}
 		 
-		$first = true;
+		$where = false;
 		foreach ($keyCol as $v) {
-			if ($first) {
-				$first = false;
-				$where = "$v=$fieldArray[$v]";
-			} else {
-				$where .= " and $v=$fieldArray[$v]";
-			}
+			if ($where) $where .= " and $v=$fieldArray[$v]";
+			else $where = "$v=$fieldArray[$v]";
 		}
 		
-		if ($uSet) {
+		if ($uSet && $where) {
 			$update = "UPDATE $table SET $uSet WHERE $where";
-		
+			
 			$rs = $zthis->Execute($update);
 			if ($rs) {
 				if ($zthis->poorAffectedRows) {
@@ -81,7 +77,6 @@ function _adodb_replace(&$zthis, $table, $fieldArray, $keyCol, $autoQuote, $has_
 				} else
 					 if (($zthis->Affected_Rows()>0)) return 1;
 			}
-				
 		}
 	//	print "<p>Error=".$this->ErrorNo().'<p>';
 		$first = true;
