@@ -38,7 +38,7 @@
 <body>
 <?php
 	# Disable error reporting
-	//error_reporting(0);
+	error_reporting(0);
 	
 	/**
 	* Root path
