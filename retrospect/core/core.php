@@ -79,12 +79,7 @@
 	*/
 	require_once(LIB_PATH.'adodb/adodb.inc.php');
 	$db = &AdoNewConnection('mysql');
-	if ($g_db_port != '') { 
-		$g_db_host_str = $g_db_host . ':' . $g_db_port;
-	}
-	else {
-		$g_db_host_str = $g_db_host;
-	}
+	$g_db_host_str = ($g_db_port != '') ? $g_db_host.':'.$g_db_port : $g_db_host;
 	$db->Connect($g_db_host_str, $g_db_user, $g_db_pass, $g_db);
 	$db->SetFetchMode(ADODB_FETCH_ASSOC);
 
