@@ -6,12 +6,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2004-06-17 16:32-0800\n"
+"PO-Revision-Date: 2004-07-14 12:34-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused.org>\n"
 "Language-Team: ENGLISH <keithm@infused-solutions.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: core/date.class.php:347
+msgid "to"
+msgstr "to"
+
+#: core/date.class.php:348
+msgid "and"
+msgstr "and"
 
 #: core/f_dummy.php:38
 #: core/f_dummy.php:94

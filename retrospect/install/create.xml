@@ -27,6 +27,10 @@
 		<field name="source" type="X">
 			<notnull />
 		</field>
+		<field name="citekey" type="C" size="20">
+			<key />
+			<notnull />
+		</field>
 		<index name="factkey">
 			<col>factkey</col>
 		</index>
