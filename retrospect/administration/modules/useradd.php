@@ -42,11 +42,11 @@
 		# Process full name
 		$fullname = $_POST['fullname'];
 		# Process group
-		$group = $_POST['group'];
+		//$group = $_POST['group'];
 		# Check for valid email
 		$email = $_POST['email'];
 		if ($email != '') {
-			if (!is_email($email)) {
+			if (!rgds_is_email($email)) {
 				$error = true;
 				$email_errors[] = 'Email address is not valid.';
 			}
@@ -68,7 +68,7 @@
 		if (!$error) {
 			$fields = array('uid'=>$username,
 											'fullname'=>$fullname,
-											'grp'=>$group,
+											//'grp'=>$group,
 											'enabled'=>$enabled,
 											'email'=>$email,
 											'pwd'=>md5($password1));

@@ -59,7 +59,7 @@
 		# Check for valid email
 		$email = $_POST['email'];
 		if ($email != '') {
-			if (!is_email($email)) {
+			if (!rgds_is_email($email)) {
 				$error = true;
 				$email_errors[] = 'Email address is not valid.';
 			}
@@ -83,8 +83,9 @@
 		if (!$error) {
 			$fields = array('uid'=>$username,
 											'fullname'=>$fullname,
-											'grp'=>$group,
+											//'grp'=>$group,
 											'enabled'=>$enabled,
+											'pwd_expired'=>'0',
 											'email'=>$email);
 			if ($password1 != '' AND $password2 != '') $fields['pwd'] = md5($password1);
 			Auth::UpdateUser($id, $fields);
