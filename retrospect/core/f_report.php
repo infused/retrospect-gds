@@ -260,7 +260,7 @@
 	}
 	
 	/**
-	* Gets children-of sentence
+	* Gets 'children of' sentence
 	* @access public
 	* @param Person $p_node Individual
 	* @param Person $p_s_node Spouse
