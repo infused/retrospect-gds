@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <schema>
-  <table name="children">
+  <descr>Retrospect-GDS Database Schema v1.0.0</descr>
+	<table name="children">
     <descr>Relates children to families</descr>
 		<field name="famkey" type="C" size="20">
 			<notnull />
@@ -109,12 +110,24 @@
 			<key />
 			<notnull />
 		</field>
-		<field name="title" type="C" size="128" />
-		<field name="surname" type="C" size="128" />
-		<field name="givenname" type="C" size="128" />
-		<field name="aka" type="C" size="128" />
-		<field name="sex" type="C" size="1" />
-		<field name="notekey" type="C" size="20" />
+		<field name="title" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="surname" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="givenname" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="aka" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="sex" type="C" size="1">
+			<notnull />
+		</field>
+		<field name="notekey" type="C" size="20">
+			<notnull />
+		</field>
 	</table>
 	<index name="surname" table="indiv">
 		<col>surname</col>

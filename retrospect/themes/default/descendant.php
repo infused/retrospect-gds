@@ -70,7 +70,7 @@
 		$g_content .= '<br />';
 		# children
 		foreach ($p_node->marriages as $marriage) {
-			$spouse = new Person($marriage->spouse, 3);
+			$spouse = (!empty($marriage->spouse)) ? new Person($marriage->spouse, 3) : null;
 			if ($marriage->child_count > 0) {
 				$g_content .= '<br />';
 				$g_content .= get_children_of_sentence($p_node, $spouse).':<br />';

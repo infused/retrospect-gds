@@ -74,6 +74,11 @@
 				$optkey = $row['opt_key'];
 				$this->{$optkey} = $row['opt_val'];
 			}
+			
+			# declare some defaults just in case
+			if (!isset($this->default_page)) {
+				$this->default_page = 'surnames';
+			}
 		}
 	}
 ?>

@@ -28,28 +28,22 @@
 	$g_menu .= '<a href="'.Theme::GetArgs('surnames').'" title="'._("Surname List").'" class="menu-item">'._("Surname List").'</a><br />';
   $g_menu .= '<a href="'.Theme::GetArgs('stats').'" title="'._("Database Statistics").'" class="menu-item">'._("Statistics").'</a><br />';
   $g_menu .= '<br />';
-	
+
 	# language selection
-	if ($g_opts->allow_lang_change) {
+	if (isset($g_opts->allow_lang_change) AND is_array($g_langs)) {
 		$g_menu .= '<div class="menu-title">'._("Language").'</div>';
 		$g_menu .= '<form name="form_change_lang" method="post" action="'.CURRENT_PAGE.'">';
 		$g_menu .= '<select name="lang" size="1" class="listbox" id="lang" onChange="document.forms.form_change_lang.submit();">';
-		$g_menu .= '<option value="en_US"';
-			if ($_SESSION['lang'] == 'en_US') { 
-				$g_menu .= ' SELECTED'; 
-			} 
-		$g_menu .= '>'.gettext("English").'</option>';
-		$g_menu .= '<option value="es_ES"';
-			if ($_SESSION['lang'] == 'es_ES') { 
-		 		$g_menu .= ' SELECTED';
+		foreach ($g_langs as $lang) {
+			$code = $lang['lang_code'];
+			$name = $lang['lang_name'];
+			$g_menu .= '<option value="'.$code.'"';
+			if ($_SESSION['lang'] == $code) {
+				$g_menu .= ' SELECTED';
 			}
-		$g_menu .= '>'.gettext("Spanish").'</option>';
-		$g_menu .= '<option value="de_DE"';
-			if ($_SESSION['lang'] == 'de_DE') { 
-		 		$g_menu .= ' SELECTED';
-			}
-		$g_menu .= '>'.gettext("German").'</option>';
+			$g_menu .= '>'._($name).'</option>';
+		}
 		$g_menu .= '</select>';
 		$g_menu .= '</form>';
-	} 
+	}
 ?>

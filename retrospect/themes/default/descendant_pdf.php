@@ -110,7 +110,7 @@
 		
 		# children
 		foreach ($p_node->marriages as $marriage) {
-			$spouse = new Person($marriage->spouse);
+			$spouse = (!empty($marriage->spouse)) ? new Person($marriage->spouse) : null;
 			if ($marriage->child_count > 0) {
 				$pdf->Ln(5);
 				$pdf->Write(5, html_entity_decode(strip_tags(get_children_of_sentence($p_node, $spouse))).':');

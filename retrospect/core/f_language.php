@@ -26,7 +26,7 @@
 	* @access public
 	*/
 	function lang_init_gettext() {
-		global $g_opts;
+		global $db, $g_opts, $g_langs, $g_tbl_lang;
 		
 		# determine current language
 		if (isset($_POST['lang'])) { 
@@ -65,6 +65,11 @@
 				return $p_string;
 			}
 		}
+		# get list of supported languages 
+		if (isset($g_opts->allow_lang_change) AND $g_opts->allow_lang_change == 1) {
+			$sql = "SELECT lang_name, lang_code FROM {$g_tbl_lang}";
+			$g_langs = $db->GetAll($sql);
+		}
 	}
 	
 	/**
@@ -102,5 +107,4 @@
 		}
 		return $p_date;
 	}
-	
 ?>

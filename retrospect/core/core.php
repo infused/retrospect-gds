@@ -38,7 +38,7 @@
  *
  */
 
-	$g_version = '1.2.0';
+	$g_version = '1.2.1';
 	
 	# Turn on error reporting
 	error_reporting(E_ALL);	

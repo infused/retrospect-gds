@@ -219,7 +219,7 @@
 	*/
 	function display_marriage($p_marriage, $p_mnum) {
 		global $pdf, $font, $factcol, $placecol, $namecol, $birthcol, $deathcol, $sources;
-		$spouse = new Person($p_marriage->spouse, 3);
+		$spouse = (!empty($p_marriage->spouse)) ? new Person($p_marriage->spouse, 3) : null;
 		$pdf->Ln(5);		
 		$pdf->SetFont($font, 'I', 10);
 		$pdf->Cell(0, 5, sprintf(_("Family %s"), $p_mnum).' :', 0, 1);
