@@ -74,26 +74,14 @@
 				}
 				# Extract gedcoms from zip files and cleanup
 				if (strtolower($extension) == 'zip') {
-					if ($zip = zip_open($uploadfile)) {
-						while ($zip_entry = zip_read($zip)) {
-							$file = basename(zip_entry_name($zip_entry));
-							$pathinfo = pathinfo($file);
-							# Only extract gedcoms!
-							if ($pathinfo['extension'] == 'ged') {
-								$fp = fopen($gedcomdir.$file, 'w+');
-								if (zip_entry_open($zip, $zip_entry, "r")) {
-									$buf = zip_entry_read($zip_entry, zip_entry_filesize($zip_entry));
-									zip_entry_close($zip_entry);
-								}
-								fwrite($fp, $buf);
-								fclose($fp);
-							}
-						}
-					}
-					zip_close($zip);
+					# load the pclzip library
+					require_once(LIB_PATH.'pcl/pclzip.lib.php');
+					$zip = new pclzip($uploadfile);
+					# extract only .ged files (case insensitive)
+					$zip->extract(PCLZIP_OPT_PATH, $gedcomdir, PCLZIP_OPT_BY_PREG, '/ged$/i');
+					# remove the zip file
 					unlink($uploadfile);
 				} 
-				
 				break; 
 		}
 	}
