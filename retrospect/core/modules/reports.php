@@ -32,12 +32,12 @@
 	# initialize other variables
 	$o = new person($g_indiv, 3);
 	$smarty->assign('indiv', $o);
-	$smarty->assign('page_title', sprintf(gtc("Reports for %s"), htmlentities($o->name)));
-	$smarty->assign('content_title', sprintf(gtc("Reports for %s"), htmlentities($o->name)));
-	$smarty->assign('surname_title', sprintf(gtc("%s Surname"), htmlentities($o->sname)));
+	$smarty->assign('page_title', sprintf(gtc("Reports for %s"), $o->name));
+	$smarty->assign('content_title', sprintf(gtc("Reports for %s"), $o->name));
+	$smarty->assign('surname_title', sprintf(gtc("%s Surname"), $o->sname));
 	
 	# populate keyword array
 	keyword_push(gtc("Reports"));
-	keyword_push(htmlentities($o->name));
+	keyword_push($o->name);
 
 ?>

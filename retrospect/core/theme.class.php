@@ -40,11 +40,11 @@ class Theme {
 				$sep = '&';
 			}
 		}
-		return htmlentities($params);
+		return $params;
 	}
 	
 	function BuildLink ($url, $text) {
-		if (is_string($url)) return '<a href="'.htmlentities($url).'">'.$text.'</a>';
+		if (is_string($url)) return '<a href="'.$url.'">'.$text.'</a>';
 		elseif (is_array($url)) return '<a href="'.Theme::BuildUrl($url).'">'.$text.'</a>';
 		else return null;
 	}

@@ -265,16 +265,16 @@ class Person {
 		global $db;
 		$sql = 'SELECT * FROM '.TBL_INDIV.' WHERE indkey='.$db->qstr($this->indkey);
 		$row = $db->GetRow($sql);
-		$this->prefix = trim(htmlentities($row['prefix']));
-		$this->suffix = trim(htmlentities($row['suffix']));
+		$this->prefix = trim($row['prefix']);
+		$this->suffix = trim($row['suffix']);
 		$this->gname = $row['givenname'];
 		$this->sname = $row['surname'];
-		$this->aka = htmlentities($row['aka']);
+		$this->aka = $row['aka'];
 		$this->notekey = $row['notekey'];
 		# split out the first name
 		$fnames = explode(' ', $row['givenname']); 
 		$this->fname = $fnames[0];
-		$this->name = htmlentities(trim($this->gname.' '.$this->sname));
+		$this->name = trim($this->gname.' '.$this->sname);
 		$this->sex = $row['sex'];
 		# determine correct gender string
 		if ($this->sex == 'M') $this->gender = 'Male'; 
@@ -447,8 +447,8 @@ class Event {
 	*/
 	function Event($event_data, $p_fetch_sources = true) {
 		$this->type = ucwords(strtolower($event_data['type']));
-		$this->place = htmlentities($event_data['place']);
-		$this->comment = htmlentities($event_data['comment']);
+		$this->place = $event_data['place'];
+		$this->comment = $event_data['comment'];
 		$this->factkey = $event_data['factkey'];
 		$this->sort_date = $event_data['date1'];
 		$dp =& new DateParser();
@@ -473,8 +473,8 @@ class Event {
 		$rs = $db->Execute($sql);
 		while ($row = $rs->FetchRow()) {
 			$srccitation = $row['source'];
-			$msrc = htmlentities($row['text']);
-			$source = $msrc.'<br />'.$srccitation;
+			$msrc = $row['text'];
+			$source = $msrc."\n".$srccitation;
 			$sources[] = $source;
 		}
 		$this->sources = $sources;
@@ -703,25 +703,7 @@ class Marriage {
 	function _get_notes() {
 		global $db;
 		$query = 'SELECT text FROM '.TBL_NOTE.' WHERE notekey="'.$this->notekey.'"';
-		$this->notes = htmlentities($db->GetOne($query));
-	}
-	
-	/**
-	* Get Sources
-	*/
-	function _get_sources($p_factkey) {
-		global $db;
-		$sources = array();
-		$sql  = 'SELECT '.TBL_CITATION.'.source, '.TBL_SOURCE.'.text ';
-		$sql .= 'FROM '.TBL_CITATION.' INNER JOIN '.TBL_SOURCE.' ';
-		$sql .= 'ON '.TBL_CITATION.'.srckey = '.TBL_SOURCE.'.srckey ';
-		$sql .= 'WHERE '.TBL_CITATION.'.factkey='.$db->qstr($p_factkey);
-		$rs = $db->Execute($sql);
-		while ($row = $rs->FetchRow()) {
-			$source = htmlentities($row['text']).'<br />'.htmlentities($row['source']);
-			$sources[] = $source;
-		}
-		return $sources;
+		$this->notes = $db->GetOne($query);
 	}
 	
 	/**
@@ -739,14 +721,14 @@ class Marriage {
 				$dp = new DateParser();
 				$this->date = $dp->FormatDateStr($row);
 				$this->sort_date = $row['date1'];
-				$this->place = htmlentities($row['place']);
+				$this->place = $row['place'];
 				$this->begin_event = $event;
 			} 
 			elseif ($event->type == $this->endstatus) {
 				$this->endstatus_factkey = $row['factkey'];
 				$dp =& new DateParser();
 				$this->enddate = $dp->FormatDateStr($row);
-				$this->endplace = htmlentities($row['place']);
+				$this->endplace = $row['place'];
 				$this->end_event = $event;
 			}
 			else array_push($this->events, $event);

@@ -78,13 +78,12 @@
 	* Gettext wrapper function
 	*
 	* We use this wrapper instead of the native gettext function call so that
-	* we have better control over the process.  This function returns strings that
-	* have been passed through htmlentities.
+	* we have better control over the process.
 	* @param string $string
 	* @return string
 	*/
 	function gtc($string) {
-		return htmlentities(gettext($string));
+		return gettext($string);
 	}
 	
 	/** 
@@ -98,6 +97,6 @@
 	}
 	
 	function t($string) {
-		echo htmlentities(gettext($string));
+		echo gettext($string);
 	}
 ?>
