@@ -38,7 +38,7 @@
  *
  */
 
-	$g_version = '1.3.1';
+	$g_version = '1.3.2';
 	
 	# Turn on error reporting
 	error_reporting(E_ALL);	
@@ -166,7 +166,7 @@
 	* Use the appropriate connection method based on the database type.
 	*/
 	require_once(LIB_PATH.'adodb/adodb.inc.php');
-	$db = AdoNewConnection($g_db_type);
+	$db =& AdoNewConnection($g_db_type);
 	if ($g_db_type == 'odbc_mssql') {
 		# Microsoft SQL ODBC connection
 		$dsn = 'Driver={SQL Server};Server='.$g_db_host.';Database='.$g_db_name.';';
@@ -182,7 +182,7 @@
 	* Require options file and instantiate options
 	*/
 	require_once(CORE_PATH.'options.class.php');
-	$g_opts = new Options();
+	$g_opts =& new Options();
 
 	/**
 	* Require language functions and initialize gettext
