@@ -24,12 +24,21 @@
  */
  
  	# Disable error reporting
-	error_reporting(0);
-
-	define('ROOT_PATH', dirname($_SERVER['PATH_TRANSLATED']));
-	define('CORE_PATH', ROOT_PATH.'/../core/');	
-	define('LIB_PATH', ROOT_PATH.'/../libraries/');
+	error_reporting(E_ALL);
+	
+	# Set flag that this is a parent file
+	define( '_RGDS_VALID', 1 );	
+	
+	# Define all application paths
+	define('ROOT_PATH', realpath(dirname($_SERVER['SCRIPT_FILENAME']).'/..'));
+	define('CORE_PATH', ROOT_PATH.'/core/');
+	define('LIB_PATH', ROOT_PATH.'/libraries/');
 	$cfg_filename = CORE_PATH.'config.php';
+	
+	@require_once('installer.class.php');
+	$inst = new Installer();
+	$yes = '<div class="yes">Yes</div>';
+	$no = '<div class="no">No</div>';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -49,7 +58,7 @@
     <td class="section_head">Pre-Installation Checks</td> 
   </tr> 
   <tr> 
-    <td class="section_body">If any of the items below are highlighted in red then please take correct them before proceeding. Failure to do so could lead to  Retrospect-GDS  not functioning correctly.
+    <td class="section_body">If any of the items in this section are listed as No, you will need to correct the problem before proceeding. Retrospect-GDS will not function otherwise. 
       <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
         <tr>
           <td class="section_item">&nbsp;</td>
@@ -57,30 +66,20 @@
           <td class="section_item">&nbsp;</td>
         </tr>
         <tr> 
-          <td width="400" class="section_item"><span class="item">PHP version</span></td> 
+          <td width="400" class="section_item"><span class="item">PHP version greater than 4.2.3 </span></td> 
           <td align="center" nowrap="nowrap" class="section_item">
 						<?php 
 							$php_ver = phpversion();
-							echo (version_compare($php_ver, '4.2.3') > 0) ? '<div class="yes">'.$php_ver.'</div>' : '<div class="no">'.$php_ver.'</div>';
+							echo (version_compare($php_ver, '4.2.3') > 0) ? '<div class="yes">Yes</div>' : '<div class="no">No</div>';
 						?>
 					</td> 
-          <td class="section_item">(4.2.3 or greater required)</td>
+          <td class="section_item">&nbsp;</td>
         </tr> 
-        <tr>
-          <td class="section_item">Configuration file writable </td>
-          <td align="center" class="section_item"><?php echo is_writable( CORE_PATH ) ? '<div class="yes">Yes</div>' : '<div class="no-not-req">No</div>';?></td>
-          <td class="section_item">Optional</td>
-        </tr>
         <tr> 
           <td class="section_item"> Gettext support </td> 
-          <td align="center" class="section_item">
-						<?php 
-							$cfg_filename = CORE_PATH.'config.php';
-							@chmod($cfg_filename, 666);
-							echo extension_loaded('gettext') ? '<div class="yes">Yes</div>' : '<div class="no-not-req">No</div>';
-						?>
+          <td align="center" class="section_item"><?php echo $inst->ext_Gettext() ? '<div class="yes">Yes</div>' : '<div class="no-not-req">No</div>'; ?>
 					</td> 
-          <td class="section_item">Required</td>
+          <td class="section_item">&nbsp;</td>
         </tr>
     </table></td></tr> 
 </table> 
@@ -89,7 +88,7 @@
     <td class="section_head">Database Extensions</td>
   </tr>
   <tr>
-    <td class="section_body">At least one of the following supported php database extensions must be loaded. MySQL is the recommended database for use with Retrospect-GDS
+    <td class="section_body">At least one of the following  database extensions must be supported by your PHP installation. MySQL is the preferred database back-end for running Retrospect-GDS.
       <table width="100%"  border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td class="section_item">&nbsp;</td>
@@ -131,7 +130,7 @@
           <td align="center" class="section_item"><?php echo extension_loaded('sqlite') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>'; ?></td>
           <td class="section_item"><a href="http://www.php.net/manual/en/ref.sqlite.php" target="_blank">http://www.php.net/manual/en/ref.sqlite.php</a></td>
         </tr>
-      </table>      </td>
+    </table>      </td>
   </tr>
 </table>
 <table width="100%"  border="0" cellpadding="0" cellspacing="0" class="section">
@@ -139,7 +138,8 @@
     <td class="section_head">Recommended PHP Settings </td>
   </tr>
   <tr>
-    <td class="section_body">The following are recommendations only. Retrospect-GDS should still function regardless of the actual setting used.
+    <td class="section_body">Certain functions may not work correctly if any of the following recommendations are not met.
+You should correct these if possible before proceeding.
       <table width="100%"  border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td class="section_item">&nbsp;</td>
@@ -174,6 +174,64 @@
       </table> </td>
   </tr>
 </table>
+<table width="100%"  border="0" cellpadding="0" cellspacing="0" class="section">
+  <tr>
+    <td class="section_head">Directory Permissions </td>
+  </tr>
+  <tr>
+    <td class="section_body">The following directories must be writeable by the web server.
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="section_item">&nbsp;</td>
+            <td class="section_item">&nbsp;</td>
+            <td class="section_item">&nbsp;</td>
+          </tr>
+          <tr>
+            <td width="400" class="section_item"><strong>File or Directory </strong></td>
+            <td width="100" align="center" class="section_item"><strong>Writable</strong></td>
+            <td class="section_item">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="section_item">core/config.php</td>
+            <td align="center" class="section_item">
+							<?php
+								touch(ROOT_PATH.'/core/config.php');
+								echo $inst->make_writable(ROOT_PATH.'/core/config.php') ? $yes : $no;
+							?>
+						</td>
+            <td class="section_item">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="section_item">gedcom/</td>
+            <td align="center" class="section_item">
+							<?php
+							 	echo $inst->make_writable(ROOT_PATH.'/gedcom/') ? $yes : $no;
+							?>
+						</td>
+            <td class="section_item">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="section_item">themes/default/templates_c/</td>
+            <td align="center" class="section_item">
+							<?php
+							 	echo is_writable(ROOT_PATH.'/themes/default/templates_c/') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>';
+							?>
+						</td>
+            <td class="section_item">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="section_item">administration/themes/default/templates_c/</td>
+            <td align="center" class="section_item">
+							<?php
+							 	echo is_writable(ROOT_PATH.'/administration/themes/default/templates_c/') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>';
+							?>
+						</td>
+            <td class="section_item">&nbsp;</td>
+          </tr>
+      </table></td>
+  </tr>
+</table>
+<br />
 <form name="form1" id="form1" method="post" action="install1.php">
   <input name="Submit" type="submit" class="button" value="Continue" />
 </form>

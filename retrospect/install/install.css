@@ -16,9 +16,9 @@ table.section {
 }
 td.section_head {
 	padding: 5px;
-	background-color: #7B869A;
 	color: white;
 	font-weight: bold;
+	background: #0066CC;
 }
 td.section_body {
 	padding: 5px;

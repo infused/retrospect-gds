@@ -24,6 +24,7 @@ email                    VARCHAR(128) NOT NULL,
 received                 DATETIME,
 comment                  LONGTEXT,
 reviewed                 TINYINT DEFAULT 0,
+visible                  TINYINT DEFAULT 0,
                  PRIMARY KEY (id)
 );
 

@@ -17,10 +17,30 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License contained in the file GNU.txt for
  * more details.
- *
- * $Id$
- *
  */
+ 
+ /**
+ * $Id$
+ */
+ 
+ # Disable error reporting
+	error_reporting(E_ALL);
+	
+	# Set flag that this is a parent file
+	define( '_RGDS_VALID', 1 );	
+	
+	# Define all application paths
+	define('ROOT_PATH', realpath(dirname($_SERVER['SCRIPT_FILENAME']).'/..'));
+	define('CORE_PATH', ROOT_PATH.'/core/');
+	define('LIB_PATH', ROOT_PATH.'/libraries/');
+	$cfg_filename = CORE_PATH.'config.php';
+	
+	@require_once('installer.class.php');
+	$inst = new Installer();
+	
+	if (file_exists(CORE_PATH.'config.php')) {
+		require_once(CORE_PATH.'config.php');
+	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -30,32 +50,6 @@
 <link href="install.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<?php
-	# Disable error reporting
-	error_reporting(0);
-	
-	/**
-	* Root path
-	* @global string
-	*/
-	define('ROOT_PATH', dirname($_SERVER['PATH_TRANSLATED']));
-
-	/**
-	* Location of core files
-	* @global string
-	*/
-	define('CORE_PATH', ROOT_PATH.'/../core/');	
-	
-	/** 
-	* Location of library files
-	* @global string
-	*/
-	define('LIB_PATH', ROOT_PATH.'/../libraries/');
-	
-	if (file_exists(CORE_PATH.'config.php')) {
-		require_once(CORE_PATH.'config.php');
-	}
-?>
 <form name="form1" id="form1" method="post" action="install2.php">
 <table width="100%"  border="0" cellspacing="0" cellpadding="0">
   <tr>
