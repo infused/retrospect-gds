@@ -29,6 +29,8 @@
 
 /**
 * Represents an ancestor tree node
+* @package genealogy
+* @subpackage classes
 */
 class ATreeNode {
 	
@@ -114,6 +116,7 @@ class ATreeNode {
 * $tree = new ATree('I100');
 * </code>
 * @package genealogy
+* @subpackage classes
 */
 class ATree {
 	/**

@@ -17,9 +17,10 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License contained in the file GNU.txt for
  * more details.
- *
+ */
+ 
+ /**
  * $Id$
- *
  */
 	
 	# Define regular expressions
@@ -84,16 +85,20 @@
 	
 	/**
  	* GedcomParser class
-	* 
- 	* @package public
+ 	* @package gedcom
+	* @subpackage classes
  	* @access public
  	*/
 	class DateParser {
-		var $pdate;							// array containing mod, date1, date2
-		var $sdate;							// the lastest date string passed to ParseDate()
-		var $mod;
-		var $date1;
-		var $date2;
+		/**
+		* An array containing 'mod', 'date1', 'date2'
+		* @var array
+		*/
+		var $pdate = null;
+		var $sdate = null;							// the lastest date string passed to ParseDate()
+		var $mod = null;
+		var $date1 = null;
+		var $date2 = null;
 		
 		/**
 		* ParseDate 
@@ -101,10 +106,10 @@
 		*/
 		function ParseDate ($string) {
 			# reset variables
-			$this->pdate = null;
-			$this->mod = null;
-			$this->date1 = null;
-			$this->date2 = null;
+			//$this->pdate = null;
+			//$this->mod = null;
+			//$this->date1 = null;
+			//$this->date2 = null;
 			$this->sdate = $string;
 			
 			# convert date string to uppercase
@@ -283,14 +288,20 @@
 			}
 		}
 		
+		/**
+		* Accepts an associative array and returns a completely formatted date string.
+		* @access public
+		* @param array $date_arr
+		* @return string
+		*/		
 		function FormatDateStr ($date_arr) {
 			if ($date_arr['date_str'] == '') return;
 			elseif ($date_arr['date_mod'] == 'XX') return $date_arr['date_str'];
 			else {
 				# format dates and modifier
-				$mod = $this->format_date_mod($date_arr['date_mod']);
-				$date1 = $this->format_date_str2($date_arr['date1']);
-				$date2 = $this->format_date_str2($date_arr['date2']);
+				$mod = $this->_format_date_mod($date_arr['date_mod']);
+				$date1 = $this->_format_date_str($date_arr['date1']);
+				$date2 = $this->_format_date_str($date_arr['date2']);
 				
 				# format separator 
 				if (($date_arr['date2'] != DATE_EMPTY) AND ($date_arr['date2'] != '')) {
@@ -305,7 +316,35 @@
 			}
 		}
 		
-		function format_date_str2($date_str) {
+		
+		/**
+		* Accepts a date string in the form of YYYYMMDD and returns a 
+		* completely formatted date string.
+		*	@access public
+		* @param string $date_str
+		* @return string
+		*/
+		function FormatSingleDateStr ($date_str) {
+			return $this->_format_date_str($date_str);
+		}
+		
+		/** Accepts a date modifier code and returns a date modifier string
+		* @access public
+		* @param string $date_str
+		* @return string
+		*/
+		function FormatMod ($date_str) {
+			return $this->_format_date_mod($date_mod);
+		}
+		
+		/**
+		* Accepts a date string in the form of YYYYMMDD and returns a 
+		* completely formatted date string.
+		*	@access private
+		* @param string $date_str
+		* @return string
+		*/
+		function _format_date_str($date_str) {
 			global $DATE_FMTS, $options;
 			if ($date_str == DATE_EMPTY or $date_str == '') return;
 			else {
@@ -328,12 +367,18 @@
 					$ts = adodb_mktime('0','0','0', $month, $day, $year);
 					$date = $this->_translate_month(adodb_date($date_fmt['YMD'], $ts)); 
 				}
-				
 				return $date;
 			}
 		}
 		
-		function format_date_mod($mod_str) {
+		/**
+		* Converts a date modifier code such as '10' into a 
+		* test string such as 'ABT'
+		* @access private
+		* @param string $mod_str modifier code
+		* @return string modifier string
+		*/
+		function _format_date_mod($mod_str) {
 			global $DATE_MODS;
 			if ($mod = array_search($mod_str, $DATE_MODS)) {
 				return $this->_translate_mod($mod);
@@ -342,9 +387,8 @@
 		}
 		
 		/**
-		* Translate month
-		* 
 		* Translates month names into the appropriate language
+		* @access private
 		* @param string $p_date english language date
 		* @return string translated date string
 		*/
@@ -357,9 +401,8 @@
 		}
 		
 		/**
-		* Translate date modifier
-		*
 		* Translates date modifiers such as Abt, Bet, Aft
+		* @access private
 		* @param string $p_date english language modifier
 		* @return string translated date modifier
 		*/

@@ -16,14 +16,14 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License contained in the file GNU.txt for
  * more details.
- *
+ */
+ 
+ /*
  * $Id$
- *
  */
 
 	/**
 	* Initialize Gettext
-	* @access public
 	*/
 	function lang_init_gettext() {
 		global $db, $options, $g_langs, $smarty;

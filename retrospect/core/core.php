@@ -20,9 +20,10 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License contained in the file GNU.txt for
  * more details.
- *
+ */
+ 
+ /**
  * $Id$
- *
  */
 	
 	# Define some RGDS strings
@@ -51,8 +52,6 @@
 	define('TBL_MEDIA', $g_db_prefix.'media');
 	define('TBL_COMMENT', $g_db_prefix.'comment');
 	
-	# Require PHP compatibility functions
-	@require_once(CORE_PATH.'f_compatibility.php');
 	# Require miscellaneous functions
 	@require_once(CORE_PATH.'f_misc.php');
 	# Require ADODB database library
@@ -63,8 +62,6 @@
 	@require_once(CORE_PATH.'f_language.php');
 	# Require genealogy classes
 	@require_once(CORE_PATH.'genealogy.class.php');
-	# Require HTML class
-	@require_once(CORE_PATH.'html.class.php');
   # Require theme class
 	@require_once(CORE_PATH.'theme.class.php');
 	# Require date-parser class

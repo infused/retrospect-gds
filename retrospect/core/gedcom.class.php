@@ -17,9 +17,10 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License contained in the file GNU.txt for
  * more details.
- *
+ */
+ 
+ /**
  * $Id$
- *
  */
  
 	# Define regular expressions
@@ -129,7 +130,7 @@
 	
 	/**
  	* GedcomParser class 
- 	* @package public
+ 	* @package gedcom
  	* @access public
  	*/
 	class GedcomParser {

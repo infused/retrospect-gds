@@ -14,14 +14,16 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License contained in the file GNU.txt for
  * more details.
- * 
+ */
+ 
+ /**
  * $Id$
- *
  */
  
  /**
  * Theme class
  * @package themes
+ * @subpackage classes
  */
 class Theme {
 		
