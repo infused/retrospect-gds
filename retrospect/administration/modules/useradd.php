@@ -28,20 +28,51 @@
 	
 	# Form has been posted
 	if (isset($_POST['Save']) and $_POST['Save'] == 'Save') {
-		# Check for valid input
+		
+		# Check for valid username input
 		$username = strtolower($_POST['username']);
 		if (strlen($username) > 16 OR strlen($username) < 4) { 
 			$error = true;
-			$username_errors[] = 'Username must be between 4 and 16 characters long.';
+			$username_errors[] = 'The username must be between 4 and 16 characters long.';
 		}
 		if (preg_match('/^[a-z0-9]+$/', $username) == 0) {
 			$error = true;
 			$username_errors[] = 'Username may only contain alphanumeric characters.';
 		}
+		# Process full name
+		$fullname = $_POST['fullname'];
+		# Process group
+		$group = $_POST['group'];
+		# Check for valid email
+		$email = $_POST['email'];
+		if ($email != '') {
+			if (!is_valid_smtp($email)) {
+				$error = true;
+				$email_errors[] = 'Email address is not valid.';
+			}
+		}
+		# Check for valid passwords
+		$password1 = $_POST['password1'];
+		$password2 = $_POST['password2'];
+		if (strcmp($password1, $password2) != 0) {
+			$error = true;
+			$password_errors[] = 'The passwords do not match.  Please retype them.';
+		} elseif (strlen($password1) > 16 OR strlen($password1) < 4) {
+			$error = true;
+			$password_errors[] = 'The password must be between 4 and 16 characters long.';
+		}
 		
-		# 
-		if ($error) {
-			$smarty->assign('username_errors', $username_errors);
+		
+		# Save the data unless there are errors
+		if (!$error) {
+			Auth::AddUser($username, $fullname, $email, $password1);
+			$saved['username'] = $username;
+			$smarty->assign('SAVED', $saved);
+			$smarty->assign('REDIRECT', $_SERVER['PHP_SELF'].'?m=usermgr');
+		} else {
+			$smarty->assign_by_ref('username_errors', $username_errors);
+			$smarty->assign_by_ref('email_errors', $email_errors);
+			$smarty->assign_by_ref('password_errors', $password_errors);
 		}
 		
 	}

@@ -87,7 +87,8 @@ class Auth {
 		$c_fullname = $db->Qstr($p_fullname);
 		$c_email = $db->Qstr($p_email);
 		$c_pwd = $db->Qstr(md5($p_pwd));
-		$sql = "INSERT INTO ".TBL_USER." VALUES('', {$c_uid}, {$c_pwd}, {$c_fullname}, {$c_email},'','0')";
+		$time = $db->DBTimestamp(time());
+		$sql = "INSERT INTO ".TBL_USER." VALUES('',{$c_uid},{$c_pwd},{$c_fullname},{$c_email},{$time},'','0','1')";
 		if ($db->Execute($sql) !== false) { return true; }
 		else { return false; }
 	}
