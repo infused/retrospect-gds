@@ -74,7 +74,7 @@
 		//}
 	?>
   <tr>
-    <td colspan="2" class="content-subtitle"><?php echo _("Add User"); ?>&nbsp;</td>
+    <td colspan="2" class="content-subtitle"><?php echo _("Edit User"); ?>&nbsp;</td>
   </tr>
   <tr>
     <td colspan="2" bgcolor="#CCCCCC"><table border="0" cellpadding="4" cellspacing="0">

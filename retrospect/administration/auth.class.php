@@ -107,7 +107,7 @@ class Auth {
 			$sql = "UPDATE $g_tbl_user SET uid='$c_uid', fullname='$c_fullname', email='$c_email' WHERE id='$c_id'";
 		}
 		else {
-			$sql = "";
+			$sql = "UPDATE $g_tbl_user SET uid='$c_uid', fullname='$c_fullname', email='$c_email', pwd=MD5('$c_pwd') WHERE id='$c_id'";
 		}
 		if (db_query_a($sql) == 1) { return true; }
 		else { return false; }
