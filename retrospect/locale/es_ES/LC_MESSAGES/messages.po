@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2004-05-25 13:58-0800\n"
+"PO-Revision-Date: 2004-05-28 11:49-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused.org>\n"
 "Language-Team: Spanish <keithm@infused-solutions.com>\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,9 @@ msgid "No"
 msgstr "No"
 
 #: administration/sys_config.php:228
-#: themes/default/search.php:99
+#: themes/default/search.php:105
+#: themes/default/search.php:143
+#: themes/default/search.php:181
 msgid "Reset"
 msgstr "Reiniciar"
 
@@ -153,7 +155,7 @@ msgstr "Bas Mitzah"
 #: themes/default/family.php:105
 #: themes/default/family_pdf.php:134
 #: themes/default/pedigree_pdf.php:90
-#: themes/default/search.php:131
+#: themes/default/search.php:326
 #: themes/default/stats.php:97
 #: themes/default/surnames.php:139
 msgid "Birth"
@@ -191,7 +193,7 @@ msgstr "Cremación"
 #: themes/default/family.php:108
 #: themes/default/family_pdf.php:152
 #: themes/default/pedigree_pdf.php:91
-#: themes/default/search.php:132
+#: themes/default/search.php:327
 #: themes/default/stats.php:98
 #: themes/default/surnames.php:140
 msgid "Death"
@@ -1256,12 +1258,14 @@ msgstr "Busque la base de datos"
 # gen_menu.php:42
 # gen_menu.php:42
 #: themes/default/menu.php:27
-#: themes/default/search.php:35
-#: themes/default/search.php:38
-#: themes/default/search.php:41
-#: themes/default/search.php:48
-#: themes/default/search.php:55
-#: themes/default/search.php:98
+#: themes/default/search.php:39
+#: themes/default/search.php:42
+#: themes/default/search.php:45
+#: themes/default/search.php:52
+#: themes/default/search.php:62
+#: themes/default/search.php:104
+#: themes/default/search.php:142
+#: themes/default/search.php:180
 msgid "Search"
 msgstr "Buscar"
 
@@ -1446,12 +1450,27 @@ msgstr "Descendiente"
 msgid "Descendant PDF"
 msgstr "Descendiente PDF"
 
-#: themes/default/search.php:60
+#: themes/default/search.php:67
 #, fuzzy
 msgid "Results"
 msgstr "Censo"
 
-#: themes/default/search.php:77
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# gen_menu.php:42
+# gen_menu.php:42
+# gen_menu.php:42
+# gen_menu.php:42
+# gen_menu.php:42
+#: themes/default/search.php:84
+#, fuzzy
+msgid "Name Search"
+msgstr "Buscar"
+
+#: themes/default/search.php:87
 msgid "Given Name"
 msgstr "Nombre de Pila"
 
@@ -1466,30 +1485,87 @@ msgstr "Nombre de Pila"
 # family.php:52 gen_menu.php:47
 # family.php:52 gen_menu.php:47
 # family.php:52 gen_menu.php:47
-#: themes/default/search.php:78
+#: themes/default/search.php:88
 #, fuzzy
 msgid "Surname"
 msgstr "Apellido %s"
 
-#: themes/default/search.php:100
+#: themes/default/search.php:106
+#: themes/default/search.php:144
+#: themes/default/search.php:182
 msgid "Clear"
 msgstr "Limpiar"
 
-#: themes/default/search.php:113
+#: themes/default/search.php:120
+msgid "Location Search"
+msgstr ""
+
+#: themes/default/search.php:123
+#: themes/default/search.php:161
+msgid "Keywords"
+msgstr ""
+
+#: themes/default/search.php:129
+#: themes/default/search.php:167
+msgid "Match Keywords"
+msgstr ""
+
+#: themes/default/search.php:132
+#: themes/default/search.php:170
+msgid "All"
+msgstr ""
+
+#: themes/default/search.php:133
+#: themes/default/search.php:171
+msgid "Any"
+msgstr ""
+
+#: themes/default/search.php:134
+#: themes/default/search.php:172
+#, fuzzy
+msgid "Phrase"
+msgstr "Legalizar"
+
+#: themes/default/search.php:135
+#: themes/default/search.php:173
+msgid "Starts with"
+msgstr ""
+
+#: themes/default/search.php:136
+#: themes/default/search.php:174
+msgid "Ends with"
+msgstr ""
+
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# core/header.php:7
+# gen_menu.php:42
+# gen_menu.php:42
+# gen_menu.php:42
+# gen_menu.php:42
+# gen_menu.php:42
+#: themes/default/search.php:158
+#, fuzzy
+msgid "Note Search"
+msgstr "Buscar"
+
+#: themes/default/search.php:197
 msgid "No search parameters were specified."
 msgstr "Busqueda no tiene parametros especificados."
 
-#: themes/default/search.php:127
+#: themes/default/search.php:322
 #: themes/default/surnames.php:137
 msgid "Number of individuals listed"
 msgstr "Número de los individuos enumerados"
 
-#: themes/default/search.php:130
+#: themes/default/search.php:325
 #: themes/default/surnames.php:138
 msgid "Name"
 msgstr "Nombre"
 
-#: themes/default/search.php:150
+#: themes/default/search.php:345
 msgid "No matching records were found."
 msgstr ""
 
