@@ -118,7 +118,7 @@
 	# marriages
   foreach ($o->marriages as $m) {
 		$fam_count++;
-		$s = new person($m->spouse, 3);
+		$s = (!empty($m->spouse)) ? new person($m->spouse, 3) : null;
 		$spouse_link = '<a href="'.Theme::GetArgs('family', array('indiv'=>$s->indkey)).'">'.$s->name.'</a>';
 		
 		$g_content .= '<br />';
