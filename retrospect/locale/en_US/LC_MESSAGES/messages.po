@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2004-10-22 15:03-0800\n"
+"PO-Revision-Date: 2004-10-23 11:50-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused.org>\n"
 "Language-Team: ENGLISH <keithm@infused-solutions.com>\n"
 "MIME-Version: 1.0\n"
@@ -138,6 +138,7 @@ msgstr "Bas Mitzah"
 
 #: core/f_dummy.php:72
 #: core/f_language.php:68
+#: themes/default/family_old.php:107
 #: themes/default/family_pdf.php:132
 #: themes/default/pedigree_pdf.php:90
 #: themes/default/search.php:326
@@ -175,6 +176,7 @@ msgid "Cremation"
 msgstr "Cremation"
 
 #: core/f_dummy.php:80
+#: themes/default/family_old.php:125
 #: themes/default/family_pdf.php:150
 #: themes/default/pedigree_pdf.php:91
 #: themes/default/search.php:327
@@ -340,6 +342,7 @@ msgid "German"
 msgstr "German"
 
 #: core/f_dummy.php:127
+#: themes/default/family_old.php:261
 msgid "Source Citations"
 msgstr "Source Citations"
 
@@ -368,21 +371,25 @@ msgid "cal"
 msgstr "Cal"
 
 #: core/f_language.php:64
+#: themes/default/family_old.php:97
 #: themes/default/family_pdf.php:115
 msgid "Aka"
 msgstr "Aka"
 
 #: core/f_language.php:65
+#: themes/default/family_old.php:100
 #: themes/default/family_pdf.php:124
 msgid "Gender"
 msgstr "Sex"
 
 #: core/f_language.php:66
+#: themes/default/family_old.php:103
 #: themes/default/family_pdf.php:168
 msgid "Father"
 msgstr "Father"
 
 #: core/f_language.php:67
+#: themes/default/family_old.php:105
 #: themes/default/family_pdf.php:174
 msgid "Mother"
 msgstr "Mother"
@@ -664,12 +671,16 @@ msgid "Genealogy"
 msgstr "Genealogy"
 
 #: themes/default/descendant.php:106
+#: themes/default/family_old.php:188
+#: themes/default/family_old.php:250
 #: themes/default/family_pdf.php:241
 #: themes/default/pedigree.php:76
 msgid "b."
 msgstr "b."
 
 #: themes/default/descendant.php:109
+#: themes/default/family_old.php:189
+#: themes/default/family_old.php:251
 #: themes/default/family_pdf.php:242
 #: themes/default/pedigree.php:77
 msgid "d."
@@ -721,15 +732,44 @@ msgid "Close"
 msgstr "Close"
 
 #: themes/default/family.php:42
+#: themes/default/family_old.php:42
 #, php-format
 msgid "Family Page for %s"
 msgstr "Family Page for %s"
 
-#: themes/default/family.php:86
+#: themes/default/family.php:43
+#: themes/default/nav.php:30
+#: themes/default/nav.php:33
+#: themes/default/surnames.php:115
+#: themes/default/surnames.php:118
+#, php-format
+msgid "%s Surname"
+msgstr "%s Surname"
+
+#: themes/default/family.php:87
+#: themes/default/family_old.php:181
 #: themes/default/family_pdf.php:234
 #, php-format
 msgid "Family %s"
 msgstr "Family %s"
+
+#: themes/default/family_old.php:168
+#: themes/default/family_old.php:229
+#: themes/default/family_pdf.php:213
+#: themes/default/family_pdf.php:313
+#: themes/default/stats.php:101
+msgid "Notes"
+msgstr "Notes"
+
+#: themes/default/family_old.php:182
+#: themes/default/family_pdf.php:238
+msgid "Spouse/Partner"
+msgstr "Spouse/Partner"
+
+#: themes/default/family_old.php:236
+#: themes/default/family_pdf.php:325
+msgid "Children"
+msgstr "Children"
 
 #: themes/default/family_pdf.php:54
 #: themes/default/family_pdf.php:78
@@ -747,20 +787,6 @@ msgstr "Family Group Sheet for %s"
 #: themes/default/stats.php:102
 msgid "Sources"
 msgstr "Sources"
-
-#: themes/default/family_pdf.php:213
-#: themes/default/family_pdf.php:313
-#: themes/default/stats.php:101
-msgid "Notes"
-msgstr "Notes"
-
-#: themes/default/family_pdf.php:238
-msgid "Spouse/Partner"
-msgstr "Spouse/Partner"
-
-#: themes/default/family_pdf.php:325
-msgid "Children"
-msgstr "Children"
 
 #: themes/default/menu.php:26
 msgid "Database"
@@ -818,14 +844,6 @@ msgstr "Multimedia for %s"
 #: themes/default/multimedia.php:47
 msgid "This feature has not been implemented yet."
 msgstr "This feature has not been implemented yet."
-
-#: themes/default/nav.php:30
-#: themes/default/nav.php:33
-#: themes/default/surnames.php:115
-#: themes/default/surnames.php:118
-#, php-format
-msgid "%s Surname"
-msgstr "%s Surname"
 
 #: themes/default/nav.php:38
 #: themes/default/nav.php:41

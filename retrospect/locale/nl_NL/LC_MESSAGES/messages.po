@@ -6,28 +6,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2004-10-22 15:03-0800\n"
+"PO-Revision-Date: 2004-10-23 11:50-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused.org>\n"
 "Language-Team: DUTCH <j.warnar@chello.nl>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Dutch\n"
-"X-Poedit-Country: NETHERLANDS\n"
-"X-Poedit-SourceCharset: iso-8859-1\n"
-"X-Poedit-Keywords: gtc\n"
 "X-Poedit-Basepath: c:\\web\\retrospect\n"
+"X-Poedit-Keywords: gtc\n"
 "X-Poedit-SearchPath-0: core\n"
 "X-Poedit-SearchPath-1: themes/default\n"
 
 #: core/date.class.php:305
 msgid "to"
-msgstr "aan"
+msgstr "tot"
 
 #: core/date.class.php:306
-#, fuzzy
 msgid "and"
-msgstr "Land"
+msgstr "en"
 
 #: core/f_dummy.php:38
 #: core/f_dummy.php:94
@@ -139,6 +135,7 @@ msgstr "Bas Mitzah"
 
 #: core/f_dummy.php:72
 #: core/f_language.php:68
+#: themes/default/family_old.php:107
 #: themes/default/family_pdf.php:132
 #: themes/default/pedigree_pdf.php:90
 #: themes/default/search.php:326
@@ -176,6 +173,7 @@ msgid "Cremation"
 msgstr "Crematie"
 
 #: core/f_dummy.php:80
+#: themes/default/family_old.php:125
 #: themes/default/family_pdf.php:150
 #: themes/default/pedigree_pdf.php:91
 #: themes/default/search.php:327
@@ -341,105 +339,110 @@ msgid "German"
 msgstr "Duits"
 
 #: core/f_dummy.php:127
+#: themes/default/family_old.php:261
 msgid "Source Citations"
 msgstr "Bronverwijzing"
 
 #: core/f_dummy.php:130
 msgid "abt"
-msgstr ""
+msgstr "omstreeks"
 
 #: core/f_dummy.php:131
 msgid "cir"
-msgstr ""
+msgstr "circa"
 
 #: core/f_dummy.php:132
 msgid "aft"
-msgstr ""
+msgstr "na"
 
 #: core/f_dummy.php:133
 msgid "bef"
-msgstr ""
+msgstr "voor"
 
 #: core/f_dummy.php:134
 msgid "bet"
-msgstr ""
+msgstr "tussen"
 
 #: core/f_dummy.php:135
 msgid "cal"
-msgstr ""
+msgstr "aanroep"
 
 #: core/f_language.php:64
+#: themes/default/family_old.php:97
 #: themes/default/family_pdf.php:115
 msgid "Aka"
 msgstr "Alias/ook bekend als"
 
 #: core/f_language.php:65
+#: themes/default/family_old.php:100
 #: themes/default/family_pdf.php:124
 msgid "Gender"
 msgstr "Geslacht"
 
 #: core/f_language.php:66
+#: themes/default/family_old.php:103
 #: themes/default/family_pdf.php:168
 msgid "Father"
 msgstr "Vader"
 
 #: core/f_language.php:67
+#: themes/default/family_old.php:105
 #: themes/default/family_pdf.php:174
 msgid "Mother"
 msgstr "Moeder"
 
 #: core/f_language.php:93
 msgid "Jan"
-msgstr "Jan"
+msgstr "januari"
 
 #: core/f_language.php:93
 msgid "Feb"
-msgstr "Feb"
+msgstr "februari"
 
 #: core/f_language.php:93
 msgid "Mar"
-msgstr "Mar"
+msgstr "maart"
 
 #: core/f_language.php:93
 msgid "Apr"
-msgstr "Apr"
+msgstr "april"
 
 #: core/f_language.php:93
 msgid "May"
-msgstr "Mei"
+msgstr "mei"
 
 #: core/f_language.php:94
 msgid "Jun"
-msgstr "Jun"
+msgstr "juni"
 
 #: core/f_language.php:94
 msgid "Jul"
-msgstr "Jul"
+msgstr "juli"
 
 #: core/f_language.php:94
 msgid "Aug"
-msgstr "Aug"
+msgstr "augustus"
 
 #: core/f_language.php:94
 msgid "Sep"
-msgstr "Sep"
+msgstr "september"
 
 #: core/f_language.php:94
 msgid "Oct"
-msgstr "Okt"
+msgstr "oktober"
 
 #: core/f_language.php:94
 msgid "Nov"
-msgstr "Nov"
+msgstr "november"
 
 #: core/f_language.php:94
 msgid "Dec"
-msgstr "Dec"
+msgstr "december"
 
 #: core/f_report.php:42
 #, php-format
 msgid "He was born on %s in %s."
-msgstr "Hij werd geboren op %s in %s."
+msgstr "Hij werd geboren %s in %s."
 
 #: core/f_report.php:45
 #, php-format
@@ -454,7 +457,7 @@ msgstr "Hij werd in %s geboren"
 #: core/f_report.php:54
 #, php-format
 msgid "She was born on %s in %s."
-msgstr "Zij werd %s in %s geboren."
+msgstr "Zij werd geboren %s in %s."
 
 #: core/f_report.php:57
 #, php-format
@@ -665,12 +668,16 @@ msgid "Genealogy"
 msgstr "Genealogie"
 
 #: themes/default/descendant.php:106
+#: themes/default/family_old.php:188
+#: themes/default/family_old.php:250
 #: themes/default/family_pdf.php:241
 #: themes/default/pedigree.php:76
 msgid "b."
 msgstr "geb."
 
 #: themes/default/descendant.php:109
+#: themes/default/family_old.php:189
+#: themes/default/family_old.php:251
 #: themes/default/family_pdf.php:242
 #: themes/default/pedigree.php:77
 msgid "d."
@@ -722,15 +729,44 @@ msgid "Close"
 msgstr "Sluiten"
 
 #: themes/default/family.php:42
+#: themes/default/family_old.php:42
 #, php-format
 msgid "Family Page for %s"
 msgstr "Gezinsblad van %s"
 
-#: themes/default/family.php:86
+#: themes/default/family.php:43
+#: themes/default/nav.php:30
+#: themes/default/nav.php:33
+#: themes/default/surnames.php:115
+#: themes/default/surnames.php:118
+#, php-format
+msgid "%s Surname"
+msgstr "Geslachtsnaam %s "
+
+#: themes/default/family.php:87
+#: themes/default/family_old.php:181
 #: themes/default/family_pdf.php:234
 #, php-format
 msgid "Family %s"
 msgstr "Huwelijk %s"
+
+#: themes/default/family_old.php:168
+#: themes/default/family_old.php:229
+#: themes/default/family_pdf.php:213
+#: themes/default/family_pdf.php:313
+#: themes/default/stats.php:101
+msgid "Notes"
+msgstr "Bijzonderheden"
+
+#: themes/default/family_old.php:182
+#: themes/default/family_pdf.php:238
+msgid "Spouse/Partner"
+msgstr "Huwelijkspartner"
+
+#: themes/default/family_old.php:236
+#: themes/default/family_pdf.php:325
+msgid "Children"
+msgstr "Kinderen"
 
 #: themes/default/family_pdf.php:54
 #: themes/default/family_pdf.php:78
@@ -748,20 +784,6 @@ msgstr "Gezinsblad van %s"
 #: themes/default/stats.php:102
 msgid "Sources"
 msgstr "Bronnen"
-
-#: themes/default/family_pdf.php:213
-#: themes/default/family_pdf.php:313
-#: themes/default/stats.php:101
-msgid "Notes"
-msgstr "Bijzonderheden"
-
-#: themes/default/family_pdf.php:238
-msgid "Spouse/Partner"
-msgstr "Huwelijkspartner"
-
-#: themes/default/family_pdf.php:325
-msgid "Children"
-msgstr "Kinderen"
 
 #: themes/default/menu.php:26
 msgid "Database"
@@ -818,15 +840,7 @@ msgstr "Multimedia van %s"
 
 #: themes/default/multimedia.php:47
 msgid "This feature has not been implemented yet."
-msgstr "Deze Funktie is helaas nog niet beschikbaar."
-
-#: themes/default/nav.php:30
-#: themes/default/nav.php:33
-#: themes/default/surnames.php:115
-#: themes/default/surnames.php:118
-#, php-format
-msgid "%s Surname"
-msgstr "Geslachtsnaam %s "
+msgstr "Deze funktie is helaas nog niet beschikbaar."
 
 #: themes/default/nav.php:38
 #: themes/default/nav.php:41
@@ -913,9 +927,8 @@ msgid "Results"
 msgstr "Resultaten"
 
 #: themes/default/search.php:84
-#, fuzzy
 msgid "Name Search"
-msgstr "Zoeken"
+msgstr "Zoek op Naam"
 
 #: themes/default/search.php:87
 msgid "Given Name"
@@ -939,49 +952,46 @@ msgstr "Verliezen"
 
 #: themes/default/search.php:120
 msgid "Location Search"
-msgstr ""
+msgstr "Zoek op Plaats"
 
 #: themes/default/search.php:123
 #: themes/default/search.php:161
 msgid "Keywords"
-msgstr ""
+msgstr "Sleutelwoorden"
 
 #: themes/default/search.php:129
 #: themes/default/search.php:167
 msgid "Match Keywords"
-msgstr ""
+msgstr "Vergelijk Sleutelwoorden"
 
 #: themes/default/search.php:132
 #: themes/default/search.php:170
 msgid "All"
-msgstr "Allen"
+msgstr "Alle"
 
 #: themes/default/search.php:133
 #: themes/default/search.php:171
 msgid "Any"
-msgstr ""
+msgstr "Enkele"
 
 #: themes/default/search.php:134
 #: themes/default/search.php:172
-#, fuzzy
 msgid "Phrase"
-msgstr "Legaat uit erfenis"
+msgstr "Zin"
 
 #: themes/default/search.php:135
 #: themes/default/search.php:173
 msgid "Starts with"
-msgstr ""
+msgstr "Beginnend met"
 
 #: themes/default/search.php:136
 #: themes/default/search.php:174
-#, fuzzy
 msgid "Ends with"
-msgstr "Bewerk"
+msgstr "Eindigend op"
 
 #: themes/default/search.php:158
-#, fuzzy
 msgid "Note Search"
-msgstr "Zoeken"
+msgstr "Zoek op Notitie"
 
 #: themes/default/search.php:197
 msgid "No search parameters were specified."

@@ -59,31 +59,31 @@
 					<sup><a href="#s{$source_count}">{$source_count}</a></sup> 
 				{/foreach}
 			</div>
-			{if $marriage.notes}
-				<div class="col1">{translate s="Notes"}:</div>
-				<div class="col2-2">{$marriage.notes}</div>
-			{/if}
-			{if $marriage.child_count > 0}
-				<br />
-				<div class="col1">{translate s="Children"}:</div>
-				{foreach name=children from=$marriage.children item=child}
-					{if $smarty.foreach.children.iteration != 1}
-						<div class="col1">&nbsp;</div>
-					{/if}
-					<div class="col2">
-						{$child.child_link}
-					</div>
-					<div class="col3">
-						{if $child.child->birth->date}
-							{translate s=b.} {$child.child->birth->date}
-						{/if}
-						{if $child.child->death->date}
-							{translate s=d.} {$child.child->death->date}
-						{/if}
-					</div>
-				{/foreach}
-			{/if}
 		{/foreach}
+		{if $marriage.notes}
+			<div class="col1">{translate s="Notes"}:</div>
+			<div class="col2-2">{$marriage.notes}</div>
+		{/if}
+		{if $marriage.child_count > 0}
+			<br />
+			<div class="col1">{translate s="Children"}:</div>
+			{foreach name=children from=$marriage.children item=child}
+				{if $smarty.foreach.children.iteration != 1}
+					<div class="col1">&nbsp;</div>
+				{/if}
+				<div class="col2">
+					{$child.child_link}
+				</div>
+				<div class="col3">
+					{if $child.child->birth->date}
+						{translate s=b.} {$child.child->birth->date}
+					{/if}
+					{if $child.child->death->date}
+						{translate s=d.} {$child.child->death->date}
+					{/if}
+				</div>
+			{/foreach}
+		{/if}
 	{/foreach}
 	{if $source_count > 0}
 		<br />
