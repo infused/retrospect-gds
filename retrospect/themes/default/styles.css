@@ -29,19 +29,15 @@ a:hover {
 	right: 0px;
 	float: right;
 }
-#navAlpha {
+#menu {
 	position: absolute;
 	top: 80px;
 	left: 10px;
-	width: 200px;
+	width: 180px;
 	border: 1px solid #999999;
 	background: #EEEEEE;
 	padding: 10px;
 	z-index: 2;
-}
-/* Opera 7 fix */
-body>#navAlpha {
-	width: 180px;
 }
 #header {
 	height: 60px;

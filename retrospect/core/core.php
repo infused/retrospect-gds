@@ -69,6 +69,8 @@
 	@require_once(CORE_PATH.'theme.class.php');
 	# Require date-parser class
 	@require_once(CORE_PATH.'date.class.php');
+	# Require Smarty class
+	@require_once(LIB_PATH.'smarty/libs/Smarty.class.php');
 
 	# Establish the database connection and use
 	# the appropriate connection method based on the database type
@@ -84,6 +86,15 @@
 	}
 	# Make sure that RecordSets are always returned as associative arrays
 	$db->SetFetchMode(ADODB_FETCH_ASSOC);
+	
+	# Start Smarty template engine
+	$smarty = new Smarty;
+	$smarty->template_dir = ROOT_PATH.'/themes/'.$g_theme.'/templates/';
+	$smarty->compile_dir = ROOT_PATH.'/themes/'.$g_theme.'/templates_c/';
+	$smarty->config_dir = ROOT_PATH.'/themes/'.$g_theme.'/configs/';
+	$smarty->cache_dir = ROOT_PATH.'/cache/';
+	$smarty->assign('RGDS_COPYRIGHT', RGDS_COPYRIGHT);
+	$smarty->assign('RGDS_VERSION', RGDS_VERSION);
 
 	# Create options object
 	$options =& new Options();
@@ -98,6 +109,8 @@
 	if ($options->GetOption('meta_copyright')) {
 		$copyright .= '; '.htmlentities($options->GetOption('meta_copyright'));
 	}
+	$smarty->assign('copyright', $copyright);
+	unset($copyright);
 	
 	# Load profiler and initialize
 	if ($options->profile_functions == true) {

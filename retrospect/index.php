@@ -63,9 +63,16 @@
 	* Load the appropriate theme menu page
 	*/
 	include(Theme::getPage($g_theme, 'menu'));
+	// THIS NEEDS FIXING!
+	$smarty->assign('g_menu', $g_menu);
 
 	/**
 	* Load the appropriate theme template page
 	*/
-	isset($_GET['print']) ? include(Theme::getPage($g_theme, 'template_print')) : include(Theme::getPage($g_theme, 'template'));
+	//isset($_GET['print']) ? include(Theme::getPage($g_theme, 'template_print')) : include(Theme::getPage($g_theme, 'template'));
+	
+	$smarty->assign('option', $g_option);
+	$smarty->assign('meta_keywords', implode(', ', $keywords));
+	$smarty->display('index.tpl');
+
 ?>

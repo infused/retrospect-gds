@@ -26,7 +26,7 @@
 	* @access public
 	*/
 	function lang_init_gettext() {
-		global $db, $options, $g_langs;
+		global $db, $options, $g_langs, $smarty;
 		
 		# determine current language
 		if (isset($_POST['lang'])) { 
@@ -59,6 +59,10 @@
 		}
 		# set correct charset in header
 		header("Content-type: text/html; charset={$charset}");
+		
+		# assign all the possible labels
+		$smarty->assign('label_aka', gtc("Aka"));
+		$smarty->assign('label_gender', gtc("Gender"));
 	}
 	
 	/** 

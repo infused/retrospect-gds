@@ -32,14 +32,23 @@
 	
 	# get first person information
 	$o = new person($g_indiv);
+	$smarty->assign('indiv', $o);
 	
 	# populate keywords array
 	keyword_push($o->name);
 	if (!empty($o->birth->place)) { keyword_push($o->birth->place); }
 	if (!empty($o->death->place)) { keyword_push($o->death->place); }
+	
 
 	# create page title
-	$g_title = sprintf(gtc("Family Page for %s"), $o->name);
+	$smarty->assign('page_title', sprintf(gtc("Family Page for %s"), $o->name));
+	
+	# content title
+	$content_title = '';
+	if (!empty($o->prefix)) $content_title .= $o->prefix.' ';
+	$content_title .= $o->name;
+	if (!empty($o->suffix)) $content_title .= $o->suffix;
+	$smarty->assign('content_title', $content_title);
 	
 	# create father link
 	if ($o->father_indkey) { 
@@ -50,6 +59,8 @@
 		unset($f);
 	}
 	else { $father_link = '&nbsp;'; }
+	$smarty->assign('father_link', $father_link);
+	unset($father_link);
 	
 	# create mother link
 	if ($o->mother_indkey) { 
@@ -60,213 +71,7 @@
 		unset($m);
 	}
 	else { $mother_link = '&nbsp;'; }
-
-	/**
-	* Display sources
-	* @access public
-	* @param array $p_sources
-	*/
-	function disp_sources($p_sources) {
-		global $sources;
-		$links = null;
-		if ($p_sources) {
-			foreach($p_sources as $source) {
-				array_push($sources, $source);
-				$count = count($sources);
-				$links .= ' <a href="#s'.$count.'">'.$count.'</a>';
-			}
-		}
-		return $links;
-	}
-
-  # name and menu
-	echo '<p class="content-title">';
-	if (!empty($o->prefix)) echo $o->prefix.' ';
-	echo $o->name;
-	if (!empty($o->suffix)) echo ', '.$o->suffix; 
-	echo '</p>';
-	if ($print === false) {
-		include(Theme::getPage($g_theme, 'nav'));
-	}
-  
-	# vitals
-	?>
-	<div class="tab-page">
-	<?php
-	if (!empty($o->aka)) { ?>
-		<div class="col1"><?php echo gtc("Aka"); ?></div>
-		<div class="col2-2"><?php echo $o->aka; ?></div>
-	<?php } ?>
-	<div class="col1"><?php echo gtc("Gender"); ?></div>
-	<div class="col2"><?php echo gtc($o->gender); ?></div>
-  <div class="col3">&nbsp;</div>
-	<div class="col1"><?php echo gtc("Father"); ?>:</div>
-	<div class="col2-2"><?php echo $father_link; unset($father_link); ?></div>
-	<div class="col1"><?php echo gtc("Mother"); ?>:</div>
-  <div class="col2-2"><?php echo $mother_link; unset($mother_link); ?></div>
-  <div class="col1"><?php echo gtc("Birth"); ?>:</div>
-	<div class="col2"><?php echo $o->birth->date; ?></div>
-  <div class="col3">
-		<?php 
-			if (!empty($o->birth->comment) AND !empty($o->birth->place)) {
-				echo $o->birth->comment.' / '.$o->birth->place . disp_sources($o->birth->sources);
-			}
-			elseif (!empty($o->birth->comment)) {
-				echo $o->birth->comment . disp_sources($o->birth->sources);
-			}
-			elseif (!empty($o->birth->place)) {
-				echo $o->birth->place . disp_sources($o->birth->sources);
-			}
-			elseif (!empty($o->birth->sources)) {
-				echo disp_sources($o->birth->sources);
-			}
-		?>
-	</div>
-	<div class="col1"><?php echo gtc("Death"); ?>:</div>
-  <div class="col2"><?php echo $o->death->date; ?></div>
-  <div class="col3">
-		<?php 
-				if (!empty($o->death->comment) AND !empty($o->death->place)) {
-					echo $o->death->comment.' / '.$o->death->place . disp_sources($o->death->sources);
-				}
-				elseif (!empty($o->death->comment) AND $o->death->comment != 'Y') {
-					echo $o->death->comment . disp_sources($o->death->sources);
-				}
-				elseif (!empty($o->death->place)) {
-					echo $o->death->place . disp_sources($o->death->sources);
-				}
-				elseif (!empty($o->death->sources)) {
-					echo disp_sources($o->death->sources);
-				}
-		?>
-	</div>
-	<?php
-	# events
-	foreach($o->events as $event) { ?>
-		<div class="col1"><?php echo gtc($event->type); ?>:</div>
-		<div class="col2"><?php echo $event->date; ?></div>
-		<div class="col3">
-			<?php 
-				if (!empty($event->comment) AND !empty($event->place)) {
-					echo $event->comment.' / '.$event->place . disp_sources($event->sources);
-				}
-				elseif (!empty($event->comment)) {
-					echo $event->comment . disp_sources($event->sources);
-				}
-				elseif (!empty($event->place)) {
-					echo $event->place . disp_sources($event->sources);
-				}
-				elseif (!empty($event->sources)) {
-					echo disp_sources($event->sources);
-				}
-			?>
-		</div>
-	<?php } 
+	$smarty->assign('mother_link', $mother_link);
+	unset($mother_link);
 	
-	# notes
-	if ($o->notes) { ?>
-		<div class="col1"><?php echo gtc("Notes"); ?>:</div>
-  	<div class="col2-2"><?php echo $o->notes; ?></div>
-  <?php }
-  
-	# marriages
-  foreach ($o->marriages as $m) {
-		$fam_count++;
-		$s = (!empty($m->spouse)) ? new person($m->spouse, 3) : null;
-		# populate keywords array
-		if ($s->name) { keyword_push($s->name); }
-		$spouse_link = '<a href="'.Theme::GetArgs('family', array('indiv'=>$s->indkey)).'">'.$s->name.'</a>';
-		?>
-		<br />
- 	 	<p class="content-subtitle"><?php printf(gtc("Family %s"), $fam_count); ?></p>
-		<div class="col1"><?php echo gtc("Spouse/Partner"); ?>:</div>
-		<div class="col2-2">
-		<?php 
-			echo $spouse_link; 
-			unset($spouse_link);
-			if ($s->birth->date || $s->death->date) { echo '&nbsp;&nbsp;'; }
-			if ($s->birth->date) { echo ' '.gtc("b.").' '.$s->birth->date; }
-			if ($s->death->date) { echo ' '.gtc("d.").' '.$s->death->date; } 
-			unset($s);
-		?>
-		</div>
-		
-		<?php
-		if ($m->beginstatus) {
-			echo '<div class="col1">'.gtc($m->beginstatus).':</div>';
-			echo '<div class="col2">'.$m->date.'</div>';
-			echo '<div class="col3">'.$m->place . disp_sources($m->sources).'</div>';
-		}
-
- 		if ($m->endstatus) {
-		  echo '<div class="col1">'.gtc($m->endstatus).':</div>';
-			echo '<div class="col2">'.$m->enddate.'</div>';
-			echo '<div class="col3">'.$m->endplace . disp_sources($m->end_sources).'</div>';
-		}
-		# events
-		foreach($m->events as $event) { ?>
-			<div class="col1"><?php echo gtc($event->type); ?>:</div>
-			<div class="col2"><?php echo $event->date; ?></div>
-			<div class="col3">
-				<?php 
-					if (!empty($event->comment) AND !empty($event->place)) {
-						echo $event->comment.' / '.$event->place . disp_sources($event->sources);
-					}
-					elseif (!empty($event->comment)) {
-						echo $event->comment . disp_sources($event->sources);
-					}
-					elseif (!empty($event->place)) {
-						echo $event->place . disp_sources($event->sources);
-					}
-					elseif (!empty($event->sources)) {
-						echo disp_sources($event->sources);
-					}
-				?>
-			</div>
-		<?php } 
-  	
-		if ($m->notes) {
-		  echo '<div class="col1">'.gtc("Notes").'</div>';
-			echo '<div class="col2-2">'.$m->notes.'</div>';
-		}
-		
-		# children
-		if ($m->child_count > 0) {
-			echo '<br />';
-			echo '<div class="col1">'.gtc("Children").':</div>';
-			$k = 0;
-			foreach ($m->children as $child_indkey) {
-				$c = new person($child_indkey, 3);
-				# populate keywords array
-				keyword_push($c->name);
-				$child_link = '<a href="'.Theme::GetArgs('family', array('indiv'=>$c->indkey)).'">'.$c->name.'</a>';
-				if ($k != 0) {
-					echo '<div class="col1"></div>';
-				}
-				echo '<div class="col2-2">';
-				echo $child_link;
-				unset($child_link);
-				if ($c->birth->date || $c->death->date) { echo '&nbsp;&nbsp;'; }
-				if ($c->birth->date) { echo gtc("b.").' '.$c->birth->date.'&nbsp;&nbsp;'; }
-				if ($c->death->date) { echo gtc("d.").' '.$c->death->date; }
-				echo '</div>';
-				$k++;
-				unset($c);
-			}
-		}
-		unset($m);
-	}
-
-	if (count($sources) > 0) {
-		echo '<br /><p class="content-subtitle">'.gtc("Source Citations").'</p><ol>';
-		$src_count = 0;
-		foreach ($sources as $source) {
-			$src_count++;
-			echo '<li value="'.($src_count).'">'.nl2br($source).'<a name="s'.($src_count).'"></a></li>';
-		}
-		echo '</ol>';
-		unset($sources);
-		unset($src_count);
-	}
-	echo '</div>';
 ?>
