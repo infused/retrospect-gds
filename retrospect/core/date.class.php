@@ -35,11 +35,16 @@
 	define('REG_DATE_MOYR', REG_DATE_GREG2);
 	
 	# Define modifiers
-	define('DATE_FROM', '01');
-	define('DATE_TO', '02');
-	define('DATE_BEF', '03');
-	define('DATE_AFT', '04');
-	define('DATE_BET', '05');
+	define('DATE_MOD_NONE', '00');
+	define('DATE_MOD_ABT',  '10');
+	define('DATE_MOD_CIR',  '20');
+	define('DATE_MOD_BEF',  '30');
+	define('DATE_MOD_AFT',  '40');
+	define('DATE_MOD_BET',  '50');
+	define('DATE_MOD_FROM', 'F0');
+	define('DATE_MOD_TO',   'T0');
+	define('DATE_MOD_EST',  'G0');
+	define('DATE_MOD_CAL',  'H0');
 	
 	$months = array(
 		'JAN'=>'01',
