@@ -48,6 +48,7 @@
 	define('REG_SEX','/^1 SEX (.?)/'); 						# Sex
 	define('REG_TITL','/^1 TITL (.*)/');					# Title (suffix)
 	define('REG_NOTEX','/^1 NOTE @(.+)@/'); 			# Note xref
+	define('REG_NOTEO','/^1 NOTE (.*)/');					# Orphaned note
 	define('REG_REFN','/^1 REFN (.*)/');					# Reference number
 	
 	# Family substructures
@@ -57,6 +58,7 @@
 	define('REG_CHIL','/^1 CHIL @(.+)@/');				# Child
 	
 	# Note substructures
+	define('REG_NOTEO2','/^[\d]{1,2} NOTE (.+)/'); # Another note form
 	define('REG_CONT','/^[\d]{1,2} CONT (.+)/');	# Continuation
 	define('REG_CONC','/^[\d]{1,2} CONC (.+)/');	# Concatenation
 	
@@ -150,6 +152,7 @@
 		var $db;								// local var for $GLOBALS['db']
 		var $factkey;
 		var $date_parser;				// date parser object
+		var $file_end_offset;   // end offset of gedcom file
 		
 		/**
 		* GedcomParser class constructor
@@ -157,7 +160,6 @@
 		*/
 		function GedcomParser() {
 			$this->db = &$GLOBALS['db'];
-			$this->factkey = 0;
 			$this->date_parser = new DateParser;
 			# get empty indiv recordset
 			$sql = 'SELECT * from '.TBL_INDIV.' where indkey=-1';
@@ -209,7 +211,7 @@
 		* @return boolean
 		*/
 		function Open($filename) {
-			$tmp = $this->OpenReadOnly($filename);
+			$tmp = $this->OpenReadOnly($filename);			
 			return $tmp;
 		}
 		
@@ -257,11 +259,28 @@
 		/**
 		* Parse the gedcom file
 		* Please note that this function sends some output to the browser
+		* @param integer Optional file offset at which to begin parsing
+		* @param integer Optional time limit in seconds
 		*/
-		function ParseGedcom() {
-			rewind($this->fhandle);
+		function ParseGedcom($offset = 0, $time_limit = 30) {
+			# establish start time
+			$start = time();
+			
+			# establish the end of the file
+			# used for calculating the % of processing complete
+			fseek($this->fhandle, 0, SEEK_END);
+			$this->file_end_offset = ftell($this->fhandle);
+			
+			# seek to offset or rewind to beginning of file
+			fseek($this->fhandle, $offset);
+			# scan through file looking for records
 			while (!feof($this->fhandle)) {
 				$poffset = ftell($this->fhandle);
+				
+				# stop parsing and return the file offset if time limit is reached
+				$time = time();
+				if ($time - $start >= $time_limit) return $poffset;
+				
 				$line = fgets($this->fhandle);
 				if (preg_match(REG_INDI, $line, $match)) {
 					$this->_ParseIndividual($match);
@@ -296,9 +315,11 @@
 				# only the first one is used.
 				if ($level == 0) { 
 					$recordset = array_merge($indiv, $names[0]);
-					$this->_DB_InsertRecord($this->rs_indiv, $recordset);
+					//$this->_DB_InsertRecord($this->rs_indiv, $recordset);
+					$this->_DB_Insert_Indiv($recordset);
 					foreach ($events as $event) {
-						$this->_DB_InsertRecord($this->rs_fact, $event);
+						//$this->_DB_InsertRecord($this->rs_fact, $event);
+						$this->_DB_Insert_Fact($event);
 					}
 					fseek($this->fhandle, $poffset);
 					return;
@@ -313,13 +334,17 @@
 				elseif (preg_match(REG_NOTEX, $line, $match)) {
 					$indiv['notekey'] = trim($match[1]);
 				}
+				elseif (preg_match(REG_NOTEO, $line, $match)) {
+					$this->_ParseNote($line, $indiv['indkey']);
+					$indiv['notekey'] = 'N'.$indiv['indkey'];
+				}
 				# parse event and populate begin/end status
 				elseif (preg_match(REG_INDE, $line, $match)) {
 					$event = $this->_ParseIndivEventDetail($match, $indiv['indkey']);
 					array_push($events, $event);
 				}
 				elseif (preg_match(REG_REFN, $line, $match)) {
-					$indiv['refn'] = $match[1];
+					$indiv['refn'] = trim($match[1]);
 				}
 			}
 		}
@@ -355,6 +380,10 @@
 				elseif (preg_match(REG_NOTEX, $line, $match)) {
 					$source['notekey'] = $match[1];
 				}
+				elseif (preg_match(REG_NOTEO, $line, $match)) {
+					$this->_ParseNote($line, $source['srckey']);
+					$source['notekey'] = 'N'.$source['srckey'];
+				}
 			}
 		}
 		
@@ -386,11 +415,18 @@
 		* Parse Note record
 		* @param string $start_line
 		*/
-		function _ParseNote($start_line) {	
+		function _ParseNote($start_line, $notekey = null) {	
 			$note = array();
 			$text = '';
-			preg_match(REG_NOTE, $start_line, $match);
-			$note['notekey'] = $match[1];
+			if ($notekey) { 
+				preg_match(REG_NOTEO2, $start_line, $match);
+				$note['notekey'] = 'N'.$notekey;
+				$text .= $match[1];
+			} 
+			else {
+				preg_match(REG_NOTE, $start_line, $match);
+				$note['notekey'] = $match[1];
+			}
 			if (isset($match[2])) {
 				$text .= $match[2];
 			}
@@ -428,9 +464,11 @@
 				$level = $this->_ExtractLevel($line);
 				# dump record to db if reached end of family record
 				if ($level == 0) {
-					$this->_DB_InsertRecord($this->rs_family, $family);
+					//$this->_DB_InsertRecord($this->rs_family, $family);
+					$this->_DB_Insert_Family($family);
 					foreach ($events as $event) {
-						$this->_DB_InsertRecord($this->rs_fact, $event);
+						//$this->_DB_InsertRecord($this->rs_fact, $event);
+						$this->_DB_Insert_Fact($event);
 					}
 					fseek($this->fhandle, $poffset);
 					return;
@@ -448,11 +486,16 @@
 					$child = array();
 					$child['famkey'] = $family['famkey'];
 					$child['indkey'] = $match[1];
-					$this->_DB_InsertRecord($this->rs_child, $child);
+					//$this->_DB_InsertRecord($this->rs_child, $child);
+					$this->_DB_Insert_Child($child);
 				}
 				# create note link
 				elseif (preg_match(REG_NOTEX, $line, $match)) {
 					$family['notekey'] = trim($match[1]);
+				}
+				elseif (preg_match(REG_NOTEO, $line, $match)) {
+					$this->_ParseNote($line, $family['famkey']);
+					$family['notekey'] = 'N'.$family['famkey'];
 				}
 				# parse event and populate begin/end status
 				elseif (preg_match(REG_FAME, $line)) {
@@ -593,12 +636,13 @@
 				$line = fgets($this->fhandle);
 				$level = $this->_ExtractLevel($line);
 				if ($level <= $begin_level) {
-					$this->_DB_InsertRecord($this->rs_citation, $citation);
+					//$this->_DB_InsertRecord($this->rs_citation, $citation);
+					$this->_DB_Insert_Citation($citation);
 					fseek($this->fhandle, $poffset);
 					return;
 				}
 				elseif (preg_match(REG_PAGE, $line, $match)) {
-					$citation['source'] = $match[1];
+					$citation['source'] = trim($match[1]);
 				}
 			}
 		}
@@ -671,10 +715,71 @@
 		}
 		
 		function _DB_InsertRecord($rs, $record) {
-			$db =& $this->db;
-			$insertSQL = $db->GetInsertSQL($rs, $record);
-			$db->Execute($insertSQL);
+			$insertSQL = $GLOBALS['db']->GetInsertSQL($rs, $record);
+			$GLOBALS['db']->Execute($insertSQL);
 			//echo $insertSQL.'<br>';
+		}
+		
+		function _DB_Insert_Indiv($record) {
+			$indkey = $GLOBALS['db']->Quote($record['indkey']);
+			$surname = $GLOBALS['db']->Quote($record['surname']);
+			$givenname = $GLOBALS['db']->Quote($record['givenname']);
+			$aka = $GLOBALS['db']->Quote($record['aka']);
+			$prefix = $GLOBALS['db']->Quote($record['prefix']);
+			$suffix = $GLOBALS['db']->Quote($record['suffix']);
+			$sex = $GLOBALS['db']->Quote($record['sex']);
+			$refn = isset($record['refn']) ? $GLOBALS['db']->Quote($record['refn']) : "''";
+			$notekey = isset($record['notekey']) ? $GLOBALS['db']->Quote($record['notekey']) : "''";
+			$sql = 'INSERT INTO '.TBL_INDIV.' (indkey,surname,givenname,aka,prefix,suffix,sex,refn,notekey) ';
+			$sql .= 'VALUES ('.$indkey.','.$surname.','.$givenname.','.$aka.','.$prefix.','.$suffix.',';
+			$sql .= $sex.','.$refn.','.$notekey.')';
+			$GLOBALS['db']->Execute($sql);
+		}
+		
+		function _DB_Insert_Fact($record) {
+			$indfamkey = $GLOBALS['db']->Quote($record['indfamkey']);
+			$type = isset($record['type']) ? $GLOBALS['db']->Quote($record['type']) : "''";
+			$date_mod = isset($record['date_mod']) ? $GLOBALS['db']->Quote($record['date_mod']) : "''";
+			$date1 = isset($record['date1']) ? $GLOBALS['db']->Quote($record['date1']) : "''";
+			$date2 = isset($record['date2']) ? $GLOBALS['db']->Quote($record['date2']) : "''";
+			$date_str = isset($record['date_str']) ? $GLOBALS['db']->Quote($record['date_str']) : "''";
+			$place = isset($record['place']) ? $GLOBALS['db']->Quote($record['place']) : "''";
+			$comment = isset($record['comment']) ? $GLOBALS['db']->Quote($record['comment']) : "''";
+			$factkey = $GLOBALS['db']->Quote($record['factkey']);
+			$sql = 'INSERT INTO '.TBL_FACT.' (indfamkey,type,date_mod,date1,date2,date_str,place,comment,factkey) ';
+			$sql .= 'VALUES ('.$indfamkey.','.$type.','.$date_mod.','.$date1.','.$date2.',';
+			$sql .= $date_str.','.$place.','.$comment.','.$factkey.')';
+			$GLOBALS['db']->Execute($sql);
+		}
+		
+		function _DB_Insert_Child($record) {
+			$famkey = $GLOBALS['db']->Quote($record['famkey']);
+			$indkey = $GLOBALS['db']->Quote($record['indkey']);
+			$sql = 'INSERT INTO '.TBL_CHILD.' (famkey,indkey) VALUES ('.$famkey.','.$indkey.');';
+			$GLOBALS['db']->Execute($sql);
+		}
+		
+		function _DB_Insert_Citation($record) {
+			$factkey = $GLOBALS['db']->Quote($record['factkey']);
+			$srckey = $GLOBALS['db']->Quote($record['srckey']);
+			$source = isset($record['source']) ? $GLOBALS['db']->Quote($record['source']) : "''";
+			$citekey = "''";
+			$sql = 'INSERT INTO '.TBL_CITATION.' (factkey,srckey,source,citekey) ';
+			$sql .= 'VALUES ('.$factkey.','.$srckey.','.$source.','.$citekey.')';
+			$GLOBALS['db']->Execute($sql);		
+		}
+		
+		function _DB_Insert_Family($record) {
+			$famkey = $GLOBALS['db']->Quote($record['famkey']);
+			$spouse1 = isset($record['spouse1']) ? $GLOBALS['db']->Quote($record['spouse1']) : "''";
+			$spouse2 = isset($record['spouse2']) ? $GLOBALS['db']->Quote($record['spouse2']) : "''";
+			$beginstatus = isset($record['beginstatus']) ? $GLOBALS['db']->Quote($record['beginstatus']) : "''";
+			$endstatus = isset($record['endstatus']) ? $GLOBALS['db']->Quote($record['endstatus']) : "''";
+			$notekey = isset($record['notekey']) ? $GLOBALS['db']->Quote($record['notekey']) : "''";
+			$sql = 'INSERT INTO '.TBL_FAMILY.' (famkey,spouse1,spouse2,beginstatus,endstatus,notekey) ';
+			$sql .= 'VALUES ('.$famkey.','.$spouse1.','.$spouse2.','.$beginstatus.',';
+			$sql .= $endstatus.','.$notekey.')';
+			$GLOBALS['db']->Execute($sql);
 		}
 
  	}

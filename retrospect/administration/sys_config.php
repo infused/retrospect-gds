@@ -151,7 +151,7 @@
           <td class="section_body"><table  border="0" cellspacing="2" cellpadding="0">
             <tr>
               <td width="250" class="content-label">Default Language:</td>
-              <td><select name="default_lang_new" class="listbox" id="default_lang_new">
+              <td width="100" align="left" valign="top"><select name="default_lang_new" class="listbox" id="default_lang_new">
                   <?php
 					 			$sql = "SELECT * FROM ".TBL_LANG;
 								$rs = $db->Execute($sql);
@@ -163,7 +163,7 @@
 					 		?>
                 </select>
                   <input name="default_lang_old" type="hidden" id="default_lang_old" value="<?php echo $options->GetOption('default_lang'); ?>"></td>
-              <td>&nbsp;</td>
+              <td>If you change the default language you may need to restart your browser to see the change. </td>
             </tr>
             <tr>
               <td class="content-label">Allow language changes?</td>
@@ -173,7 +173,7 @@
                 </select>
                   <input name="allow_lang_change_old" type="hidden" id="allow_lang_change_old" value="<?php echo $options->GetOption('allow_lang_change'); ?>">
               </td>
-              <td>&nbsp;</td>
+              <td>Enables the language drop down menu on all pages. </td>
             </tr>
             <tr>
               <td class="content-label">Translate Dates?</td>

@@ -28,7 +28,7 @@
 <head>
 <title><?php echo gtc("E-mail this to a friend"); ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link href="<?php echo $g_site_root.'/themes/default/styles.css'; ?>" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="themes/default/styles.css" />
 <script language="JavaScript" type="text/JavaScript">
 <!--
 function MM_findObj(n, d) { //v4.01

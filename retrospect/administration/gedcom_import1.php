@@ -74,18 +74,18 @@
     </table></td>
   </tr>
   <tr> 
-    <td align="left" valign="top" class="notification"><p><strong>WARNING!</strong><br>
+    <td class="notification"><p><strong>WARNING!</strong><br>
       If you continue, your current database will be overwritten with new data from this gedcom file. Please make sure that your current database has been backed up before you continue. </p>
     </td> 
   </tr>
   <tr>
-    <td align="left" valign="top" class="notification">&nbsp;</td>
+    <td class="text">&nbsp;</td>
   </tr> 
 	<tr>
 	<td>
 		<form action="<?php echo $_SERVER['PHP_SELF'].'?option=gedcom_import2'; ?>" method="post" enctype="multipart/form-data" name="gedcom_import_form1" id="gedcom_import_form1">
 			<input name="selectedfile" type="hidden" value="<?php echo $_POST['selectedfile'] ?>">
-			<input name="Continue" type="submit" class="text" id="Continue" value="Continue"> 
+			<input name="Import" type="submit" class="text" id="Import" value="Begin Import..."> 
 		</form>
 	</td>
 	</tr>

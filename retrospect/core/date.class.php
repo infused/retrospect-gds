@@ -24,9 +24,9 @@
 	
 	# Define regular expressions
 	# Gedcom compliant structures
-	define('REG_DATE_GREG1','/^(ABT|CIR|BEF|AFT|FROM|TO|EST|CAL|) *([\d]{3,4}\/[\d]{2}|[\d]{3,4})$/');
-	define('REG_DATE_GREG2','/^(ABT|CIR|BEF|AFT|FROM|TO|EST|CAL|) *(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC) ([\d]{4}\/[\d]{2}|[\d]{1,4})$/');
-	define('REG_DATE_GREG3', '/^(ABT|CIR|BEF|AFT|FROM|TO|EST|CAL|) *([0-9]{1,2}) (JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC) ([\d]{4}\/[\d]{2}|[\d]{1,4})$/');
+	define('REG_DATE_GREG1','/^(ABT|CIR|BEF|AFT|FROM|TO|EST|CAL|) *([\d]{4}\/[\d]{2}|[\d]{4}\/[\d]{4}|[\d]{1,4})$/');
+	define('REG_DATE_GREG2','/^(ABT|CIR|BEF|AFT|FROM|TO|EST|CAL|) *(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC) ([\d]{4}\/[\d]{2}|[\d]{4}\/[\d]{4}|[\d]{1,4})$/');
+	define('REG_DATE_GREG3', '/^(ABT|CIR|BEF|AFT|FROM|TO|EST|CAL|) *([0-9]{1,2}) (JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC) ([\d]{4}\/[\d]{2}|[\d]{4}\/[\d]{4}|[\d]{1,4})$/');
 	define('REG_DATE_PERIOD', '/^FROM (.+) TO (.+)/');
 	define('REG_DATE_RANGE', '/^BET (.+) AND (.+)/');
 	define('REG_DATE_RANGE2', '/^(ABT|CIR|BEF|AFT|FROM|TO|EST|CAL|BET|) *(.+)-(.+)/');
@@ -176,10 +176,6 @@
 			}
 			elseif (preg_match(REG_DATE_EXACT, $datestr, $match)) {
 				$date = $this->_get_greg3($match, false);
-				return $date;
-			}
-			elseif (preg_match(REG_DATE_DYMO, $datestr, $match)) {
-				$date = $this->_get_dymo($match, false);
 				return $date;
 			}
 		}

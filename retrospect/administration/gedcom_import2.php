@@ -34,12 +34,27 @@
 	if (!is_writable($gedcomdir)) { 
 		notify('The gedcom directory is not writable. Check your server configuration.');
 	}
-	# Bump the script execution time limit up to 5 minutes
-	# This will not work if safe_mode is On
-	@set_time_limit(300);
 	$gedcomfile = $gedcomdir.$_POST['selectedfile'];
 	$gedcom = new GedcomParser();
 	$gedcom->Open($gedcomfile);
+	
+	# Set the file offset and set the factkey if needed
+	if (isset($_POST['offset']) AND $_POST['offset'] > 0) {
+		$offset = $_POST['offset'];
+		
+		# we need to set the factkey to the highest already in the database
+		# in case we are not starting from the beginning of the file
+		$sql = 'SELECT factkey FROM '.TBL_FACT;
+		$rs = $db->Execute($sql);
+		$factkey = 0;
+		while ($row = $rs->FetchRow()) {
+			if ($row['factkey'] > $factkey) $factkey = $row['factkey'];
+		}
+		$gedcom->factkey = $factkey;
+	}
+	else {
+		$offset = 0;
+	}
 ?>
 <table width="100%"  border="0" cellpadding="0" cellspacing="5"> 
   <tr>
@@ -48,80 +63,98 @@
         <td class="section_head">Import Gedcom </td>
       </tr>
       <tr>
-        <td class="section_body"><table width="100%"  border="0" cellpadding="2" cellspacing="0">
-          <tr>
-            <td valign="middle" class="content-label">Emptying tables... </td>
-          </tr>
-          <tr>
-            <td valign="middle" class="text">Individual table...
-                <?php
-							$sql = 'delete from '.TBL_INDIV;
-							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
-						?>
-            </td>
-          </tr>
-          <tr>
-            <td valign="middle" class="text">Family table...
-                <?php
-							$sql = 'delete from '.TBL_FAMILY;
-							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
-						?>
-            </td>
-          </tr>
-          <tr>
-            <td valign="middle" class="text">Child table...
-                <?php 
-							$sql = 'delete from '.TBL_CHILD;
-							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
-						?>
-            </td>
-          </tr>
-          <tr>
-            <td valign="middle" class="text">Fact table...
-                <?php 
-							$sql = 'delete from '.TBL_FACT;
-							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
-						?>
-            </td>
-          </tr>
-          <tr>
-            <td valign="middle" class="text">Note table...
-                <?php 
-							$sql = 'delete from '.TBL_NOTE;
-							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
-						?>
-            </td>
-          </tr>
-          <tr>
-            <td valign="middle" class="text">Source table...
-                <?php 
-							$sql = 'delete from '.TBL_CITATION;
-							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
-						?>
-            </td>
-          </tr>
-          <tr>
-            <td valign="middle" class="text">Citation table...
-                <?php 
-							$sql = 'delete from '.TBL_SOURCE;
-							echo ($db->Execute($sql)) ? 'OK' : 'Failed';
-						?>
-            </td>
-          </tr>
+        <td class="section_body">
+	<table width="100%"  border="0" cellpadding="2" cellspacing="0">
+<?php 
+	# Empty tables if starting import from beginning
+	if ($offset == 0) { 
+?>
+	<tr>
+		<td valign="middle" class="content-label">Emptying tables... </td>
+	</tr>
+	<tr>
+		<td valign="middle" class="text">Individual table...
+				<?php
+			$sql = 'delete from '.TBL_INDIV;
+			echo ($db->Execute($sql)) ? 'OK' : 'Failed';
+		?>
+		</td>
+	</tr>
+	<tr>
+		<td valign="middle" class="text">Family table...
+				<?php
+			$sql = 'delete from '.TBL_FAMILY;
+			echo ($db->Execute($sql)) ? 'OK' : 'Failed';
+		?>
+		</td>
+	</tr>
+	<tr>
+		<td valign="middle" class="text">Child table...
+				<?php 
+			$sql = 'delete from '.TBL_CHILD;
+			echo ($db->Execute($sql)) ? 'OK' : 'Failed';
+		?>
+		</td>
+	</tr>
+	<tr>
+		<td valign="middle" class="text">Fact table...
+				<?php 
+			$sql = 'delete from '.TBL_FACT;
+			echo ($db->Execute($sql)) ? 'OK' : 'Failed';
+		?>
+		</td>
+	</tr>
+	<tr>
+		<td valign="middle" class="text">Note table...
+				<?php 
+			$sql = 'delete from '.TBL_NOTE;
+			echo ($db->Execute($sql)) ? 'OK' : 'Failed';
+		?>
+		</td>
+	</tr>
+	<tr>
+		<td valign="middle" class="text">Source table...
+				<?php 
+			$sql = 'delete from '.TBL_CITATION;
+			echo ($db->Execute($sql)) ? 'OK' : 'Failed';
+		?>
+		</td>
+	</tr>
+	<tr>
+		<td valign="middle" class="text">Citation table...
+				<?php 
+			$sql = 'delete from '.TBL_SOURCE;
+			echo ($db->Execute($sql)) ? 'OK' : 'Failed';
+		?>
+		</td>
+	</tr>
+<?php } ?>
           <tr>
             <td valign="middle" class="text">&nbsp;</td>
           </tr>
           <tr>
-            <td valign="middle" class="content-label">Processing gedcom...</td>
+            <td valign="middle" class="content-label">Processing gedcom beginning at offset <?php echo $offset; ?>...</td>
           </tr>
           <tr>
-            <td valign="middle" class="text"><?php
-							$gedcom->ParseGedcom();
-						?>
-&nbsp; </td>
+            <td valign="middle" class="text">
+							<?php
+								$offset = $gedcom->ParseGedcom($offset);
+							?>
+							&nbsp;
+						</td>
           </tr>
           <tr>
-            <td valign="middle" class="text">Processing complete. </td>
+            <td valign="middle" class="text">
+							<?php 
+								if (!$offset) {
+									echo 'Processing complete.';
+								}
+								else {
+									$complete = number_format($offset / $gedcom->file_end_offset * 100, 1);
+									echo 'Processing is '.$complete.'% complete.  Click the CONTINUE button to proceed.';
+								}
+							?>
+						</td>
           </tr>
         </table></td>
       </tr>
@@ -129,9 +162,17 @@
   </tr> 
 	<tr>
 	<td>
-		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+	<?php if ($offset) { ?>	
+		<form action="<?php echo $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']; ?>" method="post">
 		<input name="Continue" type="submit" class="text" id="Continue" value="Continue"> 
+		<input name="selectedfile" type="hidden" id="selectedfile" value="<?php echo $_POST['selectedfile']; ?>">
+		<input name="offset" type="hidden" id="offset" value="<?php echo $offset; ?>">
 		</form>
+	<?php } else { ?>
+		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+		<input name="Finished" type="submit" class="text" id="Finished" value="Finished"> 
+		</form>
+	<?php } ?>
 	</td>
 	</tr>
 </table> 
