@@ -154,7 +154,7 @@
 	* Options table.
 	* @global string $g_tbl_option
 	*/
-	$g_tbl_option 			= 'rgds_options';
+	$g_tbl_option 			= $g_db_prefix . 'options';
 	
 	/**
 	* Media table.
