@@ -53,8 +53,33 @@
 		return round($size, 2).$ext;
 	}
 	
-	function is_valid_smtp($string) {
+	function is_email($string) {
 		if (preg_match('/^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/', $string)) return true;
 		else return false;
+	}
+	
+	function count_comments($indkey) {
+		global $db;
+		$sql = 'SELECT COUNT(*) FROM '.TBL_COMMENT.' WHERE indkey='.$db->qstr($indkey).' AND visible='.$db->qstr('1');
+		return $db->GetOne($sql);
+	}
+	
+	function get_visible_comments($indkey) {
+		global $db;
+		$sql  = 'SELECT * FROM '.TBL_COMMENT.' ';
+		$sql .= 'WHERE indkey='.$db->qstr($indkey).' AND visible='.$db->qstr('1').' ';
+		$sql .= 'ORDER BY received';
+		return $db->GetAll($sql);
+	}
+	
+	function insert_comment($indkey, $email, $comment) {
+		global $db;
+		$email = trim($email);
+		$comment = trim($comment);
+		$received = $db->DBTimeStamp(time());
+		
+		$sql  = 'INSERT INTO '.TBL_COMMENT.' (indkey,email,received,comment) ';
+		$sql .= 'VALUES ('.$db->qstr($indkey).','.$db->qstr($email).','.$received.','.$db->qstr($comment).')';
+		return $db->Execute($sql);
 	}
 ?>

@@ -1,6 +1,6 @@
-<?php
+<?php 
 /**
- * Reports
+ * Comments
  *
  * @copyright 	Keith Morrison, Infused Solutions	2001-2004
  * @author			Keith Morrison <keithm@infused-solutions.com>
@@ -24,25 +24,28 @@
  */
 
 	# Ensure this file is being included by a parent file
-	defined( '_RGDS_VALID' ) or die( 'Direct access to this file is not allowed.' );
+	defined( '_RGDS_VALID' ) or die( 'Direct access to this file is not allowed.' );	
 	
 	# process expected get/post variables
 	$g_indiv = isset($_GET['id']) ? $_GET['id'] : exit;
-
+	
 	# get first person information
-	$o = new person($g_indiv, 3);
+	$o = new person($g_indiv);
 	$smarty->assign('indiv', $o);
 	
+	# populate keyword array
+	keyword_push(gtc("Comments"));
+	keyword_push($o->name);
+	
 	# assign other smarty variables
-	$smarty->assign_by_ref('page_title', sprintf(gtc("Reports for %s"), $o->name));
-	$smarty->assign_by_ref('surname_title', sprintf(gtc("%s Surname"), $o->sname));
+	$smarty->assign('page_title', sprintf(gtc("Comments for %s"), $o->name));
+	$smarty->assign('surname_title', sprintf(gtc("%s Surname"), $o->sname));
 	$content_title = $o->prefix.' '.$o->name;
 	if ($o->suffix) $content_title .= ', '.$o->suffix;
-	$smarty->assign_by_ref('content_title', $content_title);
+	$smarty->assign('content_title', $content_title);
 	$smarty->assign('comment_count', count_comments($g_indiv));
-	
-	# populate keyword array
-	keyword_push(gtc("Reports"));
-	keyword_push($o->name);
+
+	# grab all the comments
+	$smarty->assign('COMMENTS', get_visible_comments($g_indiv));
 
 ?>

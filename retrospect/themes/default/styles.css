@@ -189,6 +189,7 @@ textarea.textbox {
 	border-bottom-style: solid;
 	border-left-style: solid;
 	border-right-style: solid;
+	min-height: 400px;
 }
 .tab-row {
 	font: 8pt Georgia, Arial, Helvetica, sans-serif;
@@ -252,4 +253,9 @@ textarea.textbox {
 	background-color: #EEEEEE;
 	padding: 5px;
 	border: solid 1px #CCCCCC;
+}
+div .comment {
+	background: #DDDDDD;
+	padding: 10px;
+	margin-top: 10px;	
 }

@@ -59,7 +59,7 @@
 		# Check for valid email
 		$email = $_POST['email'];
 		if ($email != '') {
-			if (!is_valid_smtp($email)) {
+			if (!is_email($email)) {
 				$error = true;
 				$email_errors[] = 'Email address is not valid.';
 			}
