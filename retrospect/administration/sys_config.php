@@ -64,14 +64,14 @@
 					# re-initialize options object
 					$options->Initialize();
 				}
-			?>
+			?>&nbsp;
 		</td> 
   </tr> 
   <tr> 
     <td align="left" valign="top" class="content-subtitle"><?php echo _("Site Configuration"); ?></td> 
   </tr> 
   <tr> 
-    <td align="left" valign="top"> <table width="100%"  border="0" cellpadding="2" cellspacing="0" bgcolor="#CCCCCC"> 
+    <td align="left" valign="top" bgcolor="#CCCCCC"> <table width="100%"  border="0" cellpadding="2" cellspacing="0"> 
         <tr> 
           <td width="250" class="content-label"><?php echo _("Default Page"); ?>:</td> 
           <td width="200"><input name="default_page_new" type="text" class="textbox" id="default_page_new" value="<?php echo $options->GetOption('default_page'); ?>">

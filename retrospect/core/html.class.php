@@ -21,5 +21,38 @@
  *
  */
 
+	class HTML {
+	
+		/** 
+		*	Listbox
+		* This function creates a listbox and populates it with items
+		* from the $options variable.  Name and Id are both set to the 
+		* $name variable.  If $selected is provided, the option with a value
+		* matching $selected will be selected by default.
+		* @access public
+		* @param string $name 
+		* @param array $options (in the form 'option'=>'value')
+		* @param string $class
+		* @param mixed $selected
+		* @return string
+		*/
+		function listbox($name, $options, $class = null, $selected = null) {
+			$listbox = '<select name="'.$name.'" id="'.$name.'"';
+			if (!is_null($class)) {
+				$listbox .= ' class="'.$class.'"';
+			}
+			$listbox .= '>';
+			foreach($options as $option => $value) {
+				$listbox .= '<option value="'.$value.'"';
+				if (!is_null($selected) AND $selected == $value) {
+					$listbox .= ' selected';
+				}
+				$listbox .= '>'.$option.'</option>';
+			}
+			
+			$listbox .= '</select>';
+			return $listbox;
+		}
+	}
 
 ?>

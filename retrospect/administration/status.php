@@ -32,7 +32,7 @@
 
 
 <link href="styles.css" rel="stylesheet" type="text/css">
-<table width="100%"  border="0" cellspacing="4" cellpadding="4">
+<table width="100%"  border="0" cellspacing="5" cellpadding="0">
   <tr>
     <td colspan="2" class="notification">&nbsp;</td>
   </tr>

@@ -25,7 +25,7 @@
 <link href="styles.css" rel="stylesheet" type="text/css">
 <table width="100%"  border="0" cellspacing="5" cellpadding="0">
 	<tr>
-	  <td align="left" valign="top" colspan="4">&nbsp;</td>
+	  <td colspan="4" align="left" valign="top" class="notification">&nbsp;</td>
   </tr>
 	<tr>
     <td align="left" valign="top" colspan="4" class="content-subtitle"><?php echo _("User List"); ?></td>

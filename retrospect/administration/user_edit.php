@@ -26,7 +26,7 @@
 <form name="user_add_form" method="post" action="">
 <table width="100%" border="0" cellpadding="0" cellspacing="5">
   <tr>
-    <td colspan="2" align="left" valign="top">&nbsp;</td>
+    <td colspan="2" align="left" valign="top" class="notification">&nbsp;</td>
   </tr>
 	<?php 
 		if (isset($_POST['Save'])) {

@@ -93,6 +93,9 @@
 	*/
 	require_once(CORE_PATH.'genealogy.class.php');
 	
+	require_once(CORE_PATH.'html.class.php');
+	$html = new HTML;
+	
 	/**
 	* Require theme functions
 	*/
