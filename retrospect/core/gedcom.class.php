@@ -195,19 +195,16 @@
 		* @return boolean
 		*/
 		function OpenReadOnly($filename) {
-			if (is_file($filename)) {  # make sure that it's really a file
+			if (is_file($filename)) { 
 				$handle = @fopen($filename, 'rb');
-				if ($handle == false) {
-					return false;
-				} else {
+				if ($handle == false) { return false; }
+			  else {
 					$this->filename = $filename;
 					$this->fhandle = $handle;
 					return true;
 				}
 			}
-			else {
-				return false;
-			}
+			else return false;
 		}
 		
 		/**
@@ -216,8 +213,7 @@
 		* @return boolean
 		*/
 		function Open($filename) {
-			$tmp = $this->OpenReadOnly($filename);			
-			return $tmp;
+			return $this->OpenReadOnly($filename);			
 		}
 		
 		/**
@@ -233,30 +229,18 @@
 		function GetStatistics() {
 			$handle = &$this->fhandle;
 			$this->fsize = sprintf("%u", filesize($this->filename));
-			$icount = 0;
-			$fcount = 0;
-			$scount = 0;
-			$ncount = 0;
-			$ocount = 0;
-			$lines = 0;
 			rewind($handle);
+			
 			while (!feof($handle)) {
 				$lines++;
 				$line = fgets($handle);
 				$line = trim($line);
-				if (preg_match(REG_INDI, $line)) {
-					$icount++;
-				} 
-				elseif (preg_match(REG_FAM, $line)) {
-					$fcount++;
-				} 
-				elseif (preg_match(REG_SOUR, $line)) {
-					$scount++;
-				} 
-				elseif (preg_match(REG_NOTE, $line)) {
-					$ncount++;
-				} 
+				if (preg_match(REG_INDI, $line)) $icount++;
+				elseif (preg_match(REG_FAM, $line)) $fcount++;
+				elseif (preg_match(REG_SOUR, $line)) $scount++;
+				elseif (preg_match(REG_NOTE, $line)) $ncount++; 
 			}
+			
 			$this->individual_count = $icount;
 			$this->family_count = $fcount;
 			$this->source_count = $scount;

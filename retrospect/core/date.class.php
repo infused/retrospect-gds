@@ -234,18 +234,17 @@
 			$day = '00';
 			$month_str =& $date_arr[2];
 			$year_str =& $date_arr[3];
+			
 			# get the month and pad to 2 digits
 			$month = str_pad($months[$month_str], 2, '0', STR_PAD_LEFT);
+			
 			# get the year
 			$year = $this->_get_greg1($year_str);
 			$date = $year.$month.$day;
+			
 			# validate date (fake the day!) 
-			if (checkdate($month, '01', $year)) {
-				return $date;
-			}
-			else {
-				return false;
-			}
+			if (checkdate($month, '01', $year)) return $date;
+			else return false;
 		}
 	
 		/**
