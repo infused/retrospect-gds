@@ -23,12 +23,12 @@
  */  
 ?>
 <link href="styles.css" rel="stylesheet" type="text/css">
-<form name="user_add_form" method="post" action="">
-<table width="100%" border="0" cellpadding="0" cellspacing="5">
-  <tr>
-    <td align="left" valign="top">&nbsp;</td>
-  </tr>
-	<?php 
+<form name="user_add_form" method="post" action=""> 
+  <table width="100%" border="0" cellpadding="0" cellspacing="5"> 
+    <tr> 
+      <td align="left" valign="top">&nbsp;</td> 
+    </tr> 
+    <?php 
 		if (isset($_POST['Add']) and $_POST['Add'] == 'Add') {
 			echo '<tr><td class="notification">';
 			# validate values
@@ -64,48 +64,42 @@
 			echo '<tr><td>&nbsp;</td></tr>';
 		}
 	if (!isset($_POST['Add']) or $form_error == true) {
-	?>
-  <tr>
-    <td class="content-subtitle"><?php echo _("Add User"); ?>&nbsp;</td>
-  </tr>
-  <tr>
-    <td bgcolor="#CCCCCC"><table border="0" cellpadding="4" cellspacing="0">
-      <tr>
-        <td width="200" class="content-label"><?php echo _("Username"); ?>:<br>          </td>
-        <td>
-					<input name="username" type="text" class="textbox" id="username" size="40" maxlength="40" value="<?php echo isset($_POST['username']) ? $_POST['username'] : ''; ?>">
-				</td>
-      </tr>
-      <tr>
-        <td class="content-label"><?php echo _("Full Name"); ?>: </td>
-        <td>
-					<input name="fullname" type="text" class="textbox" id="fullname" size="40" maxlength="40" value="<?php echo isset($_POST['fullname']) ? $_POST['fullname'] : ''; ?>">
-				</td>
-      </tr>
-      <tr>
-        <td class="content-label"><?php echo _("Email Address"); ?>: </td>
-        <td>
-					<input name="email" type="text" class="textbox" id="email" size="40" maxlength="40" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ''; ?>">
-				</td>
-      </tr>
-      <tr>
-        <td class="content-label"><?php echo _("New Password"); ?>:<br></td>
-        <td class="text">
-					<input name="password1" type="password" class="textbox" id="password1" size="40" maxlength="40" value="">
-				</td>
-      </tr>
-      <tr>
-        <td class="content-label"><?php echo _("Verify Password"); ?>: <br>          </td>
-        <td class="text">
-					<input name="password2" type="password" class="textbox" id="password2" size="40" maxlength="40" value="">
-				</td>
-      </tr>
-    </table></td>
-  </tr>
-  <tr>
-    <td><input name="Add" type="submit" class="text" id="Add" value="<?php echo _("Add"); ?>">
-    <input name="Reset" type="reset" class="text" id="Reset" value="<?php echo _("Reset"); ?>"></td>
-  </tr>
-</table>
-</form>
-<?php } ?>
+	?> 
+    <tr> 
+      <td class="content-subtitle"><?php echo _("Add User"); ?>&nbsp;</td> 
+    </tr> 
+    <tr> 
+      <td bgcolor="#CCCCCC">
+				<table border="0" cellpadding="4" cellspacing="0"> 
+          <tr> 
+            <td width="200" class="content-label"><?php echo _("Username"); ?>:</td> 
+            <td><input name="username" type="text" class="textbox" id="username" size="40" maxlength="40" value="<?php echo isset($_POST['username']) ? $_POST['username'] : ''; ?>"> </td> 
+          </tr> 
+          <tr> 
+            <td class="content-label"><?php echo _("Full Name"); ?>:</td> 
+            <td><input name="fullname" type="text" class="textbox" id="fullname" size="40" maxlength="40" value="<?php echo isset($_POST['fullname']) ? $_POST['fullname'] : ''; ?>"> </td> 
+          </tr> 
+          <tr> 
+            <td class="content-label"><?php echo _("Email Address"); ?>:</td> 
+            <td><input name="email" type="text" class="textbox" id="email" size="40" maxlength="40" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ''; ?>"> </td> 
+          </tr> 
+          <tr> 
+            <td class="content-label"><?php echo _("New Password"); ?>:</td> 
+            <td class="text"> <input name="password1" type="password" class="textbox" id="password1" size="40" maxlength="40" value=""> </td> 
+          </tr> 
+          <tr> 
+            <td class="content-label"><?php echo _("Verify Password"); ?>:</td> 
+            <td class="text"> <input name="password2" type="password" class="textbox" id="password2" size="40" maxlength="40" value=""> </td> 
+          </tr> 
+        </table>
+			</td> 
+    </tr> 
+    <tr> 
+      <td>
+				<input name="Add" type="submit" class="text" id="Add" value="<?php echo _("Add"); ?>"> 
+        <input name="Reset" type="reset" class="text" id="Reset" value="<?php echo _("Reset"); ?>">
+			</td> 
+    </tr> 
+  </table> 
+</form> 
+<?php } ?> 

@@ -352,15 +352,7 @@ class Person {
 		$this->title = $row['title'];
 		$fnames = explode(' ', $this->gname); 
 		$this->fname = $fnames[0];
-		if ($row['givenname'] and $row['surname']) {	
-			$this->name = $row['givenname'].' '.$row['surname']; 
-		}
-		elseif ($row['givenname']) { 
-			$this->name = $row['givenname']; 
-		}
-		elseif ($row['surname']) { 
-			$this->name = $row['surname']; 
-		}
+		$this->name = trim($this->gname.' '.$this->sname);
 		$this->sex = $row['sex'];
 		if ($this->sex == 'M') { 
 			$this->gender = 'Male'; 
@@ -393,6 +385,7 @@ class Person {
 			else {
 				array_push($this->events, $event);
 			}
+			
 		}
 		$this->event_count = count($this->events);
 	}
@@ -409,8 +402,6 @@ class Person {
 		$famkey = $db->GetOne($sql);
 		
 		$sql = "SELECT spouse1, spouse2 FROM {$this->tbl_family} WHERE famkey='{$famkey}'";
-		
-		
 		$row = $db->GetRow($sql);
 		$this->father_indkey = isset($row['spouse1']) ? $row['spouse1'] : null;
 		$this->mother_indkey = isset($row['spouse2']) ? $row['spouse2'] : null;
@@ -427,8 +418,8 @@ class Person {
 		$sql = "SELECT * FROM {$this->tbl_family} WHERE {$p_col}='{$this->indkey}'";
 		$rs = $db->Execute($sql);
 		while ($row = $rs->FetchRow()) {
-			$m = new marriage($row['famkey'], $row[$s_col], $row['beginstatus'], $row['endstatus'], $row['notekey']);
-			$this->marriages[] = $m;
+			$marriage = new marriage($row['famkey'], $row[$s_col], $row['beginstatus'], $row['endstatus'], $row['notekey']);
+			array_push($this->marriages, $marriage);
 		}
 		$this->marriage_count = count($this->marriages);
 	}
@@ -440,14 +431,12 @@ class Person {
 	function _get_children() {
 		global $db;
 		foreach ($this->marriages as $marriage) {	
-			$childlist = array();
 			$famkey = $marriage['famkey'];
 			$sql = "SELECT indkey FROM {$this->tbl_child} WHERE famkey='{$famkey}'";
 			$children = $db->GetCol($sql);
 			foreach ($children as $child) {
-				array_push($childlist, $child);
+				array_push($this->children, $child);
 			}
-			array_push($this->children, $childlist);
 		}
 	}
 

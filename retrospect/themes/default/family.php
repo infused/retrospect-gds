@@ -83,8 +83,7 @@
 	$g_content .= '<div class="tab-page">';
 	if (!empty($o->aka)) {
 		$g_content .= '<div class="col1">'._("Aka").':</div>';
-		$g_content .= '<div class="col2">'.$o->aka.'</div>';
-		$g_content .= '<div class="col3"></div>';
+		$g_content .= '<div class="col2-2">'.$o->aka.'</div>';
 	}
 	$g_content .= '<div class="col1">'._("Gender").':</div>';
   $g_content .= '<div class="col2">'._($o->gender).'</div>';
