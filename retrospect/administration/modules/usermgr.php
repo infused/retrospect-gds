@@ -34,27 +34,29 @@
 					$db->Execute($sql);
 					$deleted[] = $id;
 				}
-				$smarty->assign('DELETED', $deleted);
-				$smarty->assign('REDIRECT', $_SERVER['PHP_SELF'].'?m=usermgr');
 			}
-		} elseif ($task == 'enable') {
+			$smarty->assign('DELETED', $deleted);
+			$smarty->assign('REDIRECT', $_SERVER['PHP_SELF'].'?m=usermgr');
+		} 
+		elseif ($task == 'enable') {
 			foreach ($selected as $id) {
 				if ($id != '1') {
 					Auth::Enable($id);
 					$enabled[] = $id;
 				}
-				$smarty->assign('ENABLED', $enabled);
-				$smarty->assign('REDIRECT', $_SERVER['PHP_SELF'].'?m=usermgr');
 			}
-		} elseif ($task == 'disable') {
+			$smarty->assign('ENABLED', $enabled);
+			$smarty->assign('REDIRECT', $_SERVER['PHP_SELF'].'?m=usermgr');
+		} 
+		elseif ($task == 'disable') {
 			foreach ($selected as $id) {
 				if ($id != '1') {
 					Auth::Disable($id);
 					$disabled[] = $id;
 				}
-				$smarty->assign('DISABLED', $disabled);
-				$smarty->assign('REDIRECT', $_SERVER['PHP_SELF'].'?m=usermgr');
 			}
+			$smarty->assign('DISABLED', $disabled);
+			$smarty->assign('REDIRECT', $_SERVER['PHP_SELF'].'?m=usermgr');
 		}
 	}
 	
@@ -70,6 +72,7 @@
 		$users[$i]['groupname'] = $groups[$gid];
 	}
 	
+	# create task list 
 	$tasks = array('na'=>'With selected:','delete'=>'Delete','enable'=>'Enable','disable'=>'Disable');
 	
 	# Assign Smarty vars

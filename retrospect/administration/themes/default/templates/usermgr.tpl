@@ -18,7 +18,7 @@
 <div class="content-title">User Manager</div>
 <table class="tab-row" cellpadding="0" cellspacing="0">
 	<tr>
-		<td class="tab-selected">List Users</td>
+		<td class="tab-selected">User List</td>
 		<td class="tab"><a href="{$PHP_SELF}?m=useradd">Add User</a></td>
 		<td class="tab"><a href="{$PHP_SELF}?m=useredit">Edit User</a></td>
 		<td class="tab-last">&nbsp;</td>
@@ -37,7 +37,7 @@
 		</tr>
 		{foreach from=$users item="user"}
 		<tr>
-			<td class="list_item" width="25">
+			<td class="list_item">
 				<input name="selectitem[]" type="checkbox" class="checkbox" value="{$user.id}">
 			</td>
 			<td class="list_item" nowrap="nowrap"><a href="{$PHP_SELF}?m=useredit&id={$user.id}">{$user.fullname}</a></td>
