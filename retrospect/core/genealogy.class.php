@@ -397,6 +397,9 @@ class Event {
 		
 		$this->date = $event_data['date_str'];
 		
+		 $d =  format_date_str($event_data);
+		 if ($d) echo $d.'<br />';
+		
 		if ($p_fetch_sources === true) $this->_get_sources();
 	}
 	
