@@ -28,7 +28,7 @@
 <head>
 <title><?php echo $g_title; ?></title>
 <link rel="stylesheet" href="themes/default/styles.css" />
-<meta name="copyright" content="<?php echo $copyright; ?>" ? />
+<meta name="copyright" content="<?php echo $copyright; ?>" />
 <meta name="description" content="<?php echo $g_title; ?>" />
 <meta name="keywords" content="<?php echo implode(', ', $keywords); ?>" />
 <meta name="robots" content="FOLLOW,INDEX" />

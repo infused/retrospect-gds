@@ -290,11 +290,11 @@
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add english language</descr>
-		<query>INSERT INTO language VALUES (1, 'en_US', 'iso-8895-1', 'English')</query>
+		<query>INSERT INTO language VALUES (1, 'en_US', 'iso-8859-1', 'English')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add spanish language</descr>
-		<query>INSERT INTO language VALUES (2, 'es_ES', 'iso-8895-1', 'Spanish')</query>
+		<query>INSERT INTO language VALUES (2, 'es_ES', 'iso-8859-1', 'Spanish')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add german language</descr>

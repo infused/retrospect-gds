@@ -83,9 +83,16 @@
  	* @access public
  	*/
 	class DateParser {
-		var $pdate;							// the latest parsed date returned from ParseDate()
+		var $pdate;							// array containing mod, date1, date2
 		var $sdate;							// the lastest date string passed to ParseDate()
+		var $mod;
+		var $date1;
+		var $date2;
 		
+		/**
+		* ParseDate 
+		* @param string $string
+		*/
 		function ParseDate ($string) {
 			# reset variables
 			$this->pdate = null;
@@ -128,6 +135,9 @@
 				$date = ':'.$datestr;
 				$this->pdate = $date;
 			}
+			$this->mod =& $this->pdate['mod'];
+			$this->date1 =& $this->pdate['date1'];
+			$this->date2 =& $this->pdate['date2'];
 		}
 		
 		function _parse_date_string ($string) {
