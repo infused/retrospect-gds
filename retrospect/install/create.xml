@@ -158,8 +158,11 @@
 			<autoincrement />
 		</field>
 		<field name="lang_code" type="C" size="5">
-		 <notnull />
+			<notnull /> 
 		</field>
+		<field name="lang_charset" type="C" size="20">
+			<notnull />
+		</field>	
 		<field name="lang_name" type="C" size="20">
 			<notnull />
 		</field>
