@@ -38,7 +38,6 @@
 	$o = new Person($g_indiv);
 
 	# initialize other variables
-	$sources = array();
 	$g_node_indkey = array();
 	$g_node_strings = array();
 	$g_node_parents = array();

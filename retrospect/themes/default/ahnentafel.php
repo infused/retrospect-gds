@@ -24,15 +24,13 @@
 
 	/**
 	* Require Atree class
-	* @access public
 	*/
-	require_once('core/atree.class.php');
+	require_once(CORE_PATH.'atree.class.php');
 	
 	/**
 	* Require report functions
-	* @access public
 	*/	
-	require_once('core/f_report.php');
+	require_once(CORE_PATH.'f_report.php');
 	
 	# process expected get/post variables
 	$g_indiv = isset($_GET['indiv']) ? $_GET['indiv'] : exit;

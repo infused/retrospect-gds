@@ -23,12 +23,11 @@
  */
  
 	/**
-	* @access pubc
+	* Require Atree class
 	*/
-	require_once(CORE_PATH.'/f_report.php');
+	require_once(CORE_PATH.'f_report.php');
 	
 	# process expected get/post variables
-	$print = isset($_GET['print']) ? true : false;
 	$g_indiv = isset($_GET['indiv']) ? $_GET['indiv'] : exit;
 	$g_max_gens = isset($_GET['max_gens']) ? $_GET['max_gens'] : 250;
 	
@@ -36,13 +35,27 @@
 	$g_descendants = array();
 	$g_generation = 0;
 	$g_count = 1;
-	
+	$individuals = array();
+
 	# get first person information
 	$o = new Person($g_indiv, 0, 1);
 	array_push($g_descendants, array($o, 1));
+
+	# assign other smarty variables
+	$smarty->assign('page_title', sprintf(gtc("Descendant Report for %s"), $o->name));
+	$smarty->assign('surname_title', sprintf(gtc("%s Surname"), $o->sname));
+	$content_title = $o->prefix.' '.$o->name;
+	if ($o->suffix) $content_title .= ', '.$o->suffix;
+	$smarty->assign('content_title', $content_title);
+	
+	while (count($g_descendants) > 0) {
+		display_indiv(array_shift($g_descendants));
+	}
+	$smarty->assign('individuals', $individuals);
 	
 	function display_indiv($p_array) {
-		global $g_content, $g_descendants, $g_generation, $g_max_gens, $g_count;
+		global $g_content, $g_descendants, $g_generation, $g_max_gens, $g_count, $individuals;
+		$string = '';
 		$p_node = $p_array[0];
 		$p_generation  = $p_array[1];
 		if ($p_node->father_indkey) { 
@@ -58,28 +71,28 @@
 		
 		if ($p_generation > $g_generation ) {
 			$g_generation = $p_generation;
-			echo "\n\n";
-			echo '<h3>'.sprintf(gtc("Generation %s"), $g_generation).'</h3>';
+			$string .= "\n\n";
+			$string .= '<h3>'.sprintf(gtc("Generation %s"), $g_generation).'</h3>';
 		}
-		echo "\n";
-		echo '<ol><li value="'.$p_node->ns_number.'">';
-		echo '<a href="'.$_SERVER['PHP_SELF'].'?option=family&amp;indiv='.$p_node->indkey.'">'.$p_node->name.'</a>';
+		$string .= "\n";
+		$string .= '<ol><li value="'.$p_node->ns_number.'">';
+		$string .= '<a href="'.$_SERVER['PHP_SELF'].'?option=family&amp;indiv='.$p_node->indkey.'">'.$p_node->name.'</a>';
 		# display parents
-		echo get_parents_sentence($p_node, $father, $mother);
-		echo '<br />'."\n";
+		$string .= get_parents_sentence($p_node, $father, $mother);
+		$string .= '<br />'."\n";
 		# display birth sentence
-		echo get_birth_sentence($p_node);
+		$string .= get_birth_sentence($p_node);
 		# display marriage sentence(s)
-		echo get_marriage_sentences($p_node);
+		$string .= get_marriage_sentences($p_node);
 		# display death sentence
-		echo get_death_sentence($p_node);
-		echo '<br />'."\n";
+		$string .= get_death_sentence($p_node);
+		$string .= '<br />'."\n";
 		# children
 		foreach ($p_node->marriages as $marriage) {
 			$spouse = (!empty($marriage->spouse)) ? new Person($marriage->spouse, 3) : null;
 			if ($marriage->child_count > 0) {
-				echo '<br />'."\n";
-				echo get_children_of_sentence($p_node, $spouse).':<br />';
+				$string .= '<br />'."\n";
+				$string .= get_children_of_sentence($p_node, $spouse).':<br />';
 				foreach ($marriage->children as $child_indkey) {
 					$child = new Person($child_indkey);
 					if ($child->marriage_count > 0) {
@@ -97,50 +110,36 @@
 					$child_nk = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?option=family&amp;indiv='.$child->indkey.'">'.$child->name.'</a>';
 					
 					if ($child->ns_number) {	
-						echo '<ol>';
-						echo '<li value="'.$child->ns_number.'">';
-						echo $child_nk;
+						$string .= '<ol>';
+						$string .= '<li value="'.$child->ns_number.'">';
+						$string .= $child_nk;
 						if ($child->birth->date || $child->death->date) { 
-							echo '&nbsp;&nbsp;'; 
+							$string .= '&nbsp;&nbsp;'; 
 							if ($child->birth->date) {
-								echo gtc("b.").' '.$child->birth->date.' ';
+								$string .= gtc("b.").' '.$child->birth->date.' ';
 							}
 							if ($child->death->date) {
-								echo gtc("d.").' '.$child->death->date;
+								$string .= gtc("d.").' '.$child->death->date;
 							}
 						}
-						echo '</li>';
-						echo '</ol>';
+						$string .= '</li>';
+						$string .= '</ol>';
 					}
 					else {
-						echo '<ul><li class="nobullet">';
-						echo $child_nk;
-						echo '</li></ul>';
+						$string .= '<ul><li class="nobullet">';
+						$string .= $child_nk;
+						$string .= '</li></ul>';
 					}
 					
 				}
 			}
 		}
 
-		echo '</li></ol>';
+		$string .= '</li></ol>';
+		$individuals[] = $string;
 	}
+	
+	
 
-	# title
-	$g_title = sprintf(gtc("Descendant Report for %s"), $o->name);
-	
-  # name and menu
-	echo '<p class="content-title">';
-	if (!empty($o->prefix)) echo $o->prefix.' ';
-	echo $o->name;
-	if (!empty($o->suffix)) echo ', '.$o->suffix; 
-	echo '</p>';
-	if ($print === false) {
-		include(Theme::getPage($g_theme, 'nav'));
-	}
-	echo '<p class="content-subtitle">'.gtc("Descendant Report").'</p>';
-	
-	while (count($g_descendants) > 0) {
-		display_indiv(array_shift($g_descendants));
-	}
 
 ?>
