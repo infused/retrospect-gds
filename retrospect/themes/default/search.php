@@ -101,9 +101,6 @@
 	
 	# show results
 	else {
-		$gname = mysql_real_escape_string($gname);
-		$sname = mysql_real_escape_string($sname);
-		
 		# give error if no search parameters
 		if ($gname == null and $sname == null) {
 			echo '<p class="text">'._("No search parameters were specified.").'</p>';
@@ -111,10 +108,10 @@
 		# else display the results
 		else {
 			if ($soundex === true) {
-				$sql = "SELECT * FROM $g_tbl_indiv WHERE soundex(surname)=soundex('$sname') AND givenname LIKE '%$gname%' ORDER BY surname, givenname";
+				$sql = "SELECT * FROM $g_tbl_indiv WHERE soundex(surname)=soundex(".$db->Quote($sname).") AND givenname LIKE ".$db->Quote('%'.$gname.'%')." ORDER BY surname, givenname";
 			}
 			else {
-				$sql = "SELECT * FROM $g_tbl_indiv WHERE surname LIKE '$sname%' AND givenname LIKE '%$gname%' ORDER BY surname, givenname";
+				$sql = "SELECT * FROM $g_tbl_indiv WHERE surname LIKE ".$db->Quote($sname.'%')." AND givenname LIKE ".$db->Quote('%'.$gname.'%')." ORDER BY surname, givenname";
 			}	 
 			$rs = $db->Execute($sql);
 
