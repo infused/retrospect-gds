@@ -39,6 +39,50 @@
 									'hidden'=>'Make Hidden',
 									'delete'=>'Delete');
 	
+	# The form was posted, so let's process the request
+	if (isset($_POST['Submit'])) {
+		$task = $_POST['task'];
+		$selected = $_POST['selectitem'];
+		# Process comment deletions
+		if ($task == 'delete') {
+			foreach ($selected as $id) {
+				$sql = 'DELETE FROM '.TBL_COMMENT.' WHERE id='.$db->Qstr($id);
+				$db->Execute($sql);
+				$deleted[] = $id;
+			}
+			$smarty->assign('DELETED', $deleted);
+			$smarty->assign('REDIRECT', CURRENT_PAGE);
+		} 
+		# Make comments visible
+		elseif ($task == 'visible') {
+			foreach ($selected as $id) {
+				$sql = 'SELECT * FROM '.TBL_COMMENT.' WHERE id='.$db->qstr($id);
+				$rs = $db->Execute($sql);
+				$fields['visible'] = '1';
+				$fields['reviewed'] = '1';
+				$sql = $db->GetUpdateSQL($rs, $fields);
+				$db->Execute($sql);
+				$visible[] = $id; 
+			}
+			$smarty->assign('VISIBLE', $visible);
+			$smarty->assign('REDIRECT', CURRENT_PAGE);
+		}
+		# Hide comments
+		elseif ($task == 'hidden') {
+			foreach ($selected as $id) {
+				$sql = 'SELECT * FROM '.TBL_COMMENT.' WHERE id='.$db->qstr($id);
+				$rs = $db->Execute($sql);
+				$fields['visible'] = '0';
+				$fields['reviewed'] = '1';
+				$sql = $db->GetUpdateSQL($rs, $fields);
+				$db->Execute($sql);
+				$hidden[] = $id; 
+			}
+			$smarty->assign('HIDDEN', $hidden);
+			$smarty->assign('REDIRECT', CURRENT_PAGE);
+		}
+	}
+	
 	# Get all the reviewed comments
 	if (isset($_GET['t']) AND $_GET['t'] == 'r') {
 		$task = 'reviewed';

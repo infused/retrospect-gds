@@ -27,6 +27,7 @@
 	if (isset($_POST['Submit'])) {
 		$task = $_POST['task'];
 		$selected = $_POST['selectitem'];
+		# Process user deletions
 		if ($task == 'delete') {
 			foreach ($selected as $id) {
 				if ($id != '1') {
@@ -38,6 +39,7 @@
 			$smarty->assign('DELETED', $deleted);
 			$smarty->assign('REDIRECT', $_SERVER['PHP_SELF'].'?m=usermgr');
 		} 
+		# Process user enables
 		elseif ($task == 'enable') {
 			foreach ($selected as $id) {
 				if ($id != '1') {
@@ -48,6 +50,7 @@
 			$smarty->assign('ENABLED', $enabled);
 			$smarty->assign('REDIRECT', $_SERVER['PHP_SELF'].'?m=usermgr');
 		} 
+		# Process user disables
 		elseif ($task == 'disable') {
 			foreach ($selected as $id) {
 				if ($id != '1') {

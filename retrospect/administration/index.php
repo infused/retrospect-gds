@@ -57,7 +57,8 @@
 	
 	# Store the current url w/query string
 	$cp = (empty($_SERVER['QUERY_STRING'])) ? $_SERVER['PHP_SELF'] : $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
-	$smarty->assign('CURRENT_PAGE', $cp);
+	define('CURRENT_PAGE', $cp);
+	$smarty->assign('CURRENT_PAGE', CURRENT_PAGE);
 	
 	# check login status and redirect as necessary
 	$module = Auth::check() ? ((isset($_GET['m'])) ? $_GET['m'] : 'status') : 'login';

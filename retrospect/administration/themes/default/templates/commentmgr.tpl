@@ -1,3 +1,20 @@
+{if $DELETED}
+	<div class="content-title">Comment Manager</div>
+	<p>{$DELETED|@count} {if $DELETED|@count == 1}comment has{else}comments have{/if} been deleted from the database.</p>
+	<p>Click <a href="{$CURRENT_PAGE}">HERE</a> to return to the Comment Manager.</p>
+	<p>Click <a href="{$PHP_SELF}">HERE</a> to return to the main Administration page.</p>
+{elseif $VISIBLE}
+	<div class="content-title">Comment Manager</div>
+	<p>{$VISIBLE|@count} {if $VISIBLE|@count == 1}comment has{else}comments have{/if} been made visible.</p>
+	<p>Click <a href="{$CURRENT_PAGE}">HERE</a> to return to the Comment Manager.</p>
+	<p>Click <a href="{$PHP_SELF}">HERE</a> to return to the main Administration page.</p>
+{elseif $HIDDEN}
+	<div class="content-title">Comment Manager</div>
+	<p>{$HIDDEN|@count} {if $HIDDEN|@count == 1}comment has{else}comments have{/if} been hidden.</p>
+	<p>Click <a href="{$CURRENT_PAGE}">HERE</a> to return to the Comment Manager.</p>
+	<p>Click <a href="{$PHP_SELF}">HERE</a> to return to the main Administration page.</p>
+{else}
+<form action="{$CURRENT_PAGE}" method="post">
 <div class="content-title">Comment Manager</div>
 <table class="tab-row" cellpadding="0" cellspacing="0">
 	<tr>
@@ -19,6 +36,7 @@
 			<td class="list_header" width="150">Received</td>
 			<td class="list_header" width="250">Email</td>
 			<td class="list_header">Comment</td>
+			{if $task != "pending"}<td align="center" class="list_header">Visible</td>{/if}
 		</tr>
 		{foreach from=$comments item="comment"}
 		<tr>
@@ -29,6 +47,15 @@
 			<td class="list_item">{$comment.received|date_format:"%b %e, %Y %H:%M"}</td>
 			<td class="list_item">{$comment.email}</td>
 			<td class="list_item">{$comment.comment|nl2br}</td>
+			{if $task != "pending"}
+			<td align="center" class="list_item">
+				{if $comment.visible == "1"}
+					<img src="{$THEME_URL}images/ledgreen.png" alt="Enabled" border="0" />
+				{else}
+					<img src="{$THEME_URL}images/ledred.png" alt="Disabled" border="0" />
+				{/if}
+			</td>
+			{/if}
 		</tr>
 		{/foreach}
 	</table>
@@ -45,3 +72,5 @@
 		</td>
 	</tr>
 </table>
+</form>
+{/if}
