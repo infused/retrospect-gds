@@ -39,9 +39,17 @@
 	define('REG_HDATE','/^1 DATE (.*)/'); # Submission date
 	
 	define('REG_NOTE2','/^[1-9][0-9]? NOTE [^@](.*)/');	# Alternate note form
-	define('REG_NAME','/^[1-9][0-9]? NAME (.*)/');  # Name with no surname
+	
+	# Individual substructures
+	define('REG_NAME','/^1 NAME (.*)/');  # Name 
+	define('REG_GIVN','/^1 GIVN (.*)/'); # Given name
+	define('REG_SURN','/^1 SURN (.*)/'); # Surname
+	define('REG_NICK','/^1 NICK (.*)/'); # Nickname (aka)
+	define('REG_NPFX','/^1 NPFX (.*)/'); # Name prefix (ie. Captain)
+	define('REG_NSFX','/^1 NSFX (.*)/'); # Name suffic (ie. Jr.) 
+	define('REG_SEX','/^1 SEX (.?)/'); # Sex
 	define('REG_TITL','/^[1-9][0-9]? TITL (.*)/'); # Title (suffix)
-	define('REG_SEX','/^[1-9][0-9]? SEX (.?)/'); # Sex
+
 	
 	# Miscelaneous 
 	define('REG_LEVEL','/^([0-9]{1,2})/');	
@@ -56,30 +64,23 @@
 		var $filename; 					// filename 
 		var $fhandle; 					// file handle
 		var $fsize;							// file size
-		var $errors;						// array of all errors
-		var $lasterror;					// text of last error
 		var $individual_count;	// count of individual records
 		var $family_count;			// count of family records
 		var $source_count;			// count of source records
 		var $note_count;				// count of note records
 		var $onote_count;				// count of orphaned note records
-		var $previous;					// offset of previous line
-		var $line; 							// text of current line
-		var $level;							// level of current line
+		var $rs_indiv;					// indiv adodb recordeset object
+		var $db;								// local var for $GLOBALS['db']
 		
 		/**
 		* GedcomParser class constructor
 		* @access public
 		*/
 		function GedcomParser() {
-			if ($GLOBALS['profile'] == true) {
-				$GLOBALS['profiler']->startTimer('class_gedcomparser_constructor');
-			}
-			$this->errors = array();
-			$this->lasterror = false; 
-			if ($GLOBALS['profile'] == true) {
-				$GLOBALS['profiler']->stopTimer('class_gedcomparser_constructor');
-			}
+			$this->db = &$GLOBALS['db'];
+			# get empty indiv recordset
+			$sql = 'SELECT * from '.$GLOBALS['g_tbl_indiv'].' where indkey=-1';
+			$this->rs_indiv = $GLOBALS['db']->Execute($sql);
 		}
 		
 		/**
@@ -88,14 +89,18 @@
 		* @return boolean
 		*/
 		function OpenReadOnly($filename) {
-			$handle = @fopen($filename, 'rb');
-			if ($handle == false) {
-				$this->_LogError('There was a problem opening the gedcom file');
+			if (is_file($filename)) {  // make sure that it's really a file
+				$handle = @fopen($filename, 'rb');
+				if ($handle == false) {
+					return false;
+				} else {
+					$this->filename = $filename;
+					$this->fhandle = $handle;
+					return true;
+				}
+			}
+			else {
 				return false;
-			} else {
-				$this->filename = $filename;
-				$this->fhandle = $handle;
-				return true;
 			}
 		}
 		
@@ -132,42 +137,6 @@
 				$line = fgets($handle);
 				if (preg_match(REG_INDI, $line)) {
 					$icount++;
-				} elseif (preg_match(REG_FAM, $line)) {
-					$fcount++;
-				} elseif (preg_match(REG_SOUR, $line)) {
-					$scount++;
-				} elseif (preg_match(REG_NOTE, $line)) {
-					$ncount++;
-				} elseif (preg_match(REG_NOTE2, $line)) {
-					$ocount++;
-				}
-			}
-			$this->individual_count = $icount;
-			$this->family_count = $fcount;
-			$this->source_count = $scount;
-			$this->note_count = $ncount;
-			$this->onote_count = $ocount;
-		}
-		
-		/**
-		* Parse the gedcom file
-		*/
-		function ParseGedcom() {
-			if ($GLOBALS['profile'] == true) {
-				$GLOBALS['profiler']->startTimer('class_GedcomParser_ParseGedcom');
-			}
-			$this->fsize = sprintf("%u", filesize($this->filename));
-			$icount = 0;
-			$fcount = 0;
-			$scount = 0;
-			$ncount = 0;
-			$ocount = 0;
-			rewind($this->fhandle);
-			while (!feof($this->fhandle)) {
-				$line = fgets($this->fhandle);
-				if (preg_match(REG_INDI, $line, $match)) {
-					$icount++;
-					$this->_ParseIndividual($line, $match);
 				} 
 				elseif (preg_match(REG_FAM, $line)) {
 					$fcount++;
@@ -182,90 +151,148 @@
 					$ocount++;
 				}
 			}
-			# update counts
 			$this->individual_count = $icount;
 			$this->family_count = $fcount;
 			$this->source_count = $scount;
 			$this->note_count = $ncount;
 			$this->onote_count = $ocount;
-			if ($GLOBALS['profile'] == true) {
-				$GLOBALS['profiler']->stopTimer('class_GedcomParser_ParseGedcom');
+		}
+		
+		/**
+		* Parse the gedcom file
+		* Please note that this function sends some output to the browser
+		*/
+		function ParseGedcom() {
+			rewind($this->fhandle);
+			while (!feof($this->fhandle)) {
+				$poffset = ftell($this->fhandle);
+				$line = fgets($this->fhandle);
+				if (preg_match(REG_INDI, $line)) {
+					$this->_ParseIndividual($line);
+				} 
+				elseif (preg_match(REG_FAM, $line)) {
+
+				} 
+				elseif (preg_match(REG_SOUR, $line)) {
+
+				} 
+				elseif (preg_match(REG_NOTE, $line)) {
+
+				} 
+				elseif (preg_match(REG_NOTE2, $line)) {
+
+				}
 			}
+
 		}
 		
 		/**
 		* Parse Individual
-		* @param string $line
-		* @param array $match
+		* @param string $start_line
 		*/
-		function _ParseIndividual($line, $match) {
-			if ($GLOBALS['profile'] == true) {
-				$GLOBALS['profiler']->startTimer('class_GedcomParser_ParseIndividual');
-			}
-			# init vars
-			$name_count = -1;
-			$name_list = array();
-			$end = false;
-			$title = '';
-			$gname = '';
-			$sname = '';
-			$sex = '';
-			
-			$indkey = $match[1];
-			# let's get the rest of the record
+		function _ParseIndividual($start_line) {
+			$indiv = array();
+			$names = array();  
+			preg_match(REG_INDI, $start_line, $match);
+			$indiv['indkey'] = $match[1];
 			while (!feof($this->fhandle)) {
-				$offset = ftell($this->fhandle); // get offset so we can back up at end of record
+				$poffset = ftell($this->fhandle);
 				$line = fgets($this->fhandle);
-				# process name tags
-				if (preg_match(REG_NAME, $line, $match)) {  
-					$name_count++;
-					$name = $match[1];
-					$name_array = explode(' ', $name);
-					foreach($name_array as $n) {
-						if (strpos($n,'/') !== false) {
-							$sname = trim(trim($n),'/');  
-							
-						}
-						else {
-							$gname .= trim($n).' ';
-						}
-					}
-					# stuff the name strings you know where
-					$name_list[$name_count]['sname'] = $sname;
-					$name_list[$name_count]['gname'] = trim($gname);
-				} 
-				elseif (preg_match(REG_TITL, $line, $match)) {
-					# obviously any alternate title will overwrite the last
-					$title = $match[1];
+				$level = $this->_ExtractLevel($line);
+				# dump record to db if reached end of indi record
+				if ($level == 0) { 
+					$recordset = array_merge($indiv, $names[0]);
+					$this->_DB_InsertIndividual($recordset);
+					fseek($this->fhandle, $poffset);
+					return;
+				}
+				elseif (preg_match(REG_NAME, $line)) {							// name structure
+					$name = $this->_ParseNameStruct($line);
+					array_push($names, $name);
 				}
 				elseif (preg_match(REG_SEX, $line, $match)) {
-					$sex = $match[1];
+					$indiv['sex'] = trim($match[1]);
 				}
-				# detect end of record
-				elseif (preg_match(REG_NEWREC, $line)) {
-					$end = true;
-				} 
-				if ($end) {
-					# dump record details
-					# ignore alternate names (for now)
-					echo '"'.$indkey.'","'.$name_list[0]['sname'].'","'.$name_list[0]['gname'].'","'.$sex.'"<br>';
-					fseek($this->fhandle, $offset);
-					break;
-				}
-			}
-			if ($GLOBALS['profile'] == true) {
-				$GLOBALS['profiler']->stopTimer('class_GedcomParser_ParseIndividual');
 			}
 		}
 		
 		/**
-		* Logs errors into $errors array and $lasterror
+		* Parse name structure
+		* @param string $start_line
+		* return array
 		*/
-		function _LogError($message) {
-			$this->lasterror = $message;
-			$this->errors[] = $message;
+		function _ParseNameStruct($start_line) {
+			$name = array();
+			$name['givenname'] = '';
+			$name['surname'] = '';
+			$name['aka'] = '';
+			$name['prefix'] = '';
+			$name['suffix'] = '';
+			
+			# process name parts from name tag line
+			preg_match(REG_NAME, $start_line, $match); 
+			$rawname = $match[1];
+			$parts = explode(' ', $rawname);
+			foreach ($parts as $part) {
+				$part = trim($part);
+				if (isset($part[0]) AND $part[0] == '/') {
+					$name['surname'] = trim($part, '/');
+				}
+				else {
+					if ($name['givenname'] == '') {
+						$name['givenname'] = $part;
+					}
+					else {
+						$name['givenname'] .= ' '.$part;
+					}
+				}
+			}
+			# handle any subordinate tags
+			while (!feof($this->fhandle)) {
+				$poffset = ftell($this->fhandle);
+				$line = fgets($this->fhandle);
+				$level = $this->_ExtractLevel($line);
+				# return record if reached end of name record
+				if ($level <= 1) { 
+					fseek($this->fhandle, $poffset);
+					return $name;
+				}
+				elseif (preg_match(REG_GIVN, $line, $match)) {	// given name
+					$name['givenname'] = trim($match[1]);
+				}
+				elseif (preg_match(REG_SURN, $line, $match)) {	// surname
+					$name['surname'] = trim($match[1]);
+				}
+				elseif (preg_match(REG_NICK, $line, $match)) {	// nickname (aka)
+					$name['aka'] = trim($match[1]);
+				}
+				elseif (preg_match(REG_NPFX, $line, $match)) {	// prefix
+					$name['prefix'] = trim($match[1]);
+				}
+				elseif (preg_match(REG_NSFX, $line, $match)) {	// suffix
+					$name['suffix'] = trim($match[1]);
+				}
+			}
 		}
 		
+		/**
+		* Extracts the level from a given line
+		* @param string $line
+		* @return string
+		*/
+		function _ExtractLevel($line) {
+			$parts = explode(' ', trim($line), 2);
+			$level = $parts[0];
+			return $level;
+		}
+		
+		function _DB_InsertIndividual($record) {
+			$db = &$this->db;
+			$insertSQL = $db->GetInsertSQL($this->rs_indiv, $record);
+			//$db->Execute($insertSQL);
+			echo $insertSQL.'<br>';
+		}
+
  	}
  
 ?>

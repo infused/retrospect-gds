@@ -44,9 +44,9 @@
 				$gedcom->GetStatistics();
 				
 				# Display any errors
-				if ($gedcom->lasterror) {
-					echo $gedcom->lasterror;
-				}
+				//if ($gedcom->lasterror) {
+				//	echo $gedcom->lasterror;
+				//}
 			?>
 			&nbsp;
 		</td> 
