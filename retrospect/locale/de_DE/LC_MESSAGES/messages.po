@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2004-05-01 16:43-0800\n"
+"PO-Revision-Date: 2004-05-12 21:38-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused.org>\n"
 "Language-Team: GERMAN <wil.feindt@t-online.de>\n"
 "MIME-Version: 1.0\n"
@@ -141,8 +141,8 @@ msgstr "Löschen"
 msgid "Begin Import..."
 msgstr ""
 
-#: administration/gedcom_import1.php:111
-#: administration/gedcom_import2.php:71
+#: administration/gedcom_import1.php:97
+#: administration/gedcom_import2.php:137
 msgid "Continue"
 msgstr ""
 
@@ -242,7 +242,7 @@ msgstr "Medien"
 
 #: administration/status.php:40
 #, fuzzy
-msgid "System Status"
+msgid "System Alerts"
 msgstr "System"
 
 #: administration/status.php:41
@@ -250,9 +250,13 @@ msgstr "System"
 msgid "Database Records"
 msgstr "Datenbank"
 
-#: administration/status.php:48
+#: administration/status.php:49
 #, php-format
-msgid "You password has expired.  Go %s to change it immediately!"
+msgid "The admin password has expired.  Go %s to change it immediately!"
+msgstr ""
+
+#: administration/status.php:54
+msgid "The install directory should be deleted immediately."
 msgstr ""
 
 #: administration/sys_config.php:34
