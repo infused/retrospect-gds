@@ -83,7 +83,7 @@
 		</tr>
 		<tr>
 			<td class="cfg-lbl"><label for="enabled">Account Enabled:</label></td>
-			<td class="cfg-opt"><input class="textbox" name="enabled" type="checkbox" value="1" {if $user.enabled}checked{/if}></td>
+			<td class="cfg-opt"><input class="checkbox" name="enabled" type="checkbox" value="1" {if $user.enabled}checked{/if}></td>
 			<td class="cfg-err">&nbsp;</td>
 		</tr>
 	</table>

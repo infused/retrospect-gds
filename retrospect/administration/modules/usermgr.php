@@ -43,7 +43,11 @@
 		$users[$i]['groupname'] = $groups[$gid];
 	}
 	
+	$tasks = array('na'=>'With Selected:','delete'=>'Delete','enable'=>'Enable','disable'=>'Disable');
+	
+	# Assign Smarty vars
 	$smarty->assign('users', $users);
 	$smarty->assign('groups', $groups);
+	$smarty->assign('tasks', $tasks);
 	
 ?>

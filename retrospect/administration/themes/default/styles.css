@@ -71,6 +71,7 @@ sup {
 	padding: 5px;
 }
 #adminmenu {
+	position: relative;
 	background-color: #C6CBCE;
 	float: left;
 }
@@ -117,24 +118,8 @@ textarea.textbox {
 	background: white;
 	padding: 5px;
 }
-.pedbox {
-	background-color: #CCCCCC;
-	position:absolute; 
-	width:150px; 
-	height:60px;
-	overflow: hidden;
-}
-.pedbox-text {
-	font-size: 11px;
-	padding: 1px 3px 0px;
-}
-.ped-arrow {
-	position: absolute;
-	width: 20px;
-	height: 60px;
-}
 .text {
-	font: normal 8pt Georgia, Arial, Helvetica, sans-serif
+	font: normal 8pt Georgia, Arial, Helvetica, sans-serif;
 }
 .content-title {
 	font-weight: bold;
@@ -277,9 +262,11 @@ textarea.textbox {
 .list_item {
 	padding: 3px;
 }
-#zippy {
-	position: relative;	
-	right: 0px;
-	top: 0px;
-	float: right;
+.button {
+	font: normal 8pt Georgia, Arial, Helvetica, sans-serif;
+	height: 22px;
+	margin-bottom: 2px;
+}
+.checkbox {
+	margin: 0px;
 }

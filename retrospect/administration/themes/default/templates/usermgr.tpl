@@ -10,6 +10,7 @@
 <div class="tab-page">
 	<table width="100%" cellpadding="0" cellspacing="0">
 		<tr>
+			<td class="list_header" width="25">&nbsp;</td>
 			<td class="list_header" width="200">Full Name</td>
 			<td class="list_header" width="100">Username</td>
 			<td class="list_header" width="150">Group</td>
@@ -19,6 +20,9 @@
 		</tr>
 		{foreach from=$users item="user"}
 		<tr>
+			<td class="list_item" width="25">
+				<input name="" type="checkbox" class="checkbox" value="">
+			</td>
 			<td class="list_item" nowrap="nowrap"><a href="{$PHP_SELF}?m=useredit&id={$user.id}">{$user.fullname}</a></td>
 			<td class="list_item" nowrap="nowrap">{$user.uid}</td>
 			<td class="list_item" nowrap="nowrap">{$user.groupname}</td>
@@ -37,3 +41,17 @@
 		{/foreach}
 	</table>
 </div>
+<form action="{$PHP_SELF}" method="post">
+<table cellpadding="5" cellspacing="0">
+	<tr>
+		<td valign="middle">
+			<select name="task" class="listbox">
+				{html_options options=$tasks}
+			</select>
+		</td>
+		<td valign="middle">
+			<input type="submit" name="Submit" class="button" value="Go">
+		</td>
+	</tr>
+</table>
+</form>
