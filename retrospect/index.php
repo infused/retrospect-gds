@@ -48,16 +48,17 @@
 	$current_page = $_SERVER['PHP_SELF'];
 	if (!empty($_SERVER['QUERY_STRING'])) $current_page .= '?'.$_SERVER['QUERY_STRING'];
 	define('CURRENT_PAGE', $current_page);
+	$smarty->assign('CURRENT_PAGE', CURRENT_PAGE);
 	unset($current_page);
 
 	/**
 	* Load the appropriate theme option page
 	*/
-	ob_flush();
+	//ob_flush();
 	$g_option = isset($_GET['option']) ? $_GET['option'] : $options->GetOption('default_page');
 	include(Theme::getPage($g_theme, $g_option));
-	$g_content = ob_get_contents();
-	ob_clean();
+	//$g_content = ob_get_contents();
+	//ob_clean();
 
 	/**
 	* Load the appropriate theme menu page
@@ -73,6 +74,10 @@
 	
 	$smarty->assign('option', $g_option);
 	$smarty->assign('meta_keywords', implode(', ', $keywords));
-	$smarty->display('index.tpl');
+	if (isset($_GET['print'])) {
+		$smarty->display('index_printable.tpl');
+	} else {
+		$smarty->display('index.tpl');
+	}
 
 ?>

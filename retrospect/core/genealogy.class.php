@@ -508,6 +508,11 @@ class Marriage {
 	var $beginstatus;
 	
 	/**
+	* Begin status event object
+	*/
+	var $begin_event;
+	
+	/**
 	* Begin status factkey
 	* @var string
 	*/
@@ -519,6 +524,11 @@ class Marriage {
 	* @var string
 	*/
 	var $endstatus;
+	
+	/**
+	* End status event object
+	*/
+	var $end_event;
 	
 	/**
 	* End status factkey
@@ -628,10 +638,13 @@ class Marriage {
 		}
 		$this->_get_notes();
 		$this->_get_events();
+		# IS THIS STILL NEEDED???
 		if ($this->beginstatus_factkey AND $fetch_sources == true) { 
 			$this->sources = $this->_get_sources($this->beginstatus_factkey); 
 		}
 		$this->source_count = count($this->sources);
+		
+		# IS THIS STILL NEEDED???
 		if ($this->endstatus_factkey AND $fetch_sources == true) { 
 			$this->end_sources = $this->_get_sources($this->endstatus_factkey); 
 		}
@@ -709,12 +722,14 @@ class Marriage {
 				$this->date = $dp->FormatDateStr($row);
 				$this->sort_date = $row['date1'];
 				$this->place = htmlentities($row['place']);
+				$this->begin_event = $event;
 			} 
 			elseif ($event->type == $this->endstatus) {
 				$this->endstatus_factkey = $row['factkey'];
 				$dp = new DateParser();
 				$this->enddate = $dp->FormatDateStr($row);
 				$this->endplace = htmlentities($row['place']);
+				$this->end_event = $event;
 			}
 			else array_push($this->events, $event);
 		}

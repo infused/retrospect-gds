@@ -18,10 +18,16 @@ a.secondary {
 a:hover {
 	color: #FF9900;
 }
+sup {
+	font-size: 10px;
+}
 #content {
 	background-color: white;
 	padding: 10px;
 	margin: 10px 10px 10px 220px;
+}
+#content_printable {
+	margin: 10px;
 }
 #utils {
 	position: relative;

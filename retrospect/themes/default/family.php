@@ -28,7 +28,6 @@
 
 	# initialize other variables
 	$sources = array();
-	$fam_count = 0;
 	
 	# get first person information
 	$o = new person($g_indiv);
@@ -39,39 +38,88 @@
 	if (!empty($o->birth->place)) { keyword_push($o->birth->place); }
 	if (!empty($o->death->place)) { keyword_push($o->death->place); }
 	
-
 	# create page title
 	$smarty->assign('page_title', sprintf(gtc("Family Page for %s"), $o->name));
 	
 	# content title
-	$content_title = '';
-	if (!empty($o->prefix)) $content_title .= $o->prefix.' ';
-	$content_title .= $o->name;
-	if (!empty($o->suffix)) $content_title .= $o->suffix;
+	$content_title = $o->prefix.' '.$o->name;
+	if ($o->suffix) $content_title .= ', '.$o->suffix;
 	$smarty->assign('content_title', $content_title);
 	
 	# create father link
 	if ($o->father_indkey) { 
 		$f = new person($o->father_indkey, 3); 
-		$father_link = '<a href="'.Theme::GetArgs('family', array('indiv'=>$f->indkey)).'">'.$f->name.'</a>';	
-		# populate keywords array
+		$args = Theme::GetArgs('family', array('indiv'=>$f->indkey));
+		$smarty->assign('father_link', '<a href="'.$args.'">'.$f->name.'</a>');
 		keyword_push($f->name);
-		unset($f);
+		unset($f, $args);
 	}
-	else { $father_link = '&nbsp;'; }
-	$smarty->assign('father_link', $father_link);
-	unset($father_link);
 	
 	# create mother link
 	if ($o->mother_indkey) { 
 		$m = new person($o->mother_indkey, 3); 
-		$mother_link = '<a href="'.Theme::GetArgs('family', array('indiv'=>$m->indkey)).'">'.$m->name.'</a>';	
-		# populate keywords array
+		$args = Theme::GetArgs('family', array('indiv'=>$m->indkey));
+		$smarty->assign('mother_link', '<a href="'.$args.'">'.$m->name.'</a>');
 		keyword_push($m->name);
-		unset($m);
+		unset($m, $args);
 	}
-	else { $mother_link = '&nbsp;'; }
-	$smarty->assign('mother_link', $mother_link);
-	unset($mother_link);
+	
+	# assign events to the events array
+	$vitals = array();
+	if ($o->birth) $vitals[] = $o->birth;
+	if ($o->death AND $o->death->comment != 'Y') $vitals[] = $o->death;
+	$events = array_merge($vitals, $o->events);	
+	foreach ($events as $event) {
+		foreach ($event->sources as $source) {
+			$sources[] = nl2br($source);
+		}
+	}
+	$smarty->assign('events', $events);
+	unset($events, $vitals);
+	
+	# marriages
+	$marriages = array();
+	for ($i = 0; $i < count($o->marriages); $i++) {
+		$m = $o->marriages[$i];
+		$s = (!empty($m->spouse)) ? new person($m->spouse, 3) : null;
+		if ($s->name) { keyword_push($s->name); }
+		$marriages[$i]['family_number'] = sprintf(gtc("Family %s"), $i + 1);
+		$marriages[$i]['notes'] = $m->notes;
+		$events = array();
+		if ($m->begin_event) $events[] = $m->begin_event;
+		if ($m->end_event) $events[] = $m->end_event;
+		$marriages[$i]['events'] = array_merge($events, $m->events);
+		foreach ($marriages[$i]['events'] as $event) {
+			foreach ($event->sources as $source) {
+				$sources[] = nl2br($source);
+			}
+		}
+		# spouse
+		$args = Theme::GetArgs('family', array('indiv'=>$s->indkey)); 
+		$spouse_link = '<a href="'.$args.'">'.$s->name.'</a>';
+		$marriages[$i]['spouse'] = $s;
+		$marriages[$i]['spouse_link'] = $spouse_link;
+		$marriages[$i]['spouse_birth'] = $s->birth->date;
+		$marriages[$i]['spouse_death'] = $s->death->date;
+		# children
+		$marriages[$i]['child_count'] = $m->child_count;
+		if ($m->child_count > 0) {
+			$children = array();
+			foreach ($m->children as $child_indkey) {
+				$c = new person($child_indkey, 3);
+				keyword_push($c->name);
+				$args = Theme::GetArgs('family', array('indiv'=>$c->indkey));
+				$child_link = '<a href="'.$args.'">'.$c->name.'</a>';
+				$children[] = array('child_link'=>$child_link, 'child'=>$c);
+			}
+			$marriages[$i]['children'] = $children;
+		}
+		
+	}
+	$smarty->assign('marriages', $marriages);
+	$smarty->assign('sources', $sources);
+	$smarty->assign('marriage_count', count($marriages));
+	$smarty->assign('source_count', count($sources));
+	unset($s, $m, $c, $args, $spouse_link, $marriages, $events, $children, $child_link);
 	
 ?>

@@ -8,9 +8,7 @@
 <meta name="description" content="{$page_title}" />
 <meta name="keywords" content="{$meta_keywords}" />
 </head>
-<div id="header"><img src="themes/default/images/logo.gif" align="left" alt="Retrospect-GDS"/></div>
-<div id="menu">{$g_menu}</div>
-<div id="content">
+<div id="content_printable">
 	<div id="utils">
 		<a href="{$CURRENT_PAGE}&print=y" target="_blank"><img src="themes/default/images/printbutton.gif" border="0" alt="{translate s="Print"}" /></a>
 	</div>
