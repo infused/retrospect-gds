@@ -119,5 +119,6 @@
 		# Supported Languages
 		gettext("English");
 		gettext("Spanish");
+		gettext("Dutch");
 	}
 ?>

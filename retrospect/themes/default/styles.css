@@ -230,20 +230,20 @@ input.textbox {
 	padding: 5px;
 }
 
-.tab {
+.tab-row .tab {
 	font: 8pt Verdana, Arial, Helvetica, sans-serif;
 	background-color: #EEEEEE;
 	display: inline;
-	padding: 4px 6px 4px 6px;
+	padding: 4px 6px;
 	margin: 0px -1px 0px 1px;
 	border-width: 1px;
 	border-color: #999999;
 	border-bottom-style: solid;
 	border-right-style: solid;
-	z-index: 1;
+	white-space: nowrap;
 }
 
-.tab.selected {
+.tab-row .tab.selected {
 	padding: 4px 6px 5px 6px;
 	margin: 0px 0px 0px 0px;
 	border-top-style: solid;
@@ -252,5 +252,5 @@ input.textbox {
 	background-color: White;
 	font-weight: bold;
 	color: #666666;
-	z-index: 3;
+	white-space: nowrap;
 }
