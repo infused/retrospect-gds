@@ -108,16 +108,14 @@ class Auth {
 	}
 	
 	function UserExists($p_uid) {
-		global $db;
 		$sql = "SELECT * FROM ".TBL_USER." WHERE uid='{$p_uid}'";
-		$rs = $db->Execute($sql);
+		$rs = $GLOBALS['db']->Execute($sql);
 		return ($rs->RecordCount() > 0) ? true : false;
 	}
 	
 	function PasswordExpired($p_uid) {
-		global $db;
 		$sql = "SELECT * FROM ".TBL_USER." WHERE uid='{$p_uid}'";
-		$rs = $db->Execute($sql);
+		$rs = $GLOBALS['db']->Execute($sql);
 		if ($row = $rs->FetchRow()) {
 			if ($row['pwd_expired'] == 1) {
 				return true;

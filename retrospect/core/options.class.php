@@ -37,6 +37,10 @@
 		* created with a name of $this->myoption = 'dosomething'
 		*/
 		function Options() {
+			$this->Initialize();
+		}
+		
+		function Initialize() {
 			$sql = "SELECT * FROM ".TBL_OPTION;
 			$rs = $GLOBALS['db']->Execute($sql);
 			while ($row = $rs->FetchRow()) {

@@ -268,7 +268,7 @@ class Person {
 		$sql =  'SELECT * FROM '.TBL_FACT." WHERE indfamkey = '{$this->indkey}'";
 		$rs = $GLOBALS['db']->Execute($sql);
 		while ($row = $rs->FetchRow()) {
-			$event = new event($row['type'], $row['date_str'], $row['place'], $row['comment'], $row['factkey'], $p_fetch_sources);
+			$event = new event($row, $p_fetch_sources);
 			if (strtolower($event->type) == 'birth') $this->birth = $event;
 			elseif (strtolower($event->type) == 'death') $this->death = $event;
 			else array_push($this->events, $event);
@@ -337,7 +337,6 @@ class Person {
 
 /**
  * Defines an event
- * @author			Keith Morrison <keithm@infused-solutions.com>
  * @package	genealogy
  */
 class Event {
@@ -390,12 +389,14 @@ class Event {
 	* @param string $p_place Where the event occured
 	* @param string $p_factkey 
 	*/
-	function Event($p_type, $p_date, $p_place, $p_comment, $p_factkey, $p_fetch_sources = true) {
-		$this->type = ucwords(strtolower($p_type));
-		$this->date = lang_translate_date($p_date);
-		$this->place = htmlentities($p_place);
-		$this->comment = htmlentities($p_comment);
-		$this->factkey = $p_factkey;
+	function Event($event_data, $p_fetch_sources = true) {
+		$this->type = ucwords(strtolower($event_data['type']));
+		$this->place = htmlentities($event_data['place']);
+		$this->comment = htmlentities($event_data['comment']);
+		$this->factkey = $event_data['factkey'];
+		
+		$this->date = $event_data['date_str'];
+		
 		if ($p_fetch_sources === true) $this->_get_sources();
 	}
 	
@@ -634,10 +635,10 @@ class Marriage {
 	* Get End Status Event
 	*/
 	function _get_endstatus_event() {
-		$query = "SELECT factkey, date, place FROM ".TBL_FACT." WHERE (indfamkey='{$this->famkey}') AND (type='{$this->endstatus}') LIMIT 1";
-		if ($row = $GLOBALS['db']->GetRow($query)) {
+		$sql = "SELECT factkey, date_str, place FROM ".TBL_FACT." WHERE (indfamkey='{$this->famkey}') AND (type='{$this->endstatus}') LIMIT 1";
+		if ($row = $GLOBALS['db']->GetRow($sql)) {
 			$this->endstatus_factkey = $row['factkey'];
-			$this->enddate = lang_translate_date(ucwords(strtolower($row['date'])));
+			$this->enddate = lang_translate_date(ucwords(strtolower($row['date_str'])));
 			$this->endplace = htmlentities($row['place']);	
 		}		
 	}

@@ -48,5 +48,4 @@
 		}
 		return round($size, 2).$ext;
 	}
-
 ?>

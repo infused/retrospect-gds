@@ -27,28 +27,22 @@
 ?>
 <?php
   
-	/**
-	* Root path
-	* @global string
-	*/
-	define('ROOT_PATH', dirname($_SERVER['PATH_TRANSLATED']));
+	# Turn on error reporting
+	error_reporting(E_ALL);
+	
+	# Start output buffering
+	ob_start();	
 
-	/**
-	* Location of core files
-	* @global string
-	*/
-	define('CORE_PATH', ROOT_PATH.'/../core/');	
+	# Start or continue a session
+	session_start();
+	header('Cache-control: private'); # IE6 fix
 	
-	/** 
-	* Location of library files
-	* @global string
-	*/
-	define('LIB_PATH', ROOT_PATH.'/../libraries/');
 	
-	/** Location of gettext locale files
-	* @global string
-	*/
-	define('LOCALE_PATH', ROOT_PATH.'/../locale/');
+	# Define all application paths
+	define('ROOT_PATH', dirname($_SERVER['PATH_TRANSLATED'])); # Path to root Retrospect-GDS directory
+	define('CORE_PATH', ROOT_PATH.'/../core/'); # Path to core files
+	define('LIB_PATH', ROOT_PATH.'/../libraries/'); # Path to 3rd party libraries
+	define('LOCALE_PATH', ROOT_PATH.'/../locale/'); # Path to gettext locale files
 	
 	/**
 	* Current url w/query string

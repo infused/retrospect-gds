@@ -295,6 +295,10 @@
 		<query>INSERT INTO options VALUES (7, 'meta_keywords', 'Genealogy,Family History')</query>
 	</sql>
 	<sql prefixmethod="auto">
+		<descr>Add 'date_format' record to options table</descr>
+		<query>INSERT INTO options VALUES (8, 'date_format', 'j M Y')</query>
+	</sql>
+	<sql prefixmethod="auto">
 		<descr>Add english language</descr>
 		<query>INSERT INTO language VALUES (1, 'en_US', 'iso-8859-1', 'English')</query>
 	</sql>

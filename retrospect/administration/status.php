@@ -22,15 +22,6 @@
  *
  */  
 ?>
-<?
-	# gather table statistcs
-	
-	# individuals
-	$sql = "SELECT COUNT(*) FROM ".TBL_INDIV;
-	$cnt_indiv = $db->GetOne($sql);
-?>
-
-
 <link href="styles.css" rel="stylesheet" type="text/css">
 <table width="100%"  border="0" cellspacing="0" cellpadding="5">
   <tr>

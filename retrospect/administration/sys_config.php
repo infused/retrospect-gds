@@ -45,6 +45,9 @@
 		if ($_POST['translate_dates_new'] != $_POST['translate_dates_old']) {
 			$updated = $options->OptionUpdate('translate_dates', $_POST['translate_dates_new']);
 		}
+		if ($_POST['date_format_new'] != $_POST['date_format_old']) {
+			$updated = $options->OptionUpdate('date_format', $_POST['date_format_new']);
+		}
 		if ($_POST['profile_functions_new'] != $_POST['profile_functions_old']) {
 			$updated = $options->OptionUpdate('profile_functions', $_POST['profile_functions_new']);
 		}
@@ -166,10 +169,29 @@
             <tr>
               <td class="content-label">Translate Dates?</td>
               <td><select name="translate_dates_new" class="listbox" id="translate_dates_new">
-                  <option value="1" <?php if ($options->GetOption('translate_dates') == 1) echo 'SELECTED'; ?>><?php echo 'Yes'; ?></option>
-                  <option value="0" <?php if ($options->GetOption('translate_dates') == 0) echo 'SELECTED'; ?>><?php echo 'No'; ?></option>
+                  <option value="1" <?php if ($options->GetOption('translate_dates') == 1) echo 'selected'; ?>><?php echo 'Yes'; ?></option>
+                  <option value="0" <?php if ($options->GetOption('translate_dates') == 0) echo 'selected'; ?>><?php echo 'No'; ?></option>
                 </select>
                   <input name="translate_dates_old" type="hidden" id="translate_dates_old" value="<?php echo $options->GetOption('translate_dates'); ?>"></td>
+              <td>&nbsp;</td>
+            </tr>
+          </table></td>
+        </tr>
+      </table>
+      <table width="100%"  border="0" cellpadding="0" cellspacing="0" class="section">
+        <tr>
+          <td class="section_head">Date Format </td>
+        </tr>
+        <tr>
+          <td class="section_body"><table  border="0" cellspacing="2" cellpadding="0">
+            <tr>
+              <td width="250" class="content-label">Date Format </td>
+              <td><select name="date_format_new" class="listbox" id="date_format_new">
+                		<option value="j M Y" <?php if ($options->GetOption('date_format') == 'j M Y') echo 'selected'; ?>>25 Nov 1859</option>
+										<option value="M j, Y" <?php if ($options->GetOption('date_format') == 'M j, Y') echo 'selected'; ?>>Nov 25, 1859</option>
+              		</select>
+                <input type="hidden" name="date_format_old" id="date_format_old" value="<?php echo $options->GetOption('date_format'); ?>" />
+							</td>
               <td>&nbsp;</td>
             </tr>
           </table></td>

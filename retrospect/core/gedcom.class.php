@@ -465,7 +465,7 @@
 							$family['beginstatus'] = 'Partners';
 							break;
 						case 'Divorce':
-							$family['endstatus'] = 'Divorced';
+							$family['endstatus'] = 'Divorce';
 							break;
 						case 'Annulment':
 							$family['endstatus'] = 'Anulled';
