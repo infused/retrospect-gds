@@ -18,21 +18,13 @@
 	<table cellpadding="0" cellspacing="0">
 		<tr>
 			<td class="cfg-lbl"><label for="username">Username:</label></td>
-			<td class="cfg-opt"><input name="username" class="textbox" maxlength="16" value="{$smarty.post.username|escape}" /></td>
-			<td class="cfg-err">
-				{validate field="username" criteria="notEmpty" transform="trim" message="YOU MUST ENTER A USERNAME"}
-				{validate field="username" criteria="isLength" transform="trim" min="4" max="16" message="USERNAMES MUST BE BETWEEN 4 AND 16 CHARACTERS LONG"}
-				{validate field="username" criteria="isRegExp" expression="/^[a-z0-9]+$/" message="USERNAMES CAN ONLY CONTAIN ALPHANUMERIC CHARACTERS"}
-				&nbsp;
-			</td>
+			<td class="cfg-opt"><input name="username" class="textbox" maxlength="16" value="{$smarty.post.username}" /></td>
+			<td class="cfg-err">{foreach from=$username_errors item="error"}{$error}<br />{/foreach}</td>
 		</tr>
 		<tr>
 			<td class="cfg-lbl"><label for="fullname">Full Name:</label></td>
-			<td class="cfg-opt"><input name="fullname" class="textbox" size="40" maxlength="100" value="{$smarty.post.fullname|escape}" /></td>
-			<td class="cfg-err">
-				{validate field="fullname" criteria="notEmpty" transform="trim" message="YOU MUST ENTER A FULL NAME"}
-				&nbsp;
-			</td>
+			<td class="cfg-opt"><input name="fullname" class="textbox" size="40" maxlength="100" value="{$smarty.post.fullname}" /></td>
+			<td class="cfg-err">&nbsp;</td>
 		</tr>
 		<tr>
 			<td class="cfg-lbl"><label for="group">Group:</label></td>
@@ -45,30 +37,18 @@
 		</tr>
 		<tr>
 			<td class="cfg-lbl"><label for="email">Email:</label></td>
-			<td class="cfg-opt"><input name="email" class="textbox" maxlength="100" value="{$smarty.post.email|escape}" /></td>
-			<td class="cfg-err">
-				{validate field="email" criteria="notEmpty" transform="trim" message="YOU MUST ENTER AN EMAIL ADDRESS"}
-				{validate field="email" criteria="isEmail" transform="trim" message="THE EMAIL ADDRESS YOU ENTERED IS NOT VALID"}
-			</td>
+			<td class="cfg-opt"><input name="email" class="textbox" maxlength="100" value="{$smarty.post.email}" /></td>
+			<td class="cfg-err">{foreach from=$email_errors item="error"}{$error}<br />{/foreach}</td>
 		</tr>
 		<tr>
 			<td class="cfg-lbl"><label for="password1">New Password:</label></td>
-			<td class="cfg-opt"><input name="password1" type="password" class="textbox" maxlength="16" value="{$smarty.post.password1|escape}" /></td>
-			<td class="cfg-err">
-				{validate field="password1" criteria="notEmpty" transform="trim" message="YOU MUST ENTER A PASSWORD"}
-				{validate field="password1" criteria="isEqual" field2="password2" transform="trim" message="PASSWORDS DO NOT MATCH - PLEASE RE-TYPE THEM"}
-				{validate field="password1" criteria="isLength" transform="trim" min="4" max="16" message="PASSWORDS MUST BE BETWEEN 4 AND 16 CHARACTERS LONG"}
-				&nbsp;
-			</td>
+			<td class="cfg-opt"><input name="password1" type="password" class="textbox" maxlength="16" value="{$smarty.post.password1}" /></td>
+			<td class="cfg-err">{foreach from=$password_errors item="error"}{$error}<br />{/foreach}</td>
 		</tr>
 		<tr>
 			<td class="cfg-lbl"><label for="password2">Verify Password:</label></td>
-			<td class="cfg-opt"><input name="password2" type="password" class="textbox" maxlength="16" value="{$smarty.post.password2|escape}" /></td>
-			<td class="cfg-err">
-				{validate field="password2" criteria="notEmpty" transform="trim" message="YOU MUST VERIFY THE PASSWORD"}
-				{validate field="password2" criteria="isLength" transform="trim" min="4" max="16" message="PASSWORDS MUST BE BETWEEN 4 AND 16 CHARACTERS LONG"}
-				&nbsp;
-			</td>
+			<td class="cfg-opt"><input name="password2" type="password" class="textbox" maxlength="16" value="{$smarty.post.password2}" /></td>
+			<td class="cfg-err">&nbsp;</td>
 		</tr>
 		<tr>
 			<td class="cfg-lbl"><label for="enabled">Account Enabled:</label></td>

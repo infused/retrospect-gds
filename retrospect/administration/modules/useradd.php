@@ -21,32 +21,67 @@
 	* $Id$
 	*/
 	
-	# Load SmartyValidate
-	@require_once(LIB_PATH.'smarty/libs/SmartyValidate.class.php');
-	SmartyValidate::Connect($smarty);
-	
 	$smarty->assign('page_title', 'Retrospect-GDS Administration');
 	
 	# Get list of groups and assign to Smarty variable
 	$smarty->assign('groups', $db->GetAssoc('SELECT * FROM '.TBL_USERTYPE));
 	
 	# Form has been posted
-	if (!empty($_POST)) {
-		# Validate form fields and save the data if valid
-		if (SmartyValidate::is_valid($_POST)) {
-			SmartyValidate::disconnect();
-			# Save the data
-			$fields = array('uid'=>$_POST['username'],
-				'fullname'=>$_POST['fullname'],
-				'grp'=>$_POST['group'],
-				'enabled'=>$_POST['enabled'],
-				'email'=>$_POST['email'],
-				'pwd'=>md5($_POST['password1']));
+	if (isset($_POST['Save']) and $_POST['Save'] == 'Save') {
+
+		# Check for valid username input
+		$username = strtolower($_POST['username']);
+		if (strlen($username) > 16 OR strlen($username) < 4) { 
+			$error = true;
+			$username_errors[] = 'The username must be between 4 and 16 characters long.';
+		}
+		if (preg_match('/^[a-z0-9]+$/i', $username) == 0) {
+			$error = true;
+			$username_errors[] = 'Username may only contain alphanumeric characters.';
+		}
+		# Process full name
+		$fullname = $_POST['fullname'];
+		# Process group
+		$group = $_POST['group'];
+		# Check for valid email
+		$email = $_POST['email'];
+		if ($email != '') {
+			if (!is_email($email)) {
+				$error = true;
+				$email_errors[] = 'Email address is not valid.';
+			}
+		}
+		# Check for valid passwords
+		$password1 = $_POST['password1'];
+		$password2 = $_POST['password2'];
+		if (strcmp($password1, $password2) != 0) {
+			$error = true;
+			$password_errors[] = 'The passwords do not match.  Please retype them.';
+		} elseif (strlen($password1) > 16 OR strlen($password1) < 4) {
+			$error = true;
+			$password_errors[] = 'The password must be between 4 and 16 characters long.';
+		}
+		# Process enabled flag
+		$enabled = $_POST['enabled'] == '1' ? '1' : '0';
+		
+		# Save the data unless there are errors
+		if (!$error) {
+			$fields = array('uid'=>$username,
+											'fullname'=>$fullname,
+											'grp'=>$group,
+											'enabled'=>$enabled,
+											'email'=>$email,
+											'pwd'=>md5($password1));
 			Auth::AddUser($fields);
-			$saved['username'] = $_POST['username'];
-			$saved['fullname'] = $_POST['fullname'];
+			$saved['username'] = $username;
+			$saved['fullname'] = $fullname;
 			$smarty->assign('SAVED', $saved);
 			$smarty->assign('REDIRECT', $_SERVER['PHP_SELF'].'?m=usermgr');
+		} else {
+			$smarty->assign_by_ref('username_errors', $username_errors);
+			$smarty->assign_by_ref('email_errors', $email_errors);
+			$smarty->assign_by_ref('password_errors', $password_errors);
 		}
+		
 	}
 ?>
