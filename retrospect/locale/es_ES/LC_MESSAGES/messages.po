@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2003-07-14 20:17-0700\n"
-"PO-Revision-Date: 2004-05-28 11:49-0800\n"
+"PO-Revision-Date: 2004-06-04 17:47-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused.org>\n"
 "Language-Team: Spanish <keithm@infused-solutions.com>\n"
 "MIME-Version: 1.0\n"
@@ -1451,9 +1451,8 @@ msgid "Descendant PDF"
 msgstr "Descendiente PDF"
 
 #: themes/default/search.php:67
-#, fuzzy
 msgid "Results"
-msgstr "Censo"
+msgstr "Resultados"
 
 # core/header.php:7
 # core/header.php:7
