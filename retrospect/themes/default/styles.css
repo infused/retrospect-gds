@@ -89,7 +89,7 @@ sup {
 	position: relative;
 	left: 0px !important;
 	left: -3px;
-	height: 11pt;
+	height: auto;
 	width: auto;
 	clear: right;
 }

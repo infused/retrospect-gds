@@ -33,7 +33,13 @@
 	{/foreach}
 	{if $indiv->notes}
 		<div class="col1">{php}t("Notes"){/php}:</div>
-		<div class="col2-2">{$indiv->notes}</div>
+		<div class="col2-2">
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<td>{$indiv->notes}</td>
+				</tr>
+			</table>
+		</div>
 	{/if}
 	{foreach from=$marriages item=marriage}
 		<br />
@@ -62,7 +68,14 @@
 		{/foreach}
 		{if $marriage.notes}
 			<div class="col1">{php}t("Notes"){/php}:</div>
-			<div class="col2-2">{$marriage.notes}</div>
+			<div class="col2-2">
+			<div class="col2-2">
+				<table cellpadding="0" cellspacing="0">
+					<tr>
+						<td>{$marriage->notes}</td>
+					</tr>
+				</table>
+		</div>
 		{/if}
 		{if $marriage.child_count > 0}
 			<br />

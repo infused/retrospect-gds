@@ -32,6 +32,7 @@
 	* @return string
 	*/
 	function get_birth_sentence($p_node) {
+		$s = null;
 		# populate keyword array
 		keyword_push($p_node->name);
 		if (!empty($p_node->birth->place)) { keyword_push($p_node->birth->place); }
@@ -39,27 +40,28 @@
 		# for males
 		if ($p_node->sex == 'M') { 
 			if ($p_node->birth->date AND $p_node->birth->place) {
-				return sprintf(gtc("He was born on %s in %s."), lang_translate_date($p_node->birth->date), $p_node->birth->place).' ';		
+				$s = sprintf(gtc("He was born on %s in %s."), lang_translate_date($p_node->birth->date), $p_node->birth->place).' ';		
 			}
 			elseif ($p_node->birth->date) {
-				return sprintf(gtc("He was born on %s."), lang_translate_date($p_node->birth->date)).' ';
+				$s = sprintf(gtc("He was born on %s."), lang_translate_date($p_node->birth->date)).' ';
 			}
 			elseif ($p_node->birth->place) {
-				return sprintf(gtc("He was born in %s."), $p_node->birth->place).' ';
+				$s = sprintf(gtc("He was born in %s."), $p_node->birth->place).' ';
 			}
 		}
 		# for females
 		if ($p_node->sex == 'F') { 
 			if ($p_node->birth->date AND $p_node->birth->place) {
-				return sprintf(gtc("She was born on %s in %s."), lang_translate_date($p_node->birth->date), $p_node->birth->place).' ';
+				$s = sprintf(gtc("She was born on %s in %s."), lang_translate_date($p_node->birth->date), $p_node->birth->place).' ';
 			}
 			elseif ($p_node->birth->date) {
-				return sprintf(gtc("She was born on %s."), lang_translate_date($p_node->birth->date)).' ';
+				$s = sprintf(gtc("She was born on %s."), lang_translate_date($p_node->birth->date)).' ';
 			}
 			elseif ($p_node->birth->place) {
-				return sprintf(gtc("She was born in %s."), $p_node->birth->place).' ';
+				$s = sprintf(gtc("She was born in %s."), $p_node->birth->place).' ';
 			}
 		}
+		return $s;
 	}
 	
 	/**
@@ -73,33 +75,35 @@
 	* @return string
 	*/
 	function get_death_sentence($p_node) {
+		$s = null;
 		# populate keyword array
 		if (!empty($p_node->death->place)) { keyword_push($p_node->death->place); }
 		
 		# for males
 		if ($p_node->sex == 'M') { 
 			if ($p_node->death->date and $p_node->death->place) {
-				return sprintf(gtc("He died on %s in %s."), lang_translate_date($p_node->death->date), $p_node->death->place).' ';		
+				$s = sprintf(gtc("He died on %s in %s."), lang_translate_date($p_node->death->date), $p_node->death->place).' ';		
 			}
 			elseif ($p_node->death->date) {
-				return sprintf(gtc("He died on %s."), lang_translate_date($p_node->death->date)).' ';
+				$s = sprintf(gtc("He died on %s."), lang_translate_date($p_node->death->date)).' ';
 			}
 			elseif ($p_node->death->place) {
-				return sprintf(gtc("He died in %s."), $p_node->death->place).' ';
+				$s = sprintf(gtc("He died in %s."), $p_node->death->place).' ';
 			}
 		}
 		# for females
 		if ($p_node->sex == 'F') { 
 			if ($p_node->death->date and $p_node->death->place) {
-				return sprintf(gtc("She died on %s in %s."), lang_translate_date($p_node->death->date), $p_node->death->place).' ';		
+				$s = sprintf(gtc("She died on %s in %s."), lang_translate_date($p_node->death->date), $p_node->death->place).' ';		
 			}
 			elseif ($p_node->death->date) {
-				return sprintf(gtc("She died on %s."), lang_translate_date($p_node->death->date)).' ';
+				$s = sprintf(gtc("She died on %s."), lang_translate_date($p_node->death->date)).' ';
 			}
 			elseif ($p_node->death->place) {
-				return sprintf(gtc("She died in %s."), $p_node->death->place).' ';
+				$s = sprintf(gtc("She died in %s."), $p_node->death->place).' ';
 			}
 		}
+		return $s;
 	}
 	
 	/**
