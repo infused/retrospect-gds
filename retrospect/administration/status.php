@@ -56,13 +56,53 @@
         <td>Something</td>
       </tr>
       <tr>
-        <td>Individual</td>
-        <td>42452345</td>
+        <td><?php echo $g_tbl_child; ?></td>
+        <td>
+					<?php 
+						$sql = "SELECT COUNT(*) FROM $g_tbl_child";
+						echo $db->GetOne($sql);
+				 	?>
+				</td>
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td>Family</td>
-        <td>2345</td>
+        <td><?php echo $g_tbl_citation; ?></td>
+        <td>
+					<?php 
+						$sql = "SELECT COUNT(*) FROM $g_tbl_citation";
+						echo $db->GetOne($sql);
+				 	?>
+				</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><?php echo $g_tbl_comment; ?></td>
+        <td>
+					<?php 
+						$sql = "SELECT COUNT(*) FROM $g_tbl_comment";
+						echo $db->GetOne($sql);
+				 	?>
+				</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><?php echo $g_tbl_fact; ?></td>
+        <td>
+					<?php 
+						$sql = "SELECT COUNT(*) FROM $g_tbl_fact";
+						echo $db->GetOne($sql);
+				 	?>
+				</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><?php echo $g_tbl_family; ?></td>
+        <td>
+					<?php 
+						$sql = "SELECT COUNT(*) FROM $g_tbl_family";
+						echo $db->GetOne($sql);
+					?>
+					</td>
         <td>&nbsp;</td>
       </tr>
       <tr>
@@ -100,6 +140,7 @@
         <td>&nbsp;</td>
         <td>&nbsp;</td>
       </tr>
-    </table>       </td>
+    </table>      
+     </td>
   </tr>
 </table>

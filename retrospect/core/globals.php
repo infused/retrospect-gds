@@ -85,5 +85,11 @@
 	* @global string $g_tbl_media
 	*/
 	$g_tbl_media				= $g_db_prefix  . 'media';
+	
+	/**
+	* Comment table.
+	* @global string $g_tbl_comment
+	*/
+	$g_tbl_comment			= $g_db_prefix . 'comment';
 
 ?>
