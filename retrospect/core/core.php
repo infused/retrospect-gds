@@ -21,7 +21,6 @@
  * @copyright 	Infused Solutions	2001-2003
  * @author			Keith Morrison <keithm@infused-solutions.com>
  * @package 		core
- * @version			1.0
  * @license http://opensource.org/licenses/gpl-license.php
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -33,6 +32,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License contained in the file GNU.txt for
  * more details.
+ *
  */
 	
 	# Create clean content and menu vars
