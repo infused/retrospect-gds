@@ -34,12 +34,11 @@
 <link href="styles.css" rel="stylesheet" type="text/css">
 <table width="100%"  border="0" cellspacing="4" cellpadding="4">
   <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
+    <td colspan="2" class="notification">&nbsp;</td>
   </tr>
   <tr>
-    <td class="content-subtitle">System Status </td>
-    <td class="content-subtitle">Database Status</td>
+    <td class="content-subtitle"><?php echo _("System Status");  ?></td>
+    <td class="content-subtitle"><?php echo _("Database Records");  ?></td>
   </tr>
   <tr>
     <td align="left" valign="top">
@@ -50,11 +49,7 @@
 				} 
 		?>
     </td>
-    <td width="300" align="right"><table width="300"  border="0" cellspacing="0" cellpadding="0">
-      <tr bgcolor="#CCCCCC">
-        <td>Table</td>
-        <td>Records</td>
-        </tr>
+    <td width="300" align="right"><table width="300"  border="0" cellpadding="2" cellspacing="0" bgcolor="#CCCCCC">
       <tr>
         <td><?php echo $g_tbl_child; ?></td>
         <td>

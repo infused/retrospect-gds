@@ -25,13 +25,14 @@
 <link href="styles.css" rel="stylesheet" type="text/css">
 <table width="100%"  border="0" cellpadding="0" cellspacing="5"> 
   <tr> 
-    <td align="left" valign="top">&nbsp;</td> 
+    <td align="left" valign="top" class="notification">
+			<?php 
+				if (isset($_POST['Import'])) {
+					echo $_POST['selectedfile'];
+				}
+			?>
+		</td> 
   </tr> 
-	<?php 
-		if (isset($_POST['Import']) and $_POST['Import'] == 'Import') {
-			// Do something here
-		}
-	?>
   <tr> 
     <td align="left" valign="top" class="content-subtitle"><?php echo _("Import Gedcom"); ?></td> 
   </tr> 

@@ -89,7 +89,7 @@ input.textbox {
 	font: bold 14px Verdana, Arial, Helvetica, sans-serif;
 }
 .notification {
-	font: bold 10pt Verdana, Arial, Helvetica, sans-serif;
+	font: normal 14px Verdana, Arial, Helvetica, sans-serif;
 	color: #FF0000;
 	padding-left: 2px;
 }

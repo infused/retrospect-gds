@@ -26,43 +26,44 @@
 <form name="config_form" method="post" action="">
 <table width="100%"  border="0" cellpadding="0" cellspacing="5"> 
   <tr> 
-    <td align="left" valign="top">&nbsp;</td> 
+    <td class="notification" align="left" valign="top">
+			<?php 
+				$updated = false;
+				
+				function config_fail($p_value) {
+					echo sprintf(_("You must edit core/config.php to change the %s setting."), $p_value).'<br />';
+				}
+				
+				if (isset($_POST['Save']) and $_POST['Save'] == 'Save') {
+					//echo '<tr><td class="notification">';
+					if ($_POST['default_page_new'] != $_POST['default_page_old']) {
+						$updated = $options->OptionUpdate($_POST['default_page_new'], $_POST['default_page_old'], 'default_page');
+					}
+					if ($_POST['default_lang_new'] != $_POST['default_lang_old']) {
+						$updated = $options->OptionUpdate($_POST['default_lang_new'], $_POST['default_lang_old'], 'default_lang');
+					}
+					if ($_POST['allow_lang_change_new'] != $_POST['allow_lang_change_old']) {
+						$updated = $options->OptionUpdate($_POST['allow_lang_change_new'], $_POST['allow_lang_change_old'], 'allow_lang_change');
+					}
+					if ($_POST['translate_dates_new'] != $_POST['translate_dates_old']) {
+						$updated = $options->OptionUpdate($_POST['translate_dates_new'], $_POST['translate_dates_old'], 'translate_dates');
+					}
+					if ($_POST['db_host_new'] != $_POST['db_host_old']) { config_fail(_("MySQL Hostname")); }
+					if ($_POST['db_port_new'] != $_POST['db_port_old']) { config_fail(_("MySQL Port"));	}
+					if ($_POST['db_user_new'] != $_POST['db_user_old']) { config_fail(_("MySQL Username")); }
+					if ($_POST['db_pass_new'] != $_POST['db_pass_old']) { config_fail(_("MySQL Password")); }
+					if ($_POST['db_new'] != $_POST['db_old']) { config_fail(_("MySQL Database")); }
+					if ($updated == false) { echo _("Nothing to save."); }
+					else { echo _("Options updated."); }
+					//echo '</td></tr>';
+					//echo '<tr><td>&nbsp;</td></tr>';
+					
+					# re-initialize options object
+					$options->Initialize();
+				}
+			?>
+		</td> 
   </tr> 
-	<?php 
-		$updated = false;
-		
-		function config_fail($p_value) {
-			echo sprintf(_("You must edit core/config.php to change the %s setting."), $p_value).'<br />';
-		}
-		
-		if (isset($_POST['Save']) and $_POST['Save'] == 'Save') {
-			echo '<tr><td class="notification">';
-			if ($_POST['default_page_new'] != $_POST['default_page_old']) {
-				$updated = $options->OptionUpdate($_POST['default_page_new'], $_POST['default_page_old'], 'default_page');
-			}
-			if ($_POST['default_lang_new'] != $_POST['default_lang_old']) {
-				$updated = $options->OptionUpdate($_POST['default_lang_new'], $_POST['default_lang_old'], 'default_lang');
-			}
-			if ($_POST['allow_lang_change_new'] != $_POST['allow_lang_change_old']) {
-				$updated = $options->OptionUpdate($_POST['allow_lang_change_new'], $_POST['allow_lang_change_old'], 'allow_lang_change');
-			}
-			if ($_POST['translate_dates_new'] != $_POST['translate_dates_old']) {
-				$updated = $options->OptionUpdate($_POST['translate_dates_new'], $_POST['translate_dates_old'], 'translate_dates');
-			}
-			if ($_POST['db_host_new'] != $_POST['db_host_old']) { config_fail(_("MySQL Hostname")); }
-			if ($_POST['db_port_new'] != $_POST['db_port_old']) { config_fail(_("MySQL Port"));	}
-			if ($_POST['db_user_new'] != $_POST['db_user_old']) { config_fail(_("MySQL Username")); }
-			if ($_POST['db_pass_new'] != $_POST['db_pass_old']) { config_fail(_("MySQL Password")); }
-			if ($_POST['db_new'] != $_POST['db_old']) { config_fail(_("MySQL Database")); }
-			if ($updated == false) { echo _("Nothing to save."); }
-			else { echo _("Options updated."); }
-			echo '</td></tr>';
-			echo '<tr><td>&nbsp;</td></tr>';
-			
-			# re-initialize options object
-			$options->Initialize();
-		}
-	?>
   <tr> 
     <td align="left" valign="top" class="content-subtitle"><?php echo _("Site Configuration"); ?></td> 
   </tr> 
