@@ -28,13 +28,11 @@
  */
 
 /**
- * Defines a person
- * 
+ * Defines a person.
  * Some of the properties of this class are other class objects.
  * The example below instantiates a new person object populated with 
  * all of the information available.  If $p_vitals_only is set to true, 
  * then the marriages, parents, children, and notes variables will not be populated.
- *
  * Example:
  * <code>
  * $person = new Person('I100')
@@ -42,13 +40,11 @@
  * This class requires a valid database connection before instantiating it
  * @author			Keith Morrison <keithm@infused-solutions.com>
  * @package	genealogy
- * @access public
  */
 class Person {
 
 	/**
 	* Hold the indkey used to look up the individuals data from the database
-	* @access public
 	* @var string
 	*/
 	var $indkey;				
@@ -56,7 +52,6 @@ class Person {
 	/**
 	* Holds all given names.
 	* Example: John David
-	* @access public
 	* @var string
 	*/
 	var $gname ;
@@ -64,7 +59,6 @@ class Person {
 	/**
 	* Holds the first name.
 	* Example: John
-	* @access public
 	* @var string
 	*/
 	var $fname;
@@ -72,7 +66,6 @@ class Person {
 	/**
 	* Holds the surname.
 	* Example: Smith
-	* @access public
 	* @var string
 	*/
 	var $sname;
@@ -80,7 +73,6 @@ class Person {
 	/**
 	* Holds the full name.
 	* Example: John David Smith
-	* @access public
 	* @var string
 	*/
 	var $name;
@@ -88,7 +80,6 @@ class Person {
 	/**
 	* Hold the title.
 	* Example: Earl of York
-	* @access public
 	* @var string
 	*/
 	var $title;
@@ -96,7 +87,6 @@ class Person {
 	/**
 	* Hold the aka or nickname.
 	* Example: Curly
-	* @access public
 	* @var string
 	*/
 	var $aka;
@@ -109,39 +99,32 @@ class Person {
 	* <li>Female</li>
 	* <li>Unknown</li>
 	* </ul>
-	* @access public
 	* @var string
 	*/
 	var $gender;
 	
 	/**
-	* Holds the birth date
-	*
+	* Holds the birth date.
 	* The date string is pulled straight from the database and is not parsed in any way
-	* @access public
 	* @var string
 	*/
 	var $birth;						# event object
 	
 	/**
-	* Holds the death date
-	*
+	* Holds the death date.
 	* The date string is pulled straight from the database and is not parsed in any way
-	* @access public
 	* @var string
 	*/
 	var $death;
 	
 	/**
 	* Holds general notes about the individual
-	* @access public
 	* @var string
 	*/	
 	var $notes;	
 	
 	/**
 	* An array of Event objects
-	* @access public
 	* @see Event
 	* @var array
 	*/
@@ -149,14 +132,12 @@ class Person {
 	
 	/**
 	* Number of events contained in $events
-	* @access public
 	* @var integer
 	*/
 	var $event_count;			# count of events
 	
 	/**
 	* An array of Marriage objects
-	* @access public
 	* @see Marriage
 	* @var array
 	*/
@@ -164,46 +145,33 @@ class Person {
 	
 	/**
 	* The count of Marriage objects in $marriages
-	* @access public
 	* @see Marriages
 	* @var integer
 	*/
 	var $marriage_count;
 
 	/**
-	* The father's indkey
-	*
+	* The father's indkey.
 	* The indkey can be used to instantiate a new person object.
-	*
 	* Example:
-	* <code>
-	* $father = new Person($indiv->father_indkey);
-	* </code>
-	* @access public
+	* <code>$father = new Person($indiv->father_indkey);</code>
 	* @var string
 	*/
 	var $father_indkey;
 	
 	/**
-	* The mother's indkey
-	*
+	* The mother's indkey.
 	* The indkey can be used to instantiate a new person object.
-	*
 	* Example:
-	* <code>
-	* $mother = new Person($indiv->mother_indkey);
-	* </code>
-	* @access public
+	* <code>$mother = new Person($indiv->mother_indkey);</code>
 	* @var string
 	*/
 	var $mother_indkey;
 
 	/**
-	* Numbering System number
-	* 
+	* Numbering System number.
 	* This can represent any Numbering System number, such as an Ahnentafel
 	* Register, or Henry number
-	* @access public
 	* @var string
 	*/
 	var $ns_number;
@@ -211,19 +179,15 @@ class Person {
 	# private properties
 	
 	/**
-	*	Notekey
-	* 
+	*	Notekey.
 	* Used internally to lookup notes from the database
-	* @access private
 	* @var sting
 	*/
 	var $notekey;
 					
 	/**
-	* Sex
-	* 
+	* Sex.
 	* Possible values are M, F, or ?
-	* @access private
 	* @var string
 	*/
 	var $sex;

@@ -240,11 +240,11 @@ class ATree {
 
 			if ($node->father_index !== null) {
 				$father_node = $this->get_node_at_index($node->father_index);
-				array_push($nodes, $father_node);
+				$nodes[] = $father_node;
 			}
 			if ($node->mother_index !== null) { 
 				$mother_node = $this->get_node_at_index($node->mother_index);
-				array_push($nodes, $mother_node);
+				$nodes[] = $mother_node;
 			} 
 		}
 	}
