@@ -104,7 +104,7 @@
 	# if a surname has been selected
 	else {
 		$smarty->assign('content_title', sprintf(gtc("%s Surname"), $sn));
-		$sql = "SELECT indkey FROM ".TBL_INDIV." WHERE surname = '$sn' ORDER BY givenname";
+		$sql = 'SELECT indkey FROM '.TBL_INDIV.' WHERE surname="'.addslashes($sn).'" ORDER BY givenname';
 		$rs = $db->Execute($sql);
 		$individuals = array();
 		while ($row = $rs->FetchRow()) {
