@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" id="layout" href="layout.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+<div id="header">
+	<div id="navLinks">
+		[ <a href="classtrees_default.html">Class Tree: default</a> ]
+		[ <a href="elementindex_default.html">Index: default</a> ]
+		[ <a href="elementindex.html">All elements</a> ]
+	</div>
+	<div id="packagePosition">
+		<div id="packageTitle2">default</div>
+		<div id="packageTitle">default</div>
+		<div id="elementPath"> &middot; </div>
+	</div>
+</div>
+
+<div id="nav" class="small">
+	<div id="packages">
+		Packages:
+					<p><a href="li_default.html">default</a></p>
+			</div>
+
+
+				<div id="index">
+			<div id="files">
+								Files:<br>
+								<a href="default/_adodb-xmlschema_inc_php.html">		adodb-xmlschema.inc.php
+		</a><br>
+			<a href="default/_test_schema_php.html">		test_schema.php
+		</a><br>
+				</div>
+			<div id="classes">
+				Classes:<br>
+								<a href="default/adoSchema.html">		adoSchema
+		</a><br>
+				</div>
+		</div>
+	</div>
+
+<div id="body">
+		adodb-xmlschema</H1>
+<P>Written by <a href="mailto:richtl@arscognita.com">Richard Tango-Lowy</a>.</P>
+<P>For more information, contact <a href="richtl@arscognita.com">richtl@arscognita.com</a> 
+or visit our site at <a href="http://www.arscognita.com">www.arscognita.com</a>.</P>
+<P>To <a href="http://sourceforge.net/tracker/?group_id=81768&atid=563961">report bugs</a> or <a href="http://sourceforge.net/tracker/?group_id=81768&atid=563964">enhancements</a>, or to <a href="http://sourceforge.net/project/showfiles.php?group_id=81768">download</a> the latest version, visit the <a href="http://http://sourceforge.net/projects/adodb-xmlschema/">adodb-xmlschema Sourceforge Project Page</a>.</P>
+
+<H2>Introduction</H2>
+<P><B>adodb-xmlschema</B> is a class that allows the user to quickly and easily
+build a database using the excellent 
+<a href="http://php.weblogs.com/ADODB">ADODB database library</a> and a simple 
+XML formatted file.</P>
+<P>This library is dual-licensed under a BSD-style license and under the <B><a href="http://opensource.org/licenses/lgpl-license.php">GNU Lesser Public License</a></B>.
+See the <B>LICENSE</B> file for more information.</P>
+
+<P>New for this release:</P>
+
+<h4>20031117 Snapshot</h4>
+<ul><li>Fixed problems with dropping indexes (Thanks Karsten!)</li>
+<li>Added new <tt><a href="default/adoSchema.html#PrintSchema">PrintSchema()</a></tt> method to print the SQL array to the display in HTML or TEXT format, or to simply return the SQL array without printing it.</li>
+<li>Added new <tt><a href="default/adoSchema.html#SaveSchema">SaveSchema()</a></tt> method to save the SQL array to the local filesystem as a list of SQL statements.</li>
+<li>Much better support for object prefixes. Calling <tt><a href="default/adoSchema.html#setPrefix">setPrefix( "<em>myprefix</em>" )</a></tt>
+		now automatically prepends "<tt>myprefix_</tt>" to all tables and indexes. All
+		basic <b>INSERT</b>, <b>DELETE</b>, and <b>UPDATE</b> SQL queries automatically prefixed as well.
+		You can override prefixing by specifying a "prefixmethod" and/or a "key" in the XML &lt;SQL&gt; tag
+		as follows: <tt>&lt;SQL prefixmethod="AUTO|MANUAL|NONE" key="newkey"&gt;</tt>.
+		For example:
+		
+		<p><tt>&lt;SQL prefixmethod="none"&gt;</tt> turns of prefixing for this query set.</p>
+		
+		<p><tt>&lt;SQL prefixmethod="manual"&gt; select foo from %%_bar</tt><br/>
+Replaces all instances of "%%_" (the default key) with the prefix specified by setPrefix().</p>
+			
+		<p><tt>&lt;SQL prefixmethod="manual" key="P_"&gt; select foo from P_bar </tt><br/>
+Replaces all instances of "P_" (a custom key) with the prefix specified by setPrefix().</p>
+			
+		<p><tt>&lt;SQL prefixmethod="auto"&gt; select foo from %%_bar </tt><br/>
+			Functions like the "manual" prefix method, except that INSERT, UPDATE, and DELETE statements will be automatically prefixed.</p>
+			</li></ul>
+			
+<h4>20031001 Snapshot</h4>
+<ul><li><tt><a href="default/adoSchema.html#upgradeSchema">upgradeSchema()</a></tt> now drops and recreates any indexes that exist in the schema file.
+<li>It is now possible to drop a table or index by inserting a <DROP/> tag:
+<pre>
+		&lt;table name="oldtable"&gt;&lt;DROP/&gt;&lt/table&gt; or
+		&lt;index name="oldindex"&gt;&lt;DROP/&gt;&lt/index&gt;
+</pre>
+</ul>
+<h4>20030924 Snapshot</h4>
+<ul><li><P>The upgrade code actually works. To upgrade an existing database to the provided
+		schema, call the <TT><a href="default/adoSchema.html#upgradeSchema">upgradeSchema</a></TT> method after creating the <TT>adoSchema</TT> object:</P>
+		<PRE>
+		$schema = new adoSchema( 'dbname' );
+		<B>$schema->upgradeSchema();</B>
+		</PRE>
+		<P>The <em>upgrade</em> and <em>forceReplace</em> arguments in the <TT>adoSchema</TT> call have been
+		deprecated in favor of the new <TT>upgradeSchema</TT> method.</P>
+		
+		The upgrade code has not yet been thoroughly tested, so use it at your own risk
+		and kindly report the bugs!
+</ul>
+
+<H2>Features</H2><UL>
+	<LI>Darned easy to install
+	<LI>Quickly to create schemas that build on any platform supported by ADODB.</UL>
+
+<H2>Installation</H2>
+<P>To install adodb-xmlschema, simply copy the <tt>adodb-xmlschema.inc.php</tt> file into your
+<B>ADODB</B> directory.</P>
+
+<H2>Documentation</H2>
+<P>See the <a href="docs/index.html">online documentation</a> in the <em>docs</em> directory.</P>
+
+<H2>Quick Start</H2>
+<P>First, create an XML database schema. Let's call it "schema.xml:"</P><PRE>
+&lt;?xml version="1.0"?&gt;
+&lt;schema&gt;
+  &lt;table name="mytable"&gt;
+    &lt;field name="row1" type="I"&gt;
+      &lt;descr&gt;An integer row that's a primary key and autoincrements&lt;/descr&gt;
+      &lt;KEY/&gt;
+      &lt;AUTOINCREMENT/&gt;
+    &lt;/field&gt;
+    &lt;field name="row2" type="C" size="16"&gt;
+      &lt;descr&gt;A 16 character varchar row that can't be null&lt;/descr&gt;
+      &lt;NOTNULL/&gt;
+    &lt;/field&gt;
+  &lt;/table&gt;
+  &lt;index name="myindex" table="mytable"&gt;
+    &lt;col&gt;row1&lt;/col&gt;
+    &lt;col&gt;row2&lt;/col&gt;
+  &lt;/index&gt;
+  &lt;sql&gt;
+    &lt;descr&gt;SQL to be executed only on specific platforms&lt;/descr&gt;
+    &lt;query platform="postgres|postgres7"&gt;
+      insert into mytable ( row1, row2 ) values ( 12, 'stuff' )
+    &lt;/query&gt;
+    &lt;query platform="mysql"&gt;
+      insert into mytable ( row1, row2 ) values ( 12, 'different stuff' )
+    &lt;/query&gt;
+  &lt;/sql&gt;
+&lt;/schema&gt;
+</PRE><P>Create a new database using the appropriate tool for your platform.
+Executing the following PHP code will create the a <i>mytable</i> and <i>myindex</i>
+in the database and insert one row into <i>mytable</i> if the platform is postgres or mysql. </P><PRE>				
+// To build the schema, start by creating a normal ADOdb connection:
+$db->NewADOConnection( 'mysql' );
+$db->Connect( ... );
+
+// Create the schema object and build the query array.
+$schema = <B>new adoSchema</B>( $db );
+
+// Optionally, set a prefix for newly-created tables. In this example
+// the prefix "myprefix_" will result in a table named "myprefix_tablename".
+//$schema-><B>setPrefix</B>( "myprefix_" );
+	
+// Build the SQL array
+$sql = $schema-><B>ParseSchema</B>( "schema.xml" );
+
+// Execute the SQL on the database
+$result = $schema-><B>ExecuteSchema</B>( $sql );
+
+// Finally, clean up after the XML parser
+// (PHP won't do this for you!)
+$schema-><B>Destroy</B>();
+</PRE>
+	
+<H2>XML Schema Format:</H2>
+<P>(See <a href="../xmlschema.dtd">ADOdb_schema.dtd</a> for the full specification)</P>
+<PRE>
+&lt;?xml version="1.0"?&gt;
+&lt;SCHEMA&gt;
+  &lt;TABLE name="tablename" platform="<i>platform1|platform2|...</i>"&gt;
+    &lt;DESCR&gt;Optional description&lt;/DESCR&gt;
+    &lt;FIELD name="fieldname" type="datadict_type" size="size"&gt;
+      &lt;KEY/&gt;
+      &lt;NOTNULL/&gt;
+      &lt;AUTOINCREMENT/&gt;
+      &lt;DEFAULT value="value"/&gt;
+    &lt;/FIELD&gt;
+	... <i>more fields</i>
+  &lt;/TABLE&gt;
+  &lt;TABLE name="tablename2"&gt;
+	&lt;DESCR&gt;Drop this table&lt;/DESCR&gt;
+	&lt;DROP/&gt;
+  &lt;/TABLE&gt;
+  ... <i>more tables</i>
+  
+  &lt;INDEX name="indexname" platform="platform1|platform2|..."&gt;
+    &lt;DESCR&gt;Optional description&lt;/DESCR&gt;
+    &lt;COL&gt;fieldname&lt;/COL&gt;
+    ... <i>more columns</i>
+  &lt;/INDEX&gt;
+  &lt;INDEX name="indexname"&gt;
+    &lt;DESCR&gt;Drop this index&lt;/DESCR&gt;
+    &lt;DROP/&gt;
+  &lt;/INDEX&gt;
+  ... <i>more indices</i>
+  
+  &lt;SQL platform="platform1|platform2|..." prefixmethod="NONE|AUTO|MANUAL" key="new_prefix_key"&gt;
+    &lt;DESCR&gt;Optional description&lt;/descr&gt;
+    &lt;QUERY platform="platform1|platform2|..."&gt;SQL query&lt;/QUERY&gt;
+    ... <i>more queries</i>
+  &lt;/SQL&gt;
+  ... <i>more SQL</i>
+  &lt;/SCHEMA&gt;
+</PRE>
+<HR>
+<H2>Thanks</H2>
+<P>Thanks to John Lim for giving us ADODB, and for the hard work that keeps it on top of things. 
+And particulary for the datadict code that made xmlschema possible.</P>
+<P>And to Mike Benoit (<a href="http://phpgacl.sourceforge.net">http://phpgacl.sourceforge.net</a>) for a recent patch or two and some good ideas.</P>
+<P>And to the kind folks at <a href="http://phpdoc.org">PHP Documentor</a>. Cool tool.</P>
+<P>And to Linus. I thought the end of Amiga was the end of computing. Guess I was wrong :-)</P>
+<HR>
+<address>If you have any questions or comments, please report them at the <a href="http://http://sourceforge.net/projects/adodb-xmlschema/">adodb-xmlschema Sourceforge Project Page</a> or email them to me  at 
+<a href="mailto:richtl@arscognita.com">richtl@arscognita.com</a>.</address>
+	<div id="credit">
+		<hr>
+		Documention generated on Mon, 17 Nov 2003 17:02:14 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.1.0</a>
+	</div>
+</div>
+</body>
+</html>

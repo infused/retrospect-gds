@@ -1,0 +1,442 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<title>Docs For Class adoSchema</title>
+	<link rel="stylesheet" type="text/css" id="layout" href="../layout.css">
+	<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+
+<body>
+<div id="header">
+	<div id="navLinks">
+		[ <a href="../classtrees_default.html">Class Tree: default</a> ]
+		[ <a href="../elementindex_default.html">Index: default</a> ]
+		[ <a href="../elementindex.html">All elements</a> ]
+	</div>
+	<div id="packagePosition">
+		<div id="packageTitle2">default</div>
+		<div id="packageTitle">default</div>
+		<div id="elementPath"> &middot; </div>
+	</div>
+</div>
+
+<div id="nav" class="small">
+	<div id="packages">
+		Packages:
+					<p><a href="../li_default.html">default</a></p>
+			</div>
+
+
+				<div id="index">
+			<div id="files">
+								Files:<br>
+								<a href="../default/_adodb-xmlschema_inc_php.html">		adodb-xmlschema.inc.php
+		</a><br>
+			<a href="../default/_test_schema_php.html">		test_schema.php
+		</a><br>
+				</div>
+			<div id="classes">
+				Classes:<br>
+								<a href="../default/adoSchema.html">		adoSchema
+		</a><br>
+				</div>
+		</div>
+	</div>
+
+<div id="body">
+			<h1>Class: adoSchema</h1>
+	<p style="margin: 0px;">Source Location: Program_Root/adodb-xmlschema.inc.php</p>
+	
+<p class="warning"><p>
+
+<div class="leftcol">
+	<h3><a href="#class_details">Class Overview</a></h3>
+	<div id="classTree">adoSchema</div>
+	<div class="small">
+	<p>Loads and parses an XML file, creating an array of &quot;ready-to-run&quot; SQL statements</p>
+	<h4>Author(s):</h4>
+	<ul>
+																							<li>Richard Tango-Lowy</li>
+						</ul>
+	<h4>Version:</h4>
+	<ul>
+																		<li>$Revision$</li>
+											</ul>
+
+	<h4>Copyright:</h4>
+	<ul>
+													<li>(c) 2003 ars Cognita, Inc., all rights reserved</li>
+																</li>
+	</div>
+</div>
+
+<div class="middlecol">
+	<h3><a href="#class_vars">Variables</a></h3>
+	<ul class="small">
+				<li><a href="../default/adoSchema.html#$sqlArray">$sqlArray</a></li>
+			</ul>
+</div>
+<div class="rightcol">
+	<h3><a href="#class_methods">Methods</a></h3>
+	<ul class="small">
+				<li><a href="../default/adoSchema.html#adoSchema">adoSchema</a></li>
+				<li><a href="../default/adoSchema.html#Destroy">Destroy</a></li>
+				<li><a href="../default/adoSchema.html#ExecuteSchema">ExecuteSchema</a></li>
+				<li><a href="../default/adoSchema.html#ParseSchema">ParseSchema</a></li>
+				<li><a href="../default/adoSchema.html#PrintSchema">PrintSchema</a></li>
+				<li><a href="../default/adoSchema.html#SaveSchema">SaveSchema</a></li>
+				<li><a href="../default/adoSchema.html#setPrefix">setPrefix</a></li>
+				<li><a href="../default/adoSchema.html#upgradeSchema">upgradeSchema</a></li>
+			</ul>
+</div>
+
+<div id="content">
+<hr>
+	<div class="contents">
+	<h2>Child classes:</h2>
+	 
+	</div>
+
+	<div class="leftCol">
+	<h2>Inherited Variables</h2>
+		</div>
+
+	<div class="rightCol">
+	<h2>Inherited Methods</h2>
+		</div>
+	<br clear="all">
+	<hr>
+
+	<a name="class_details"></a>
+	<h2>Class Details</h2>
+	<p>
+Loads and parses an XML file, creating an array of &quot;ready-to-run&quot; SQL statements
+<br>This class is used to load and parse the XML file, to create an array of SQL statements<br>
+that can be used to build a database, and to build the database using the SQL array.
+<br></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>Package</b> - default</li>
+	<li><b>Copyright</b> - (c) 2003 ars Cognita, Inc., all rights reserved</li>
+	<li><b>Version</b> - $Revision$</li>
+	<li><b>Author</b> - Richard Tango-Lowy</li>
+</ul>
+	<p class="small" style="color: #334B66;">[ <a href="#top">Top</a> ]</p>
+
+	<hr>
+	<a name="class_vars"></a>
+	<h2>Class Variables</h2>
+		<a name="$sqlArray"></a>
+	<p></p>
+	<h4>$sqlArray = <span class="value"></span></h4>
+	<div class="indent">
+		<p>
+
+
+</p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>Var</b> - Array containing SQL queries to generate all objects</li>
+</ul>
+		<p><b>Type:</b> array</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+
+	<hr>
+	<a name="class_methods"></a>
+	<h2>Class Methods</h2>
+		<a name="constructor adoSchema"></a>
+	<p></p>
+	<h3>constructor adoSchema</h3>
+	<div class="indent">
+		<p>
+		<code>void constructor adoSchema ( $dbconn, [$upgradeSchema = FALSE], [$forceReplace = FALSE] )</code>
+		</p>
+	
+		<p>
+Constructor. Initializes the xmlschema object.
+<br>adoSchema provides methods to parse and process the XML schema file. The dbconn argument <br>
+is a database connection object created by ADONewConnection. To upgrade an existing database to<br>
+the provided schema, set the upgradeSchema flag to TRUE. By default, adoSchema will attempt to<br>
+upgrade tables by ALTERing them on the fly. (NOT YET IMPLEMENTED-&gt;If your RDBMS doesn't support direct alteration<br>
+(e.g., PostgreSQL), setting the forceReplace flag to TRUE will replace existing tables rather than<br>
+altering them, copying data from each column in the old table to the like-named column in the<br>
+new table.)
+<br></p>
+<h4>Tags:</h4>
+<ul>
+</ul>
+		
+
+	<p></p>
+	<p></p>
+
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">object</span>
+		<b>$dbconn</b> 
+		- 
+		ADOdb connection object</li>
+			<li>
+		<span class="type">boolean</span>
+		<b>$upgradeSchema</b> 
+		- 
+		Upgrade the database (deprecated)</li>
+			<li>
+		<span class="type">boolean</span>
+		<b>$forceReplace</b> 
+		- 
+		If upgrading, REPLACE tables (deprecated)</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="Destroy"></a>
+	<p></p>
+	<h3>Destroy</h3>
+	<div class="indent">
+		<p>
+		<code>void Destroy (  )</code>
+		</p>
+	
+		<p>
+Destructor: Destroys an adoSchema object.
+<br>You should call this to clean up when you're finished with adoSchema.
+<br></p>
+<h4>Tags:</h4>
+<ul>
+</ul>
+		
+
+	<p></p>
+	<p></p>
+
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="ExecuteSchema"></a>
+	<p></p>
+	<h3>ExecuteSchema</h3>
+	<div class="indent">
+		<p>
+		<code>void ExecuteSchema ( [$sqlArray = NULL], [$continueOnErr = TRUE] )</code>
+		</p>
+	
+		<p>
+Applies the current schema to a database.
+<br>Applies the current schema (generally created by calling adoSchema::ParseSchema)<br>
+to a database, creating the tables, indexes, and executing other SQL specified in the<br>
+schema.
+<br></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>Returns</b> - integer	0 if failure, 1 if errors, 2 if successful.</li>
+</ul>
+		
+
+	<p></p>
+	<p></p>
+
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">array</span>
+		<b>$sqlArray</b> 
+		- 
+		Array of SQL statements that will be applied rather than
+		the current schema.</li>
+			<li>
+		<span class="type">boolean</span>
+		<b>$continueOnErr</b> 
+		- 
+		Continue to apply the schema even if an error occurs.</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="ParseSchema"></a>
+	<p></p>
+	<h3>ParseSchema</h3>
+	<div class="indent">
+		<p>
+		<code>array ParseSchema ( $file )</code>
+		</p>
+	
+		<p>
+Loads a schema and converts it to SQL.
+<br>Loads the specified schema (see the DTD for the proper format) and generates<br>
+the SQL necessary to create the database described by the schema. The SQL may<br>
+be accessed directly by examining the adoSchema::sqlArray property.
+<br></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>Return</b> - Array of SQL queries, ready to execute</li>
+</ul>
+		
+
+	<p></p>
+	<p></p>
+
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$file</b> 
+		- 
+		XML file</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="PrintSchema"></a>
+	<p></p>
+	<h3>PrintSchema</h3>
+	<div class="indent">
+		<p>
+		<code>array PrintSchema ( [$sqlArray = NULL], [$format = 'TEXT'] )</code>
+		</p>
+	
+		<p>
+Prints the schema SQL array
+<br>Returns and/or displays the SQL array contained in the adoSchema::sqlArray property.
+<br></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>Return</b> - Array of SQL statements or FALSE if an error occurs</li>
+</ul>
+		
+
+	<p></p>
+	<p></p>
+
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">array</span>
+		<b>$sqlArray</b> 
+		- 
+		Array of SQL statements that will be applied rather than
+		the current schema.</li>
+			<li>
+		<span class="type">boolean</span>
+		<b>$format</b> 
+		- 
+		Format: HTML, TEXT, or NONE</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="SaveSchema"></a>
+	<p></p>
+	<h3>SaveSchema</h3>
+	<div class="indent">
+		<p>
+		<code>boolean SaveSchema ( [$filename = './mindmeld.sql'], [$sqlArray = NULL] )</code>
+		</p>
+	
+		<p>
+Saves the schema SQL array
+<br>Saves the SQL array to the local filesystem as a list of SQL queries.
+<br></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>Return</b> - TRUE is save is successful, else FALSE.</li>
+</ul>
+		
+
+	<p></p>
+	<p></p>
+
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$filename</b> 
+		- 
+		Path and name where the file should be saved.</li>
+			<li>
+		<span class="type">array</span>
+		<b>$sqlArray</b> 
+		- 
+		Array of SQL statements that will be applied rather than
+		the current schema.</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="setPrefix"></a>
+	<p></p>
+	<h3>setPrefix</h3>
+	<div class="indent">
+		<p>
+		<code>boolean setPrefix ( [$prefix = ''] )</code>
+		</p>
+	
+		<p>
+Sets table and index prefix
+<br>Sets a standard prefix that will be prepended to all database tables when the schema<br>
+is parsed. Note that a single underscore will be automatically appended to the prefix. <br>
+Example: setting the prefix to &quot;mm&quot; will result in all tables and indexes being prepended<br>
+with &quot;mm_&quot;. Calling setPrefix with no arguments clears the prefix.
+<br></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>Return</b> - TRUE if successful, else FALSE</li>
+</ul>
+		
+
+	<p></p>
+	<p></p>
+
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$prefix</b> 
+		- 
+		Prefix</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="upgradeSchema"></a>
+	<p></p>
+	<h3>upgradeSchema</h3>
+	<div class="indent">
+		<p>
+		<code>void upgradeSchema ( [$method = 'BEST'] )</code>
+		</p>
+	
+		<p>
+Upgrades an existing schema rather than creating a new one
+<br>Upgrades an exsiting database to match the provided schema. The method<br>
+option can be set to ALTER, REPLACE, BEST, or NONE. ALTER attempts to<br>
+alter each database object directly, REPLACE attempts to rebuild each object<br>
+from scratch, BEST attempts to determine the best upgrade method for each<br>
+object, and NONE disables upgrading.
+<br></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>Returns</b> - string Upgrade method used</li>
+</ul>
+		
+
+	<p></p>
+	<p></p>
+
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$method</b> 
+		- 
+		Upgrade method (ALTER|REPLACE|BEST|NONE)</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+</div>
+	<div id="credit">
+		<hr>
+		Documention generated on Mon, 17 Nov 2003 17:02:14 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.1.0</a>
+	</div>
+</div>
+</body>
+</html>
