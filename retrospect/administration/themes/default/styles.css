@@ -261,3 +261,7 @@ textarea.textbox {
 .cfg-update {
 	color: #FF0000;
 }
+.list_header {
+	padding: 3px;
+	background-color: #C6CBCE;
+}

@@ -7,10 +7,7 @@ var myMenu =
 	[null, 'Site', null, null, 'Site',
 		['<img src="{$THEME_URL}js/ThemeOffice/help.png" />', 'Status', '{$PHP_SELF}', null, 'Status'],
 		['<img src="{$THEME_URL}js/ThemeOffice/config.png" />', 'Global Configuration', '{$PHP_SELF}?m=config', null, 'Global Configuration'],
-		['<img src="{$THEME_URL}js/ThemeOffice/user.png" />', 'User Manager', null, null, 'User Manager',
-			['<img src="{$THEME_URL}js/ThemeOffice/edit.png" />', 'User List', 'url', null, 'Edit Users'],
-			['<img src="{$THEME_URL}js/ThemeOffice/new_user.png" />', 'Add User', 'url', null, 'Add User']
-		]
+		['<img src="{$THEME_URL}js/ThemeOffice/user.png" />', 'User Manager', '{$PHP_SELF}?m=usermgr', null, 'User Manager']
 	],
 	_cmSplit,
 	[null, 'Database', null, null, 'Database',

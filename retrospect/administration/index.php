@@ -53,7 +53,6 @@
 	# Load the Restrospect-GDS core and others
 	@require_once(CORE_PATH.'core.php');
 	@require_once(ADMIN_PATH.'/auth.class.php');
-	@require_once(ADMIN_PATH.'/f_admin.php');
 	
 	# Store the current url w/query string
 	$cp = (empty($_SERVER['QUERY_STRING'])) ? $_SERVER['PHP_SELF'] : $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
