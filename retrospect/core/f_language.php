@@ -37,7 +37,7 @@
 			$lang = $_SESSION['lang']; 
 		}
 		else { 
-			$lang = $options->default_lang; 
+			$lang = $options->GetOption('default_lang'); 
 			$_SESSION['lang'] = $lang;
 		}
 
@@ -67,7 +67,7 @@
 			}
 		}
 		# get list of supported languages 
-		if (isset($options->allow_lang_change) AND $options->allow_lang_change == 1) {
+		if ($options->GetOption('allow_lang_change') == 1) {
 			$sql = "SELECT lang_name, lang_code FROM {$g_tbl_lang}";
 			$g_langs = $db->GetAll($sql);
 		}
@@ -83,7 +83,7 @@
 	*/
 	function lang_translate_date($p_date) {
 		global $options;
-		if ($_SESSION['lang'] != 'en_US' and $options->translate_dates == 1) {
+		if ($_SESSION['lang'] != 'en_US' and $options->GetOption('translate_dates') == 1) {
 			# replace month names
 			$p_date = str_replace(array('jan', 'Jan', 'JAN'), _("Jan"), $p_date);
 			$p_date = str_replace(array('feb', 'Feb', 'FEB'), _("Feb"), $p_date);

@@ -69,7 +69,7 @@
 	* @access public
 	*/
 	ob_flush();
-	$g_option = isset($_GET['option']) ? $_GET['option'] : $options->default_page;
+	$g_option = isset($_GET['option']) ? $_GET['option'] : $options->GetOption('default_page');
 	include(Theme::getPage($g_theme, $g_option));
 	$g_content = ob_get_contents();
 	ob_clean();

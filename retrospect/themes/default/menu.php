@@ -30,7 +30,7 @@
   $g_menu .= '<br />';
 
 	# language selection
-	if (isset($options->allow_lang_change) AND is_array($g_langs)) {
+	if ($options->GetOption('allow_lang_change') != null AND is_array($g_langs)) {
 		$g_menu .= '<div class="menu-title">'._("Language").'</div>';
 		$g_menu .= '<form name="form_change_lang" method="post" action="'.CURRENT_PAGE.'">';
 		$g_menu .= '<select name="lang" size="1" class="listbox" id="lang" onChange="document.forms.form_change_lang.submit();">';

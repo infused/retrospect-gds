@@ -60,7 +60,7 @@
 			echo '<tr><td>&nbsp;</td></tr>';
 			
 			# re-initialize options object
-			$options->GetAll();
+			$options->Initialize();
 		}
 	?>
   <tr> 
@@ -70,8 +70,8 @@
     <td align="left" valign="top"> <table width="100%"  border="0" cellpadding="2" cellspacing="0" bgcolor="#CCCCCC"> 
         <tr> 
           <td width="250" class="content-label"><?php echo _("Default Page"); ?>:</td> 
-          <td width="200"><input name="default_page_new" type="text" class="textbox" id="default_page_new" value="<?php echo $options->default_page; ?>">
-          <input name="default_page_old" type="hidden" id="default_page_old" value="<?php echo $options->default_page; ?>">          </td> 
+          <td width="200"><input name="default_page_new" type="text" class="textbox" id="default_page_new" value="<?php echo $options->GetOption('default_page'); ?>">
+          <input name="default_page_old" type="hidden" id="default_page_old" value="<?php echo $options->GetOption('default_page'); ?>">          </td> 
           <td>This must be a page that does not require any parameters.</td>
         </tr> 
       </table></td> 
@@ -139,30 +139,30 @@
 								$rs = $db->Execute($sql);
 								while ($row = $rs->FetchRow()) {
 									echo '<option value="'.$row['lang_code'].'"';
-									if ($options->default_lang == $row['lang_code']) { echo ' SELECTED'; }
+									if ($options->GetOption('default_lang') == $row['lang_code']) { echo ' SELECTED'; }
 									echo '>'.$row['lang_name'].'</option>';
 					 			}
 					 		?> 
             </select>
-						<input name="default_lang_old" type="hidden" id="default_lang_old" value="<?php echo $options->default_lang; ?>"></td> 
+						<input name="default_lang_old" type="hidden" id="default_lang_old" value="<?php echo $options->GetOption('default_lang'); ?>"></td> 
         </tr>
         <tr bgcolor="#CCCCCC">
           <td class="content-label"><?php echo _("Allow language changes"); ?>?</td>
           <td>
 						<select name="allow_lang_change_new" class="listbox" id="allow_lang_change_new">
-            	<option value="1" <?php if ($options->allow_lang_change == 1) echo 'SELECTED'; ?>><?php echo _("Yes"); ?></option>
-            	<option value="0" <?php if ($options->allow_lang_change == 0) echo 'SELECTED'; ?>><?php echo _("No"); ?></option>
+            	<option value="1" <?php if ($options->GetOption('allow_lang_change') == 1) echo 'SELECTED'; ?>><?php echo _("Yes"); ?></option>
+            	<option value="0" <?php if ($options->GetOption('allow_lang_change') == 0) echo 'SELECTED'; ?>><?php echo _("No"); ?></option>
           	</select>
-						<input name="allow_lang_change_old" type="hidden" id="allow_lang_change_old" value="<?php echo $options->allow_lang_change; ?>">
+						<input name="allow_lang_change_old" type="hidden" id="allow_lang_change_old" value="<?php echo $options->GetOption('allow_lang_change'); ?>">
 					</td>
         </tr>
         <tr bgcolor="#CCCCCC">
           <td class="content-label"><?php echo _("Translate Dates"); ?>?</td>
           <td><select name="translate_dates_new" class="listbox" id="translate_dates_new">
-            <option value="1" <?php if ($options->translate_dates == 1) echo 'SELECTED'; ?>><?php echo _("Yes"); ?></option>
-            <option value="0" <?php if ($options->translate_dates == 0) echo 'SELECTED'; ?>><?php echo _("No"); ?></option>
+            <option value="1" <?php if ($options->GetOption('translate_dates') == 1) echo 'SELECTED'; ?>><?php echo _("Yes"); ?></option>
+            <option value="0" <?php if ($options->GetOption('translate_dates') == 0) echo 'SELECTED'; ?>><?php echo _("No"); ?></option>
           </select>
-            <input name="translate_dates_old" type="hidden" id="translate_dates_old" value="<?php echo $options->translate_dates; ?>"></td>
+            <input name="translate_dates_old" type="hidden" id="translate_dates_old" value="<?php echo $options->GetOption('translate_dates'); ?>"></td>
         </tr> 
       </table>		</td> 
   </tr> 

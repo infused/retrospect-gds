@@ -31,46 +31,23 @@
 	class Options {
 		
 		/**
-		* Default Language
-		* @access public
-		* @var string
-		*/
-		var $default_lang;
-		
-		/**
-		* Allow Language Changes
-		* @access public
-		* @var boolean
-		*/
-		var $allow_lang_change;
-		
-		/** 
-		* Default Page
-		* 
-		* This page is loaded if no options are specified as _GET variables
-		* @access public
-		* @var string
-		*/
-		var $default_page;
-		
-		/**
-		* Translate Dates
-		*
-		* Boolean flag specifying whether dates should be translated or not
-		* @access public
-		* @var boolean
-		*/
-		var $translate_dates;
-		
-		/**
-		* Options Class Constructor
+		* Options class constructor
 		* @access public
 		*/
 		function Options() {
-			$this->GetAll();
+			$this->Initialize();
 		}
 		
-		function GetAll() {
+		
+		/** 
+		*	Initializes the class
+		* Loads options from the database and stuffs them into
+		* class variables.  For example if an option has a key name of 
+		* myoption and a value of 'dosomething' then a class variable is
+		* created with a name of $this->myoption = 'dosomething'
+		* @access public
+		*/
+		function Initialize() {
 			global $g_tbl_option, $db;
 			$sql = "SELECT * FROM $g_tbl_option";
 			$rs = $db->Execute($sql);
@@ -78,26 +55,36 @@
 				$optkey = $row['opt_key'];
 				$this->{$optkey} = $row['opt_val'];
 			}
-			
-			# declare some defaults just in case
-			if (!isset($this->default_page)) {
-				$this->default_page = 'surnames';
-			}
-			if (!isset($this->default_lang)) {
-				$this->default_lang = 'en_US';
-			}
-			if (!isset($this->allow_lang_change)) {
-				$this->allow_lang_change = true;
+		}
+		
+		/**
+		* GetOption
+		* Returns a single option value.
+		* This function returns null if the option is not found.
+		* @param string $optkey
+		* @return mixed
+		*/
+		function GetOption($optkey) {
+			if (isset($this->{$optkey})) { 
+				return $this->{$optkey};
+			} else {
+				return null;
 			}
 		}
 		
-		function OptionUpdate($opt_val_new, $opt_val_old, $opt_key) {
+		/**
+		* OptionUpdate
+		* Updates the option parameters in the options table
+		* @param string $opt_val
+		* @param string $opt_key
+		* @return boolean
+		*/
+		function OptionUpdate($opt_val, $opt_key) {
 			global $db, $g_tbl_option;
-			$sql = "UPDATE {$g_tbl_option} SET opt_val='{$opt_val_new}' WHERE opt_key='{$opt_key}'";
+			$sql = "UPDATE {$g_tbl_option} SET opt_val='{$opt_val}' WHERE opt_key='{$opt_key}'";
 			if ($db->Execute($sql)) {
 				return true;
-			}
-			else {
+			} else {
 				return false;
 			}
 		}
