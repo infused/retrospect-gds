@@ -222,7 +222,6 @@
 																$pref . 'media',
 																$pref . 'note',
 																$pref . 'options',
-																$pref . 'relation',
 																$pref . 'source',
 																$pref . 'user');
 						$table_arr = $db->MetaTables('TABLES');
