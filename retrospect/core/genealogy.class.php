@@ -531,7 +531,7 @@ class Event {
 	var $place;
 	
 	/**
-	* Evene Comment
+	* Event Comment
 	* @access public
 	* @var string
 	*/

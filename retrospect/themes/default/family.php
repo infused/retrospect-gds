@@ -104,11 +104,40 @@
   <div class="col2-2"><?php echo $mother_link; unset($mother_link); ?></div>
   <div class="col1"><?php echo _("Birth"); ?>:</div>
 	<div class="col2"><?php echo $o->birth->date; ?></div>
-  <div class="col3"><?php echo $o->birth->place . disp_sources($o->birth->sources); ?></div>
+  <div class="col3">
+		<?php 
+			if (!empty($o->birth->comment) AND !empty($o->birth->place)) {
+				echo $o->birth->comment.' / '.$o->birth->place . disp_sources($o->birth->sources);
+			}
+			elseif (!empty($o->birth->comment)) {
+				echo $o->birth->comment . disp_sources($o->birth->sources);
+			}
+			elseif (!empty($o->birth->place)) {
+				echo $o->birth->place . disp_sources($o->birth->sources);
+			}
+			elseif (!empty($o->birth->sources)) {
+				echo disp_sources($o->birth->sources);
+			}
+		?>
+	</div>
 	<div class="col1"><?php echo _("Death"); ?>:</div>
   <div class="col2"><?php echo $o->death->date; ?></div>
-  <div class="col3"><?php echo $o->death->place . disp_sources($o->death->sources); ?></div>
-	
+  <div class="col3">
+		<?php 
+				if (!empty($o->death->comment) AND !empty($o->death->place)) {
+					echo $o->death->comment.' / '.$o->death->place . disp_sources($o->death->sources);
+				}
+				elseif (!empty($o->death->comment)) {
+					echo $o->death->comment . disp_sources($o->death->sources);
+				}
+				elseif (!empty($o->death->place)) {
+					echo $o->death->place . disp_sources($o->death->sources);
+				}
+				elseif (!empty($o->death->sources)) {
+					echo disp_sources($o->death->sources);
+				}
+		?>
+	</div>
 	<?php
 	# events
 	foreach($o->events as $event) { ?>
@@ -124,6 +153,9 @@
 				}
 				elseif (!empty($event->place)) {
 					echo $event->place . disp_sources($event->sources);
+				}
+				elseif (!empty($event->sources)) {
+					echo disp_sources($event->sources);
 				}
 			?>
 		</div>

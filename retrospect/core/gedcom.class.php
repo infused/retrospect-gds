@@ -546,11 +546,9 @@
 			if ($key != 'EVEN') {
 				$event['type'] = $IND_EVENTS[$key];		
 			}
-			else { 
-				$comment = trim($match[2]);
-				if (!empty($comment)) {
-					$event['comment'] = $comment;
-				}
+			$comment = trim($match[2]);
+			if (!empty($comment)) {
+				$event['comment'] = $comment;
 			}
 			while (!feof($this->fhandle)) {
 				$poffset = ftell($this->fhandle);
