@@ -34,9 +34,10 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0"> 
   <tr> 
     <td height="50" align="left" valign="top" bgcolor="#0066CC"><img src="images/logo.gif" width="600" height="59" /></td> 
-    <td align="right" valign="middle" nowrap="nowrap" bgcolor="#0066CC">			<form name="form_change_lang" id="form_change_lang" method="post" action="<?php echo CURRENT_PAGE; ?>">
-        <select name="lang" class="listbox" id="lang" onChange="document.forms.form_change_lang.submit();">
-				<?php 
+    <td align="right" valign="middle" nowrap="nowrap" bgcolor="#0066CC">
+			<form name="form_change_lang" id="form_change_lang" method="post" action="<?php echo CURRENT_PAGE; ?>"> 
+        <select name="lang" class="listbox" id="lang" onChange="document.forms.form_change_lang.submit();"> 
+          <?php 
 					foreach ($g_langs as $the_lang) {
 						$code = $the_lang['lang_code'];
 						$name = $the_lang['lang_name'];
@@ -46,8 +47,8 @@
 						}
 						echo '>'._($name).'</option>';
 					}
-				?>
-				</select> 
+				?> 
+        </select> 
       </form>
 		</td> 
   </tr> 
@@ -56,13 +57,21 @@
         <tr> 
           <td class="text"><div id="myMenuID"></div></td> 
           <td>&nbsp;</td> 
-          <td align="right" class="text">						<?php echo sprintf(_("Logged in as %s"), $_SESSION['uid']);?> :: <a href="<?php echo $_SERVER['PHP_SELF'].'?auth=logout'; ?>"><?php echo _("Logout"); ?></a><img src="images/spacer.gif" width="5" height="1" />&nbsp;					</td> 
+          <td align="right" class="text">
+						<?php 
+							printf(_("Logged in as %s"), $_SESSION['uid']);
+							echo ' :: ';
+							echo '<a href="'.$_SERVER['PHP_SELF'].'?auth=logout">'._("Logout").'</a>';
+							echo '<img src="images/spacer.gif" width="5" height="1" />';
+						?> 
+					 &nbsp;
+					 </td>
         </tr> 
       </table></td> 
   </tr> 
   <tr> 
     <td colspan="2" align="left" valign="top"> <?php 
-			if (isset($_GET['option']) and file_exists($_GET['option'].'.php')) {
+			if (isset($_GET['option']) AND file_exists($_GET['option'].'.php')) {
 				include($_GET['option'].'.php');
 			}
 		?> </td> 

@@ -48,28 +48,31 @@
             <td><img src="images/logo.gif" width="600" height="59" /></td>
           </tr>
           <tr>
-            <td align="center" valign="middle">
-							<table border="0" cellpadding="2" cellspacing="0">
-                <tr>
-                  <td align="right" valign="middle" class="text"><?php echo _("Username"); ?>:</td>
-                  <td>
-                    <input name="uid" type="text" class="textbox" tabindex="1" />
-                  </td>
-                  <td width="200" rowspan="3"><input name="Submit" type="submit" class="text" tabindex="4" value="<?php echo _("Login"); ?>" /></td>
-                </tr>
-                <tr>
-                  <td align="right" valign="middle" class="text"><?php echo _("Password"); ?>:</td>
-                  <td><input name="pwd" type="password" class="textbox" id="password" tabindex="2" />
-                  </td>
-                </tr>
-                <tr>
-                  <td align="right" valign="middle" class="text"><?php echo _("Language"); ?>:</td>
-                  <td width="200"><select name="lang" class="listbox" tabindex="3">
-                    <option value="en_US"<?php if ($_SESSION['lang'] == 'en_US') { echo ' SELECTED'; } ?>><?php echo _("English"); ?></option>
-                    <option value="es_ES"<?php if ($_SESSION['lang'] == 'es_ES') { echo ' SELECTED'; } ?>><?php echo _("Spanish"); ?></option>
-                  </select></td>
-                </tr>
-            </table>            </td>
+            <td align="center" valign="middle">						<table width="100%"  border="0" cellspacing="0" cellpadding="20">
+              <tr>
+                <td align="center" valign="middle"><table border="0" cellpadding="2" cellspacing="0">
+                  <tr>
+                    <td align="right" valign="middle" class="text"><?php echo _("Username"); ?>:</td>
+                    <td>
+                      <input name="uid" type="text" class="textbox" tabindex="1" />
+                    </td>
+                    <td width="200" rowspan="3" align="center" valign="bottom"><input name="Submit" type="submit" class="text" tabindex="4" value="<?php echo _("Login"); ?>" /></td>
+                  </tr>
+                  <tr>
+                    <td align="right" valign="middle" class="text"><?php echo _("Password"); ?>:</td>
+                    <td><input name="pwd" type="password" class="textbox" id="password" tabindex="2" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="right" valign="middle" class="text"><?php echo _("Language"); ?>:</td>
+                    <td><select name="lang" class="listbox" tabindex="3">
+                        <option value="en_US"<?php if ($_SESSION['lang'] == 'en_US') { echo ' SELECTED'; } ?>><?php echo _("English"); ?></option>
+                        <option value="es_ES"<?php if ($_SESSION['lang'] == 'es_ES') { echo ' SELECTED'; } ?>><?php echo _("Spanish"); ?></option>
+                    </select></td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
           </tr>
         </table>
       </form>
