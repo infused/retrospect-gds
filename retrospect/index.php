@@ -39,7 +39,6 @@
 	define('THEME_PATH', ROOT_PATH.'/themes/'); # Path to themes
 	define('LIB_PATH', ROOT_PATH.'/libraries/'); # Path to 3rd party libraries
 	define('LOCALE_PATH', ROOT_PATH.'/locale/'); # Path to gettext locale files
-	define('FPDF_FONTPATH', LIB_PATH.'fpdf/font/'); # FPDF font path
 	define('BASE_URL', dirname($_SERVER['PHP_SELF']));
 
 	# Load the Restrospect-GDS core
