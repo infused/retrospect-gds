@@ -23,7 +23,7 @@
 		<field name="srckey" type="C" size="20">
 			<notnull />
 		</field>
-		<field name="source" type="X">
+		<field name="text" type="X">
 			<notnull />
 		</field>
 	</table>
@@ -31,7 +31,7 @@
 		<col>factkey</col>
 	</index>
 	<table name="comment">
-		<field name="id" type="I4">
+		<field name="id" type="I">
 			<key />
 			<notnull />
 			<autoincrement />
@@ -126,7 +126,7 @@
 		<col>sex</col>
 	</index>
 	<table name="language">
-		<field name="lang_id" type="I2">
+		<field name="lang_id" type="I">
 			<key />
 			<notnull />
 			<autoincrement />
@@ -170,7 +170,7 @@
 		</field>
 	</table>
 	<table name="options">
-		<field name="opt_id" type="I" size="3">
+		<field name="opt_id" type="I">
 			<key />
 			<notnull />
 		</field>
