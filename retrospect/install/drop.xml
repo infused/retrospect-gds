@@ -36,4 +36,7 @@
 	<table name="user">
 		<drop />
 	</table>
+	<table name="usertype">
+		<drop />
+	</table>
 </schema>

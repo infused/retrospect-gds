@@ -138,7 +138,17 @@ ALTER TABLE rgds_user ADD  UNIQUE INDEX rgds_uid  (uid);
 
 ALTER TABLE rgds_user ADD  INDEX rgds_pwd  (pwd);
 
+CREATE TABLE rgds_usertype (
+id                       INTEGER NOT NULL AUTO_INCREMENT,
+name                     VARCHAR(32) NOT NULL,
+                 PRIMARY KEY (id)
+);
+
 INSERT INTO  rgds_user VALUES  ('1', 'admin', '40be4e59b9a2a2b5dffb918c0e86b3d7', 'Administrator', 'root@oo.com', 1, null, null, 1, 1);
+
+INSERT INTO  rgds_usertype VALUES  ('1', 'Site Administrator');
+
+INSERT INTO  rgds_usertype VALUES  ('2', 'User');
 
 INSERT INTO  rgds_options VALUES  ('1', 'default_lang', 'en_US');
 
