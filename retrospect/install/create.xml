@@ -126,6 +126,12 @@
 		<field name="aka" type="C" size="128">
 			<notnull />
 		</field>
+		<field name="prefix" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="suffix" type="C" size="128">
+			<notnull />
+		</field>
 		<field name="sex" type="C" size="1">
 			<notnull />
 		</field>
