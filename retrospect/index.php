@@ -63,6 +63,7 @@
 	$smarty->assign('BASE_URL', BASE_URL);
 	$smarty->assign('THEME_URL', BASE_URL.'/themes/'.$g_theme.'/');
 	$smarty->assign('allow_lang_change', $options->GetOption('allow_lang_change'));
+	$smarty->assign('allow_comments', $options->GetOption('allow_comments'));
 	if (isset($lang_names)) $smarty->assign_by_ref('lang_names', $lang_names);
 	if (isset($lang_codes)) $smarty->assign_by_ref('lang_codes', $lang_codes);
 	$smarty->assign_by_ref('lang', $_SESSION['language']);
