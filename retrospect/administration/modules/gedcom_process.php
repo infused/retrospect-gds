@@ -34,7 +34,9 @@ a:hover {
 	
 	$filename = $_GET['f'];
 	$filepath = GEDCOM_DIR.$filename;
-	$maxtime = ini_get('max_execution_time');
+	//$maxtime = ini_get('max_execution_time');
+	$maxtime = 30;
+	$stime = time();
 	
 	# initialize gedcom parser
 	outputnow( 'Initializing gedcom parser...');
@@ -43,8 +45,9 @@ a:hover {
 	$gedcom->Open($filepath);
 	
 	# Set the file offset and set the factkey if needed
-	if (isset($_POST['offset']) AND $_POST['offset'] > 0) {
-		$offset = $_POST['offset'];
+	if (isset($_GET['offset']) AND $_GET['offset'] > 0) {
+		
+		$offset = $_GET['offset'];
 		
 		# we need to set the factkey to the highest already in the database
 		# in case we are not starting from the beginning of the file
@@ -77,15 +80,21 @@ a:hover {
 	# Maybe we can add this as a configuration option in the future
 	outputnow( 'Processing '.$filename.'...' );
 	while ($offset !== true) {
-		$offset = $gedcom->ParseGedcom($offset,1);
+		$offset = $gedcom->ParseGedcom($offset,5);
 		$complete = ($offset !== true) ? number_format($offset / $gedcom->file_end_offset * 100, 1) : 100;
 		if ($complete != 100) {
 			outputnow( 'Processing is '.$complete.'% complete...' );
+			$etime = time();
+			if ($etime - $stime > $maxtime - 10) {
+				$yes = '<a href="'.$_SERVER['PHP_SELF'].'?m=gedcom_process&f='.$filename.'&offset='.$offset.'">Yes</a>';
+				outputnow ( $yes );
+				exit;
+			}
 		} else {
-			outputnow( 'Processing is '.$complete.'% complete.' );
-			# link back to start page now...
-			
-			
+			$return = '<a href="'.BASE_SCRIPT.'" target="_parent">here</a>';
+			outputnow ('');
+			outputnow( 'The import process is complete.');
+			outputnow( 'Click '.$return.' to return to the main menu.' );
 		}
 	}
 	

@@ -271,7 +271,7 @@
 		* @param integer Optional file offset at which to begin parsing
 		* @param integer Optional time limit in seconds
 		*/
-		function ParseGedcom($offset = 0, $time_limit = 5) {
+		function ParseGedcom($offset = 0, $time_limit = 120) {
 			# establish start time
 			$start = time();
 			
