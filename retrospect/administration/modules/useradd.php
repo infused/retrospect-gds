@@ -48,9 +48,5 @@
 			$smarty->assign('SAVED', $saved);
 			$smarty->assign('REDIRECT', $_SERVER['PHP_SELF'].'?m=usermgr');
 		}
-		# Form did not validate correctly, so redisplay form with
-		else {
-			$smarty->assign($_POST);
-		}
 	}
 ?>
