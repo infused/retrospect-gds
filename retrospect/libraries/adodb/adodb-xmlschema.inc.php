@@ -17,22 +17,79 @@
 /**
 * Debug on or off
 */
- if (!defined('XMLS_DEBUG')) define( 'XMLS_DEBUG', FALSE );
+ define( 'XMLS_DEBUG', FALSE );
+ 
+ /**
+* Default prefix key
+*/
+ define( 'XMLS_PREFIX', '%%P' );
+ 
+/**
+* Maximum length allowed for object prefix
+*/
+define( 'XMLS_PREFIX_MAXLEN', 10 );
  
 /**
 * Include the main ADODB library
 */
 if (!defined( '_ADODB_LAYER' ) ) {
-	require( dirname(__FILE__) . '/adodb.inc.php' );
+	require( 'adodb.inc.php' );
 }
 
 /**
-* Maximum length allowed for object prefix
+* Abstract DB Object. This class provides basic methods for database objects, such
+* as tables and indexes.
 *
 * @access private
 */
-define( 'XMLS_PREFIX_MAXLEN', 10 );
-
+class dbObject {
+	
+	/**
+	* var string $prefix Object prefix
+	*/
+	var $prefix;
+	
+	/**
+	* Creates and returns the object set
+	*
+	* @return array Database object
+	*/
+	function create() {
+		return $this->querySet;
+	}
+	
+	/**
+	* Sets object name, adding prefix and anything else necessary.
+	*
+	* @param string $baseName Object name to process
+	* @return string Process name, ready for use
+	*/	
+	function setName( $baseName, $prefix = NULL ) {
+	
+		// Test prefix
+		if( !isset( $prefix ) or $prefix == '' ) {
+			// No prefix set. Use name provided.
+			$endName = $baseName;
+			
+		} elseif( preg_match( '/^[A-Za-z]+[A-Za-z0-9]+/', $prefix ) ) {
+			// Prepend the object prefix to the table name
+			$endName = $prefix . '_' . $baseName;
+			
+		} else {
+			// Bad prefix. Fail out.
+			die( "Bad object prefix '$prefix'. Prefix must begin with a letter and contain only alphanumeric characters." );
+		}
+		
+	return $endName;
+	}
+	
+	/**
+	* Destroys the object
+	*/
+	function destroy() {
+		unset( $this );
+	}
+}
 
 /**
  * Creates a table object in ADOdb's datadict format
@@ -44,7 +101,7 @@ define( 'XMLS_PREFIX_MAXLEN', 10 );
  *
  * @access private
  */
-class dbTable {
+class dbTable extends dbObject {
 	
 	/**
 	* @var string	Table name
@@ -100,13 +157,16 @@ class dbTable {
 	*
 	* @param string	$name		Table name
 	* @param string	$upgradeTable		Upgrade method (NULL, ALTER, or REPLACE)
+	* @param string 	$prefix		DB Object prefix
 	*/
-	function dbTable( $name, $upgrade = NULL ) {
-		logMsg( "+++dbTable( $name, $upgrade )" );
+	function dbTable( $name, $upgrade = NULL, $prefix = NULL ) {
 		
 		$dbconn = $GLOBALS['AXMLS_DBCONN'];
 		$dbdict = $GLOBALS['AXMLS_DBDICT'];
 		
+		// Preprend the object prefix to the table name
+		$name = $this->setName( $name, $prefix );	
+			
 		$this->tableName = $name;
 
 		// If upgrading, set and handle the upgrade method
@@ -138,7 +198,6 @@ class dbTable {
 		} else {
 			logMsg( "Creating table '$name'" );
 		}
-		logMsg( "   ---dbTable" );
 	}
 	
 	/**
@@ -171,7 +230,7 @@ class dbTable {
 	* @return array	Field specifier array
 	*/
 	function addField( $name, $type, $size = NULL, $opts = NULL ) {
-		logMsg( "   +++addField( $name, $type, $size, $opts )" );
+
 		// Set the field index so we know where we are
 		$this->currentField = $name;
 		
@@ -187,7 +246,6 @@ class dbTable {
 		if( isset( $opts ) ) $this->fieldSpec[$name]['OPTS'] = $opts;
 		
 		// Return array containing field specifier
-		logMsg( "   ---addField" );
 		return $this->fieldSpec;
 	}
 	
@@ -203,7 +261,6 @@ class dbTable {
 	* @return array	Field specifier array
 	*/
 	function addFieldOpt( $field, $opt, $value = NULL ) {
-		logMsg( "   +++addFieldOpt( $field, $opt, $value )" );
 		
 		// Add the option to the field specifier
 		if(  $value === NULL ) { // No value, so add only the option
@@ -213,12 +270,11 @@ class dbTable {
 		}
 	
 		// Return array containing field specifier
-		logMsg( "   ---addFieldOpt( $field )" );
 		return $this->fieldSpec;
 	}
 	
 	/**
-	* Adds an option to the table
+	* BROKEN: Adds an option to the table
 	*
 	*This method takes a comma-separated list of table-level options
 	* and appends them to the table object.
@@ -227,13 +283,13 @@ class dbTable {
 	* @return string	Option list
 	*/
 	function addTableOpt( $opt ) {
-		logMsg( "   +++addTableOpt( $opt )" );
 		
 		$optlist = &$this->tableOpts;
 		$optlist ? ( $optlist .= ", $opt" ) : ($optlist = $opt );
 		
-		// Return the options list
-		logMsg( "   ---addTableOpt( $opt )" );
+		print "<H1>Optlist</H1>";
+		print_r( $optlist );
+		print "<BR>";
 		return $optlist;
 	}
 	
@@ -246,7 +302,6 @@ class dbTable {
 	* @return array	Array containing table creation SQL
 	*/
 	function create( $dict ) {
-		logMsg( "   +++<b>create</b>( $dict )" );
 	
 		// Drop the table
 		if( $this->dropTable ) {
@@ -292,7 +347,7 @@ class dbTable {
 			if( isset( $this->legacyTables ) and is_array( $this->legacyTables ) and count( $this->legacyTables > 0 ) ) {
 				if( array_key_exists( strtoupper( $this->tableName ), $this->legacyTables ) ) {
 					$existingTableName = $this->legacyTables[strtoupper( $this->tableName )];
-					logMsg( "Upgrading $existingTableName using '{$this->upgrade}'" );
+					//logMsg( "Upgrading $existingTableName using '{$this->upgrade}'" );
 				}
 			}
 		} 	
@@ -326,7 +381,6 @@ class dbTable {
 		}
 		
 		// Return the array containing the SQL to create the table
-		logMsg( "   ---create" );
 		return $sqlArray;
 	}
 	
@@ -337,6 +391,7 @@ class dbTable {
 	* @return array	Array containing table creation SQL
 	*/
 	function drop( $dict ) {
+		$sqlArray = array();
 		if( isset( $this->currentField ) ) {
 			// Drop the current field
 			logMsg( "Dropping field '{$this->currentField}' from table '{$this->tableName}'" );
@@ -346,32 +401,20 @@ class dbTable {
 			// Drop the current table
 			logMsg( "Dropping table '{$this->tableName}'" );
 			$this->dropTable = TRUE;
-			$sqlArray = false;
 		}
 		return $sqlArray; 
 	}
 	
 	/**
-	* Generates the SQL that will replace an existing table in the database
+	* NOT IMPLEMENTED: Generates the SQL that will replace an existing table in the database
 	*
 	* Returns SQL that will replace the table represented by the object.
 	*
 	* @return array	Array containing table replacement SQL
 	*/
 	function replace( $dict ) {
-		logMsg( "   +++replace( $dict )" );
 		
 		// Identify new columns
-		
-		logMsg( "   ---replace)" );
-	}
-	
-	/**
-	* Destructor
-	*/
-	function destroy() {
-		logMsg( "===destroy" );
-		unset( $this );
 	}
 }
 
@@ -385,7 +428,7 @@ class dbTable {
 *
 * @access private
 */
-class dbIndex {
+class dbIndex extends dbObject {
 	
 	/**
 	* @var string	Index name
@@ -428,12 +471,19 @@ class dbIndex {
 	* @param string $name	Index name
 	* @param string $table		Name of indexed table
 	* @param string	$upgrade		Upgrade method (NULL, ALTER, or REPLACE)
+	* @param string $prefix	DB object prefix
 	*/
-	function dbIndex( $name, $table, $upgrade = NULL ) {
-		logMsg( "===dbIndex( $name, $table )" );
+	function dbIndex( $name, $table, $upgrade = NULL, $dict = NULL, $prefix = NULL ) {
+
+		
+		// Preprend the object prefix to the index and table names
+		$name = $this->setName( $name, $prefix );
+		$table = $this->setName( $table, $prefix );
+
 		$this->indexName = $name;
 		$this->tableName = $table;
 		$this->dropIndex = FALSE;
+		$this->dict = $dict;
 		
 		// If upgrading, set the upgrade method
 		if( isset( $upgrade ) ) {
@@ -444,10 +494,7 @@ class dbIndex {
 				logMsg( "Dropping old index '$name' using {$this->upgrade}" );
 			} else {
 				unset( $this->upgrade );
-			}
-			
-		} else {
-			logMsg( "Creating index '$name'" );
+			}	
 		}
 	}
 	
@@ -460,13 +507,11 @@ class dbIndex {
 	* @return string	Field list
 	*/
 	function addField( $name ) {
-		logMsg( "   +++addField( $name )" );
 		
 		$fieldlist = &$this->fields;
 		$fieldlist ? ( $fieldlist .=" , $name" ) : ( $fieldlist = $name );
 		
 		// Return the field list
-		logMsg( "   ---addField" );
 		return $fieldlist;
 	}
 	
@@ -480,12 +525,11 @@ class dbIndex {
 	* @return string	Option list
 	*/
 	function addIndexOpt( $opt ) {
-		logMsg( "   +++addIndexOpt( $opt )" );
+		
 		$optlist = &$this->indexOpts;
 		$optlist ? ( $optlist .= ", $opt" ) : ( $optlist = $opt );
 
 		// Return the options list
-		logMsg( "   ---addIndexOpt" );
 		return $optlist;
 	}
 
@@ -498,11 +542,11 @@ class dbIndex {
 	* @return array	Array containing index creation SQL
 	*/
 	function create( $dict ) {
-		logMsg( "   +++create( $dict )" );
 		
 		// Drop the index
 		if( $this->dropIndex == TRUE ) {
-			$sqlArray = array( "DROP INDEX {$this->indexName}" );
+		    //$sqlArray = array( "DROP INDEX {$this->indexName}" );
+			$sqlArray = $this->dict->_IndexSQL($this->indexName,'', null,array('REPLACE'=>true));
 			return $sqlArray; 
 		}
 		
@@ -513,17 +557,14 @@ class dbIndex {
 			$indexOpts_arr = NULL;
 		}
 	 
+		if( isset( $this->upgrade ) ) {
+		  $indexOpts_arr['REPLACE'] = true;
+		}
+	 
 		// Build index SQL array
 		$sqlArray = $dict->CreateIndexSQL( $this->indexName, $this->tableName, $this->fields, $indexOpts_arr );
 	 	
-		// If upgrading, prepend SQL to drop the old index
-		if( isset( $this->upgrade ) ) {
-			$dropSql = "DROP INDEX {$this->indexName} ON {$this->tableName}";
-			array_unshift( $sqlArray, $dropSql );
-		}
-		
 		// Return the array containing the SQL to create the table
-		logMsg( "   ---create" );
 		return $sqlArray;
 	}
 	
@@ -531,7 +572,6 @@ class dbIndex {
 	* Marks an index for destruction
 	*/
 	function drop() {
-		logMsg( "Marking index '{$this->indexName}' from '{$this->tableName}' for drop" );
 		$this->dropIndex = TRUE;
 	}
 	
@@ -539,7 +579,6 @@ class dbIndex {
 	* Destructor
 	*/
 	function destroy() {
-		logMsg( "===destroy" );
 		unset( $this );
 	}
 }
@@ -551,7 +590,7 @@ class dbIndex {
 *
 * @access private
 */
-class dbQuerySet {
+class dbQuerySet extends dbObject {
 	
 	/**
 	* @var array	List of SQL queries
@@ -564,12 +603,49 @@ class dbQuerySet {
 	var $query;
 	
 	/**
-	* Constructor. Initializes the queries array
+	* @var string	Query prefix key
 	*/
-	function dbQuerySet() {
-		logMsg( "===dbQuerySet" );
+	var $prefixKey;
+	
+	/**
+	* @var boolean	Auto prefix enable (TRUE)
+	*/
+	var $prefixMethod;
+	
+	/**
+	* Constructor. Initializes the queries array
+	*
+	* @param string $prefix Object prefix string
+	* @param string $prefixKey Object prefix key. Used to override default replacement key
+	* @param string $prefixMethod Automatic prefix generation enabled
+	*/
+	function dbQuerySet( $prefix = NULL, $prefixKey = NULL, $prefixMethod = 'AUTO' ) {
+		
+		// Initialize properties
 		$this->querySet = array();
 		$this->query = '';
+		
+		// Sets the object prefix string
+		if( isset( $prefix ) ) $this->prefix = $prefix;
+		
+		// Overrides the manual prefix key
+		if( isset( $prefixKey ) ) $this->prefixKey = $prefixKey;
+		
+		// Enables or disables automatic prefix prepending
+		switch( strtoupper( trim( $prefixMethod ) ) ) {
+			case 'AUTO':
+				$this->prefixMethod = 'AUTO';
+				break;
+			case 'MANUAL' :
+				$this->prefixMethod = 'MANUAL';
+				break;
+			case 'NONE':
+				$this->prefixMethod = 'NONE';
+				break;
+			default:
+				$this->prefixMethod = 'AUTO';
+				break;
+		}
 	}
 	
 	/** 
@@ -577,10 +653,9 @@ class dbQuerySet {
 	*
 	* $param string $data	Line of SQL data or NULL to initialize a new query
 	*/
-	function buildQuery( $data = NULL ) {
-		logMsg( "   +++buildQuery( $data )" );
+	function buildQuery( $data = NULL ) {;
+		
 		isset( $data ) ? ( $this->query .= " " . trim( $data ) ) : ( $this->query = '' );
-		logMsg( "   ---buildQuery" );
 	}
 	
 	/**
@@ -589,15 +664,72 @@ class dbQuerySet {
 	* @return string	SQL of added query
 	*/
 	function addQuery() {
-		logMsg( "   +++addQuery" );
+		
+		if( !function_exists( 'prefixQuery' ) ) {
+			// Rebuild the query with the prefix attached to any objects
+			function prefixQuery( $regex, $query, $prefix = NULL ) {
+				
+				if( !isset( $prefix ) ) return $query;
+				
+				if( preg_match( $regex, $query, $match ) ) {
+				
+					$preamble = $match[1];
+					$postamble = $match[5];
+					$objectList = explode( ',', $match[3] );
+					$prefix = $prefix . '_';
+					
+					$prefixedList = '';
+					foreach( $objectList as $object ) {
+						if( $prefixedList === '' ) {
+							$prefixedList .= $prefix . trim( $object );
+						}else {
+							$prefixedList .= ', ' . $prefix . trim( $object );
+						}
+					}
+					$query = "$preamble $prefixedList  $postamble";
+				}
+				
+				return $query;
+			}
+		}
+		
+		$query = $this->query;
+		
+		switch( $this->prefixMethod ) {
+				
+			case "AUTO":
+				// Enable auto prefix replacement
+				
+				// Process object prefix.		
+				// Evaluate SQL statements to prepend prefix to objects
+				$query = prefixQuery( '/^\s*((?is)INSERT\s+(INTO\s+)?)((\w+\s*,?\s*)+)(\s.*$)/', $query, $this->prefix );
+				$query = prefixQuery( '/^\s*((?is)UPDATE\s+(FROM\s+)?)((\w+\s*,?\s*)+)(\s.*$)/', $query, $this->prefix );
+				$query = prefixQuery( '/^\s*((?is)DELETE\s+(FROM\s+)?)((\w+\s*,?\s*)+)(\s.*$)/', $query, $this->prefix );
+				
+				// SELECT statements aren't working yet
+				#$data = preg_replace( '/(?ias)(^\s*SELECT\s+.*\s+FROM)\s+(\W\s*,?\s*)+((?i)\s+WHERE.*$)/', "\1 $prefix\2 \3", $data );
+				
+			case "MANUAL":
+				
+				// If prefixKey is set and has a value then we use it to override the default constant XMLS_PREFIX.
+				// If prefixKey is not set, we use the default constant XMLS_PREFIX
+				if( isset( $this->prefixKey ) and !($this->prefixKey === '' ) ) {
+					// Enable prefix override
+					$query = str_replace( $this->prefixKey, $this->prefix . '_', $query );
+				} else {
+					// Use default replacement
+					$query = str_replace( XMLS_PREFIX , $this->prefix . "_", $query );
+				}
+				break;
+		}
+
+		$this->query = trim( $query );
 		
 		// Push the query onto the query set array
-		$finishedQuery = $this->query;
-		array_push( $this->querySet, $finishedQuery );
+		array_push( $this->querySet, $this->query );
 		
 		// Return the query set array
-		logMsg( "   ---addQuery" );
-		return $finishedQuery;
+		return $this->query;
 	}
 	
 	/**
@@ -606,16 +738,7 @@ class dbQuerySet {
 	* @return array Query set
 	*/
 	function create() {
-		logMsg( "   ===create" );
 		return $this->querySet;
-	}
-	
-	/**
-	* Destructor
-	*/
-	function destroy() {
-		logMsg( "===destroy" );
-		unset( $this );
 	}
 }
 
@@ -721,17 +844,16 @@ class adoSchema {
 	* adoSchema provides methods to parse and process the XML schema file. The dbconn argument 
 	* is a database connection object created by ADONewConnection. To upgrade an existing database to
 	* the provided schema, set the upgradeSchema flag to TRUE. By default, adoSchema will attempt to
-	* upgrade tables by ALTERing them on the fly. If your RDBMS doesn't support direct alteration
+	* upgrade tables by ALTERing them on the fly. (NOT YET IMPLEMENTED->If your RDBMS doesn't support direct alteration
 	* (e.g., PostgreSQL), setting the forceReplace flag to TRUE will replace existing tables rather than
 	* altering them, copying data from each column in the old table to the like-named column in the
-	* new table.
+	* new table.)
 	*
 	* @param object $dbconn		ADOdb connection object
-	* @param object $upgradeSchema	Upgrade the database (deprecated)
-	* @param object $forceReplace	If upgrading, REPLACE tables (deprecated)
+	* @param boolean $upgradeSchema	Upgrade the database (deprecated)
+	* @param boolean $forceReplace	If upgrading, REPLACE tables (deprecated)
 	*/
 	function adoSchema( $dbconn, $upgradeSchema = FALSE, $forceReplace = FALSE ) {
-		logMsg( "+++<b>adoSchema</b>( $dbconn, $upgradeSchema, $forceReplace )" );
 		
 		// Initialize the environment
 		$this->mgq = get_magic_quotes_runtime();
@@ -741,6 +863,7 @@ class adoSchema {
 		$this->dbType = $dbconn->databaseType;
 		$this->sqlArray = array();
 		$this->debug = $this->dbconn->debug;
+		$this->objectPrefix = '';
 		
 		// Create an ADOdb dictionary object
 		$this->dict = NewDataDictionary( $dbconn );
@@ -768,7 +891,6 @@ class adoSchema {
 			logMsg( "Creating new database schema" );
 			unset( $this->upgradeMethod );
 		}
-		logMsg( "---<b>adoSchema</b>" );
 	}
 	
 	/**
@@ -793,7 +915,7 @@ class adoSchema {
 			foreach( $this->dict->MetaTables() as $table ) {
 				$this->legacyTables[ strtoupper( $table ) ] = $table;
 			}
-			logMsg( $this->legacyTables, "Legacy Tables Map" );
+			if(isset($this->legacyTables)) logMsg( $this->legacyTables, "Legacy Tables Map" );
 		} 
 		
 		// Handle the upgrade methods
@@ -823,17 +945,16 @@ class adoSchema {
 	}
 		
 	/**
-	* Loads and parses an XML file
+	* Loads a schema and converts it to SQL.
 	*
-	* This method accepts a path to an xmlschema-compliant XML file,
-	* loads it, parses it, and uses it to create the SQL to generate the objects
-	* described by the XML file.
+	* Loads the specified schema (see the DTD for the proper format) and generates
+	* the SQL necessary to create the database described by the schema. The SQL may
+	* be accessed directly by examining the adoSchema::sqlArray property.
 	*
 	* @param string $file		XML file
 	* @return array	Array of SQL queries, ready to execute
 	*/
 	function ParseSchema( $file ) {
-		logMsg( "+++ParseSchema( $file )" );
 		
 		// Create the parser
 		$this->xmlParser = &$xmlParser;
@@ -858,33 +979,123 @@ class adoSchema {
 			}
 		}
 		
-		// Return the array of queries
-		logMsg( "---ParseSchema" );
 		return $this->sqlArray;
 	}
 	
 	/**
-	* Loads a schema into the database
+	* Applies the current schema to a database.
 	*
-	* Accepts an array of SQL queries generated by the parser 
-	* and executes them.
+	* Applies the current schema (generally created by calling adoSchema::ParseSchema)
+	* to a database, creating the tables, indexes, and executing other SQL specified in the
+	* schema.
 	*
-	* @param array $sqlArray	Array of SQL statements
-	* @param boolean $continueOnErr	Don't fail out if an error is encountered
-	* @returns integer	0 if failed, 1 if errors, 2 if successful
+	* @param array $sqlArray	Array of SQL statements that will be applied rather than
+	*		the current schema.
+	* @param boolean $continueOnErr	Continue to apply the schema even if an error occurs.
+	* @returns integer	0 if failure, 1 if errors, 2 if successful.
 	*/
-	function ExecuteSchema( $sqlArray, $continueOnErr =  TRUE ) {
-		logMsg( "+++ExecuteSchema( $sqlArray, $continueOnErr )" );
+	function ExecuteSchema( $sqlArray = NULL, $continueOnErr =  TRUE ) {
+		
+		if( !isset( $sqlArray ) ) {
+			$sqlArray = $this->sqlArray;
+		}
+		if( !isset( $sqlArray ) ) {
+			return 0;
+		}
 		
 		$err = $this->dict->ExecuteSQLArray( $sqlArray, $continueOnErr );
 		
-		// Return the success code
-		logMsg( "---ExecuteSchema" );
 		return $err;
 	}
 	
 	/**
+	* Prints the schema SQL array
+	*
+	* Returns and/or displays the SQL array contained in the adoSchema::sqlArray property.
+	*
+	* @param array $sqlArray	Array of SQL statements that will be applied rather than
+	*		the current schema.
+	* @param boolean $format	Format: HTML, TEXT, or NONE
+	* @return array Array of SQL statements or FALSE if an error occurs
+	*/
+	function PrintSchema( $sqlArray = NULL, $format = 'TEXT' ) {
+		
+		if( !isset( $sqlArray ) ) {
+			$sqlArray = $this->sqlArray;
+		}
+		if( !isset( $sqlArray ) ) {
+			return FALSE;
+		}
+		
+		// Print the SQL array
+		switch( strtoupper( $format ) ) {
+			
+			case "HTML":
+			
+				print "<PRE>";
+				print_r( $sqlArray );
+				print "</PRE>";
+				
+				break;
+			
+			case "TEXT":
+			
+				foreach( $sqlArray as $query ) {
+					print "$query\n";
+				}
+				
+				break;
+			
+			default:
+				
+				break;
+		}
+		
+		return $sqlArray;
+	}
+	
+	/**
+	* Saves the schema SQL array
+	*
+	* Saves the SQL array to the local filesystem as a list of SQL queries.
+	*
+	* @param string $filename  Path and name where the file should be saved.
+	* @param array $sqlArray	Array of SQL statements that will be applied rather than
+	*		the current schema.
+	* @return boolean TRUE is save is successful, else FALSE. 
+	*/
+	function SaveSchema( $filename = './mindmeld.sql', $sqlArray = NULL ) {
+		
+		if( !isset( $sqlArray ) ) {
+			$sqlArray = $this->sqlArray;
+		}
+		if( !isset( $sqlArray ) ) {
+			return FALSE;
+		}
+		
+		$header = "# Mindmeld schema\n\n";
+		$footer = "# --------------------------------------------------------\n\n";
+		$close = "# End of Mindmeld schema\n\n";
+		
+		$fp = fopen( $filename, "w" );
+		
+		fwrite( $fp, $header );
+		foreach( $sqlArray as $key => $query ) {
+			fwrite( $fp, $query . ";\n" );
+			fwrite( $fp, $footer );
+		}
+		fwrite( $fp, $close );
+		fclose( $fp );
+	}
+	
+	/**
 	* XML Callback to process start elements
+	*
+	* Processes XML opening tags. 
+	* Elements currently processed are: TABLE, INDEX, SQL. 
+	* For tables: FIELD. KEY, NOTNULL, AUTOINCREMENT, DEFAULT, OPT. 
+	* For indexes: CLUSTERED, BITMAP, UNIQUE, FULLTEXT, HASH. 
+	* For SQL querysets: QUERY. 
 	*
 	* @access private
 	*/
@@ -892,110 +1103,175 @@ class adoSchema {
 		
 		isset( $this->upgradeMethod ) ? ( $upgradeMethod = $this->upgradeMethod ) : ( $upgradeMethod = '' );
 		
+		// Initialize some local variables from the object properties.
 		$dbType = $this->dbType;
 		if( isset( $this->table ) ) $table = &$this->table;
 		if( isset( $this->index ) ) $index = &$this->index;
 		if( isset( $this->querySet ) ) $querySet = &$this->querySet;
+		
+		// Set the name of the current open tag.
 		$this->currentElement = $name;
 		
-		// Process the element. Ignore unimportant elements.
-		if( in_array( trim( $name ),  array( "SCHEMA", "DESCR", "COL", "CONSTRAINT" ) ) ) {
-			return FALSE;
-		}
-		
+		// Process the new open tag
 		switch( $name ) {
-				
-			case "CLUSTERED":	// IndexOpt
-			case "BITMAP":		// IndexOpt
-			case "UNIQUE":		// IndexOpt
-			case "FULLTEXT":	// IndexOpt
-			case "HASH":		// IndexOpt
+			
+			
+			case "CLUSTERED":
+			
+				// Add index Option to open index object
 				if( isset( $this->index ) ) $this->index->addIndexOpt( $name );
+				
+				break;
+				
+			case "BITMAP":
+			
+				// Add index Option to open index object
+				if( isset( $this->index ) ) $this->index->addIndexOpt( $name );
+				
+				break;
+				
+			case "UNIQUE":
+			
+				// Add index Option to open index object
+				if( isset( $this->index ) ) $this->index->addIndexOpt( $name );
+				
+				break;
+				
+			case "FULLTEXT":
+			
+				// Add index Option to open index object
+				if( isset( $this->index ) ) $this->index->addIndexOpt( $name );
+				
+				break;
+				
+			case "HASH":
+			
+				// Add index Option to open index object
+				if( isset( $this->index ) ) $this->index->addIndexOpt( $name );
+				
 				break;
 
-			case "TABLE":	// Table element
+			case "TABLE":
+			
 				if( !isset( $attrs['PLATFORM'] ) or $this->supportedPlatform( $attrs['PLATFORM'] ) ) {
-					isset( $this->objectPrefix ) ? ( $tableName = $this->objectPrefix . $attrs['NAME'] ) : ( $tableName =  $attrs['NAME'] );
-					$this->table = new dbTable( $tableName, $upgradeMethod );
+					
+					// Create a new table object
+					$this->table = new dbTable( $attrs['NAME'], $upgradeMethod, $this->objectPrefix );
+					
 				} else {
 					unset( $this->table );
 				}
+				
 				break;
 				
-			case "FIELD":	// Table field
+			case "FIELD":	
+
 				if( isset( $this->table ) ) {
+					
+					// Add a field to an existing table object
 					$fieldName = $attrs['NAME'];
 					$fieldType = $attrs['TYPE'];
 					isset( $attrs['SIZE'] ) ? ( $fieldSize = $attrs['SIZE'] ) : ( $fieldSize = NULL );
 					isset( $attrs['OPTS'] ) ? ( $fieldOpts = $attrs['OPTS'] ) : ( $fieldOpts = NULL );
+					
 					$this->table->addField( $fieldName, $fieldType, $fieldSize, $fieldOpts );
 				}
+				
 				break;
 				
-			case "KEY":	// Table field option
+			case "KEY":	
+
+				// Add a field option to the table object
 				if( isset( $this->table ) ) {
 					$this->table->addFieldOpt( $this->table->currentField, 'KEY' );
 				}
+				
 				break;
 				
-			case "NOTNULL":	// Table field option
+			case "NOTNULL":
+			
+				// Add a field option to the table object
 				if( isset( $this->table ) ) {
 					$this->table->addFieldOpt( $this->table->currentField, 'NOTNULL' );
 				}
+				
 				break;
 				
-			case "AUTOINCREMENT":	// Table field option
+			case "AUTOINCREMENT":
+			
+				// Add a field option to the table object
 				if( isset( $this->table ) ) {
 					$this->table->addFieldOpt( $this->table->currentField, 'AUTOINCREMENT' );
 				}
+				
 				break;
 				
-			case "DEFAULT":	// Table field option
+			case "DEFAULT":
+
+				// Add a field option to the table object
 				if( isset( $this->table ) ) {
+					
+					// Work around ADOdb datadict issue that misinterprets empty strings.
+					if( $attrs['VALUE'] == '' ) $attrs['VALUE'] = " '' ";
+					
 					$this->table->addFieldOpt( $this->table->currentField, 'DEFAULT', $attrs['VALUE'] );
 				}
+				
 				break;
 				
-			case "INDEX":	// Table index
+			case "INDEX":
 			
+				// Create a new index object
 				if( !isset( $attrs['PLATFORM'] ) or $this->supportedPlatform( $attrs['PLATFORM'] ) ) {
-					if (isset($attrs['TABLE']))
-						isset( $this->objectPrefix) ? ( $tableName = $this->objectPrefix . $attrs['TABLE'] ) : ( $tableName =  $attrs['TABLE'] );
-					else
-						$tableName = '';
-					$this->index = new dbIndex( $attrs['NAME'], $tableName, $upgradeMethod );
+					$this->index = new dbIndex( $attrs['NAME'], $attrs['TABLE'], $upgradeMethod, $this->dict, $this->objectPrefix );
 				} else {
 					if( isset( $this->index ) ) unset( $this->index );
 				}
 				break;
 				
-			case "SQL":	// Freeform SQL queryset
+			case "SQL":	
+
+				// Create a new freeform SQL query set
 				if( !isset( $attrs['PLATFORM'] ) or $this->supportedPlatform( $attrs['PLATFORM'] ) ) {
-					$this->querySet = new dbQuerySet( $attrs );
+					
+					isset( $attrs['KEY'] ) ? ( $key = $attrs['KEY'] ) : ( $key = NULL );
+					isset( $attrs['PREFIXMETHOD'] ) ? ( $pmeth = $attrs['PREFIXMETHOD'] ) : ( $pmeth = NULL );
+					$this->querySet = new dbQuerySet( $this->objectPrefix, $key, $pmeth );
+					
 				} else {
 					if( isset( $this->querySet ) ) unset( $this->querySet );
 				}
+				
 				break;
 				
-			case "QUERY":	// Queryset SQL query
+			case "QUERY":	
+
+				// Create a new query in a SQL queryset.
 				if( isset( $this->querySet ) ) {
+					
 					// Ignore this query set if a platform is specified and it's different than the 
 					// current connection platform.
 					if( !isset( $attrs['PLATFORM'] ) or $this->supportedPlatform( $attrs['PLATFORM'] ) ) {
+						
 						$this->querySet->buildQuery();
+						
 					} else {
 						if( isset( $this->querySet->query ) ) unset( $this->querySet->query );
 					}
 				}
-				break;
 				
-			default:
-				if( $this->debug ) print "OPENING ELEMENT '$name'<BR/>\n";
+				break;
 		}	
 	}
 
 	/**
 	* XML Callback to process cDATA elements
+	*
+	* Processes XML cdata.
+	* Elements currently processed are:
+	* For tables: CONSTRAINT, OPT. 
+	* For indexes: COL. 
+	* For SQL querysets: QUERY. 
 	*
 	* @access private
 	*/
@@ -1008,53 +1284,57 @@ class adoSchema {
 		// Process the data depending on the element
 		switch( $element ) {
 		
-			case "COL":	// Index column
+			case "COL":	
+			
+				// Index field name
 				if( isset( $this->index ) ) $this->index->addField( $data );
-				break;
 				
-			case "DESCR":	// Description element
-				// Display the description information
-				if( isset( $this->table ) ) {
-					$name = "({$this->table->tableName}):  ";
-				} elseif( isset( $this->index ) ) {
-					$name = "({$this->index->indexName}):  ";
-				} else {
-					$name = "";
-				}
-				if( $this->debug ) print "<LI> $name $data\n";
 				break;
 			
-			case "QUERY":	// Query SQL data
+			case "QUERY":	
+			
+				// Line of queryset SQL data
 				if( isset( $this->querySet ) and isset( $this->querySet->query ) ) $this->querySet->buildQuery( $data );
+				
 				break;
 			
-			case "CONSTRAINT":	// Table constraint
+			case "CONSTRAINT":
+			
+				// Table constraint
 				if( isset( $this->table ) ) $this->table->addTableOpt( $data );
+				
 				break;
 				
-			default:
-				if( $this->debug ) print "<UL><LI>CDATA ($element) $data</UL>\n";
+			case "OPT":
+			
+				// Table option
+				if( isset( $this->table ) ) $this->table->addTableOpt( $data );
+				
+				break;
 		}
 	}
 
 	/**
 	* XML Callback to process end elements
 	*
+	* Processes XML closing tags.
+	* Elements currently processed are: TABLE, INDEX, SQL. 
+	* For tables: DROP. 
+	* For indexes: DROP 
+	* For SQL querysets: QUERY.
+	*
 	* @access private
 	*/
 	function _xmlcb_endElement( $parser, $name ) {
 		
-		// Process the element. Ignore unimportant elements.
-		if( in_array( trim( $name ), 
-			array( 	"SCHEMA", "DESCR", "KEY", "AUTOINCREMENT", "FIELD",
-						"DEFAULT", "NOTNULL", "CONSTRAINT", "COL" ) ) ) {
-			return FALSE;
-		}
-		
+		// Process the XML tag.
 		switch( trim( $name ) ) {
 			
-			case "TABLE":	// Table element
+			case "TABLE":
+			
+				// Finish the creation process. 
 				if( isset( $this->table ) ) {
+					// Generate the table SQL from the table object.
 					$tableSQL = $this->table->create( $this->dict );
 					
 					// Handle case changes in MySQL
@@ -1070,15 +1350,22 @@ class adoSchema {
     						array_push( $this->sqlArray, "RENAME TABLE $oldTableName TO $tableName" );
 						}
 					}
+					
+					// Add completed table SQL to the SQL array.
 					foreach( $tableSQL as $query ) {
 						array_push( $this->sqlArray, $query );
 					}
+					
+					// Destroy the current table object now that we're finished with it.
 					$this->table->destroy();
 				}
+				
 				break;
 				
-			case "DROP":	// Drop an item
-				logMsg( "DROPPING" );
+			case "DROP":	
+				
+				// Drop the current open object (table/field or index)
+
 				if( isset( $this->table ) ) {
 					// Drop a table or field
 					$dropSQL = $this->table->drop( $this->dict );					
@@ -1087,40 +1374,61 @@ class adoSchema {
 					// Drop an index
 					$dropSQL = $this->index->drop();
 				}
+				
 				break;
 				
-			case "INDEX":	// Index element
+			case "INDEX":	
+
+				// Finish the index creation process
 				if( isset( $this->index ) ) {
+					// Create the index SQL from the index object
 					$indexSQL = $this->index->create( $this->dict );
+					
+					// Add the index SQL to the SQL array
 					foreach( $indexSQL as $query ) {
 						array_push( $this->sqlArray, $query );
 					}
+					
+					// Destroy the current index object now that we're finished with it.
 					$this->index->destroy();
 				}
+				
 				break;
 			
-			case "QUERY":	// Queryset element
-				if( isset( $this->querySet ) and isset( $this->querySet->query ) ) $this->querySet->addQuery();
+			case "QUERY":	
+
+				// Add the finished query to the open query set.
+				if( isset( $this->querySet ) and isset( $this->querySet->query ) ) {
+					 $this->querySet->addQuery();
+				}
+				
 				break;
 			
-			case "SQL":	// Query SQL element
+			case "SQL":	
+		
+				// Finish the query set creation process
 				if( isset( $this->querySet ) ) {
+					// Create the query set from the querySet object
 					$querySQL = $this->querySet->create();
-					$this->sqlArray = array_merge( $this->sqlArray, $querySQL );;
+					
+					// Add the query set to the SQL array
+					$this->sqlArray = array_merge( $this->sqlArray, $querySQL );
+					
+					// Destroy the current query set object now that we're finished with it.
 					$this->querySet->destroy();
 				}
-				break;
 				
-			default:
-				if( $this->debug ) print "<LI>CLOSING $name</UL>\n";
+				break;
 		}
 	}
 	
 	/**
-    * Set object prefix
+    * Sets table and index prefix
     *
-    * Sets a standard prefix that will be prepended to all database tables during
-    * database creation. Calling setPrefix with no arguments clears the prefix.
+    * Sets a standard prefix that will be prepended to all database tables when the schema
+	* is parsed. Note that a single underscore will be automatically appended to the prefix. 
+	* Example: setting the prefix to "mm" will result in all tables and indexes being prepended
+	* with "mm_". Calling setPrefix with no arguments clears the prefix.
     *
     * @param string $prefix Prefix
     * @return boolean       TRUE if successful, else FALSE
@@ -1177,8 +1485,6 @@ class adoSchema {
 
 /**
 * Message loggging function
-*
-* @access private
 */
 function logMsg( $msg, $title = NULL ) {
 	if( XMLS_DEBUG ) {
