@@ -138,11 +138,6 @@
 								# Microsoft SQL ODBC connection
 								$dsn = 'Driver={SQL Server};Server='.$g_db_host.';Database='.$g_db_name.';';
 								$db->Connect($dsn, $g_db_user, $g_db_pass);
-							} elseif ($g_db_type == 'ado_mssql') {
-								# Microsft SQL DSN-less connection 
-								$dsn  = 'PROVIDER=MSDASQL;DRIVER={SQL Server};SERVER='.$g_db_host.';DATABASE='.$g_db_name.';';
-								$dsn .= 'UID='.$g_db_user.';PWD='.$g_db_pass.';';
-								$db->Connect($dsn);
 							} else {
 								# MySQL, PostrgreSQL, etc...
 								$host = ($g_db_port != '') ? $g_db_host.':'.$g_db_port : $g_db_host;

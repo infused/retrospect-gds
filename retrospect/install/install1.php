@@ -81,7 +81,6 @@
             <option value="postgres7">PostgreSQL 7.x</option>
             <option value="mssql">Microsoft SQL (Native)</option>
             <option value="odbc-mssql">Microsoft SQL (ODBC)</option>
-            <option value="ado-mssql">Microsoft SQL (DSN-less)</option>
           </select></td>
           <td class="section_item">MySQL is the only database supported in this release. Future versions will have support for more databases. </td>
         </tr>
