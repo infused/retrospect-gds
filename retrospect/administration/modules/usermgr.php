@@ -38,20 +38,29 @@
 			foreach ($selected as $id) {
 				if ($id != '1') {
 					$sql = 'DELETE FROM '.TBL_USER.' WHERE id='.$db->Qstr($id);
-					$db->Execute($sql);
+					//$db->Execute($sql);
+					$deleted[] = $id;
 				}
+				$smarty->assign('DELETED', $deleted);
+				$smarty->assign('REDIRECT', $_SERVER['PHP_SELF'].'?m=usermgr');
 			}
 		} elseif ($task == 'enable') {
 			foreach ($selected as $id) {
 				if ($id != '1') {
 					Auth::Enable($id);
+					$enabled[] = $id;
 				}
+				$smarty->assign('ENABLED', $enabled);
+				$smarty->assign('REDIRECT', $_SERVER['PHP_SELF'].'?m=usermgr');
 			}
 		} elseif ($task == 'disable') {
 			foreach ($selected as $id) {
 				if ($id != '1') {
 					Auth::Disable($id);
+					$disabled[] = $id;
 				}
+				$smarty->assign('DISABLED', $disabled);
+				$smarty->assign('REDIRECT', $_SERVER['PHP_SELF'].'?m=usermgr');
 			}
 		}
 	}

@@ -1,3 +1,19 @@
+{if $DELETED}
+	<div class="content-title">User Manager</div>
+	<p>{$DELETED|@count} {if $DELETED|@count == 1}user has{else}users have{/if} been deleted from the user database.</p>
+	<p>Click <a href="{$PHP_SELF}?m=usermgr">HERE</a> to return to the User Manager.</p>
+	<p>Click <a href="{$PHP_SELF}">HERE</a> to return to the main administration page.</p>
+{elseif $ENABLED}
+	<div class="content-title">User Manager</div>
+	<p>{$ENABLED|@count} {if $ENABLED|@count == 1}user has{else}users have{/if} been enabled.</p>
+	<p>Click <a href="{$PHP_SELF}?m=usermgr">HERE</a> to return to the User Manager.</p>
+	<p>Click <a href="{$PHP_SELF}">HERE</a> to return to the main administration page.</p>
+{elseif $DISABLED}	
+	<div class="content-title">User Manager</div>
+	<p>{$DISABLED|@count} {if $DISABLED|@count == 1}user has{else}users have{/if} been enabled.</p>
+	<p>Click <a href="{$PHP_SELF}?m=usermgr">HERE</a> to return to the User Manager.</p>
+	<p>Click <a href="{$PHP_SELF}">HERE</a> to return to the main administration page.</p>
+{else}
 <form action="{$PHP_SELF}?m=usermgr" method="post">
 <div class="content-title">User Manager</div>
 <table class="tab-row" cellpadding="0" cellspacing="0">
@@ -55,3 +71,4 @@
 	</tr>
 </table>
 </form>
+{/if}

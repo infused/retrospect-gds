@@ -5,7 +5,7 @@
 <title>{$page_title}</title>
 <link rel="stylesheet" href="{$THEME_URL}styles.css" />
 {if $REDIRECT}
-	<META HTTP-EQUIV="refresh" content="5;URL={$REDIRECT}">
+	<META HTTP-EQUIV="refresh" content="3;URL={$REDIRECT}">
 {/if}
 <meta name="copyright" content="{$copyright}" />
 </head>
