@@ -266,6 +266,7 @@ textarea.textbox {
 .list_item {
 	padding: 3px;
 	border-bottom: 1px solid #DDDDDD;
+	vertical-align: top;
 }
 .button {
 	font: normal 8pt Georgia, Arial, Helvetica, sans-serif;

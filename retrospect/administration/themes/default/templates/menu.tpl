@@ -18,7 +18,7 @@ var myMenu =
 	_cmSplit,
 	[null, 'Trees', null, null, 'Trees',
 		['<img src="{$THEME_URL}js/ThemeOffice/restore.png" />', 'Gedcom Manager', '{$PHP_SELF}?m=gedcom', null, 'Gedcom Manager'],
-		['<img src="{$THEME_URL}js/ThemeOffice/contact.png" />', 'Review Comments', '{$PHP_SELF}', null, 'Review Comments'],
+		['<img src="{$THEME_URL}js/ThemeOffice/contact.png" />', 'Review Comments', '{$PHP_SELF}?m=commentmgr', null, 'Review Comments'],
 		['<img src="{$THEME_URL}js/ThemeOffice/media.png" />', 'Media Manager', '{$PHP_SELF}', null, 'Media Manager']	
 	]
 ];
