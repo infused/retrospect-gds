@@ -76,7 +76,7 @@
 	
 	# Miscelaneous 
 	define('REG_LEVEL','/^([0-9]{1,2})/');	
-		
+	
 	$FAM_EVENTS = array(
 		'ANUL'=>'Annulment',
 		'CENS'=>'Census',
@@ -147,7 +147,7 @@
 		var $rs_source;					// source adodb recordset object
 		var $rs_citation;				// citation adodb recordset object
 		var $db;								// local var for $GLOBALS['db']
-		var $factkey;						
+		var $factkey;
 		
 		/**
 		* GedcomParser class constructor
@@ -292,8 +292,10 @@
 				# dump record to db if reached end of indi record
 				if ($level == 0) { 
 					$recordset = array_merge($indiv, $names[0]);
+					//$this->_DB_InsertRecord($this->rs_indiv, $recordset);
 					$this->_DB_InsertRecord($this->rs_indiv, $recordset);
 					foreach ($events as $event) {
+						//$this->_DB_InsertRecord($this->rs_fact, $event);
 						$this->_DB_InsertRecord($this->rs_fact, $event);
 					}
 					fseek($this->fhandle, $poffset);
@@ -611,21 +613,18 @@
 			# process name parts from name tag line
 			preg_match(REG_NAME, $start_line, $match); 
 			$rawname = $match[1];
-			$parts = explode(' ', $rawname);
-			foreach ($parts as $part) {
-				$part = trim($part);
-				if (isset($part[0]) AND $part[0] == '/') {
-					$name['surname'] = trim($part, '/');
-				}
-				else {
-					if ($name['givenname'] == '') {
-						$name['givenname'] = $part;
-					}
-					else {
-						$name['givenname'] .= ' '.$part;
-					}
-				}
+			if (strpos($rawname, '/') !== false) {
+				preg_match('/^(.*)\/(.+)\/(.*)/', $rawname, $match);
+				$fname1 = isset($match[1]) ? trim($match[1]) : '';
+				$fname2 = isset($match[3]) ? trim($match[3]) : '';
+				$name['surname'] = isset($match[2]) ? trim($match[2]) : '';
+				$name['givenname'] = trim($fname1.' '.$fname2);
 			}
+			else {
+				$name['surname'] = '';
+				$name['givenname'] = trim($rawname);
+			}
+			
 			# handle any subordinate tags
 			while (!feof($this->fhandle)) {
 				$poffset = ftell($this->fhandle);
@@ -673,4 +672,5 @@
 		}
 
  	}
+ 
 ?>
