@@ -48,7 +48,13 @@
 			setlocale(LC_ALL, $lang);
 			bindtextdomain('messages', ROOT_PATH.'/locale/'); 
 			textdomain('messages');	
-			putenv('LANG='.$lang);
+			# do not try to set environment var if safe mode is on
+			# (this may break gettext on some windows platforms)
+			if (!ini_get('safe_mode')) {
+				putenv('LC_ALL='.$lang);
+				putenv('LANG='.$lang);
+				putenv('LANGUAGE='.$lang);
+			}
 		}
 		# if gettext is not available redefine some simple gettext functions
 		else {
