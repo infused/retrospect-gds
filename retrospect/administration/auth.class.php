@@ -41,20 +41,16 @@ class Auth {
 		global $db, $g_tbl_user;
 		if (isset($_POST['uid'])) {
 			$uid = substr($_POST['uid'], 0, 16);
-		}
-		elseif (isset($_SESSION['uid'])) {
+		} elseif (isset($_SESSION['uid'])) {
 			$uid = substr($_SESSION['uid'], 0, 16);
-		}
-		else {
+		} else {
 			$uid = null;
 		}
 		if (isset($_POST['pwd'])) {
 			$pwd = substr($_POST['pwd'], 0, 16);
-		}
-		elseif (isset($_SESSION['pwd'])) {
+		} elseif (isset($_SESSION['pwd'])) {
 			$pwd = substr($_SESSION['pwd'], 0, 16);
-		}
-		else {
+		} else {
 			$pwd = null;
 		}
 		
@@ -65,8 +61,7 @@ class Auth {
 			unset($_SESSION['uid']);
 			unset($_SESSION['pwd']);
 			return false;
-		}
-		else {
+		} else {
 			$row = $rs->FetchRow();
 			$s_uid = isset($_SESSION['uid']) ? $_SESSION['uid'] : null;
 			$s_pwd = isset($_SESSION['pwd']) ? $_SESSION['pwd'] : null;
@@ -106,20 +101,17 @@ class Auth {
 		$c_pwd = $db->Qstr(md5($p_pwd));
 		if (!$p_pwd) { 
 			$sql = "UPDATE {$g_tbl_user} SET uid={$c_uid}, fullname={$c_fullname}, email={$c_email} WHERE id='{$c_id}'";
-		}
-		else {
+		} else {
 			$sql = "UPDATE {$g_tbl_user} SET uid={$c_uid}, fullname={$c_fullname}, email={$c_email}, pwd={$c_pwd} WHERE id='{$c_id}'";
 		}
-		if ($db->Execute($sql) !== false) { return true; }
-		else { return false; }
+		return ($db->Execute($sql) !== false) ? true : false;
 	}
 	
 	function UserExists($p_uid) {
 		global $db, $g_tbl_user;
 		$sql = "SELECT * FROM {$g_tbl_user} WHERE uid='{$p_uid}'";
 		$rs = $db->Execute($sql);
-		if ($rs->RecordCount() > 0) { return true; }
-		else { return false; }
+		return ($rs->RecordCount() > 0) ? true : false;
 	}
 }
 ?>
