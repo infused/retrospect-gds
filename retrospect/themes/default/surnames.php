@@ -49,7 +49,7 @@
 	function get_alpha_link($p_alpha) {
 		global $db, $g_alpha;
 		$p_alpha = strtoupper($p_alpha);
-		return ($p_alpha == $g_alpha) ? $p_alpha : '<a href="'.$_SERVER['PHP_SELF'].'?option=surnames&alpha='.$p_alpha.'">'._($p_alpha).'</a>';
+		return ($p_alpha == $g_alpha) ? $p_alpha : '<a href="'.$_SERVER['PHP_SELF'].'?option=surnames&amp;alpha='.$p_alpha.'">'._($p_alpha).'</a>';
 	}
 
 	//Display list of surnames if one has not been selected
@@ -98,11 +98,11 @@
 		$count = 0;
 		while ($row = $rs->FetchRow()) {
 			$count++;			
-			$letter = strtoupper(substr($row["surname"],0,1));
-			echo "<a href=\"".$_SERVER["PHP_SELF"]."?option=surnames&sn=".$row["surname"]."\">";
-			echo $row["surname"];
-			echo "&nbsp;(".$row["number"].")";
-			echo "</a><br />";
+			$letter = strtoupper(substr($row['surname'],0,1));
+			echo '<a href="'.$_SERVER['PHP_SELF'].'?option=surnames&amp;sn='.$row['surname'].'">';
+			echo $row['surname'];
+			echo '&nbsp;('.$row['number'].')';
+			echo '</a><br />';
 			if ($count % $max_rows == 0) { echo '</td><td class="text" width="200" valign="top">'; }
 		}
 		echo '</td></tr></table>';
@@ -141,7 +141,7 @@
 
 		while ($row = $rs->FetchRow()) {
 			$o = new Person($row['indkey'], 3); 
-			$o_link = '<a href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$o->indkey.'">'.$o->sname.', '.$o->gname.'</a>';
+			$o_link = htmlentities('<a href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$o->indkey.'">'.$o->sname.', '.$o->gname.'</a>');
 			echo '<div class="text" style="width: 300px; float: left; height: 10pt; overflow:hidden;">'.$o_link.'</div>';
 			echo '<div class="text" style="width: 150px; float: left; height: 10pt; overflow:hidden;">'.$o->birth->date.'</div>';
 			echo '<div class="text" style="width: 150px; height: 10pt; overflow:hidden;">'.$o->death->date.'</div>';

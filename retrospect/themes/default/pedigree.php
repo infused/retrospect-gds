@@ -70,9 +70,9 @@
 		}
 		else { $g_node_parents[$p_node->ns_number] = false; }
 		
-		$g_node_strings[$p_node->ns_number]  = '<table width="148" height="58" callpadding="0" cellspacing="0">';
+		$g_node_strings[$p_node->ns_number]  = '<table width="148" cellpadding="2" cellspacing="0">';
 		$g_node_strings[$p_node->ns_number] .= '<tr><td class="pedbox-text" align="left" valign="middle">';
-		$g_node_strings[$p_node->ns_number] .= '<a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&indiv='.$p_node->indkey.'">'.$p_node->name.'</a><br />';
+		$g_node_strings[$p_node->ns_number] .= '<a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&amp;indiv='.$p_node->indkey.'">'.$p_node->name.'</a><br />';
 		$g_node_strings[$p_node->ns_number] .= _("b.").' '.$p_node->birth->date.'<br />';
 		$g_node_strings[$p_node->ns_number] .= _("d.").' '.$p_node->death->date.'</td></tr></table>';
 	}
@@ -130,42 +130,42 @@
 	echo '<div id="Lines8" style="position:absolute; width:200px; height:80px; z-index:3; left: 603px; top: 577px; border-top: 2px solid #CCCCCC; border-bottom: 2px solid #CCCCCC; border-left: 2px solid #CCCCCC;"></div>';
   echo '<div id="Parents8" style="position:absolute; width:20px; height:60px; z-index:1; left: 840px; top: 165px;">';
 		if (isset($g_node_parents[8]) and $g_node_parents[8] === true) { 
-			echo '<a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&indiv='.$g_node_indkey[8].'"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0"></a>';
+			echo '<a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&amp;indiv='.$g_node_indkey[8].'"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>';
 		}
 	echo '</div>';
 	echo '<div id="Parents9" style="position:absolute; width:20px; height:60px; z-index:1; left: 840px; top: 230px;">';
 		if (isset($g_node_parents[9]) and $g_node_parents[9] === true) { 
-			echo '<a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&indiv='.$g_node_indkey[9].'"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0"></a>';
+			echo '<a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&amp;indiv='.$g_node_indkey[9].'"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>';
 		}
 	echo '</div>';
 	echo '<div id="Parents10" style="position:absolute; width:20px; height:60px; z-index:1; left: 840px; top: 295px;">';
 		if (isset($g_node_parents[10]) and $g_node_parents[10] === true) { 
-			echo '<a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&indiv='.$g_node_indkey[10].'"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0"></a>';
+			echo '<a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&amp;indiv='.$g_node_indkey[10].'"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>';
 		}
 	echo '</div>';
 	echo '<div id="Parents11" style="position:absolute; width:20px; height:60px; z-index:1; left: 840px; top: 360px;">';
 		if (isset($g_node_parents[11]) and $g_node_parents[11] === true) { 
-			echo '<a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&indiv='.$g_node_indkey[11].'"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0"></a>';
+			echo '<a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&amp;indiv='.$g_node_indkey[11].'"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>';
 		}
 	echo '</div>';
 	echo '<div id="Parents12" style="position:absolute; width:20px; height:60px; z-index:1; left: 840px; top: 425px;">';
 		if (isset($g_node_parents[12]) and $g_node_parents[12] === true) {
-			echo '<a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&indiv='.$g_node_indkey[12].'"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0"></a>';
+			echo '<a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&amp;indiv='.$g_node_indkey[12].'"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>';
 		}
 	echo '</div>';
 	echo '<div id="Parents13" style="position:absolute; width:20px; height:60px; z-index:1; left: 840px; top: 490px;">';
 		if (isset($g_node_parents[13]) and $g_node_parents[13] === true) { 
-			echo '<a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&indiv='.$g_node_indkey[13].'"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0"></a>';
+			echo '<a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&amp;indiv='.$g_node_indkey[13].'"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>';
 		}
 	echo '</div>';
 	echo '<div id="Parents14" style="position:absolute; width:20px; height:60px; z-index:1; left: 840px; top: 555px;">';
 		if (isset($g_node_parents[14]) and $g_node_parents[14] === true) { 
-			echo '<a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&indiv='.$g_node_indkey[14].'"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0"></a>';
+			echo '<a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&amp;indiv='.$g_node_indkey[14].'"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>';
 		}
 	echo '</div>';
 	echo '<div id="Parents15" style="position:absolute; width:20px; height:60px; z-index:1; left: 840px; top: 620px;">';
 		if (isset($g_node_parents[15]) and $g_node_parents[15] === true) { 
-			echo '<a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&indiv='.$g_node_indkey[15].'"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0"></a>';
+			echo '<a href="'.$_SERVER['PHP_SELF'].'?option=pedigree&amp;indiv='.$g_node_indkey[15].'"><img src="themes/default/images/r_arrow.gif" width="20" height="60" border="0" alt="" /></a>';
 		}
 	echo '</div>';
 	echo '</div>';

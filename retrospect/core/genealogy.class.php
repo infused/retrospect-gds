@@ -363,9 +363,9 @@ class Person {
 		}
 		$sql = "SELECT * FROM {$this->tbl_indiv} WHERE indkey = '{$this->indkey}'";
 		$row = $db->GetRow($sql);
-		$this->gname = $row['givenname'];
-		$this->sname = $row['surname'];
-		$this->aka = $row['aka'];
+		$this->gname = htmlentities($row['givenname']);
+		$this->sname = htmlentities($row['surname']);
+		$this->aka = htmlentities($row['aka']);
 		$this->notekey = $row['notekey'];
 		$this->title = $row['title'];
 		$fnames = explode(' ', $this->gname); 
@@ -495,7 +495,7 @@ class Person {
 			$profiler->startTimer('class_person_get_notes');
 		}
 		$query = "SELECT text FROM $this->tbl_note WHERE notekey='$this->notekey'";
-		$this->notes = nl2br($db->GetOne($query));
+		$this->notes = htmlentities(nl2br($db->GetOne($query)));
 		if ($profile == true) {
 			$profiler->stopTimer('class_person_get_notes');
 		}
@@ -591,8 +591,8 @@ class Event {
 		$this->tbl_source =& $GLOBALS['g_tbl_source'];
 		$this->type = ucwords(strtolower($p_type));
 		$this->date = lang_translate_date($p_date);
-		$this->place = htmlspecialchars($p_place);
-		$this->comment = htmlspecialchars($p_comment);
+		$this->place = htmlentities($p_place);
+		$this->comment = htmlentities($p_comment);
 		$this->factkey = $p_factkey;
 		if ($p_fetch_sources === true) {
 			$this->_get_sources();
@@ -621,7 +621,7 @@ class Event {
 			$srccitation = $row['source'];
 			$msrc = $row['text'];
 			$source = $msrc.'<br />'.$srccitation;
-			$source = ereg_replace('<br />$', '', $source);  //trim ending breaks
+			$source = htmlentities(ereg_replace('<br />$', '', $source));  //trim ending breaks
 			array_push($sources, $source);
 		}
 		$this->sources = $sources;
@@ -883,7 +883,7 @@ class Marriage {
 			$profiler->startTimer('class_marriage_get_notes');
 		}
 		$query = "SELECT text FROM {$this->tbl_note} WHERE notekey='{$this->notekey}'";
-		$this->notes = htmlspecialchars($db->GetOne($query));
+		$this->notes = htmlentities($db->GetOne($query));
 		if ($profile == true) {
 			$profiler->stopTimer('class_marriage_get_notes');
 		}
@@ -908,7 +908,7 @@ class Marriage {
 			$srccitation = $row['source'];
 			$msrc = $row['text'];
 			$source = $msrc.'<br>'.$srccitation;
-			array_push($sources, $source);
+			array_push($sources, htmlentities($source));
 		}
 		if ($profile == true) {
 			$profiler->stopTimer('class_marriage_get_sources');
@@ -930,7 +930,7 @@ class Marriage {
 		if ($row = $db->GetRow($query)) {
 			$this->beginstatus_factkey = $row['factkey'];
 			$this->date = lang_translate_date(ucwords(strtolower($row['date'])));
-			$this->place = $row['place'];
+			$this->place = htmlentities($row['place']);
 		}
 		if ($profile == true) {
 			$profiler->stopTimer('class_marriage_get_beginstatus_event');
@@ -950,7 +950,7 @@ class Marriage {
 		if ($row = $db->GetRow($query)) {
 			$this->endstatus_factkey = $row['factkey'];
 			$this->enddate = lang_translate_date(ucwords(strtolower($row['date'])));
-			$this->endplace = $row['place'];	
+			$this->endplace = htmlentities($row['place']);	
 		}		
 		if ($profile == true) {
 			$profiler->stopTimer('class_marriage_get_endstatus_event');

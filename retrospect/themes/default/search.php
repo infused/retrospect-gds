@@ -49,7 +49,7 @@
 		echo '<td class="tab';
 		if ($submitted == false) { 
 			echo '-selected';
-			echo '">'._("Search").'</div>';
+			echo '">'._("Search").'</td>';
 		}
 		else {
 			$search_params = '?option=search';
@@ -59,7 +59,7 @@
 			if ($location != null) { $search_params .= '&locat='.$location; }
 			if ($note != null) { $search_params .= '&note='.$note; }
 			if ($parts != null) { $search_params .= '&parts='.$parts; }
-			echo '"><a href="'.$_SERVER['PHP_SELF'].$search_params.'">'._("Search").'</a></td>';
+			echo '"><a href="'.$_SERVER['PHP_SELF'].htmlentities($search_params).'">'._("Search").'</a></td>';
 
 		}
 		echo '<td class="tab';
@@ -76,8 +76,8 @@
 		
 		# name search form
 		echo '<form name="form_search_name" method="get" action="'.$_SERVER['PHP_SELF'].'">';
-		echo '<input name="option" type="hidden" value="search">';
-		echo '<input name="search_type" type="hidden" value="name">';
+		echo '<input name="option" type="hidden" value="search" />';
+		echo '<input name="search_type" type="hidden" value="name" />';
 		echo '<table class="section" width="100%" cellspacing="0" cellpadding="0"><tr><td>';
 		echo '<table border="0" cellspacing="2" cellpadding="2">';
 		echo '<tr>';
@@ -88,22 +88,22 @@
 		echo '<td class="text">'._("Surname").':</td>';
 		echo '</tr>';
 		echo '<tr>';
-		echo '<td><input name="gname" type="text" class="textbox" id="gname" value="'.$gname.'"></td>';
-		echo '<td><input name="sname" type="text" class="textbox" id="sname" value="'.$sname.'"></td>';
+		echo '<td><input name="gname" type="text" class="textbox" id="gname" value="'.$gname.'" /></td>';
+		echo '<td><input name="sname" type="text" class="textbox" id="sname" value="'.$sname.'" /></td>';
 		echo '</tr>';
 		echo '<tr>';
 		echo '<td>&nbsp;</td>';
 		echo '<td class="text">';
 		echo '<input name="soundex" type="checkbox" id="soundex" value="1" ';
 			if ($soundex == '1') { echo 'checked'; }
-		echo '>Use Soundex?';
+		echo ' />Use Soundex?';
 		echo '</td>';
 		echo '</tr>';
 		echo '<tr>';
 		echo '<td colspan="2">';
-		echo '<input name="Submit" type="submit" class="text" value="'._("Search").'"> ';
-		echo '<input name="Reset" type="reset" class="text" value="'._("Reset").'"> ';
-		echo '<input name="Clear" type="button" class="text" value="'._("Clear").'" onMouseDown="MM_setTextOfTextfield(\'gname\',\'\',\'\');MM_setTextOfTextfield(\'sname\',\'\',\'\');">';
+		echo '<input name="Submit" type="submit" class="text" value="'._("Search").'" /> ';
+		echo '<input name="Reset" type="reset" class="text" value="'._("Reset").'" /> ';
+		echo '<input name="Clear" type="button" class="text" value="'._("Clear").'" onmousedown="MM_setTextOfTextfield(\'gname\',\'\',\'\');MM_setTextOfTextfield(\'sname\',\'\',\'\');" />';
 		echo '</td>';
 		echo '</tr>';
 		echo '</table>';
@@ -112,8 +112,8 @@
 		
 		# location search form
 		echo '<form name="form_search_location" method="get" action="'.$_SERVER['PHP_SELF'].'">';
-		echo '<input name="option" type="hidden" value="search">';
-		echo '<input name="search_type" type="hidden" value="location">';
+		echo '<input name="option" type="hidden" value="search" />';
+		echo '<input name="search_type" type="hidden" value="location" />';
 		echo '<table class="section" width="100%" cellspacing="0" cellpadding="0"><tr><td>';
 		echo '<table border="0" cellspacing="2" cellpadding="2">';
 		echo '<tr>';
@@ -123,7 +123,7 @@
 		echo '<td colspan="2" class="text">'._("Keywords").':</td>';
 		echo '</tr>';
 		echo '<tr>';
-		echo '<td colspan="2"><input name="locat" size="40" type="text" class="textbox" id="locat" value="'.$location.'"></td>';
+		echo '<td colspan="2"><input name="locat" size="40" type="text" class="textbox" id="locat" value="'.$location.'" /></td>';
 		echo '</tr>';
 		echo '<tr>';
 		echo '<td class="text">'._("Match Keywords").':</td>';
@@ -139,9 +139,9 @@
 		echo '</tr>';
 		echo '<tr>';
 		echo '<td colspan="2">';
-		echo '<input name="Submit" type="submit" class="text" value="'._("Search").'"> ';
-		echo '<input name="Reset" type="reset" class="text" value="'._("Reset").'"> ';
-		echo '<input name="Clear" type="button" class="text" value="'._("Clear").'" onMouseDown="MM_setTextOfTextfield(\'locat\',\'\',\'\')">';
+		echo '<input name="Submit" type="submit" class="text" value="'._("Search").'" /> ';
+		echo '<input name="Reset" type="reset" class="text" value="'._("Reset").'" /> ';
+		echo '<input name="Clear" type="button" class="text" value="'._("Clear").'" onmousedown="MM_setTextOfTextfield(\'locat\',\'\',\'\')" />';
 		echo '</td>';
 		echo '</tr>';
 		echo '</table>';
@@ -150,8 +150,8 @@
 		
 		# note search form
 		echo '<form name="form_search_note" method="get" action="'.$_SERVER['PHP_SELF'].'">';
-		echo '<input name="option" type="hidden" value="search">';
-		echo '<input name="search_type" type="hidden" value="note">';
+		echo '<input name="option" type="hidden" value="search" />';
+		echo '<input name="search_type" type="hidden" value="note" />';
 		echo '<table class="section" width="100%" cellspacing="0" cellpadding="0"><tr><td>';
 		echo '<table border="0" cellspacing="2" cellpadding="2">';
 		echo '<tr>';
@@ -161,7 +161,7 @@
 		echo '<td colspan="2" class="text">'._("Keywords").':</td>';
 		echo '</tr>';
 		echo '<tr>';
-		echo '<td colspan="2"><input name="note" size="40" type="text" class="textbox" id="note" value="'.$note.'"></td>';
+		echo '<td colspan="2"><input name="note" size="40" type="text" class="textbox" id="note" value="'.$note.'" /></td>';
 		echo '</tr>';
 		echo '<tr>';
 		echo '<td class="text">'._("Match Keywords").':</td>';
@@ -177,9 +177,9 @@
 		echo '</tr>';
 		echo '<tr>';
 		echo '<td colspan="2">';
-		echo '<input name="Submit" type="submit" class="text" value="'._("Search").'"> ';
-		echo '<input name="Reset" type="reset" class="text" value="'._("Reset").'"> ';
-		echo '<input name="Clear" type="button" class="text" value="'._("Clear").'" onMouseDown="MM_setTextOfTextfield(\'note\',\'\',\'\')">';
+		echo '<input name="Submit" type="submit" class="text" value="'._("Search").'" /> ';
+		echo '<input name="Reset" type="reset" class="text" value="'._("Reset").'" /> ';
+		echo '<input name="Clear" type="button" class="text" value="'._("Clear").'" onmousedown="MM_setTextOfTextfield(\'note\',\'\',\'\')" />';
 		echo '</td>';
 		echo '</tr>';
 		echo '</table>';
@@ -333,7 +333,7 @@
 					
 					echo '<tr>';
 					echo '<td class="text">';
-					echo '<a href="'.$_SERVER['PHP_SELF'].'?option=family&indiv='.$o->indkey.'">'.$o->name.'</a>';
+					echo '<a href="'.$_SERVER['PHP_SELF'].'?option=family&amp;indiv='.$o->indkey.'">'.$o->name.'</a>';
 					echo '</td>';
 					echo '<td class="text">'.$o->birth->date.'</td>';
 					echo '<td class="text">'.$o->death->date.'</td>';

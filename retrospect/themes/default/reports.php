@@ -55,20 +55,21 @@
 		
 		# family reports
 		echo '<p class="content-subtitle">'._("Family Reports").'</p>';
-		echo '<a href="'.$_SERVER['PHP_SELF'].'?no_template=y&option=family_pdf&indiv='.$o->indkey.'">'._("Family PDF").'</a>';
+		echo '<a href="'.$_SERVER['PHP_SELF'].'?no_template=y&amp;option=family_pdf&amp;indiv='.$o->indkey.'">'._("Family PDF").'</a>';
 		# pedigree reports
 		echo '<p class="content-subtitle">'._("Pedigree Reports").'</p>';
-		echo '<a href="'.$_SERVER['PHP_SELF'].'?no_template=y&option=pedigree_pdf&indiv='.$o->indkey.'">'._("Pedigree PDF").'</a>';
+		echo '<a href="'.$_SERVER['PHP_SELF'].'?no_template=y&amp;option=pedigree_pdf&amp;indiv='.$o->indkey.'">'._("Pedigree PDF").'</a>';
 		# ancestor reports
 		echo '<p class="content-subtitle">'._("Ancestor Reports").'</p>';
 		echo '<form name="form_change_report" method="get" action="">';
 		echo '<table border="0" cellpadding="0" cellspacing="0"><tr>';
 		echo '<td class="text">'._("Report type").':&nbsp;</td>';
-		echo '<td width="125"><select name="report_type" class="listbox" id="report_type"><option value="ahnentafel">'._("Ahnentafel").'</option><option value="ahnentafel_pdf">'._("Ahnentafel PDF").'</option></select></td>';
+		echo '<td width="125"><select name="report_type" class="listbox"><option value="ahnentafel">'._("Ahnentafel").'</option><option value="ahnentafel_pdf">'._("Ahnentafel PDF").'</option></select></td>';
 		echo '<td class="text">'.'&nbsp;'._("Number of Generations").':&nbsp;</td>';
-		echo '<td><input name="max_gens" type="textfield" class="textbox" id="max_gens" value="250" size="3" /></td>';
-		echo '<input name="indiv" type="hidden" id="indiv" value="'.$_GET['indiv'].'" />';
+		echo '<td><input name="max_gens" type="text" class="textbox" value="250" size="3" />';
+		echo '<input name="indiv" type="hidden" value="'.$_GET['indiv'].'" />';
 		echo '<input name="option" type="hidden" value="'.$_GET['option'].'" />';
+		echo '</td>';
 		echo '<td>&nbsp;&nbsp;&nbsp;</td>';
 		echo '<td><input name="" type="submit" class="text" value="'._("Apply").'" /></td>';
 		echo '</tr></table>';
@@ -78,11 +79,12 @@
 		echo '<form name="form_change_report" method="get" action="">';
 		echo '<table border="0" cellpadding="0" cellspacing="0"><tr>';
 		echo '<td class="text">'._("Report type").':&nbsp;</td>';
-		echo '<td width="125"><select name="report_type" class="listbox" id="report_type"><option value="descendant">'._("Descendant").'</option><option value="descendant_pdf">'._("Descendant PDF").'</option></select></td>';
+		echo '<td width="125"><select name="report_type" class="listbox"><option value="descendant">'._("Descendant").'</option><option value="descendant_pdf">'._("Descendant PDF").'</option></select></td>';
 		echo '<td class="text">'.'&nbsp;'._("Number of Generations").':&nbsp;</td>';
-		echo '<td><input name="max_gens" type="textfield" class="textbox" id="max_gens" value="250" size="3" /></td>';
-		echo '<input name="indiv" type="hidden" id="indiv" value="'.$_GET['indiv'].'" />';
+		echo '<td><input name="max_gens" type="text" class="textbox" value="250" size="3" />';
+		echo '<input name="indiv" type="hidden" value="'.$_GET['indiv'].'" />';
 		echo '<input name="option" type="hidden" value="'.$_GET['option'].'" />';
+		echo '</td>';
 		echo '<td>&nbsp;&nbsp;&nbsp;</td>';
 		echo '<td><input name="" type="submit" class="text" value="'._("Apply").'" /></td>';
 		echo '</tr></table>';
