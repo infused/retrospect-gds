@@ -68,18 +68,21 @@ a:hover {
 		cleantable(TBL_NOTE);
 		cleantable(TBL_CITATION);
 		cleantable(TBL_SOURCE);
-		
-		# Begin processing
-		outputnow( 'Processing '.$filename.'...' );
+	}
+	
+	# Begin processing
+	outputnow( 'Processing '.$filename.'...' );
+	while ($offset !== true) {
 		$offset = $gedcom->ParseGedcom($offset);
-		$complete = ($offset) ? number_format($offset / $gedcom->file_end_offset * 100, 1) : '';
-		outputnow( 'Processing is '.$complete.'% complete.' );
-
+		$complete = ($offset !== true) ? number_format($offset / $gedcom->file_end_offset * 100, 1) : 100;
+		if ($complete != 100) {
+			outputnow( 'Processing is '.$complete.'% complete...' );
+		} else {
+			outputnow( 'Processing is '.$complete.'% complete.' );
+			# link back to start page now...
+			
+		}
 	}
-	else {
-		# Continue processing
-	}
-
 	
 
 ?>

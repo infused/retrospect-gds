@@ -305,6 +305,7 @@
 					$this->_ParseNote($line);
 				} 
 			}
+			return true;
 		}
 		
 		/**
