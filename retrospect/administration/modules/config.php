@@ -36,6 +36,7 @@
 		$saved[] = $options->OptionUpdate('debug', $_POST['debug']);
 		$saved[] = $options->OptionUpdate('meta_copyright', $_POST['meta_copyright']);
 		$saved[] = $options->OptionUpdate('meta_keywords', $_POST['meta_keywords']);
+		$saved[] = $options->OptionUpdate('allow_comments', $_POST['allow_comments']);
 		
 		# Remove blank entries from $saved array
 		for ($i = count($saved)-1; $i > -1; $i--) {
@@ -62,6 +63,7 @@
 	$smarty->assign('lang_codes', $lang_codes);
 	$smarty->assign('lang', $_SESSION['language']);
 	
+	# Date options
 	$smarty->assign('date_formats', array('1'=>'25 Nov 1859', '2'=>'Nov 25, 1859'));
 	
 ?>

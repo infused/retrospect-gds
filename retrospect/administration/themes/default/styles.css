@@ -1,23 +1,17 @@
 body {
-	margin: 0px;
-	padding: 0px;
-	background-color: white;
-	font: normal 8pt Georgia, Arial, Helvetica, sans-serif;
-}
-p {
-	font: normal 8pt Georgia, Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	font: 14px Georgia, Arial, Helvetica, sans-serif;
 }
 a {
 	font-weight: bold;
-	color: #0066CC;
+	color: #06c;
 	text-decoration: none;
 }
 a.decor {
 	font-weight: normal;
 	text-decoration: underline;
-}
-ol {
-	margin-top: 5px;
 }
 a.secondary {
 	font-weight: normal;
@@ -25,11 +19,14 @@ a.secondary {
 a:hover {
 	color: #FF9900;
 }
+ol {
+	margin-top: 5px;
+}
 sup {
 	font-size: 10px;
 }
 #content {
-	background-color: white;
+	background: #fff;
 	padding: 10px;
 	margin: 10px;
 	min-height: 450px;
@@ -42,131 +39,110 @@ sup {
 	top: 0px;
 	right: 0px;
 	float: right;
-	border: solid 1px #CCCCCC;
+	border: 1px solid #ccc;
 	width: 200px;
 	height: 400px;
 }
 #quickstats .header {
 	font-weight: bold;
-	background-color: #C6CBCE;
+	background: #C6CBCE;
 	padding: 3px;
 	text-align: center;
 }
 #quickstats .label {
 	width: 125px;
-	padding: 0px 0px 0px 7px;
+	padding: 0 0 0 7px;
 	float: left;
 }
 #quickstats .value {
 	text-align: right;
-	padding: 0px 7px 0px 0px;
+	padding: 0 7px 0 0;
 }
 #notifications {
 	height: 390px;
-	margin: 0px 210px 0px 0px;
+	margin: 0 210px 0 0;
 	padding: 5px;
 	border: 1px solid #ccc;
 }
 #adminmenu {
 	position: relative;
-	background-color: #C6CBCE;
+	background: #C6CBCE;
 	float: left;
 	width: 500px;
 }
 #statusbar {
-	background-color: #C6CBCE;
-	font:	normal 8pt Verdana, Arial, Helvetica, sans-serif;
+	background: #C6CBCE;
+	font: 12px Verdana, Arial, Helvetica, sans-serif;
 	padding: 1px 10px 1px 1px;
 	text-align: right;
 }
 #header {
 	height: 60px;
-	margin: 0px;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-	border-bottom-color: #000000;
-	background-color: #0066CC;
+	margin: 0;
+	background: #06c;
 }
 #footer {
-	font-size: 8pt;
+	font-size: 12px;
 	text-align: center;
-	padding: 0px 0px 10px;
+	padding: 0 0 10px;
 }
 #footer a {
 	font-weight: normal;
 }
 form {
-	padding: 0px;
-	margin: 0px;
+	padding: 0;
+	margin: 0;
 }
 select.listbox {
-	font: normal 8pt Georgia, Arial, Helvetica, sans-serif;
-	margin: 2px 1px 2px 0px;
+	font: 14px Georgia, Arial, Helvetica, sans-serif;
+	margin: 2px 1px 2px 0;
 }
-input.textbox {
-	font: normal 8pt Georgia, Arial, Helvetica, sans-serif;
-	color: #FF0000;
-	margin: 0px;
-	border: 1px solid #666666;
+input.textbox, textarea.textbox {
+	font: 14px Georgia, Arial, Helvetica, sans-serif;
+	color: #f00;
+	margin: 0;
+	border: 1px solid #666;
 	background: white;
 	padding-left: 3px;
 }
 textarea.textbox {
-	font: normal 8pt Georgia, Arial, Helvetica, sans-serif;
-	color: #FF0000;
-	margin: 0px;
-	border: 1px solid #666666;
-	background: white;
 	padding: 5px;
 }
 .text {
-	font: normal 8pt Georgia, Arial, Helvetica, sans-serif;
+	font: 14px Georgia, Arial, Helvetica, sans-serif;
 }
 .content-title {
 	font-weight: bold;
-	font-size: 14pt;
-	margin:0px 0px 10px 0px;
-	padding:0px;
-	color: #666666;
+	font-size: 20px;
+	margin: 0 0 10px 0;
+	padding: 0;
+	color: #666;
 }
-.content-menubar {
-	font-weight: bold;
-	font-size: 10pt;
-	border-width: 1px;
-	border-top-style: solid;
-	border-bottom-style: solid;
-	border-color: #999999;
-	padding: 5px 0px;
-	margin: 0px 0px 20px 0px;
-	clear: both
-}
+
+/* Tab styles */
 .tab-page {
 	width: auto;
-	margin: 0px;
+	margin: 0;
 	padding: 10px;
-	background-color: #F9F9F9;
+	background: #f9f9f9;
 	border-width: 1px;
-	border-color: #CCCCCC;
+	border-color: #ccc;
 	border-bottom-style: solid;
 	border-left-style: solid;
 	border-right-style: solid;
 }
 .tab-row {
-	font: 8pt Georgia, Arial, Helvetica, sans-serif;
+	font: 14px Georgia, Arial, Helvetica, sans-serif;
 	text-align: center;
 	white-space: nowrap;
-	margin: 0px 0px 0px 1px !important;
-	margin: 0px;
+	margin: 0 0 0 1px !important;
+	margin: 0;
 	border-collapse: collapse;
 }
 .tab {
-	background-color: #EEEEEE;
+	background-color: #eee;
+	border: 1px solid #ccc;
 	border-width: 1px;	
-	border-color: #CCCCCC;
-	border-right-style: solid;
-	border-top-style: solid;
-	border-left-style: solid;
-	border-bottom-style: solid;
 	text-align: center;
 	white-space: nowrap;
 	padding: 3px 5px;
@@ -175,39 +151,25 @@ textarea.textbox {
 	padding: 3px 5px;
 	font-weight: bold;
 	background-color: #F9F9F9;
-	border-width: 1px;
-	border-color: #CCCCCC;
+	border: 1px solid #ccc;
 	border-bottom-style: none;
-	border-top-style: solid;
-	border-right-style: solid;
-	border-left-style: solid;
 	text-align: center;
 	white-space: nowrap;
 }
 .tab-last {
-	border-width: 1px;	
-	border-color: #CCCCCC;
+	border: 1px none #ccc;	
 	border-bottom-style: solid;
 	width: 100%;
 }
 .section {
-	background-color: #EEEEEE;
+	background: #eee;
+	border: 1px solid #ccc;
 	border-color: #CCCCCC;
-	border-style: solid;
-	border-width: 1px;
 	margin-bottom: 10px;
 	padding: 5px;
 }
 .nobullet {
 	list-style-type: none;
-}
-.surname_col1 {
-	padding: 0px 5px 0px 0px;
-	width: 300px;
-}
-.surname_col2 {
-	padding: 0px 5px 0px 5px;
-	width: 150px;
 }
 .warning {
 	background-color: #EEEEEE;
@@ -250,30 +212,27 @@ textarea.textbox {
 	vertical-align: top;
 	background-color: #E5E5E5;
 }
-.cfg-updates {
-		
-}
 .cfg-update {
-	color: #FF0000;
+	color: #f00;
 }
 .list_header {
 	padding: 3px;
-	background-color: #C6CBCE;
+	background: #c6cbce;
 }
 .list_item {
 	padding: 3px;
-	border-bottom: 1px solid #DDDDDD;
+	border-bottom: 1px solid #ddd;
 	vertical-align: top;
 }
 .button {
-	font: normal 8pt Georgia, Arial, Helvetica, sans-serif;
+	font: 14px Georgia, Arial, Helvetica, sans-serif;
 	height: 22px;
 	margin-bottom: 2px;
 }
 .checkbox {
-	margin: 0px;
+	margin: 0;
 }
 iframe.log {
-	border: solid 1px #CCCCCC;
+	border: 1px solid #ccc;
 	overflow: auto;
 }

@@ -56,18 +56,27 @@
 			</td>
 		</tr>
 		<tr>
-			<td class="cfg-lbl"><label for="meta_copyright">Copyright Notice:</label></td>
+			<td class="cfg-lbl"><label for="comments_allow">Allow Comments:</label></td>
 			<td class="cfg-opt">
-				<textarea name="meta_copyright" cols="30" rows="2" class="textbox" id="meta_copyright">{$options.meta_copyright}</textarea>
+				<select name="allow_comments" class="listbox" id="allow_comments">
+					{html_options options=$yesno selected=$options.allow_comments}
+				</select>
 			</td>
-			<td class="cfg-dsc">This populates the $SITE_COPYRIGHT variable used in the template system.</td>
+			<td class="cfg-dsc">Allow the public to submit comments on individuals?</td>
 		</tr>
 		<tr>
-			<td class="cfg-lbl2"><label for="meta_keywords">Default Keywords:</label></td>
+			<td class="cfg-lbl2"><label for="meta_copyright">Copyright Notice:</label></td>
 			<td class="cfg-opt2">
+				<textarea name="meta_copyright" cols="30" rows="2" class="textbox" id="meta_copyright">{$options.meta_copyright}</textarea>
+			</td>
+			<td class="cfg-dsc2">This populates the $SITE_COPYRIGHT variable used in the template system.</td>
+		</tr>
+		<tr>
+			<td class="cfg-lbl"><label for="meta_keywords">Default Keywords:</label></td>
+			<td class="cfg-opt">
 				<textarea name="meta_keywords" cols="30" rows="2" class="textbox" id="meta_keywords">{$options.meta_keywords}</textarea>
 			</td>
-			<td class="cfg-dsc2">These keywords will be added to the keywords meta tag on every page.</td>
+			<td class="cfg-dsc">These keywords will be added to the keywords meta tag on every page.</td>
 		</tr>
 	</table>
 </div>
