@@ -84,15 +84,25 @@
 		*/
 		function OptionUpdate($key, $val) {
 			global $db;
-			$sql = 'SELECT opt_val FROM '.TBL_OPTION.' WHERE opt_key="'.$key.'"';
-			$old = $db->GetOne($sql);
-			if ($val == $old) { 
-				return false; 
-			}
-			else {
-				$sql = 'UPDATE '.TBL_OPTION.' SET opt_val="'.$val.'" WHERE opt_key="'.$key.'"';
+			
+			# add the option to the table if not already there
+			$sql = 'SELECT COUNT(*) FROM '.TBL_OPTION.' WHERE opt_key="'.$key.'"';
+			if (!$db->GetOne($sql)) {
+				$sql = 'INSERT INTO '.TBL_OPTION.' VALUES("", '.$db->qstr($key).', '.$db->qstr($val).')';
 				$db->Execute($sql);
-				return true;
+			}
+			# or else update it if needed
+			else {
+				$sql = 'SELECT opt_val FROM '.TBL_OPTION.' WHERE opt_key="'.$key.'"';
+				$old = $db->GetOne($sql);
+				if ($val == $old) { 
+					return false; 
+				}
+				else {
+					$sql = 'UPDATE '.TBL_OPTION.' SET opt_val="'.$val.'" WHERE opt_key="'.$key.'"';
+					$db->Execute($sql);
+					return true;
+				}
 			}
 		}
 	}
