@@ -38,7 +38,6 @@
 
 	# Start or continue a session
 	session_start();
-	//header('Cache-control: private'); # IE6 fix
 	
 	# Define all application paths
 	define('ADMIN_PATH', realpath(dirname($_SERVER['PATH_TRANSLATED'])));
