@@ -45,6 +45,11 @@
 	*/
 	define('LIB_PATH', ROOT_PATH.'/../libraries/');
 	
+	/** Location of gettext locale files
+	* @global string
+	*/
+	define('LOCALE_PATH', ROOT_PATH.'/../locale/');
+	
 	/**
 	* Current url w/query string
 	* @global string

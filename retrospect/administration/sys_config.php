@@ -82,7 +82,8 @@
         <tr> 
           <td width="200" class="content-label"><?php echo _("Default Page"); ?>:</td> 
           <td><input name="default_page_new" type="text" class="textbox" id="default_page_new" value="<?php echo $g_opts->default_page; ?>">
-          <input name="default_page_old" type="hidden" id="default_page_old" value="<?php echo $g_opts->default_page; ?>"></td> 
+          <input name="default_page_old" type="hidden" id="default_page_old" value="<?php echo $g_opts->default_page; ?>">
+          This must be a page that does not require any parameters.</td> 
         </tr> 
       </table></td> 
   </tr> 
@@ -121,7 +122,7 @@
         </tr> 
         <tr> 
           <td class="content-label"><?php echo _("MySQL Database"); ?>: </td> 
-          <td><input name="db_new" type="text" class="textbox" id="db_new" value="<?php echo $g_db; ?>" readonly="true">
+          <td><input name="db_new" type="text" class="textbox" id="db_new" value="<?php echo $g_db_name; ?>" readonly="true">
           <input name="db_old" type="hidden" id="db_old" value="<?php echo $g_db; ?>"></td> 
         </tr> 
       </table>

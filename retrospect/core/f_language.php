@@ -46,7 +46,8 @@
 		# the LC_MESSAGES domain
 		if (extension_loaded('gettext')) {
 			setlocale(LC_ALL, $lang);
-			bindtextdomain('messages', ROOT_PATH.'/locale/'); 
+			//bindtextdomain('messages', ROOT_PATH.'/locale/');
+			bindtextdomain('messages', LOCALE_PATH); 
 			textdomain('messages');	
 			# do not try to set environment var if safe mode is on
 			# (this may break gettext on some windows platforms)
