@@ -28,7 +28,7 @@
 	
 	# process expected get/post variables
 	$sn = isset($_GET['sn']) ? $_GET['sn'] : null;
-	$g_alpha = (isset($_GET['alpha'])) ? $_GET['alpha'] : 'A';
+	$g_alpha = (isset($_GET['alpha'])) ? $_GET['alpha'] : 'TOP100';
 	$smarty->assign('sn', $sn);
 	
 	# populate keyword array
