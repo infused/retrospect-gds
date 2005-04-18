@@ -349,6 +349,10 @@
 		<query>INSERT INTO options VALUES ('', 'allow_comments', '1')</query>
 	</sql>
 	<sql prefixmethod="auto">
+		<descr>Add 'gallery_plugin' record to options table</descr>
+		<query>INSERT INTO options VALUES ('', 'gallery_plugin', '0')</query>
+	</sql>
+	<sql prefixmethod="auto">
 		<descr>Add english language</descr>
 		<query>INSERT INTO language VALUES ('1', 'en_US', 'iso-8859-1', 'English')</query>
 	</sql>
