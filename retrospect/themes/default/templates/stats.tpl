@@ -52,3 +52,7 @@
 
 <div class="col1">&nbsp;&nbsp;&nbsp;{php}t("Citations"){/php}:</div>
 <div class="col2-2">{$cnt_citations|number_format}</div>
+
+<br />
+<div class="col1">{php}t("Comments"){/php}</div>
+<div class="col2-2">{$cnt_comments|number_format}</div>

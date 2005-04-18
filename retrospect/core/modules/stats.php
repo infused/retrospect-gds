@@ -93,7 +93,10 @@
 	$sql = "SELECT COUNT(*) FROM ".TBL_CITATION;
 	$smarty->assign('cnt_citations', $db->GetOne($sql));
 	
+	# comments
+	$sql = "SELECT COUNT(*) FROM ".TBL_COMMENT;
+	$smarty->assign('cnt_comments', $db->GetOne($sql));
+	
 	# populate keyword array
 	keyword_push(gtc("Statistics"));
-
 ?>
