@@ -38,10 +38,10 @@ a:hover {
 	outputnow( '' );
 	outputnow( 'Size: '.filesize_format($gedcom->fsize) );
 	outputnow( 'Lines: '.number_format($gedcom->lines) );
-	outputnow( 'Individuals :'.number_format($gedcom->individual_count) );
-	outputnow( 'Families :'.number_format($gedcom->family_count) );
-	outputnow( 'Sources :'.number_format($gedcom->source_count) );
-	outputnow( 'Notes :'.number_format($gedcom->note_count) );
+	outputnow( 'Individuals: '.number_format($gedcom->individual_count) );
+	outputnow( 'Families: '.number_format($gedcom->family_count) );
+	outputnow( 'Sources: '.number_format($gedcom->source_count) );
+	outputnow( 'Notes: '.number_format($gedcom->note_count) );
 	
 	outputnow( '' );
 	

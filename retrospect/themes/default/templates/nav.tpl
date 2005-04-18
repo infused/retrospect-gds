@@ -38,12 +38,14 @@
 				<a href="?m=reports&amp;id={$indiv->indkey}">{php}t("Reports"){/php}</a>
 			</td>
 		{/if}
-		{if $module=="multimedia"}
-			<td class="tab-selected">{php}t("Multimedia"){/php}</td>
-		{else}
-			<td class="tab">
-				<a href="?m=multimedia&amp;id={$indiv->indkey}">{php}t("Multimedia"){/php}</a>
-			</td>
+		{if $gallery_plugin}
+			{if $module=="multimedia"}
+				<td class="tab-selected">{php}t("Multimedia"){/php}</td>
+			{else}
+				<td class="tab">
+					<a href="{$media_link}">{php}t("Multimedia"){/php} ({$media_count})</a>
+				</td>
+			{/if}
 		{/if}
 		{if $allow_comments}
 			{if $module=="comments" or $module=="commentadd"}

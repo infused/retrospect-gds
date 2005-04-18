@@ -28,7 +28,7 @@ a:hover {
 		$db->Execute($sql);
 		$sql = 'SELECT * FROM '.$tbl;
 		$rs = $db->Execute($sql);
-		outputnow( 'Cleaning '.$tbl.' table...', false);
+		outputnow( 'Cleaning '.$tbl.' table... ', false);
 		outputnow( $rs->RecordCount > 0 ? 'Failed' : 'OK');
 	}
 	
@@ -86,8 +86,8 @@ a:hover {
 			outputnow( 'Processing is '.$complete.'% complete...' );
 			$etime = time();
 			if ($etime - $stime > $maxtime - 5) {
-				$yes = '<a href="'.$_SERVER['PHP_SELF'].'?m=gedcom_process&f='.$filename.'&offset='.$offset.'">Continue</a>';
-				$no = '<a href="'.BASE_SCRIPT.'?m=gedcom" target="_parent">Abort</a>';
+				$yes = '<a href="?m=gedcom_process&f='.$filename.'&offset='.$offset.'">Continue</a>';
+				$no = '<a href="?m=gedcom" target="_parent">Abort</a>';
 				outputnow( '' );
 				outputnow( 'Would you like to continue processing this gedcom file?' );
 				outputnow( $yes );

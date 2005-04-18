@@ -37,6 +37,7 @@
 		$saved[] = $options->OptionUpdate('meta_copyright', $_POST['meta_copyright']);
 		$saved[] = $options->OptionUpdate('meta_keywords', $_POST['meta_keywords']);
 		$saved[] = $options->OptionUpdate('allow_comments', $_POST['allow_comments']);
+		$saved[] = $options->OptionUpdate('gallery_plugin', $_POST['gallery_plugin']);
 		
 		# Remove blank entries from $saved array
 		for ($i = count($saved)-1; $i > -1; $i--) {
@@ -65,5 +66,9 @@
 	
 	# Date options
 	$smarty->assign('date_formats', array('1'=>'25 Nov 1859', '2'=>'Nov 25, 1859'));
+	
+	# Gallery options
+	$supported_galleries = array('0'=>'None', 'coppermine.php'=>'Coppermine');
+	$smarty->assign('supported_galleries', $supported_galleries);
 	
 ?>

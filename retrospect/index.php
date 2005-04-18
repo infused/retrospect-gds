@@ -34,10 +34,12 @@
 	# Define all application paths
 	define('ROOT_PATH', dirname($_SERVER['SCRIPT_FILENAME'])); 	# Path to root Retrospect-GDS directory
 	define('CORE_PATH', ROOT_PATH.'/core/'); 										# Path to core files
+	define('PLUGIN_PATH', CORE_PATH.'plugins/');									# Path to plugins
 	define('MODULE_PATH', CORE_PATH.'modules/'); 								# Path to module files
 	define('THEME_PATH', ROOT_PATH.'/themes/'); 								# Path to themes
 	define('LIB_PATH', ROOT_PATH.'/libraries/'); 								# Path to 3rd party libraries
 	define('LOCALE_PATH', ROOT_PATH.'/locale/'); 								# Path to gettext locale files
+	define('MEDIA_PATH', ROOT_PATH.'/media/');									# Path to multimedia files
 	define('BASE_URL', dirname($_SERVER['PHP_SELF']) == '/' ? '' : dirname($_SERVER['PHP_SELF']) );
 
 	# Load the Restrospect-GDS core
@@ -68,6 +70,17 @@
 	if (isset($lang_names)) $smarty->assign_by_ref('lang_names', $lang_names);
 	if (isset($lang_codes)) $smarty->assign_by_ref('lang_codes', $lang_codes);
 	$smarty->assign_by_ref('lang', $_SESSION['language']);
+	
+	# Load the gallery plugin if available
+	$smarty->assign('gallery_plugin', $options->GetOption('gallery_plugin'));
+	if ($options->GetOption('gallery_plugin')) {
+		require(PLUGIN_PATH.$options->GetOption('gallery_plugin'));
+		if (isset($_GET['id'])) {
+			$gp = new GalleryPlugin;
+			$smarty->assign('media_count', $gp->media_count($_GET['id']));
+			$smarty->assign('media_link', $gp->media_link($_GET['id']));
+		}
+	}
 	
 	# Display the appropriate template
 	if (isset($_GET['print']) AND $_GET['print'] == strtolower('y')) {

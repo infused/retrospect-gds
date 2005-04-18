@@ -192,6 +192,28 @@
 		</tr>
 	</table>
 </div>
+<br />
+<!-- GALLERY OPTIONS -->
+<table class="tab-row" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="tab-selected">Gallery Plugin</td>
+		<td class="tab-last">&nbsp;</td>
+	</tr>
+</table>
+<div class="tab-page">
+	<table cellpadding="0" cellspacing="0">
+		<tr>
+			<td class="cfg-lbl"><label for="gallery_plugin">Gallery Plugin</label></td>
+			<td class="cfg-opt">
+				<select name="gallery_plugin" class="listbox" id="gallery_plugin">
+					{html_options options=$supported_galleries selected=$options.gallery_plugin}
+				</select>
+			</td>
+			<td class="cfg-dsc">&nbsp;</td>
+		</tr>
+	</table>	
+</div>
+<!-- FORM BUTTONS -->
 <br />	
 	<input name="Save" type="submit" class="text" id="Save" value="Save"> 
 	<input name="Reset" type="reset" class="text" id="Reset" value="Reset">
