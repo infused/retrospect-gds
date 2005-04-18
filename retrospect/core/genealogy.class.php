@@ -278,12 +278,13 @@ class Person {
 		$this->aka = $row['aka'];
 		$this->refn = $row['refn'];
 		$this->notekey = $row['notekey'];
+		
 		# split out the first name
 		$fnames = explode(' ', $row['givenname']); 
 		$this->fname = $fnames[0];
 		$this->name = trim($this->gname.' '.$this->sname);
+		
 		$this->sex = $row['sex'];
-		# determine correct gender string
 		if ($this->sex == 'M') $this->gender = 'Male'; 
 		elseif ($this->sex == 'F') $this->gender = 'Female'; 
 		else $this->gender = 'Unknown'; 
@@ -291,6 +292,7 @@ class Person {
 
 	/**
 	* Gets events from database
+	* @param boolean $p_fetch_sources
 	*/
 	function _get_events($p_fetch_sources = true) {
 		global $db;

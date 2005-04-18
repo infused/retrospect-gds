@@ -30,10 +30,10 @@
 	# Main record structures
 	define('REG_NEWREC','/^0/'); 									# New record
 	define('REG_HEAD','/^0 HEAD/');								# Beginning of Header record
-	define('REG_INDI','/^0 @(.+)@ INDI/'); 				# Beginning of Individual record
-	define('REG_FAM','/^0 @(.+)+@ FAM/');					# Beginning of Family record
-	define('REG_SOUR','/^0 @(.+)@ SOUR/');				# Beginning of Source record
-	define('REG_NOTE','/^0 @(.+)@ NOTE(.*)/');		# Beginning of Note record
+	define('REG_INDI','/^0 @(\S+)@ INDI$/'); 				# Beginning of Individual record
+	define('REG_FAM','/^0 @(\S+)+@ FAM$/');					# Beginning of Family record
+	define('REG_SOUR','/^0 @(\S+)@ SOUR$/');				# Beginning of Source record
+	define('REG_NOTE','/^0 @(\S+)@ NOTE(.*)/');		# Beginning of Note record
 	
 	# Record substructures
 	# Header substructures
@@ -165,26 +165,21 @@
 		*/
 		function GedcomParser() {
 			$this->db = &$GLOBALS['db'];
-			$this->date_parser = new DateParser;
-			# get empty indiv recordset
+			$this->date_parser = new DateParser;	
+			
+			# get emtpy recordsets for use with GetInsertSQL
 			$sql = 'SELECT * from '.TBL_INDIV.' where indkey=-1';
 			$this->rs_indiv = $this->db->Execute($sql);
-			# get empty note recordset
 			$sql = 'SELECT * from '.TBL_NOTE.' where notekey=-1';
 			$this->rs_note = $this->db->Execute($sql);
-			# get empty family recordset
 			$sql = 'SELECT * from '.TBL_FAMILY.' where famkey=-1';
 			$this->rs_family = $this->db->Execute($sql);
-			# get empty fact recordset
 			$sql = 'SELECT * from '.TBL_FACT.' where indfamkey=-1';
 			$this->rs_fact = $this->db->Execute($sql);
-			# get empty child recordset
 			$sql = 'SELECT * from '.TBL_CHILD.' where famkey=-1';
 			$this->rs_child = $this->db->Execute($sql);
-			# get empty source recordset
 			$sql = 'SELECT * from '.TBL_SOURCE.' where srckey=-1';
 			$this->rs_source = $this->db->Execute($sql);
-			# get empty citation recordset
 			$sql = 'SELECT * from '.TBL_CITATION.' where factkey=-1';
 			$this->rs_citation = $this->db->Execute($sql);
 		}
@@ -233,12 +228,13 @@
 			
 			while (!feof($handle)) {
 				$lines++;
-				$line = fgets($handle);
-				$line = trim($line);
-				if (preg_match(REG_INDI, $line)) $icount++;
-				elseif (preg_match(REG_FAM, $line)) $fcount++;
-				elseif (preg_match(REG_SOUR, $line)) $scount++;
-				elseif (preg_match(REG_NOTE, $line)) $ncount++; 
+				$line = trim(fgets($handle));
+				if ($line[0] == '0') {
+					if (preg_match(REG_INDI, $line)) $icount++;
+					elseif (preg_match(REG_FAM, $line)) $fcount++;
+					elseif (preg_match(REG_SOUR, $line)) $scount++;
+					elseif (preg_match(REG_NOTE, $line)) $ncount++; 
+				}
 			}
 			
 			$this->individual_count = $icount;
@@ -274,8 +270,7 @@
 				$time = time();
 				if ($time - $start >= $time_limit) return $poffset;
 				
-				$line = fgets($this->fhandle);
-				$line = trim($line);
+				$line = trim(fgets($this->fhandle));
 				if (preg_match(REG_INDI, $line, $match)) {
 					$this->_ParseIndividual($match);
 				} 
@@ -717,67 +712,79 @@
 		}
 		
 		function _DB_Insert_Indiv($record) {
-			$indkey = $GLOBALS['db']->Quote($record['indkey']);
-			$surname = $GLOBALS['db']->Quote($record['surname']);
-			$givenname = $GLOBALS['db']->Quote($record['givenname']);
-			$aka = $GLOBALS['db']->Quote($record['aka']);
-			$prefix = $GLOBALS['db']->Quote($record['prefix']);
-			$suffix = $GLOBALS['db']->Quote($record['suffix']);
-			$sex = $GLOBALS['db']->Quote($record['sex']);
-			$refn = isset($record['refn']) ? $GLOBALS['db']->Quote($record['refn']) : "''";
-			$notekey = isset($record['notekey']) ? $GLOBALS['db']->Quote($record['notekey']) : "''";
+			global $db;
+			$indkey = $db->qstr($record['indkey']);
+			$surname = $db->qstr($record['surname']);
+			$givenname = $db->qstr($record['givenname']);
+			$aka = $db->qstr($record['aka']);
+			$prefix = $db->qstr($record['prefix']);
+			$suffix = $db->qstr($record['suffix']);
+			$sex = $db->qstr($record['sex']);
+			$refn = isset($record['refn']) ? $db->qstr($record['refn']) : "''";
+			$notekey = isset($record['notekey']) ? $db->qstr($record['notekey']) : "''";
 			$sql = 'INSERT INTO '.TBL_INDIV.' (indkey,surname,givenname,aka,prefix,suffix,sex,refn,notekey) ';
 			$sql .= 'VALUES ('.$indkey.','.$surname.','.$givenname.','.$aka.','.$prefix.','.$suffix.',';
 			$sql .= $sex.','.$refn.','.$notekey.')';
-			$GLOBALS['db']->Execute($sql);
+			$db->Execute($sql);
 		}
 		
 		function _DB_Insert_Fact($record) {
-			$indfamkey = $GLOBALS['db']->Quote($record['indfamkey']);
-			$type = isset($record['type']) ? $GLOBALS['db']->Quote($record['type']) : "''";
-			$date_mod = isset($record['date_mod']) ? $GLOBALS['db']->Quote($record['date_mod']) : "''";
-			$date1 = isset($record['date1']) ? $GLOBALS['db']->Quote($record['date1']) : "''";
-			$date2 = isset($record['date2']) ? $GLOBALS['db']->Quote($record['date2']) : "''";
-			$date_str = isset($record['date_str']) ? $GLOBALS['db']->Quote($record['date_str']) : "''";
-			$place = isset($record['place']) ? $GLOBALS['db']->Quote($record['place']) : "''";
-			$comment = isset($record['comment']) ? $GLOBALS['db']->Quote($record['comment']) : "''";
-			$factkey = $GLOBALS['db']->Quote($record['factkey']);
-			$sql = 'INSERT INTO '.TBL_FACT.' (indfamkey,type,date_mod,date1,date2,date_str,place,comment,factkey) ';
+			global $db;
+			$indfamkey = $db->qstr($record['indfamkey']);
+			$type = isset($record['type']) ? $db->qstr($record['type']) : "''";
+			$date_mod = isset($record['date_mod']) ? $db->qstr($record['date_mod']) : "''";
+			$date1 = isset($record['date1']) ? $db->qstr($record['date1']) : "''";
+			$date2 = isset($record['date2']) ? $db->qstr($record['date2']) : "''";
+			$date_str = isset($record['date_str']) ? $db->qstr($record['date_str']) : "''";
+			$place = isset($record['place']) ? $db->qstr($record['place']) : "''";
+			$comment = isset($record['comment']) ? $db->qstr($record['comment']) : "''";
+			$factkey = $db->qstr($record['factkey']);
+			$sql = 'INSERT INTO '.TBL_FACT;
+			$sql .= ' (indfamkey,type,date_mod,date1,date2,date_str,place,comment,factkey) ';
 			$sql .= 'VALUES ('.$indfamkey.','.$type.','.$date_mod.','.$date1.','.$date2.',';
 			$sql .= $date_str.','.$place.','.$comment.','.$factkey.')';
-			$GLOBALS['db']->Execute($sql);
+			$db->Execute($sql);
 		}
 		
 		function _DB_Insert_Child($record) {
-			$famkey = $GLOBALS['db']->Quote($record['famkey']);
-			$indkey = $GLOBALS['db']->Quote($record['indkey']);
+			global $db;
+			$famkey = $db->qstr($record['famkey']);
+			$indkey = $db->qstr($record['indkey']);
 			$sql = 'INSERT INTO '.TBL_CHILD.' (famkey,indkey) VALUES ('.$famkey.','.$indkey.');';
-			$GLOBALS['db']->Execute($sql);
+			$db->Execute($sql);
+		}
+		
+		function _DB_Insert_Source($record) {
+			global $db;	
 		}
 		
 		function _DB_Insert_Citation($record) {
-			$factkey = $GLOBALS['db']->Quote($record['factkey']);
-			$srckey = $GLOBALS['db']->Quote($record['srckey']);
-			$source = isset($record['source']) ? $GLOBALS['db']->Quote($record['source']) : "''";
+			global $db;
+			$factkey = $db->qstr($record['factkey']);
+			$srckey = $db->qstr($record['srckey']);
+			$source = isset($record['source']) ? $db->qstr($record['source']) : "''";
 			$citekey = "''";
 			$sql = 'INSERT INTO '.TBL_CITATION.' (factkey,srckey,source,citekey) ';
 			$sql .= 'VALUES ('.$factkey.','.$srckey.','.$source.','.$citekey.')';
-			$GLOBALS['db']->Execute($sql);		
+			$db->Execute($sql);		
 		}
 		
 		function _DB_Insert_Family($record) {
-			$famkey = $GLOBALS['db']->Quote($record['famkey']);
-			$spouse1 = isset($record['spouse1']) ? $GLOBALS['db']->Quote($record['spouse1']) : "''";
-			$spouse2 = isset($record['spouse2']) ? $GLOBALS['db']->Quote($record['spouse2']) : "''";
-			$beginstatus = isset($record['beginstatus']) ? $GLOBALS['db']->Quote($record['beginstatus']) : "''";
-			$endstatus = isset($record['endstatus']) ? $GLOBALS['db']->Quote($record['endstatus']) : "''";
-			$notekey = isset($record['notekey']) ? $GLOBALS['db']->Quote($record['notekey']) : "''";
+			global $db;
+			$famkey = $db->qstr($record['famkey']);
+			$spouse1 = isset($record['spouse1']) ? $db->qstr($record['spouse1']) : "''";
+			$spouse2 = isset($record['spouse2']) ? $db->qstr($record['spouse2']) : "''";
+			$beginstatus = isset($record['beginstatus']) ? $db->qstr($record['beginstatus']) : "''";
+			$endstatus = isset($record['endstatus']) ? $db->qstr($record['endstatus']) : "''";
+			$notekey = isset($record['notekey']) ? $db->qstr($record['notekey']) : "''";
 			$sql = 'INSERT INTO '.TBL_FAMILY.' (famkey,spouse1,spouse2,beginstatus,endstatus,notekey) ';
 			$sql .= 'VALUES ('.$famkey.','.$spouse1.','.$spouse2.','.$beginstatus.',';
 			$sql .= $endstatus.','.$notekey.')';
-			$GLOBALS['db']->Execute($sql);
+			$db->Execute($sql);
 		}
-
+		
+		function _DB_Insert_Note($record) {
+			
+		}
  	}
- 
 ?>
