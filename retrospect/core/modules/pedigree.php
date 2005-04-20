@@ -51,7 +51,6 @@
 	$content_title = $o->prefix.' '.$o->name;
 	if ($o->suffix) $content_title .= ', '.$o->suffix;
 	$smarty->assign('content_title', $content_title);
-	$smarty->assign('comment_count', count_comments($g_indiv));
 
 	# instantiate new tree
 	$tree = new ATree($g_indiv);

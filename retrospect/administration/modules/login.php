@@ -23,7 +23,7 @@
 	
 	$smarty->assign('page_title', 'Retrospect-GDS Administration Login');
 	
-	if ($_POST['loginsubmit']) {
+	if (isset($_POST['loginsubmit'])) {
 		$smarty->assign('LOGIN_ERROR', '1');
 	}
 ?>

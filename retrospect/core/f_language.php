@@ -29,7 +29,7 @@
 	* Initialize Gettext
 	*/
 	function lang_init_gettext() {
-		global $db, $options, $g_langs, $smarty;
+		global $db, $options, $smarty;
 		
 		# determine current language
 		if (isset($_POST['lang'])) { 
@@ -66,13 +66,17 @@
 	}
 	
 	/** 
-	* Get list of supported languages
-	* @return array 
+	* Populated the globals $lang_names and $lang_codes
+	* with the supported language descriptive names and locale codes
 	*/
-	function lang_get_langs() {
-		global $db;
+	function lang_init_arrays() {
+		global $db, $lang_names, $lang_codes;
 		$sql = 'SELECT lang_name, lang_code FROM '.TBL_LANG;
-		return $db->GetAll($sql);
+		$langs = $db->GetAll($sql);
+		foreach ($langs as $lang) {
+			$lang_names[] = gtc($lang['lang_name']);
+			$lang_codes[] = $lang['lang_code'];
+		}
 	}
 	
 	/**

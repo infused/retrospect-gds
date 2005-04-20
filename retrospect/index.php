@@ -22,70 +22,22 @@
  *
  */
 
-	# Set flag that this is a parent file
-	define( '_RGDS_VALID', 1 );	
-	
-	# Turn on error reporting
-	error_reporting(E_ALL);
-	
-	# Start or continue a session
-	session_start();
+ 	# Set flag that this is a parent file
+  define( '_RGDS_VALID', 1 );	
 
 	# Define all application paths
 	define('ROOT_PATH', dirname($_SERVER['SCRIPT_FILENAME'])); 	# Path to root Retrospect-GDS directory
-	define('CORE_PATH', ROOT_PATH.'/core/'); 										# Path to core files
-	define('PLUGIN_PATH', CORE_PATH.'plugins/');									# Path to plugins
-	define('MODULE_PATH', CORE_PATH.'modules/'); 								# Path to module files
-	define('THEME_PATH', ROOT_PATH.'/themes/'); 								# Path to themes
-	define('LIB_PATH', ROOT_PATH.'/libraries/'); 								# Path to 3rd party libraries
-	define('LOCALE_PATH', ROOT_PATH.'/locale/'); 								# Path to gettext locale files
-	define('MEDIA_PATH', ROOT_PATH.'/media/');									# Path to multimedia files
+	define('THEME_PATH', ROOT_PATH.'/themes/');
+	define('CORE_PATH', ROOT_PATH.'/core/');
+	define('PLUGIN_PATH', CORE_PATH.'plugins/');
+	define('MODULE_PATH', CORE_PATH.'modules/');
+	define('LIB_PATH', ROOT_PATH.'/libraries/');
+	define('LOCALE_PATH', ROOT_PATH.'/locale/');
+	define('MEDIA_PATH', ROOT_PATH.'/media/');
+	define('GEDCOM_DIR', ROOT_PATH.'/gedcom/');
 	define('BASE_URL', dirname($_SERVER['PHP_SELF']) == '/' ? '' : dirname($_SERVER['PHP_SELF']) );
 
 	# Load the Restrospect-GDS core
-	@require_once(CORE_PATH.'core.php');
-	
-	# Store the current url w/query string
-	$qs = $_SERVER['QUERY_STRING'];
-	$cp = (empty($qs)) ? $_SERVER['PHP_SELF'] : $_SERVER['PHP_SELF'].'?'.$qs;
-	$smarty->assign_by_ref('CURRENT_PAGE', $cp);
-	
-	$trackback_encoded = urlencode(base64_encode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']));
-	$smarty->assign_by_ref('TRACKBACK_ENCODED', $trackback_encoded);
+	@require_once(ROOT_PATH.'/core/core.php');
 
-	# If a valid module is not selected then show the default page
-	$module = isset($_GET['m']) ? $_GET['m'] : $options->GetOption('default_page');
-	
-	# Load the module's controller script
-	@require_once(MODULE_PATH.$module.'.php');
-	
-	# Assign Smarty variables
-	$smarty->assign_by_ref('module', $module);
-	$smarty->assign_by_ref('meta_keywords', implode(', ', $keywords));
-	$smarty->assign_by_ref('PHP_SELF', $_SERVER['PHP_SELF']);
-	$smarty->assign('BASE_URL', BASE_URL);
-	$smarty->assign('THEME_URL', BASE_URL.'/themes/'.$g_theme.'/');
-	$smarty->assign('allow_lang_change', $options->GetOption('allow_lang_change'));
-	$smarty->assign('allow_comments', $options->GetOption('allow_comments'));
-	if (isset($lang_names)) $smarty->assign_by_ref('lang_names', $lang_names);
-	if (isset($lang_codes)) $smarty->assign_by_ref('lang_codes', $lang_codes);
-	$smarty->assign_by_ref('lang', $_SESSION['language']);
-	
-	# Load the gallery plugin if available
-	$smarty->assign('gallery_plugin', $options->GetOption('gallery_plugin'));
-	if ($options->GetOption('gallery_plugin')) {
-		require(PLUGIN_PATH.$options->GetOption('gallery_plugin'));
-		if (isset($_GET['id'])) {
-			$gp = new GalleryPlugin;
-			$smarty->assign('media_count', $gp->media_count($_GET['id']));
-			$smarty->assign('media_link', $gp->media_link($_GET['id']));
-		}
-	}
-	
-	# Display the appropriate template
-	if (isset($_GET['print']) AND $_GET['print'] == strtolower('y')) {
-		$smarty->display('index_printable.tpl');
-	} else {
-		$smarty->display('index.tpl');
-	}
 ?>

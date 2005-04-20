@@ -43,7 +43,6 @@
 	$content_title = $o->prefix.' '.$o->name;
 	if ($o->suffix) $content_title .= ', '.$o->suffix;
 	$smarty->assign('content_title', $content_title);
-	$smarty->assign('comment_count', count_comments($g_indiv));
 	
 	# If the form has been posted then let's validate the form variables
 	if (!empty($_POST)) {

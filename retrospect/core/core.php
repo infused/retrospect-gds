@@ -29,6 +29,12 @@
 	# Ensure this file is being included by a parent file
 	defined( '_RGDS_VALID' ) or die( 'Direct access to this file is not allowed.' );
 	
+	# Turn on error reporting
+	error_reporting(0);
+	
+	# Start or continue a session
+	session_start();
+	
 	# Define some RGDS strings
 	define('RGDS_VERSION', '2.0.b5');
 	
@@ -69,21 +75,21 @@
 	require_once(CORE_PATH.'genealogy.class.php');
 	require_once(CORE_PATH.'theme.class.php');
 	require_once(CORE_PATH.'date.class.php');
+	require_once(CORE_PATH.'auth.class.php');
 	require_once(LIB_PATH.'adodb/adodb.inc.php');
 	require_once(LIB_PATH.'smarty/libs/Smarty.class.php');
 
 	# Establish the database connection
+	# Connections to MSSQL via ODBC require a special connection string!
+	# Always return recordsets as associative arrays
 	$db =& AdoNewConnection(DB_TYPE);
 	if (DB_TYPE == 'odbc_mssql') {
-		# Microsoft SQL ODBC connection
 		$dsn = 'Driver={SQL Server};Server='.DB_HOST.';Database='.DB_NAME.';';
 		$db->Connect($dsn, DB_USER, DB_PASS);
 	} else {
-		# All other database types
-		$host = (DB_PORT != '') ? DB_HOST.':'.DB_PORT : DB_HOST;
+		$host = (DB_PORT) ? DB_HOST : DB_HOST.':'.DB_PORT;
 		$db->Connect($host, DB_USER, DB_PASS, DB_NAME);
 	}
-	# Make sure that recordsets are always returned as associative arrays
 	$db->SetFetchMode(ADODB_FETCH_ASSOC);
 	
 	# Create options object
@@ -98,8 +104,6 @@
 	$smarty->compile_dir = THEME_PATH.$theme.'/templates_c/';
 	$smarty->config_dir = THEME_PATH.$theme.'/configs/';
 	$smarty->register_function('translate', 'lang_translate_smarty');
-	$smarty->assign('RGDS_COPYRIGHT', RGDS_COPYRIGHT);
-	$smarty->assign('RGDS_VERSION', RGDS_VERSION);
 	
 	# Get general keywords that will be added to the meta keyword list on each page
 	$keywords = explode(',', $options->GetOption('meta_keywords'));
@@ -109,11 +113,62 @@
 
 	# Initialize the gettext engine
 	lang_init_gettext();
-	$g_langs = lang_get_langs();
-	foreach ($g_langs as $lang) {
-		$lang_name = $lang['lang_name'];
-		$lang_names[] = gtc($lang_name);
-		$lang_codes[] = $lang['lang_code'];
+	lang_init_arrays();
+	
+	# Store the current url w/query string
+	$qs = $_SERVER['QUERY_STRING'];
+	$current_page = (empty($qs)) ? $_SERVER['PHP_SELF'] : $_SERVER['PHP_SELF'].'?'.$qs;
+
+	$trackback_encoded = urlencode(base64_encode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']));
+	$smarty->assign_by_ref('TRACKBACK_ENCODED', $trackback_encoded);
+
+	# If a valid module is not selected then show the default page
+	if (!defined('_RGDS_ADMIN')) {
+		$module = isset($_GET['m']) ? $_GET['m'] : $options->GetOption('default_page');
+	} else {
+		$module = Auth::check() ? ((isset($_GET['m'])) ? $_GET['m'] : 'status') : 'login';
+		if (Auth::check()) $smarty->assign('UID', $_SESSION['uid']);
 	}
 
+	# Load the module's controller script
+	require_once(MODULE_PATH.$module.'.php');
+
+	# Assign Smarty variables
+	$smarty->assign('RGDS_VERSION', RGDS_VERSION);
+	$smarty->assign('BASE_URL', BASE_URL);
+	$smarty->assign('THEME_URL', BASE_URL.'/themes/'.$theme.'/');
+	$smarty->assign('allow_lang_change', $options->GetOption('allow_lang_change'));
+	$smarty->assign('allow_comments', $options->GetOption('allow_comments'));
+	$smarty->assign_by_ref('module', $module);
+	$smarty->assign_by_ref('meta_keywords', implode(', ', $keywords));
+	$smarty->assign_by_ref('PHP_SELF', $_SERVER['PHP_SELF']);
+	$smarty->assign_by_ref('CURRENT_PAGE', $current_page);
+	if (isset($lang_names)) $smarty->assign_by_ref('lang_names', $lang_names);
+	if (isset($lang_codes)) $smarty->assign_by_ref('lang_codes', $lang_codes);
+	$smarty->assign_by_ref('lang', $_SESSION['language']);
+
+	# Load the gallery plugin if available
+	$smarty->assign('gallery_plugin', $options->GetOption('gallery_plugin'));
+	if ($options->GetOption('gallery_plugin')) {
+		require(PLUGIN_PATH.$options->GetOption('gallery_plugin'));
+		if (isset($_GET['id'])) {
+			$gp = new GalleryPlugin;
+			$smarty->assign('media_count', $gp->media_count($_GET['id']));
+			$smarty->assign('media_link', $gp->media_link($_GET['id']));
+		}
+	}
+	
+	# Check for comments
+	if (isset($_GET['id'])) {
+		$smarty->assign('comment_count', count_comments($_GET['id']));
+	}
+
+	# Display the appropriate template
+	if ($module != 'gedcom_analyze' AND $module != 'gedcom_process') {
+		if (isset($_GET['print']) AND $_GET['print'] == strtolower('y')) {
+			$smarty->display('index_printable.tpl');
+		} else {
+			$smarty->display('index.tpl');
+		}
+	}
 ?>

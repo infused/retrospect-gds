@@ -1,6 +1,6 @@
 <?php
- /* This is an experimental plugin for linking Coppermine
-	* photos to individuals.
+ /* This is an experimental plugin for linking Coppermine photos to individuals.
+	* See http://coppermine.sourceforge.net for information about Coppermine
 	* @copyright 2005 Keith Morrison
 	*/
 	
@@ -15,7 +15,6 @@
 		var $db_pass = '';
 		var $cpg_pictures_tbl = 'cpg132_pictures';
 		var $cpg_search_url = 'http://retrospect/cpg/thumbnails.php';
-		
 		
 		# Don't touch these...
 		var $name = 'Coppermine Plugin';
