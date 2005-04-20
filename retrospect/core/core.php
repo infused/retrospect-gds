@@ -118,6 +118,7 @@
 	# Store the current url w/query string
 	$qs = $_SERVER['QUERY_STRING'];
 	$current_page = (empty($qs)) ? $_SERVER['PHP_SELF'] : $_SERVER['PHP_SELF'].'?'.$qs;
+	define('CURRENT_PAGE', $current_page);
 
 	$trackback_encoded = urlencode(base64_encode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']));
 	$smarty->assign_by_ref('TRACKBACK_ENCODED', $trackback_encoded);
