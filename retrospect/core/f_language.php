@@ -29,7 +29,7 @@
 	* Initialize Gettext
 	*/
 	function lang_init_gettext() {
-		global $db, $options, $smarty;
+		global $db, $options, $smarty, $charset;
 		
 		# determine current language
 		if (isset($_POST['lang'])) { 
