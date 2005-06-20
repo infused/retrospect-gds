@@ -1,7 +1,23 @@
 <?php
- /* This is an experimental plugin for linking Coppermine photos to individuals.
+ /* This is an experimental plugin for linking photos to individuals using 
+	* a Coppermine photo gallery.  This plugin has been tested to work with
+	* Coppermine 1.3.2.  
 	* See http://coppermine.sourceforge.net for information about Coppermine
+	* 
 	* @copyright 2005 Keith Morrison
+	* 
+	* INSTALLATION
+	* ------------
+	* 
+	* First, your server needs to have access to the MySQL database where your 
+	* Coppermine gallery is hosted. Modify the connection variables below and 
+	* then turn on the Coppermine gallery plugin from the Retrospect-GDS 
+	* Global Configuration page.
+	* 
+	* Next, for each photo you want to associate with an individual, you need to
+	* add the individuals id number to the photo's keyword field.  You can associate
+	* a photo with more than one individual by adding multiple id's to the keyword field
+	* separated by spaces.
 	*/
 	
 	class GalleryPlugin {
