@@ -52,13 +52,11 @@
 		
 		function Initialize() {
 			global $db;
-			$sql = "SELECT * FROM ".TBL_OPTION;
+			$sql = 'SELECT * FROM '.TBL_OPTION;
 			$rs = $db->Execute($sql);
 			while ($row = $rs->FetchRow()) {
 				$optkey = $row['opt_key'];
-				# Create a class property with the name equal to $optkey
 				$this->{$optkey} = $row['opt_val'];
-				# Add an item to the options array with a key equal to $optkey
 				$this->option_list[$optkey] = $row['opt_val'];
 			}
 		}
