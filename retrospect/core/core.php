@@ -36,7 +36,7 @@
 	session_start();
 	
 	# Define some RGDS strings
-	define('RGDS_VERSION', '2.0.b5');
+	define('RGDS_VERSION', '2.0.b6');
 	
 	# Load the configuration file
 	if (file_exists(CORE_PATH.'config.php')) @require_once(CORE_PATH.'config.php');
@@ -114,6 +114,7 @@
 	# Initialize the gettext engine
 	lang_init_gettext();
 	lang_init_arrays();
+	$smarty->assign('CHARSET', $charset);
 	
 	# Store the current url w/query string
 	$qs = $_SERVER['QUERY_STRING'];
