@@ -73,12 +73,22 @@
 	
 	function insert_comment($indkey, $email, $comment) {
 		global $db;
-		$email = trim($email);
-		$comment = trim($comment);
+		$email = $db->qstr(trim($email));
+		$comment = $db->qstr(trim($comment));
 		$received = $db->DBTimeStamp(time());
-		
-		$sql  = 'INSERT INTO '.TBL_COMMENT.' (indkey,email,received,comment) ';
-		$sql .= 'VALUES ('.$db->qstr($indkey).','.$db->qstr($email).','.$received.','.$db->qstr($comment).')';
+		$sql  = 'INSERT INTO '.TBL_COMMENT.' (indkey, email, received, comment) ';
+		$sql .= 'VALUES ('.$db->qstr($indkey).','.$email.','.$received.','.$comment.')';
 		return $db->Execute($sql);
+	}
+	
+	/*
+	* This isset function returns the var if the variable is set
+	* and returns false if not
+	* @param mixed $var
+	* @return mixed
+	*/
+	function rgds_isset($var) {
+		if (isset($var)) return $var;
+		else return false;
 	}
 ?>
