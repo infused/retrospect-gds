@@ -21,7 +21,6 @@
  
  /**
  * $Id$
- *
  */  
 
 	# Ensure this file is being included by a parent file
