@@ -2,24 +2,21 @@ body {
 	margin: 0;
 	padding: 0;
 	background: #fff;
-	font: 12px Georgia, Arial, Helvetica, sans-serif;
-}
-p {
-	font: 12px Georgia, Arial, Helvetica, sans-serif;
+	font: 12px "Lucida Grande", "Trebuchet MS", Verdana, Arial, sans-serif;
 }
 a {
 	font-weight: bold;
 	color: #06c;
 	text-decoration: none;
 }
-ol {
-	margin-top: 5px;
-}
 a.secondary {
 	font-weight: normal;
 }
 a:hover {
 	color: #f90;
+}
+ol {
+	margin-top: 5px;
 }
 sup {
 	font-size: 10px;
@@ -99,11 +96,11 @@ form {
 	margin: 0;
 }
 select.listbox {
-	font: 12px Georgia, Arial, Helvetica, sans-serif;
+	font: 12px "Lucida Grande", "Trebuchet MS", Verdana, Arial, sans-serif;
 	margin: 2px 1px 2px 0;
 }
 input.textbox {
-	font: 12px Georgia, Arial, Helvetica, sans-serif;
+	font: 12px "Lucida Grande", "Trebuchet MS", Verdana, Arial, sans-serif;
 	color: #f00;
 	margin: 0;
 	border: 1px solid #666;
@@ -111,7 +108,7 @@ input.textbox {
 	padding-left: 3px;
 }
 textarea.textbox {
-	font: 12px Georgia, Arial, Helvetica, sans-serif;
+	font: 12px "Lucida Grande", "Trebuchet MS", Verdana, Arial, sans-serif;
 	color: #f00;
 	margin: 0;
 	border: 1px solid #666;
@@ -135,7 +132,7 @@ textarea.textbox {
 	height: 60px;
 }
 .text {
-	font: 12px Georgia, Arial, Helvetica, sans-serif
+	font: 12px "Lucida Grande", "Trebuchet MS", Verdana, Arial, sans-serif;
 }
 .menu-title {
 	font-size: 14px;
@@ -181,29 +178,20 @@ textarea.textbox {
 	margin: 0;
 	padding: 10px;
 	background: #F9F9F9;
-	border-width: 1px;
-	border-color: #CCCCCC;
-	border-bottom-style: solid;
-	border-left-style: solid;
-	border-right-style: solid;
+	border: 1px solid #ccc;
+	border-top-style: none;
 	min-height: 400px;
 }
 .tab-row {
-	font: 12px Georgia, Arial, Helvetica, sans-serif;
+	font: 12px "Lucida Grande", "Trebuchet MS", Verdana, Arial, sans-serif;
 	text-align: center;
 	white-space: nowrap;
-	margin: 0 0 0 1px !important;
 	margin: 0;
-	border-collapse: collapse;
 }
 .tab {
 	background-color: #eee;
-	border-width: 1px;	
-	border-color: #ccc;
-	border-right-style: solid;
-	border-top-style: solid;
-	border-left-style: solid;
-	border-bottom-style: solid;
+	border: 1px solid #ccc;
+	border-right-style: none;
 	text-align: center;
 	white-space: nowrap;
 	padding: 3px 5px;
@@ -212,12 +200,9 @@ textarea.textbox {
 	padding: 3px 5px;
 	font-weight: bold;
 	background-color: #F9F9F9;
-	border-width: 1px;
-	border-color: #ccc;
+	border: 1px solid #ccc;
 	border-bottom-style: none;
-	border-top-style: solid;
-	border-right-style: solid;
-	border-left-style: solid;
+	border-right-style: none;
 	text-align: center;
 	white-space: nowrap;
 }
@@ -225,10 +210,11 @@ textarea.textbox {
 	border-width: 1px;	
 	border-color: #ccc;
 	border-bottom-style: solid;
+	border-left-style: solid;
 	width: 100%;
 }
 .section {
-	background-color: #eee;
+	background: #eee;
 	border: 1px solid #ccc;
 	margin-bottom: 10px;
 	padding: 5px;
@@ -241,7 +227,7 @@ textarea.textbox {
 	width: 300px;
 }
 .surname_col2 {
-	padding: 0 5px 0 5px;
+	padding: 0 5px;
 	width: 150px;
 }
 .warning {
