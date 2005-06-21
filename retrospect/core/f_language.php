@@ -100,6 +100,6 @@
 	}
 	
 	function t($string) {
-		echo htmlentities(gettext($string));
+		echo gettext($string);
 	}
 ?>
