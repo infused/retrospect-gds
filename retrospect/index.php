@@ -23,7 +23,7 @@
  */
 
  	# Set flag that this is a parent file
-  define( '_RGDS_VALID', 1 );	
+  define('_RGDS_VALID', 1 );	
 
 	# Define all application paths
 	define('ROOT_PATH', dirname($_SERVER['SCRIPT_FILENAME'])); 	# Path to root Retrospect-GDS directory

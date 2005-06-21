@@ -33,16 +33,14 @@
 		
 		# determine current language
 		if (isset($_POST['lang'])) { 
-			$lang = $_POST['lang']; 
-			$_SESSION['language'] = $lang; 
-		}
-		elseif (isset($_SESSION['language'])) { 
-			$lang = $_SESSION['language']; 
+			$lang = $_POST['lang'];  
 		}
 		else { 
-			$lang = $options->GetOption('default_lang'); 
-			$_SESSION['language'] = $lang;
+			$lang = isset($_SESSION['language']) ? $_SESSION['language'] : $options->GetOption('default_lang'); 
 		}
+		
+		# store the current language in the session
+		$_SESSION['language'] = $lang;  
 		
 		# grab the correct charset from the database
 		$sql = "SELECT lang_charset FROM ".TBL_LANG." WHERE lang_code = '{$lang}'";

@@ -95,8 +95,16 @@
 	# Create options object
 	$options =& new Options();
 
-	# Start Smarty template engine
+	# Catch any directory permission problems before starting Smarty
 	$theme = (defined('_RGDS_ADMIN')) ? $g_admin_theme : $g_theme;
+	if (!is_writable(THEME_PATH.$theme.'/templates_c/')) 
+	  die (THEME_PATH.$theme.'/templates_c/ is not writable!');
+	if (!is_writable(ROOT_PATH.'/administration/themes/default/templates_c/')) 
+	  die (ROOT_PATH.'/administration/themes/default/templates_c is not writable!' );
+	if (!is_writable(ROOT_PATH.'/gedcom/')) 
+	  die (ROOT_PATH.'/gedcom/ is not writable!' );
+	
+	# Start Smarty template engine
 	$smarty =& new Smarty;
 	if ($options->GetOption('debug') == 1) $smarty->debugging = true;
 	$smarty->php_handling = SMARTY_PHP_REMOVE;
