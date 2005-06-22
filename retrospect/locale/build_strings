@@ -1,0 +1,31 @@
+# Grab all the strings 
+xgettext -f input_files.txt --keyword=t --keyword=gtc -s
+
+# Now merge old and new po files
+
+# English
+msgmerge -U --backup=numbered en_US/LC_MESSAGES/messages.po messages.po
+msgfmt --output-file=en_US/LC_MESSAGES/messages.mo en_US/LC_MESSAGES/messages.po
+
+# Spanish
+msgmerge -U --backup=numbered es_ES/LC_MESSAGES/messages.po messages.po
+msgfmt --output-file=es_ES/LC_MESSAGES/messages.mo es_ES/LC_MESSAGES/messages.po
+
+# French
+msgmerge -U --backup=numbered fr_FR/LC_MESSAGES/messages.po messages.po
+msgfmt --output-file=fr_FR/LC_MESSAGES/messages.mo fr_FR/LC_MESSAGES/messages.po
+
+# Dutch
+msgmerge -U --backup=numbered nl_NL/LC_MESSAGES/messages.po messages.po
+msgfmt --output-file=nl_NL/LC_MESSAGES/messages.mo nl_NL/LC_MESSAGES/messages.po
+
+# Polish
+msgmerge -U --backup=numbered pl_PL/LC_MESSAGES/messages.po messages.po
+msgfmt --output-file=pl_PL/LC_MESSAGES/messages.mo pl_PL/LC_MESSAGES/messages.po
+
+# German
+msgmerge -U --backup=numbered de_DE/LC_MESSAGES/messages.po messages.po
+msgfmt --output-file=de_DE/LC_MESSAGES/messages.mo de_DE/LC_MESSAGES/messages.po
+
+# Cleanup
+rm -rf messages.po
