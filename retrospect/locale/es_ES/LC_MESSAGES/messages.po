@@ -1,11 +1,12 @@
-# PHPGENE PRO SPANISH TRANSLATION
-# Copyright (C) 2003 Infused Solutions
-# Keith Morrison <keithm@infused-solutions.com>, 2003.
+# RETROSPECT-GDS SPANISH TRANSLATION
+# Copyright (C) 2003-2005 Infused Solutions
+# Keith Morrison <keithm@infused-solutions.com>, 2003-2005.
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2003-07-14 20:17-0700\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-06-22 15:42-0700\n"
 "PO-Revision-Date: 2005-02-13 21:55-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused-solutions.com>\n"
 "Language-Team: Spanish <keithm@infused-solutions.com>\n"
@@ -13,1758 +14,1078 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: core/date.class.php:307
-msgid "to"
-msgstr "a"
-
-#: core/date.class.php:308
-msgid "and"
-msgstr "y"
-
-#: core/date.class.php:397
-msgid "Jan"
-msgstr "Ene"
-
-#: core/date.class.php:397
-msgid "Feb"
-msgstr "Feb"
-
-#: core/date.class.php:397
-msgid "Mar"
-msgstr "Mar"
-
-#: core/date.class.php:397
-msgid "Apr"
-msgstr "Abr"
-
-#: core/date.class.php:397
-msgid "May"
-msgstr "May"
-
-#: core/date.class.php:398
-msgid "Jun"
-msgstr "Jun"
-
-#: core/date.class.php:398
-msgid "Jul"
-msgstr "Jul"
-
-#: core/date.class.php:398
-msgid "Aug"
-msgstr "Ago"
-
-#: core/date.class.php:398
-msgid "Sep"
-msgstr "Sep"
-
-#: core/date.class.php:398
-msgid "Oct"
-msgstr "Oct"
-
-#: core/date.class.php:398
-msgid "Nov"
-msgstr "Nov"
-
-#: core/date.class.php:398
-msgid "Dec"
-msgstr "Dec"
-
-#: core/f_dummy.php:42
-#: core/f_dummy.php:98
-#: themes/default/templates_c/stats.tpl.php:53
-msgid "Marriage"
-msgstr "Unión"
-
-#: core/f_dummy.php:43
-#: core/f_dummy.php:67
-#: core/f_report.php:199
-#: core/f_report.php:200
-#: themes/default/templates_c/stats.tpl.php:31
-msgid "Unknown"
-msgstr "Desconocido"
-
-#: core/f_dummy.php:44
-msgid "Friends"
-msgstr "Amigos"
-
-#: core/f_dummy.php:45
-msgid "Partners"
-msgstr "Socios"
-
-#: core/f_dummy.php:48
-msgid "Death of one spouse"
-msgstr "Muerte de un esposo"
-
-#: core/f_dummy.php:49
-msgid "Divorced"
-msgstr "Pedigrí"
-
-#: core/f_dummy.php:50
-msgid "Annulment"
-msgstr "Anulación"
-
-#: core/f_dummy.php:53
-msgid "Divorce"
-msgstr "Divorcio"
-
-#: core/f_dummy.php:54
-msgid "Divorce Filed"
-msgstr "Divorcio Presentado"
-
-#: core/f_dummy.php:55
-msgid "Engagement"
-msgstr "Contrato"
-
-#: core/f_dummy.php:56
-msgid "Husband"
-msgstr "Esposo"
-
-# core/f_language.php:64
-# core/f_dummy.php:5 core/f_dummy.php:13
-#: core/f_dummy.php:57
-#, fuzzy
-msgid "Marriage Bann"
-msgstr "Hecho De la Unión"
-
-# core/f_language.php:64
-# core/f_dummy.php:5 core/f_dummy.php:13
-#: core/f_dummy.php:58
-#, fuzzy
-msgid "Marriage Contract"
-msgstr "Hecho De la Unión"
-
-#: core/f_dummy.php:59
-msgid "Marriage Fact"
-msgstr "Hecho De la Unión"
-
-#: core/f_dummy.php:60
-msgid "Marriage License"
-msgstr "Licencia De la Unión"
-
-# core/f_language.php:64
-# core/f_dummy.php:5 core/f_dummy.php:13
-#: core/f_dummy.php:61
-#, fuzzy
-msgid "Marriage Settlement"
-msgstr "Licencia De la Unión"
-
-#: core/f_dummy.php:62
-msgid "Wife"
-msgstr "Esposa"
-
-#: core/f_dummy.php:65
-#: themes/default/templates_c/stats.tpl.php:23
-msgid "Male"
-msgstr "Masculino"
-
-#: core/f_dummy.php:66
-#: themes/default/templates_c/stats.tpl.php:27
-msgid "Female"
-msgstr "Femenino"
-
-#: core/f_dummy.php:70
-msgid "Adoption"
-msgstr "Adopción"
-
-#: core/f_dummy.php:71
-msgid "Adult Christening"
-msgstr "Bautizo Adulto"
-
-#: core/f_dummy.php:72
-msgid "Baptism"
-msgstr "Bautizo"
-
-# core/f_dummy.php:14
-#: core/f_dummy.php:73
-msgid "BaptismLDS"
-msgstr "Bautizo LDS"
-
-#: core/f_dummy.php:74
-msgid "Bar Mitzah"
-msgstr "Bar Mitzah"
-
-#: core/f_dummy.php:75
-msgid "Bas Mitzah"
-msgstr "Bas Mitzah"
-
-#: core/f_dummy.php:76
-#: core/modules/family_pdf.php:136
-#: core/modules/pedigree_pdf.php:93
-#: themes/default/templates_c/results.tpl.php:29
-#: themes/default/templates_c/stats.tpl.php:45
-#: themes/default/templates_c/surnames.tpl.php:27
-msgid "Birth"
-msgstr "Nació"
-
-#: core/f_dummy.php:77
-msgid "Blessing"
-msgstr "Bendición"
-
-#: core/f_dummy.php:78
-msgid "Burial"
-msgstr "Entierro"
-
-#: core/f_dummy.php:79
-msgid "Caste"
-msgstr "Casta"
-
-#: core/f_dummy.php:80
-msgid "Census"
-msgstr "Censo"
-
-#: core/f_dummy.php:81
-msgid "Christening"
-msgstr "Bautismo"
-
-#: core/f_dummy.php:82
-msgid "Confirmation"
-msgstr "Confirmación"
-
-#: core/f_dummy.php:83
-msgid "Cremation"
-msgstr "Cremación"
-
-#: core/f_dummy.php:84
-#: core/modules/family_pdf.php:154
-#: core/modules/pedigree_pdf.php:94
-#: themes/default/templates_c/results.tpl.php:30
-#: themes/default/templates_c/stats.tpl.php:49
-#: themes/default/templates_c/surnames.tpl.php:28
-msgid "Death"
-msgstr "Murió"
-
-#: core/f_dummy.php:85
-msgid "Degree"
-msgstr "Título"
-
-#: core/f_dummy.php:86
-msgid "Description"
-msgstr "Descripción"
-
-#: core/f_dummy.php:87
-msgid "Education"
-msgstr "Educación"
-
-#: core/f_dummy.php:88
-msgid "Election"
-msgstr "Elección"
-
-#: core/f_dummy.php:89
-msgid "Emigration"
-msgstr "Emigración"
-
-#: core/f_dummy.php:90
-msgid "Event"
-msgstr "Evento"
-
-#: core/f_dummy.php:91
-msgid "First Communion"
-msgstr "Primer Communion"
-
-#: core/f_dummy.php:92
-msgid "Funeral"
-msgstr "Funerales"
-
-#: core/f_dummy.php:93
-msgid "Graduation"
-msgstr "Graduación"
-
-#: core/f_dummy.php:94
-msgid "ID Number"
-msgstr "Número de la Identificación"
-
-#: core/f_dummy.php:95
-msgid "Immigration"
-msgstr "Immigración"
-
-#: core/f_dummy.php:96
-msgid "Land"
-msgstr "Tierra"
-
-#: core/f_dummy.php:97
-msgid "Last Known Addr"
-msgstr "Último Domicilio"
-
-#: core/f_dummy.php:99
-msgid "Military"
-msgstr "Militar"
-
-#: core/f_dummy.php:100
-msgid "Military Award"
-msgstr "Los Militares Conceden"
-
-#: core/f_dummy.php:101
-msgid "Military Discharge"
-msgstr "Descargan Militar"
-
-#: core/f_dummy.php:102
-msgid "Military Enlist"
-msgstr "Alistamiento Militar"
-
-#: core/f_dummy.php:103
-msgid "Military Service"
-msgstr "Servicio Militar"
-
-#: core/f_dummy.php:104
-msgid "Nationality"
-msgstr "Nacionalidad"
-
-#: core/f_dummy.php:105
-msgid "Naturalization"
-msgstr "Naturalización"
-
-# family.php:251
-# family.php:251
-# family.php:251
-# family.php:251
-# family.php:251
-#: core/f_dummy.php:106
-msgid "Number of Children"
-msgstr "Número de Hijos"
-
-# ancestors.php:54
-# ancestors.php:54
-# ancestors.php:54
-# ancestors.php:54
-# ancestors.php:60
-# ancestors.php:60
-# ancestors.php:60
-# ancestors.php:60
-# ancestors.php:60
-#: core/f_dummy.php:107
-msgid "Number of Marriages"
-msgstr "Número de Uniones"
-
-#: core/f_dummy.php:108
-msgid "Occupation"
-msgstr "Ocupación"
-
-#: core/f_dummy.php:109
-#, fuzzy
-msgid "Ordination"
-msgstr "Oredenanza"
-
-#: core/f_dummy.php:110
-msgid "Possessions"
-msgstr "Posesiones"
-
-#: core/f_dummy.php:111
-msgid "Probate"
-msgstr "Legalizar"
-
-#: core/f_dummy.php:112
-msgid "Religion"
-msgstr "Religión"
-
-#: core/f_dummy.php:113
-msgid "Researcher"
-msgstr "Investigador"
-
-#: core/f_dummy.php:114
-msgid "Residence"
-msgstr "Residencia"
-
-#: core/f_dummy.php:115
-msgid "Retirement"
-msgstr "Jubilación"
-
-#: core/f_dummy.php:116
-msgid "Social Security Number"
-msgstr "Número De la Seguridad Social"
-
-#: core/f_dummy.php:117
-msgid "SSN"
-msgstr "Número De la Seguridad Social"
-
-#: core/f_dummy.php:118
-msgid "Title"
-msgstr "Título"
-
-#: core/f_dummy.php:119
-msgid "Will"
-msgstr "Testamento"
-
-#: core/f_dummy.php:122
-msgid "ALL"
-msgstr "TODOS"
-
-# ancestors.php:88 gen_menu.php:12
-# ancestors.php:88 gen_menu.php:12
-# ancestors.php:88 gen_menu.php:12
-# ancestors.php:88 gen_menu.php:12
-# ancestors.php:88 gen_menu.php:12
-#: core/f_dummy.php:125
-msgid "English"
-msgstr "Inglés"
-
-# ancestors.php:89 gen_menu.php:13
-# ancestors.php:89 gen_menu.php:13
-# ancestors.php:89 gen_menu.php:13
-# ancestors.php:89 gen_menu.php:13
-# ancestors.php:89 gen_menu.php:13
-#: core/f_dummy.php:126
-msgid "Spanish"
-msgstr "Español"
-
-#: core/f_dummy.php:127
-msgid "Dutch"
-msgstr "Holandés"
-
-#: core/f_dummy.php:128
-msgid "German"
-msgstr "Alemán"
-
-#: core/f_dummy.php:129
-#, fuzzy
-msgid "French"
-msgstr "Amigos"
-
-#: core/f_dummy.php:132
-#: themes/default/templates_c/family.tpl.php:150
-msgid "Source Citations"
-msgstr "Citaciones De la Fuente"
-
-#: core/f_dummy.php:135
-msgid "abt"
-msgstr "alrededor"
-
-#: core/f_dummy.php:136
-msgid "cir"
-msgstr "aproximadamente"
-
-#: core/f_dummy.php:137
-msgid "aft"
-msgstr "después"
-
-#: core/f_dummy.php:138
-msgid "bef"
-msgstr "antes"
-
-#: core/f_dummy.php:139
-msgid "bet"
-msgstr "entre"
-
-#: core/f_dummy.php:140
-msgid "cal"
-msgstr "calculado"
-
-# core/f_report.php:14
-# core/f_report.php:14
-# core/f_report.php:14
-# core/f_report.php:14
-# core/f_report.php:14
-# core/f_report.php:14
-# core/f_report.php:14
-# core/f_report.php:14
-# core/f_report.php:14
-# core/f_report.php:14
-# core/f_report.php:14
-#: core/f_report.php:53
-#, php-format
-msgid "He was born on %s in %s."
-msgstr "Él nació en %s en %s."
-
-# core/f_report.php:17
-# core/f_report.php:17
-# core/f_report.php:17
-# core/f_report.php:17
-# core/f_report.php:17
-# core/f_report.php:17
-# core/f_report.php:17
-# core/f_report.php:17
-# core/f_report.php:17
-# core/f_report.php:17
-# core/f_report.php:17
-#: core/f_report.php:54
-#, php-format
-msgid "He was born on %s."
-msgstr "Él nació en %s."
-
-# core/f_report.php:20
-# core/f_report.php:20
-# core/f_report.php:20
-# core/f_report.php:20
-# core/f_report.php:20
-# core/f_report.php:20
-# core/f_report.php:20
-# core/f_report.php:20
-# core/f_report.php:20
-# core/f_report.php:20
-# core/f_report.php:20
-#: core/f_report.php:55
-#: core/f_report.php:60
-#, php-format
-msgid "He was born in %s."
-msgstr "Él nació en %s."
-
-# core/f_report.php:14
-# core/f_report.php:14
-# core/f_report.php:14
-# core/f_report.php:14
-# core/f_report.php:14
-# core/f_report.php:14
-# core/f_report.php:14
-# core/f_report.php:14
-# core/f_report.php:14
-# core/f_report.php:14
-# core/f_report.php:14
-#: core/f_report.php:58
-#, fuzzy, php-format
-msgid "He was born %s in %s."
-msgstr "Él nació en %s en %s."
-
-# core/f_report.php:17
-# core/f_report.php:17
-# core/f_report.php:17
-# core/f_report.php:17
-# core/f_report.php:17
-# core/f_report.php:17
-# core/f_report.php:17
-# core/f_report.php:17
-# core/f_report.php:17
-# core/f_report.php:17
-# core/f_report.php:17
-#: core/f_report.php:59
-#, fuzzy, php-format
-msgid "He was born %s."
-msgstr "Él nació en %s."
-
-# core/f_report.php:26
-# core/f_report.php:26
-# core/f_report.php:26
-# core/f_report.php:26
-# core/f_report.php:26
-# core/f_report.php:26
-# core/f_report.php:26
-# core/f_report.php:26
-# core/f_report.php:26
-# core/f_report.php:26
-# core/f_report.php:26
-#: core/f_report.php:66
-#, php-format
-msgid "She was born on %s in %s."
-msgstr "Ella nació en %s en %s. "
-
-# core/f_report.php:29
-# core/f_report.php:29
-# core/f_report.php:29
-# core/f_report.php:29
-# core/f_report.php:29
-# core/f_report.php:29
-# core/f_report.php:29
-# core/f_report.php:29
-# core/f_report.php:29
-# core/f_report.php:29
-# core/f_report.php:29
-#: core/f_report.php:67
-#, php-format
-msgid "She was born on %s."
-msgstr "Ella nació en %s. "
-
-# core/f_report.php:32
-# core/f_report.php:32
-# core/f_report.php:32
-# core/f_report.php:32
-# core/f_report.php:32
-# core/f_report.php:32
-# core/f_report.php:32
-# core/f_report.php:32
-# core/f_report.php:32
-# core/f_report.php:32
-# core/f_report.php:32
-#: core/f_report.php:68
-#: core/f_report.php:73
-#, php-format
-msgid "She was born in %s."
-msgstr "Ella nació en %s. "
-
-# core/f_report.php:26
-# core/f_report.php:26
-# core/f_report.php:26
-# core/f_report.php:26
-# core/f_report.php:26
-# core/f_report.php:26
-# core/f_report.php:26
-# core/f_report.php:26
-# core/f_report.php:26
-# core/f_report.php:26
-# core/f_report.php:26
-#: core/f_report.php:71
-#, fuzzy, php-format
-msgid "She was born %s in %s."
-msgstr "Ella nació en %s en %s. "
-
-# core/f_report.php:29
-# core/f_report.php:29
-# core/f_report.php:29
-# core/f_report.php:29
-# core/f_report.php:29
-# core/f_report.php:29
-# core/f_report.php:29
-# core/f_report.php:29
-# core/f_report.php:29
-# core/f_report.php:29
-# core/f_report.php:29
-#: core/f_report.php:72
-#, fuzzy, php-format
-msgid "She was born %s."
-msgstr "Ella nació en %s. "
-
-# core/f_report.php:41
-# core/f_report.php:41
-# core/f_report.php:41
-# core/f_report.php:41
-# core/f_report.php:41
-# core/f_report.php:41
-# core/f_report.php:41
-# core/f_report.php:41
-# core/f_report.php:41
-# core/f_report.php:41
-# core/f_report.php:41
-#: core/f_report.php:103
-#, php-format
-msgid "He died on %s in %s."
-msgstr "Él murió el %s en %s."
-
-# core/f_report.php:44
-# core/f_report.php:44
-# core/f_report.php:44
-# core/f_report.php:44
-# core/f_report.php:44
-# core/f_report.php:44
-# core/f_report.php:44
-# core/f_report.php:44
-# core/f_report.php:44
-# core/f_report.php:44
-# core/f_report.php:44
-#: core/f_report.php:104
-#, php-format
-msgid "He died on %s."
-msgstr "Él murió el %s."
-
-# core/f_report.php:47
-# core/f_report.php:47
-# core/f_report.php:47
-# core/f_report.php:47
-# core/f_report.php:47
-# core/f_report.php:47
-# core/f_report.php:47
-# core/f_report.php:47
-# core/f_report.php:47
-# core/f_report.php:47
-# core/f_report.php:47
-#: core/f_report.php:105
-#: core/f_report.php:110
-#, php-format
-msgid "He died in %s."
-msgstr "Él murió en %s."
-
-# core/f_report.php:41
-# core/f_report.php:41
-# core/f_report.php:41
-# core/f_report.php:41
-# core/f_report.php:41
-# core/f_report.php:41
-# core/f_report.php:41
-# core/f_report.php:41
-# core/f_report.php:41
-# core/f_report.php:41
-# core/f_report.php:41
-#: core/f_report.php:108
-#, fuzzy, php-format
-msgid "He died %s in %s."
-msgstr "Él murió el %s en %s."
-
-# core/f_report.php:44
-# core/f_report.php:44
-# core/f_report.php:44
-# core/f_report.php:44
-# core/f_report.php:44
-# core/f_report.php:44
-# core/f_report.php:44
-# core/f_report.php:44
-# core/f_report.php:44
-# core/f_report.php:44
-# core/f_report.php:44
-#: core/f_report.php:109
-#, fuzzy, php-format
-msgid "He died %s."
-msgstr "Él murió el %s."
-
-# core/f_report.php:53
-# core/f_report.php:53
-# core/f_report.php:53
-# core/f_report.php:53
-# core/f_report.php:53
-# core/f_report.php:53
-# core/f_report.php:53
-# core/f_report.php:53
-# core/f_report.php:53
-# core/f_report.php:53
-# core/f_report.php:53
-#: core/f_report.php:116
-#, php-format
-msgid "She died on %s in %s."
-msgstr "Ella murió el %s en %s."
-
-# core/f_report.php:56
-# core/f_report.php:56
-# core/f_report.php:56
-# core/f_report.php:56
-# core/f_report.php:56
-# core/f_report.php:56
-# core/f_report.php:56
-# core/f_report.php:56
-# core/f_report.php:56
-# core/f_report.php:56
-# core/f_report.php:56
-#: core/f_report.php:117
-#, php-format
-msgid "She died on %s."
-msgstr "Ella murió el %s."
-
-# core/f_report.php:59
-# core/f_report.php:59
-# core/f_report.php:59
-# core/f_report.php:59
-# core/f_report.php:59
-# core/f_report.php:59
-# core/f_report.php:59
-# core/f_report.php:59
-# core/f_report.php:59
-# core/f_report.php:59
-# core/f_report.php:59
-#: core/f_report.php:118
-#: core/f_report.php:123
-#, php-format
-msgid "She died in %s."
-msgstr "Ella murió en %s."
-
-# core/f_report.php:53
-# core/f_report.php:53
-# core/f_report.php:53
-# core/f_report.php:53
-# core/f_report.php:53
-# core/f_report.php:53
-# core/f_report.php:53
-# core/f_report.php:53
-# core/f_report.php:53
-# core/f_report.php:53
-# core/f_report.php:53
-#: core/f_report.php:121
-#, fuzzy, php-format
-msgid "She died %s in %s."
-msgstr "Ella murió el %s en %s."
-
-# core/f_report.php:56
-# core/f_report.php:56
-# core/f_report.php:56
-# core/f_report.php:56
-# core/f_report.php:56
-# core/f_report.php:56
-# core/f_report.php:56
-# core/f_report.php:56
-# core/f_report.php:56
-# core/f_report.php:56
-# core/f_report.php:56
-#: core/f_report.php:122
-#, fuzzy, php-format
-msgid "She died %s."
-msgstr "Ella murió el %s."
-
-# core/f_report.php:69
-# core/f_report.php:69
-# core/f_report.php:69
-# core/f_report.php:69
-# core/f_report.php:69
-# core/f_report.php:69
-# core/f_report.php:69
-# core/f_report.php:69
-# core/f_report.php:69
-# core/f_report.php:69
-# core/f_report.php:69
-#: core/f_report.php:153
-#, php-format
-msgid ", son of %s and %s."
-msgstr ", hijo de %s y de %s."
-
-# core/f_report.php:73 core/f_report.php:77
-# core/f_report.php:73 core/f_report.php:77
-# core/f_report.php:73 core/f_report.php:77
-# core/f_report.php:73 core/f_report.php:77
-# core/f_report.php:73 core/f_report.php:77
-# core/f_report.php:73 core/f_report.php:77
-# core/f_report.php:73 core/f_report.php:77
-# core/f_report.php:73 core/f_report.php:77
-# core/f_report.php:73 core/f_report.php:77
-# core/f_report.php:73 core/f_report.php:77
-# core/f_report.php:73 core/f_report.php:77
-#: core/f_report.php:157
-#: core/f_report.php:161
-#, php-format
-msgid ", son of %s."
-msgstr ", hijo de %s."
-
-# core/f_report.php:83
-# core/f_report.php:83
-# core/f_report.php:83
-# core/f_report.php:83
-# core/f_report.php:83
-# core/f_report.php:83
-# core/f_report.php:83
-# core/f_report.php:83
-# core/f_report.php:83
-# core/f_report.php:83
-# core/f_report.php:83
-#: core/f_report.php:167
-#, php-format
-msgid ", daughter of %s and %s."
-msgstr ", hija de %s y de %s."
-
-# core/f_report.php:87 core/f_report.php:91
-# core/f_report.php:87 core/f_report.php:91
-# core/f_report.php:87 core/f_report.php:91
-# core/f_report.php:87 core/f_report.php:91
-# core/f_report.php:87 core/f_report.php:91
-# core/f_report.php:87 core/f_report.php:91
-# core/f_report.php:87 core/f_report.php:91
-# core/f_report.php:87 core/f_report.php:91
-# core/f_report.php:87 core/f_report.php:91
-# core/f_report.php:87 core/f_report.php:91
-# core/f_report.php:87 core/f_report.php:91
-#: core/f_report.php:171
-#: core/f_report.php:175
-#, php-format
-msgid ", daughter of %s."
-msgstr ", hija de %s."
-
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:150
-# ancestors.php:150
-# ancestors.php:150
-# ancestors.php:150
-# ancestors.php:150
-#: core/f_report.php:206
-#, php-format
-msgid "male %s married %s on %s in %s."
-msgstr "%s casó a %s el %s en %s."
-
-# ancestors.php:125
-# ancestors.php:125
-# ancestors.php:125
-# ancestors.php:125
-# ancestors.php:125
-# ancestors.php:125
-# ancestors.php:154
-# ancestors.php:154
-# ancestors.php:154
-# ancestors.php:154
-# ancestors.php:154
-#: core/f_report.php:210
-#, php-format
-msgid "male %s married %s on %s."
-msgstr "%s casó a %s el %s."
-
-# ancestors.php:129
-# ancestors.php:129
-# ancestors.php:129
-# ancestors.php:129
-# ancestors.php:129
-# ancestors.php:129
-# ancestors.php:158
-# ancestors.php:158
-# ancestors.php:158
-# ancestors.php:158
-# ancestors.php:158
-#: core/f_report.php:214
-#, php-format
-msgid "male %s married %s in %s."
-msgstr "%s casó a %s en %s."
-
-# ancestors.php:133
-# ancestors.php:133
-# ancestors.php:133
-# ancestors.php:133
-# ancestors.php:133
-# ancestors.php:133
-# ancestors.php:162
-# ancestors.php:162
-# ancestors.php:162
-# ancestors.php:162
-# ancestors.php:162
-#: core/f_report.php:218
-#, php-format
-msgid "male %s married %s."
-msgstr "%s casó a %s."
-
-#: core/f_report.php:222
-#: core/f_report.php:244
-#: core/f_report.php:268
-#, php-format
-msgid "This marriage ended in %s."
-msgstr "Esta unión terminó en %s."
-
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:172
-# ancestors.php:172
-# ancestors.php:172
-# ancestors.php:172
-# ancestors.php:172
-#: core/f_report.php:228
-#, php-format
-msgid "female %s married %s on %s in %s."
-msgstr "%s casó a %s el %s en %s."
-
-# ancestors.php:147
-# ancestors.php:147
-# ancestors.php:147
-# ancestors.php:147
-# ancestors.php:147
-# ancestors.php:147
-# ancestors.php:176
-# ancestors.php:176
-# ancestors.php:176
-# ancestors.php:176
-# ancestors.php:176
-#: core/f_report.php:232
-#, php-format
-msgid "female %s married %s on %s."
-msgstr "%s casó a %s el %s."
-
-# ancestors.php:151
-# ancestors.php:151
-# ancestors.php:151
-# ancestors.php:151
-# ancestors.php:151
-# ancestors.php:151
-# ancestors.php:180
-# ancestors.php:180
-# ancestors.php:180
-# ancestors.php:180
-# ancestors.php:180
-#: core/f_report.php:236
-#, php-format
-msgid "female %s married %s in %s."
-msgstr "%s casó a %s en %s."
-
-# ancestors.php:155
-# ancestors.php:155
-# ancestors.php:155
-# ancestors.php:155
-# ancestors.php:155
-# ancestors.php:155
-# ancestors.php:184
-# ancestors.php:184
-# ancestors.php:184
-# ancestors.php:184
-# ancestors.php:184
-#: core/f_report.php:240
-#, php-format
-msgid "female %s married %s."
-msgstr "%s casó a %s."
-
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:150
-# ancestors.php:150
-# ancestors.php:150
-# ancestors.php:150
-# ancestors.php:150
-#: core/f_report.php:252
-#, fuzzy, php-format
-msgid "male %s had a relationship with %s on %s in %s."
-msgstr "%s casó a %s el %s en %s."
-
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:150
-# ancestors.php:150
-# ancestors.php:150
-# ancestors.php:150
-# ancestors.php:150
-#: core/f_report.php:256
-#, fuzzy, php-format
-msgid "male %s had a relationship with %s on %s."
-msgstr "%s tenía una relación con Maria."
-
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:150
-# ancestors.php:150
-# ancestors.php:150
-# ancestors.php:150
-# ancestors.php:150
-#: core/f_report.php:260
-#, fuzzy, php-format
-msgid "male %s had a relationship with %s in %s."
-msgstr "%s casó a %s el %s en %s."
-
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:121
-# ancestors.php:150
-# ancestors.php:150
-# ancestors.php:150
-# ancestors.php:150
-# ancestors.php:150
-#: core/f_report.php:264
-#, php-format
-msgid "male %s had a relationship with %s."
-msgstr "%s tenía una relación con %s."
-
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:172
-# ancestors.php:172
-# ancestors.php:172
-# ancestors.php:172
-# ancestors.php:172
-#: core/f_report.php:274
-#, fuzzy, php-format
-msgid "female %s had a relationship with %s on %s in %s."
-msgstr "%s casó a %s el %s en %s."
-
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:172
-# ancestors.php:172
-# ancestors.php:172
-# ancestors.php:172
-# ancestors.php:172
-#: core/f_report.php:278
-#, fuzzy, php-format
-msgid "female %s had a relationship with %s on %s."
-msgstr "%s casó a %s el %s en %s."
-
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:172
-# ancestors.php:172
-# ancestors.php:172
-# ancestors.php:172
-# ancestors.php:172
-#: core/f_report.php:282
-#, fuzzy, php-format
-msgid "female %s had a relationship with %s in %s."
-msgstr "%s casó a %s el %s en %s."
-
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:143
-# ancestors.php:172
-# ancestors.php:172
-# ancestors.php:172
-# ancestors.php:172
-# ancestors.php:172
-#: core/f_report.php:286
-#, php-format
-msgid "female %s had a relationship with %s."
-msgstr "%s tenía una relación con %s."
-
-#: core/f_report.php:290
-#, php-format
-msgid "This relationship ended in %s."
-msgstr "Esta relación terminó en %s."
-
-# family.php:251
-# family.php:251
-# family.php:251
-# family.php:251
-# family.php:251
-#: core/f_report.php:309
-#, php-format
-msgid "Children of %s and %s"
-msgstr "Hijos de %s y de %s"
-
-# family.php:251
-# family.php:251
-# family.php:251
-# family.php:251
-# family.php:251
-#: core/f_report.php:312
-#, php-format
-msgid "Children of %s"
-msgstr "Hijos de %s"
-
-#: core/modules/ahnentafel.php:44
-#: themes/default/templates_c/reports.tpl.php:32
-msgid "Ahnentafel"
-msgstr "Ahnentafel"
-
-#: core/modules/ahnentafel.php:45
-#: core/modules/pedigree.php:36
-msgid "Ancestors"
-msgstr "Antepasados"
-
-#: core/modules/ahnentafel.php:60
-#: core/modules/ahnentafel_pdf.php:63
-#: core/modules/ahnentafel_pdf.php:90
-#, php-format
-msgid "Ahnentafel Report for %s"
-msgstr "Informe de Ahnentafel para %s"
-
-# family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-#: core/modules/ahnentafel.php:61
-#: core/modules/commentadd.php:42
-#: core/modules/comments.php:42
-#: core/modules/descendant.php:50
-#: core/modules/family.php:46
-#: core/modules/multimedia.php:42
-#: core/modules/pedigree.php:50
-#: core/modules/reports.php:38
-#: core/modules/surnames.php:106
+#: ../core/modules/ahnentafel.php:61 ../core/modules/commentadd.php:42
+#: ../core/modules/comments.php:42 ../core/modules/descendant.php:50
+#: ../core/modules/family.php:46 ../core/modules/multimedia.php:42
+#: ../core/modules/pedigree.php:50 ../core/modules/reports.php:38
+#: ../core/modules/surnames.php:106
 #, php-format
 msgid "%s Surname"
 msgstr "Apellido %s"
 
-# ancestors.php:54
-# ancestors.php:83
-# ancestors.php:83
-# ancestors.php:83
-# ancestors.php:112
-# ancestors.php:112
-# ancestors.php:112
-# ancestors.php:112
-# ancestors.php:112
-#: core/modules/ahnentafel.php:88
-#: core/modules/ahnentafel_pdf.php:110
-#: core/modules/descendant.php:120
-#: core/modules/descendant_pdf.php:97
+#: ../core/f_report.php:167
 #, php-format
-msgid "Generation %s"
-msgstr "Generacion %s"
+msgid ", daughter of %s and %s."
+msgstr ", hija de %s y de %s."
 
-#: core/modules/ahnentafel_pdf.php:76
-#: core/modules/descendant_pdf.php:72
-#: core/modules/family_pdf.php:68
-#: core/modules/pedigree_pdf.php:76
+#: ../core/f_report.php:171 ../core/f_report.php:175
 #, php-format
-msgid "Send questions or comments to %s"
-msgstr "Envíe las preguntas o los comentarios a %s"
+msgid ", daughter of %s."
+msgstr ", hija de %s."
 
-#: core/modules/ahnentafel_pdf.php:91
-#: core/modules/descendant_pdf.php:182
-#: core/modules/family_pdf.php:83
-#: core/modules/pedigree_pdf.php:120
-msgid "Genealogy"
-msgstr "Genealogía"
+#: ../core/f_report.php:153
+#, php-format
+msgid ", son of %s and %s."
+msgstr ", hijo de %s y de %s."
 
-#: core/modules/commentadd.php:37
-#: core/modules/comments.php:37
-#: themes/default/templates_c/nav.tpl.php:65
-#: themes/default/templates_c/nav.tpl.php:71
+#: ../core/f_report.php:157 ../core/f_report.php:161
+#, php-format
+msgid ", son of %s."
+msgstr ", hijo de %s."
+
+#: ../core/f_dummy.php:122
+msgid "ALL"
+msgstr "TODOS"
+
+#: ../themes/default/templates/email.tpl:45
+msgid "Add a personal message"
+msgstr ""
+
+#: ../core/f_dummy.php:70
+msgid "Adoption"
+msgstr "Adopción"
+
+#: ../core/f_dummy.php:71
+msgid "Adult Christening"
+msgstr "Bautizo Adulto"
+
+#: ../core/modules/ahnentafel.php:44
+#: ../themes/default/templates/reports.tpl:28
+msgid "Ahnentafel"
+msgstr "Ahnentafel"
+
+#: ../themes/default/templates/reports.tpl:29
+msgid "Ahnentafel PDF"
+msgstr "Ahnentafel PDF"
+
+#: ../core/modules/ahnentafel.php:60 ../core/modules/ahnentafel_pdf.php:63
+#: ../core/modules/ahnentafel_pdf.php:90
+#, php-format
+msgid "Ahnentafel Report for %s"
+msgstr "Informe de Ahnentafel para %s"
+
+#: ../core/modules/family_pdf.php:119
+#: ../themes/default/templates/family.tpl:12
+msgid "Aka"
+msgstr "Alias"
+
+#: ../themes/default/templates/search.tpl:80
+#: ../themes/default/templates/search.tpl:124
+msgid "All"
+msgstr "Todos"
+
+#: ../themes/default/templates/reports.tpl:22
+msgid "Ancestor Reports"
+msgstr "Informes del Antepasado"
+
+#: ../core/modules/ahnentafel.php:45 ../core/modules/pedigree.php:36
+msgid "Ancestors"
+msgstr "Antepasados"
+
+#: ../core/f_dummy.php:50
+msgid "Annulment"
+msgstr "Anulación"
+
+#: ../themes/default/templates/search.tpl:81
+#: ../themes/default/templates/search.tpl:125
+msgid "Any"
+msgstr "Cualesquiera"
+
+#: ../core/f_dummy.php:127
+msgid "Apply"
+msgstr "Apliqúese"
+
+#: ../core/date.class.php:396
+msgid "Apr"
+msgstr "Abr"
+
+#: ../core/date.class.php:397
+msgid "Aug"
+msgstr "Ago"
+
+#: ../core/f_dummy.php:72
+msgid "Baptism"
+msgstr "Bautizo"
+
+# core/f_dummy.php:14
+#: ../core/f_dummy.php:73
+msgid "BaptismLDS"
+msgstr "Bautizo LDS"
+
+#: ../core/f_dummy.php:74
+msgid "Bar Mitzah"
+msgstr "Bar Mitzah"
+
+#: ../core/f_dummy.php:75
+msgid "Bas Mitzah"
+msgstr "Bas Mitzah"
+
+#: ../core/f_dummy.php:76 ../core/modules/family_pdf.php:136
+#: ../core/modules/pedigree_pdf.php:93
+#: ../themes/default/templates/results.tpl:27
+#: ../themes/default/templates/stats.tpl:33
+#: ../themes/default/templates/surnames.tpl:23
+msgid "Birth"
+msgstr "Nació"
+
+#: ../core/f_dummy.php:77
+msgid "Blessing"
+msgstr "Bendición"
+
+#: ../core/f_dummy.php:78
+msgid "Burial"
+msgstr "Entierro"
+
+#: ../core/f_dummy.php:79
+msgid "Caste"
+msgstr "Casta"
+
+#: ../core/f_dummy.php:80
+msgid "Census"
+msgstr "Censo"
+
+#: ../core/modules/family_pdf.php:329
+#: ../themes/default/templates/family.tpl:86
+msgid "Children"
+msgstr "Hijos"
+
+#: ../core/f_report.php:312
+#, php-format
+msgid "Children of %s"
+msgstr "Hijos de %s"
+
+#: ../core/f_report.php:309
+#, php-format
+msgid "Children of %s and %s"
+msgstr "Hijos de %s y de %s"
+
+#: ../core/f_dummy.php:81
+msgid "Christening"
+msgstr "Bautismo"
+
+#: ../themes/default/templates/stats.tpl:53
+msgid "Citations"
+msgstr "Citaciones"
+
+#: ../core/f_dummy.php:125
+msgid "Clear"
+msgstr "Limpiar"
+
+#: ../core/modules/commentadd.php:37 ../core/modules/comments.php:37
+#: ../themes/default/templates/nav.tpl:52
+#: ../themes/default/templates/nav.tpl:55
+#: ../themes/default/templates/stats.tpl:57
 msgid "Comments"
 msgstr "Comentarios"
 
-#: core/modules/commentadd.php:41
-#: core/modules/comments.php:41
+#: ../core/modules/commentadd.php:41 ../core/modules/comments.php:41
 #, fuzzy, php-format
 msgid "Comments for %s"
 msgstr "Informes para %s"
 
-#: core/modules/commentadd.php:51
-msgid "YOU MUST ENTER AN EMAIL ADDRESS"
-msgstr ""
+#: ../core/f_dummy.php:82
+msgid "Confirmation"
+msgstr "Confirmación"
 
-#: core/modules/commentadd.php:53
-msgid "THE EMAIL ADDRESS YOU ENTERED IS NOT VALID"
-msgstr ""
+#: ../core/f_dummy.php:83
+msgid "Cremation"
+msgstr "Cremación"
 
-#: core/modules/commentadd.php:56
-msgid "PLEASE ENTER SOME TEXT"
-msgstr ""
+#: ../themes/default/templates/menu.tpl:9
+msgid "Database"
+msgstr "Base de datos"
 
-#: core/modules/descendant.php:49
-#: core/modules/descendant_pdf.php:62
-#: core/modules/descendant_pdf.php:181
+#: ../core/f_dummy.php:84 ../core/modules/family_pdf.php:154
+#: ../core/modules/pedigree_pdf.php:94
+#: ../themes/default/templates/results.tpl:28
+#: ../themes/default/templates/stats.tpl:36
+#: ../themes/default/templates/surnames.tpl:24
+msgid "Death"
+msgstr "Murió"
+
+#: ../core/f_dummy.php:48
+msgid "Death of one spouse"
+msgstr "Muerte de un esposo"
+
+#: ../core/date.class.php:397
+msgid "Dec"
+msgstr "Dec"
+
+#: ../core/f_dummy.php:85
+msgid "Degree"
+msgstr "Título"
+
+#: ../themes/default/templates/reports.tpl:51
+msgid "Descendant"
+msgstr "Descendiente"
+
+#: ../themes/default/templates/reports.tpl:52
+msgid "Descendant PDF"
+msgstr "Descendiente PDF"
+
+#: ../core/modules/descendant.php:49 ../core/modules/descendant_pdf.php:62
+#: ../core/modules/descendant_pdf.php:181
 #, php-format
 msgid "Descendant Report for %s"
 msgstr "Informe del descendiente para %s"
 
-#: core/modules/descendant.php:102
-#: core/modules/family_pdf.php:245
-#: themes/default/templates_c/family.tpl.php:73
-#: themes/default/templates_c/family.tpl.php:137
-#: themes/default/templates_c/pedigree.indiv.tpl.php:14
-msgid "b."
-msgstr "n."
+#: ../themes/default/templates/reports.tpl:45
+msgid "Descendant Reports"
+msgstr "Informes Del Descendiente"
 
-#: core/modules/descendant.php:105
-#: core/modules/family_pdf.php:246
-#: themes/default/templates_c/family.tpl.php:77
-#: themes/default/templates_c/family.tpl.php:141
-#: themes/default/templates_c/pedigree.indiv.tpl.php:18
-msgid "d."
-msgstr "m."
+#: ../core/f_dummy.php:86
+msgid "Description"
+msgstr "Descripción"
 
-#: core/modules/email.php:35
-#: core/modules/email.php:36
+#: ../core/f_dummy.php:53
+msgid "Divorce"
+msgstr "Divorcio"
+
+#: ../core/f_dummy.php:54
+msgid "Divorce Filed"
+msgstr "Divorcio Presentado"
+
+#: ../core/f_dummy.php:49
+msgid "Divorced"
+msgstr "Pedigrí"
+
+#: ../core/f_dummy.php:133
+msgid "Dutch"
+msgstr "Holandés"
+
+#: ../themes/default/templates/email.tpl:13
+#, fuzzy
+msgid "Edit"
+msgstr "Termina con"
+
+#: ../core/f_dummy.php:87
+msgid "Education"
+msgstr "Educación"
+
+#: ../core/f_dummy.php:88
+msgid "Election"
+msgstr "Elección"
+
+#: ../core/f_dummy.php:128
+msgid "Email this page"
+msgstr "Mandar pagina"
+
+#: ../core/modules/email.php:35 ../core/modules/email.php:36
 msgid "Email to a friend"
 msgstr "Mandar a un amigo"
 
-#: core/modules/family.php:45
-#: core/modules/pedigree.php:49
-#, php-format
-msgid "Family Page for %s"
-msgstr "Página de la familia para %s."
+#: ../core/f_dummy.php:89
+msgid "Emigration"
+msgstr "Emigración"
 
-#: core/modules/family.php:89
-#: core/modules/family_pdf.php:238
+#: ../themes/default/templates/search.tpl:84
+#: ../themes/default/templates/search.tpl:128
+msgid "Ends with"
+msgstr "Termina con"
+
+#: ../core/f_dummy.php:55
+msgid "Engagement"
+msgstr "Contrato"
+
+#: ../core/f_dummy.php:131
+msgid "English"
+msgstr "Inglés"
+
+#: ../core/f_dummy.php:90
+msgid "Event"
+msgstr "Evento"
+
+#: ../themes/default/templates/stats.tpl:30
+msgid "Events"
+msgstr "Eventos"
+
+#: ../themes/default/templates/stats.tpl:26
+msgid "Families"
+msgstr "Familias"
+
+#: ../themes/default/templates/nav.tpl:17
+#: ../themes/default/templates/nav.tpl:20
+msgid "Family"
+msgstr "Familia"
+
+#: ../core/modules/family.php:88 ../core/modules/family_pdf.php:238
 #, php-format
 msgid "Family %s"
 msgstr "Familia %s"
 
-#: core/modules/family_pdf.php:58
-#: core/modules/family_pdf.php:82
+#: ../core/modules/family_pdf.php:58 ../core/modules/family_pdf.php:82
 #, php-format
 msgid "Family Group Sheet for %s"
 msgstr "Página de la familia para %s"
 
-#: core/modules/family_pdf.php:119
-#: themes/default/templates_c/family.tpl.php:14
-msgid "Aka"
-msgstr "Alias"
+#: ../themes/default/templates/reports.tpl:13
+msgid "Family PDF"
+msgstr "Familia PDF"
 
-#: core/modules/family_pdf.php:128
-#: themes/default/templates_c/family.tpl.php:18
-msgid "Gender"
-msgstr "Sexo"
+#: ../core/modules/family.php:45 ../core/modules/pedigree.php:49
+#, php-format
+msgid "Family Page for %s"
+msgstr "Página de la familia para %s."
 
-#: core/modules/family_pdf.php:143
-#: core/modules/family_pdf.php:161
-#: core/modules/family_pdf.php:204
-#: core/modules/family_pdf.php:255
-#: core/modules/family_pdf.php:272
-#: core/modules/family_pdf.php:303
-#: core/modules/family_pdf.php:355
-#: themes/default/templates_c/stats.tpl.php:67
-msgid "Sources"
-msgstr "Fuentes"
+#: ../themes/default/templates/reports.tpl:12
+msgid "Family Reports"
+msgstr "Informes de la Familia"
 
-# family.php:101
-# family.php:101
-# family.php:101
-# family.php:101
-# family.php:101
-# family.php:101 family.php:217
-# family.php:94 family.php:210
-# family.php:94 family.php:210
-# family.php:94 family.php:210
-# family.php:94 family.php:210
-# family.php:94 family.php:210
-#: core/modules/family_pdf.php:172
-#: themes/default/templates_c/family.tpl.php:22
+#: ../core/modules/family_pdf.php:172
+#: ../themes/default/templates/family.tpl:18
 msgid "Father"
 msgstr "Padre"
 
-# family.php:105
-# family.php:105
-# family.php:105
-# family.php:105
-# family.php:105
-# family.php:105 family.php:221
-# family.php:98 family.php:214
-# family.php:98 family.php:214
-# family.php:98 family.php:214
-# family.php:98 family.php:214
-# family.php:98 family.php:214
-#: core/modules/family_pdf.php:178
-#: themes/default/templates_c/family.tpl.php:25
+#: ../core/date.class.php:396
+msgid "Feb"
+msgstr "Feb"
+
+#: ../core/f_dummy.php:66 ../themes/default/templates/stats.tpl:19
+msgid "Female"
+msgstr "Femenino"
+
+#: ../core/f_dummy.php:91
+msgid "First Communion"
+msgstr "Primer Communion"
+
+#: ../core/f_dummy.php:135
+#, fuzzy
+msgid "French"
+msgstr "Amigos"
+
+#: ../core/f_dummy.php:44
+msgid "Friends"
+msgstr "Amigos"
+
+#: ../themes/default/templates/commentadd.tpl:18
+#: ../themes/default/templates/comments.tpl:14
+msgid "From"
+msgstr "De"
+
+#: ../core/f_dummy.php:92
+msgid "Funeral"
+msgstr "Funerales"
+
+#: ../core/modules/family_pdf.php:128
+#: ../themes/default/templates/family.tpl:15
+msgid "Gender"
+msgstr "Sexo"
+
+#: ../core/modules/ahnentafel_pdf.php:91
+#: ../core/modules/descendant_pdf.php:182 ../core/modules/family_pdf.php:83
+#: ../core/modules/pedigree_pdf.php:120
+msgid "Genealogy"
+msgstr "Genealogía"
+
+#: ../core/modules/ahnentafel.php:87 ../core/modules/ahnentafel_pdf.php:110
+#: ../core/modules/descendant.php:119 ../core/modules/descendant_pdf.php:97
+#, php-format
+msgid "Generation %s"
+msgstr "Generacion %s"
+
+#: ../core/f_dummy.php:134
+msgid "German"
+msgstr "Alemán"
+
+#: ../themes/default/templates/search.tpl:27
+msgid "Given Name"
+msgstr "Nombre de Pila"
+
+#: ../core/f_dummy.php:93
+msgid "Graduation"
+msgstr "Graduación"
+
+#: ../core/f_report.php:108
+#, fuzzy, php-format
+msgid "He died %s in %s."
+msgstr "Él murió el %s en %s."
+
+#: ../core/f_report.php:109
+#, fuzzy, php-format
+msgid "He died %s."
+msgstr "Él murió el %s."
+
+#: ../core/f_report.php:105 ../core/f_report.php:110
+#, php-format
+msgid "He died in %s."
+msgstr "Él murió en %s."
+
+#: ../core/f_report.php:103
+#, php-format
+msgid "He died on %s in %s."
+msgstr "Él murió el %s en %s."
+
+#: ../core/f_report.php:104
+#, php-format
+msgid "He died on %s."
+msgstr "Él murió el %s."
+
+#: ../core/f_report.php:58
+#, fuzzy, php-format
+msgid "He was born %s in %s."
+msgstr "Él nació en %s en %s."
+
+#: ../core/f_report.php:59
+#, fuzzy, php-format
+msgid "He was born %s."
+msgstr "Él nació en %s."
+
+#: ../core/f_report.php:55 ../core/f_report.php:60
+#, php-format
+msgid "He was born in %s."
+msgstr "Él nació en %s."
+
+#: ../core/f_report.php:53
+#, php-format
+msgid "He was born on %s in %s."
+msgstr "Él nació en %s en %s."
+
+#: ../core/f_report.php:54
+#, php-format
+msgid "He was born on %s."
+msgstr "Él nació en %s."
+
+#: ../core/f_dummy.php:56
+msgid "Husband"
+msgstr "Esposo"
+
+#: ../core/f_dummy.php:94
+msgid "ID Number"
+msgstr "Número de la Identificación"
+
+#: ../core/f_dummy.php:95
+msgid "Immigration"
+msgstr "Immigración"
+
+#: ../themes/default/templates/stats.tpl:13
+msgid "Individuals"
+msgstr "Individuos"
+
+#: ../core/date.class.php:396
+msgid "Jan"
+msgstr "Ene"
+
+#: ../core/date.class.php:397
+msgid "Jul"
+msgstr "Jul"
+
+#: ../core/date.class.php:397
+msgid "Jun"
+msgstr "Jun"
+
+#: ../themes/default/templates/search.tpl:69
+#: ../themes/default/templates/search.tpl:113
+msgid "Keywords"
+msgstr "Palabras Claves"
+
+#: ../core/f_dummy.php:96
+msgid "Land"
+msgstr "Tierra"
+
+#: ../themes/default/templates/menu.tpl:21
+msgid "Language"
+msgstr "Lengua"
+
+#: ../core/f_dummy.php:97
+msgid "Last Known Addr"
+msgstr "Último Domicilio"
+
+#: ../themes/default/templates/search.tpl:66
+msgid "Location Search"
+msgstr "Buscar Por Ubicación"
+
+#: ../core/f_dummy.php:65 ../themes/default/templates/stats.tpl:16
+msgid "Male"
+msgstr "Masculino"
+
+#: ../core/date.class.php:396
+msgid "Mar"
+msgstr "Mar"
+
+#: ../core/f_dummy.php:42 ../core/f_dummy.php:98
+#: ../themes/default/templates/stats.tpl:39
+msgid "Marriage"
+msgstr "Unión"
+
+#: ../core/f_dummy.php:57
+#, fuzzy
+msgid "Marriage Bann"
+msgstr "Hecho De la Unión"
+
+#: ../core/f_dummy.php:58
+#, fuzzy
+msgid "Marriage Contract"
+msgstr "Hecho De la Unión"
+
+#: ../core/f_dummy.php:59
+msgid "Marriage Fact"
+msgstr "Hecho De la Unión"
+
+#: ../core/f_dummy.php:60
+msgid "Marriage License"
+msgstr "Licencia De la Unión"
+
+#: ../core/f_dummy.php:61
+#, fuzzy
+msgid "Marriage Settlement"
+msgstr "Licencia De la Unión"
+
+#: ../themes/default/templates/search.tpl:77
+#: ../themes/default/templates/search.tpl:121
+msgid "Match Keywords"
+msgstr "Encuentra palabras claves"
+
+#: ../core/date.class.php:396
+msgid "May"
+msgstr "May"
+
+#: ../core/f_dummy.php:99
+msgid "Military"
+msgstr "Militar"
+
+#: ../core/f_dummy.php:100
+msgid "Military Award"
+msgstr "Los Militares Conceden"
+
+#: ../core/f_dummy.php:101
+msgid "Military Discharge"
+msgstr "Descargan Militar"
+
+#: ../core/f_dummy.php:102
+msgid "Military Enlist"
+msgstr "Alistamiento Militar"
+
+#: ../core/f_dummy.php:103
+msgid "Military Service"
+msgstr "Servicio Militar"
+
+#: ../core/modules/family_pdf.php:178
+#: ../themes/default/templates/family.tpl:20
 msgid "Mother"
 msgstr "Madre"
 
-# family.php:130
-# family.php:130
-# family.php:130
-# family.php:130
-# family.php:130
-# family.php:130 family.php:173 family.php:245
-# family.php:123 family.php:166 family.php:238
-# family.php:123 family.php:166 family.php:238
-# family.php:123 family.php:166 family.php:238
-# family.php:123 family.php:166 family.php:238
-# family.php:123 family.php:166 family.php:238
-#: core/modules/family_pdf.php:217
-#: core/modules/family_pdf.php:317
-#: themes/default/templates_c/family.tpl.php:52
-#: themes/default/templates_c/family.tpl.php:104
-#: themes/default/templates_c/stats.tpl.php:62
-msgid "Notes"
-msgstr "Notas"
-
-# core/f_dummy.php:8
-#: core/modules/family_pdf.php:242
-#: themes/default/templates_c/family.tpl.php:68
-msgid "Spouse/Partner"
-msgstr "Esposo/Socio"
-
-# family.php:251
-# family.php:251
-# family.php:251
-# family.php:251
-# family.php:251
-#: core/modules/family_pdf.php:329
-#: themes/default/templates_c/family.tpl.php:117
-msgid "Children"
-msgstr "Hijos"
-
-#: core/modules/multimedia.php:37
-#: themes/default/templates_c/nav.tpl.php:56
-#: themes/default/templates_c/nav.tpl.php:61
+#: ../core/modules/multimedia.php:37 ../themes/default/templates/nav.tpl:43
+#: ../themes/default/templates/nav.tpl:46
 msgid "Multimedia"
 msgstr "Multimedia"
 
-#: core/modules/multimedia.php:41
+#: ../core/modules/multimedia.php:41
 #, php-format
 msgid "Multimedia for %s"
 msgstr "Multimedia para %s"
 
-#: core/modules/pedigree.php:35
-#: themes/default/templates_c/nav.tpl.php:32
-#: themes/default/templates_c/nav.tpl.php:37
+#: ../themes/default/templates/results.tpl:26
+#: ../themes/default/templates/surnames.tpl:22
+msgid "Name"
+msgstr "Nombre"
+
+#: ../themes/default/templates/search.tpl:24
+msgid "Name Search"
+msgstr "Buscar de Nombre"
+
+#: ../core/f_dummy.php:104
+msgid "Nationality"
+msgstr "Nacionalidad"
+
+#: ../core/f_dummy.php:105
+msgid "Naturalization"
+msgstr "Naturalización"
+
+#: ../themes/default/templates/results.tpl:41
+msgid "No matching records were found."
+msgstr "No se encontró ningunos expedientes que emparejaban."
+
+#: ../themes/default/templates/results.tpl:19
+msgid "No search parameters were specified."
+msgstr "Busqueda no tiene parametros especificados."
+
+#: ../themes/default/templates/search.tpl:110
+msgid "Note Search"
+msgstr "Buscar de Notas"
+
+#: ../core/modules/family_pdf.php:217 ../core/modules/family_pdf.php:317
+#: ../themes/default/templates/family.tpl:39
+#: ../themes/default/templates/family.tpl:74
+#: ../themes/default/templates/stats.tpl:46
+msgid "Notes"
+msgstr "Notas"
+
+#: ../core/date.class.php:397
+msgid "Nov"
+msgstr "Nov"
+
+#: ../core/f_dummy.php:106
+msgid "Number of Children"
+msgstr "Número de Hijos"
+
+#: ../themes/default/templates/reports.tpl:32
+#: ../themes/default/templates/reports.tpl:55
+msgid "Number of Generations"
+msgstr "Generaciones"
+
+#: ../core/f_dummy.php:107
+msgid "Number of Marriages"
+msgstr "Número de Uniones"
+
+#: ../themes/default/templates/results.tpl:22
+#: ../themes/default/templates/surnames.tpl:18
+msgid "Number of individuals listed"
+msgstr "Número de los individuos enumerados"
+
+#: ../themes/default/templates/surnames.tpl:39
+msgid "Number of surnames listed"
+msgstr "El número de apellidos enumeró"
+
+#: ../core/f_dummy.php:108
+msgid "Occupation"
+msgstr "Ocupación"
+
+#: ../core/date.class.php:397
+msgid "Oct"
+msgstr "Oct"
+
+#: ../core/f_dummy.php:109
+#, fuzzy
+msgid "Ordination"
+msgstr "Oredenanza"
+
+#: ../themes/default/templates/stats.tpl:42
+msgid "Other"
+msgstr "Otro"
+
+#: ../core/modules/commentadd.php:55
+msgid "PLEASE ENTER SOME TEXT"
+msgstr ""
+
+#: ../core/f_dummy.php:45
+msgid "Partners"
+msgstr "Socios"
+
+#: ../core/modules/pedigree.php:35 ../themes/default/templates/nav.tpl:24
+#: ../themes/default/templates/nav.tpl:27
 msgid "Pedigree"
 msgstr "Pedigrí"
 
-#: core/modules/pedigree_pdf.php:66
-#: core/modules/pedigree_pdf.php:119
+#: ../themes/default/templates/reports.tpl:18
+msgid "Pedigree PDF"
+msgstr "Pedigrí PDF"
+
+#: ../themes/default/templates/reports.tpl:17
+msgid "Pedigree Reports"
+msgstr "Informes Pedigríes"
+
+#: ../core/modules/pedigree_pdf.php:66 ../core/modules/pedigree_pdf.php:119
 #, php-format
 msgid "Pedigree for %s"
 msgstr "Pedigrí para %s"
 
-#: core/modules/reports.php:37
-#, php-format
-msgid "Reports for %s"
-msgstr "Informes para %s"
+#: ../themes/default/templates/search.tpl:82
+#: ../themes/default/templates/search.tpl:126
+msgid "Phrase"
+msgstr "Frase"
 
-#: core/modules/reports.php:45
-#: themes/default/templates_c/nav.tpl.php:41
-#: themes/default/templates_c/nav.tpl.php:46
-#: themes/default/templates_c/nav.tpl.php:52
-msgid "Reports"
-msgstr "Informes"
+#: ../themes/default/templates/results.tpl:20
+msgid "Please go back to the search page and enter some search criteria."
+msgstr "Por favor regrese a la página de busqueda y entre palabras a buscar."
 
-#: core/modules/results.php:58
-#: core/modules/results.php:62
-msgid "Search Results"
-msgstr "Resultados"
-
-#: core/modules/results.php:59
-#: themes/default/templates_c/results.tpl.php:14
-#: themes/default/templates_c/search.tpl.php:13
-msgid "Results"
-msgstr "Resultados"
-
-# core/header.php:7
-# core/header.php:7
-# core/header.php:7
-# core/header.php:7
-# core/header.php:7
-# gen_menu.php:42
-# gen_menu.php:42
-# gen_menu.php:42
-# gen_menu.php:42
-# gen_menu.php:42
-#: core/modules/search.php:48
-#: core/modules/search.php:49
-#: core/modules/search.php:52
-#: themes/default/templates_c/menu.tpl.php:16
-#: themes/default/templates_c/results.tpl.php:12
-#: themes/default/templates_c/search.tpl.php:9
-#: themes/default/templates_c/search.tpl.php:12
-#: themes/default/templates_c/search.tpl.php:52
-#: themes/default/templates_c/search.tpl.php:97
-#: themes/default/templates_c/search.tpl.php:143
-msgid "Search"
-msgstr "Buscar"
-
-# core/header.php:7
-# core/header.php:7
-# core/header.php:7
-# core/header.php:7
-# core/header.php:7
-# gen_menu.php:31
-# gen_menu.php:31
-# gen_menu.php:31
-# gen_menu.php:31
-# gen_menu.php:31
-#: core/modules/stats.php:30
-#: core/modules/stats.php:31
-#: core/modules/stats.php:97
-#: themes/default/templates_c/menu.tpl.php:24
-msgid "Statistics"
-msgstr "Estadística"
-
-# family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-#: core/modules/surnames.php:35
-#: core/modules/surnames.php:68
-#: core/modules/surnames.php:74
-#: themes/default/templates_c/menu.tpl.php:20
-msgid "Surname List"
-msgstr "Lista Del Apellido"
-
-#: themes/default/templates_c/commentadd.tpl.php:16
-#: themes/default/templates_c/commentadd.tpl.php:40
-msgid "Return to comment list"
-msgstr "Regresar a comentarios"
-
-#: themes/default/templates_c/commentadd.tpl.php:18
-msgid "The comment you submitted is show below."
+#: ../themes/default/templates/commentadd.tpl:15
+msgid ""
+"Please note that it will not be visible in the comment list until it has "
+"been reviewed and approved by an administrator."
 msgstr ""
 
-#: themes/default/templates_c/commentadd.tpl.php:19
-msgid "Please note that it will not be visible in the comment list until it has been reviewed and approved by an administrator."
-msgstr ""
+#: ../core/f_dummy.php:110
+msgid "Possessions"
+msgstr "Posesiones"
 
-#: themes/default/templates_c/commentadd.tpl.php:22
-#: themes/default/templates_c/comments.tpl.php:20
-msgid "From"
-msgstr "De"
-
-#: themes/default/templates_c/comments.tpl.php:15
-msgid "Submit a comment"
-msgstr ""
-
-#: themes/default/templates_c/comments.tpl.php:22
+#: ../themes/default/templates/comments.tpl:15
 #, fuzzy
 msgid "Posted"
 msgstr "Legalizar"
 
-#: themes/default/templates_c/email.tpl.php:34
-msgid "The following link will be emailed"
-msgstr ""
-
-#: themes/default/templates_c/index.tpl.php:32
-#: themes/default/templates_c/index.tpl.php:38
+#: ../core/f_dummy.php:126
 msgid "Print"
 msgstr "Imprimir"
 
-#: themes/default/templates_c/index.tpl.php:45
-msgid "Email this page"
-msgstr "Mandar pagina"
+#: ../core/f_dummy.php:111
+msgid "Probate"
+msgstr "Legalizar"
 
-# gen_menu.php:38
-# gen_menu.php:38
-# gen_menu.php:38
-# gen_menu.php:38
-# gen_menu.php:38
-#: themes/default/templates_c/menu.tpl.php:13
-msgid "Database"
-msgstr "Base de datos"
+#: ../themes/default/templates/family.tpl:35
+msgid "Reference Number"
+msgstr ""
 
-# gen_menu.php:6
-# gen_menu.php:6
-# gen_menu.php:6
-# gen_menu.php:6
-# gen_menu.php:6
-#: themes/default/templates_c/menu.tpl.php:28
-msgid "Language"
-msgstr "Lengua"
+#: ../core/f_dummy.php:112
+msgid "Religion"
+msgstr "Religión"
 
-#: themes/default/templates_c/multimedia.tpl.php:11
-msgid "This feature has not been implemented yet."
-msgstr "Esta "
+#: ../core/modules/reports.php:44 ../themes/default/templates/nav.tpl:31
+#: ../themes/default/templates/nav.tpl:34
+#: ../themes/default/templates/nav.tpl:38
+msgid "Reports"
+msgstr "Informes"
 
-#: themes/default/templates_c/nav.tpl.php:23
-#: themes/default/templates_c/nav.tpl.php:28
-msgid "Family"
-msgstr "Familia"
+#: ../core/modules/reports.php:37
+#, php-format
+msgid "Reports for %s"
+msgstr "Informes para %s"
 
-#: themes/default/templates_c/reports.tpl.php:12
-msgid "Family Reports"
-msgstr "Informes de la Familia"
+#: ../core/f_dummy.php:113
+msgid "Researcher"
+msgstr "Investigador"
 
-#: themes/default/templates_c/reports.tpl.php:15
-msgid "Family PDF"
-msgstr "Familia PDF"
-
-#: themes/default/templates_c/reports.tpl.php:19
-msgid "Pedigree Reports"
-msgstr "Informes Pedigríes"
-
-#: themes/default/templates_c/reports.tpl.php:22
-msgid "Pedigree PDF"
-msgstr "Pedigrí PDF"
-
-#: themes/default/templates_c/reports.tpl.php:26
-msgid "Ancestor Reports"
-msgstr "Informes del Antepasado"
-
-#: themes/default/templates_c/reports.tpl.php:33
-msgid "Ahnentafel PDF"
-msgstr "Ahnentafel PDF"
-
-# ancestors.php:54
-# ancestors.php:54
-# ancestors.php:54
-# ancestors.php:54
-# ancestors.php:60
-# ancestors.php:60
-# ancestors.php:60
-# ancestors.php:60
-# ancestors.php:60
-#: themes/default/templates_c/reports.tpl.php:36
-#: themes/default/templates_c/reports.tpl.php:60
-msgid "Number of Generations"
-msgstr "Generaciones"
-
-#: themes/default/templates_c/reports.tpl.php:43
-#: themes/default/templates_c/reports.tpl.php:67
-msgid "Apply"
-msgstr "Apliqúese"
-
-#: themes/default/templates_c/reports.tpl.php:50
-msgid "Descendant Reports"
-msgstr "Informes Del Descendiente"
-
-#: themes/default/templates_c/reports.tpl.php:56
-msgid "Descendant"
-msgstr "Descendiente"
-
-#: themes/default/templates_c/reports.tpl.php:57
-msgid "Descendant PDF"
-msgstr "Descendiente PDF"
-
-#: themes/default/templates_c/results.tpl.php:20
-msgid "No search parameters were specified."
-msgstr "Busqueda no tiene parametros especificados."
-
-#: themes/default/templates_c/results.tpl.php:21
-msgid "Please go back to the search page and enter some search criteria."
-msgstr "Por favor regrese a la página de busqueda y entre palabras a buscar."
-
-#: themes/default/templates_c/results.tpl.php:23
-#: themes/default/templates_c/surnames.tpl.php:21
-msgid "Number of individuals listed"
-msgstr "Número de los individuos enumerados"
-
-#: themes/default/templates_c/results.tpl.php:28
-#: themes/default/templates_c/surnames.tpl.php:26
-msgid "Name"
-msgstr "Nombre"
-
-#: themes/default/templates_c/results.tpl.php:51
-msgid "No matching records were found."
-msgstr "No se encontró ningunos expedientes que emparejaban."
-
-# core/header.php:7
-# core/header.php:7
-# core/header.php:7
-# core/header.php:7
-# core/header.php:7
-# gen_menu.php:42
-# gen_menu.php:42
-# gen_menu.php:42
-# gen_menu.php:42
-# gen_menu.php:42
-#: themes/default/templates_c/search.tpl.php:27
-msgid "Name Search"
-msgstr "Buscar de Nombre"
-
-#: themes/default/templates_c/search.tpl.php:30
-msgid "Given Name"
-msgstr "Nombre de Pila"
-
-# family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-#: themes/default/templates_c/search.tpl.php:31
-msgid "Surname"
-msgstr "Apellido"
-
-#: themes/default/templates_c/search.tpl.php:53
-#: themes/default/templates_c/search.tpl.php:98
-#: themes/default/templates_c/search.tpl.php:144
+#: ../core/f_dummy.php:124
 msgid "Reset"
 msgstr "Reiniciar"
 
-#: themes/default/templates_c/search.tpl.php:54
-#: themes/default/templates_c/search.tpl.php:99
-#: themes/default/templates_c/search.tpl.php:145
-msgid "Clear"
-msgstr "Limpiar"
+#: ../core/f_dummy.php:114
+msgid "Residence"
+msgstr "Residencia"
 
-#: themes/default/templates_c/search.tpl.php:72
-msgid "Location Search"
-msgstr "Buscar Por Ubicación"
+#: ../core/modules/results.php:59 ../themes/default/templates/results.tpl:13
+#: ../themes/default/templates/search.tpl:11
+msgid "Results"
+msgstr "Resultados"
 
-#: themes/default/templates_c/search.tpl.php:75
-#: themes/default/templates_c/search.tpl.php:121
-msgid "Keywords"
-msgstr "Palabras Claves"
+#: ../core/f_dummy.php:115
+msgid "Retirement"
+msgstr "Jubilación"
 
-#: themes/default/templates_c/search.tpl.php:75
-#: themes/default/templates_c/search.tpl.php:121
-msgid "separate with spaces"
-msgstr "separar con espacios"
+#: ../themes/default/templates/commentadd.tpl:12
+#: ../themes/default/templates/commentadd.tpl:27
+msgid "Return to comment list"
+msgstr "Regresar a comentarios"
 
-#: themes/default/templates_c/search.tpl.php:84
-#: themes/default/templates_c/search.tpl.php:130
-msgid "Match Keywords"
-msgstr "Encuentra palabras claves"
+#: ../core/f_dummy.php:117
+msgid "SSN"
+msgstr "Número De la Seguridad Social"
 
-#: themes/default/templates_c/search.tpl.php:87
-#: themes/default/templates_c/search.tpl.php:133
-msgid "All"
-msgstr "Todos"
+#: ../core/f_dummy.php:123 ../core/modules/search.php:48
+#: ../core/modules/search.php:49 ../core/modules/search.php:52
+#: ../themes/default/templates/menu.tpl:11
+#: ../themes/default/templates/results.tpl:11
+#: ../themes/default/templates/search.tpl:7
+#: ../themes/default/templates/search.tpl:10
+msgid "Search"
+msgstr "Buscar"
 
-#: themes/default/templates_c/search.tpl.php:88
-#: themes/default/templates_c/search.tpl.php:134
-msgid "Any"
-msgstr "Cualesquiera"
+#: ../core/modules/results.php:58 ../core/modules/results.php:62
+msgid "Search Results"
+msgstr "Resultados"
 
-#: themes/default/templates_c/search.tpl.php:89
-#: themes/default/templates_c/search.tpl.php:135
-msgid "Phrase"
-msgstr "Frase"
+#: ../core/modules/ahnentafel_pdf.php:76 ../core/modules/descendant_pdf.php:72
+#: ../core/modules/family_pdf.php:68 ../core/modules/pedigree_pdf.php:76
+#, php-format
+msgid "Send questions or comments to %s"
+msgstr "Envíe las preguntas o los comentarios a %s"
 
-#: themes/default/templates_c/search.tpl.php:90
-#: themes/default/templates_c/search.tpl.php:136
+#: ../core/date.class.php:397
+msgid "Sep"
+msgstr "Sep"
+
+#: ../core/f_report.php:121
+#, fuzzy, php-format
+msgid "She died %s in %s."
+msgstr "Ella murió el %s en %s."
+
+#: ../core/f_report.php:122
+#, fuzzy, php-format
+msgid "She died %s."
+msgstr "Ella murió el %s."
+
+#: ../core/f_report.php:118 ../core/f_report.php:123
+#, php-format
+msgid "She died in %s."
+msgstr "Ella murió en %s."
+
+#: ../core/f_report.php:116
+#, php-format
+msgid "She died on %s in %s."
+msgstr "Ella murió el %s en %s."
+
+#: ../core/f_report.php:117
+#, php-format
+msgid "She died on %s."
+msgstr "Ella murió el %s."
+
+#: ../core/f_report.php:71
+#, fuzzy, php-format
+msgid "She was born %s in %s."
+msgstr "Ella nació en %s en %s. "
+
+#: ../core/f_report.php:72
+#, fuzzy, php-format
+msgid "She was born %s."
+msgstr "Ella nació en %s. "
+
+#: ../core/f_report.php:68 ../core/f_report.php:73
+#, php-format
+msgid "She was born in %s."
+msgstr "Ella nació en %s. "
+
+#: ../core/f_report.php:66
+#, php-format
+msgid "She was born on %s in %s."
+msgstr "Ella nació en %s en %s. "
+
+#: ../core/f_report.php:67
+#, php-format
+msgid "She was born on %s."
+msgstr "Ella nació en %s. "
+
+#: ../core/f_dummy.php:116
+msgid "Social Security Number"
+msgstr "Número De la Seguridad Social"
+
+#: ../core/f_dummy.php:138 ../themes/default/templates/family.tpl:107
+msgid "Source Citations"
+msgstr "Citaciones De la Fuente"
+
+#: ../core/modules/family_pdf.php:143 ../core/modules/family_pdf.php:161
+#: ../core/modules/family_pdf.php:204 ../core/modules/family_pdf.php:255
+#: ../core/modules/family_pdf.php:272 ../core/modules/family_pdf.php:303
+#: ../core/modules/family_pdf.php:355 ../themes/default/templates/stats.tpl:50
+msgid "Sources"
+msgstr "Fuentes"
+
+#: ../core/f_dummy.php:132
+msgid "Spanish"
+msgstr "Español"
+
+#: ../core/modules/family_pdf.php:242
+#: ../themes/default/templates/family.tpl:51
+msgid "Spouse/Partner"
+msgstr "Esposo/Socio"
+
+#: ../themes/default/templates/search.tpl:83
+#: ../themes/default/templates/search.tpl:127
 msgid "Starts with"
 msgstr "Empieza con"
 
-#: themes/default/templates_c/search.tpl.php:91
-#: themes/default/templates_c/search.tpl.php:137
-msgid "Ends with"
-msgstr "Termina con"
+#: ../core/modules/stats.php:30 ../core/modules/stats.php:31
+#: ../core/modules/stats.php:101 ../themes/default/templates/menu.tpl:17
+msgid "Statistics"
+msgstr "Estadística"
 
-# core/header.php:7
-# core/header.php:7
-# core/header.php:7
-# core/header.php:7
-# core/header.php:7
-# gen_menu.php:42
-# gen_menu.php:42
-# gen_menu.php:42
-# gen_menu.php:42
-# gen_menu.php:42
-#: themes/default/templates_c/search.tpl.php:118
-msgid "Note Search"
-msgstr "Buscar de Notas"
+#: ../themes/default/templates/comments.tpl:11
+msgid "Submit a comment"
+msgstr ""
 
-# family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# core/header.php:7 family.php:59
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-# family.php:52 gen_menu.php:47
-#: themes/default/templates_c/stats.tpl.php:14
+#: ../themes/default/templates/search.tpl:28
+msgid "Surname"
+msgstr "Apellido"
+
+#: ../core/modules/surnames.php:35 ../core/modules/surnames.php:68
+#: ../core/modules/surnames.php:74 ../themes/default/templates/menu.tpl:14
+msgid "Surname List"
+msgstr "Lista Del Apellido"
+
+#: ../themes/default/templates/stats.tpl:9
 msgid "Surnames"
 msgstr "Apellidos"
 
-#: themes/default/templates_c/stats.tpl.php:19
-msgid "Individuals"
-msgstr "Individuos"
+#: ../core/modules/commentadd.php:52
+msgid "THE EMAIL ADDRESS YOU ENTERED IS NOT VALID"
+msgstr ""
 
-#: themes/default/templates_c/stats.tpl.php:36
-msgid "Families"
-msgstr "Familias"
+#: ../themes/default/templates/commentadd.tpl:14
+msgid "The comment you submitted is show below."
+msgstr ""
 
-#: themes/default/templates_c/stats.tpl.php:41
-msgid "Events"
-msgstr "Eventos"
+#: ../themes/default/templates/email.tpl:32
+msgid "The following link will be emailed"
+msgstr ""
 
-# family.php:101
-# family.php:101
-# family.php:101
-# family.php:101
-# family.php:101
-# family.php:101 family.php:217
-# family.php:94 family.php:210
-# family.php:94 family.php:210
-# family.php:94 family.php:210
-# family.php:94 family.php:210
-# family.php:94 family.php:210
-#: themes/default/templates_c/stats.tpl.php:57
-msgid "Other"
-msgstr "Otro"
+#: ../themes/default/templates/multimedia.tpl:11
+msgid "This feature has not been implemented yet."
+msgstr "Esta "
 
-#: themes/default/templates_c/stats.tpl.php:71
-msgid "Citations"
-msgstr "Citaciones"
+#: ../core/f_report.php:222 ../core/f_report.php:244 ../core/f_report.php:268
+#, php-format
+msgid "This marriage ended in %s."
+msgstr "Esta unión terminó en %s."
 
-# ancestors.php:54
-# ancestors.php:54
-# ancestors.php:54
-# ancestors.php:54
-# ancestors.php:60
-# ancestors.php:60
-# ancestors.php:60
-# ancestors.php:60
-# ancestors.php:60
-#: themes/default/templates_c/surnames.tpl.php:51
-msgid "Number of surnames listed"
-msgstr "El número de apellidos enumeró"
+#: ../core/f_report.php:290
+#, php-format
+msgid "This relationship ended in %s."
+msgstr "Esta relación terminó en %s."
 
+#: ../core/f_dummy.php:118
+msgid "Title"
+msgstr "Título"
+
+#: ../core/f_dummy.php:43 ../core/f_dummy.php:67 ../core/f_report.php:199
+#: ../core/f_report.php:200 ../themes/default/templates/stats.tpl:22
+msgid "Unknown"
+msgstr "Desconocido"
+
+#: ../core/f_dummy.php:62
+msgid "Wife"
+msgstr "Esposa"
+
+#: ../core/f_dummy.php:119
+msgid "Will"
+msgstr "Testamento"
+
+#: ../core/modules/commentadd.php:50
+msgid "YOU MUST ENTER AN EMAIL ADDRESS"
+msgstr ""
+
+#: ../themes/default/templates/commentadd.tpl:33
+#, fuzzy
+msgid "Your comments"
+msgstr "Comentarios"
+
+#: ../themes/default/templates/commentadd.tpl:29
+#: ../themes/default/templates/email.tpl:39
+msgid "Your email address"
+msgstr ""
+
+#: ../themes/default/templates/email.tpl:36
+msgid "Your friend's email address"
+msgstr ""
+
+#: ../themes/default/templates/email.tpl:42
+msgid "Your full name"
+msgstr ""
+
+#: ../core/f_dummy.php:141
+msgid "abt"
+msgstr "alrededor"
+
+#: ../core/f_dummy.php:143
+msgid "aft"
+msgstr "después"
+
+#: ../core/date.class.php:307
+msgid "and"
+msgstr "y"
+
+#: ../core/modules/descendant.php:101 ../core/modules/family_pdf.php:245
+#: ../themes/default/templates/family.tpl:55
+#: ../themes/default/templates/family.tpl:96
+#: ../themes/default/templates/pedigree.indiv.tpl:16
+msgid "b."
+msgstr "n."
+
+#: ../core/f_dummy.php:144
+msgid "bef"
+msgstr "antes"
+
+#: ../core/f_dummy.php:145
+msgid "bet"
+msgstr "entre"
+
+#: ../core/f_dummy.php:146
+msgid "cal"
+msgstr "calculado"
+
+#: ../core/f_dummy.php:142
+msgid "cir"
+msgstr "aproximadamente"
+
+#: ../core/modules/descendant.php:104 ../core/modules/family_pdf.php:246
+#: ../themes/default/templates/family.tpl:58
+#: ../themes/default/templates/family.tpl:99
+#: ../themes/default/templates/pedigree.indiv.tpl:19
+msgid "d."
+msgstr "m."
+
+#: ../core/f_report.php:282
+#, fuzzy, php-format
+msgid "female %s had a relationship with %s in %s."
+msgstr "%s casó a %s el %s en %s."
+
+#: ../core/f_report.php:274
+#, fuzzy, php-format
+msgid "female %s had a relationship with %s on %s in %s."
+msgstr "%s casó a %s el %s en %s."
+
+#: ../core/f_report.php:278
+#, fuzzy, php-format
+msgid "female %s had a relationship with %s on %s."
+msgstr "%s casó a %s el %s en %s."
+
+#: ../core/f_report.php:286
+#, php-format
+msgid "female %s had a relationship with %s."
+msgstr "%s tenía una relación con %s."
+
+#: ../core/f_report.php:236
+#, php-format
+msgid "female %s married %s in %s."
+msgstr "%s casó a %s en %s."
+
+#: ../core/f_report.php:228
+#, php-format
+msgid "female %s married %s on %s in %s."
+msgstr "%s casó a %s el %s en %s."
+
+#: ../core/f_report.php:232
+#, php-format
+msgid "female %s married %s on %s."
+msgstr "%s casó a %s el %s."
+
+#: ../core/f_report.php:240
+#, php-format
+msgid "female %s married %s."
+msgstr "%s casó a %s."
+
+#: ../core/f_report.php:260
+#, fuzzy, php-format
+msgid "male %s had a relationship with %s in %s."
+msgstr "%s casó a %s el %s en %s."
+
+#: ../core/f_report.php:252
+#, fuzzy, php-format
+msgid "male %s had a relationship with %s on %s in %s."
+msgstr "%s casó a %s el %s en %s."
+
+#: ../core/f_report.php:256
+#, fuzzy, php-format
+msgid "male %s had a relationship with %s on %s."
+msgstr "%s tenía una relación con Maria."
+
+#: ../core/f_report.php:264
+#, php-format
+msgid "male %s had a relationship with %s."
+msgstr "%s tenía una relación con %s."
+
+#: ../core/f_report.php:214
+#, php-format
+msgid "male %s married %s in %s."
+msgstr "%s casó a %s en %s."
+
+#: ../core/f_report.php:206
+#, php-format
+msgid "male %s married %s on %s in %s."
+msgstr "%s casó a %s el %s en %s."
+
+#: ../core/f_report.php:210
+#, php-format
+msgid "male %s married %s on %s."
+msgstr "%s casó a %s el %s."
+
+#: ../core/f_report.php:218
+#, php-format
+msgid "male %s married %s."
+msgstr "%s casó a %s."
+
+#: ../themes/default/templates/search.tpl:69
+#: ../themes/default/templates/search.tpl:113
+msgid "separate with spaces"
+msgstr "separar con espacios"
+
+#: ../core/date.class.php:306
+msgid "to"
+msgstr "a"
