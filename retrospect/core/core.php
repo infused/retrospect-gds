@@ -36,19 +36,19 @@
 	session_start();
 	
 	# Define some RGDS strings
-	define('RGDS_VERSION', '2.0.b6');
+	define('RGDS_VERSION', '2.0.b7');
 	
 	# Load the configuration file
 	if (file_exists(CORE_PATH.'config.php')) @require_once(CORE_PATH.'config.php');
 	else exit('Could not read configuration file.'); 
 
 	# Define database parameters
-	define('DB_TYPE', $g_db_type);
-	define('DB_HOST', $g_db_host);
-	define('DB_PORT', $g_db_port);
-	define('DB_NAME', $g_db_name);
-	define('DB_USER', $g_db_user);
-	define('DB_PASS', $g_db_pass);
+	define('RGDS_DB_TYPE', $g_db_type);
+	define('RGDS_DB_HOST', $g_db_host);
+	define('RGDS_DB_PORT', $g_db_port);
+	define('RGDS_DB_NAME', $g_db_name);
+	define('RGDS_DB_USER', $g_db_user);
+	define('RGDS_DB_PASS', $g_db_pass);
 	
 	# Unset original config vars for enhanced security
 	unset($g_db_type, $g_db_host, $g_db_port, $g_db_name, $g_db_user, $g_db_pass);
@@ -82,13 +82,13 @@
 	# Establish the database connection
 	# Connections to MSSQL via ODBC require a special connection string!
 	# Always return recordsets as associative arrays
-	$db =& AdoNewConnection(DB_TYPE);
-	if (DB_TYPE == 'odbc_mssql') {
-		$dsn = 'Driver={SQL Server};Server='.DB_HOST.';Database='.DB_NAME.';';
-		$db->Connect($dsn, DB_USER, DB_PASS);
+	$db =& AdoNewConnection(RGDS_DB_TYPE);
+	if (RGDS_DB_TYPE == 'odbc_mssql') {
+		$dsn = 'Driver={SQL Server};Server='.RGDS_DB_HOST.';Database='.RGDS_DB_NAME.';';
+		$db->Connect($dsn, RGDS_DB_USER, RGDS_DB_PASS);
 	} else {
-		$host = (DB_PORT) ? DB_HOST : DB_HOST.':'.DB_PORT;
-		$db->Connect($host, DB_USER, DB_PASS, DB_NAME);
+		$host = (RGDS_DB_PORT) ? RGDS_DB_HOST : RGDS_DB_HOST.':'.RGDS_DB_PORT;
+		$db->Connect($host, RGDS_DB_USER, RGDS_DB_PASS, RGDS_DB_NAME);
 	}
 	$db->SetFetchMode(ADODB_FETCH_ASSOC);
 	

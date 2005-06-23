@@ -53,11 +53,11 @@
 	$smarty->assign('yesno', array('1'=>'Yes', '0'=>'No'));
 	
 	# Database options
-	$smarty->assign('db_host', DB_HOST);
-	$smarty->assign('db_port', DB_PORT);
-	$smarty->assign('db_user', DB_USER);
-	$smarty->assign('db_pass', DB_PASS);
-	$smarty->assign('db_name', DB_NAME);
+	$smarty->assign('db_host', RGDS_DB_HOST);
+	$smarty->assign('db_port', RGDS_DB_PORT);
+	$smarty->assign('db_user', RGDS_DB_USER);
+	$smarty->assign('db_pass', RGDS_DB_PASS);
+	$smarty->assign('db_name', RGDS_DB_NAME);
 	
 	# Language options 
 	$smarty->assign('lang_names', $lang_names);

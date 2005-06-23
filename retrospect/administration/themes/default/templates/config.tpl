@@ -209,7 +209,7 @@
 					{html_options options=$supported_galleries selected=$options.gallery_plugin}
 				</select>
 			</td>
-			<td class="cfg-dsc">&nbsp;</td>
+			<td class="cfg-dsc">This functionality is experimental.  See the /core/plugins/coppermine.php file for details on how to use it.</td>
 		</tr>
 	</table>	
 </div>

@@ -120,6 +120,12 @@
 		
 		# misc
 		gettext("ALL");
+		gettext("Search");
+		gettext("Reset");
+		gettext("Clear");
+		gettext("Print");
+		gettext("Apply");
+		gettext("Email this page");
 		
 		# supported languages
 		gettext("English");

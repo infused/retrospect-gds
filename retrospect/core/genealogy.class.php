@@ -284,6 +284,7 @@ class Person {
 		$this->fname = $fnames[0];
 		$this->name = trim($this->gname.' '.$this->sname);
 		
+		# determine the correct gender string
 		$this->sex = $row['sex'];
 		if ($this->sex == 'M') $this->gender = 'Male'; 
 		elseif ($this->sex == 'F') $this->gender = 'Female'; 
