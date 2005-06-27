@@ -271,8 +271,8 @@ class Person {
 		global $db;
 		$sql = 'SELECT * FROM '.TBL_INDIV.' WHERE indkey='.$db->qstr($this->indkey);
 		$row = $db->GetRow($sql);
-		$this->prefix = trim($row['prefix']);
-		$this->suffix = trim($row['suffix']);
+		$this->prefix = $row['prefix'];
+		$this->suffix = $row['suffix'];
 		$this->gname = $row['givenname'];
 		$this->sname = $row['surname'];
 		$this->aka = $row['aka'];
@@ -283,6 +283,9 @@ class Person {
 		$fnames = explode(' ', $row['givenname']); 
 		$this->fname = $fnames[0];
 		$this->name = trim($this->gname.' '.$this->sname);
+		if (strlen($this->name) < 1) {
+		  $this->name = "(--?--)";
+		}
 		
 		# determine the correct gender string
 		$this->sex = $row['sex'];
