@@ -141,7 +141,12 @@
 	}
 
 	# Load the module's controller script
-	require_once(MODULE_PATH.$module.'.php');
+	# If a theme module exists, it will be used instead of the default module
+	if (file_exists(THEME_PATH.$theme.'/modules/'.$module.'.php')) {
+	  require_once(THEME_PATH.$theme.'/modules/'.$module.'.php');
+	} else {
+	  require_once(MODULE_PATH.$module.'.php');
+	}
 
 	# Assign Smarty variables
 	$smarty->assign('RGDS_VERSION', RGDS_VERSION);
