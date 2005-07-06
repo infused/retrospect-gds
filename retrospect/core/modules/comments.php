@@ -44,7 +44,11 @@
 	if ($o->suffix) $content_title .= ', '.$o->suffix;
 	$smarty->assign('content_title', $content_title);
 
-	# grab all the comments
-	$smarty->assign('COMMENTS', get_visible_comments($g_indiv));
+	# grab all the comments	
+	$comments = get_visible_comments($g_indiv);
+  for ($i = 0; $i < count($comments); $i++) {
+    $comments[$i]['comment'] = stripslashes($comments[$i]['comment']);
+  }
+	$smarty->assign('COMMENTS', $comments);
 
 ?>
