@@ -1,21 +1,21 @@
+<h1>User Manager</h1>
 {if $SAVED}
-	<div class="content-title">User Manager</div>
 	<p><i>{if $SAVED.fullname}{$SAVED.fullname}{else}{$SAVED.username}{/if}</i> has been changed.</p>
 	<p>Click <a href="{$PHP_SELF}?m=usermgr">HERE</a> to return to the User Manager.</p>
 	<p>Click <a href="{$PHP_SELF}">HERE</a> to return to the main administration page.</p>
 {else}
-<form name="useraddform" action="{$PHP_SELF}?m=useredit" method="post">
-<div class="content-title">User Manager</div>
-<table class="tab-row" cellpadding="0" cellspacing="0">
-	<tr>
-		<td class="tab"><a href="{$PHP_SELF}?m=usermgr">List Users</a></td>
-		<td class="tab"><a href="{$PHP_SELF}?m=useradd">Add User</a></td>
-		<td class="tab-selected">Edit User</td>
-		<td class="tab-last">&nbsp;</td>
-	</tr>
-</table>
+
+<div id="tabs">
+	<ul>
+		<li><a href="{$PHP_SELF}?m=usermgr">List Users</a></li>
+		<li><a href="{$PHP_SELF}?m=useradd">Add User</a></li>
+		<li id="selected"><a>Edit User</a></td>
+	</ul>
+</div>
 <div class="tab-page">
+<form name="useraddform" action="{$PHP_SELF}?m=useredit" method="post">
 {if $users}
+
 	<table cellpadding="0" cellspacing="0">
 		<tr>
 			<td width="200" valign="middle"><label for="id">Select a user to edit:</label></td>
@@ -56,17 +56,6 @@
 			<td class="cfg-opt"><input name="fullname" class="textbox" size="40" maxlength="100" value="{$user.fullname}" /></td>
 			<td class="cfg-err">&nbsp;</td>
 		</tr>
-		<!-- No group support for now
-		<tr>
-			<td class="cfg-lbl"><label for="group">Group:</label></td>
-			<td class="cfg-opt">
-				<select name="group" class="listbox">
-					{html_options options=$groups selected=$user.group}
-				</select>
-			</td>
-			<td class="cfg-err">&nbsp;</td>
-		</tr>
-		-->
 		<tr>
 			<td class="cfg-lbl"><label for="email">Email:</label></td>
 			<td class="cfg-opt"><input name="email" class="textbox" maxlength="100" value="{$user.email}" /></td>
@@ -89,7 +78,7 @@
 		</tr>
 	</table>
 {/if}
-</div>
+
 <br />
 {if !$users}
 	<input name="id" type="hidden" value="{$user.id}">
@@ -97,4 +86,5 @@
 	<input name="Cancel" type="button" class="text" value="Cancel" onclick="document.location='{$PHP_SELF}?m=usermgr';">
 {/if}
 </form>
+</div>
 {/if}

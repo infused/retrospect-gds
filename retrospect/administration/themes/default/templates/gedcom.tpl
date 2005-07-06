@@ -1,13 +1,12 @@
-<form action="{$PHP_SELF}?m=gedcom" method="post">
-<div class="content-title">Gedcom Manager</div>
-<table class="tab-row" cellpadding="0" cellspacing="0">
-	<tr>
-		<td class="tab-selected">Gedcom List</td>
-		<td class="tab"><a href="{$PHP_SELF}?m=gedcom_upload">Upload</a></td>
-		<td class="tab-last">&nbsp;</td>
-	</tr>
-</table>
+<h1>Gedcom Manager</h1>
+<div id="tabs">
+  <ul>
+    <li id="selected"><a>Gedcom List</a></li>
+    <li><a href="{$PHP_SELF}?m=gedcom_upload">Upload</a></li>
+  </ul>
+</div>
 <div class="tab-page">
+	<form action="{$PHP_SELF}?m=gedcom" method="post">
 	<table width="100%" cellpadding="0" cellspacing="0">
 		<tr>
 			<td class="list_header" width="25">&nbsp;</td>
@@ -17,7 +16,6 @@
 			<td class="list_header" width="75">&nbsp;</td>
 			<td class="list_header" width="75">&nbsp;</td>
 			<td class="list_header">&nbsp;</td>
-			
 		</tr>
 		{foreach from=$gedcoms item="gedcom"}
 		<tr>
@@ -33,8 +31,8 @@
 		</tr>
 		{/foreach}
 	</table>
-</div>
-<table cellpadding="5" cellspacing="0">
+
+<table cellpadding="5" cellspacing="0" style="margin-top: 20px;">
 	<tr>
 		<td valign="middle">
 			<select name="task" class="listbox">
@@ -47,3 +45,4 @@
 	</tr>
 </table>
 </form>
+</div>

@@ -6,14 +6,13 @@
 <form action="{$PHP_SELF}?m=config" method="post">
 <div class="content-title">System Configuration</div>
 <!-- SITE OPTIONS -->
-<table class="tab-row" cellpadding="0" cellspacing="0">
-	<tr>
-		<td class="tab-selected">Site Options</td>
-		<td class="tab-last">&nbsp;</td>
-	</tr>
-</table>
+<div id="tabs">
+	<ul>
+		<li id="selected"><a>Site Options</a></li>
+	</ul>
+</div>
 <div class="tab-page">
-	<table cellpadding="0" cellspacing="0">
+	<table cellpadding="0" cellspacing="0" width="100%">
 		<tr>
 			<td class="cfg-lbl"><label for="default_page">Default Module:</label></td>
 			<td class="cfg-opt"><input name="default_page" type="text" class="textbox" id="default_page" value="{$options.default_page}" /></td>
@@ -82,14 +81,13 @@
 </div>
 <br />
 <!-- DATABASE OPTIONS -->
-<table class="tab-row" cellpadding="0" cellspacing="0">
-	<tr>
-		<td class="tab-selected">Database Options</td>
-		<td class="tab-last">&nbsp;</td>
-	</tr>
-</table>
+<div id="tabs">
+	<ul>
+		<li id="selected"><a>Database Options</a></li>
+	</ul>
+</div>
 <div class="tab-page">
-	<table cellpadding="0" cellspacing="0">
+	<table cellpadding="0" cellspacing="0" width="100%">
 		<tr>
       <td colspan="3">The database settings are shown for reference only and can not be changed from this screen. You must edit core/config.php to change these settings.</td>
     </tr>
@@ -125,14 +123,13 @@
 </div>
 <br />
 <!-- LANGUAGE OPTIONS -->
-<table class="tab-row" cellpadding="0" cellspacing="0">
-	<tr>
-		<td class="tab-selected">Language Options</td>
-		<td class="tab-last">&nbsp;</td>
-	</tr>
-</table>
+<div id="tabs">
+	<ul>
+		<li id="selected"><a>Language Options</a></td>
+	</ul>
+</div>
 <div class="tab-page">
-	<table cellpadding="0" cellspacing="0">
+	<table cellpadding="0" cellspacing="0" width="100%">
 		<tr>
 			<td class="cfg-lbl"><label for="default_lang">Default Language:</label></td>
 			<td class="cfg-opt">
@@ -173,12 +170,11 @@
 </div>
 <br />
 <!-- DEBUG OPTIONS -->
-<table class="tab-row" cellpadding="0" cellspacing="0">
-	<tr>
-		<td class="tab-selected">Debug Options</td>
-		<td class="tab-last">&nbsp;</td>
-	</tr>
-</table>
+<div id="tabs">
+	<ul>
+		<li id="selected"><a>Debug Options</a></li>
+	</ul>
+</div>
 <div class="tab-page">
 	<table cellpadding="0" cellspacing="0">
 		<tr>
@@ -194,12 +190,11 @@
 </div>
 <br />
 <!-- GALLERY OPTIONS -->
-<table class="tab-row" cellpadding="0" cellspacing="0">
-	<tr>
-		<td class="tab-selected">Gallery Plugin</td>
-		<td class="tab-last">&nbsp;</td>
-	</tr>
-</table>
+<div id="tabs">
+	<ul>
+		<li id="selected"><a>Gallery Plugin</a></li>
+	</ul>
+</div>
 <div class="tab-page">
 	<table cellpadding="0" cellspacing="0">
 		<tr>

@@ -1,30 +1,26 @@
+<h1>User Manager</h1>
 {if $DELETED}
-	<div class="content-title">User Manager</div>
 	<p>{$DELETED|@count} {if $DELETED|@count == 1}user has{else}users have{/if} been deleted from the user database.</p>
 	<p>Click <a href="{$PHP_SELF}?m=usermgr">HERE</a> to return to the User Manager.</p>
 	<p>Click <a href="{$PHP_SELF}">HERE</a> to return to the main Administration page.</p>
 {elseif $ENABLED}
-	<div class="content-title">User Manager</div>
 	<p>{$ENABLED|@count} {if $ENABLED|@count == 1}user has{else}users have{/if} been enabled.</p>
 	<p>Click <a href="{$PHP_SELF}?m=usermgr">HERE</a> to return to the User Manager.</p>
 	<p>Click <a href="{$PHP_SELF}">HERE</a> to return to the main Administration page.</p>
 {elseif $DISABLED}	
-	<div class="content-title">User Manager</div>
 	<p>{$DISABLED|@count} {if $DISABLED|@count == 1}user has{else}users have{/if} been enabled.</p>
 	<p>Click <a href="{$PHP_SELF}?m=usermgr">HERE</a> to return to the User Manager.</p>
 	<p>Click <a href="{$PHP_SELF}">HERE</a> to return to the main Administration page.</p>
 {else}
-<form action="{$PHP_SELF}?m=usermgr" method="post">
-<div class="content-title">User Manager</div>
-<table class="tab-row" cellpadding="0" cellspacing="0">
-	<tr>
-		<td class="tab-selected">User List</td>
-		<td class="tab"><a href="{$PHP_SELF}?m=useradd">Add User</a></td>
-		<td class="tab"><a href="{$PHP_SELF}?m=useredit">Edit User</a></td>
-		<td class="tab-last">&nbsp;</td>
-	</tr>
-</table>
+<div id="tabs">
+  <ul>
+    <li id="selected"><a>User List</a></li>
+    <li><a href="{$PHP_SELF}?m=useradd">Add User</a></li>
+    <li><a href="{$PHP_SELF}?m=useredit">Edit User</a></li>
+  </ul>
+</div>
 <div class="tab-page">
+<form action="{$PHP_SELF}?m=usermgr" method="post">
 	<table width="100%" cellpadding="0" cellspacing="0">
 		<tr>
 			<td class="list_header" width="25">&nbsp;</td>
@@ -55,8 +51,8 @@
 		</tr>
 		{/foreach}
 	</table>
-</div>
-<table cellpadding="5" cellspacing="0">
+
+<table cellpadding="5" cellspacing="0" style="margin-top: 20px;">
 	<tr>
 		<td valign="middle">
 			<select name="task" class="listbox">
@@ -69,4 +65,5 @@
 	</tr>
 </table>
 </form>
+</div>
 {/if}

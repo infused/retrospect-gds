@@ -1,20 +1,18 @@
+<h1>User Manager</h1>
 {if $SAVED}
-	<div class="content-title">User Manager</div>
 	<p><i>{if $SAVED.fullname}{$SAVED.fullname}{else}{$SAVED.username}{/if}</i> has been added to the user database.</p>
 	<p>Click <a href="{$PHP_SELF}?m=usermgr">HERE</a> to return to the User Manager.</p>
 	<p>Click <a href="{$PHP_SELF}">HERE</a> to return to the main administration page.</p>
 {else}
-<form name="useraddform" action="{$PHP_SELF}?m=useradd" method="post">
-<div class="content-title">User Manager</div>
-<table class="tab-row" cellpadding="0" cellspacing="0">
-	<tr>
-		<td class="tab"><a href="{$PHP_SELF}?m=usermgr">List Users</a></td>
-		<td class="tab-selected">Add User</td>
-		<td class="tab"><a href="{$PHP_SELF}?m=useredit">Edit User</a></td>
-		<td class="tab-last">&nbsp;</td>
-	</tr>
-</table>
+<div id="tabs">
+	<ul>
+		<li><a href="{$PHP_SELF}?m=usermgr">List Users</a></li>
+		<li id="selected"><a>Add User</a></li>
+		<li><a href="{$PHP_SELF}?m=useredit">Edit User</a></li>
+	</ul>
+</div>
 <div class="tab-page">
+<form name="useraddform" action="{$PHP_SELF}?m=useradd" method="post">
 	<table cellpadding="0" cellspacing="0">
 		<tr>
 			<td class="cfg-lbl"><label for="username">Username:</label></td>
@@ -58,9 +56,10 @@
 			<td class="cfg-err">&nbsp;</td>
 		</tr>
 	</table>
-</div>
+
 <br />
 	<input name="Save" type="submit" class="text" id="Save" value="Save"> 
 	<input name="Cancel" type="button" class="text" value="Cancel" onclick="document.location='{$PHP_SELF}?m=usermgr';">
 </form>
+</div>
 {/if}

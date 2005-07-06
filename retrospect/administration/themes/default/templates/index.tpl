@@ -16,7 +16,7 @@
 {else}
 <body>
 {/if}
-<div id="header"><img src="{$THEME_URL}images/logo.gif" align="left" alt="Retrospect-GDS"/></div>
+<div id="header"><img src="{$THEME_URL}images/logo.png" align="left" alt="Retrospect-GDS"/></div>
 {if $module != "login"}
 	<div id="adminmenu">&nbsp;</div>
 	<div id="statusbar">Logged in as {$UID} | <a href="{$PHP_SELF}?auth=logout">Logout</a></div>

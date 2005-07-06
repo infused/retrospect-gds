@@ -1,34 +1,30 @@
+<h1>Comment Manager</h1>
 {if $DELETED}
-	<div class="content-title">Comment Manager</div>
 	<p>{$DELETED|@count} {if $DELETED|@count == 1}comment has{else}comments have{/if} been deleted from the database.</p>
 	<p>Click <a href="{$CURRENT_PAGE}">HERE</a> to return to the Comment Manager.</p>
 	<p>Click <a href="{$PHP_SELF}">HERE</a> to return to the main Administration page.</p>
 {elseif $VISIBLE}
-	<div class="content-title">Comment Manager</div>
 	<p>{$VISIBLE|@count} {if $VISIBLE|@count == 1}comment has{else}comments have{/if} been made visible.</p>
 	<p>Click <a href="{$CURRENT_PAGE}">HERE</a> to return to the Comment Manager.</p>
 	<p>Click <a href="{$PHP_SELF}">HERE</a> to return to the main Administration page.</p>
 {elseif $HIDDEN}
-	<div class="content-title">Comment Manager</div>
 	<p>{$HIDDEN|@count} {if $HIDDEN|@count == 1}comment has{else}comments have{/if} been hidden.</p>
 	<p>Click <a href="{$CURRENT_PAGE}">HERE</a> to return to the Comment Manager.</p>
 	<p>Click <a href="{$PHP_SELF}">HERE</a> to return to the main Administration page.</p>
 {else}
-<form action="{$CURRENT_PAGE}" method="post">
-<div class="content-title">Comment Manager</div>
-<table class="tab-row" cellpadding="0" cellspacing="0">
-	<tr>
-		{if $task == "pending"}
-		<td class="tab-selected">Pending ({$pending_count})</td>
-		<td class="tab"><a href="{$PHP_SELF}?m=commentmgr&t=r">Reviewed ({$reviewed_count})</a></td>
-		{else}
-		<td class="tab"><a href="{$PHP_SELF}?m=commentmgr">Pending ({$pending_count})</a></td>
-		<td class="tab-selected">Reviewed ({$reviewed_count})</td>
-		{/if}
-		<td class="tab-last">&nbsp;</td>
-	</tr>
-</table>
+<div id="tabs">
+  <ul>
+    {if $task == "pending"}
+      <li id="selected"><a>Pending ({$pending_count})</a></li>
+      <li><a href="{$PHP_SELF}?m=commentmgr&t=r">Reviewed ({$reviewed_count})</a></li>
+    {else}
+      <li><a href="{$PHP_SELF}?m=commentmgr">Pending ({$pending_count})</a></li>
+      <li id="selected"><a>Reviewed ({$reviewed_count})</a></li>
+    {/if}
+  </ul>
+</div>
 <div class="tab-page">
+<form action="{$CURRENT_PAGE}" method="post">
 	<table width="100%" cellpadding="0" cellspacing="0">
 		<tr>
 			<td class="list_header" width="25">&nbsp;</td>
@@ -59,8 +55,8 @@
 		</tr>
 		{/foreach}
 	</table>
-</div>
-<table cellpadding="5" cellspacing="0">
+
+<table cellpadding="5" cellspacing="0" style="margin-top: 20px;">
 	<tr>
 		<td valign="middle">
 			<select name="task" class="listbox">
@@ -73,4 +69,5 @@
 	</tr>
 </table>
 </form>
+</div>
 {/if}
