@@ -1,0 +1,238 @@
+/* Formatting for standard tags */
+body {
+	margin: 0;
+	padding: 0;
+	background: #fff;
+}
+body, .text, select, input, textarea {
+  font: 12px "Lucida Grande", "Trebuchet MS", Verdana, Arial, sans-serif;
+}
+a {
+	font-weight: bold;
+	color: #758B3E;
+	text-decoration: none;
+}
+a.secondary { font-weight: normal; }
+a:hover { color: #c60; }
+ol { margin-top: 5px; }
+h1 {
+	color: #c60;
+	font-size: 26px;
+  font-style: italic;
+  font-weight: bold;
+	margin:0 0 10px 0;
+	padding: 0 0 0 8px;
+}
+h1:before { content: "\2014 "; }
+h1:after { content: " \2014"; }
+h2 {
+	color: #c60;
+	font-weight: bold;
+	font-style: italic;
+	border-bottom: 1px dotted #ccc;
+	font-size: 16px;
+	margin: 20px 0 10px 0;
+}
+input.listbox {
+	margin: 2px 1px 2px 0;
+}
+input.textbox {
+	color: #c60;
+	margin: 0;
+	border: 1px solid #666;
+	background: #fff;
+	padding-left: 3px;
+}
+textarea { padding: 5px; }
+form {
+	padding: 0;
+	margin: 0;
+}
+
+/* Generic styles */
+
+.noshow { display: none; }
+
+/* Main screen areas */
+#content {
+	background: #fff;
+	padding: 10px;
+	margin: 0 10px 10px 10px;
+}
+
+/* This is the Holly Hack used to kill the IE Peek-a-boo bug */
+* html #content {
+  height: 1%;
+}
+/* End Holly Hack */
+
+/* HEADER */
+
+#header {
+	height: 70px;
+	background: #2157d2 url("/themes/summerbreeze/images/paint.png") repeat-x bottom; 
+}
+#header #logo {
+  height: 70px;
+  background: url("/themes/summerbreeze/images/logo.png") no-repeat left bottom;
+}
+
+/* MAIN NAVIGATION MENU */
+
+#menu {
+	background: url("/themes/summerbreeze/images/background.gif");
+	padding: 6px 6px 5px 6px;
+	border-bottom: 1px solid #d0d0d0;
+}
+#menu a {
+  background: #758B3E;
+  color: #fff;
+  padding: 1px 6px;
+  font-weight: normal;
+  border: 1px solid #93AC5C;
+  border-bottom-color: #60752D;
+  border-left-color: #60752D
+}
+#menu form {
+  margin: 0 4px;
+  padding: 0;
+  display: inline;
+}
+#menu select { margin: 0; }
+
+/* Another stupid IE hack to fix an alignment problem*/
+* html #menu a {
+  position: relative;
+  top: -4px;
+}
+
+/* FOOTER */
+
+#footer {
+	font-size: 10px;
+	text-align: center;
+	padding: 0 0 10px 0;
+}
+
+/* DATA COLUMNS */
+.label, .fact1, .fact2 {
+  padding: 0 10px 0 0; 
+  line-height: 1.5em;
+  vertical-align: top;
+}
+.label {
+  font-weight: bold;
+  width: 150px;
+}
+.fact1 {
+  width: 200px;
+}
+.fact2 {
+  width: auto;
+}
+.citation a{
+  font-size: 10px;
+  text-decoration: underline;
+}
+
+/* Pedigrees */
+.pedbox {
+	position: absolute; 
+	background: url("/themes/summerbreeze/images/pedbox.png") no-repeat;
+	width:170px; 
+	height:60px;
+	overflow: hidden;
+}
+.pedbox-text {
+	font-size: 11px;
+	padding: 0 8px;
+}
+.pedtab {
+	position: absolute;
+	width: 30px;
+	height: 40px;
+	background: url("/themes/summerbreeze/images/pedtab.png") no-repeat;
+}
+.pedtab:hover {
+  border: none;
+  background: url("/themes/summerbreeze/images/pedtab-over.png") no-repeat;
+}
+.section {
+	background: #eee;
+	border: 1px solid #ccc;
+	margin-bottom: 10px;
+	padding: 5px;
+}
+.nobullet {
+	list-style-type: none;
+}
+.warning {
+	background: #eee;
+	padding: 5px;
+	border: 1px solid #ccc;
+}
+.comment {
+	border: 1px solid #ccc;
+	background: url("/themes/summerbreeze/images/background.gif");
+	padding: 10px;
+	margin-top: 10px;	
+}
+.symbolkey {
+  color: #777;
+  text-align: center;
+  padding: 20px 0;
+}
+.pedconnect_top {
+  position: absolute;
+  width: 150px;
+  background: url("/themes/summerbreeze/images/square.png") no-repeat top left;
+}
+.pedconnect_bot {
+  position: absolute;
+  width: 150px;
+  background: url("/themes/summerbreeze/images/square.png") no-repeat bottom left;
+}
+
+/* New style tabs */
+#tabs {
+  float: left;
+  width: 100%;
+  background: url("/themes/summerbreeze/images/bottom_border.gif") repeat-x bottom;
+}
+#tabs ul {
+  margin: 0;
+  padding: 0 0 0 5px;
+  list-style: none;
+}
+#tabs li {
+  float: left;
+  padding: 0;
+  margin: 0;
+  background: url("/themes/summerbreeze/images/tab_right.png") no-repeat right top;
+  border-bottom: 1px solid #ccc;
+}
+#tabs a {
+  display: block;
+  background: url("/themes/summerbreeze/images/tab_left.png") no-repeat left top;
+  padding: 6px 6px 2px 6px;
+  white-space: nowrap;
+}
+#tabs #selected {
+  background: url("/themes/summerbreeze/images/tab_right_selected.png") no-repeat right top;
+  border-width: 0;
+}
+#tabs #selected a{
+  background: url("/themes/summerbreeze/images/tab_left_selected.png") no-repeat left top;
+  color: #555;
+  padding-bottom: 3px;
+}
+.tab-page {
+	clear: both;
+	margin: 0 !important;
+	margin-top: -10px;
+	padding: 10px;
+	background: #F9F9F9;
+	border: 1px solid #ccc;
+	border-top-style: none;
+	min-height: 420px;
+}
