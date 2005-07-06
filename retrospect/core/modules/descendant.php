@@ -92,27 +92,19 @@
 					$child_nk = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?m=family&amp;id='.$child->indkey.'">'.$child->name.'</a>';
 					
 					if ($child->ns_number) {	
-						$string .= '<ol>';
-						$string .= '<li value="'.$child->ns_number.'">';
-						$string .= $child_nk;
+						$string .= '<ol><li value="'.$child->ns_number.'">'.$child_nk;
 						if ($child->birth->date || $child->death->date) { 
 							$string .= '&nbsp;&nbsp;'; 
-							if ($child->birth->date) {
-								$string .= gtc("b.").' '.$child->birth->date.' ';
-							}
-							if ($child->death->date) {
-								$string .= gtc("d.").' '.$child->death->date;
-							}
+							if ($child->birth->date) $string .= gtc("b.").' '.$child->birth->date.' ';
+							if ($child->death->date) $string .= gtc("d.").' '.$child->death->date;
 						}
 						$string .= '</li></ol>';
-					}
-					else {
+					} else {
 						$string .= '<ul><li class="nobullet">'.$child_nk.'</li></ul>';
 					}
 				}
 			}
 		}
-
 		$string .= '</li></ol>';
 		
 		$individual['generation'] = $p_generation;
