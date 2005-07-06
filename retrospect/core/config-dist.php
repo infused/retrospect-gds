@@ -85,7 +85,7 @@ $g_db_pass = 'password';
 * Don't change this unless you really need to.
 * @global string $g_theme
 */
-$g_theme	= 'default';
+$g_theme	= 'summerbreeze';
 $g_admin_theme			= 'default';
 
 ?>
