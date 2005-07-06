@@ -77,5 +77,18 @@
 	}
 	$smarty->assign('individuals', $g_nodes);
 	$smarty->assign('parents', $g_node_parents);
-
+	
+	# box and connector positions
+  $smarty->assign('col1', 35);
+  $smarty->assign('con1', 35 + 85);
+  
+  $smarty->assign('col2', 210);
+  $smarty->assign('con2', 210 + 85);
+  
+  $smarty->assign('col3', 385);
+  $smarty->assign('con3', 385 + 85);
+  
+  $smarty->assign('col4', 560);
+  
+  $smarty->assign('col5', 730);
 ?>
