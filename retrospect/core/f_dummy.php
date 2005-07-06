@@ -123,9 +123,7 @@
 		gettext("Search");
 		gettext("Reset");
 		gettext("Clear");
-		gettext("Print");
 		gettext("Apply");
-		gettext("Email this page");
 		
 		# supported languages
 		gettext("English");
@@ -133,6 +131,7 @@
 		gettext("Dutch");
 		gettext("German");
 		gettext("French");
+		gettext("Polish");
 		
 		# event labels
 		gettext("Source Citations");
