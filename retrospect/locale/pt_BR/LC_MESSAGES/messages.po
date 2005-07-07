@@ -49,7 +49,7 @@ msgstr "TODOS"
 
 #: ../core/f_dummy.php:70
 msgid "Adoption"
-msgstr "Ado√ß√£o"
+msgstr "AdoÁ„o"
 
 #: ../core/f_dummy.php:71
 msgid "Adult Christening"
@@ -59,18 +59,18 @@ msgstr "Batizado Adulto"
 #: ../themes/summerbreeze/templates/reports.tpl:28
 #: ../themes/default/templates/reports.tpl:28
 msgid "Ahnentafel"
-msgstr "√Årvore Geneal√≥gica"
+msgstr "¡rvore GenealÛgica"
 
 #: ../themes/summerbreeze/templates/reports.tpl:29
 #: ../themes/default/templates/reports.tpl:29
 msgid "Ahnentafel PDF"
-msgstr "√Årvore Geneal√≥gica PDF"
+msgstr "¡rvore GenealÛgica PDF"
 
 #: ../core/modules/ahnentafel.php:60 ../core/modules/ahnentafel_pdf.php:63
 #: ../core/modules/ahnentafel_pdf.php:90
 #, php-format
 msgid "Ahnentafel Report for %s"
-msgstr "Relat√≥rio Geneal√≥gico para %s"
+msgstr "RelatÛrio GenealÛgico para %s"
 
 #: ../core/modules/family_pdf.php:119
 #: ../themes/summerbreeze/templates/family.tpl:15
@@ -88,7 +88,7 @@ msgstr "Todos"
 #: ../themes/summerbreeze/templates/reports.tpl:22
 #: ../themes/default/templates/reports.tpl:22
 msgid "Ancestor Reports"
-msgstr "Relat√≥rios de  Antepassados"
+msgstr "RelatÛrios de  Antepassados"
 
 #: ../core/modules/ahnentafel.php:45 ../core/modules/pedigree.php:36
 msgid "Ancestors"
@@ -96,7 +96,7 @@ msgstr "Antepassados"
 
 #: ../core/f_dummy.php:50
 msgid "Annulment"
-msgstr "Anula√ß√£o"
+msgstr "AnulaÁ„o"
 
 #: ../themes/summerbreeze/templates/search.tpl:80
 #: ../themes/summerbreeze/templates/search.tpl:124
@@ -147,7 +147,7 @@ msgstr "Nascimento"
 
 #: ../core/f_dummy.php:77
 msgid "Blessing"
-msgstr "B√™n√ß√£o"
+msgstr "BÍnÁ„o"
 
 #: ../core/f_dummy.php:78
 msgid "Burial"
@@ -184,7 +184,7 @@ msgstr "Batismo"
 #: ../themes/summerbreeze/templates/stats.tpl:63
 #: ../themes/default/templates/stats.tpl:53
 msgid "Citations"
-msgstr "Cita√ß√µes"
+msgstr "CitaÁıes"
 
 #: ../core/f_dummy.php:125
 msgid "Clear"
@@ -198,20 +198,20 @@ msgstr "Limpar"
 #: ../themes/default/templates/nav.tpl:55
 #: ../themes/default/templates/stats.tpl:57
 msgid "Comments"
-msgstr "Coment√°rios"
+msgstr "Coment·rios"
 
 #: ../core/modules/commentadd.php:41 ../core/modules/comments.php:41
 #, php-format
 msgid "Comments for %s"
-msgstr "Coment√°rios para %s"
+msgstr "Coment·rios para %s"
 
 #: ../core/f_dummy.php:82
 msgid "Confirmation"
-msgstr "Confirma√ß√£o"
+msgstr "ConfirmaÁ„o"
 
 #: ../core/f_dummy.php:83
 msgid "Cremation"
-msgstr "Crema√ß√£o"
+msgstr "CremaÁ„o"
 
 #: ../themes/default/templates/menu.tpl:9
 msgid "Database"
@@ -230,7 +230,7 @@ msgstr "Morte"
 
 #: ../core/f_dummy.php:48
 msgid "Death of one spouse"
-msgstr "Morte de um c√¥njuge"
+msgstr "Morte de um cÙnjuge"
 
 #: ../core/date.class.php:397
 msgid "Dec"
@@ -238,7 +238,7 @@ msgstr "Dez"
 
 #: ../core/f_dummy.php:85
 msgid "Degree"
-msgstr "T√≠tulo"
+msgstr "TÌtulo"
 
 #: ../themes/summerbreeze/templates/reports.tpl:51
 #: ../themes/default/templates/reports.tpl:51
@@ -254,24 +254,24 @@ msgstr "Descendente PDF"
 #: ../core/modules/descendant_pdf.php:181
 #, php-format
 msgid "Descendant Report for %s"
-msgstr "Relat√≥rio de Descend√™ncia para %s"
+msgstr "RelatÛrio de DescendÍncia para %s"
 
 #: ../themes/summerbreeze/templates/reports.tpl:45
 #: ../themes/default/templates/reports.tpl:45
 msgid "Descendant Reports"
-msgstr "Relat√≥rios de Descendentes"
+msgstr "RelatÛrios de Descendentes"
 
 #: ../core/f_dummy.php:86
 msgid "Description"
-msgstr "Descri√ß√£o"
+msgstr "DescriÁ„o"
 
 #: ../core/f_dummy.php:53
 msgid "Divorce"
-msgstr "Div√≥rcio"
+msgstr "DivÛrcio"
 
 #: ../core/f_dummy.php:54
 msgid "Divorce Filed"
-msgstr "Div√≥rcio Arquivado"
+msgstr "DivÛrcio Arquivado"
 
 #: ../core/f_dummy.php:49
 msgid "Divorced"
@@ -279,19 +279,19 @@ msgstr "Divorciado"
 
 #: ../core/f_dummy.php:131
 msgid "Dutch"
-msgstr "Holand√™s"
+msgstr "HolandÍs"
 
 #: ../core/f_dummy.php:87
 msgid "Education"
-msgstr "Educa√ß√£o"
+msgstr "EducaÁ„o"
 
 #: ../core/f_dummy.php:88
 msgid "Election"
-msgstr "Elei√ß√£o"
+msgstr "EleiÁ„o"
 
 #: ../core/f_dummy.php:89
 msgid "Emigration"
-msgstr "Emigra√ß√£o"
+msgstr "EmigraÁ„o"
 
 #: ../themes/summerbreeze/templates/search.tpl:83
 #: ../themes/summerbreeze/templates/search.tpl:127
@@ -306,7 +306,7 @@ msgstr "Noivado"
 
 #: ../core/f_dummy.php:129
 msgid "English"
-msgstr "Ingl√™s"
+msgstr "InglÍs"
 
 #: ../core/f_dummy.php:90
 msgid "Event"
@@ -320,39 +320,39 @@ msgstr "Eventos"
 #: ../themes/summerbreeze/templates/stats.tpl:31
 #: ../themes/default/templates/stats.tpl:26
 msgid "Families"
-msgstr "Fam√≠lias"
+msgstr "FamÌlias"
 
 #: ../themes/summerbreeze/templates/nav.tpl:16
 #: ../themes/summerbreeze/templates/nav.tpl:18
 #: ../themes/default/templates/nav.tpl:17
 #: ../themes/default/templates/nav.tpl:20
 msgid "Family"
-msgstr "Fam√≠lia"
+msgstr "FamÌlia"
 
 #: ../core/modules/family.php:88 ../core/modules/family_pdf.php:238
 #, php-format
 msgid "Family %s"
-msgstr "Fam√≠lia %s"
+msgstr "FamÌlia %s"
 
 #: ../core/modules/family_pdf.php:58 ../core/modules/family_pdf.php:82
 #, php-format
 msgid "Family Group Sheet for %s"
-msgstr "P√°gina da fam√≠lia para %s"
+msgstr "P·gina da famÌlia para %s"
 
 #: ../themes/summerbreeze/templates/reports.tpl:13
 #: ../themes/default/templates/reports.tpl:13
 msgid "Family PDF"
-msgstr "Fam√≠lia PDF"
+msgstr "FamÌlia PDF"
 
 #: ../core/modules/family.php:45 ../core/modules/pedigree.php:49
 #, php-format
 msgid "Family Page for %s"
-msgstr "P√°gina da Fam√≠lia para %s."
+msgstr "P·gina da FamÌlia para %s."
 
 #: ../themes/summerbreeze/templates/reports.tpl:12
 #: ../themes/default/templates/reports.tpl:12
 msgid "Family Reports"
-msgstr "Relat√≥rios de Familia"
+msgstr "RelatÛrios de Familia"
 
 #: ../core/modules/family_pdf.php:172
 #: ../themes/summerbreeze/templates/family.tpl:24
@@ -371,11 +371,11 @@ msgstr "Femenino"
 
 #: ../core/f_dummy.php:91
 msgid "First Communion"
-msgstr "Primeira Comunh√£o"
+msgstr "Primeira Comunh„o"
 
 #: ../core/f_dummy.php:133
 msgid "French"
-msgstr "Franc√™s"
+msgstr "FrancÍs"
 
 #: ../core/f_dummy.php:44
 msgid "Friends"
@@ -407,11 +407,11 @@ msgstr "Genealogia"
 #: ../core/modules/descendant.php:111 ../core/modules/descendant_pdf.php:97
 #, php-format
 msgid "Generation %s"
-msgstr "Gera√ß√£o %s"
+msgstr "GeraÁ„o %s"
 
 #: ../core/f_dummy.php:132
 msgid "German"
-msgstr "Alem√£o"
+msgstr "Alem„o"
 
 #: ../themes/summerbreeze/templates/search.tpl:26
 #: ../themes/default/templates/search.tpl:27
@@ -420,7 +420,7 @@ msgstr "Nome dado"
 
 #: ../core/f_dummy.php:93
 msgid "Graduation"
-msgstr "Gradua√ß√£o"
+msgstr "GraduaÁ„o"
 
 #: ../core/f_report.php:108
 #, php-format
@@ -482,12 +482,12 @@ msgstr "Identidade no."
 
 #: ../core/f_dummy.php:95
 msgid "Immigration"
-msgstr "Imigra√ß√£o"
+msgstr "ImigraÁ„o"
 
 #: ../themes/summerbreeze/templates/stats.tpl:15
 #: ../themes/default/templates/stats.tpl:13
 msgid "Individuals"
-msgstr "Indiv√≠duos"
+msgstr "IndivÌduos"
 
 #: ../core/date.class.php:396
 msgid "Jan"
@@ -518,7 +518,7 @@ msgstr ""
 
 #: ../core/f_dummy.php:97
 msgid "Last Known Addr"
-msgstr "√öltimo Domic√≠lio"
+msgstr "⁄ltimo DomicÌlio"
 
 #: ../themes/summerbreeze/templates/search.tpl:65
 #: ../themes/default/templates/search.tpl:66
@@ -569,7 +569,7 @@ msgstr "Casamento - Settlement"
 #: ../themes/default/templates/search.tpl:77
 #: ../themes/default/templates/search.tpl:121
 msgid "Match Keywords"
-msgstr "Compat√≠vel com as Palavras Chave"
+msgstr "CompatÌvel com as Palavras Chave"
 
 #: ../core/date.class.php:396
 msgid "May"
@@ -581,7 +581,7 @@ msgstr "Militar"
 
 #: ../core/f_dummy.php:100
 msgid "Military Award"
-msgstr "Pr√™mio militar"
+msgstr "PrÍmio militar"
 
 #: ../core/f_dummy.php:101
 msgid "Military Discharge"
@@ -593,13 +593,13 @@ msgstr "Alistamento Militar"
 
 #: ../core/f_dummy.php:103
 msgid "Military Service"
-msgstr "Servi√ßo Militar"
+msgstr "ServiÁo Militar"
 
 #: ../core/modules/family_pdf.php:178
 #: ../themes/summerbreeze/templates/family.tpl:28
 #: ../themes/default/templates/family.tpl:20
 msgid "Mother"
-msgstr "M√£e"
+msgstr "M„e"
 
 #: ../core/modules/multimedia.php:37
 #: ../themes/summerbreeze/templates/nav.tpl:38
@@ -607,12 +607,12 @@ msgstr "M√£e"
 #: ../themes/default/templates/nav.tpl:43
 #: ../themes/default/templates/nav.tpl:46
 msgid "Multimedia"
-msgstr "Multim√≠dia"
+msgstr "MultimÌdia"
 
 #: ../core/modules/multimedia.php:41
 #, php-format
 msgid "Multimedia for %s"
-msgstr "Multim√≠dia para %s"
+msgstr "MultimÌdia para %s"
 
 #: ../themes/summerbreeze/templates/results.tpl:23
 #: ../themes/summerbreeze/templates/surnames.tpl:21
@@ -632,7 +632,7 @@ msgstr "Nacionalidade"
 
 #: ../core/f_dummy.php:105
 msgid "Naturalization"
-msgstr "Naturaliza√ß√£o"
+msgstr "NaturalizaÁ„o"
 
 #: ../themes/summerbreeze/templates/results.tpl:39
 #: ../themes/default/templates/results.tpl:41
@@ -642,7 +642,7 @@ msgstr "Nenhum registro foi encontrado."
 #: ../themes/summerbreeze/templates/results.tpl:16
 #: ../themes/default/templates/results.tpl:19
 msgid "No search parameters were specified."
-msgstr "Sem par√¢metros de busca."
+msgstr "Sem par‚metros de busca."
 
 #: ../themes/summerbreeze/templates/search.tpl:109
 #: ../themes/default/templates/search.tpl:110
@@ -665,34 +665,34 @@ msgstr "Nov"
 
 #: ../core/f_dummy.php:106
 msgid "Number of Children"
-msgstr "N√∫mero de Filhos"
+msgstr "N˙mero de Filhos"
 
 #: ../themes/summerbreeze/templates/reports.tpl:32
 #: ../themes/summerbreeze/templates/reports.tpl:55
 #: ../themes/default/templates/reports.tpl:32
 #: ../themes/default/templates/reports.tpl:55
 msgid "Number of Generations"
-msgstr "N√∫mero de Gera√ß√µes"
+msgstr "N˙mero de GeraÁıes"
 
 #: ../core/f_dummy.php:107
 msgid "Number of Marriages"
-msgstr "N√∫mero de Casamentos"
+msgstr "N˙mero de Casamentos"
 
 #: ../themes/summerbreeze/templates/results.tpl:19
 #: ../themes/summerbreeze/templates/surnames.tpl:17
 #: ../themes/default/templates/results.tpl:22
 #: ../themes/default/templates/surnames.tpl:18
 msgid "Number of individuals listed"
-msgstr "N√∫mero de indiv√≠duos listados"
+msgstr "N˙mero de indivÌduos listados"
 
 #: ../themes/summerbreeze/templates/surnames.tpl:37
 #: ../themes/default/templates/surnames.tpl:39
 msgid "Number of surnames listed"
-msgstr "N√∫mero de sobrenomes listados"
+msgstr "N˙mero de sobrenomes listados"
 
 #: ../core/f_dummy.php:108
 msgid "Occupation"
-msgstr "Ocupa√ß√£o"
+msgstr "OcupaÁ„o"
 
 #: ../core/date.class.php:397
 msgid "Oct"
@@ -700,7 +700,7 @@ msgstr "Out"
 
 #: ../core/f_dummy.php:109
 msgid "Ordination"
-msgstr "Ordena√ß√£o"
+msgstr "OrdenaÁ„o"
 
 #: ../themes/summerbreeze/templates/stats.tpl:51
 #: ../themes/default/templates/stats.tpl:42
@@ -730,7 +730,7 @@ msgstr "Pedigree PDF"
 #: ../themes/summerbreeze/templates/reports.tpl:17
 #: ../themes/default/templates/reports.tpl:17
 msgid "Pedigree Reports"
-msgstr "Relatr√≥rios de Pedigree"
+msgstr "RelatrÛrios de Pedigree"
 
 #: ../core/modules/pedigree_pdf.php:66 ../core/modules/pedigree_pdf.php:119
 #, php-format
@@ -747,7 +747,7 @@ msgstr "Frase"
 #: ../themes/summerbreeze/templates/results.tpl:17
 #: ../themes/default/templates/results.tpl:20
 msgid "Please go back to the search page and enter some search criteria."
-msgstr "Por favor, volte para a p√°gina de busca e entre algum crit√©rio."
+msgstr "Por favor, volte para a p·gina de busca e entre algum critÈrio."
 
 #: ../themes/summerbreeze/templates/commentadd.tpl:15
 #: ../themes/default/templates/commentadd.tpl:15
@@ -755,7 +755,7 @@ msgid ""
 "Please note that it will not be visible in the comment list until it has "
 "been reviewed and approved by an administrator."
 msgstr ""
-"Note que o coment√°rio enviado n√£o ser√° publicado at√© que o mesmo seja "
+"Note que o coment·rio enviado n„o ser· publicado atÈ que o mesmo seja "
 "aprovado pelo administrador"
 
 #: ../core/f_dummy.php:134
@@ -777,7 +777,7 @@ msgstr "Enviado"
 
 #: ../core/f_dummy.php:111
 msgid "Probate"
-msgstr "Legaliza√ß√£o"
+msgstr "LegalizaÁ„o"
 
 #: ../themes/summerbreeze/templates/family.tpl:47
 #: ../themes/default/templates/family.tpl:35
@@ -786,7 +786,7 @@ msgstr ""
 
 #: ../core/f_dummy.php:112
 msgid "Religion"
-msgstr "Religi√£o"
+msgstr "Religi„o"
 
 #: ../core/modules/reports.php:44 ../themes/summerbreeze/templates/nav.tpl:29
 #: ../themes/summerbreeze/templates/nav.tpl:31
@@ -795,12 +795,12 @@ msgstr "Religi√£o"
 #: ../themes/default/templates/nav.tpl:34
 #: ../themes/default/templates/nav.tpl:38
 msgid "Reports"
-msgstr "Relat√≥rios"
+msgstr "RelatÛrios"
 
 #: ../core/modules/reports.php:37
 #, php-format
 msgid "Reports for %s"
-msgstr "Relat√≥rios para %s"
+msgstr "RelatÛrios para %s"
 
 #: ../core/f_dummy.php:113
 msgid "Researcher"
@@ -812,7 +812,7 @@ msgstr "Reiniciar"
 
 #: ../core/f_dummy.php:114
 msgid "Residence"
-msgstr "Resid√™ncia"
+msgstr "ResidÍncia"
 
 #: ../core/modules/results.php:59
 #: ../themes/summerbreeze/templates/results.tpl:11
@@ -831,7 +831,7 @@ msgstr "Aposentado"
 #: ../themes/default/templates/commentadd.tpl:12
 #: ../themes/default/templates/commentadd.tpl:27
 msgid "Return to comment list"
-msgstr "Regressar a coment√°rios"
+msgstr "Regressar a coment·rios"
 
 #: ../core/f_dummy.php:117
 msgid "SSN"
@@ -858,7 +858,7 @@ msgstr "Resultados"
 #: ../core/modules/family_pdf.php:68 ../core/modules/pedigree_pdf.php:76
 #, php-format
 msgid "Send questions or comments to %s"
-msgstr "Envie suas perguntas ou coment√°rios para %s"
+msgstr "Envie suas perguntas ou coment·rios para %s"
 
 #: ../core/date.class.php:397
 msgid "Sep"
@@ -921,7 +921,7 @@ msgstr "INSS"
 #: ../core/f_dummy.php:137 ../themes/summerbreeze/templates/family.tpl:119
 #: ../themes/default/templates/family.tpl:107
 msgid "Source Citations"
-msgstr "Cita√ß√µes da Fonte"
+msgstr "CitaÁıes da Fonte"
 
 #: ../core/modules/family_pdf.php:143 ../core/modules/family_pdf.php:161
 #: ../core/modules/family_pdf.php:204 ../core/modules/family_pdf.php:255
@@ -940,25 +940,25 @@ msgstr "Espanhol"
 #: ../themes/summerbreeze/templates/family.tpl:64
 #: ../themes/default/templates/family.tpl:51
 msgid "Spouse/Partner"
-msgstr "C√¥njuge/Parceiro"
+msgstr "CÙnjuge/Parceiro"
 
 #: ../themes/summerbreeze/templates/search.tpl:82
 #: ../themes/summerbreeze/templates/search.tpl:126
 #: ../themes/default/templates/search.tpl:83
 #: ../themes/default/templates/search.tpl:127
 msgid "Starts with"
-msgstr "Come√ßa com"
+msgstr "ComeÁa com"
 
 #: ../core/modules/stats.php:30 ../core/modules/stats.php:31
 #: ../core/modules/stats.php:101 ../themes/summerbreeze/templates/menu.tpl:10
 #: ../themes/default/templates/menu.tpl:17
 msgid "Statistics"
-msgstr "Estat√≠sticas"
+msgstr "EstatÌsticas"
 
 #: ../themes/summerbreeze/templates/comments.tpl:13
 #: ../themes/default/templates/comments.tpl:11
 msgid "Submit a comment"
-msgstr "Submeter um coment√°rio"
+msgstr "Submeter um coment·rio"
 
 #: ../themes/summerbreeze/templates/search.tpl:27
 #: ../themes/default/templates/search.tpl:28
@@ -978,31 +978,31 @@ msgstr "Sobrenomes"
 
 #: ../core/modules/commentadd.php:52
 msgid "THE EMAIL ADDRESS YOU ENTERED IS NOT VALID"
-msgstr "O EMAIL QUE VOC√ä DIGITOU N√ÉO √â V√ÅLIDO"
+msgstr "O EMAIL QUE VOC  DIGITOU N√O … V¡LIDO"
 
 #: ../themes/summerbreeze/templates/commentadd.tpl:14
 #: ../themes/default/templates/commentadd.tpl:14
 msgid "The comment you submitted is show below."
-msgstr "O coment√°rio que voc√™ enviou √© mostrado abaixo"
+msgstr "O coment·rio que vocÍ enviou È mostrado abaixo"
 
 #: ../themes/summerbreeze/templates/multimedia.tpl:11
 #: ../themes/default/templates/multimedia.tpl:11
 msgid "This feature has not been implemented yet."
-msgstr "Esta fun√ß√£o ainda n√£o foi implementada"
+msgstr "Esta funÁ„o ainda n„o foi implementada"
 
 #: ../core/f_report.php:222 ../core/f_report.php:244 ../core/f_report.php:268
 #, php-format
 msgid "This marriage ended in %s."
-msgstr "Este matrim√¥nio terminou em %s."
+msgstr "Este matrimÙnio terminou em %s."
 
 #: ../core/f_report.php:290
 #, php-format
 msgid "This relationship ended in %s."
-msgstr "Esta rela√ß√£o terminou em %s."
+msgstr "Esta relaÁ„o terminou em %s."
 
 #: ../core/f_dummy.php:118
 msgid "Title"
-msgstr "T√≠tulo"
+msgstr "TÌtulo"
 
 #: ../core/f_dummy.php:43 ../core/f_dummy.php:67 ../core/f_report.php:199
 #: ../core/f_report.php:200 ../themes/summerbreeze/templates/stats.tpl:27
@@ -1024,12 +1024,12 @@ msgstr "Testamento"
 
 #: ../core/modules/commentadd.php:50
 msgid "YOU MUST ENTER AN EMAIL ADDRESS"
-msgstr "VOC√ä DEVE ENTRAR COM UM EMAIL"
+msgstr "VOC  DEVE ENTRAR COM UM EMAIL"
 
 #: ../themes/summerbreeze/templates/commentadd.tpl:33
 #: ../themes/default/templates/commentadd.tpl:33
 msgid "Your comments"
-msgstr "Coment√°rios"
+msgstr "Coment·rios"
 
 #: ../themes/summerbreeze/templates/commentadd.tpl:29
 #: ../themes/default/templates/commentadd.tpl:29
@@ -1087,22 +1087,22 @@ msgstr "m."
 #: ../core/f_report.php:282
 #, php-format
 msgid "female %s had a relationship with %s in %s."
-msgstr "%s teve uma uni√£o est√°vel com %s em %s."
+msgstr "%s teve uma uni„o est·vel com %s em %s."
 
 #: ../core/f_report.php:274
 #, php-format
 msgid "female %s had a relationship with %s on %s in %s."
-msgstr "%s teve uma uni√£o est√°vel com %s em %s em %s."
+msgstr "%s teve uma uni„o est·vel com %s em %s em %s."
 
 #: ../core/f_report.php:278
 #, php-format
 msgid "female %s had a relationship with %s on %s."
-msgstr "%s teve uma uni√£o est√°vel com %s em %s."
+msgstr "%s teve uma uni„o est·vel com %s em %s."
 
 #: ../core/f_report.php:286
 #, php-format
 msgid "female %s had a relationship with %s."
-msgstr "%s teve uma uni√£o est√°vel com %s."
+msgstr "%s teve uma uni„o est·vel com %s."
 
 #: ../core/f_report.php:236
 #, php-format
@@ -1127,22 +1127,22 @@ msgstr "%s casou-se com %s."
 #: ../core/f_report.php:260
 #, php-format
 msgid "male %s had a relationship with %s in %s."
-msgstr "%s teve uma uni√£o est√°vel com %s em %s."
+msgstr "%s teve uma uni„o est·vel com %s em %s."
 
 #: ../core/f_report.php:252
 #, php-format
 msgid "male %s had a relationship with %s on %s in %s."
-msgstr "%s teve uma uni√£o est√°vel com %s em %s em %s."
+msgstr "%s teve uma uni„o est·vel com %s em %s em %s."
 
 #: ../core/f_report.php:256
 #, php-format
 msgid "male %s had a relationship with %s on %s."
-msgstr "%s teve uma uni√£o est√°vel com %s em %s."
+msgstr "%s teve uma uni„o est·vel com %s em %s."
 
 #: ../core/f_report.php:264
 #, php-format
 msgid "male %s had a relationship with %s."
-msgstr "%s teve uma uni√£o est√°vel com %s."
+msgstr "%s teve uma uni„o est·vel com %s."
 
 #: ../core/f_report.php:214
 #, php-format
@@ -1173,7 +1173,7 @@ msgstr ""
 #: ../themes/default/templates/search.tpl:69
 #: ../themes/default/templates/search.tpl:113
 msgid "separate with spaces"
-msgstr "separar com espa√ßos"
+msgstr "separar com espaÁos"
 
 #: ../core/date.class.php:306
 msgid "to"

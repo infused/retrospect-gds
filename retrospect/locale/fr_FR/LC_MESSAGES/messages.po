@@ -53,24 +53,24 @@ msgstr "Adoption"
 
 #: ../core/f_dummy.php:71
 msgid "Adult Christening"
-msgstr "BaptÃªme d'adulte"
+msgstr "Baptême d'adulte"
 
 #: ../core/modules/ahnentafel.php:44
 #: ../themes/summerbreeze/templates/reports.tpl:28
 #: ../themes/default/templates/reports.tpl:28
 msgid "Ahnentafel"
-msgstr "Liste-Ã©clair"
+msgstr "Liste-éclair"
 
 #: ../themes/summerbreeze/templates/reports.tpl:29
 #: ../themes/default/templates/reports.tpl:29
 msgid "Ahnentafel PDF"
-msgstr "Liste-Ã©clair PDF"
+msgstr "Liste-éclair PDF"
 
 #: ../core/modules/ahnentafel.php:60 ../core/modules/ahnentafel_pdf.php:63
 #: ../core/modules/ahnentafel_pdf.php:90
 #, php-format
 msgid "Ahnentafel Report for %s"
-msgstr "Liste-Ã©clair pour %s"
+msgstr "Liste-éclair pour %s"
 
 #: ../core/modules/family_pdf.php:119
 #: ../themes/summerbreeze/templates/family.tpl:15
@@ -88,11 +88,11 @@ msgstr "Tous"
 #: ../themes/summerbreeze/templates/reports.tpl:22
 #: ../themes/default/templates/reports.tpl:22
 msgid "Ancestor Reports"
-msgstr "Rapports d'ancÃªtres"
+msgstr "Rapports d'ancêtres"
 
 #: ../core/modules/ahnentafel.php:45 ../core/modules/pedigree.php:36
 msgid "Ancestors"
-msgstr "AncÃªtres"
+msgstr "Ancêtres"
 
 #: ../core/f_dummy.php:50
 msgid "Annulment"
@@ -115,15 +115,15 @@ msgstr "Avr"
 
 #: ../core/date.class.php:397
 msgid "Aug"
-msgstr "AoÃ»t"
+msgstr "Août"
 
 #: ../core/f_dummy.php:72
 msgid "Baptism"
-msgstr "BaptÃªme"
+msgstr "Baptême"
 
 #: ../core/f_dummy.php:73
 msgid "BaptismLDS"
-msgstr "BaptÃªme mormon"
+msgstr "Baptême mormon"
 
 #: ../core/f_dummy.php:74
 msgid "Bar Mitzah"
@@ -146,7 +146,7 @@ msgstr "Naissance"
 
 #: ../core/f_dummy.php:77
 msgid "Blessing"
-msgstr "BÃ©nÃ©diction"
+msgstr "Bénédiction"
 
 #: ../core/f_dummy.php:78
 msgid "Burial"
@@ -178,7 +178,7 @@ msgstr "Enfants de %s et %s"
 
 #: ../core/f_dummy.php:81
 msgid "Christening"
-msgstr "BaptÃªme"
+msgstr "Baptême"
 
 #: ../themes/summerbreeze/templates/stats.tpl:63
 #: ../themes/default/templates/stats.tpl:53
@@ -210,7 +210,7 @@ msgstr "Confirmation"
 
 #: ../core/f_dummy.php:83
 msgid "Cremation"
-msgstr "CrÃ©mation"
+msgstr "Crémation"
 
 #: ../themes/default/templates/menu.tpl:9
 msgid "Database"
@@ -225,19 +225,19 @@ msgstr ""
 #: ../themes/default/templates/stats.tpl:36
 #: ../themes/default/templates/surnames.tpl:24
 msgid "Death"
-msgstr "DÃ©cÃ¨s"
+msgstr "Décès"
 
 #: ../core/f_dummy.php:48
 msgid "Death of one spouse"
-msgstr "DÃ©cÃ¨s d'un conjoint"
+msgstr "Décès d'un conjoint"
 
 #: ../core/date.class.php:397
 msgid "Dec"
-msgstr "DÃ©c"
+msgstr "Déc"
 
 #: ../core/f_dummy.php:85
 msgid "Degree"
-msgstr "DiplÃ´me"
+msgstr "Diplôme"
 
 #: ../themes/summerbreeze/templates/reports.tpl:51
 #: ../themes/default/templates/reports.tpl:51
@@ -270,15 +270,15 @@ msgstr "Divorce"
 
 #: ../core/f_dummy.php:54
 msgid "Divorce Filed"
-msgstr "Divorce enregistrÃ©"
+msgstr "Divorce enregistré"
 
 #: ../core/f_dummy.php:49
 msgid "Divorced"
-msgstr "DivorcÃ©"
+msgstr "Divorcé"
 
 #: ../core/f_dummy.php:131
 msgid "Dutch"
-msgstr "NÃ©erlandais"
+msgstr "Néerlandais"
 
 #: ../core/f_dummy.php:87
 msgid "Education"
@@ -309,12 +309,12 @@ msgstr "Anglais"
 
 #: ../core/f_dummy.php:90
 msgid "Event"
-msgstr "EvÃ©nement"
+msgstr "Evénement"
 
 #: ../themes/summerbreeze/templates/stats.tpl:35
 #: ../themes/default/templates/stats.tpl:30
 msgid "Events"
-msgstr "EvÃ©nements"
+msgstr "Evénements"
 
 #: ../themes/summerbreeze/templates/stats.tpl:31
 #: ../themes/default/templates/stats.tpl:26
@@ -357,24 +357,24 @@ msgstr "Rapports de famille"
 #: ../themes/summerbreeze/templates/family.tpl:24
 #: ../themes/default/templates/family.tpl:18
 msgid "Father"
-msgstr "PÃ¨re"
+msgstr "Père"
 
 #: ../core/date.class.php:396
 msgid "Feb"
-msgstr "FÃ©vr"
+msgstr "Févr"
 
 #: ../core/f_dummy.php:66 ../themes/summerbreeze/templates/stats.tpl:23
 #: ../themes/default/templates/stats.tpl:19
 msgid "Female"
-msgstr "FÃ©minin"
+msgstr "Féminin"
 
 #: ../core/f_dummy.php:91
 msgid "First Communion"
-msgstr "PremiÃ¨re communion"
+msgstr "Première communion"
 
 #: ../core/f_dummy.php:133
 msgid "French"
-msgstr "FranÃ§ais"
+msgstr "Français"
 
 #: ../core/f_dummy.php:44
 msgid "Friends"
@@ -388,7 +388,7 @@ msgstr ""
 
 #: ../core/f_dummy.php:92
 msgid "Funeral"
-msgstr "FunÃ©railles"
+msgstr "Funérailles"
 
 #: ../core/modules/family_pdf.php:128
 #: ../themes/summerbreeze/templates/family.tpl:20
@@ -400,13 +400,13 @@ msgstr "Sexe"
 #: ../core/modules/descendant_pdf.php:182 ../core/modules/family_pdf.php:83
 #: ../core/modules/pedigree_pdf.php:120
 msgid "Genealogy"
-msgstr "GÃ©nÃ©alogie"
+msgstr "Généalogie"
 
 #: ../core/modules/ahnentafel.php:87 ../core/modules/ahnentafel_pdf.php:110
 #: ../core/modules/descendant.php:111 ../core/modules/descendant_pdf.php:97
 #, php-format
 msgid "Generation %s"
-msgstr "GÃ©nÃ©ration %s"
+msgstr "Génération %s"
 
 #: ../core/f_dummy.php:132
 msgid "German"
@@ -415,61 +415,61 @@ msgstr "Allemand"
 #: ../themes/summerbreeze/templates/search.tpl:26
 #: ../themes/default/templates/search.tpl:27
 msgid "Given Name"
-msgstr "PrÃ©nom"
+msgstr "Prénom"
 
 #: ../core/f_dummy.php:93
 msgid "Graduation"
-msgstr "DiplÃ´me"
+msgstr "Diplôme"
 
 #: ../core/f_report.php:108
 #, php-format
 msgid "He died %s in %s."
-msgstr "Il est dÃ©cÃ©dÃ© le %s Ã  %s."
+msgstr "Il est décédé le %s à %s."
 
 #: ../core/f_report.php:109
 #, php-format
 msgid "He died %s."
-msgstr "Il est dÃ©cÃ©dÃ© le %s."
+msgstr "Il est décédé le %s."
 
 #: ../core/f_report.php:105 ../core/f_report.php:110
 #, php-format
 msgid "He died in %s."
-msgstr "Il est dÃ©cÃ©dÃ© Ã  %s."
+msgstr "Il est décédé à %s."
 
 #: ../core/f_report.php:103
 #, php-format
 msgid "He died on %s in %s."
-msgstr "Il est dÃ©cÃ©dÃ© le %s Ã  %s."
+msgstr "Il est décédé le %s à %s."
 
 #: ../core/f_report.php:104
 #, php-format
 msgid "He died on %s."
-msgstr "Il est dÃ©cÃ©dÃ© le %s."
+msgstr "Il est décédé le %s."
 
 #: ../core/f_report.php:58
 #, php-format
 msgid "He was born %s in %s."
-msgstr "Il est nÃ© le %s Ã  %s."
+msgstr "Il est né le %s à %s."
 
 #: ../core/f_report.php:59
 #, php-format
 msgid "He was born %s."
-msgstr "Il est nÃ© le %s."
+msgstr "Il est né le %s."
 
 #: ../core/f_report.php:55 ../core/f_report.php:60
 #, php-format
 msgid "He was born in %s."
-msgstr "Il est nÃ© Ã  %s."
+msgstr "Il est né à %s."
 
 #: ../core/f_report.php:53
 #, php-format
 msgid "He was born on %s in %s."
-msgstr "Il est nÃ© le %s Ã  %s."
+msgstr "Il est né le %s à %s."
 
 #: ../core/f_report.php:54
 #, php-format
 msgid "He was born on %s."
-msgstr "Il est nÃ© le %s."
+msgstr "Il est né le %s."
 
 #: ../core/f_dummy.php:56
 msgid "Husband"
@@ -477,7 +477,7 @@ msgstr "Mari"
 
 #: ../core/f_dummy.php:94
 msgid "ID Number"
-msgstr "NÂ° id."
+msgstr "N° id."
 
 #: ../core/f_dummy.php:95
 msgid "Immigration"
@@ -505,11 +505,11 @@ msgstr "Juin"
 #: ../themes/default/templates/search.tpl:69
 #: ../themes/default/templates/search.tpl:113
 msgid "Keywords"
-msgstr "Mots-clÃ©s"
+msgstr "Mots-clés"
 
 #: ../core/f_dummy.php:96
 msgid "Land"
-msgstr "PropriÃ©tÃ© fonciÃ¨re"
+msgstr "Propriété foncière"
 
 #: ../themes/default/templates/menu.tpl:21
 msgid "Language"
@@ -517,7 +517,7 @@ msgstr ""
 
 #: ../core/f_dummy.php:97
 msgid "Last Known Addr"
-msgstr "DerniÃ¨re adresse connue"
+msgstr "Dernière adresse connue"
 
 #: ../themes/summerbreeze/templates/search.tpl:65
 #: ../themes/default/templates/search.tpl:66
@@ -553,7 +553,7 @@ msgstr "Contrat de mariage"
 
 #: ../core/f_dummy.php:59
 msgid "Marriage Fact"
-msgstr "EvÃ©nement de mariage"
+msgstr "Evénement de mariage"
 
 #: ../core/f_dummy.php:60
 msgid "Marriage License"
@@ -568,7 +568,7 @@ msgstr "Contrat de mariage"
 #: ../themes/default/templates/search.tpl:77
 #: ../themes/default/templates/search.tpl:121
 msgid "Match Keywords"
-msgstr "Correspondance avec mots-clÃ©s"
+msgstr "Correspondance avec mots-clés"
 
 #: ../core/date.class.php:396
 msgid "May"
@@ -598,7 +598,7 @@ msgstr "Service militaire"
 #: ../themes/summerbreeze/templates/family.tpl:28
 #: ../themes/default/templates/family.tpl:20
 msgid "Mother"
-msgstr "MÃ¨re"
+msgstr "Mère"
 
 #: ../core/modules/multimedia.php:37
 #: ../themes/summerbreeze/templates/nav.tpl:38
@@ -606,12 +606,12 @@ msgstr "MÃ¨re"
 #: ../themes/default/templates/nav.tpl:43
 #: ../themes/default/templates/nav.tpl:46
 msgid "Multimedia"
-msgstr "MultimÃ©dia"
+msgstr "Multimédia"
 
 #: ../core/modules/multimedia.php:41
 #, php-format
 msgid "Multimedia for %s"
-msgstr "Fichiers multimÃ©dia pour %s"
+msgstr "Fichiers multimédia pour %s"
 
 #: ../themes/summerbreeze/templates/results.tpl:23
 #: ../themes/summerbreeze/templates/surnames.tpl:21
@@ -627,7 +627,7 @@ msgstr "Recherche de nom"
 
 #: ../core/f_dummy.php:104
 msgid "Nationality"
-msgstr "NationalitÃ©"
+msgstr "Nationalité"
 
 #: ../core/f_dummy.php:105
 msgid "Naturalization"
@@ -636,12 +636,12 @@ msgstr "Naturalisation"
 #: ../themes/summerbreeze/templates/results.tpl:39
 #: ../themes/default/templates/results.tpl:41
 msgid "No matching records were found."
-msgstr "Aucun enregistrement correspondant n'a Ã©tÃ© trouvÃ©."
+msgstr "Aucun enregistrement correspondant n'a été trouvé."
 
 #: ../themes/summerbreeze/templates/results.tpl:16
 #: ../themes/default/templates/results.tpl:19
 msgid "No search parameters were specified."
-msgstr "Aucun paramÃ©tre de recherche n'est fourni."
+msgstr "Aucun paramétre de recherche n'est fourni."
 
 #: ../themes/summerbreeze/templates/search.tpl:109
 #: ../themes/default/templates/search.tpl:110
@@ -671,7 +671,7 @@ msgstr "Nombre d'enfants"
 #: ../themes/default/templates/reports.tpl:32
 #: ../themes/default/templates/reports.tpl:55
 msgid "Number of Generations"
-msgstr "GÃ©nÃ©rations"
+msgstr "Générations"
 
 #: ../core/f_dummy.php:107
 msgid "Number of Marriages"
@@ -682,12 +682,12 @@ msgstr "Nombre de mariages"
 #: ../themes/default/templates/results.tpl:22
 #: ../themes/default/templates/surnames.tpl:18
 msgid "Number of individuals listed"
-msgstr "Nombre d'individus listÃ©s"
+msgstr "Nombre d'individus listés"
 
 #: ../themes/summerbreeze/templates/surnames.tpl:37
 #: ../themes/default/templates/surnames.tpl:39
 msgid "Number of surnames listed"
-msgstr "Nombre de noms de famille listÃ©s"
+msgstr "Nombre de noms de famille listés"
 
 #: ../core/f_dummy.php:108
 msgid "Occupation"
@@ -805,11 +805,11 @@ msgstr "Chercheur"
 
 #: ../core/f_dummy.php:124
 msgid "Reset"
-msgstr "RÃ©initialiser"
+msgstr "Réinitialiser"
 
 #: ../core/f_dummy.php:114
 msgid "Residence"
-msgstr "RÃ©sidence"
+msgstr "Résidence"
 
 #: ../core/modules/results.php:59
 #: ../themes/summerbreeze/templates/results.tpl:11
@@ -817,7 +817,7 @@ msgstr "RÃ©sidence"
 #: ../themes/default/templates/results.tpl:13
 #: ../themes/default/templates/search.tpl:11
 msgid "Results"
-msgstr "RÃ©sultats"
+msgstr "Résultats"
 
 #: ../core/f_dummy.php:115
 msgid "Retirement"
@@ -832,7 +832,7 @@ msgstr ""
 
 #: ../core/f_dummy.php:117
 msgid "SSN"
-msgstr "NÂ° SS"
+msgstr "N° SS"
 
 #: ../core/f_dummy.php:123 ../core/modules/search.php:48
 #: ../core/modules/search.php:49 ../core/modules/search.php:52
@@ -849,13 +849,13 @@ msgstr "Rechercher"
 
 #: ../core/modules/results.php:58 ../core/modules/results.php:62
 msgid "Search Results"
-msgstr "RÃ©sultats"
+msgstr "Résultats"
 
 #: ../core/modules/ahnentafel_pdf.php:76 ../core/modules/descendant_pdf.php:72
 #: ../core/modules/family_pdf.php:68 ../core/modules/pedigree_pdf.php:76
 #, php-format
 msgid "Send questions or comments to %s"
-msgstr "Envoyez questions ou commentaires Ã  %s"
+msgstr "Envoyez questions ou commentaires à %s"
 
 #: ../core/date.class.php:397
 msgid "Sep"
@@ -864,56 +864,56 @@ msgstr "Sept"
 #: ../core/f_report.php:121
 #, php-format
 msgid "She died %s in %s."
-msgstr "Elle est dÃ©cÃ©dÃ©e le %s Ã  %s."
+msgstr "Elle est décédée le %s à %s."
 
 #: ../core/f_report.php:122
 #, php-format
 msgid "She died %s."
-msgstr "Elle est dÃ©cÃ©dÃ©e le %s."
+msgstr "Elle est décédée le %s."
 
 #: ../core/f_report.php:118 ../core/f_report.php:123
 #, php-format
 msgid "She died in %s."
-msgstr "Elle est dÃ©cÃ©dÃ©e Ã  %s."
+msgstr "Elle est décédée à %s."
 
 #: ../core/f_report.php:116
 #, php-format
 msgid "She died on %s in %s."
-msgstr "Elle est dÃ©cÃ©dÃ©e le %s Ã  %s."
+msgstr "Elle est décédée le %s à %s."
 
 #: ../core/f_report.php:117
 #, php-format
 msgid "She died on %s."
-msgstr "Elle est dÃ©cÃ©dÃ©e le %s."
+msgstr "Elle est décédée le %s."
 
 #: ../core/f_report.php:71
 #, php-format
 msgid "She was born %s in %s."
-msgstr "Elle est nÃ©e le %s Ã  %s."
+msgstr "Elle est née le %s à %s."
 
 #: ../core/f_report.php:72
 #, php-format
 msgid "She was born %s."
-msgstr "Elle est nÃ©e le %s."
+msgstr "Elle est née le %s."
 
 #: ../core/f_report.php:68 ../core/f_report.php:73
 #, php-format
 msgid "She was born in %s."
-msgstr "Elle est nÃ©e Ã  %s."
+msgstr "Elle est née à %s."
 
 #: ../core/f_report.php:66
 #, php-format
 msgid "She was born on %s in %s."
-msgstr "Elle est nÃ©e le %s Ã  %s."
+msgstr "Elle est née le %s à %s."
 
 #: ../core/f_report.php:67
 #, php-format
 msgid "She was born on %s."
-msgstr "Elle est nÃ©e le %s."
+msgstr "Elle est née le %s."
 
 #: ../core/f_dummy.php:116
 msgid "Social Security Number"
-msgstr "NÂ° sÃ©curitÃ© sociale"
+msgstr "N° sécurité sociale"
 
 #: ../core/f_dummy.php:137 ../themes/summerbreeze/templates/family.tpl:119
 #: ../themes/default/templates/family.tpl:107
@@ -985,7 +985,7 @@ msgstr ""
 #: ../themes/summerbreeze/templates/multimedia.tpl:11
 #: ../themes/default/templates/multimedia.tpl:11
 msgid "This feature has not been implemented yet."
-msgstr "Cette fonctionnalitÃ© n'est pas encore disponible."
+msgstr "Cette fonctionnalité n'est pas encore disponible."
 
 #: ../core/f_report.php:222 ../core/f_report.php:244 ../core/f_report.php:268
 #, php-format
@@ -995,7 +995,7 @@ msgstr "Ce mariage a pris fin en %s."
 #: ../core/f_report.php:290
 #, php-format
 msgid "This relationship ended in %s."
-msgstr "La relation s'est terminÃ©e en %s."
+msgstr "La relation s'est terminée en %s."
 
 #: ../core/f_dummy.php:118
 msgid "Title"
@@ -1053,7 +1053,7 @@ msgstr "et"
 #: ../themes/default/templates/family.tpl:96
 #: ../themes/default/templates/pedigree.indiv.tpl:16
 msgid "b."
-msgstr "Â°"
+msgstr "°"
 
 #: ../core/f_dummy.php:143
 msgid "bef"
@@ -1084,12 +1084,12 @@ msgstr "+"
 #: ../core/f_report.php:282
 #, php-format
 msgid "female %s had a relationship with %s in %s."
-msgstr "%s a eu une relation avec %s Ã  %s."
+msgstr "%s a eu une relation avec %s à %s."
 
 #: ../core/f_report.php:274
 #, php-format
 msgid "female %s had a relationship with %s on %s in %s."
-msgstr "%s a eu une relation avec %s le %s Ã  %s."
+msgstr "%s a eu une relation avec %s le %s à %s."
 
 #: ../core/f_report.php:278
 #, php-format
@@ -1104,32 +1104,32 @@ msgstr "%s a eu une relation avec %s."
 #: ../core/f_report.php:236
 #, php-format
 msgid "female %s married %s in %s."
-msgstr "%s a Ã©pousÃ© %s Ã  %s."
+msgstr "%s a épousé %s à %s."
 
 #: ../core/f_report.php:228
 #, php-format
 msgid "female %s married %s on %s in %s."
-msgstr "%s a Ã©pousÃ© %s le %s Ã  %s."
+msgstr "%s a épousé %s le %s à %s."
 
 #: ../core/f_report.php:232
 #, php-format
 msgid "female %s married %s on %s."
-msgstr "%s a Ã©pousÃ© %s le %s."
+msgstr "%s a épousé %s le %s."
 
 #: ../core/f_report.php:240
 #, php-format
 msgid "female %s married %s."
-msgstr "%s a Ã©pousÃ© %s."
+msgstr "%s a épousé %s."
 
 #: ../core/f_report.php:260
 #, php-format
 msgid "male %s had a relationship with %s in %s."
-msgstr "%s a eu une relation avec %s Ã  %s."
+msgstr "%s a eu une relation avec %s à %s."
 
 #: ../core/f_report.php:252
 #, php-format
 msgid "male %s had a relationship with %s on %s in %s."
-msgstr "%s a eu une relation avec %s le %s Ã  %s."
+msgstr "%s a eu une relation avec %s le %s à %s."
 
 #: ../core/f_report.php:256
 #, php-format
@@ -1144,22 +1144,22 @@ msgstr "%s a eu une relation avec %s."
 #: ../core/f_report.php:214
 #, php-format
 msgid "male %s married %s in %s."
-msgstr "%s a Ã©pousÃ© %s Ã  %s."
+msgstr "%s a épousé %s à %s."
 
 #: ../core/f_report.php:206
 #, php-format
 msgid "male %s married %s on %s in %s."
-msgstr "%s a Ã©pousÃ© %s le %s Ã  %s."
+msgstr "%s a épousé %s le %s à %s."
 
 #: ../core/f_report.php:210
 #, php-format
 msgid "male %s married %s on %s."
-msgstr "%s a Ã©pousÃ© %s le %s."
+msgstr "%s a épousé %s le %s."
 
 #: ../core/f_report.php:218
 #, php-format
 msgid "male %s married %s."
-msgstr "%s a Ã©pousÃ© %s."
+msgstr "%s a épousé %s."
 
 #: ../themes/summerbreeze/templates/comments.tpl:18
 msgid "on"
@@ -1174,4 +1174,4 @@ msgstr ""
 
 #: ../core/date.class.php:306
 msgid "to"
-msgstr "Ã "
+msgstr "à"

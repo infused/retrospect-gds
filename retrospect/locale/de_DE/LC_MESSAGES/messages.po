@@ -158,7 +158,7 @@ msgstr "Rank/Status"
 
 #: ../core/f_dummy.php:80
 msgid "Census"
-msgstr "Volksz√§hlung"
+msgstr "Volksz‰hlung"
 
 #: ../core/modules/family_pdf.php:329
 #: ../themes/summerbreeze/templates/family.tpl:97
@@ -187,7 +187,7 @@ msgstr "Verweise"
 
 #: ../core/f_dummy.php:125
 msgid "Clear"
-msgstr "L√∂schen"
+msgstr "Lˆschen"
 
 #: ../core/modules/commentadd.php:37 ../core/modules/comments.php:37
 #: ../themes/summerbreeze/templates/nav.tpl:46
@@ -225,7 +225,7 @@ msgstr "Datenbank"
 #: ../themes/default/templates/stats.tpl:36
 #: ../themes/default/templates/surnames.tpl:24
 msgid "Death"
-msgstr "Todesf√§lle"
+msgstr "Todesf‰lle"
 
 #: ../core/f_dummy.php:48
 msgid "Death of one spouse"
@@ -278,7 +278,7 @@ msgstr "Geschieden"
 
 #: ../core/f_dummy.php:131
 msgid "Dutch"
-msgstr "Holl√§ndisch"
+msgstr "Holl‰ndisch"
 
 #: ../core/f_dummy.php:87
 msgid "Education"
@@ -314,7 +314,7 @@ msgstr "Ereignis"
 #: ../themes/summerbreeze/templates/stats.tpl:35
 #: ../themes/default/templates/stats.tpl:30
 msgid "Events"
-msgstr "F√§lle"
+msgstr "F‰lle"
 
 #: ../themes/summerbreeze/templates/stats.tpl:31
 #: ../themes/default/templates/stats.tpl:26
@@ -374,7 +374,7 @@ msgstr "Erstkommunion"
 
 #: ../core/f_dummy.php:133
 msgid "French"
-msgstr "Franz√∂sisch"
+msgstr "Franzˆsisch"
 
 #: ../core/f_dummy.php:44
 msgid "Friends"
@@ -388,7 +388,7 @@ msgstr ""
 
 #: ../core/f_dummy.php:92
 msgid "Funeral"
-msgstr "Begr√§bnis"
+msgstr "Begr‰bnis"
 
 #: ../core/modules/family_pdf.php:128
 #: ../themes/summerbreeze/templates/family.tpl:20
@@ -505,7 +505,7 @@ msgstr "Jun"
 #: ../themes/default/templates/search.tpl:69
 #: ../themes/default/templates/search.tpl:113
 msgid "Keywords"
-msgstr "Stichw√∂rter"
+msgstr "Stichwˆrter"
 
 #: ../core/f_dummy.php:96
 msgid "Land"
@@ -531,7 +531,7 @@ msgstr ""
 #: ../core/f_dummy.php:65 ../themes/summerbreeze/templates/stats.tpl:19
 #: ../themes/default/templates/stats.tpl:16
 msgid "Male"
-msgstr "M√§nnlich"
+msgstr "M‰nnlich"
 
 #: ../core/date.class.php:396
 msgid "Mar"
@@ -576,15 +576,15 @@ msgstr "Mai"
 
 #: ../core/f_dummy.php:99
 msgid "Military"
-msgstr "Milit√§r"
+msgstr "Milit‰r"
 
 #: ../core/f_dummy.php:100
 msgid "Military Award"
-msgstr "Milit√§rische Auszeichnung"
+msgstr "Milit‰rische Auszeichnung"
 
 #: ../core/f_dummy.php:101
 msgid "Military Discharge"
-msgstr "Austritt Milit√§r"
+msgstr "Austritt Milit‰r"
 
 #: ../core/f_dummy.php:102
 msgid "Military Enlist"
@@ -592,7 +592,7 @@ msgstr "Einberufen "
 
 #: ../core/f_dummy.php:103
 msgid "Military Service"
-msgstr "Milit√§rdienst"
+msgstr "Milit‰rdienst"
 
 #: ../core/modules/family_pdf.php:178
 #: ../themes/summerbreeze/templates/family.tpl:28
@@ -627,11 +627,11 @@ msgstr "Nach Namen suchen"
 
 #: ../core/f_dummy.php:104
 msgid "Nationality"
-msgstr "Nationalit√§t"
+msgstr "Nationalit‰t"
 
 #: ../core/f_dummy.php:105
 msgid "Naturalization"
-msgstr "Staatsb√ºrgerschaft"
+msgstr "Staatsb¸rgerschaft"
 
 #: ../themes/summerbreeze/templates/results.tpl:39
 #: ../themes/default/templates/results.tpl:41
@@ -805,7 +805,7 @@ msgstr "Forscher"
 
 #: ../core/f_dummy.php:124
 msgid "Reset"
-msgstr "Zur√ºck"
+msgstr "Zur¸ck"
 
 #: ../core/f_dummy.php:114
 msgid "Residence"
@@ -955,7 +955,7 @@ msgstr "Statistiken"
 #: ../themes/summerbreeze/templates/comments.tpl:13
 #: ../themes/default/templates/comments.tpl:11
 msgid "Submit a comment"
-msgstr "Bemerkung hinzuf√ºgen"
+msgstr "Bemerkung hinzuf¸gen"
 
 #: ../themes/summerbreeze/templates/search.tpl:27
 #: ../themes/default/templates/search.tpl:28
@@ -995,7 +995,7 @@ msgstr "Diese Ehe endete in %s."
 #: ../core/f_report.php:290
 #, php-format
 msgid "This relationship ended in %s."
-msgstr "Das Verh√§ltnis endete in %s."
+msgstr "Das Verh‰ltnis endete in %s."
 
 #: ../core/f_dummy.php:118
 msgid "Title"
@@ -1084,22 +1084,22 @@ msgstr "gest."
 #: ../core/f_report.php:282
 #, php-format
 msgid "female %s had a relationship with %s in %s."
-msgstr "%s hatte ein Ehe√§hnliches Verh√§tnis mit %s in %s."
+msgstr "%s hatte ein Ehe‰hnliches Verh‰tnis mit %s in %s."
 
 #: ../core/f_report.php:274
 #, php-format
 msgid "female %s had a relationship with %s on %s in %s."
-msgstr "%s hatte ein Ehe√§hnliches Verh√§tnis mit %s %s in %s."
+msgstr "%s hatte ein Ehe‰hnliches Verh‰tnis mit %s %s in %s."
 
 #: ../core/f_report.php:278
 #, php-format
 msgid "female %s had a relationship with %s on %s."
-msgstr "%s hatte ein Ehe√§hnliches Verh√§tnis mit %s %s."
+msgstr "%s hatte ein Ehe‰hnliches Verh‰tnis mit %s %s."
 
 #: ../core/f_report.php:286
 #, php-format
 msgid "female %s had a relationship with %s."
-msgstr "%s hatte ein Ehe√§hnliches Verh√§tnis mit %s."
+msgstr "%s hatte ein Ehe‰hnliches Verh‰tnis mit %s."
 
 #: ../core/f_report.php:236
 #, php-format
@@ -1124,22 +1124,22 @@ msgstr "%s heiratete %s."
 #: ../core/f_report.php:260
 #, php-format
 msgid "male %s had a relationship with %s in %s."
-msgstr "%s hatte ein Ehe√§hnliches Verh√§tnis mit %s in %s."
+msgstr "%s hatte ein Ehe‰hnliches Verh‰tnis mit %s in %s."
 
 #: ../core/f_report.php:252
 #, php-format
 msgid "male %s had a relationship with %s on %s in %s."
-msgstr "%s hatte ein Ehe√§hnliches Verh√§tnis mit %s %s in %s."
+msgstr "%s hatte ein Ehe‰hnliches Verh‰tnis mit %s %s in %s."
 
 #: ../core/f_report.php:256
 #, php-format
 msgid "male %s had a relationship with %s on %s."
-msgstr "%shatte ein Ehe√§hnliches Verh√§tnis mit %s %s."
+msgstr "%shatte ein Ehe‰hnliches Verh‰tnis mit %s %s."
 
 #: ../core/f_report.php:264
 #, php-format
 msgid "male %s had a relationship with %s."
-msgstr "%s hatte ein Ehe√§hnliches Verh√§tnis mit %s."
+msgstr "%s hatte ein Ehe‰hnliches Verh‰tnis mit %s."
 
 #: ../core/f_report.php:214
 #, php-format
@@ -1170,7 +1170,7 @@ msgstr ""
 #: ../themes/default/templates/search.tpl:69
 #: ../themes/default/templates/search.tpl:113
 msgid "separate with spaces"
-msgstr "mit Abst√§nden trennen"
+msgstr "mit Abst‰nden trennen"
 
 #: ../core/date.class.php:306
 msgid "to"
