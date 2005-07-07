@@ -11,23 +11,7 @@
 <body>
 <div id="header"><img src="{$THEME_URL}images/logo.gif" align="left" alt="Retrospect-GDS"/></div>
 <div id="menu">{include file="menu.tpl"}</div>
-<div id="content">
-	<div id="utils">
-		{if $CURRENT_PAGE == $PHP_SELF}
-			<a href="{$CURRENT_PAGE}?print=y" target="_blank">
-				<img src="{$THEME_URL}images/printbutton.gif" border="0" alt="{php}t("Print"){/php}" />
-			</a>
-		{else}
-			<a href="{$CURRENT_PAGE}&print=y" target="_blank">
-				<img src="{$THEME_URL}images/printbutton.gif" border="0" alt="{php}t("Print"){/php}" />
-			</a>
-		{/if}
-		<a href="{$PHP_SELF}?m=email&ln={$TRACKBACK_ENCODED}">
-			<img src="{$THEME_URL}images/emailbutton.gif" border="0" alt="{php}t("Email this page"){/php}" />
-		</a>
-	</div>
-	{include file="$module.tpl"}
-</div>
+<div id="content">{include file="$module.tpl"}</div>
 <div id="footer">
 	{if $SITE_COPYRIGHT != ""}{$SITE_COPYRIGHT}<br />{/if}
 	Powered by 
