@@ -206,10 +206,10 @@ You should correct these if possible before proceeding.
             <td class="section_item">&nbsp;</td>
           </tr>
           <tr>
-            <td class="section_item">themes/default/templates_c/</td>
+            <td class="section_item">themes/summerbreeze/templates_c/</td>
             <td align="center" class="section_item">
 							<?php
-							 	echo is_writable(ROOT_PATH.'/themes/default/templates_c/') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>';
+							 	echo is_writable(ROOT_PATH.'/themes/summerbreeze/templates_c/') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>';
 							?>
 						</td>
             <td class="section_item">&nbsp;</td>
