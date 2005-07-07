@@ -104,7 +104,7 @@ form {
 #header {
 	height: 60px;
 	margin: 0;
-	background: url("/administration/themes/default/images/paint.png");
+	background: url("images/paint.png");
 }
 #footer {
 	font-size: 12px;
@@ -131,7 +131,7 @@ form {
 #tabs {
   float: left;
   width: 100%;
-  background: url("/themes/summerbreeze/images/bottom_border.gif") repeat-x bottom;
+  background: url("images/bottom_border.gif") repeat-x bottom;
 }
 #tabs ul {
   margin: 0;
@@ -142,21 +142,21 @@ form {
   float: left;
   padding: 0;
   margin: 0;
-  background: url("/themes/summerbreeze/images/tab_right.png") no-repeat right top;
+  background: url("images/tab_right.png") no-repeat right top;
   border-bottom: 1px solid #ccc;
 }
 #tabs a {
   display: block;
-  background: url("/themes/summerbreeze/images/tab_left.png") no-repeat left top;
+  background: url("images/tab_left.png") no-repeat left top;
   padding: 6px 6px 2px 6px;
   white-space: nowrap;
 }
 #tabs #selected {
-  background: url("/themes/summerbreeze/images/tab_right_selected.png") no-repeat right top;
+  background: url("images/tab_right_selected.png") no-repeat right top;
   border-width: 0;
 }
 #tabs #selected a{
-  background: url("/themes/summerbreeze/images/tab_left_selected.png") no-repeat left top;
+  background: url("images/tab_left_selected.png") no-repeat left top;
   color: #555;
   padding-bottom: 3px;
 }
