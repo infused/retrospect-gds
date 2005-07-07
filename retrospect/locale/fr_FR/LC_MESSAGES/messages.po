@@ -6,12 +6,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-06-22 15:42-0700\n"
+"POT-Creation-Date: 2005-07-06 17:19-0700\n"
 "PO-Revision-Date: 2005-02-13 21:55-0800\n"
 "Last-Translator: Keith Morrison <keithm@infused-solutions.com>\n"
 "Language-Team: FRENCH <genealogie@robert-weinland.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../core/modules/ahnentafel.php:61 ../core/modules/commentadd.php:42
@@ -47,10 +47,6 @@ msgstr ", fils de %s."
 msgid "ALL"
 msgstr "TOUS"
 
-#: ../themes/default/templates/email.tpl:45
-msgid "Add a personal message"
-msgstr ""
-
 #: ../core/f_dummy.php:70
 msgid "Adoption"
 msgstr "Adoption"
@@ -60,10 +56,12 @@ msgid "Adult Christening"
 msgstr "Baptême d'adulte"
 
 #: ../core/modules/ahnentafel.php:44
+#: ../themes/summerbreeze/templates/reports.tpl:28
 #: ../themes/default/templates/reports.tpl:28
 msgid "Ahnentafel"
 msgstr "Liste-éclair"
 
+#: ../themes/summerbreeze/templates/reports.tpl:29
 #: ../themes/default/templates/reports.tpl:29
 msgid "Ahnentafel PDF"
 msgstr "Liste-éclair PDF"
@@ -75,15 +73,19 @@ msgid "Ahnentafel Report for %s"
 msgstr "Liste-éclair pour %s"
 
 #: ../core/modules/family_pdf.php:119
+#: ../themes/summerbreeze/templates/family.tpl:15
 #: ../themes/default/templates/family.tpl:12
 msgid "Aka"
 msgstr "dit"
 
+#: ../themes/summerbreeze/templates/search.tpl:79
+#: ../themes/summerbreeze/templates/search.tpl:123
 #: ../themes/default/templates/search.tpl:80
 #: ../themes/default/templates/search.tpl:124
 msgid "All"
 msgstr "Tous"
 
+#: ../themes/summerbreeze/templates/reports.tpl:22
 #: ../themes/default/templates/reports.tpl:22
 msgid "Ancestor Reports"
 msgstr "Rapports d'ancêtres"
@@ -96,12 +98,14 @@ msgstr "Ancêtres"
 msgid "Annulment"
 msgstr "Annulation"
 
+#: ../themes/summerbreeze/templates/search.tpl:80
+#: ../themes/summerbreeze/templates/search.tpl:124
 #: ../themes/default/templates/search.tpl:81
 #: ../themes/default/templates/search.tpl:125
 msgid "Any"
 msgstr "N'importe lequel"
 
-#: ../core/f_dummy.php:127
+#: ../core/f_dummy.php:126
 msgid "Apply"
 msgstr "Appliquer"
 
@@ -131,6 +135,9 @@ msgstr "Bas Mitzah"
 
 #: ../core/f_dummy.php:76 ../core/modules/family_pdf.php:136
 #: ../core/modules/pedigree_pdf.php:93
+#: ../themes/summerbreeze/templates/results.tpl:24
+#: ../themes/summerbreeze/templates/stats.tpl:39
+#: ../themes/summerbreeze/templates/surnames.tpl:22
 #: ../themes/default/templates/results.tpl:27
 #: ../themes/default/templates/stats.tpl:33
 #: ../themes/default/templates/surnames.tpl:23
@@ -154,6 +161,7 @@ msgid "Census"
 msgstr "Recensement"
 
 #: ../core/modules/family_pdf.php:329
+#: ../themes/summerbreeze/templates/family.tpl:97
 #: ../themes/default/templates/family.tpl:86
 msgid "Children"
 msgstr "Enfants"
@@ -172,6 +180,7 @@ msgstr "Enfants de %s et %s"
 msgid "Christening"
 msgstr "Baptême"
 
+#: ../themes/summerbreeze/templates/stats.tpl:63
 #: ../themes/default/templates/stats.tpl:53
 msgid "Citations"
 msgstr "Citations"
@@ -181,6 +190,9 @@ msgid "Clear"
 msgstr "Effacer"
 
 #: ../core/modules/commentadd.php:37 ../core/modules/comments.php:37
+#: ../themes/summerbreeze/templates/nav.tpl:46
+#: ../themes/summerbreeze/templates/nav.tpl:54
+#: ../themes/summerbreeze/templates/stats.tpl:67
 #: ../themes/default/templates/nav.tpl:52
 #: ../themes/default/templates/nav.tpl:55
 #: ../themes/default/templates/stats.tpl:57
@@ -188,7 +200,7 @@ msgid "Comments"
 msgstr ""
 
 #: ../core/modules/commentadd.php:41 ../core/modules/comments.php:41
-#, fuzzy, php-format
+#, php-format
 msgid "Comments for %s"
 msgstr "Rapports pour %s"
 
@@ -202,10 +214,13 @@ msgstr "Crémation"
 
 #: ../themes/default/templates/menu.tpl:9
 msgid "Database"
-msgstr "Base de données"
+msgstr ""
 
 #: ../core/f_dummy.php:84 ../core/modules/family_pdf.php:154
 #: ../core/modules/pedigree_pdf.php:94
+#: ../themes/summerbreeze/templates/results.tpl:25
+#: ../themes/summerbreeze/templates/stats.tpl:43
+#: ../themes/summerbreeze/templates/surnames.tpl:23
 #: ../themes/default/templates/results.tpl:28
 #: ../themes/default/templates/stats.tpl:36
 #: ../themes/default/templates/surnames.tpl:24
@@ -224,10 +239,12 @@ msgstr "Déc"
 msgid "Degree"
 msgstr "Diplôme"
 
+#: ../themes/summerbreeze/templates/reports.tpl:51
 #: ../themes/default/templates/reports.tpl:51
 msgid "Descendant"
 msgstr "Descendance"
 
+#: ../themes/summerbreeze/templates/reports.tpl:52
 #: ../themes/default/templates/reports.tpl:52
 msgid "Descendant PDF"
 msgstr "Descendance PDF"
@@ -238,6 +255,7 @@ msgstr "Descendance PDF"
 msgid "Descendant Report for %s"
 msgstr "Rapport de descendance de %s"
 
+#: ../themes/summerbreeze/templates/reports.tpl:45
 #: ../themes/default/templates/reports.tpl:45
 msgid "Descendant Reports"
 msgstr "Rapports de descendance"
@@ -258,14 +276,9 @@ msgstr "Divorce enregistré"
 msgid "Divorced"
 msgstr "Divorcé"
 
-#: ../core/f_dummy.php:133
+#: ../core/f_dummy.php:131
 msgid "Dutch"
 msgstr "Néerlandais"
-
-#: ../themes/default/templates/email.tpl:13
-#, fuzzy
-msgid "Edit"
-msgstr "Finit par"
 
 #: ../core/f_dummy.php:87
 msgid "Education"
@@ -275,20 +288,12 @@ msgstr "Education"
 msgid "Election"
 msgstr "Election"
 
-#: ../core/f_dummy.php:128
-#, fuzzy
-msgid "Email this page"
-msgstr "Envoi par e-mail à un ami"
-
-#: ../core/modules/email.php:35 ../core/modules/email.php:36
-#, fuzzy
-msgid "Email to a friend"
-msgstr "Envoi par e-mail à un ami"
-
 #: ../core/f_dummy.php:89
 msgid "Emigration"
 msgstr "Emigration"
 
+#: ../themes/summerbreeze/templates/search.tpl:83
+#: ../themes/summerbreeze/templates/search.tpl:127
 #: ../themes/default/templates/search.tpl:84
 #: ../themes/default/templates/search.tpl:128
 msgid "Ends with"
@@ -298,7 +303,7 @@ msgstr "Finit par"
 msgid "Engagement"
 msgstr "Fiancailles"
 
-#: ../core/f_dummy.php:131
+#: ../core/f_dummy.php:129
 msgid "English"
 msgstr "Anglais"
 
@@ -306,14 +311,18 @@ msgstr "Anglais"
 msgid "Event"
 msgstr "Evénement"
 
+#: ../themes/summerbreeze/templates/stats.tpl:35
 #: ../themes/default/templates/stats.tpl:30
 msgid "Events"
 msgstr "Evénements"
 
+#: ../themes/summerbreeze/templates/stats.tpl:31
 #: ../themes/default/templates/stats.tpl:26
 msgid "Families"
 msgstr "Familles"
 
+#: ../themes/summerbreeze/templates/nav.tpl:16
+#: ../themes/summerbreeze/templates/nav.tpl:18
 #: ../themes/default/templates/nav.tpl:17
 #: ../themes/default/templates/nav.tpl:20
 msgid "Family"
@@ -329,6 +338,7 @@ msgstr "Famille %s"
 msgid "Family Group Sheet for %s"
 msgstr "Feuille de groupe familial pour %s"
 
+#: ../themes/summerbreeze/templates/reports.tpl:13
 #: ../themes/default/templates/reports.tpl:13
 msgid "Family PDF"
 msgstr "Famille PDF"
@@ -338,11 +348,13 @@ msgstr "Famille PDF"
 msgid "Family Page for %s"
 msgstr "Page famille de %s"
 
+#: ../themes/summerbreeze/templates/reports.tpl:12
 #: ../themes/default/templates/reports.tpl:12
 msgid "Family Reports"
 msgstr "Rapports de famille"
 
 #: ../core/modules/family_pdf.php:172
+#: ../themes/summerbreeze/templates/family.tpl:24
 #: ../themes/default/templates/family.tpl:18
 msgid "Father"
 msgstr "Père"
@@ -351,7 +363,8 @@ msgstr "Père"
 msgid "Feb"
 msgstr "Févr"
 
-#: ../core/f_dummy.php:66 ../themes/default/templates/stats.tpl:19
+#: ../core/f_dummy.php:66 ../themes/summerbreeze/templates/stats.tpl:23
+#: ../themes/default/templates/stats.tpl:19
 msgid "Female"
 msgstr "Féminin"
 
@@ -359,7 +372,7 @@ msgstr "Féminin"
 msgid "First Communion"
 msgstr "Première communion"
 
-#: ../core/f_dummy.php:135
+#: ../core/f_dummy.php:133
 msgid "French"
 msgstr "Français"
 
@@ -367,6 +380,7 @@ msgstr "Français"
 msgid "Friends"
 msgstr "Relations"
 
+#: ../themes/summerbreeze/templates/commentadd.tpl:18
 #: ../themes/default/templates/commentadd.tpl:18
 #: ../themes/default/templates/comments.tpl:14
 msgid "From"
@@ -377,6 +391,7 @@ msgid "Funeral"
 msgstr "Funérailles"
 
 #: ../core/modules/family_pdf.php:128
+#: ../themes/summerbreeze/templates/family.tpl:20
 #: ../themes/default/templates/family.tpl:15
 msgid "Gender"
 msgstr "Sexe"
@@ -388,15 +403,16 @@ msgid "Genealogy"
 msgstr "Généalogie"
 
 #: ../core/modules/ahnentafel.php:87 ../core/modules/ahnentafel_pdf.php:110
-#: ../core/modules/descendant.php:119 ../core/modules/descendant_pdf.php:97
+#: ../core/modules/descendant.php:111 ../core/modules/descendant_pdf.php:97
 #, php-format
 msgid "Generation %s"
 msgstr "Génération %s"
 
-#: ../core/f_dummy.php:134
+#: ../core/f_dummy.php:132
 msgid "German"
 msgstr "Allemand"
 
+#: ../themes/summerbreeze/templates/search.tpl:26
 #: ../themes/default/templates/search.tpl:27
 msgid "Given Name"
 msgstr "Prénom"
@@ -406,12 +422,12 @@ msgid "Graduation"
 msgstr "Diplôme"
 
 #: ../core/f_report.php:108
-#, fuzzy, php-format
+#, php-format
 msgid "He died %s in %s."
 msgstr "Il est décédé le %s à %s."
 
 #: ../core/f_report.php:109
-#, fuzzy, php-format
+#, php-format
 msgid "He died %s."
 msgstr "Il est décédé le %s."
 
@@ -431,12 +447,12 @@ msgid "He died on %s."
 msgstr "Il est décédé le %s."
 
 #: ../core/f_report.php:58
-#, fuzzy, php-format
+#, php-format
 msgid "He was born %s in %s."
 msgstr "Il est né le %s à %s."
 
 #: ../core/f_report.php:59
-#, fuzzy, php-format
+#, php-format
 msgid "He was born %s."
 msgstr "Il est né le %s."
 
@@ -467,6 +483,7 @@ msgstr "N° id."
 msgid "Immigration"
 msgstr "Immigration"
 
+#: ../themes/summerbreeze/templates/stats.tpl:15
 #: ../themes/default/templates/stats.tpl:13
 msgid "Individuals"
 msgstr "Individus"
@@ -483,6 +500,8 @@ msgstr "Juil"
 msgid "Jun"
 msgstr "Juin"
 
+#: ../themes/summerbreeze/templates/search.tpl:68
+#: ../themes/summerbreeze/templates/search.tpl:112
 #: ../themes/default/templates/search.tpl:69
 #: ../themes/default/templates/search.tpl:113
 msgid "Keywords"
@@ -494,17 +513,23 @@ msgstr "Propriété foncière"
 
 #: ../themes/default/templates/menu.tpl:21
 msgid "Language"
-msgstr "Langue"
+msgstr ""
 
 #: ../core/f_dummy.php:97
 msgid "Last Known Addr"
 msgstr "Dernière adresse connue"
 
+#: ../themes/summerbreeze/templates/search.tpl:65
 #: ../themes/default/templates/search.tpl:66
 msgid "Location Search"
 msgstr "Recherche de lieu"
 
-#: ../core/f_dummy.php:65 ../themes/default/templates/stats.tpl:16
+#: ../themes/summerbreeze/templates/index.tpl:23
+msgid "Login"
+msgstr ""
+
+#: ../core/f_dummy.php:65 ../themes/summerbreeze/templates/stats.tpl:19
+#: ../themes/default/templates/stats.tpl:16
 msgid "Male"
 msgstr "Masculin"
 
@@ -513,6 +538,7 @@ msgid "Mar"
 msgstr "Mars"
 
 #: ../core/f_dummy.php:42 ../core/f_dummy.php:98
+#: ../themes/summerbreeze/templates/stats.tpl:47
 #: ../themes/default/templates/stats.tpl:39
 msgid "Marriage"
 msgstr "Mariage"
@@ -537,6 +563,8 @@ msgstr "Autorisation de mariage"
 msgid "Marriage Settlement"
 msgstr "Contrat de mariage"
 
+#: ../themes/summerbreeze/templates/search.tpl:76
+#: ../themes/summerbreeze/templates/search.tpl:120
 #: ../themes/default/templates/search.tpl:77
 #: ../themes/default/templates/search.tpl:121
 msgid "Match Keywords"
@@ -567,11 +595,15 @@ msgid "Military Service"
 msgstr "Service militaire"
 
 #: ../core/modules/family_pdf.php:178
+#: ../themes/summerbreeze/templates/family.tpl:28
 #: ../themes/default/templates/family.tpl:20
 msgid "Mother"
 msgstr "Mère"
 
-#: ../core/modules/multimedia.php:37 ../themes/default/templates/nav.tpl:43
+#: ../core/modules/multimedia.php:37
+#: ../themes/summerbreeze/templates/nav.tpl:38
+#: ../themes/summerbreeze/templates/nav.tpl:40
+#: ../themes/default/templates/nav.tpl:43
 #: ../themes/default/templates/nav.tpl:46
 msgid "Multimedia"
 msgstr "Multimédia"
@@ -581,11 +613,14 @@ msgstr "Multimédia"
 msgid "Multimedia for %s"
 msgstr "Fichiers multimédia pour %s"
 
+#: ../themes/summerbreeze/templates/results.tpl:23
+#: ../themes/summerbreeze/templates/surnames.tpl:21
 #: ../themes/default/templates/results.tpl:26
 #: ../themes/default/templates/surnames.tpl:22
 msgid "Name"
 msgstr "Nom"
 
+#: ../themes/summerbreeze/templates/search.tpl:23
 #: ../themes/default/templates/search.tpl:24
 msgid "Name Search"
 msgstr "Recherche de nom"
@@ -598,19 +633,25 @@ msgstr "Nationalité"
 msgid "Naturalization"
 msgstr "Naturalisation"
 
+#: ../themes/summerbreeze/templates/results.tpl:39
 #: ../themes/default/templates/results.tpl:41
 msgid "No matching records were found."
 msgstr "Aucun enregistrement correspondant n'a été trouvé."
 
+#: ../themes/summerbreeze/templates/results.tpl:16
 #: ../themes/default/templates/results.tpl:19
 msgid "No search parameters were specified."
 msgstr "Aucun paramétre de recherche n'est fourni."
 
+#: ../themes/summerbreeze/templates/search.tpl:109
 #: ../themes/default/templates/search.tpl:110
 msgid "Note Search"
 msgstr "Recherche de note"
 
 #: ../core/modules/family_pdf.php:217 ../core/modules/family_pdf.php:317
+#: ../themes/summerbreeze/templates/family.tpl:53
+#: ../themes/summerbreeze/templates/family.tpl:91
+#: ../themes/summerbreeze/templates/stats.tpl:55
 #: ../themes/default/templates/family.tpl:39
 #: ../themes/default/templates/family.tpl:74
 #: ../themes/default/templates/stats.tpl:46
@@ -625,6 +666,8 @@ msgstr "Nov"
 msgid "Number of Children"
 msgstr "Nombre d'enfants"
 
+#: ../themes/summerbreeze/templates/reports.tpl:32
+#: ../themes/summerbreeze/templates/reports.tpl:55
 #: ../themes/default/templates/reports.tpl:32
 #: ../themes/default/templates/reports.tpl:55
 msgid "Number of Generations"
@@ -634,11 +677,14 @@ msgstr "Générations"
 msgid "Number of Marriages"
 msgstr "Nombre de mariages"
 
+#: ../themes/summerbreeze/templates/results.tpl:19
+#: ../themes/summerbreeze/templates/surnames.tpl:17
 #: ../themes/default/templates/results.tpl:22
 #: ../themes/default/templates/surnames.tpl:18
 msgid "Number of individuals listed"
 msgstr "Nombre d'individus listés"
 
+#: ../themes/summerbreeze/templates/surnames.tpl:37
 #: ../themes/default/templates/surnames.tpl:39
 msgid "Number of surnames listed"
 msgstr "Nombre de noms de famille listés"
@@ -655,6 +701,7 @@ msgstr "Oct"
 msgid "Ordination"
 msgstr "Ordination"
 
+#: ../themes/summerbreeze/templates/stats.tpl:51
 #: ../themes/default/templates/stats.tpl:42
 msgid "Other"
 msgstr "Autres"
@@ -667,15 +714,19 @@ msgstr ""
 msgid "Partners"
 msgstr "Partenaires"
 
-#: ../core/modules/pedigree.php:35 ../themes/default/templates/nav.tpl:24
+#: ../core/modules/pedigree.php:35 ../themes/summerbreeze/templates/nav.tpl:22
+#: ../themes/summerbreeze/templates/nav.tpl:24
+#: ../themes/default/templates/nav.tpl:24
 #: ../themes/default/templates/nav.tpl:27
 msgid "Pedigree"
 msgstr "Arbre d'ascendance"
 
+#: ../themes/summerbreeze/templates/reports.tpl:18
 #: ../themes/default/templates/reports.tpl:18
 msgid "Pedigree PDF"
 msgstr "Arbre d'ascendance PDF"
 
+#: ../themes/summerbreeze/templates/reports.tpl:17
 #: ../themes/default/templates/reports.tpl:17
 msgid "Pedigree Reports"
 msgstr "Rapports d'ascendance"
@@ -685,20 +736,28 @@ msgstr "Rapports d'ascendance"
 msgid "Pedigree for %s"
 msgstr "Ascendance de %s"
 
+#: ../themes/summerbreeze/templates/search.tpl:81
+#: ../themes/summerbreeze/templates/search.tpl:125
 #: ../themes/default/templates/search.tpl:82
 #: ../themes/default/templates/search.tpl:126
 msgid "Phrase"
 msgstr "Phrase"
 
+#: ../themes/summerbreeze/templates/results.tpl:17
 #: ../themes/default/templates/results.tpl:20
 msgid "Please go back to the search page and enter some search criteria."
 msgstr ""
 
+#: ../themes/summerbreeze/templates/commentadd.tpl:15
 #: ../themes/default/templates/commentadd.tpl:15
 msgid ""
 "Please note that it will not be visible in the comment list until it has "
 "been reviewed and approved by an administrator."
 msgstr ""
+
+#: ../core/f_dummy.php:134
+msgid "Polish"
+msgstr "Poli"
 
 #: ../core/f_dummy.php:110
 msgid "Possessions"
@@ -709,14 +768,15 @@ msgstr "Biens"
 msgid "Posted"
 msgstr "Testament"
 
-#: ../core/f_dummy.php:126
-msgid "Print"
-msgstr "Imprimer"
+#: ../themes/summerbreeze/templates/comments.tpl:17
+msgid "Posted by"
+msgstr "Testament"
 
 #: ../core/f_dummy.php:111
 msgid "Probate"
 msgstr "Testament"
 
+#: ../themes/summerbreeze/templates/family.tpl:47
 #: ../themes/default/templates/family.tpl:35
 msgid "Reference Number"
 msgstr ""
@@ -725,7 +785,10 @@ msgstr ""
 msgid "Religion"
 msgstr "Religion"
 
-#: ../core/modules/reports.php:44 ../themes/default/templates/nav.tpl:31
+#: ../core/modules/reports.php:44 ../themes/summerbreeze/templates/nav.tpl:29
+#: ../themes/summerbreeze/templates/nav.tpl:31
+#: ../themes/summerbreeze/templates/nav.tpl:33
+#: ../themes/default/templates/nav.tpl:31
 #: ../themes/default/templates/nav.tpl:34
 #: ../themes/default/templates/nav.tpl:38
 msgid "Reports"
@@ -748,7 +811,10 @@ msgstr "Réinitialiser"
 msgid "Residence"
 msgstr "Résidence"
 
-#: ../core/modules/results.php:59 ../themes/default/templates/results.tpl:13
+#: ../core/modules/results.php:59
+#: ../themes/summerbreeze/templates/results.tpl:11
+#: ../themes/summerbreeze/templates/search.tpl:11
+#: ../themes/default/templates/results.tpl:13
 #: ../themes/default/templates/search.tpl:11
 msgid "Results"
 msgstr "Résultats"
@@ -757,6 +823,8 @@ msgstr "Résultats"
 msgid "Retirement"
 msgstr "Retraite"
 
+#: ../themes/summerbreeze/templates/commentadd.tpl:12
+#: ../themes/summerbreeze/templates/commentadd.tpl:27
 #: ../themes/default/templates/commentadd.tpl:12
 #: ../themes/default/templates/commentadd.tpl:27
 msgid "Return to comment list"
@@ -768,6 +836,10 @@ msgstr "N° SS"
 
 #: ../core/f_dummy.php:123 ../core/modules/search.php:48
 #: ../core/modules/search.php:49 ../core/modules/search.php:52
+#: ../themes/summerbreeze/templates/menu.tpl:8
+#: ../themes/summerbreeze/templates/results.tpl:10
+#: ../themes/summerbreeze/templates/search.tpl:7
+#: ../themes/summerbreeze/templates/search.tpl:10
 #: ../themes/default/templates/menu.tpl:11
 #: ../themes/default/templates/results.tpl:11
 #: ../themes/default/templates/search.tpl:7
@@ -790,12 +862,12 @@ msgid "Sep"
 msgstr "Sept"
 
 #: ../core/f_report.php:121
-#, fuzzy, php-format
+#, php-format
 msgid "She died %s in %s."
 msgstr "Elle est décédée le %s à %s."
 
 #: ../core/f_report.php:122
-#, fuzzy, php-format
+#, php-format
 msgid "She died %s."
 msgstr "Elle est décédée le %s."
 
@@ -815,12 +887,12 @@ msgid "She died on %s."
 msgstr "Elle est décédée le %s."
 
 #: ../core/f_report.php:71
-#, fuzzy, php-format
+#, php-format
 msgid "She was born %s in %s."
 msgstr "Elle est née le %s à %s."
 
 #: ../core/f_report.php:72
-#, fuzzy, php-format
+#, php-format
 msgid "She was born %s."
 msgstr "Elle est née le %s."
 
@@ -843,49 +915,60 @@ msgstr "Elle est née le %s."
 msgid "Social Security Number"
 msgstr "N° sécurité sociale"
 
-#: ../core/f_dummy.php:138 ../themes/default/templates/family.tpl:107
+#: ../core/f_dummy.php:137 ../themes/summerbreeze/templates/family.tpl:119
+#: ../themes/default/templates/family.tpl:107
 msgid "Source Citations"
 msgstr "Citations de source"
 
 #: ../core/modules/family_pdf.php:143 ../core/modules/family_pdf.php:161
 #: ../core/modules/family_pdf.php:204 ../core/modules/family_pdf.php:255
 #: ../core/modules/family_pdf.php:272 ../core/modules/family_pdf.php:303
-#: ../core/modules/family_pdf.php:355 ../themes/default/templates/stats.tpl:50
+#: ../core/modules/family_pdf.php:355
+#: ../themes/summerbreeze/templates/stats.tpl:59
+#: ../themes/default/templates/stats.tpl:50
 msgid "Sources"
 msgstr "Sources"
 
-#: ../core/f_dummy.php:132
+#: ../core/f_dummy.php:130
 msgid "Spanish"
 msgstr "Espagnol"
 
 #: ../core/modules/family_pdf.php:242
+#: ../themes/summerbreeze/templates/family.tpl:64
 #: ../themes/default/templates/family.tpl:51
 msgid "Spouse/Partner"
 msgstr "Conjoint/Partenaire"
 
+#: ../themes/summerbreeze/templates/search.tpl:82
+#: ../themes/summerbreeze/templates/search.tpl:126
 #: ../themes/default/templates/search.tpl:83
 #: ../themes/default/templates/search.tpl:127
 msgid "Starts with"
 msgstr "Commence par"
 
 #: ../core/modules/stats.php:30 ../core/modules/stats.php:31
-#: ../core/modules/stats.php:101 ../themes/default/templates/menu.tpl:17
+#: ../core/modules/stats.php:101 ../themes/summerbreeze/templates/menu.tpl:10
+#: ../themes/default/templates/menu.tpl:17
 msgid "Statistics"
 msgstr "Statistiques"
 
+#: ../themes/summerbreeze/templates/comments.tpl:13
 #: ../themes/default/templates/comments.tpl:11
 msgid "Submit a comment"
 msgstr ""
 
+#: ../themes/summerbreeze/templates/search.tpl:27
 #: ../themes/default/templates/search.tpl:28
 msgid "Surname"
 msgstr "Nom de famille"
 
 #: ../core/modules/surnames.php:35 ../core/modules/surnames.php:68
-#: ../core/modules/surnames.php:74 ../themes/default/templates/menu.tpl:14
+#: ../core/modules/surnames.php:74 ../themes/summerbreeze/templates/menu.tpl:9
+#: ../themes/default/templates/menu.tpl:14
 msgid "Surname List"
 msgstr "Liste des noms de famille"
 
+#: ../themes/summerbreeze/templates/stats.tpl:11
 #: ../themes/default/templates/stats.tpl:9
 msgid "Surnames"
 msgstr "Noms de famille"
@@ -894,14 +977,12 @@ msgstr "Noms de famille"
 msgid "THE EMAIL ADDRESS YOU ENTERED IS NOT VALID"
 msgstr ""
 
+#: ../themes/summerbreeze/templates/commentadd.tpl:14
 #: ../themes/default/templates/commentadd.tpl:14
 msgid "The comment you submitted is show below."
 msgstr ""
 
-#: ../themes/default/templates/email.tpl:32
-msgid "The following link will be emailed"
-msgstr ""
-
+#: ../themes/summerbreeze/templates/multimedia.tpl:11
 #: ../themes/default/templates/multimedia.tpl:11
 msgid "This feature has not been implemented yet."
 msgstr "Cette fonctionnalité n'est pas encore disponible."
@@ -921,9 +1002,14 @@ msgid "Title"
 msgstr "Titre"
 
 #: ../core/f_dummy.php:43 ../core/f_dummy.php:67 ../core/f_report.php:199
-#: ../core/f_report.php:200 ../themes/default/templates/stats.tpl:22
+#: ../core/f_report.php:200 ../themes/summerbreeze/templates/stats.tpl:27
+#: ../themes/default/templates/stats.tpl:22
 msgid "Unknown"
 msgstr "Inconnu"
+
+#: ../themes/summerbreeze/templates/search.tpl:37
+msgid "Use Soundex?"
+msgstr ""
 
 #: ../core/f_dummy.php:62
 msgid "Wife"
@@ -937,28 +1023,21 @@ msgstr "Testament"
 msgid "YOU MUST ENTER AN EMAIL ADDRESS"
 msgstr ""
 
+#: ../themes/summerbreeze/templates/commentadd.tpl:33
 #: ../themes/default/templates/commentadd.tpl:33
 msgid "Your comments"
 msgstr ""
 
+#: ../themes/summerbreeze/templates/commentadd.tpl:29
 #: ../themes/default/templates/commentadd.tpl:29
-#: ../themes/default/templates/email.tpl:39
 msgid "Your email address"
 msgstr ""
 
-#: ../themes/default/templates/email.tpl:36
-msgid "Your friend's email address"
-msgstr ""
-
-#: ../themes/default/templates/email.tpl:42
-msgid "Your full name"
-msgstr ""
-
-#: ../core/f_dummy.php:141
+#: ../core/f_dummy.php:140
 msgid "abt"
 msgstr "vers"
 
-#: ../core/f_dummy.php:143
+#: ../core/f_dummy.php:142
 msgid "aft"
 msgstr "ap."
 
@@ -966,30 +1045,36 @@ msgstr "ap."
 msgid "and"
 msgstr "et"
 
-#: ../core/modules/descendant.php:101 ../core/modules/family_pdf.php:245
+#: ../core/modules/descendant.php:98 ../core/modules/family_pdf.php:245
+#: ../themes/summerbreeze/templates/family.tpl:68
+#: ../themes/summerbreeze/templates/family.tpl:106
+#: ../themes/summerbreeze/templates/pedigree.indiv.tpl:14
 #: ../themes/default/templates/family.tpl:55
 #: ../themes/default/templates/family.tpl:96
 #: ../themes/default/templates/pedigree.indiv.tpl:16
 msgid "b."
 msgstr "°"
 
-#: ../core/f_dummy.php:144
+#: ../core/f_dummy.php:143
 msgid "bef"
 msgstr "av."
 
-#: ../core/f_dummy.php:145
+#: ../core/f_dummy.php:144
 msgid "bet"
 msgstr "entre"
 
-#: ../core/f_dummy.php:146
+#: ../core/f_dummy.php:145
 msgid "cal"
 msgstr "Cal"
 
-#: ../core/f_dummy.php:142
+#: ../core/f_dummy.php:141
 msgid "cir"
 msgstr "ca"
 
-#: ../core/modules/descendant.php:104 ../core/modules/family_pdf.php:246
+#: ../core/modules/descendant.php:99 ../core/modules/family_pdf.php:246
+#: ../themes/summerbreeze/templates/family.tpl:71
+#: ../themes/summerbreeze/templates/family.tpl:109
+#: ../themes/summerbreeze/templates/pedigree.indiv.tpl:15
 #: ../themes/default/templates/family.tpl:58
 #: ../themes/default/templates/family.tpl:99
 #: ../themes/default/templates/pedigree.indiv.tpl:19
@@ -1076,6 +1161,12 @@ msgstr "%s a épousé %s le %s."
 msgid "male %s married %s."
 msgstr "%s a épousé %s."
 
+#: ../themes/summerbreeze/templates/comments.tpl:18
+msgid "on"
+msgstr ""
+
+#: ../themes/summerbreeze/templates/search.tpl:68
+#: ../themes/summerbreeze/templates/search.tpl:112
 #: ../themes/default/templates/search.tpl:69
 #: ../themes/default/templates/search.tpl:113
 msgid "separate with spaces"

@@ -27,5 +27,9 @@ msgfmt --output-file=pl_PL/LC_MESSAGES/messages.mo pl_PL/LC_MESSAGES/messages.po
 msgmerge -U --backup=numbered de_DE/LC_MESSAGES/messages.po messages.po
 msgfmt --output-file=de_DE/LC_MESSAGES/messages.mo de_DE/LC_MESSAGES/messages.po
 
+# Portugese
+msgmerge -U --backup=numbered pt_BR/LC_MESSAGES/messages.po messages.po
+msgfmt --output-file=pt_BR/LC_MESSAGES/messages.mo pt_BR/LC_MESSAGES/messages.po
+
 # Cleanup
 rm -rf messages.po
