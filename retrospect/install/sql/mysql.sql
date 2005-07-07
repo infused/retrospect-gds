@@ -105,7 +105,7 @@ text                     LONGTEXT,
 );
 
 CREATE TABLE rgds_options (
-opt_id                   INTEGER NOT NULL,
+opt_id                   INTEGER NOT NULL AUTO_INCREMENT,
 opt_key                  VARCHAR(20) NOT NULL,
 opt_val                  VARCHAR(250) NOT NULL,
                  PRIMARY KEY (opt_id)
@@ -126,7 +126,7 @@ uid                      VARCHAR(16) NOT NULL,
 pwd                      VARCHAR(32) NOT NULL,
 fullname                 VARCHAR(100) NOT NULL,
 email                    VARCHAR(100) NOT NULL,
-grp                      INTEGER NOT NULL,
+grp                      INTEGER NOT NULL DEFAULT 1,
 created                  DATETIME,
 last                     DATETIME,
 pwd_expired              TINYINT NOT NULL,
@@ -148,29 +148,31 @@ INSERT INTO  rgds_user VALUES  ('1', 'admin', '40be4e59b9a2a2b5dffb918c0e86b3d7'
 
 INSERT INTO  rgds_usertype VALUES  ('1', 'Site Administrator');
 
-INSERT INTO  rgds_usertype VALUES  ('2', 'User');
+INSERT INTO  rgds_options VALUES  ('', 'default_lang', 'en_US');
 
-INSERT INTO  rgds_options VALUES  ('1', 'default_lang', 'en_US');
+INSERT INTO  rgds_options VALUES  ('', 'allow_lang_change', '1');
 
-INSERT INTO  rgds_options VALUES  ('2', 'allow_lang_change', '1');
+INSERT INTO  rgds_options VALUES  ('', 'default_page', 'surnames');
 
-INSERT INTO  rgds_options VALUES  ('3', 'default_page', 'surnames');
+INSERT INTO  rgds_options VALUES  ('', 'translate_dates', '1');
 
-INSERT INTO  rgds_options VALUES  ('4', 'translate_dates', '1');
+INSERT INTO  rgds_options VALUES  ('', 'debug', '0');
 
-INSERT INTO  rgds_options VALUES  ('5', 'debug', '0');
+INSERT INTO  rgds_options VALUES  ('', 'meta_copyright', '');
 
-INSERT INTO  rgds_options VALUES  ('6', 'meta_copyright', '');
+INSERT INTO  rgds_options VALUES  ('', 'meta_keywords', 'Genealogy,Family History');
 
-INSERT INTO  rgds_options VALUES  ('7', 'meta_keywords', 'Genealogy,Family History');
+INSERT INTO  rgds_options VALUES  ('', 'date_format', '1');
 
-INSERT INTO  rgds_options VALUES  ('8', 'date_format', '1');
+INSERT INTO  rgds_options VALUES  ('', 'sort_children', '0');
 
-INSERT INTO  rgds_options VALUES  ('9', 'sort_children', '0');
+INSERT INTO  rgds_options VALUES  ('', 'sort_marriages', '0');
 
-INSERT INTO  rgds_options VALUES  ('10', 'sort_marriages', '0');
+INSERT INTO  rgds_options VALUES  ('', 'sort_events', '0');
 
-INSERT INTO  rgds_options VALUES  ('11', 'sort_events', '0');
+INSERT INTO  rgds_options VALUES  ('', 'allow_comments', '1');
+
+INSERT INTO  rgds_options VALUES  ('', 'gallery_plugin', '0');
 
 INSERT INTO  rgds_language VALUES  ('1', 'en_US', 'iso-8859-1', 'English');
 
@@ -181,4 +183,8 @@ INSERT INTO  rgds_language VALUES  ('3', 'de_DE', 'iso-8859-1', 'German');
 INSERT INTO  rgds_language VALUES  ('4', 'nl_NL', 'iso-8859-1', 'Dutch');
 
 INSERT INTO  rgds_language VALUES  ('5', 'fr_FR', 'iso-8859-1', 'French');
+
+INSERT INTO  rgds_language VALUES  ('6', 'pl_PL', 'iso-8859-2', 'Polish');
+
+INSERT INTO  rgds_language VALUES  ('7', 'pt_BR', 'iso-8859-1', 'Portuguese');
 
