@@ -376,4 +376,8 @@
 	  <descr>Add polish language</descr>
 	  <query>INSERT INTO language VALUES ('6', 'pl_PL', 'iso-8859-2', 'Polish')</query>
 	</sql>
+	<sql prefixmethod="auto">
+	  <descr>Add portuguese language</descr>
+	  <query>INSERT INTO language VALUES ('7', 'pt_BR', 'iso-8859-1', 'Portuguese')</query>
+	</sql>
 </schema>
