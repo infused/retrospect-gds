@@ -163,15 +163,17 @@
 	$smarty->assign_by_ref('lang', $_SESSION['language']);
 
 	# Load the gallery plugin if available
-	$smarty->assign('gallery_plugin', $options->GetOption('gallery_plugin'));
-	if ($options->GetOption('gallery_plugin')) {
-		require(PLUGIN_PATH.$options->GetOption('gallery_plugin'));
-		if (isset($_GET['id'])) {
-			$gp = new GalleryPlugin;
-			$smarty->assign('media_count', $gp->media_count($_GET['id']));
-			$smarty->assign('media_link', $gp->media_link($_GET['id']));
-		}
-	}
+	if (!defined('_RGDS_ADMIN')) {
+  	$smarty->assign('gallery_plugin', $options->GetOption('gallery_plugin'));
+  	if ($options->GetOption('gallery_plugin')) {
+  		require(PLUGIN_PATH.$options->GetOption('gallery_plugin'));
+  		if (isset($_GET['id'])) {
+  			$gp = new GalleryPlugin;
+  			$smarty->assign('media_count', $gp->media_count($_GET['id']));
+  			$smarty->assign('media_link', $gp->media_link($_GET['id']));
+  		}
+  	}
+  }
 	
 	# Check for comments
 	if (isset($_GET['id'])) {
