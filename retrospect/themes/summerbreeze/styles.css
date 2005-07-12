@@ -70,7 +70,7 @@ form {
 
 #header {
 	height: 70px;
-	background: #2157d2 url("images/paint.png") repeat-x bottom; 
+	background: #1363cc url("images/paint.png") repeat-x bottom; 
 }
 #header #logo {
   height: 70px;
@@ -234,5 +234,14 @@ form {
 	background: #F9F9F9;
 	border: 1px solid #ccc;
 	border-top-style: none;
+	min-height: 420px;
+}
+.tab-page2 {
+	clear: both;
+	margin: 0 !important;
+	margin-top: -10px;
+	padding: 10px;
+	background: #F9F9F9;
+	border: 1px solid #ccc;
 	min-height: 420px;
 }

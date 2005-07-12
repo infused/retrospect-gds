@@ -5,7 +5,7 @@
 */
 -->
 <h1>{$content_title}</h1>
-
+<div class="tab-page2">
 <table cellpadding="0" cellspacing="0" width="100%">
   <tr>
     <td class="label">{php}t("Surnames"){/php}:</td>
@@ -13,19 +13,19 @@
   </tr>
   <tr>
     <td class="label">{php}t("Individuals"){/php}:</td>
-    <td class="fact2">{$cnt_intd|number_format}</td>
+    <td class="fact2">{$cnt_indiv|number_format}</td>
   </tr>
   <tr>
     <td class="label">&nbsp;&nbsp;&nbsp;{php}t("Male"){/php}:</td>
-    <td class="fact2">{$cnt_intd_male|number_format}</td>
+    <td class="fact2">{$cnt_indiv_male|number_format}</td>
   </tr>
   <tr>
     <td class="label">&nbsp;&nbsp;&nbsp;{php}t("Female"){/php}:</td>
-    <td class="fact2">{$cnt_intd_female|number_format}</td>
+    <td class="fact2">{$cnt_indiv_female|number_format}</td>
   </tr>
   <tr>
     <td class="label">&nbsp;&nbsp;&nbsp;{php}t("Unknown"){/php}:</td>
-    <td class="fact2">{$cnt_intd_unknown|number_format}</td>
+    <td class="fact2">{$cnt_indiv_unknown|number_format}</td>
   </tr>
   <tr>
     <td class="label">{php}t("Families"){/php}:</td>
@@ -68,3 +68,4 @@
     <td class="fact2">{$cnt_comments|number_format}</td>
   </tr>
 </table>
+</div>
