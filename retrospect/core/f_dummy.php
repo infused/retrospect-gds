@@ -74,6 +74,7 @@
 		gettext("Bar Mitzah");
 		gettext("Bas Mitzah");
 		gettext("Birth");
+		gettext("Alt. Birth");
 		gettext("Blessing");
 		gettext("Burial");
 		gettext("Caste");
@@ -82,6 +83,7 @@
 		gettext("Confirmation");
 		gettext("Cremation");
 		gettext("Death");
+		gettext("Alt. Death");
 		gettext("Degree");
 		gettext("Description");
 		gettext("Education");
