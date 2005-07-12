@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: messages\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-06 17:19-0700\n"
+"POT-Creation-Date: 2005-07-12 11:19-0700\n"
 "PO-Revision-Date: 2005-06-20 13:12+0200\n"
 "Last-Translator: Michal Rudolf <mrudolf@kdewebdev.org>\n"
 "Language-Team: Polish <kdei18n-pl-devel@lists.sourceforge.net>\n"
@@ -47,7 +47,7 @@ msgstr ", rodzice: %s i %s."
 msgid ", son of %s."
 msgstr ", rodzic: %s."
 
-#: ../core/f_dummy.php:122
+#: ../core/f_dummy.php:124
 msgid "ALL"
 msgstr "WSZYSTKO"
 
@@ -89,6 +89,16 @@ msgstr "alias"
 msgid "All"
 msgstr "Wszystkie"
 
+#: ../core/f_dummy.php:77
+#, fuzzy
+msgid "Alt. Birth"
+msgstr "Urodziny"
+
+#: ../core/f_dummy.php:86
+#, fuzzy
+msgid "Alt. Death"
+msgstr "Śmierć"
+
 #: ../themes/summerbreeze/templates/reports.tpl:22
 #: ../themes/default/templates/reports.tpl:22
 msgid "Ancestor Reports"
@@ -109,7 +119,7 @@ msgstr "Anulowanie"
 msgid "Any"
 msgstr "Dowolne"
 
-#: ../core/f_dummy.php:126
+#: ../core/f_dummy.php:128
 msgid "Apply"
 msgstr "Zastosuj"
 
@@ -148,19 +158,19 @@ msgstr "Bas Micwa"
 msgid "Birth"
 msgstr "Urodziny"
 
-#: ../core/f_dummy.php:77
+#: ../core/f_dummy.php:78
 msgid "Blessing"
 msgstr "Błogosławieństwo"
 
-#: ../core/f_dummy.php:78
+#: ../core/f_dummy.php:79
 msgid "Burial"
 msgstr "Pogrzeb"
 
-#: ../core/f_dummy.php:79
+#: ../core/f_dummy.php:80
 msgid "Caste"
 msgstr "Kasta"
 
-#: ../core/f_dummy.php:80
+#: ../core/f_dummy.php:81
 msgid "Census"
 msgstr "Cenzus"
 
@@ -180,7 +190,7 @@ msgstr "Dzieci %s"
 msgid "Children of %s and %s"
 msgstr "Dzieci pary %s i %s"
 
-#: ../core/f_dummy.php:81
+#: ../core/f_dummy.php:82
 msgid "Christening"
 msgstr "Chrzest"
 
@@ -189,7 +199,7 @@ msgstr "Chrzest"
 msgid "Citations"
 msgstr "Cytaty"
 
-#: ../core/f_dummy.php:125
+#: ../core/f_dummy.php:127
 msgid "Clear"
 msgstr "Wyczyść"
 
@@ -208,11 +218,11 @@ msgstr "Komentarze"
 msgid "Comments for %s"
 msgstr "Komentarze dla: %s"
 
-#: ../core/f_dummy.php:82
+#: ../core/f_dummy.php:83
 msgid "Confirmation"
 msgstr "Konfirmacja"
 
-#: ../core/f_dummy.php:83
+#: ../core/f_dummy.php:84
 msgid "Cremation"
 msgstr "Kremacja"
 
@@ -220,7 +230,7 @@ msgstr "Kremacja"
 msgid "Database"
 msgstr ""
 
-#: ../core/f_dummy.php:84 ../core/modules/family_pdf.php:154
+#: ../core/f_dummy.php:85 ../core/modules/family_pdf.php:154
 #: ../core/modules/pedigree_pdf.php:94
 #: ../themes/summerbreeze/templates/results.tpl:25
 #: ../themes/summerbreeze/templates/stats.tpl:43
@@ -239,7 +249,7 @@ msgstr "Śmierć małżonka"
 msgid "Dec"
 msgstr "grudnia"
 
-#: ../core/f_dummy.php:85
+#: ../core/f_dummy.php:87
 msgid "Degree"
 msgstr "Stopień"
 
@@ -264,7 +274,7 @@ msgstr "Raport potomków: %s"
 msgid "Descendant Reports"
 msgstr "Raporty potomków"
 
-#: ../core/f_dummy.php:86
+#: ../core/f_dummy.php:88
 msgid "Description"
 msgstr "Opis"
 
@@ -280,19 +290,19 @@ msgstr "Wniosek o rozwód"
 msgid "Divorced"
 msgstr "Rozwiedziony"
 
-#: ../core/f_dummy.php:131
+#: ../core/f_dummy.php:133
 msgid "Dutch"
 msgstr "Holenderski"
 
-#: ../core/f_dummy.php:87
+#: ../core/f_dummy.php:89
 msgid "Education"
 msgstr "Edukacja"
 
-#: ../core/f_dummy.php:88
+#: ../core/f_dummy.php:90
 msgid "Election"
 msgstr "Wybór"
 
-#: ../core/f_dummy.php:89
+#: ../core/f_dummy.php:91
 msgid "Emigration"
 msgstr "Emigracja"
 
@@ -307,11 +317,11 @@ msgstr "Kończy się na"
 msgid "Engagement"
 msgstr "Zaręczyny"
 
-#: ../core/f_dummy.php:129
+#: ../core/f_dummy.php:131
 msgid "English"
 msgstr "Angielski"
 
-#: ../core/f_dummy.php:90
+#: ../core/f_dummy.php:92
 msgid "Event"
 msgstr "Zdarzenie"
 
@@ -372,11 +382,11 @@ msgstr "lutego"
 msgid "Female"
 msgstr "Kobieta"
 
-#: ../core/f_dummy.php:91
+#: ../core/f_dummy.php:93
 msgid "First Communion"
 msgstr "Pierwsza komunia"
 
-#: ../core/f_dummy.php:133
+#: ../core/f_dummy.php:135
 msgid "French"
 msgstr "Francuski"
 
@@ -390,7 +400,7 @@ msgstr "Przyjaciele"
 msgid "From"
 msgstr "Od"
 
-#: ../core/f_dummy.php:92
+#: ../core/f_dummy.php:94
 msgid "Funeral"
 msgstr "Pogrzeb"
 
@@ -412,7 +422,7 @@ msgstr "Genealogia"
 msgid "Generation %s"
 msgstr "Pokolenie %s"
 
-#: ../core/f_dummy.php:132
+#: ../core/f_dummy.php:134
 msgid "German"
 msgstr "Niemiecki"
 
@@ -421,7 +431,7 @@ msgstr "Niemiecki"
 msgid "Given Name"
 msgstr "Imię"
 
-#: ../core/f_dummy.php:93
+#: ../core/f_dummy.php:95
 msgid "Graduation"
 msgstr "Awans"
 
@@ -479,11 +489,11 @@ msgstr "Urodzony %s."
 msgid "Husband"
 msgstr "Mąż"
 
-#: ../core/f_dummy.php:94
+#: ../core/f_dummy.php:96
 msgid "ID Number"
 msgstr "Numer ID"
 
-#: ../core/f_dummy.php:95
+#: ../core/f_dummy.php:97
 msgid "Immigration"
 msgstr "Imigracja"
 
@@ -512,7 +522,7 @@ msgstr "czerwca"
 msgid "Keywords"
 msgstr "Słowa kluczowe"
 
-#: ../core/f_dummy.php:96
+#: ../core/f_dummy.php:98
 msgid "Land"
 msgstr "Kraj"
 
@@ -520,7 +530,7 @@ msgstr "Kraj"
 msgid "Language"
 msgstr ""
 
-#: ../core/f_dummy.php:97
+#: ../core/f_dummy.php:99
 msgid "Last Known Addr"
 msgstr "Ostatni adres"
 
@@ -542,7 +552,7 @@ msgstr "Mężczyzna"
 msgid "Mar"
 msgstr "marca"
 
-#: ../core/f_dummy.php:42 ../core/f_dummy.php:98
+#: ../core/f_dummy.php:42 ../core/f_dummy.php:100
 #: ../themes/summerbreeze/templates/stats.tpl:47
 #: ../themes/default/templates/stats.tpl:39
 msgid "Marriage"
@@ -579,23 +589,23 @@ msgstr "Dopasuj słowa kluczowe"
 msgid "May"
 msgstr "maj"
 
-#: ../core/f_dummy.php:99
+#: ../core/f_dummy.php:101
 msgid "Military"
 msgstr "Wojsko"
 
-#: ../core/f_dummy.php:100
+#: ../core/f_dummy.php:102
 msgid "Military Award"
 msgstr "Nagroda wojskowa"
 
-#: ../core/f_dummy.php:101
+#: ../core/f_dummy.php:103
 msgid "Military Discharge"
 msgstr "Zwolnienie ze służby"
 
-#: ../core/f_dummy.php:102
+#: ../core/f_dummy.php:104
 msgid "Military Enlist"
 msgstr "Pobór do wojska"
 
-#: ../core/f_dummy.php:103
+#: ../core/f_dummy.php:105
 msgid "Military Service"
 msgstr "Służba wojskowa"
 
@@ -630,11 +640,11 @@ msgstr "Imię"
 msgid "Name Search"
 msgstr "Wyszukiwanie imienia"
 
-#: ../core/f_dummy.php:104
+#: ../core/f_dummy.php:106
 msgid "Nationality"
 msgstr "Narodowość"
 
-#: ../core/f_dummy.php:105
+#: ../core/f_dummy.php:107
 msgid "Naturalization"
 msgstr "Naturalizacja"
 
@@ -667,7 +677,7 @@ msgstr "Uwagi"
 msgid "Nov"
 msgstr "listopada"
 
-#: ../core/f_dummy.php:106
+#: ../core/f_dummy.php:108
 msgid "Number of Children"
 msgstr "Liczba dzieci"
 
@@ -678,7 +688,7 @@ msgstr "Liczba dzieci"
 msgid "Number of Generations"
 msgstr "Pokolenia"
 
-#: ../core/f_dummy.php:107
+#: ../core/f_dummy.php:109
 msgid "Number of Marriages"
 msgstr "Liczba małżeństw"
 
@@ -694,7 +704,7 @@ msgstr "Liczba wyświetlanych osób"
 msgid "Number of surnames listed"
 msgstr "Liczba wyświetlonych nazwisk"
 
-#: ../core/f_dummy.php:108
+#: ../core/f_dummy.php:110
 msgid "Occupation"
 msgstr "Zawód"
 
@@ -702,7 +712,7 @@ msgstr "Zawód"
 msgid "Oct"
 msgstr "października"
 
-#: ../core/f_dummy.php:109
+#: ../core/f_dummy.php:111
 msgid "Ordination"
 msgstr "Święcenia"
 
@@ -762,11 +772,11 @@ msgstr ""
 "Komentarz nie zostanie wyświetlony, dopóki nie zostanie obejrzany i "
 "zaakceptowany przez administratora."
 
-#: ../core/f_dummy.php:134
+#: ../core/f_dummy.php:136
 msgid "Polish"
 msgstr "Polski"
 
-#: ../core/f_dummy.php:110
+#: ../core/f_dummy.php:112
 msgid "Possessions"
 msgstr "Posiadłości"
 
@@ -780,7 +790,7 @@ msgstr "Wysłane"
 msgid "Posted by"
 msgstr "Wysłane"
 
-#: ../core/f_dummy.php:111
+#: ../core/f_dummy.php:113
 msgid "Probate"
 msgstr "Zatwierdzenie testamentu"
 
@@ -789,7 +799,7 @@ msgstr "Zatwierdzenie testamentu"
 msgid "Reference Number"
 msgstr ""
 
-#: ../core/f_dummy.php:112
+#: ../core/f_dummy.php:114
 msgid "Religion"
 msgstr "Religia"
 
@@ -807,15 +817,15 @@ msgstr "Raporty"
 msgid "Reports for %s"
 msgstr "Raporty: %s"
 
-#: ../core/f_dummy.php:113
+#: ../core/f_dummy.php:115
 msgid "Researcher"
 msgstr "Badacz"
 
-#: ../core/f_dummy.php:124
+#: ../core/f_dummy.php:126
 msgid "Reset"
 msgstr "Przywróć"
 
-#: ../core/f_dummy.php:114
+#: ../core/f_dummy.php:116
 msgid "Residence"
 msgstr "Miejsce zamieszkania"
 
@@ -827,7 +837,7 @@ msgstr "Miejsce zamieszkania"
 msgid "Results"
 msgstr "Wyniki"
 
-#: ../core/f_dummy.php:115
+#: ../core/f_dummy.php:117
 msgid "Retirement"
 msgstr "Emerytura"
 
@@ -838,11 +848,11 @@ msgstr "Emerytura"
 msgid "Return to comment list"
 msgstr "Wróć do listy komentarzy"
 
-#: ../core/f_dummy.php:117
+#: ../core/f_dummy.php:119
 msgid "SSN"
 msgstr "SSN"
 
-#: ../core/f_dummy.php:123 ../core/modules/search.php:48
+#: ../core/f_dummy.php:125 ../core/modules/search.php:48
 #: ../core/modules/search.php:49 ../core/modules/search.php:52
 #: ../themes/summerbreeze/templates/menu.tpl:8
 #: ../themes/summerbreeze/templates/results.tpl:10
@@ -919,11 +929,11 @@ msgstr "Urodzona %s w %s."
 msgid "She was born on %s."
 msgstr "Urodzona %s."
 
-#: ../core/f_dummy.php:116
+#: ../core/f_dummy.php:118
 msgid "Social Security Number"
 msgstr "Numer ubezpieczenia"
 
-#: ../core/f_dummy.php:137 ../themes/summerbreeze/templates/family.tpl:119
+#: ../core/f_dummy.php:139 ../themes/summerbreeze/templates/family.tpl:119
 #: ../themes/default/templates/family.tpl:107
 msgid "Source Citations"
 msgstr "Źródło cytatów"
@@ -937,7 +947,7 @@ msgstr "Źródło cytatów"
 msgid "Sources"
 msgstr "Źródła"
 
-#: ../core/f_dummy.php:130
+#: ../core/f_dummy.php:132
 msgid "Spanish"
 msgstr "Hiszpański"
 
@@ -1005,7 +1015,7 @@ msgstr "To małżeństwo skończyło się %s."
 msgid "This relationship ended in %s."
 msgstr "Ten związek zakończył się %s."
 
-#: ../core/f_dummy.php:118
+#: ../core/f_dummy.php:120
 msgid "Title"
 msgstr "Tytuł"
 
@@ -1023,7 +1033,7 @@ msgstr ""
 msgid "Wife"
 msgstr "Żona"
 
-#: ../core/f_dummy.php:119
+#: ../core/f_dummy.php:121
 msgid "Will"
 msgstr "Testament"
 
@@ -1041,11 +1051,11 @@ msgstr "Komentarze"
 msgid "Your email address"
 msgstr ""
 
-#: ../core/f_dummy.php:140
+#: ../core/f_dummy.php:142
 msgid "abt"
 msgstr "ok."
 
-#: ../core/f_dummy.php:142
+#: ../core/f_dummy.php:144
 msgid "aft"
 msgstr "po"
 
@@ -1063,19 +1073,19 @@ msgstr "i"
 msgid "b."
 msgstr "ur."
 
-#: ../core/f_dummy.php:143
+#: ../core/f_dummy.php:145
 msgid "bef"
 msgstr "przed"
 
-#: ../core/f_dummy.php:144
+#: ../core/f_dummy.php:146
 msgid "bet"
 msgstr "między"
 
-#: ../core/f_dummy.php:145
+#: ../core/f_dummy.php:147
 msgid "cal"
 msgstr "ok."
 
-#: ../core/f_dummy.php:141
+#: ../core/f_dummy.php:143
 msgid "cir"
 msgstr "ok."
 
