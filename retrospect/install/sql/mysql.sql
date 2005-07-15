@@ -174,17 +174,17 @@ INSERT INTO  rgds_options VALUES  ('', 'allow_comments', '1');
 
 INSERT INTO  rgds_options VALUES  ('', 'gallery_plugin', '0');
 
-INSERT INTO  rgds_language VALUES  ('1', 'en_US', 'iso-8859-1', 'English');
+INSERT INTO  rgds_language VALUES  ('1', 'en_US', 'utf-8', 'English');
 
-INSERT INTO  rgds_language VALUES  ('2', 'es_ES', 'iso-8859-1', 'Spanish');
+INSERT INTO  rgds_language VALUES  ('2', 'es_ES', 'utf-8', 'Spanish');
 
-INSERT INTO  rgds_language VALUES  ('3', 'de_DE', 'iso-8859-1', 'German');
+INSERT INTO  rgds_language VALUES  ('3', 'de_DE', 'utf-8', 'German');
 
-INSERT INTO  rgds_language VALUES  ('4', 'nl_NL', 'iso-8859-1', 'Dutch');
+INSERT INTO  rgds_language VALUES  ('4', 'nl_NL', 'utf-8', 'Dutch');
 
-INSERT INTO  rgds_language VALUES  ('5', 'fr_FR', 'iso-8859-1', 'French');
+INSERT INTO  rgds_language VALUES  ('5', 'fr_FR', 'utf-8', 'French');
 
-INSERT INTO  rgds_language VALUES  ('6', 'pl_PL', 'iso-8859-2', 'Polish');
+INSERT INTO  rgds_language VALUES  ('6', 'pl_PL', 'utf-8', 'Polish');
 
-INSERT INTO  rgds_language VALUES  ('7', 'pt_BR', 'iso-8859-1', 'Portuguese');
+INSERT INTO  rgds_language VALUES  ('7', 'pt_BR', 'utf-8', 'Portuguese');
 

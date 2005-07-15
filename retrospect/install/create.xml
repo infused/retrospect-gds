@@ -354,30 +354,30 @@
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add english language</descr>
-		<query>INSERT INTO language VALUES ('1', 'en_US', 'iso-8859-1', 'English')</query>
+		<query>INSERT INTO language VALUES ('1', 'en_US', 'utf-8', 'English')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add spanish language</descr>
-		<query>INSERT INTO language VALUES ('2', 'es_ES', 'iso-8859-1', 'Spanish')</query>
+		<query>INSERT INTO language VALUES ('2', 'es_ES', 'utf-8', 'Spanish')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add german language</descr>
-		<query>INSERT INTO language VALUES ('3', 'de_DE', 'iso-8859-1', 'German')</query>
+		<query>INSERT INTO language VALUES ('3', 'de_DE', 'utf-8', 'German')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add dutch language</descr>
-		<query>INSERT INTO language VALUES ('4', 'nl_NL', 'iso-8859-1', 'Dutch')</query>
+		<query>INSERT INTO language VALUES ('4', 'nl_NL', 'utf-8', 'Dutch')</query>
 	</sql>
 	<sql prefixmethod="auto">
 		<descr>Add french language</descr>
-		<query>INSERT INTO language VALUES ('5', 'fr_FR', 'iso-8859-1', 'French')</query>
+		<query>INSERT INTO language VALUES ('5', 'fr_FR', 'utf-8', 'French')</query>
 	</sql>
 	<sql prefixmethod="auto">
 	  <descr>Add polish language</descr>
-	  <query>INSERT INTO language VALUES ('6', 'pl_PL', 'iso-8859-2', 'Polish')</query>
+	  <query>INSERT INTO language VALUES ('6', 'pl_PL', 'utf-8', 'Polish')</query>
 	</sql>
 	<sql prefixmethod="auto">
 	  <descr>Add portuguese language</descr>
-	  <query>INSERT INTO language VALUES ('7', 'pt_BR', 'iso-8859-1', 'Portuguese')</query>
+	  <query>INSERT INTO language VALUES ('7', 'pt_BR', 'utf-8', 'Portuguese')</query>
 	</sql>
 </schema>
