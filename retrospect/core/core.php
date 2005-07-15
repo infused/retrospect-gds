@@ -120,7 +120,7 @@
 	$smarty->assign('SITE_COPYRIGHT', $options->GetOption('meta_copyright'));
 
 	# Initialize the gettext engine
-	lang_init_gettext();
+	lang_init();
 	lang_init_arrays();
 	$smarty->assign('CHARSET', $charset);
 	

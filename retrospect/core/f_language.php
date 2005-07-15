@@ -24,20 +24,16 @@
 
 	# Ensure this file is being included by a parent file
 	defined( '_RGDS_VALID' ) or die( 'Direct access to this file is not allowed.' );
-	
+
 	/**
 	* Initialize Gettext
 	*/
-	function lang_init_gettext() {
-		global $db, $options, $smarty, $charset;
+	function lang_init() {
+		global $db, $options, $smarty, $charset, $lang_strings;
 		
 		# determine current language
-		if (isset($_POST['lang'])) { 
-			$lang = $_POST['lang'];  
-		}
-		else { 
-			$lang = isset($_SESSION['language']) ? $_SESSION['language'] : $options->GetOption('default_lang'); 
-		}
+		if (isset($_POST['lang'])) $lang = $_POST['lang'];  
+		else $lang = isset($_SESSION['language']) ? $_SESSION['language'] : $options->GetOption('default_lang'); 
 		
 		# store the current language in the session
 		$_SESSION['language'] = $lang;  
@@ -45,22 +41,9 @@
 		# grab the correct charset from the database
 		$sql = "SELECT lang_charset FROM ".TBL_LANG." WHERE lang_code = '{$lang}'";
 		$charset = $db->GetOne($sql);
-
-		# use LC_ALL because some operating systems do not support 
-		# the LC_MESSAGES domain
-		setlocale(LC_ALL, $lang);
-		bindtextdomain('messages', LOCALE_PATH); 
-		textdomain('messages');	
 		
-		# do not try to set environment var if safe mode is on
-		# (this will break gettext on some windows platforms)
-		if (!ini_get('safe_mode')) {
-			putenv('LC_ALL='.$lang);
-			putenv('LANG='.$lang);
-			putenv('LANGUAGE='.$lang);
-		}
-		
-		header('Content-type: text/html; charset='.$charset);
+		//header('Content-Type: text/html; charset='.$charset);
+		require(ROOT_PATH.'/locale/'.$lang.'.php');
 	}
 	
 	/** 
@@ -82,11 +65,21 @@
 	*
 	* We use this wrapper instead of the native gettext function call so that
 	* we have better control over the process.
-	* @param string $string
+	* @param string $key
 	* @return string
 	*/
-	function gtc($string) {
-		return gettext($string);
+	function gtc($key) {
+		global $lang_strings;
+		if (array_key_exists($key, $lang_strings) AND !empty($lang_strings[$key])) return $lang_strings[$key];
+		else return $key;
+	}
+	
+	/**
+	* Another gettext wrapper.  This one echo's the output rather than returning it as a string
+	* @param string $key
+	*/
+	function t($key) {
+	  echo gtc($key);
 	}
 	
 	/** 
@@ -98,8 +91,5 @@
 			return gtc($s);
 		} else return '';
 	}
-	
-	function t($string) {
-		echo gettext($string);
-	}
+
 ?>
