@@ -18,7 +18,7 @@
 <div id="content">{include file="$module.tpl"}</div>
 <div id="footer">
 	{if $SITE_COPYRIGHT != ""}{$SITE_COPYRIGHT}<br />{/if}
-	Powered by 
+	{php}t("Powered by"){/php} 
 	<a style="font-weight: normal;" href="http://www.infused-solutions.com/retrospect/">Retrospect-GDS v{$RGDS_VERSION}</a> |
 	<a href="{$BASE_URL}/administration/">{php}t("Login"){/php}</a>
 </div>
