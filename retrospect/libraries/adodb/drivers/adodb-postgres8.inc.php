@@ -14,11 +14,7 @@
 
   
 
-  NOTE: Since 3.31, this file is no longer used, and the "postgres" driver is
-
-  remapped to "postgres7". Maintaining multiple postgres drivers is no easy
-
-  job, so hopefully this will ensure greater consistency and fewer bugs.
+  NOTE: The "postgres8" driver is remapped to "postgres7". 
 
 */
 
