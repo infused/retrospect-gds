@@ -82,10 +82,16 @@ $g_db_pass = 'password';
 /** 
 * Default theme.
 * Specifies the default theme for page display.
-* Don't change this unless you really need to.
+* Change this to point to alternate themes.
 * @global string $g_theme
 */
 $g_theme	= 'summerbreeze';
-$g_admin_theme			= 'default';
+
+/** 
+* Default admin theme.
+* Specifies the default theme to use for the administration site.
+* @global string $g_admin_theme
+*/
+$g_admin_theme	= 'default';
 
 ?>
