@@ -18,14 +18,14 @@
  * GNU General Public License contained in the file GNU.txt for
  * more details.
  */
- 
+
  /**
  * $Id$
  */
- 
+
  	# Disable error reporting
-	error_reporting(0);
-	
+	error_reporting(E_ALL);
+
 	# Set flag that this is a parent file
 	define( '_RGDS_VALID', 1 );	
 
@@ -34,201 +34,56 @@
 	define('CORE_PATH', ROOT_PATH.'/core/');
 	define('LIB_PATH', ROOT_PATH.'/libraries/');
 	$cfg_filename = CORE_PATH.'config.php';
-	
+
 	require_once('installer.class.php');
 	$inst = new Installer();
-	$yes = '<div class="yes">Yes</div>';
-	$no = '<div class="no">No</div>';
+	$yes = '<span class="yes">Yes</span>';
+	$no = '<span class="no">No</span>';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Retrospect-GDS - Installation</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="install.css" rel="stylesheet" type="text/css" />
 </head>
-<body> 
-<table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
-  <tr> 
-    <td class="title">Retrospect-GDS Installation </td> 
-  </tr> 
-</table> 
-<table width="100%"  border="0" cellpadding="0" cellspacing="0" class="section"> 
-  <tr> 
-    <td class="section_head">Pre-Installation Checks</td> 
-  </tr> 
-  <tr> 
-    <td class="section_body">If any of the items in this section are listed as No, you will need to correct the problem before proceeding. Retrospect-GDS will not function otherwise. 
-      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
-        <tr>
-          <td class="section_item">&nbsp;</td>
-          <td width="100" nowrap="nowrap" class="section_item">&nbsp;</td>
-          <td class="section_item">&nbsp;</td>
-        </tr>
-        <tr> 
-          <td width="400" class="section_item"><span class="item">PHP version greater than 4.2.3 </span></td> 
-          <td align="center" nowrap="nowrap" class="section_item">
-						<?php 
-							$php_ver = phpversion();
-							echo (version_compare($php_ver, '4.2.3') > 0) ? '<div class="yes">Yes</div>' : '<div class="no">No</div>';
-						?>
-					</td> 
-          <td class="section_item">&nbsp;</td>
-        </tr> 
-        <tr> 
-          <td class="section_item"> Gettext support </td> 
-          <td align="center" class="section_item"><?php echo $inst->ext_Gettext() ? '<div class="yes">Yes</div>' : '<div class="no-not-req">No</div>'; ?>
-					</td> 
-          <td class="section_item">&nbsp;</td>
-        </tr>
-    </table></td></tr> 
-</table> 
-<table width="100%"  border="0" cellpadding="0" cellspacing="0" class="section">
-  <tr>
-    <td class="section_head">Database Extensions</td>
-  </tr>
-  <tr>
-    <td class="section_body">At least one of the following  database extensions must be supported by your PHP installation. MySQL is the preferred database back-end for running Retrospect-GDS.
-      <table width="100%"  border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td class="section_item">&nbsp;</td>
-          <td width="100" align="center" class="section_item">&nbsp;</td>
-          <td class="section_item">&nbsp;</td>
-        </tr>
-        <tr>
-          <td width="400" class="section_item">MySQL</td>
-          <td align="center" class="section_item"><?php echo extension_loaded('mysql') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>'; ?></td>
-          <td class="section_item"><a href="http://www.php.net/manual/en/ref.mysql.php">http://www.php.net/manual/en/ref.mysql.php</a></td>
-        </tr>
-        <tr>
-          <td class="section_item">MySQLi</td>
-          <td align="center" class="section_item"><?php echo extension_loaded('mysqli') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>'; ?></td>
-          <td class="section_item"><a href="http://www.php.net/manual/en/ref.mysqli.php" target="_blank">http://www.php.net/manual/en/ref.mysqli.php</a></td>
-        </tr>
-        <tr>
-          <td class="section_item">Microsoft SQL</td>
-          <td align="center" class="section_item"><?php echo extension_loaded('mssql') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>'; ?></td>
-          <td class="section_item"><a href="http://www.php.net/manual/en/ref.mssql.php" target="_blank">http://www.php.net/manual/en/ref.mssql.php</a></td>
-        </tr>
-        <tr>
-          <td class="section_item">Oracle</td>
-          <td align="center" class="section_item"><?php echo extension_loaded('oracle') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>'; ?></td>
-          <td class="section_item"><a href="http://www.php.net/manual/en/ref.oracle.php" target="_blank">http://www.php.net/manual/en/ref.oracle.php</a></td>
-        </tr>
-        <tr>
-          <td class="section_item">Oracle 8</td>
-          <td align="center" class="section_item"><?php echo extension_loaded('oci8') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>'; ?></td>
-          <td class="section_item"><a href="http://www.php.net/manual/en/ref.oci8.php" target="_blank">http://www.php.net/manual/en/ref.oci8.php</a></td>
-        </tr>
-        <tr>
-          <td class="section_item">PostgreSQL</td>
-          <td align="center" class="section_item"><?php echo extension_loaded('pgsql') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>'; ?></td>
-          <td class="section_item"><a href="http://www.php.net/manual/en/ref.pgsql.php" target="_blank">http://www.php.net/manual/en/ref.pgsql.php</a></td>
-        </tr>
-        <tr>
-          <td class="section_item">SQLite</td>
-          <td align="center" class="section_item"><?php echo extension_loaded('sqlite') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>'; ?></td>
-          <td class="section_item"><a href="http://www.php.net/manual/en/ref.sqlite.php" target="_blank">http://www.php.net/manual/en/ref.sqlite.php</a></td>
-        </tr>
-    </table>      </td>
-  </tr>
-</table>
-<table width="100%"  border="0" cellpadding="0" cellspacing="0" class="section">
-  <tr>
-    <td class="section_head">Recommended PHP Settings </td>
-  </tr>
-  <tr>
-    <td class="section_body">Certain functions may not work correctly if any of the following recommendations are not met.
-You should correct these if possible before proceeding.
-      <table width="100%"  border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td class="section_item">&nbsp;</td>
-          <td class="section_item">&nbsp;</td>
-          <td class="section_item">&nbsp;</td>
-        </tr>
-        <tr>
-          <td width="400" class="section_item"><strong>Recommended Setting</strong></td>
-          <td width="100" align="center" class="section_item"><strong>Current Setting </strong></td>
-          <td class="section_item">&nbsp;</td>
-        </tr>
-        <tr>
-          <td class="section_item">Safe Mode = Off </td>
-          <td align="center" class="section_item"><?php echo ini_get('safe_mode'); ?></td>
-          <td class="section_item">&nbsp;</td>
-        </tr>
-        <tr>
-          <td class="section_item">Register Globals = Off </td>
-          <td align="center" class="section_item"><?php echo ini_get('register_globals') ? 'On' : 'Off'; ?></td>
-          <td class="section_item">&nbsp;</td>
-        </tr>
-        <tr>
-          <td class="section_item">File Uploads = On </td>
-          <td align="center" class="section_item"><?php echo ini_get('file_uploads') ? 'On' : 'Off'; ?></td>
-          <td class="section_item">&nbsp;</td>
-        </tr>
-      </table> </td>
-  </tr>
-</table>
-<table width="100%"  border="0" cellpadding="0" cellspacing="0" class="section">
-  <tr>
-    <td class="section_head">Directory Permissions </td>
-  </tr>
-  <tr>
-    <td class="section_body">The following directories must be writeable by the web server.
-      <table width="100%"  border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td class="section_item">&nbsp;</td>
-            <td class="section_item">&nbsp;</td>
-            <td class="section_item">&nbsp;</td>
-          </tr>
-          <tr>
-            <td width="400" class="section_item"><strong>File or Directory </strong></td>
-            <td width="100" align="center" class="section_item"><strong>Writable</strong></td>
-            <td class="section_item">&nbsp;</td>
-          </tr>
-          <tr>
-            <td class="section_item">core/config.php</td>
-            <td align="center" class="section_item">
-							<?php
-								touch(ROOT_PATH.'/core/config.php');
-								echo $inst->make_writable(ROOT_PATH.'/core/config.php') ? $yes : $no;
-							?>
-						</td>
-            <td class="section_item">&nbsp;</td>
-          </tr>
-          <tr>
-            <td class="section_item">gedcom/</td>
-            <td align="center" class="section_item">
-							<?php
-							 	echo $inst->make_writable(ROOT_PATH.'/gedcom/') ? $yes : $no;
-							?>
-						</td>
-            <td class="section_item">&nbsp;</td>
-          </tr>
-          <tr>
-            <td class="section_item">themes/summerbreeze/templates_c/</td>
-            <td align="center" class="section_item">
-							<?php
-							 	echo is_writable(ROOT_PATH.'/themes/summerbreeze/templates_c/') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>';
-							?>
-						</td>
-            <td class="section_item">&nbsp;</td>
-          </tr>
-          <tr>
-            <td class="section_item">administration/themes/default/templates_c/</td>
-            <td align="center" class="section_item">
-							<?php
-							 	echo is_writable(ROOT_PATH.'/administration/themes/default/templates_c/') ? '<div class="yes">Yes</div>' : '<div class="no">No</div>';
-							?>
-						</td>
-            <td class="section_item">&nbsp;</td>
-          </tr>
-      </table></td>
-  </tr>
-</table>
-<br />
-<form name="form1" id="form1" method="post" action="install1.php">
-  <input name="Submit" type="submit" class="button" value="Continue" />
-</form>
+<body>
+  <h1>Retrospect-GDS Installer</h1>
+  <h2>Step 1 - Checking Configuration</h2>
+  <?php 
+    # Check for appropriate version of PHP
+    if (version_compare(phpversion(), '4.2.3') < 0) 
+      die ('<p>The version of PHP you are using is older than version 4.2.3.  You will need to upgrade PHP before you can use Retrospect-GDS.</p>');
+    
+    # Check for at least one database driver
+    $db_drivers[] = extension_loaded('mysql'); 
+    $db_drivers[] = extension_loaded('mysqli');
+    $db_drivers[] = extension_loaded('mssql');
+    $db_drivers[] = extension_loaded('oracle');
+    $db_drivers[] = extension_loaded('oci8');
+    $db_drivers[] = extension_loaded('pgsql');
+    $db_drivers[] = extension_loaded('sqlite');
+    if (!in_array(true, $db_drivers))
+      die('<p>No supported database extensions are configured in PHP.  You will need to install a supported database driver before you can use Retrospect-GDS.</p>');
+  
+    # Correct file permissions
+    if (!$inst->make_writable(ROOT_PATH.'/gedcom/') 
+        or !$inst->make_writable(ROOT_PATH.'/themes/summerbreeze/templates_c/')
+        or !$inst->make_writable(ROOT_PATH.'/administration/themes/default/templates_c/')) {
+          echo '<p>The web server must be able to write to the following directories.  Please correct ';
+          echo 'the permission on these directories and then refresh this page.</p>';
+          echo '<p>';
+          echo ROOT_PATH.'/gedcom/<br />';
+          echo ROOT_PATH.'/themes/summerbreeze/templates_c/<br />';
+          echo ROOT_PATH.'/administration/themes/default/templates_c/';
+          die();
+    }
+
+  ?>
+  <p>If you have not already done so already, copy core/config-dist.php to core/config.php 
+  and enter the details about your database connection.</p>
+  
+  <p>Congratulations! Your system appears to meet all of the requirements for installing Retrospect-GDS.&nbsp;
+  Please <b><a href="index2.php">click here to complete the installation</a></b>.</p>
 </body>
 </html>

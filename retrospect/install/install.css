@@ -1,51 +1,19 @@
 body {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 14px;
-	color: #000000;
-	background: #FFFFFF;
+	font: 12px "Lucida Grande", "Trebuchet MS", Verdana, Arial, sans-serif;
+	color: #000;
+	background: #fff;
+	padding: 10px 40px;
+	margin: 0;
 }
-.title {
-	font-size: 24px;
-	text-align: center;
-	color: #0066CC;
+h1 {
+  color: #c60;
+  font-size: 24px;
 }
-table.section {
-	border: 1px solid #000000;
-	margin: 20px 0px 0px;
-	padding: 0px;
+h2 {
+ font-size: 18px;
 }
-td.section_head {
-	padding: 5px;
-	color: white;
+a {
 	font-weight: bold;
-	background: #0066CC;
+	color: #758B3E;
 }
-td.section_body {
-	padding: 5px;
-	background-color: #f0f0f0;
-}
-td.section_item {
-	padding: 2px 0px;
-	border-bottom: 1px dotted #666666;
-}
-div.yes {
-	font-weight: bold;
-	color: green;
-}
-div.no {
-	font-weight: bold;
-	color: red;
-}
-div.no-not-req {
-	font-weight: bold;
-	color: orange;
-}
-.button {
-	font-size: 14px;
-}
-.listbox {
-	font-size: 14px;
-}
-.textbox {
-	font-size: 14px;
-}
+a:hover { color: #c60; }

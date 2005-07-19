@@ -41,8 +41,4 @@ class Installer {
 		else return @chmod($filespec, 0644);
 	}
 }
-
-
-
-
 ?>
