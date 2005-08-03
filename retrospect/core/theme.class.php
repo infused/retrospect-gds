@@ -37,7 +37,7 @@ class Theme {
 		if (is_array($parameters)) {
 			foreach($parameters as $key => $value) {
 				$params .= $sep.urlencode($key).'='.urlencode($value);
-				$sep = '&';
+				$sep = '&amp;';
 			}
 		}
 		return $params;

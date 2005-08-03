@@ -44,7 +44,7 @@
 	function get_alpha_class($p_alpha) {
 		global $g_alpha;
 		$p_alpha = strtoupper($p_alpha);
-		if ($p_alpha == $g_alpha) { return 'selected'; }
+		if ($p_alpha == $g_alpha) { return ' id="selected"'; }
 		else { return ''; }
 	}
 		
