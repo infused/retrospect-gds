@@ -8,7 +8,7 @@
 <div id="tabs">
 	<ul>
 		{foreach from=$tabs item=tab}
-			<li id="{$tab.class}">{$tab.link}</li>
+			<li{$tab.class}>{$tab.link}</li>
 		{/foreach}
 	</ul>
 </div>
@@ -26,7 +26,7 @@
 		<tr style="background: {cycle values="#ddd,#fff"}">
 			<td style="padding: 2px 4px">
 				<a href="{$PHP_SELF}?m=family&amp;id={$indiv->indkey}">{$indiv->sname}, {$indiv->gname}</a>
-				<img align="top" src="{$THEME_URL}/images/{$indiv->gender|lower}.gif" alt="{$indiv->gender}" />
+				<img align="top" src="{$THEME_URL}/images/{$indiv->gender|lower}.gif" alt="{$indiv->gender|lower}" />
 			</td>
 			<td style="padding: 2px">{$indiv->birth->date}</td>
 			<td style="padding: 2px">{$indiv->death->date}</td>
@@ -42,12 +42,12 @@
 				{assign var="count" value="1"}
 				{section name=i loop=$surnames}
 					{if $count % $max_rows == 0}
-						<a href="?m=surnames&sn={$surnames[i].surname}">{$surnames[i].surname}</a>
+						<a href="?m=surnames&amp;sn={$surnames[i].surname}">{$surnames[i].surname}</a>
 						&nbsp;({$surnames[i].count})
 						</td><td class="text" width="200" valign="top">
 						{assign var="count" value="`$count+1`"}
 					{else}
-						<a href="?m=surnames&sn={$surnames[i].surname}">{$surnames[i].surname}</a>
+						<a href="?m=surnames&amp;sn={$surnames[i].surname}">{$surnames[i].surname}</a>
 						&nbsp;({$surnames[i].count})
 						<br />
 						{assign var="count" value="`$count+1`"}

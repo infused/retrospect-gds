@@ -45,7 +45,7 @@
 						<td colspan="2">
 							<input name="Submit" type="submit" class="text" value="{php}t("Search"){/php}" />
 							<input name="Reset" type="reset" class="text" value="{php}t("Reset"){/php}" />
-							<input name="Clear" type="button" class="text" onMouseDown="MM_setTextOfTextfield('gname','','');MM_setTextOfTextfield('sname','','')" value="{php}t("Clear"){/php}" />
+							<input name="Clear" type="button" class="text" onmousedown="MM_setTextOfTextfield('gname','','');MM_setTextOfTextfield('sname','','')" value="{php}t("Clear"){/php}" />
 					</td>
 				</tr>
 			</table>

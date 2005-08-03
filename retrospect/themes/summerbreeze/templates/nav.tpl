@@ -26,7 +26,7 @@
   	
 
   	{if $module=="reports"}
-  		<li id="selected"><a>{php}t("Reports"){/php}</a></td>
+  		<li id="selected"><a>{php}t("Reports"){/php}</a></li>
   	{elseif $module=="ahnentafel" or $module=="descendant"}
   		<li id="selected"><a href="?m=reports&amp;id={$indiv->indkey}">{php}t("Reports"){/php}</a></li>
   	{else}
@@ -35,7 +35,7 @@
 
   	{if $gallery_plugin}
   		{if $module=="multimedia"}
-  			<li id="selected"><a>{php}t("Multimedia"){/php}</a></td>
+  			<li id="selected"><a>{php}t("Multimedia"){/php}</a></li>
   		{else}
   			<li><a href="{$media_link}">{php}t("Multimedia"){/php} ({$media_count})</a></li>
   		{/if}
