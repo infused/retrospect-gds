@@ -228,13 +228,16 @@ form {
 }
 .tab-page {
 	clear: both;
-	margin: 0 !important;
-	margin-top: -10px;
+	margin: 0;
 	padding: 10px;
 	background: #F9F9F9;
 	border: 1px solid #ccc;
 	border-top-style: none;
 	min-height: 420px;
+}
+/* Yet another lame hack to fix IE */
+* html .tab-page {
+  margin-top: -10px;
 }
 .tab-page2 {
 	clear: both;
