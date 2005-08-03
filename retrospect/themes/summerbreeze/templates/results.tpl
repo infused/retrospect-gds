@@ -7,7 +7,7 @@
 <h1>{$content_title}</h1>
 <div id="tabs">
 	<ul>
-		<li><a href="{$php_self}?option=search{$search_params}">{php}t("Search"){/php}</a></li>
+		<li><a href="{$php_self}?m=search{$search_params}">{php}t("Search"){/php}</a></li>
 		<li id="selected"><a id="selected">{php}t("Results"){/php}</a></td>
 	</ul>
 </div>
