@@ -8,7 +8,7 @@
 <div id="tabs">
 	<ul>
 		{foreach from=$tabs item=tab}
-			<li id="{$tab.class}">{$tab.link}</td>
+			<li id="{$tab.class}">{$tab.link}</li>
 		{/foreach}
 	</ul>
 </div>
