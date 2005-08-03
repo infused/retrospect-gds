@@ -380,4 +380,8 @@
 	  <descr>Add portuguese language</descr>
 	  <query>INSERT INTO language VALUES ('7', 'pt_BR', 'utf-8', 'Portuguese')</query>
 	</sql>
+	<sql prefixmethod="auto">
+	  <descr>Add norwegian language</descr>
+	  <query>INSERT INTO language VALUES ('8', 'no_NB', 'utf-8', 'Norwegian')</query>
+	</sql>
 </schema>
