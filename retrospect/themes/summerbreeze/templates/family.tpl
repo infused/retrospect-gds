@@ -74,7 +74,7 @@
 		  </tr>
 		  {foreach from=$marriage.events item=event}
 		  <tr>
-		  	<td class="label">{$event->type}:</td>
+		  	<td class="label">{translate s=$event->type}:</td>
 		  	<td class="fact1">{$event->date}</td>
 		  	<td class="fact2">
 		  		{if $event->comment}{$event->comment}{if $event->place}<br />{/if}{/if}
