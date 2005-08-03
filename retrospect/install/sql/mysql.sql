@@ -10,7 +10,7 @@ ALTER TABLE rgds_children ADD  INDEX rgds_indkey  (indkey);
 CREATE TABLE rgds_citation (
 factkey                  VARCHAR(20) NOT NULL,
 srckey                   VARCHAR(20) NOT NULL,
-source                   LONGTEXT,
+source                   TEXT,
 citekey                  INTEGER NOT NULL AUTO_INCREMENT,
                  PRIMARY KEY (citekey)
 );
@@ -22,7 +22,7 @@ id                       INTEGER NOT NULL AUTO_INCREMENT,
 indkey                   VARCHAR(20) NOT NULL,
 email                    VARCHAR(128) NOT NULL,
 received                 DATETIME,
-comment                  LONGTEXT,
+comment                  TEXT,
 reviewed                 TINYINT DEFAULT 0,
 visible                  TINYINT DEFAULT 0,
                  PRIMARY KEY (id)
@@ -100,7 +100,7 @@ description              VARCHAR(250) NOT NULL,
 
 CREATE TABLE rgds_note (
 notekey                  VARCHAR(20) NOT NULL,
-text                     LONGTEXT,
+text                     TEXT,
                  PRIMARY KEY (notekey)
 );
 
@@ -115,7 +115,7 @@ ALTER TABLE rgds_options ADD  UNIQUE INDEX rgds_opt_key  (opt_key);
 
 CREATE TABLE rgds_source (
 srckey                   VARCHAR(20) NOT NULL,
-text                     LONGTEXT,
+text                     TEXT,
 notekey                  VARCHAR(20) NOT NULL,
                  PRIMARY KEY (srckey)
 );
@@ -187,4 +187,6 @@ INSERT INTO  rgds_language VALUES  ('5', 'fr_FR', 'utf-8', 'French');
 INSERT INTO  rgds_language VALUES  ('6', 'pl_PL', 'utf-8', 'Polish');
 
 INSERT INTO  rgds_language VALUES  ('7', 'pt_BR', 'utf-8', 'Portuguese');
+
+INSERT INTO  rgds_language VALUES  ('8', 'no_NB', 'utf-8', 'Norwegian');
 
