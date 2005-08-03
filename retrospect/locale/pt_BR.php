@@ -265,6 +265,8 @@
   $lang_strings["No matching records were found."] = "Nenhum registro foi encontrado.";
 
   $lang_strings["No search parameters were specified."] = "Sem parâmetros de busca.";
+  
+  $lang_strings["Norwegian"] = "Norueguês";
 
   $lang_strings["Note Search"] = "Busca por Notas";
 

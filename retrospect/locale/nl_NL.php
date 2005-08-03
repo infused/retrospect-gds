@@ -266,6 +266,8 @@
   $lang_strings["No matching records were found."] = "Helaas geen gegevens gevonden!";
 
   $lang_strings["No search parameters were specified."] = "Geen zoekparameters opgegeven!";
+  
+  $lang_strings["Norwegian"] = "Noors";
 
   $lang_strings["Note Search"] = "Zoek op Notitie";
 

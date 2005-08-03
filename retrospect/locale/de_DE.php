@@ -1,5 +1,4 @@
 <?php
-
   # RETROSPECT-GDS GERMAN TRANSLATION
   # Copyright (C) 2003-2005 Infused Solutions
   # Keith Morrison <keithm@infused-solutions.com>, 2003-2005.
@@ -224,7 +223,7 @@
 
   $lang_strings["Mar"] = "Mar";
 
-  $lang_strings["Marriage"] = "Hochzeit";
+  $lang_strings["Marriage"] = "Heirat";
 
   $lang_strings["Marriage Bann"] = "Aufgebot";
 
@@ -267,6 +266,8 @@
   $lang_strings["No matching records were found."] = "Leider kein Ergebnis!";
 
   $lang_strings["No search parameters were specified."] = "Kein Suchparameter eingegeben!";
+  
+  $lang_strings["Norwegian"] = "Norwegisch";
 
   $lang_strings["Note Search"] = "Nach Bemerkungen suchen";
 

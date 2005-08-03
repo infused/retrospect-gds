@@ -264,6 +264,8 @@
   $lang_strings["No matching records were found."] = "No se encontró ningunos expedientes que emparejaban.";
 
   $lang_strings["No search parameters were specified."] = "Busqueda no tiene parametros especificados.";
+  
+  $lang_strings["Norwegian"] = "Noruego";
 
   $lang_strings["Note Search"] = "Buscar de Notas";
 

@@ -4,16 +4,27 @@
   # Keith Morrison <keithm@infused-solutions.com>, 2003-2005.
 
   $lang_strings["%s Surname"] = "%s Surname";
+  
   $lang_strings[", daughter of %s and %s."] = ", daughter of %s and %s.";
+  
   $lang_strings[", daughter of %s."] = ", daughter of %s.";
+  
   $lang_strings[", son of %s and %s."] = ", son of %s and %s.";
+  
   $lang_strings[", son of %s."] = ", son of %s.";
+  
   $lang_strings["ALL"] = "ALL";
+  
   $lang_strings["Adoption"] = "Adoption";
+  
   $lang_strings["Adult Christening"] = "Adult Christening";
+  
   $lang_strings["Ahnentafel"] = "Ahnentafel";
+  
   $lang_strings["Ahnentafel PDF"] = "Ahnentafel PDF";
+  
   $lang_strings["Ahnentafel Report for %s"] = "Ahnentafel Report for %s";
+  
   $lang_strings["Aka"] = "Aka";
   $lang_strings["All"] = "All";
   $lang_strings["Alt. Birth"] = "Alt. Birth";
@@ -134,6 +145,7 @@
   $lang_strings["Naturalization"] = "Naturalization";
   $lang_strings["No matching records were found."] = "No matching records were found.";
   $lang_strings["No search parameters were specified."] = "No search parameters were specified.";
+  $lang_strings["Norwegian"] = "Norwegian";
   $lang_strings["Note Search"] = "Note Search";
   $lang_strings["Notes"] = "Notes";
   $lang_strings["Nov"] = "Nov";
