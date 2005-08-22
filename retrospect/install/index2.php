@@ -73,7 +73,7 @@
                     'fact' => 0,
                     'family' => 0,
                     'indiv' => 0,
-                    'language' => 7,
+                    'language' => 8,
                     'note' => 0,
                     'options' => 13,
                     'source' => 0,
