@@ -63,7 +63,7 @@
 		function Header() {
     	global $o, $font;
     	$this->SetFont($font,'BU',12);
-			$this->Cell(0, 5, sprintf(_("Pedigree for %s"), $o->name), 0, 0, 'C');
+			$this->Cell(0, 5, sprintf(gtc("Pedigree for %s"), $o->name), 0, 0, 'C');
     	$this->Ln(15);
 		}
 		
@@ -73,7 +73,7 @@
 			$this->SetY(-10);
     	$this->SetFont($font,'',8);
     	$this->Cell(0, 4, '©2002-2003 Keith Morrison, Infused Solutions - www.infused.org', 0, 1, 'C', 0, 'http://www.infused.org');
-			$this->Cell(0, 4, sprintf(_("Send questions or comments to %s"), 'keithm@infused.org'), 0, 0, 'C', 0, 'mailto:keithm@infused.org');
+			$this->Cell(0, 4, sprintf(gtc("Send questions or comments to %s"), 'keithm@infused.org'), 0, 0, 'C', 0, 'mailto:keithm@infused.org');
 		}
 	}
 	
@@ -90,8 +90,8 @@
 		}
 		
 		$g_node_strings[$p_node->ns_number][0] = $p_node->name;
-		$g_node_strings[$p_node->ns_number][1] = _("Birth").': '.$p_node->birth->date;
-		$g_node_strings[$p_node->ns_number][2] = _("Death").': '.$p_node->death->date;
+		$g_node_strings[$p_node->ns_number][1] = gtc("Birth").': '.$p_node->birth->date;
+		$g_node_strings[$p_node->ns_number][2] = gtc("Death").': '.$p_node->death->date;
 	}
 	
 	# Begin PDF Output
@@ -116,8 +116,8 @@
 	$pdf->AddPage();
 	$pdf->SetCreator($_SERVER["PHP_SELF"]);
 	$pdf->SetAuthor("Keith Morrison, keithm@infused.org");
-	$pdf->SetTitle(sprintf(_("Pedigree for %s"), $o->name));
-	$pdf->SetSubject(_("Genealogy"));
+	$pdf->SetTitle(sprintf(gtc("Pedigree for %s"), $o->name));
+	$pdf->SetSubject(gtc("Genealogy"));
 	
 	# Person 1
 	$pdf->SetY($top);

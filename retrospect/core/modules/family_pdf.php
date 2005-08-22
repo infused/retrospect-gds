@@ -55,7 +55,7 @@
 		function Header() {
     	global $o, $font;
     	$this->SetFont($font,'BU',12);
-			$this->Cell(0, 5, sprintf(_("Family Group Sheet for %s"), $o->name), 0, 0, 'C');
+			$this->Cell(0, 5, sprintf(gtc("Family Group Sheet for %s"), $o->name), 0, 0, 'C');
     	$this->Ln(15);
 		}
 		
@@ -65,7 +65,7 @@
 			$this->SetY(-10);
     	$this->SetFont($font,'',8);
     	$this->Cell(0, 4, '©2002-2003 Keith Morrison, Infused Solutions - www.infused.org', 0, 1, 'C', 0, 'http://www.infused.org');
-			$this->Cell(0, 4, sprintf(_("Send questions or comments to %s"), 'keithm@infused.org'), 0, 0, 'C', 0, 'mailto:keithm@infused.org');
+			$this->Cell(0, 4, sprintf(gtc("Send questions or comments to %s"), 'keithm@infused.org'), 0, 0, 'C', 0, 'mailto:keithm@infused.org');
 		}
 	}
 	
@@ -79,8 +79,8 @@
 	$pdf->AddPage();
 	$pdf->SetCreator($_SERVER['PHP_SELF']);
 	$pdf->SetAuthor('Keith Morrison, keithm@infused.org');
-	$pdf->SetTitle(sprintf(_("Family Group Sheet for %s"), $o->name));
-	$pdf->SetSubject(_("Genealogy"));
+	$pdf->SetTitle(sprintf(gtc("Family Group Sheet for %s"), $o->name));
+	$pdf->SetSubject(gtc("Genealogy"));
 	
 	# Display main individual
 	display_indiv($o);
@@ -116,7 +116,7 @@
 		if (!empty($p_node->aka)) {
 			$pdf->Ln($linespace);
 			$pdf->SetFont($font, 'I', 10);
-			$pdf->Cell(0, 5, _("Aka").':');
+			$pdf->Cell(0, 5, gtc("Aka").':');
 			$pdf->SetX($factcol);
 			$pdf->SetFont($font, '', 10);
 			$pdf->Cell(0, 5, $p_node->aka);
@@ -125,22 +125,22 @@
 		# print gender string
 		$pdf->Ln($linespace);
 		$pdf->SetFont($font, 'I', 10);
-		$pdf->Cell(0, 5, _("Gender").':');
+		$pdf->Cell(0, 5, gtc("Gender").':');
 		$pdf->SetX($factcol);
 		$pdf->SetFont($font, '', 10);
-		$pdf->Cell(0, 5, _($p_node->gender));
+		$pdf->Cell(0, 5, gtc($p_node->gender));
 		
 		# print birth record
 		$pdf->Ln($linespace);
 		$pdf->SetFont($font, 'I', 10);
-		$pdf->Cell(0, 5, _("Birth").':');
+		$pdf->Cell(0, 5, gtc("Birth").':');
 		$pdf->SetX($factcol);
 		$pdf->SetFont($font, '', 10);
 		$pdf->Cell(0, 5, $p_node->birth->date);
 		$pdf->SetX($placecol);
 		$birthplace = $p_node->birth->place;
 		if ($p_node->birth->sources) { 
-			$birthplace .= ' ('._("Sources").':';
+			$birthplace .= ' ('.gtc("Sources").':';
 			foreach($p_node->birth->sources as $birthsource) {
 				array_push($sources, $birthsource);
 				$birthplace .= ' '.count($sources);
@@ -151,14 +151,14 @@
 		
 		# print death record
 		$pdf->SetFont($font, 'I', 10);
-		$pdf->Cell(0, 5, _("Death").':');
+		$pdf->Cell(0, 5, gtc("Death").':');
 		$pdf->SetX($factcol);
 		$pdf->SetFont($font, '', 10);
 		$pdf->Cell(0, 5, $p_node->death->date);
 		$pdf->SetX($placecol);
 		$deathplace = $p_node->death->place;
 		if ($p_node->death->sources) { 
-			$deathplace .= ' ('._("Sources").':';
+			$deathplace .= ' ('.gtc("Sources").':';
 			foreach($p_node->death->sources as $deathsource) {
 				array_push($sources, $deathsource);
 				$deathplace .= ' '.count($sources);
@@ -169,13 +169,13 @@
 		
 		# print father
 		$pdf->SetFont($font, 'I', 10);
-		$pdf->Cell(0, 5, _("Father").':');
+		$pdf->Cell(0, 5, gtc("Father").':');
 		$pdf->SetX($factcol);
 		$pdf->SetFont($font, '', 10);
 		$pdf->MultiCell(0, 5, isset($f->name) ? $f->name : '', 0, 'L');
 		# print mother
 		$pdf->SetFont($font, 'I', 10);
-		$pdf->Cell(0,5, _("Mother").':');
+		$pdf->Cell(0,5, gtc("Mother").':');
 		$pdf->SetX($factcol);
 		$pdf->SetFont($font, '', 10);
 		$pdf->MultiCell(0, 5, isset($m->name) ? $m->name : '', 0, 'L');			
@@ -183,7 +183,7 @@
 		foreach ($p_node->events as $event) {
 			$eventplace = '';
 			$pdf->SetFont($font, 'I', 10);
-			$pdf->Cell(0, 5, _($event->type).':');
+			$pdf->Cell(0, 5, gtc($event->type).':');
 			$pdf->SetX($factcol);
 			$pdf->SetFont($font, '', 10);
 			$pdf->Cell(0, 5, $event->date);
@@ -201,7 +201,7 @@
 				$eventstring = '';
 			}
 			if ($event->sources) {
-				$eventplace .= ' ('._("Sources").': '; 
+				$eventplace .= ' ('.gtc("Sources").': '; 
 				foreach ($event->sources as $source)  {
 					array_push($sources, $source);
 					$eventplace .= ' '.count($sources);
@@ -214,7 +214,7 @@
 		if ($p_node->notes) {
 			$noteparagraphs = explode('<br>', $p_node->notes);
 			$pdf->SetFont($font, 'I', 10);
-			$pdf->Cell(0, 5, _("Notes").':');
+			$pdf->Cell(0, 5, gtc("Notes").':');
 			$pdf->SetX($factcol);
 			$pdf->SetFont($font, '', 10);
 			foreach($noteparagraphs as $noteparagraph) {
@@ -235,24 +235,24 @@
 		$spouse = (!empty($p_marriage->spouse)) ? new Person($p_marriage->spouse, 3) : null;
 		$pdf->Ln(5);		
 		$pdf->SetFont($font, 'I', 10);
-		$pdf->Cell(0, 5, sprintf(_("Family %s"), $p_mnum).' :', 0, 1);
+		$pdf->Cell(0, 5, sprintf(gtc("Family %s"), $p_mnum).' :', 0, 1);
 		$pdf->Cell(0, 0, ' ', 'B', 1);
 		$pdf->Ln(5);
 		$pdf->SetFont($font, '', 10);
-		$pdf->Cell(0, 5, _("Spouse/Partner").':');
+		$pdf->Cell(0, 5, gtc("Spouse/Partner").':');
 		$pdf->SetX($factcol);
 		$spousestr = $spouse->name;
-		if ($spouse->birth) { $spousestr .= '   '._("b.").' '.$spouse->birth->date; }
-		if ($spouse->death) { $spousestr .= '   '._("d.").' '.$spouse->death->date; }
+		if ($spouse->birth) { $spousestr .= '   '.gtc("b.").' '.$spouse->birth->date; }
+		if ($spouse->death) { $spousestr .= '   '.gtc("d.").' '.$spouse->death->date; }
 		
 		$pdf->Cell(0, 5, $spousestr, 0, 1);
-		$pdf->Cell(0, 5, _($p_marriage->beginstatus).':');
+		$pdf->Cell(0, 5, gtc($p_marriage->beginstatus).':');
 		$pdf->SetX($factcol);
 		$pdf->Cell(0, 5, $p_marriage->date);
 		$pdf->SetX($placecol);
 		$marriageplace = $p_marriage->place;
 		if ($p_marriage->sources) {
-			$marriageplace .= ' ('._("Sources").': '; 
+			$marriageplace .= ' ('.gtc("Sources").': '; 
 			foreach ($p_marriage->sources as $source)  {
 				array_push($sources, $source);
 				$marriageplace .= ' '.count($sources);
@@ -263,13 +263,13 @@
 		# print marriage end status
 		if ($p_marriage->endstatus) {
 			$pdf->SetFont($font, 'I', 10);
-			$pdf->Cell(0, 5, _($p_marriage->endstatus).':');
+			$pdf->Cell(0, 5, gtc($p_marriage->endstatus).':');
 			$pdf->SetX($factcol);
 			$pdf->Cell(0, 5, $p_marriage->enddate);
 			$pdf->SetX($placecol);
 			$endplace = $p_marriage->endplace;
 			if ($p_marriage->end_sources) {
-				$endplace .= ' ('._("Sources").': '; 
+				$endplace .= ' ('.gtc("Sources").': '; 
 				foreach ($p_marriage->end_sources as $source)  {
 					array_push($sources, $source);
 					$endplace .= ' '.count($sources);
@@ -282,7 +282,7 @@
 		foreach ($p_marriage->events as $event) {
 			$eventplace = '';
 			$pdf->SetFont($font, 'I', 10);
-			$pdf->Cell(0, 5, _($event->type).':');
+			$pdf->Cell(0, 5, gtc($event->type).':');
 			$pdf->SetX($factcol);
 			$pdf->SetFont($font, '', 10);
 			$pdf->Cell(0, 5, $event->date);
@@ -300,7 +300,7 @@
 				$eventstring = '';
 			}
 			if ($event->sources) {
-				$eventplace .= ' ('._("Sources").': '; 
+				$eventplace .= ' ('.gtc("Sources").': '; 
 				foreach ($event->sources as $source)  {
 					array_push($sources, $source);
 					$eventplace .= ' '.count($sources);
@@ -314,7 +314,7 @@
 		if ($p_marriage->notes) {
 			$noteparagraphs = explode('<br>', $mnotes);
 			$pdf->SetFont($font, 'I', 10);
-			$pdf->Cell(0, 5, _("Notes").':');
+			$pdf->Cell(0, 5, gtc("Notes").':');
 			$pdf->SetX($factcol);
 			$pdf->SetFont($font, '', 10);
 			foreach ($noteparagraphs as $noteparagraph) {
@@ -326,7 +326,7 @@
 		# print children
 		if ($p_marriage->child_count > 0) {
 			$pdf->SetFont($font, 'I', 10);
-			$pdf->Cell(0, 5, _("Children").':', 0, 1);
+			$pdf->Cell(0, 5, gtc("Children").':', 0, 1);
 			$cnum = 0;
 			foreach ($p_marriage->children as $child) {
 				$cnum++;
@@ -352,7 +352,7 @@
 		$sourcecol = 23;
 		$pdf->Ln(5);
 		$pdf->SetFont($font, 'I', 10);
-		$pdf->Cell(0, 5, _("Sources").':', 0, 1);
+		$pdf->Cell(0, 5, gtc("Sources").':', 0, 1);
 		$pdf->Cell(0, 0, " ", "B", 1);
 		$pdf->Ln(5);
 		$pdf->SetFont($font, '', 10);

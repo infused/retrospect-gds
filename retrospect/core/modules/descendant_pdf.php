@@ -59,7 +59,7 @@
 		function Header() {
     	global $o, $font;
     	$this->SetFont($font,'BU',12);
-			$this->Cell(0, 5, sprintf(_("Descendant Report for %s"), $o->name), 0, 0, 'C');
+			$this->Cell(0, 5, sprintf(gtc("Descendant Report for %s"), $o->name), 0, 0, 'C');
     	$this->Ln(15);
 		}
 		
@@ -69,7 +69,7 @@
 			$this->SetY(-10);
     	$this->SetFont($font,'',8);
     	$this->Cell(0, 4, '©2002-2004 Keith Morrison, Infused Solutions - www.infused.org', 0, 1, 'C', 0, 'http://www.infused.org');
-			$this->Cell(0, 4, sprintf(_("Send questions or comments to %s"), 'keithm@infused.org'), 0, 0, 'C', 0, 'mailto:keithm@infused.org');
+			$this->Cell(0, 4, sprintf(gtc("Send questions or comments to %s"), 'keithm@infused.org'), 0, 0, 'C', 0, 'mailto:keithm@infused.org');
 		}
 	}
 	
@@ -94,7 +94,7 @@
 			$pdf->SetX(0);
 			$pdf->SetFont($font, 'BU', 10);
 			$pdf->Ln(10);
-			$pdf->Cell(0, 5, sprintf(_("Generation %s"), $g_generation), 0, 2, 'C');
+			$pdf->Cell(0, 5, sprintf(gtc("Generation %s"), $g_generation), 0, 2, 'C');
 			//$pdf->Ln(5);
 		}
 		$pdf->LN(5);
@@ -178,8 +178,8 @@
 	$pdf->AddPage();
 	$pdf->SetCreator($_SERVER['PHP_SELF']);
 	$pdf->SetAuthor('Keith Morrison, keithm@infused.org');
-	$pdf->SetTitle(sprintf(_("Descendant Report for %s"), $o->name));
-	$pdf->SetSubject(_("Genealogy"));
+	$pdf->SetTitle(sprintf(gtc("Descendant Report for %s"), $o->name));
+	$pdf->SetSubject(gtc("Genealogy"));
 	
 	for ($i = 0; $i < count($g_descendants); $i++) {
 		display_indiv($g_descendants[$i]);
