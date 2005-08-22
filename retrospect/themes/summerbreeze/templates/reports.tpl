@@ -26,7 +26,7 @@
 				<td width="125">
 					<select name="m" class="listbox">
 						<option value="ahnentafel">{php}t("Ahnentafel"){/php}</option>
-						<option value="ahnentafel_pdf">{php}t("Ahnentafel PDF"){/php}</option>
+						<!-- <option value="ahnentafel_pdf">{php}t("Ahnentafel PDF"){/php}</option> -->
 					</select>
 				</td>
 				<td class="text">&nbsp;&nbsp;{php}t("Number of Generations"){/php}:&nbsp;</td>
@@ -49,7 +49,7 @@
 				<td width="125">
 					<select name="m" class="listbox">
 						<option value="descendant">{php}t("Descendant"){/php}</option>
-						<option value="descendant_pdf">{php}t("Descendant PDF"){/php}</option>
+						<!-- <option value="descendant_pdf">{php}t("Descendant PDF"){/php}</option> -->
 					</select>
 				</td>
 				<td class="text">&nbsp;&nbsp;{php}t("Number of Generations"){/php}:&nbsp;</td>
