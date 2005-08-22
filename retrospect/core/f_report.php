@@ -87,12 +87,16 @@
 	* @return string
 	*/
 	function get_death_sentence($p) {
-		$s 					= '';
-		$date 			= $p->death->date;
-		$place 			= $p->death->place;
-		$rdate_mod 	= $p->death->raw['mod'];
-		$rdate1 		= $p->death->raw['date1'];
-		$rdate2 		= $p->death->raw['date2'];
+	  
+	  # return empty string in nothing to do
+		if ( !$p->death && !$p->death->date && !$p->death->date->place ) return '';
+		  
+		$s = '';
+		$date	= $p->death && $p->death->date ? $p->death->date : '';
+		$place = $p->death && $p->death->place ? $p->death->place : '';
+		$rdate_mod = $p->death->raw['mod'];
+		$rdate1 = $p->death->raw['date1'];
+		$rdate2 = $p->death->raw['date2'];
 		
 		# populate keyword array
 		if (!empty($place)) { keyword_push($place); }
