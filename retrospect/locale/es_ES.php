@@ -317,7 +317,7 @@
 
   $lang_strings["Posted by"] = "Legalizar";
   
-  $lang_strings["Powered by"] = "";
+  $lang_strings["Powered by"] = "Powered by";
 
   $lang_strings["Probate"] = "Legalizar";
 
