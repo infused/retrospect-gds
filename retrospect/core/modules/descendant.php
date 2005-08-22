@@ -93,10 +93,10 @@
 					
 					if ($child->ns_number) {	
 						$string .= '<ol><li value="'.$child->ns_number.'">'.$child_nk;
-						if ($child->birth->date || $child->death->date) { 
+						if (($child->birth && $child->birth->date) || ($child->death && $child->death->date)) { 
 							$string .= '&nbsp;&nbsp;'; 
-							if ($child->birth->date) $string .= gtc("b.").' '.$child->birth->date.' ';
-							if ($child->death->date) $string .= gtc("d.").' '.$child->death->date;
+							if ($child->birth && $child->birth->date) $string .= gtc("b.").' '.$child->birth->date.' ';
+							if ($child->death && $child->death->date) $string .= gtc("d.").' '.$child->death->date;
 						}
 						$string .= '</li></ol>';
 					} else {
