@@ -8,15 +8,15 @@
 <h1>{$content_title}</h1>
 {include file="nav.tpl"}
 <div class="tab-page">
-	<!-- Begin family reports -->
+	<!-- Begin family reports
 	<h2>{php}t("Family Reports"){/php}</h2>
 	<a target="_blank" href="{$php_self}?m=family_pdf&amp;id={$indiv->indkey}">{php}t("Family PDF"){/php}</a>
-	<!-- End family reports -->
+	End family reports -->
 	
-	<!-- Begin pedigree reports -->
+	<!-- Begin pedigree reports
 	<h2>{php}t("Pedigree Reports"){/php}</h2>
 	<a target="_blank" href="{$php_self}?m=pedigree_pdf&amp;id={$indiv->indkey}">{php}t("Pedigree PDF"){/php}</a>
-	<!-- End pedigree reports -->
+	End pedigree reports -->
 	
 	<!-- Begin ancestor reports -->
 	<h2>{php}t("Ancestor Reports"){/php}</h2>
