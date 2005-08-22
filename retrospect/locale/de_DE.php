@@ -147,7 +147,7 @@
 
   $lang_strings["Father"] = "Vater";
 
-  $lang_strings["Feb"] = "Feb";
+  $lang_strings["Feb"] = "Feb" ; 
 
   $lang_strings["Female"] = "Weiblich";
 
@@ -157,7 +157,7 @@
 
   $lang_strings["Friends"] = "Freunde";
 
-  $lang_strings["From"] = "";
+  $lang_strings["From"] = "von";
 
   $lang_strings["Funeral"] = "Begräbnis";
 
@@ -307,9 +307,9 @@
 
   $lang_strings["Phrase"] = "Exakter Ausdruck";
 
-  $lang_strings["Please go back to the search page and enter some search criteria."] = "";
+  $lang_strings["Please go back to the search page and enter some search criteria."] = "Bitte gehen sie zur Suchseite zurück und geben sie Suchkriterien ein.";
 
-  $lang_strings["Please note that it will not be visible in the comment list until it has been reviewed and approved by an administrator."] = "";
+  $lang_strings["Please note that it will not be visible in the comment list until it has been reviewed and approved by an administrator."] = "Kommentare werden in der Liste nicht aufgeführt solange sie nicht durch einen Administrator überprüft und freigegeben worden sind.";
 
   $lang_strings["Polish"] = "Poliermittel";
 
@@ -395,9 +395,9 @@
 
   $lang_strings["Surnames"] = "Familiennamen";
 
-  $lang_strings["THE EMAIL ADDRESS YOU ENTERED IS NOT VALID"] = "";
+  $lang_strings["THE EMAIL ADDRESS YOU ENTERED IS NOT VALID"] = "Die eingegebene eMailadresse ist ungültig.";
 
-  $lang_strings["The comment you submitted is show below."] = "";
+  $lang_strings["The comment you submitted is show below."] = "Ihr übermittelter Kommentar wird nachstehend angezeigt.";
 
   $lang_strings["This feature has not been implemented yet."] = "Diese Funktion ist leider noch nicht vorhanden";
 
