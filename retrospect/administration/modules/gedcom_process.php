@@ -96,6 +96,7 @@ a:hover {
 			}
 		} else {
 			$return = '<a href="'.BASE_SCRIPT.'" target="_parent">here</a>';
+			$options->OptionUpdate('published_gedcom', $filename);
 			outputnow( 'Processing is '.$complete.'% complete...' );
 			outputnow('');
 			outputnow( 'The import process is complete.');

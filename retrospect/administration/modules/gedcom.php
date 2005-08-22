@@ -58,4 +58,5 @@
 	# Assign Smarty vars
 	$smarty->assign('gedcoms', $gedcoms);
 	$smarty->assign('tasks', $tasks);
+	$smarty->assign('published_gedcom', $options->GetOption('published_gedcom'));
 ?>
