@@ -36,7 +36,7 @@
 	session_start();
 	
 	# Define some RGDS strings
-	define('RGDS_VERSION', '2.0.0');
+	define('RGDS_VERSION', '2.0.1');
 	
 	# Load the configuration file
 	if (file_exists(CORE_PATH.'config.php')) @require_once(CORE_PATH.'config.php');
