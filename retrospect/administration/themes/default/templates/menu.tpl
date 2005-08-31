@@ -18,7 +18,10 @@ var myMenu =
 	[null, 'Trees', null, null, 'Trees',
 		['<img src="{$THEME_URL}js/ThemeOffice/restore.png" />', 'Gedcom Manager', '{$PHP_SELF}?m=gedcom', null, 'Gedcom Manager'],
 		['<img src="{$THEME_URL}js/ThemeOffice/contact.png" />', 'Review Comments', '{$PHP_SELF}?m=commentmgr', null, 'Review Comments'],
-	]
+	],
+	_cmSplit,
+	[null, 'Preview Site...', '../', '_blank', 'Preview Site...']
+
 ];
 --></script>
 <link rel="stylesheet" href="{$THEME_URL}js/ThemeOffice/theme.css" type="text/css" />
