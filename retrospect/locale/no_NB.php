@@ -614,13 +614,11 @@
 
   
 
-  $lang_strings["Please go back to the search page and enter some search criteria."] = "Vennligst g&aring; tilbake til
+  $lang_strings["Please go back to the search page and enter some search criteria."] = "Vennligst gå tilbake til søkesiden og skrivinn søkekriterier.";
 
-s&oslash;kesiden og skriv inn s&oslash;kekriterier.  Please note that it will not be visible in the comment list until
 
-it has been reviewed and approved by an administrator. Det vil ikke v&aelig;re synlig i kommentarlisten f&oslash;r det
 
-har blitt gjennomg&aring;tt og godkjent av en administrator.";
+  $lang_strings["Please note that it will not be visible in the comment list until it has been reviewed and approved by an administrator." = " Det vil ikke være synlig i kommentarlisten før det har blitt gjennomgått og godkjent av en administrator.";
 
   
 
