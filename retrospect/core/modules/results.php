@@ -29,9 +29,9 @@
 	defined( '_RGDS_VALID' ) or die( 'Direct access to this file is not allowed.' );
 	
 	# process expected get/post variables
-	$gname = isset($_POST['gname']) ? $_POST['gname'] : null;
+	$gname = !empty($_POST['gname']) ? $_POST['gname'] : ' ';
 	$smarty->assign('form_gname', $gname);
-	$sname = isset($_POST['sname']) ? $_POST['sname'] : null;
+	$sname = !empty($_POST['sname']) ? $_POST['sname'] : ' ';
 	$smarty->assign('form_sname', $sname);
 	$soundex = isset($_POST['soundex']) ? true : false;
 	$smarty->assign('form_soundex', $soundex);
@@ -70,6 +70,7 @@
 			$sql = "SELECT * FROM ".TBL_INDIV." WHERE surname LIKE ".$db->qstr($sname.'%')." AND givenname LIKE ".$db->qstr('%'.$gname.'%')." ORDER BY surname, givenname";
 		}	 
 	}
+
 	# location searches
 	elseif ($search_type == 'location') {
 		if ($parts == 'phrase') {
