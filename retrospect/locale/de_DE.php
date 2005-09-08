@@ -264,8 +264,6 @@
   $lang_strings["Naturalization"] = "Staatsbürgerschaft";
 
   $lang_strings["No matching records were found."] = "Leider kein Ergebnis!";
-
-  $lang_strings["No search parameters were specified."] = "Kein Suchparameter eingegeben!";
   
   $lang_strings["Norwegian"] = "Norwegisch";
 
@@ -307,11 +305,9 @@
 
   $lang_strings["Phrase"] = "Exakter Ausdruck";
 
-  $lang_strings["Please go back to the search page and enter some search criteria."] = "Bitte gehen sie zur Suchseite zurück und geben sie Suchkriterien ein.";
-
   $lang_strings["Please note that it will not be visible in the comment list until it has been reviewed and approved by an administrator."] = "Kommentare werden in der Liste nicht aufgeführt solange sie nicht durch einen Administrator überprüft und freigegeben worden sind.";
 
-  $lang_strings["Polish"] = "Poliermittel";
+  $lang_strings["Polish"] = "Polnisch";
 
   $lang_strings["Possessions"] = "Besitz";
 

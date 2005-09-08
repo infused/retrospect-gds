@@ -262,8 +262,6 @@
   $lang_strings["Naturalization"] = "Naturalización";
 
   $lang_strings["No matching records were found."] = "No se encontró ningunos expedientes que emparejaban.";
-
-  $lang_strings["No search parameters were specified."] = "Busqueda no tiene parametros especificados.";
   
   $lang_strings["Norwegian"] = "Noruego";
 
@@ -304,8 +302,6 @@
   $lang_strings["Pedigree for %s"] = "Pedigrí para %s";
 
   $lang_strings["Phrase"] = "Frase";
-
-  $lang_strings["Please go back to the search page and enter some search criteria."] = "Por favor regrese a la página de busqueda y entre palabras a buscar.";
 
   $lang_strings["Please note that it will not be visible in the comment list until it has been reviewed and approved by an administrator."] = "";
 

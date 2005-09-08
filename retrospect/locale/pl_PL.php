@@ -264,8 +264,6 @@
   $lang_strings["Naturalization"] = "Naturalizacja";
 
   $lang_strings["No matching records were found."] = "Nie znaleziono pasujących rekordów.";
-
-  $lang_strings["No search parameters were specified."] = "Nie podano parametrów wyszukiwania.";
   
   $lang_strings["Norwegian"] = "Norweski";
 
@@ -306,8 +304,6 @@
   $lang_strings["Pedigree for %s"] = "Drzewo genealogiczne: %s";
 
   $lang_strings["Phrase"] = "Fraza";
-
-  $lang_strings["Please go back to the search page and enter some search criteria."] = "Proszę wrócić do poprzedniej strony i podać kryteria wyszukiwania.";
 
   $lang_strings["Please note that it will not be visible in the comment list until it has been reviewed and approved by an administrator."] = "Komentarz nie zostanie wyświetlony, dopóki nie zostanie obejrzany i zaakceptowany przez administratora.";
 

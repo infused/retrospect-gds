@@ -530,10 +530,6 @@
 
   
 
-  $lang_strings["No search parameters were specified."] = "Ingen s&oslash;keparametre spesifisert.";
-
-  
-
   $lang_strings["Norwegian"] = "Norsk";
 
   
@@ -612,13 +608,9 @@
 
   $lang_strings["Phrase"] = "Uttrykk";
 
-  
-
-  $lang_strings["Please go back to the search page and enter some search criteria."] = "Vennligst gå tilbake til søkesiden og skrivinn søkekriterier.";
 
 
-
-  $lang_strings["Please note that it will not be visible in the comment list until it has been reviewed and approved by an administrator." = " Det vil ikke være synlig i kommentarlisten før det har blitt gjennomgått og godkjent av en administrator.";
+  $lang_strings["Please note that it will not be visible in the comment list until it has been reviewed and approved by an administrator."] = " Det vil ikke være synlig i kommentarlisten før det har blitt gjennomgått og godkjent av en administrator.";
 
   
 

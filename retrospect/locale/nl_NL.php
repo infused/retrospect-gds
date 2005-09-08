@@ -135,7 +135,6 @@
   $lang_strings["Nationality"] = "Nationaliteit";
   $lang_strings["Naturalization"] = "Naturalisatie";
   $lang_strings["No matching records were found."] = "Helaas geen gegevens gevonden!";
-  $lang_strings["No search parameters were specified."] = "Geen zoekparameters opgegeven!";
   $lang_strings["Note Search"] = "Zoek op Aantekeningen";
   $lang_strings["Notes"] = "Aantekeningen";
   $lang_strings["Nov"] = "Nov";
@@ -155,7 +154,6 @@
   $lang_strings["Pedigree Reports"] = "Stamboom Lijsten";
   $lang_strings["Pedigree for %s"] = "Stamboom van %s";
   $lang_strings["Phrase"] = "Zin";
-  $lang_strings["Please go back to the search page and enter some search criteria."] = "Ga terug naar de zoek pagina en geeft zoek criteria in";
   $lang_strings["Please note that it will not be visible in the comment list until it has been reviewed and approved by an administrator."] = "Admin goedkeuring nodig";
   $lang_strings["Polish"] = "Pools";
   $lang_strings["Possessions"] = "Bezittingen";

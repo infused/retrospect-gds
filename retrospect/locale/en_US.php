@@ -144,7 +144,6 @@
   $lang_strings["Nationality"] = "Nationality";
   $lang_strings["Naturalization"] = "Naturalization";
   $lang_strings["No matching records were found."] = "No matching records were found.";
-  $lang_strings["No search parameters were specified."] = "No search parameters were specified.";
   $lang_strings["Norwegian"] = "Norwegian";
   $lang_strings["Note Search"] = "Note Search";
   $lang_strings["Notes"] = "Notes";
@@ -165,7 +164,7 @@
   $lang_strings["Pedigree Reports"] = "Pedigree Reports";
   $lang_strings["Pedigree for %s"] = "Pedigree for %s";
   $lang_strings["Phrase"] = "Phrase";
-  $lang_strings["Please go back to the search page and enter some search criteria."] = "Please go back to the search page and enter some search criteria.  Please note that it will not be visible in the comment list until it has been reviewed and approved by an administrator. Please note that it will not be visible in the comment list until it has been reviewed and approved by an administrator.";
+  $lang_strings["Please note that it will not be visible in the comment list until it has been reviewed and approved by an administrator."] = " Please note that it will not be visible in the comment list until it has been reviewed and approved by an administrator.";
   $lang_strings["Polish"] = "Polish";
   $lang_strings["Possessions"] = "Possessions";
   $lang_strings["Posted"] = "Posted";
