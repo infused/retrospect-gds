@@ -19,7 +19,7 @@
 <div id="footer">
 	{if $SITE_COPYRIGHT != ""}{$SITE_COPYRIGHT}<br />{/if}
 	{php}t("Powered by"){/php} 
-	<a style="font-weight: normal;" href="http://www.infused-solutions.com/retrospect/">Retrospect-GDS v{$RGDS_VERSION}</a> |
+	<a style="font-weight: normal;" href="http://www.infused-solutions.com/retrospect2/">Retrospect-GDS v{$RGDS_VERSION}</a> |
 	<a href="{$BASE_URL}/administration/">{php}t("Login"){/php}</a>
 </div>
 </body>

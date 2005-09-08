@@ -34,8 +34,8 @@
 	define( '_RGDS_ADMIN', 1 );
 	
 	# Define all application paths
-	define('ADMIN_PATH', realpath(dirname($_SERVER['SCRIPT_FILENAME'])));
-	define('ROOT_PATH', realpath(dirname($_SERVER['SCRIPT_FILENAME']).'/..')); # Path to root Retrospect-GDS directory
+	define('ADMIN_PATH', realpath(dirname(__FILE__)));
+	define('ROOT_PATH', realpath(dirname(__FILE__) . '/..')); # Path to root Retrospect-GDS directory
 	define('CORE_PATH', ROOT_PATH.'/core/'); # Path to core files
 	define('MODULE_PATH', ADMIN_PATH.'/modules/'); # Path to module files
 	define('LIB_PATH', ROOT_PATH.'/libraries/'); # Path to 3rd party libraries

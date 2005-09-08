@@ -26,7 +26,7 @@
   define('_RGDS_VALID', 1 );	
 
 	# Define all application paths
-	define('ROOT_PATH', dirname($_SERVER['SCRIPT_FILENAME'])); 	# Path to root Retrospect-GDS directory
+	define('ROOT_PATH', dirname(__FILE__)); 	# Path to root Retrospect-GDS directory
 	define('THEME_PATH', ROOT_PATH.'/themes/');
 	define('CORE_PATH', ROOT_PATH.'/core/');
 	define('PLUGIN_PATH', CORE_PATH.'plugins/');
