@@ -29,9 +29,9 @@
 	defined( '_RGDS_VALID' ) or die( 'Direct access to this file is not allowed.' );
 	
 	# process expected get/post variables
-	$gname = !empty($_POST['gname']) ? $_POST['gname'] : ' ';
+	$gname = isset($_POST['gname']) ? $_POST['gname'] : null;
 	$smarty->assign('form_gname', $gname);
-	$sname = !empty($_POST['sname']) ? $_POST['sname'] : ' ';
+	$sname = isset($_POST['sname']) ? $_POST['sname'] : null;
 	$smarty->assign('form_sname', $sname);
 	$soundex = isset($_POST['soundex']) ? true : false;
 	$smarty->assign('form_soundex', $soundex);
@@ -63,12 +63,28 @@
 	
 	# name searches
 	if ($search_type == 'name') {
-		if ($soundex === true) {
-			$sql = "SELECT * FROM ".TBL_INDIV." WHERE soundex(surname)=soundex(".$db->qstr($sname).") AND givenname LIKE ".$db->qstr('%'.$gname.'%')." ORDER BY surname, givenname";
-		}
-		else {
-			$sql = "SELECT * FROM ".TBL_INDIV." WHERE surname LIKE ".$db->qstr($sname.'%')." AND givenname LIKE ".$db->qstr('%'.$gname.'%')." ORDER BY surname, givenname";
-		}	 
+		
+		$sql = "SELECT * FROM " . TBL_INDIV . " WHERE ";
+		
+		# set the surname where clause based on soundex selection
+		if ($soundex === true) $surname_search_string = "soundex(surname)=soundex(" . $db->qstr($sname) . ")";
+    else $surname_search_string = "surname LIKE " . $db->qstr($sname.'%');
+		  
+	  # search by givenname and surname
+	  if ($gname != null and $sname != null) {
+			$sql .= $surname_search_string . " AND givenname LIKE ".$db->qstr('%'.$gname.'%')." ORDER BY surname, givenname";
+	  }
+	  
+	  # search by surname only
+	  elseif ($gname == null and $sname != null) {
+	    $sql .= $surname_search_string . " ORDER BY surname";
+	  }
+	  
+	  # search by givenname only
+	  else {
+	    $sql .= "givenname LIKE " . $db->qstr('%'.$gname.'%') . " ORDER BY givenname";
+	  }
+
 	}
 
 	# location searches
