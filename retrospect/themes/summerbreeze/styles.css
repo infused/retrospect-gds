@@ -100,7 +100,7 @@ form {
 }
 #menu select { margin: 0; }
 
-/* Another stupid IE hack to fix an alignment problem*/
+/* Another stupid IE hack to fix an alignment problem */
 * html #menu a {
   position: relative;
   top: -4px;
@@ -195,7 +195,7 @@ form {
 
 /* New style tabs */
 #tabs {
-  float: left;
+  height: 27px;
   width: 100%;
   background: url("images/bottom_border.gif") repeat-x bottom;
 }
@@ -234,10 +234,6 @@ form {
 	border: 1px solid #ccc;
 	border-top-style: none;
 	min-height: 420px;
-}
-/* Yet another lame hack to fix IE */
-* html .tab-page {
-  margin-top: -10px;
 }
 .tab-page2 {
 	clear: both;
