@@ -20,8 +20,8 @@ h1 {
 	font-size: 26px;
   font-style: italic;
   font-weight: bold;
-	margin:0 0 10px 0;
-	padding: 0 0 0 8px;
+	margin: 0;
+	padding: 0 0 10px 8px;
 }
 h1:before { content: "\2014 "; }
 h1:after { content: " \2014"; }
@@ -195,7 +195,7 @@ form {
 
 /* New style tabs */
 #tabs {
-  height: 27px;
+  float: right;
   width: 100%;
   background: url("images/bottom_border.gif") repeat-x bottom;
 }
