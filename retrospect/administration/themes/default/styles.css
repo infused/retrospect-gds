@@ -22,8 +22,8 @@ h1 {
 	font-size: 26px;
   font-style: italic;
   font-weight: bold;
-	margin:0 0 10px 0;
-	padding: 0 0 0 8px;
+	margin: 0;
+	padding: 0 0 10px 8px;
 }
 h1:before { content: "\2014 "; }
 h1:after { content: " \2014"; }
@@ -119,14 +119,6 @@ form {
 	margin: 0;
 }
 
-.content-title {
-	font-weight: bold;
-	font-size: 20px;
-	margin: 0 0 10px 0;
-	padding: 0;
-	color: #666;
-}
-
 /* Tab styles */
 #tabs {
   float: left;
@@ -162,8 +154,7 @@ form {
 }
 .tab-page {
 	clear: both;
-	margin: 0 !important;
-	margin-top: -10px;
+	margin: 0;
 	padding: 10px;
 	background: #F9F9F9;
 	border: 1px solid #ccc;

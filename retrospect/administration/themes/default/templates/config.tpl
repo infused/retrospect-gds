@@ -4,7 +4,7 @@
 	<p>Click <a href="{$PHP_SELF}">HERE</a> to return to the main administration page.</p>
 {else}
 <form action="{$PHP_SELF}?m=config" method="post">
-<div class="content-title">System Configuration</div>
+<h1>System Configuration</h1>
 <!-- SITE OPTIONS -->
 <div id="tabs">
 	<ul>
