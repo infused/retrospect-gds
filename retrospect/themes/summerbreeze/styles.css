@@ -195,7 +195,7 @@ form {
 
 /* New style tabs */
 #tabs {
-  float: right;
+  float: left;
   width: 100%;
   background: url("images/bottom_border.gif") repeat-x bottom;
 }
