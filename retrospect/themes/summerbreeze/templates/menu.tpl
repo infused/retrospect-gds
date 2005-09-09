@@ -1,9 +1,9 @@
-<!-- 
-/**
-*	Menu sub-template
-* $Id$
-*/
--->
+{*
+  /**
+  *	Menu sub-template
+  * $Id$
+  */
+*}
 <a href="index.php">Home</a>
 <a href="{$php_self}?m=search">{php}t("Search"){/php}</a>
 <a href="{$php_self}?m=surnames">{php}t("Surname List"){/php}</a>
