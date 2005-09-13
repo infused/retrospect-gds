@@ -1,5 +1,5 @@
 {if $SAVED}
-	<div class="content-title">System Configuration</div>
+	<h1>System Configuration</h1>
 	<p>The system configuration has been changed.</p>
 	<p>Click <a href="{$PHP_SELF}">HERE</a> to return to the main administration page.</p>
 {else}
