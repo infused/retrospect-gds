@@ -3,7 +3,7 @@
   error_reporting(E_ALL);
 
   # Define all application paths
-  define('ROOT_PATH', dirname($_SERVER['PATH_TRANSLATED']));
+  define('ROOT_PATH', dirname(__FILE__));
   define('CORE_PATH', ROOT_PATH.'/../core/');	
   define('LIB_PATH', ROOT_PATH.'/../libraries/');
   

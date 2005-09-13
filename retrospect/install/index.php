@@ -30,7 +30,7 @@
 	define( '_RGDS_VALID', 1 );	
 
 	# Define all application paths
-	define('ROOT_PATH', realpath(dirname($_SERVER['SCRIPT_FILENAME']).'/..'));
+	define('ROOT_PATH', realpath(dirname(__FILE__).'/..'));
 	define('CORE_PATH', ROOT_PATH.'/core/');
 	define('LIB_PATH', ROOT_PATH.'/libraries/');
 	$cfg_filename = CORE_PATH.'config.php';
