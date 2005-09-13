@@ -38,6 +38,9 @@
 	# Define some RGDS strings
 	define('RGDS_VERSION', '2.0.2');
 	
+	# Differentiate between unix, Windows, or Mac line endings
+	if (version_compare('4.3.0', phpversion(), '>')) ini_set('auto_detect_line_endings', '1');
+	
 	# Load the configuration file
 	if (file_exists(CORE_PATH.'config.php')) @require_once(CORE_PATH.'config.php');
 	else exit('Could not read configuration file.'); 
