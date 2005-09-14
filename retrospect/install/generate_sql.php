@@ -31,11 +31,8 @@
 		$db = NewAdoConnection($db_type);
 		$schema = new adoSchema( $db );
 		$schema->setPrefix( $tbl_prefix );
-		if ($sql = $schema->ParseSchema('create.xml')) {
-			return $sql;
-		} else {
-			return false;
-		}
+		if ($sql = $schema->ParseSchema('create.xml')) return $sql;
+		else return false;
 	}
 	
 	if ($_POST['Submit']) {
@@ -60,32 +57,32 @@
 <link href="install.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<h1>SQL Generator</h1>
+
 <form name="form1" id="form1" method="post" action="">
-<table width="100%"  border="0" cellpadding="0" cellspacing="0" class="section">
-  <tr>
-    <td class="section_head">SQL Generator </td>
-  </tr>
-  <tr>
-    <td class="section_body"><p>Select a database type:<br />
-          <select name="dbtype" class="listbox" id="select">
-            <option value="mysql">MySQL</option>
-            <option value="postgres7">PostreSQL 7.x</option>
-            <option value="mssql">Microsoft SQL (Native)</option>
-            <option value="odbc-mssql">Microsoft SQL (ODBC)</option>
-            <option value="sqlite">SQLite</option>
-          </select>
-    </p>
-      <p>Enter a table prefix:<br />
-        <input name="prefix" type="text" class="textbox" id="prefix" value="rgds" />
+
+<p>Select a database type:<br />
+  <select name="dbtype" class="listbox" id="select">
+    <option value="mysql">MySQL</option>
+    <option value="postgres7">PostreSQL 7.x</option>
+    <option value="mssql">Microsoft SQL (Native)</option>
+    <option value="odbc-mssql">Microsoft SQL (ODBC)</option>
+    <option value="sqlite">SQLite</option>
+  </select>
 </p>
-      <p>
-        <input name="Submit" type="submit" class="button" value="Submit" />
-      </p>
-      <p>
-        <textarea name="textarea" cols="100" rows="25" class="textbox"><?php echo $sql_str; ?></textarea>  
-          </p></td>
-  </tr>
-</table>
+      
+<p>Enter a table prefix:<br />
+  <input name="prefix" type="text" class="textbox" id="prefix" value="rgds" />
+</p>
+
+<p>
+  <input name="Submit" type="submit" class="button" value="Submit" />
+</p>
+<p>
+  <textarea name="textarea" cols="100" rows="25" class="textbox"><?php echo $sql_str; ?></textarea>  
+</p>
+
 </form>
+
 </body>
 </html>
