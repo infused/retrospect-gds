@@ -79,11 +79,13 @@
           die();
     }
 
-  ?>
-  <p>If you have not already done so already, copy core/config-dist.php to core/config.php 
-  and enter the details about your database connection.</p>
+  ?> 
+  <?php if (!file_exists(ROOT_PATH . '/core/config.php')) { ?>
+    <p>A <b>config.php</b> file does not exist.  Please copy core/config-dist.php to core/config.php 
+    and enter the details about your database connection.</p>
+  <?php } ?>
   
-  <p>Congratulations! Your system appears to meet all of the requirements for installing Retrospect-GDS.&nbsp;
-  Please <b><a href="index2.php">click here to complete the installation</a></b>.</p>
+  <p>Congratulations! Your system appears to meet all of the requirements for installing Retrospect-GDS.</p>
+  <p><b><a href="index2.php">Please click here to complete the installation</a></b>...</p>
 </body>
 </html>
