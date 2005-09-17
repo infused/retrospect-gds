@@ -786,7 +786,7 @@
 
   
 
-  $lang_strings["The comment you submitted is show below."] = "Kommentaren du sendte inn vises under.";
+  $lang_strings["The comment you submitted is shown below."] = "Kommentaren du sendte inn vises under.";
 
   
 
@@ -819,6 +819,10 @@
   
 
   $lang_strings["Will"] = "Testamente";
+
+  
+
+  $lang_strings["You can add links to your comment by enclosing them within square brackets. Examples:"] = "";
 
   
 

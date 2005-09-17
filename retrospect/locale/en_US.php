@@ -168,7 +168,7 @@
   $lang_strings["Polish"] = "Polish";
   $lang_strings["Possessions"] = "Possessions";
   $lang_strings["Posted"] = "Posted";
-  $lang_strings["Posted by"] = "Posted";
+  $lang_strings["Posted by"] = "Posted by";
   $lang_strings["Powered by"] = "Powered by";
   $lang_strings["Probate"] = "Probate";
   $lang_strings["Reference Number"] = "Reference Number";
@@ -208,7 +208,7 @@
   $lang_strings["Surname List"] = "Surname List";
   $lang_strings["Surnames"] = "Surnames";
   $lang_strings["THE EMAIL ADDRESS YOU ENTERED IS NOT VALID"] = "You must enter a valid email address.";
-  $lang_strings["The comment you submitted is show below."] = "The comment you submitted is show below.";
+  $lang_strings["The comment you submitted is shown below."] = "The comment you submitted is show below.";
   $lang_strings["This feature has not been implemented yet."] = "This feature has not been implemented yet.";
   $lang_strings["This marriage ended in %s."] = "This marriage ended in %s.";
   $lang_strings["This relationship ended in %s."] = "This relationship ended in %s.";
@@ -217,6 +217,7 @@
   $lang_strings["Use Soundex?"] = "Use Soundex?";
   $lang_strings["Wife"] = "Wife";
   $lang_strings["Will"] = "Will";
+  $lang_strings["You can add links to your comment by enclosing them within square brackets. Examples:"] = "You can add links to your comment by enclosing them within square brackets. Examples:";
   $lang_strings["YOU MUST ENTER AN EMAIL ADDRESS"] = "You must enter an email address.";
   $lang_strings["Your comments"] = "Your comments";
   $lang_strings["Your email address"] = "Your email address";

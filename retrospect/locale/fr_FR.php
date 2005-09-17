@@ -393,7 +393,7 @@
 
   $lang_strings["THE EMAIL ADDRESS YOU ENTERED IS NOT VALID"] = "";
 
-  $lang_strings["The comment you submitted is show below."] = "";
+  $lang_strings["The comment you submitted is shown below."] = "";
 
   $lang_strings["This feature has not been implemented yet."] = "Cette fonctionnalité n'est pas encore disponible.";
 
@@ -411,8 +411,10 @@
 
   $lang_strings["Will"] = "Testament";
 
+  $lang_strings["You can add links to your comment by enclosing them within square brackets. Examples:"] = "";
+  
   $lang_strings["YOU MUST ENTER AN EMAIL ADDRESS"] = "";
-
+  
   $lang_strings["Your comments"] = "";
 
   $lang_strings["Your email address"] = "";
