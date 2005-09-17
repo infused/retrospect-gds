@@ -48,6 +48,7 @@
 	$comments = get_visible_comments($g_indiv);
   for ($i = 0; $i < count($comments); $i++) {
     $comments[$i]['comment'] = stripslashes($comments[$i]['comment']);
+    $comments[$i]['comment'] = rgds_parse_links($comments[$i]['comment']);
   }
 	$smarty->assign('COMMENTS', $comments);
 

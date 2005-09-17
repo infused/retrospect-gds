@@ -95,6 +95,9 @@
 	}
 	
 	$comments = $db->GetAll($sql);
+	for ($i = 0; $i < count($comments); $i++) {
+	  $comments[$i]['comment'] = rgds_parse_links($comments[$i]['comment']);
+	}
 	$smarty->assign('comments', $comments);
 									
 	# Assign Smarty vars

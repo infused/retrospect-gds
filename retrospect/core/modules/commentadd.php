@@ -59,6 +59,8 @@
 		# The form validated ok, so now save the data
 		if (!$form_errors) {	
 			insert_comment($g_indiv, $_POST['email'], $_POST['comment']);
+			$comment_preview = rgds_parse_links($_POST['comment']);
+			$smarty->assign('comment_preview', $comment_preview);
 			$smarty->assign('SAVED',1);
 		}
 	} 

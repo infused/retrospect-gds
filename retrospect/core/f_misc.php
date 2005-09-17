@@ -91,4 +91,10 @@
 		if (isset($var)) return $var;
 		else return false;
 	}
+	
+	function rgds_parse_links($s) {
+	  $patterns = array('/\[(http:\/\/[^ ]+)\|(.+)\]/', '/\[(http:\/\/[^ ]+)\]/');
+	  $replacements = array('<a href="$1">$2</a>', '<a href="$1">$1</a>');
+	  return preg_replace($patterns, $replacements, $s);
+	}
 ?>
