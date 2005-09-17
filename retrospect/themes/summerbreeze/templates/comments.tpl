@@ -16,7 +16,7 @@
 	{foreach from=$COMMENTS item="comment"}
 		  <h2>{php}t("Posted by"){/php} {$comment.email|escape:"htmlall"}
 		  {php}t("on"){/php} {$comment.received|date_format:"%B %d, %Y"}:</h2>
-			{$comment.comment|escape:"htmlall"|nl2br}
+			{$comment.comment|nl2br}
 	{/foreach}	
 	
 </div>
