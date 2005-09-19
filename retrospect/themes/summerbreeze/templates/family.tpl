@@ -51,7 +51,7 @@
 	{if $indiv->notes}
 		<tr>
   		<td class="label">{php}t("Notes"){/php}:</td>
-  		<td class="fact2">{$indiv->notes}</td>
+  		<td colspan="2" class="fact2">{$indiv->notes}</td>
 		</tr>
 	{/if}
 	</table>
