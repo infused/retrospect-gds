@@ -1,0 +1,295 @@
+<?xml version="1.0"?>
+<schema version="0.2">
+  <descr>Retrospect-GDS Database Schema v1.0.0</descr>
+	<table name="children">
+    <descr>Relates children to families</descr>
+		<field name="famkey" type="C" size="20">
+			<notnull />
+    </field>
+    <field name="indkey" type="C" size="20">
+			<notnull />
+    </field>
+		<index name="famkey">
+			<col>famkey</col>
+		</index>
+		<index name="indkey">
+			<col>indkey</col>
+		</index>
+  </table>
+	<table name="citation">
+		<descr>Source citations</descr>
+		<field name="factkey" type="C" size="20">
+		 <notnull />
+		</field>
+		<field name="srckey" type="C" size="20">
+			<notnull />
+		</field>
+		<field name="source" type="X">
+			<notnull />
+		</field>
+		<field name="citekey" type="I">
+			<key />
+			<autoincrement />
+			<notnull />
+		</field>
+		<index name="factkey">
+			<col>factkey</col>
+		</index>
+	</table>
+	<table name="comment">
+		<field name="id" type="I">
+			<key />
+			<notnull />
+			<autoincrement />
+		</field>
+		<field name="indkey" type="C" size="20">
+			<notnull />
+		</field>
+		<field name="email" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="received" type="T" />
+		<field name="comment" type="X">
+			<notnull />
+		</field>
+		<field name="reviewed" type="L">
+			<default value="0" />
+		</field>
+		<field name="visible" type="L">
+			<default value="0" />
+		</field>
+		<index name="indkey">
+			<col>indkey</col>
+		</index>
+	</table>
+	<table name="fact">
+		<field name="indfamkey" type="C" size="20">
+			<notnull />
+		</field>
+		<field name="type" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="date_mod" type="C" size="2">
+			<notnull />
+		</field>
+		<field name="date1" type="C" size="8">
+			<notnull />
+		</field>
+		<field name="date2" type="C" size="8">
+			<notnull />
+		</field>
+		<field name="date_str" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="place" type="C" size="250">
+			<notnull />
+		</field>
+		<field name="comment" type="C" size="250">
+			<notnull />
+		</field>
+		<field name="factkey" type="I">
+			<key />
+			<notnull />
+		</field>
+		<index name="indfamkey">
+			<col>indfamkey</col>
+		</index>
+		<index name="type">
+			<col>type</col>
+		</index>
+	</table>
+	<table name="family">
+		<field name="famkey" type="C" size="20">
+			<key />
+			<notnull />
+		</field>
+		<field name="spouse1" type="C" size="20">
+			<notnull />
+		</field>
+		<field name="spouse2" type="C" size="20">
+			<notnull />
+		</field>
+		<field name="beginstatus" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="endstatus" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="notekey" type="C" size="20">
+			<notnull />
+		</field>
+		<index name="spouse1">
+			<col>spouse1</col>
+		</index>
+		<index name="spouse2">
+			<col>spouse2</col>
+		</index>
+	</table>
+	<table name="indiv">
+		<field name="indkey" type="C" size="20">
+			<key />
+			<notnull />
+		</field>
+		<field name="surname" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="givenname" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="aka" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="prefix" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="suffix" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="sex" type="C" size="1">
+			<notnull />
+		</field>
+		<field name="refn" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="notekey" type="C" size="20">
+			<notnull />
+		</field>
+		<index name="surname">
+			<col>surname</col>
+		</index>
+		<index name="givenname">
+			<col>givenname</col>
+		</index>
+		<index name="sex">
+			<col>sex</col>
+		</index>
+	</table>
+	<table name="language">
+		<field name="lang_id" type="I">
+			<key />
+			<notnull />
+			<autoincrement />
+		</field>
+		<field name="lang_code" type="C" size="5">
+			<notnull /> 
+		</field>
+		<field name="lang_charset" type="C" size="20">
+			<notnull />
+		</field>	
+		<field name="lang_name" type="C" size="20">
+			<notnull />
+		</field>
+		<index name="lang_code">
+			<col>lang_code</col>
+		</index>
+	</table>
+	<table name="media">
+		<field name="id" type="I">
+			<key />
+			<notnull />
+			<autoincrement />
+		</field>
+		<field name="filename" type="C" size="128">
+			<notnull />
+		</field>
+		<field name="caption" type="C" size="40">
+			<notnull />
+		</field>
+		<field name="description" type="C" size="250">
+			<notnull />
+		</field>
+	<index name="indfamkey">
+		<col>indfamkey</col>
+	</index>
+	</table>
+	<table name="note">
+		<field name="notekey" type="C" size="20">
+			<key />
+			<notnull />
+		</field>
+		<field name="text" type="X">
+			<notnull />
+		</field>
+	</table>
+	<table name="options">
+		<field name="opt_id" type="I">
+			<key />
+			<notnull />
+			<autoincrement />
+		</field>
+		<field name="opt_key" type="C" size="20">
+			<unique />
+			<notnull />
+		</field>
+		<field name="opt_val" type="C" size="250">
+			<notnull />
+		</field>
+		<index name="opt_key">
+			<col>opt_key</col>
+			<unique />
+		</index>
+		<index name="famkey">
+			<col>famkey</col>
+		</index>
+	</table>
+	<table name="source">
+		<field name="srckey" type="C" size="20">
+			<key />
+			<notnull />
+		</field>
+		<field name="text" type="X">
+			<notnull />
+		</field>
+		<field name="notekey" type="C" size="20">
+			<notnull />
+		</field>
+	</table>
+	<table name="user">
+		<field name="id" type="I">
+			<key />
+			<notnull />
+			<autoincrement />
+		</field>
+		<field name="uid" type="C" size="16">
+			<notnull />
+		</field>
+		<field name="pwd" type="C" size="32">
+			<notnull />
+		</field>
+		<field name="fullname" type="C" size="100">
+			<notnull />
+		</field>
+		<field name="email" type="C" size="100">
+			<notnull />
+		</field>
+		<field name="grp" type="I">
+			<default value="1" />
+			<notnull />
+		</field>
+		<field name="created" type ="T" />
+		<field name="last" type ="T" />
+		<field name="pwd_expired" type="L">
+			<notnull />
+		</field>
+		<field name="enabled" type="L">
+			<notnull />
+		</field>
+		<index name="uid">
+			<col>uid</col>
+			<unique />
+		</index>
+		<index name="pwd">
+			<col>pwd</col>
+		</index>
+	</table>
+	<table name="usertype">
+		<field name="id" type="I">
+			<key />
+			<notnull />
+			<autoincrement />
+		</field>
+		<field name="name" type="C" size="32">
+			<notnull />
+		</field>
+	</table>
+</schema>

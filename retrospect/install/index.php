@@ -34,8 +34,13 @@
 	define('CORE_PATH', ROOT_PATH.'/core/');
 	define('LIB_PATH', ROOT_PATH.'/libraries/');
 	$cfg_filename = CORE_PATH.'config.php';
+	
+	# Load adodb library w/xmlschema
+  require_once(LIB_PATH . 'adodb/adodb.inc.php');
+  require_once(LIB_PATH . 'adodb/adodb-xmlschema.inc.php');
 
 	require_once('installer.class.php');
+	
 	$inst = new Installer();
 	$yes = '<span class="yes">Yes</span>';
 	$no = '<span class="no">No</span>';
@@ -49,7 +54,7 @@
 </head>
 <body>
   <h1>Retrospect-GDS Installer</h1>
-  <h2>Step 1 - Checking Configuration</h2>
+  <h2>Step 1 - Checking System</h2>
   <?php 
     # Check for appropriate version of PHP
     if (version_compare(phpversion(), '4.2.3') < 0) 
@@ -79,13 +84,64 @@
           die();
     }
 
-  ?> 
-  <?php if (!file_exists(ROOT_PATH . '/core/config.php')) { ?>
-    <p>A <b>config.php</b> file does not exist.  Please copy core/config-dist.php to core/config.php 
-    and enter the details about your database connection.</p>
+  if (!file_exists(CORE_PATH.'config.php')) { ?>
+    <p>Your configuration file could not be found.<br />
+       Please open up the <b>config-dist.php</b> in the <b>core</b> directory and fill in your database details.
+       Then save the file and rename it to <b>config.php</b>.</p>
+  <?php } else { ?>
+    <p>Congratulations! Your system appears to meet all of the requirements for installing Retrospect-GDS.</p>
+    
+    <h2>Step 2 - Testing Database Connection</h2>
+    
+    <?php 
+      # Load the user configuration
+      require_once(CORE_PATH.'config.php');
+      
+      # Establish the database connection
+      # Connections to MSSQL via ODBC require a special connection string!
+      # Always return recordsets as associative arrays
+      $db =& AdoNewConnection($g_db_type);
+      if ($g_db_type == 'odbc_mssql') {
+      	$dsn = 'Driver={SQL Server};Server='.$g_db_host.';Database='.$g_db_name.';';
+      	$db->Connect($dsn, $g_db_user, $g_db_pass);
+      } else {
+      	$host = ($g_db_port) ? $g_db_host : $g_db_host.':'.$g_db_port;
+      	$db->Connect($host, $g_db_user, $g_db_pass, $g_db_name);
+      }
+      $db->SetFetchMode(ADODB_FETCH_ASSOC);
+      
+      # Do we have a good database connection?
+      # MetaTables will return an empty array if no tables exist in the database, otherwise
+      # the array will contain a list of the existing tables.  We use the call to MetaTables
+      # because checking $db is not always a reliable means to test for a valid connection.
+      if ( is_array($db->MetaTables()) or $db == true )
+        echo 'No errors were encountered.';
+      else
+        die('A database connection could not be established.  Please check your settings in <b>config.php</b> and run the installer again.');
+    ?>
+    
+    <h2>Step 3 - Checking For Previous Versions</h2>
+    
+    <?php
+      # New install or upgrade?
+      if (in_array($g_db_prefix.'user',$db->MetaTables())) { ?>
+      
+        <p>A previous version of Retrospect-GDS was found.</p>
+        <p>Please choose one of the following options:
+          <ul>
+            <li>If you are upgrading from <b>version 2.0.0 or above</b> you can 
+        <a href="upgrade.php">upgrade your database</a>.</li>
+            <li>If you are upgrading from a <b>version older than 2.0.0</b> or you would just like to overwrite 
+        your old database continue with a 
+        <a href="install.php">normal installation</a>.</li>
+          </ul>
+        </p>
+    <?php } else { ?>
+      <p>No previous versions were found.</p>
+      <p><b><a href="install.php">Click here to continue with the installation...</a></b></p>
+    <?php } ?>
+    
   <?php } ?>
   
-  <p>Congratulations! Your system appears to meet all of the requirements for installing Retrospect-GDS.</p>
-  <p><b><a href="index2.php">Please click here to complete the installation</a></b>...</p>
 </body>
 </html>

@@ -40,5 +40,6 @@ class Installer {
 		if (is_writable($filespec)) return true;
 		else return @chmod($filespec, 0644);
 	}
+	
 }
 ?>
