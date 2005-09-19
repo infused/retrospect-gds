@@ -28,7 +28,8 @@
       'sort_marriages' => '0',
       'sort_events' => '0',
       'allow_comments' => '1',
-      'gallery_plugin' => '0'
+      'gallery_plugin' => '0',
+      'published_gedcom' => ''
     );
     
     
@@ -53,8 +54,6 @@
       }
       if (!$upgrades) echo 'No option updates were necessary.<br />';
     }
-    
-    private
 
     function _language_exists($lang_code) {
       global $db, $g_db_prefix;

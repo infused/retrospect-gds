@@ -353,6 +353,10 @@
 		<query>INSERT INTO options VALUES ('', 'gallery_plugin', '0')</query>
 	</sql>
 	<sql prefixmethod="auto">
+		<descr>Add 'published_gedcom' record to options table</descr>
+		<query>INSERT INTO options VALUES ('', 'published_gedcom', '')</query>
+	</sql>
+	<sql prefixmethod="auto">
 		<descr>Add english language</descr>
 		<query>INSERT INTO language VALUES ('1', 'en_US', 'utf-8', 'English')</query>
 	</sql>

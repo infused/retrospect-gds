@@ -75,12 +75,14 @@
     if (!$inst->make_writable(ROOT_PATH.'/gedcom/') 
         or !$inst->make_writable(ROOT_PATH.'/themes/summerbreeze/templates_c/')
         or !$inst->make_writable(ROOT_PATH.'/administration/themes/default/templates_c/')) {
-          echo '<p>The web server must be able to write to the following directories.  Please correct ';
-          echo 'the permission on these directories and then refresh this page.</p>';
-          echo '<p>';
-          echo ROOT_PATH.'/gedcom/<br />';
-          echo ROOT_PATH.'/themes/summerbreeze/templates_c/<br />';
-          echo ROOT_PATH.'/administration/themes/default/templates_c/';
+          echo '<p>The web server cannot write to the following directories:</p>';
+          if (!$inst->make_writable(ROOT_PATH.'/gedcom/')) 
+            echo ROOT_PATH.'/gedcom/<br />';
+          if (!$inst->make_writable(ROOT_PATH.'/themes/summerbreeze/templates_c/')) 
+            echo ROOT_PATH.'/themes/summerbreeze/templates_c/<br />';
+          if (!$inst->make_writable(ROOT_PATH.'/administration/themes/default/templates_c/')) 
+            echo ROOT_PATH.'/administration/themes/default/templates_c/';
+          echo '<p>Please correct the permissions on these directories and then refresh this page.</p>';
           die();
     }
 

@@ -93,17 +93,8 @@
     <?php
       # Verifying tables
       $tables_in_db = $db->MetaTables('TABLES');
-      $tables = array('children' => 0,
-                      'citation' => 0,
-                      'comment' => 0,
-                      'fact' => 0,
-                      'family' => 0,
-                      'indiv' => 0,
-                      'language' => 8,
-                      'note' => 0,
-                      'options' => 13,
-                      'source' => 0,
-                      'user' => 1);
+      $tables = array('language' => 8,
+                      'options' => 14);
       foreach ($tables as $table => $records) {
         $sql = 'SELECT COUNT(*) FROM '.$g_db_prefix.$table;
         $count = $db->GetOne($sql);

@@ -1,5 +1,5 @@
 body {
-	font: 12px "Lucida Grande", "Trebuchet MS", Verdana, Arial, sans-serif;
+	font: 14px "Lucida Grande", "Trebuchet MS", Verdana, Arial, sans-serif;
 	color: #000;
 	background: #fff url('funky_fresh.gif') repeat-x;
 	padding: 10px 40px;
@@ -8,11 +8,11 @@ body {
 
 h1 {
   color: #c60;
-  font-size: 24px;
+  font-size: 26px;
 }
 
 h2 {
- font-size: 18px;
+ font-size: 20px;
 }
 
 a {
