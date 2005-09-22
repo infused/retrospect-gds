@@ -23,14 +23,14 @@
 	class GalleryPlugin {
 		
 		# Customize these variables...
-		var $db_type = 'mysql';
-		var $db_host = 'localhost';
-		var $db_port = '';
-		var $db_name = 'retrospect';
-		var $db_user = 'root';
-		var $db_pass = '';
-		var $cpg_pictures_tbl = 'cpg132_pictures';
-		var $cpg_search_url = 'http://retrospect/cpg/thumbnails.php';
+		var $db_type = 'mysql';                                       # database type
+		var $db_host = 'localhost';                                   # database host - usually localhost
+		var $db_port = '';                                            # database port - you should leave this blank
+		var $db_name = 'retrospect';                                  # database name
+		var $db_user = 'root';                                        # database user
+		var $db_pass = '';                                            # database password
+		var $cpg_pictures_tbl = 'cpg132_pictures';                    # name of the coppermine pictures table
+		var $cpg_search_url = 'http://retrospect/cpg/thumbnails.php'; # url of the coppermine thumbnails.php
 		
 		# Don't touch these...
 		var $name = 'Coppermine Plugin';
