@@ -33,7 +33,7 @@
   	  <li><a href="?m=reports&amp;id={$indiv->indkey}">{php}t("Reports"){/php}</a></li>
   	{/if}
 
-  	{if $gallery_plugin}
+  	{if $gallery_plugin and $media_count}
   		{if $module=="multimedia"}
   			<li id="selected"><a>{php}t("Multimedia"){/php}</a></li>
   		{else}
