@@ -44,7 +44,7 @@
 		
 		function media_count($id) {
 			$sql = 'SELECT COUNT(*) FROM '.$this->cpg_pictures_tbl;
-			$sql .= ' WHERE keywords like "%'.$id.'%"';
+			$sql .= ' WHERE keywords regexp "(^|[:blank:])'.$id.'($|[:blank:])"';
 			return $this->db->GetOne($sql);
 		}
 		
