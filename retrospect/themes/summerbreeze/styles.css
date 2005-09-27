@@ -138,7 +138,7 @@ form {
 /* Pedigrees */
 .pedbox {
 	position: absolute; 
-	background: url("images/pedbox.png") no-repeat;
+	background: url("images/pedbox.gif") no-repeat;
 	width:170px; 
 	height:60px;
 	overflow: hidden;
