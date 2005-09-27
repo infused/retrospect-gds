@@ -151,11 +151,11 @@ form {
 	position: absolute;
 	width: 30px;
 	height: 40px;
-	background: url("images/pedtab.png") no-repeat;
+	background: url("images/pedtab.gif") no-repeat;
 }
 .pedtab:hover {
   border: none;
-  background: url("images/pedtab-over.png") no-repeat;
+  background: url("images/pedtab-over.gif") no-repeat;
 }
 .section {
 	background: #eee;
@@ -185,12 +185,12 @@ form {
 .pedconnect_top {
   position: absolute;
   width: 150px;
-  background: url("images/square.png") no-repeat top left;
+  background: url("images/square.gif") no-repeat top left;
 }
 .pedconnect_bot {
   position: absolute;
   width: 150px;
-  background: url("images/square.png") no-repeat bottom left;
+  background: url("images/square.gif") no-repeat bottom left;
 }
 
 /* New style tabs */
