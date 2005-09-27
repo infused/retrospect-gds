@@ -30,9 +30,9 @@
 	# Main record structures
 	define('REG_NEWREC','/^0/'); 									# New record
 	define('REG_HEAD','/^0 HEAD/');								# Beginning of Header record
-	define('REG_INDI','/^0 @(\S+)@ INDI$/'); 				# Beginning of Individual record
-	define('REG_FAM','/^0 @(\S+)+@ FAM$/');					# Beginning of Family record
-	define('REG_SOUR','/^0 @(\S+)@ SOUR$/');				# Beginning of Source record
+	define('REG_INDI','/^0 @(\S+)@ INDI$/'); 			# Beginning of Individual record
+	define('REG_FAM','/^0 @(\S+)+@ FAM$/');				# Beginning of Family record
+	define('REG_SOUR','/^0 @(\S+)@ SOUR$/');			# Beginning of Source record
 	define('REG_NOTE','/^0 @(\S+)@ NOTE(.*)/');		# Beginning of Note record
 	
 	# Record substructures
@@ -62,7 +62,7 @@
 	define('REG_CHIL','/^1 CHIL @(.+)@/');				# Child
 	
 	# Note substructures
-	define('REG_NOTEO2','/^[\d]{1,2} NOTE (.+)/'); # Another note form
+	define('REG_NOTEO2','/^[\d]{1,2} NOTE (.+)/');# Another note form
 	define('REG_CONT','/^[\d]{1,2} CONT (.+)/');	# Continuation
 	define('REG_CONC','/^[\d]{1,2} CONC (.+)/');	# Concatenation
 	
@@ -79,7 +79,7 @@
 	define('REG_PUBL','/^1 PUBL (.+)/');					# Publication
 	define('REG_TEXT','/^1 TEXT (.+)/');					# Text
 	define('REG_PAGE','/^[\d]{1,2} PAGE (.+)/');	# Page
-	define('REG_QUAY','/^[\d]{1,2} QUAY (\d)/'); # Quality Assesment
+	define('REG_QUAY','/^[\d]{1,2} QUAY (\d)/');  # Quality Assesment
 	
 	# Miscelaneous 
 	define('REG_LEVEL','/^([\d]{1,2})/');	
@@ -233,7 +233,7 @@
 					if (preg_match(REG_INDI, $line)) $icount++;
 					elseif (preg_match(REG_FAM, $line)) $fcount++;
 					elseif (preg_match(REG_SOUR, $line)) $scount++;
-					elseif (preg_match(REG_NOTE, $line)) $ncount++; 
+					elseif (preg_match(REG_NOTE, $line)) $ncount++;
 				}
 			}
 			
