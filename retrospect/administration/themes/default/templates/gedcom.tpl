@@ -50,3 +50,9 @@
 </table>
 </form>
 </div>
+<h3>A note about character encodings</h3>
+<p>
+If your gedcom file contains any accented characters, they <u>may not display properly</u> if the gedcom file is not
+encoded using the UTF-8 character set.  For best results always export your gedcom file using the UTF-8 character set
+if your genealogy software supports it.
+</p>
