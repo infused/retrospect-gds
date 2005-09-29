@@ -15,8 +15,13 @@
 	<table cellpadding="0" cellspacing="0" width="100%">
 		<tr>
 			<td class="cfg-lbl"><label for="default_page">Default Module:</label></td>
-			<td class="cfg-opt"><input name="default_page" type="text" class="textbox" id="default_page" value="{$options.default_page}" /></td>
-			<td class="cfg-dsc">This is the default page that is displayed when opening the site. It is only used if no other module is selected. It must be a module that does not require any other parameters.</td>
+			<td class="cfg-opt">
+			  <!--<input name="default_page" type="text" class="textbox" id="default_page" value="{$options.default_page}" /> -->
+			  <select name="default_page" class="listbox" id="default_page">
+			    {html_options options=$default_pages selected=$options.default_page}
+			  </select>
+			</td>
+			<td class="cfg-dsc">This is the default page that is displayed when opening the site.</td>
 		</tr>
 		<tr>
 			<td class="cfg-lbl2"><label for="sort_children">Sort Children?</label></td>

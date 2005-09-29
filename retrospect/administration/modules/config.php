@@ -67,6 +67,10 @@
 	# Date options
 	$smarty->assign('date_formats', array('1'=>'25 Nov 1859', '2'=>'Nov 25, 1859'));
 	
+	# Default page options
+	$default_pages = array('surnames' => 'Surnames', 'intro' => 'Intro');
+	$smarty->assign('default_pages', $default_pages);
+	
 	# Gallery options
 	$supported_galleries = array('0'=>'None', 'coppermine.php'=>'Coppermine');
 	$smarty->assign('supported_galleries', $supported_galleries);
