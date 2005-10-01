@@ -104,7 +104,7 @@
                       'indiv' => 0,
                       'language' => 8,
                       'note' => 0,
-                      'options' => 13,
+                      'options' => 14,
                       'source' => 0,
                       'user' => 1);
       foreach ($tables as $table => $records) {
