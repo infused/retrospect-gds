@@ -456,6 +456,12 @@ class Event {
 	var $source_count;
 	
 	/**
+	* Array of notes
+	* @var array
+	*/
+	var $notes;
+	
+	/**
 	* Event Constructor
 	* @param string $p_type The type of event
 	* @param string $p_date When the event occured
@@ -468,12 +474,16 @@ class Event {
 		$this->comment = $event_data['comment'];
 		$this->factkey = $event_data['factkey'];
 		$this->sort_date = $event_data['date1'];
+		$this->notekey = $event_data['notekey'];
 		$dp =& new DateParser();
 		$this->date = $dp->FormatDateStr($event_data);
 		$this->raw['mod'] = $event_data['date_mod'];
 		$this->raw['date1'] = $event_data['date1'];
 		$this->raw['date2'] = $event_data['date2'];
-		if ($p_fetch_sources === true) $this->_get_sources();
+		if ($p_fetch_sources === true) {
+		  $this->_get_sources();
+		  $this->_get_notes();
+		}
 	}
 	
 	/** 
@@ -497,7 +507,15 @@ class Event {
 		$this->sources = $sources;
 		$this->source_count = count($this->sources);
 	}
+	
+	function _get_notes() {
+		global $db;
+		$query = 'SELECT text FROM '.TBL_NOTE.' WHERE notekey="'.$this->notekey.'"';
+		$this->notes = nl2br($db->GetOne($query));
+	}
+	
 }
+
 
 /**
  * Defines a marriage or family unit
@@ -722,7 +740,7 @@ class Marriage {
 	function _get_notes() {
 		global $db;
 		$query = 'SELECT text FROM '.TBL_NOTE.' WHERE notekey="'.$this->notekey.'"';
-		$this->notes = $db->GetOne($query);
+		$this->notes = $db->GetAll($query);
 	}
 	
 	/**

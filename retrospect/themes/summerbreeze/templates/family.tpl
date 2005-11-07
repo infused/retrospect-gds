@@ -39,6 +39,9 @@
   				{counter assign=source_count print=no}
   				<span class="citation"><a href="#s{$source_count}">{$source_count}</a></span>
   			{/foreach}
+  	    {foreach from=$event->notes item=note}
+  	      {if $note}<br /><b>Note:</b> {$note}{/if}
+  	    {/foreach}
   		</td>
 		</tr>
 	{/foreach}
@@ -83,6 +86,9 @@
 		  			{counter assign=source_count print=no}
 		  			<span class="citation"><a href="#s{$source_count}">{$source_count}</a></span>
 		  		{/foreach}
+    	    {foreach from=$event->notes item=note}
+    	      {if $note}<br /><b>Note:</b> {$note}{/if}
+    	    {/foreach}
 		  	</td>
 		  </tr>
 		  {/foreach}

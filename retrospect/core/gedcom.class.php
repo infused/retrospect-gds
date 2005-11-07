@@ -51,9 +51,10 @@
 	define('REG_NSFX','/^2 NSFX (.*)/'); 					# Name suffic (ie. Jr.) 
 	define('REG_SEX','/^1 SEX (.?)/'); 						# Sex
 	define('REG_TITL','/^1 TITL (.*)/');					# Title (suffix)
-	define('REG_NOTEX','/^1 NOTE @(.+)@/'); 			# Note xref
+	define('REG_NOTEX','/^[\d]{1,2} NOTE @(.+)@/'); 		# Note xref
 	define('REG_NOTEO','/^1 NOTE (.*)/');					# Orphaned note
 	define('REG_REFN','/^1 REFN (.*)/');					# Reference number
+	define('REG_CENS', '/^1 CENS/');              # Census - convert this to an event
 	
 	# Family substructures
 	define('REG_HUSB','/^1 HUSB @(.+)@/');				# Husband xref
@@ -158,6 +159,7 @@
 		var $factkey;
 		var $date_parser;				# date parser object
 		var $file_end_offset;   # end offset of gedcom file
+		var $event_notekey;
 		
 		/**
 		* GedcomParser class constructor
@@ -407,6 +409,7 @@
 		* @param string $start_line
 		*/
 		function _ParseNote($start_line, $notekey = null) {	
+			$begin_level = $this->_ExtractLevel($start_line);
 			$note = array();
 			$text = '';
 			if ($notekey) { 
@@ -427,7 +430,7 @@
 				$line = trim($line);
 				$level = $this->_ExtractLevel($line);
 				# dump record to db if reached end of note record
-				if ($level == 0) {
+				if ($level <= $begin_level) {
 					$note['text'] = trim($text);
 					$this->_DB_InsertRecord($this->rs_note, $note);
 					fseek($this->fhandle, $poffset);
@@ -519,7 +522,7 @@
 		* @return array
 		*/
 		function _ParseFamilyEventDetail($start_line, $indfamkey) {
-			global $FAM_EVENTS;
+			global $FAM_EVENTS, $event_notekey;
 			$this->factkey++;
 			$event = array();
 			$event['indfamkey'] = $indfamkey;
@@ -561,6 +564,16 @@
 				elseif (preg_match(REG_SOURX, $line)) {
 					$this->_ParseCitation($line, $this->factkey);
 				}
+				# create note link
+				elseif (preg_match(REG_NOTEX, $line, $match)) {
+					$event['notekey'] = trim($match[1]);
+					$this->_ParseNote($line);
+				}
+				elseif (preg_match(REG_NOTEO2, $line)) {
+				  $event_notekey++;
+				  $event['notekey'] = 'NE'.$event_notekey;
+				  $this->_ParseNote($line, 'E'.$event_notekey);
+				}
 			}
 		}
 		
@@ -571,7 +584,7 @@
 		* @return array
 		*/
 		function _ParseIndivEventDetail($match, $indfamkey) {
-			global $IND_EVENTS;
+			global $IND_EVENTS, $event_notekey;
 			$this->factkey++;
 			$event = array();
 			$event['indfamkey'] = $indfamkey;
@@ -606,6 +619,11 @@
 				}
 				elseif (preg_match(REG_SOURX, $line)) {
 					$this->_ParseCitation($line, $this->factkey);
+				}
+				elseif (preg_match(REG_NOTEO2, $line)) {
+				  $event_notekey++;
+				  $event['notekey'] = 'NE'.$event_notekey;
+				  $this->_ParseNote($line, 'E'.$event_notekey);
 				}
 			}
 		}
@@ -739,10 +757,11 @@
 			$place = isset($record['place']) ? $db->qstr($record['place']) : "''";
 			$comment = isset($record['comment']) ? $db->qstr($record['comment']) : "''";
 			$factkey = $db->qstr($record['factkey']);
+			$notekey = $db->qstr($record['notekey']);
 			$sql = 'INSERT INTO '.TBL_FACT;
-			$sql .= ' (indfamkey,type,date_mod,date1,date2,date_str,place,comment,factkey) ';
+			$sql .= ' (indfamkey,type,date_mod,date1,date2,date_str,place,comment,factkey,notekey) ';
 			$sql .= 'VALUES ('.$indfamkey.','.$type.','.$date_mod.','.$date1.','.$date2.',';
-			$sql .= $date_str.','.$place.','.$comment.','.$factkey.')';
+			$sql .= $date_str.','.$place.','.$comment.','.$factkey.','.$notekey.')';
 			$db->Execute($sql);
 		}
 		
