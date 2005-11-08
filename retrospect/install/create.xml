@@ -91,6 +91,9 @@
 			<key />
 			<notnull />
 		</field>
+		<field name="notekey" type="C" size="20">
+			<key />
+		</field>
 		<index name="indfamkey">
 			<col>indfamkey</col>
 		</index>
