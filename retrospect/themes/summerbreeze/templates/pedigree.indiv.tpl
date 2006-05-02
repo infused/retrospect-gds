@@ -10,7 +10,7 @@
 	  <tr>
 	    <td height="60" valign="middle">
   	    <div class="pedbox-text">
-  	      <div><a href="{$php_self}?m=pedigree&amp;id={$indiv->indkey}">{$indiv->name}</a></div>
+  	      <div><a href="{$php_self}?m=pedigree&amp;id={$indiv->indkey}">{$indiv->full_name()}</a></div>
       		<div style="height: 1.3em; overflow: hidden;">{php}t("b."){/php} {$indiv->birth->date}</div>
       		<div style="height: 1.3em; overflow: hidden;">{php}t("d."){/php} {$indiv->death->date}</div>
       	</div>

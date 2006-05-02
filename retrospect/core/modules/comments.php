@@ -35,12 +35,12 @@
 	
 	# populate keyword array
 	keyword_push(gtc("Comments"));
-	keyword_push($o->name);
+	keyword_push($o->full_name());
 	
 	# assign other smarty variables
-	$smarty->assign('page_title', sprintf(gtc("Comments for %s"), $o->name));
+	$smarty->assign('page_title', sprintf(gtc("Comments for %s"), $o->full_name()));
 	$smarty->assign('surname_title', sprintf(gtc("%s Surname"), $o->sname));
-	$content_title = $o->prefix.' '.$o->name;
+	$content_title = $o->prefix.' '.$o->full_name();
 	if ($o->suffix) $content_title .= ', '.$o->suffix;
 	$smarty->assign('content_title', $content_title);
 

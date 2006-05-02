@@ -44,7 +44,7 @@
 		$rdate2 		= $p->birth->raw['date2']; 
 		
 		# populate keyword array
-		keyword_push($p->name);
+		keyword_push($p->full_name());
 		if (!empty($place)) { keyword_push($place); }
 		
 		# for males
@@ -144,12 +144,12 @@
 	*/
 	function get_parents_sentence($p, $p_father, $p_mother) {
 		# populate keyword array
-		keyword_push($p_father->name);
-		keyword_push($p_mother->name);
+		keyword_push($p_father->full_name());
+		keyword_push($p_mother->full_name());
 		$params = array('m'=>'family','id'=>$p_mother->indkey);
-		$mother_link = '<a class="secondary" href="'.Theme::BuildUrl($params).'">'.$p_mother->name.'</a>';
+		$mother_link = '<a class="secondary" href="'.Theme::BuildUrl($params).'">'.$p_mother->full_name().'</a>';
 		$params = array('m'=>'family','id'=>$p_father->indkey);
-		$father_link = '<a class="secondary" href="'.Theme::BuildUrl($params).'">'.$p_father->name.'</a>';
+		$father_link = '<a class="secondary" href="'.Theme::BuildUrl($params).'">'.$p_father->full_name().'</a>';
 		if ($p->father_indkey || $p->mother_indkey) {
 			if ($p->sex == 'M') { 
 				# structure for son of father and mother
@@ -195,13 +195,9 @@
 			$marriage =& $p->marriages[$i];
 			if ($marriage->spouse) {
 				$spouse = new Person($marriage->spouse, 3);
-				$spouse_link = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?m=family&amp;id='.$spouse->indkey.'">'.$spouse->name.'</a>';
+				$spouse_link = '<a class="secondary" href="'.$_SERVER['PHP_SELF'].'?m=family&amp;id='.$spouse->indkey.'">'.$spouse->full_name().'</a>';
 				# populate keyword array
-				keyword_push($spouse->name);
-				
-				# fix some problems
-				if (!$spouse->name) { $spouse->name =  gtc("Unknown"); }
-				if ($spouse->name == 'Unknown Unknown') { $spouse->name = gtc("Unknown"); }
+				keyword_push($spouse->full_name());
 				
 				if ($marriage->beginstatus == 'Marriage') {
 					if ($p->sex == 'M') {
@@ -309,11 +305,11 @@
 	*/
 	function get_children_of_sentence($p, $ps) {
 		$s = '';
-		if ($p->name and $ps->name) {
-			$s .= sprintf(gtc("Children of %s and %s"), $p->name, $ps->name);
+		if ($p->full_name() and $ps->full_name()) {
+			$s .= sprintf(gtc("Children of %s and %s"), $p->full_name(), $ps->full_name());
 		}
 		else {
-			$s .= sprintf(gtc("Children of %s"), $p->name);
+			$s .= sprintf(gtc("Children of %s"), $p->full_name());
 		}
 		return $s;
 	}

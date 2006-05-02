@@ -59,7 +59,7 @@
 		function Header() {
     	global $o, $font;
     	$this->SetFont($font,'BU',12);
-			$this->Cell(0, 5, sprintf(gtc("Descendant Report for %s"), $o->name), 0, 0, 'C');
+			$this->Cell(0, 5, sprintf(gtc("Descendant Report for %s"), $o->full_name()), 0, 0, 'C');
     	$this->Ln(15);
 		}
 		
@@ -103,7 +103,7 @@
 		$pdf->Write(5, $p_node->ns_number.'.');
 		$pdf->SetLeftMargin($factcol);
 		$pdf->SetFont($font, 'B', 9);
-		$pdf->Write(5, $p_node->name);
+		$pdf->Write(5, $p_node->full_name());
 		$pdf->SetFont($font, '', 9);
 		$pdf->Write(5, html_entity_decode(strip_tags(get_parents_sentence($p_node, $father, $mother))));
 		$pdf->LN(5);
@@ -136,7 +136,7 @@
 						$pdf->Ln(5);
 						$pdf->Write(5, $child->ns_number);
 						$pdf->SetX($childcol);
-						$pdf->Write(5, $child->name);
+						$pdf->Write(5, $child->full_name());
 						if ($child->birth->date || $child->death->date) { 
 							if ($child->birth->date) {
 								$pdf->SetX($birthcol);
@@ -151,7 +151,7 @@
 					else {
 						$pdf->Ln(5);
 						$pdf->SetX($childcol);
-						$pdf->Write(5, $child->name);
+						$pdf->Write(5, $child->full_name());
 						if ($child->birth->date || $child->death->date) { 
 							if ($child->birth->date) {
 								$pdf->SetX($birthcol);
@@ -178,7 +178,7 @@
 	$pdf->AddPage();
 	$pdf->SetCreator($_SERVER['PHP_SELF']);
 	$pdf->SetAuthor('Keith Morrison, keithm@infused.org');
-	$pdf->SetTitle(sprintf(gtc("Descendant Report for %s"), $o->name));
+	$pdf->SetTitle(sprintf(gtc("Descendant Report for %s"), $o->full_name()));
 	$pdf->SetSubject(gtc("Genealogy"));
 	
 	for ($i = 0; $i < count($g_descendants); $i++) {

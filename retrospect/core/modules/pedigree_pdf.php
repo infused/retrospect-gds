@@ -63,7 +63,7 @@
 		function Header() {
     	global $o, $font;
     	$this->SetFont($font,'BU',12);
-			$this->Cell(0, 5, sprintf(gtc("Pedigree for %s"), $o->name), 0, 0, 'C');
+			$this->Cell(0, 5, sprintf(gtc("Pedigree for %s"), $o->full_name()), 0, 0, 'C');
     	$this->Ln(15);
 		}
 		
@@ -89,7 +89,7 @@
 			$g_node_parents[$p_node->ns_number] = false;
 		}
 		
-		$g_node_strings[$p_node->ns_number][0] = $p_node->name;
+		$g_node_strings[$p_node->ns_number][0] = $p_node->full_name();
 		$g_node_strings[$p_node->ns_number][1] = gtc("Birth").': '.$p_node->birth->date;
 		$g_node_strings[$p_node->ns_number][2] = gtc("Death").': '.$p_node->death->date;
 	}
@@ -116,7 +116,7 @@
 	$pdf->AddPage();
 	$pdf->SetCreator($_SERVER["PHP_SELF"]);
 	$pdf->SetAuthor("Keith Morrison, keithm@infused.org");
-	$pdf->SetTitle(sprintf(gtc("Pedigree for %s"), $o->name));
+	$pdf->SetTitle(sprintf(gtc("Pedigree for %s"), $o->full_name()));
 	$pdf->SetSubject(gtc("Genealogy"));
 	
 	# Person 1

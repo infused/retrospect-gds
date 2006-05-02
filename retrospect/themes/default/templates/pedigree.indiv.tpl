@@ -9,7 +9,7 @@
 <table width="100%" cellpadding="0" cellspacing="0">
 	<tr>
 		<td class="pedbox-text">
-			<a href="{$php_self}?m=pedigree&amp;id={$indiv->indkey}">{$indiv->name}</a>
+			<a href="{$php_self}?m=pedigree&amp;id={$indiv->indkey}">{$indiv->full_name()}</a>
 		</td>
 	</tr>
 	<tr>

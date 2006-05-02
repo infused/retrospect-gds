@@ -113,6 +113,18 @@ class Person {
 	  return $this->sname;
 	}
 	
+	function full_name() {
+	  $name = trim($this->gname.' '.$this->sname);
+		if (strlen($name) < 1) return "(--?--)";
+		else return $name;
+	}
+	
+	function gender() {
+	  if ($this->sex == 'M') return 'Male'; 
+		elseif ($this->sex == 'F') return 'Female'; 
+		else return 'Unknown';
+	}
+	
 	/**
 	* Gets name information from database
 	*/
@@ -127,14 +139,9 @@ class Person {
 		$this->aka = $row['aka'];
 		$this->refn = $row['refn'];
 		$this->notekey = $row['notekey'];
-		
-		$this->name = trim($this->gname.' '.$this->sname);
-		if (strlen($this->name) < 1) {
-		  $this->name = "(--?--)";
-		}
+		$this->sex = $row['sex'];
 		
 		# determine the correct gender string
-		$this->sex = $row['sex'];
 		if ($this->sex == 'M') $this->gender = 'Male'; 
 		elseif ($this->sex == 'F') $this->gender = 'Female'; 
 		else $this->gender = 'Unknown'; 

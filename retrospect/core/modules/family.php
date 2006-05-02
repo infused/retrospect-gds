@@ -37,14 +37,14 @@
 	$smarty->assign('indiv', $o);
 	
 	# populate keywords array
-	keyword_push($o->name);
+	keyword_push($o->full_name());
 	if (!empty($o->birth->place)) { keyword_push($o->birth->place); }
 	if (!empty($o->death->place)) { keyword_push($o->death->place); }
 	
 	# assign other smarty variables
-	$smarty->assign_by_ref('page_title', sprintf(gtc("Family Page for %s"), $o->name));
+	$smarty->assign_by_ref('page_title', sprintf(gtc("Family Page for %s"), $o->full_name()));
 	$smarty->assign_by_ref('surname_title', sprintf(gtc("%s Surname"), $o->sname));
-	$content_title = $o->prefix.' '.$o->name;
+	$content_title = $o->prefix.' '.$o->full_name();
 	if ($o->suffix) $content_title .= ', '.$o->suffix;
 	$smarty->assign_by_ref('content_title', $content_title);
 	
@@ -52,8 +52,8 @@
 	if ($o->father_indkey) { 
 		$f = new person($o->father_indkey, 3); 
 		$params = array('m'=>'family','id'=>$f->indkey);
-		$smarty->assign_by_ref('father_link', Theme::BuildLink($params, $f->name));
-		keyword_push($f->name);
+		$smarty->assign_by_ref('father_link', Theme::BuildLink($params, $f->full_name()));
+		keyword_push($f->full_name());
 		unset($f, $params);
 	}
 	
@@ -61,8 +61,8 @@
 	if ($o->mother_indkey) { 
 		$m = new person($o->mother_indkey, 3); 
 		$params = array('m'=>'family','id'=>$m->indkey);
-		$smarty->assign('mother_link', Theme::BuildLink($params, $m->name));
-		keyword_push($m->name);
+		$smarty->assign('mother_link', Theme::BuildLink($params, $m->full_name()));
+		keyword_push($m->full_name());
 		unset($m, $params);
 	}
 	
@@ -84,7 +84,7 @@
 	for ($i = 0; $i < count($o->marriages); $i++) {
 		$m = $o->marriages[$i];
 		$s = (!empty($m->spouse)) ? new person($m->spouse, 3) : null;
-		if ($s->name) { keyword_push($s->name); }
+		if ($s->full_name()) { keyword_push($s->full_name()); }
 		$marriages[$i]['family_number'] = sprintf(gtc("Family %s"), $i + 1);
 		$marriages[$i]['notes'] = $m->notes;
 		$events = array();
@@ -99,7 +99,7 @@
 		# spouse
 		$params = array('m'=>'family','id'=>$s->indkey); 
 		$marriages[$i]['spouse'] = $s;
-		$marriages[$i]['spouse_link'] = Theme::BuildLink($params, $s->name);
+		$marriages[$i]['spouse_link'] = Theme::BuildLink($params, $s->full_name());
 		$marriages[$i]['spouse_birth'] = $s->birth->date;
 		$marriages[$i]['spouse_death'] = $s->death->date;
 		# children
@@ -108,9 +108,9 @@
 			$children = array();
 			foreach ($m->children as $child_indkey) {
 				$c = new person($child_indkey, 3);
-				keyword_push($c->name);
+				keyword_push($c->full_name());
 				$params = array('m'=>'family','id'=>$c->indkey);
-				$children[] = array('child_link'=>Theme::BuildLink($params, $c->name), 'child'=>$c);
+				$children[] = array('child_link'=>Theme::BuildLink($params, $c->full_name()), 'child'=>$c);
 			}
 			$marriages[$i]['children'] = $children;
 		}

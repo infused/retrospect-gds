@@ -200,7 +200,7 @@
 		$individuals = array();
 		while ($row = $rs->FetchRow()) {
 					$o = new Person($row['indkey'], 1);
-					keyword_push($o->name);
+					keyword_push($o->full_name());
 					$individuals[] = $o;
 		}
 		$smarty->assign('individuals', $individuals);

@@ -146,8 +146,7 @@ class Assert {
 	      $translateValue = serialize($value);
 	  }
       }
-      $htmlValue = "<code class=\"$class\">"
-	   . htmlspecialchars($translateValue) . "</code>";
+      $htmlValue = "$class: ".htmlspecialchars($translateValue);
       if (phpversion() >= '4.0.0') {
 	  if (is_bool($value)) {
 	      $htmlValue = $value ? "<i>true</i>" : "<i>false</i>";
@@ -155,10 +154,8 @@ class Assert {
 	  elseif (phpversion() >= '4.0.4' && is_null($value)) {
 	      $htmlValue = "<i>null</i>";
 	  }
-	  $htmlValue .= "&nbsp;&nbsp;&nbsp;<span class=\"typeinfo\">";
-	  $htmlValue .= "type:" . gettype($value);
-	  $htmlValue .= is_object($value) ? ", class:" . get_class($value) : "";
-	  $htmlValue .= "</span>";
+	  $htmlValue .= " (" . gettype($value);
+	  $htmlValue .= is_object($value) ? ", class:" . get_class($value) : ")";
       }
       return $htmlValue;
   }
@@ -166,9 +163,7 @@ class Assert {
   function failNotEquals($expected, $actual, $expected_label, $message=0) {
     // Private function for reporting failure to match.
     $str = $message ? ($message . ' ') : '';
-    //$str .= "($expected_label/actual)<br>";
-    $str .= "<br>";
-    $str .= sprintf("%s<br>%s",
+    $str .= sprintf("%s\r\n\t%s",
 		    $this->_formatValue($expected, "expected"),
 		    $this->_formatValue($actual, "actual"));
     $this->fail($str);
@@ -238,7 +233,7 @@ class TestCase extends Assert /* implements Test */ {
           $this->$name();
 
       if (phpversion() >= '4') {
-	  set_error_handler($old_handler); // revert to prior error handler
+	  #set_error_handler($old_handler); // revert to prior error handler
 	  $PHPUnit_testRunning = null;
       }
   }
@@ -508,25 +503,22 @@ class TextTestResult extends TestResult {
     $nRun = $this->countTests();
     $nFailures = $this->failureCount();
     $nErrors = $this->errorCount();
-    printf("<p>%s test%s run<br>", $nRun, ($nRun == 1) ? '' : 's');
-    printf("%s failure%s<br>\n", $nFailures, ($nFailures == 1) ? '' : 's');
-    printf("%s error%s.<br>\n", $nErrors, ($nErrors == 1) ? '' : 's');
+    printf("%s test%s run\r\n", $nRun, ($nRun == 1) ? '' : 's');
+    printf("%s failure%s\r", $nFailures, ($nFailures == 1) ? '' : 's');
+    printf("%s error%s.\r", $nErrors, ($nErrors == 1) ? '' : 's');
 
     if ($nFailures > 0) {
-	print("<h2>Failures</h2>");
-	print("<ol>\n");
+	print("\r\n\r\nFailures\r\n");
+	print("--------\r\n\r\n");
 	$failures = $this->getFailures();
 	while (list($i, $failure) = each($failures)) {
 	    $failedTestName = $failure->getTestName();
-	    printf("<li>%s\n", $failedTestName);
+	    printf("%s:\r\n", $failedTestName);
 
 	    $exceptions = $failure->getExceptions();
-	    print("<ul>");
 	    while (list($na, $exception) = each($exceptions))
-		printf("<li>%s\n", $exception->getMessage());
-	    print("</ul>");
+		printf("\t%s\r\n", $exception->getMessage());
 	}
-	print("</ol>\n");
     }
 
     if ($nErrors > 0) {
@@ -557,10 +549,8 @@ class TextTestResult extends TestResult {
   }
 
   function _endTest($test) {
-    $outcome = $test->failed()
-       ? "<font color=\"red\">FAIL</font>"
-       : "<font color=\"green\">ok</font>";
-    printf("$outcome<br>\n");
+    $outcome = $test->failed() ? "FAIL": "OK";
+    printf("$outcome\r\n");
     flush();
   }
 }

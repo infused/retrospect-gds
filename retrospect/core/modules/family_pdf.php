@@ -55,7 +55,7 @@
 		function Header() {
     	global $o, $font;
     	$this->SetFont($font,'BU',12);
-			$this->Cell(0, 5, sprintf(gtc("Family Group Sheet for %s"), $o->name), 0, 0, 'C');
+			$this->Cell(0, 5, sprintf(gtc("Family Group Sheet for %s"), $o->full_name()), 0, 0, 'C');
     	$this->Ln(15);
 		}
 		
@@ -79,7 +79,7 @@
 	$pdf->AddPage();
 	$pdf->SetCreator($_SERVER['PHP_SELF']);
 	$pdf->SetAuthor('Keith Morrison, keithm@infused.org');
-	$pdf->SetTitle(sprintf(gtc("Family Group Sheet for %s"), $o->name));
+	$pdf->SetTitle(sprintf(gtc("Family Group Sheet for %s"), $o->full_name()));
 	$pdf->SetSubject(gtc("Genealogy"));
 	
 	# Display main individual
@@ -108,7 +108,7 @@
 		$pdf->SetFont($font, 'B', 11);
 		$namestr = '';
 		if ($p_node->prefix) $namestr .= $p_node->prefix;
-		$namestr .= $p_node->name;
+		$namestr .= $p_node->full_name();
 		if ($p_node->suffix) $namestr .= ', '.$p_node->suffix;
 		$pdf->Cell(0, 5, $namestr);
 		
@@ -172,13 +172,13 @@
 		$pdf->Cell(0, 5, gtc("Father").':');
 		$pdf->SetX($factcol);
 		$pdf->SetFont($font, '', 10);
-		$pdf->MultiCell(0, 5, isset($f->name) ? $f->name : '', 0, 'L');
+		$pdf->MultiCell(0, 5, isset($f->full_name()) ? $f->full_name() : '', 0, 'L');
 		# print mother
 		$pdf->SetFont($font, 'I', 10);
 		$pdf->Cell(0,5, gtc("Mother").':');
 		$pdf->SetX($factcol);
 		$pdf->SetFont($font, '', 10);
-		$pdf->MultiCell(0, 5, isset($m->name) ? $m->name : '', 0, 'L');			
+		$pdf->MultiCell(0, 5, isset($m->full_name()) ? $m->full_name() : '', 0, 'L');			
 		# print misc events
 		foreach ($p_node->events as $event) {
 			$eventplace = '';
@@ -241,7 +241,7 @@
 		$pdf->SetFont($font, '', 10);
 		$pdf->Cell(0, 5, gtc("Spouse/Partner").':');
 		$pdf->SetX($factcol);
-		$spousestr = $spouse->name;
+		$spousestr = $spouse->full_name();
 		if ($spouse->birth) { $spousestr .= '   '.gtc("b.").' '.$spouse->birth->date; }
 		if ($spouse->death) { $spousestr .= '   '.gtc("d.").' '.$spouse->death->date; }
 		
@@ -333,7 +333,7 @@
 				$c = new Person($child, 3);
 				$pdf->Cell(0, 5, $cnum.'.');
 				$pdf->SetX($namecol);
-				$pdf->Cell(0, 5, $c->name);
+				$pdf->Cell(0, 5, $c->full_name());
 				$pdf->SetX($birthcol);
 				$pdf->Cell(0, 5, $c->birth->date);
 				$pdf->SetX($deathcol);

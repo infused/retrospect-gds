@@ -34,14 +34,14 @@
 	$smarty->assign('indiv', $o);
 	
 	# assign other smarty variables
-	$smarty->assign_by_ref('page_title', sprintf(gtc("Reports for %s"), $o->name));
+	$smarty->assign_by_ref('page_title', sprintf(gtc("Reports for %s"), $o->full_name()));
 	$smarty->assign_by_ref('surname_title', sprintf(gtc("%s Surname"), $o->sname));
-	$content_title = $o->prefix.' '.$o->name;
+	$content_title = $o->prefix.' '.$o->full_name();
 	if ($o->suffix) $content_title .= ', '.$o->suffix;
 	$smarty->assign_by_ref('content_title', $content_title);
 	
 	# populate keyword array
 	keyword_push(gtc("Reports"));
-	keyword_push($o->name);
+	keyword_push($o->full_name());
 
 ?>
