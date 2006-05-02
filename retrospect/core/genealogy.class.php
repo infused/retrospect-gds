@@ -46,166 +46,6 @@
  * @package	genealogy
  */
 class Person {
-
-	/**
-	* Hold the indkey used to look up the individuals data from the database
-	* @var string
-	*/
-	var $indkey;				
-	
-	/**
-	* Holds all given names.
-	* Example: John David
-	* @var string
-	*/
-	var $gname ;
-	
-	/**
-	* Holds the first name.
-	* Example: John
-	* @var string
-	*/
-	var $fname;
-	
-	/**
-	* Holds the surname.
-	* Example: Smith
-	* @var string
-	*/
-	var $sname;
-	
-	/**
-	* Holds the full name.
-	* Example: John David Smith
-	* @var string
-	*/
-	var $name;
-	
-	/**
-	* Name prefix
-	* @var string
-	*/
-	var $prefix;
-	
-	/**
-	* Name suffix
-	* @var string
-	*/
-	var $suffix;
-	
-	/**
-	* Hold the aka or nickname.
-	* Example: Curly
-	* @var string
-	*/
-	var $aka;
-	
-	/**
-	* Hold the reference number.
-	* @var string
-	*/
-	var $refn;
-
-	/**
-	* Holds the gender
-	* Valid values are:
-	* <ul>
-	* <li>Male</li>
-	* <li>Female</li>
-	* <li>Unknown</li>
-	* </ul>
-	* @var string
-	*/
-	var $gender;
-	
-	/**
-	* Holds the birth date.
-	* The date string is pulled straight from the database and is not parsed in any way
-	* @var string
-	*/
-	var $birth;
-		
-	/**
-	* Holds the death date.
-	* The date string is pulled straight from the database and is not parsed in any way
-	* @var string
-	*/
-	var $death;
-	
-	/**
-	* Holds general notes about the individual
-	* @var string
-	*/	
-	var $notes;	
-	
-	/**
-	* An array of Event objects
-	* @see Event
-	* @var array
-	*/
-	var $events;
-	
-	/**
-	* Number of events contained in $events
-	* @var integer
-	*/
-	var $event_count;
-	
-	/**
-	* An array of Marriage objects
-	* @see Marriage
-	* @var array
-	*/
-	var $marriages;
-	
-	/**
-	* The count of Marriage objects in $marriages
-	* @see Marriages
-	* @var integer
-	*/
-	var $marriage_count;
-
-	/**
-	* The father's indkey.
-	* The indkey can be used to instantiate a new person object.
-	* Example:
-	* <code>$father = new Person($indiv->father_indkey);</code>
-	* @var string
-	*/
-	var $father_indkey;
-	
-	/**
-	* The mother's indkey.
-	* The indkey can be used to instantiate a new person object.
-	* Example:
-	* <code>$mother = new Person($indiv->mother_indkey);</code>
-	* @var string
-	*/
-	var $mother_indkey;
-
-	/**
-	* Numbering System number.
-	* This can represent any Numbering System number, such as an Ahnentafel
-	* Register, or Henry number
-	* @var string
-	*/
-	var $ns_number;
-
-	# private properties
-	
-	/**
-	*	Notekey.
-	* Used internally to lookup notes from the database
-	* @var sting
-	*/
-	var $notekey;
-					
-	/**
-	* Sex.
-	* Possible values are M, F, or ?
-	* @var string
-	*/
-	var $sex;
 	
 	/**
 	* Person Constructor
@@ -264,6 +104,15 @@ class Person {
 		}
 	}
 	
+	function first_name() {
+	  $names = explode(' ', $this->gname);
+	  return $names[0]; 
+	}
+	
+	function surname() {
+	  return $this->sname;
+	}
+	
 	/**
 	* Gets name information from database
 	*/
@@ -279,9 +128,6 @@ class Person {
 		$this->refn = $row['refn'];
 		$this->notekey = $row['notekey'];
 		
-		# split out the first name
-		$fnames = explode(' ', $row['givenname']); 
-		$this->fname = $fnames[0];
 		$this->name = trim($this->gname.' '.$this->sname);
 		if (strlen($this->name) < 1) {
 		  $this->name = "(--?--)";
