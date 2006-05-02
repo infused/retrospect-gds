@@ -144,12 +144,17 @@
 	*/
 	function get_parents_sentence($p, $p_father, $p_mother) {
 		# populate keyword array
-		keyword_push($p_father->full_name());
-		keyword_push($p_mother->full_name());
-		$params = array('m'=>'family','id'=>$p_mother->indkey);
-		$mother_link = '<a class="secondary" href="'.Theme::BuildUrl($params).'">'.$p_mother->full_name().'</a>';
-		$params = array('m'=>'family','id'=>$p_father->indkey);
-		$father_link = '<a class="secondary" href="'.Theme::BuildUrl($params).'">'.$p_father->full_name().'</a>';
+		if ($p_father) { 
+		  keyword_push($p_father->full_name());
+		  $params = array('m'=>'family','id'=>$p_father->indkey);
+  		$father_link = '<a class="secondary" href="'.Theme::BuildUrl($params).'">'.$p_father->full_name().'</a>';
+		}
+		if ($p_mother) {
+		  keyword_push($p_mother->full_name());
+		  $params = array('m'=>'family','id'=>$p_mother->indkey);
+  		$mother_link = '<a class="secondary" href="'.Theme::BuildUrl($params).'">'.$p_mother->full_name().'</a>';
+		}
+		
 		if ($p->father_indkey || $p->mother_indkey) {
 			if ($p->sex == 'M') { 
 				# structure for son of father and mother

@@ -128,7 +128,7 @@
 		$pdf->Cell(0, 5, gtc("Gender").':');
 		$pdf->SetX($factcol);
 		$pdf->SetFont($font, '', 10);
-		$pdf->Cell(0, 5, gtc($p_node->gender));
+		$pdf->Cell(0, 5, gtc($p_node->gender()));
 		
 		# print birth record
 		$pdf->Ln($linespace);

@@ -26,7 +26,7 @@
 		<tr style="background: {cycle values="#ddd,#fff"}">
 			<td style="padding: 2px 4px">
 				<a href="{$PHP_SELF}?m=family&amp;id={$indiv->indkey}">{$indiv->sname}, {$indiv->gname}</a>
-				<img align="top" src="{$THEME_URL}/images/{$indiv->gender|lower}.gif" alt="{$indiv->gender|lower}" />
+				<img align="top" src="{$THEME_URL}/images/{$indiv->gender()|lower}.gif" alt="{$indiv->gender()|lower}" />
 			</td>
 			<td style="padding: 2px">{$indiv->birth->date}</td>
 			<td style="padding: 2px">{$indiv->death->date}</td>

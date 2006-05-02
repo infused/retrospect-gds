@@ -18,7 +18,7 @@
 	  {/if}
 	  <tr>
 	    <td class="label">{php}t("Gender"){/php}:</td>
-	    <td colspan="2" class="fact2">{translate s=$indiv->gender}</td>
+	    <td colspan="2" class="fact2">{translate s=$indiv->gender()}</td>
 	  </tr>
 	  <tr>
 	    <td class="label">{php}t("Father"){/php}:</td>
@@ -106,7 +106,7 @@
 		  		<tr>
   		  		<td class="label">&nbsp;</td>
   		  		<td class="fact1">{$child.child_link} 
-  		  		  <img align="top" src="{$THEME_URL}/images/{$child.child->gender|lower}.gif" alt="{$indiv->gender}" /></td>
+  		  		  <img align="top" src="{$THEME_URL}/images/{$child.child->gender()|lower}.gif" alt="{$indiv->gender()}" /></td>
   		  		<td class="fact2">
   		  			{if $child.child->birth->date}
   		  				{php}t("b."){/php} {$child.child->birth->date}

@@ -13,7 +13,7 @@
 		<div class="col2-2">{$indiv->aka}</div>
 	{/if}
 	<div class="col1">{php}t("Gender"){/php}:</div>
-	<div class="col2">{translate s=$indiv->gender}</div>
+	<div class="col2">{translate s=$indiv->gender()}</div>
 	<div class="col3">&nbsp;</div>
 	<div class="col1">{php}t("Father"){/php}:</div>
 	<div class="col2-2">{$father_link|default:"&nbsp;"}</div>

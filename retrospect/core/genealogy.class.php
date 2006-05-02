@@ -140,11 +140,6 @@ class Person {
 		$this->refn = $row['refn'];
 		$this->notekey = $row['notekey'];
 		$this->sex = $row['sex'];
-		
-		# determine the correct gender string
-		if ($this->sex == 'M') $this->gender = 'Male'; 
-		elseif ($this->sex == 'F') $this->gender = 'Female'; 
-		else $this->gender = 'Unknown'; 
 	}
 
 	/**
