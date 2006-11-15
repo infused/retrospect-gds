@@ -5,7 +5,7 @@
  * This file defines several constants, calls the core,
  * and checks for login status.
  *
- * @copyright 	Keith Morrison, Infused Solutions	2001-2005
+ * @copyright 	Keith Morrison, Infused Solutions	2001-2006
  * @author			Keith Morrison <keithm@infused-solutions.com>
  * @package 		administration
  * @license 		http://opensource.org/licenses/gpl-license.php

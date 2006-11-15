@@ -12,7 +12,8 @@
       'fr_FR' => 'French',
       'pl_PL' => 'Polish',
       'pt_BR' => 'Portuguese',
-      'no_NB' => 'Norwegian'
+      'no_NB' => 'Norwegian',
+      'sv_SE' => 'Swedish'
     );
     
     var $options = array(

@@ -2,7 +2,7 @@
 /**
  * Installation 
  *
- * @copyright 	Keith Morrison, Infused Solutions	2001-2005
+ * @copyright 	Keith Morrison, Infused Solutions	2001-2006
  * @author			Keith Morrison <keithm@infused-solutions.com>
  * @package 		installation
  * @license http://opensource.org/licenses/gpl-license.php
@@ -93,7 +93,7 @@
     <?php
       # Verifying tables
       $tables_in_db = $db->MetaTables('TABLES');
-      $tables = array('language' => 8,
+      $tables = array('language' => 9,
                       'options' => 14);
       foreach ($tables as $table => $records) {
         $sql = 'SELECT COUNT(*) FROM '.$g_db_prefix.$table;

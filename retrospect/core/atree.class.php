@@ -6,7 +6,7 @@
  *
  * These classes are used to build ancestor trees for pedigree and
  * ancestor type reports.
- * @copyright 	Keith Morrison, Infused Solutions	2001-2005
+ * @copyright 	Keith Morrison, Infused Solutions	2001-2006
  * @author			Keith Morrison <keithm@infused-solutions.com>
  * @package 		genealogy
  * @license http://opensource.org/licenses/gpl-license.php

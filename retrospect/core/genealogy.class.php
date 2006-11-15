@@ -7,7 +7,7 @@
  * database for information, so a database connection needs to be 
  * established prior to instantiating any of these classes.
  *
- * @copyright 	Keith Morrison, Infused Solutions	2001-2005
+ * @copyright 	Keith Morrison, Infused Solutions	2001-2006
  * @author			Keith Morrison <keithm@infused-solutions.com>
  * @package 		genealogy
  * @license http://opensource.org/licenses/gpl-license.php

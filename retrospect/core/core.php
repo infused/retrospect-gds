@@ -5,7 +5,7 @@
 	* This file loads all the other required modules and initializes 
 	* global configuration variables, etc. 
 	*
-	* @copyright 	Keith Morrison, Infused Solutions	2001-2005
+	* @copyright 	Keith Morrison, Infused Solutions	2001-2006
 	* @author			Keith Morrison <keithm@infused-solutions.com>
 	* @package 		core
 	* @license http://opensource.org/licenses/gpl-license.php
@@ -36,7 +36,7 @@
 	session_start();
 	
 	# Define some RGDS strings
-	define('RGDS_VERSION', '2.0.4');
+	define('RGDS_VERSION', '2.0.5');
 	
 	# Differentiate between unix, Windows, or Mac line endings
 	if (version_compare('4.3.0', phpversion(), '>')) ini_set('auto_detect_line_endings', '1');
