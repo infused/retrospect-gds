@@ -392,7 +392,11 @@
 	  <query>INSERT INTO language VALUES ('8', 'no_NB', 'utf-8', 'Norwegian')</query>
 	</sql>
 	<sql prefixmethod="auto">
+	  <descr>Add hebrew language</descr>
+	  <query>INSERT INTO language VALUES ('9', 'he_IL', 'utf-8', 'Hebrew')</query>
+	</sql>
+	<sql prefixmethod="auto">
 	  <descr>Add swedish language</descr>
-	  <query>INSERT INTO language VALUES ('9', 'sv_SE', 'utf-8', 'Swedish')</query>
+	  <query>INSERT INTO language VALUES ('10', 'sv_SE', 'utf-8', 'Swedish')</query>
 	</sql>
 </schema>

@@ -13,6 +13,7 @@
       'pl_PL' => 'Polish',
       'pt_BR' => 'Portuguese',
       'no_NB' => 'Norwegian',
+      'he_IL' => 'Hebrew',
       'sv_SE' => 'Swedish'
     );
     

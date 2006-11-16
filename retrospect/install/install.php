@@ -102,7 +102,7 @@
                       'fact' => 0,
                       'family' => 0,
                       'indiv' => 0,
-                      'language' => 8,
+                      'language' => 10,
                       'note' => 0,
                       'options' => 14,
                       'source' => 0,

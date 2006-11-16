@@ -93,7 +93,7 @@
     <?php
       # Verifying tables
       $tables_in_db = $db->MetaTables('TABLES');
-      $tables = array('language' => 9,
+      $tables = array('language' => 10,
                       'options' => 14);
       foreach ($tables as $table => $records) {
         $sql = 'SELECT COUNT(*) FROM '.$g_db_prefix.$table;
