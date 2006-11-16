@@ -36,7 +36,7 @@
 	session_start();
 	
 	# Define some RGDS strings
-	define('RGDS_VERSION', '2.0.5');
+	define('RGDS_VERSION', '2.0.6');
 	
 	# Differentiate between unix, Windows, or Mac line endings
 	if (version_compare('4.3.0', phpversion(), '>')) ini_set('auto_detect_line_endings', '1');
@@ -79,7 +79,7 @@
 	require_once(CORE_PATH.'theme.class.php');
 	require_once(CORE_PATH.'date.class.php');
 	require_once(CORE_PATH.'auth.class.php');
-	require_once(LIB_PATH.'adodb/adodb.inc.php');
+	require_once(LIB_PATH.'adodb.493a/adodb.inc.php');
 	require_once(LIB_PATH.'smarty-2.6.14/libs/Smarty.class.php');
 
 	# Establish the database connection
