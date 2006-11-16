@@ -80,7 +80,7 @@
 	require_once(CORE_PATH.'date.class.php');
 	require_once(CORE_PATH.'auth.class.php');
 	require_once(LIB_PATH.'adodb/adodb.inc.php');
-	require_once(LIB_PATH.'smarty-2.6.10/libs/Smarty.class.php');
+	require_once(LIB_PATH.'smarty-2.6.14/libs/Smarty.class.php');
 
 	# Establish the database connection
 	# Connections to MSSQL via ODBC require a special connection string!
