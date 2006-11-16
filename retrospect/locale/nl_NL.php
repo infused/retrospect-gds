@@ -1,9 +1,8 @@
 <?php
-  # RETROSPECT-GDS POLISH TRANSLATION
-  # Copyright (C) 2003-2005 Infused Solutions
-  # Keith Morrison <keithm@infused-solutions.com>, 2003-2005.
-  # Hans Warnar <j.warnar@chello.nl>, 2004.
-  # Frans Erich <f.erich@xs4all.nl>, 2004.
+  # RETROSPECT-GDS DUTCH TRANSLATION
+  # Copyright (C) 2003-2006 Infused Solutions, Keith Morrison <keithm@infused-solutions.com>
+  # Copyright (C) 2004 Hans Warnar <j.warnar@chello.nl>
+  # Copyright (C) 2004 Frans Erich <f.erich@xs4all.nl>
 
   $lang_strings["%s Surname"] = "Geslachtsnaam %s ";
   $lang_strings[", daughter of %s and %s."] = ", dochter van %s en %s.";

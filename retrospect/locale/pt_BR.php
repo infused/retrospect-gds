@@ -1,8 +1,7 @@
 <?php
-  # RETROSPECT-GDS POLISH TRANSLATION
-  # Copyright (C) 2003-2005 Infused Solutions
-  # Keith Morrison <keithm@infused-solutions.com>, 2003-2005.
-  # Andre Parmeggiani <aap@howto.com.br>, 2005.
+  # RETROSPECT-GDS PORTUGUESE TRANSLATION
+  # Copyright (C) 2003-2006 Infused Solutions, Keith Morrison <keithm@infused-solutions.com>
+  # Copyright (C) 2005 Andre Parmeggiani <aap@howto.com.br>
 
   $lang_strings["%s Surname"] = "Sobrenome %s";
 

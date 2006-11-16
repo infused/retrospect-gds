@@ -1,30 +1,19 @@
 <?php
-  # RETROSPECT-GDS POLISH TRANSLATION
-  # Copyright (C) 2003-2005 Infused Solutions
-  # Keith Morrison <keithm@infused-solutions.com>, 2003-2005.
+  # RETROSPECT-GDS HEBREW TRANSLATION
+  # Copyright (C) 2003-2006 Infused Solutions, Keith Morrison <keithm@infused-solutions.com>
+  # Copyright (C) 2005 Yair Lahav <lahavyair@yahoo.com>
 
   $lang_strings["%s Surname"] = "%s שם משפחה";
-  
   $lang_strings[", daughter of %s and %s."] = ", בת של %s ו-%s.";
-  
-  $lang_strings[", daughter of %s."] = ", בת של of %s.";
-  
+  $lang_strings[", daughter of %s."] = ", בת של of %s.";  
   $lang_strings[", son of %s and %s."] = ", בן של %s ו-%s.";
-  
   $lang_strings[", son of %s."] = ", בן של %s.";
-  
   $lang_strings["ALL"] = "הכל";
-  
   $lang_strings["Adoption"] = "אימוץ";
-  
   $lang_strings["Adult Christening"] = "הטבלת מבוגר";
-  
   $lang_strings["Ahnentafel"] = "עוברי";
-  
   $lang_strings["Ahnentafel PDF"] = "עוברי PDF";
-  
   $lang_strings["Ahnentafel Report for %s"] = "דוח עוברי של %s";
-  
   $lang_strings["Aka"] = "המוכר בשם";
   $lang_strings["All"] = "הכל";
   $lang_strings["Alt. Birth"] = "Alt. Birth";

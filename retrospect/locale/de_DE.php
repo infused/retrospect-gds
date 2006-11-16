@@ -1,9 +1,8 @@
 <?php
   # RETROSPECT-GDS GERMAN TRANSLATION
-  # Copyright (C) 2003-2005 Infused Solutions
-  # Keith Morrison <keithm@infused-solutions.com>, 2003-2005.
-  # Wilfried Feindt <wil.feindt@t-online.de>, 2004.
-  # Denis Nordmann <denis@nordmann.ch>, 2005.
+  # Copyright (C) 2003-2006 Infused Solutions, Keith Morrison <keithm@infused-solutions.com>
+  # Copyright (C) 2004 Wilfried Feindt <wil.feindt@t-online.de>
+  # Copyright (C) 2005 Denis Nordmann <denis@nordmann.ch>
 
   $lang_strings["%s Surname"] = "Familienname %s ";
 

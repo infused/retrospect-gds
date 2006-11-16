@@ -1,7 +1,7 @@
 <?php
   # RETROSPECT-GDS SWEDISH TRANSLATION v0.9
-  # Copyright (C) 2006 kigkonsult
-  # Kjell-Inge Gustafsson <ki.gustafsson@kigkonsult.se> 2006
+  # Copyright (C) 2003-2006 Infused Solutions, Keith Morrison <keithm@infused-solutions.com>
+  # Copyright (C) 2006 kigkonsult, Kjell-Inge Gustafsson <ki.gustafsson@kigkonsult.se>
 
   $lang_strings["%s Surname"] = "%s Efternamn";
   $lang_strings[", daughter of %s and %s."] = ", dotter till %s och %s.";

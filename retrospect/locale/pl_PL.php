@@ -1,9 +1,7 @@
 <?php
   # RETROSPECT-GDS POLISH TRANSLATION
-  # Copyright (C) 2003-2005 Infused Solutions
-  # Keith Morrison <keithm@infused-solutions.com>, 2003-2005.
-  # Michal Rudolf <mrudolf@kdewebdev.org>, 2005.
-
+  # Copyright (C) 2003-2006 Infused Solutions, Keith Morrison <keithm@infused-solutions.com>
+  # Copyright (C) 2005 Michal Rudolf <mrudolf@kdewebdev.org>
 
   $lang_strings["%s Surname"] = "Nazwisko %s";
 

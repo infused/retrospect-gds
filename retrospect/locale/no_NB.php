@@ -1,79 +1,24 @@
 <?php
-
   # RETROSPECT-GDS NORWEGIAN TRANSLATION
-
-  # Copyright (C) 2003-2005 Infused Solutions
-
-  # Keith Morrison <keithm@infused-solutions.com>, 2003-2005.
-
-  # Eirik Stavem <eistav@hotmail.com>, 2005.
-
-
+  # Copyright (C) 2003-2005 Infused Solutions, Keith Morrison <keithm@infused-solutions.com>
+  # Copyright (C) 2005 Eirik Stavem <eistav@hotmail.com>
 
   $lang_strings["%s Surname"] = "Etternavn: %s";
-
-  
-
   $lang_strings[", daughter of %s and %s."] = ", datter av %s og %s.";
-
-  
-
   $lang_strings[", daughter of %s."] = ", datter av %s.";
-
-  
-
   $lang_strings[", son of %s and %s."] = ", s&oslash;nn av %s og %s.";
-
-  
-
   $lang_strings[", son of %s."] = ", s&oslash;nn av %s.";
-
-  
-
   $lang_strings["ALL"] = "ALLE";
-
-  
-
   $lang_strings["Adoption"] = "Adopsjon";
-
-  
-
   $lang_strings["Adult Christening"] = "Voksend&aring;p";
-
-  
-
   $lang_strings["Ahnentafel"] = "Ahnentafel";
-
-  
-
   $lang_strings["Ahnentafel PDF"] = "Ahnentafel PDF";
-
-  
-
   $lang_strings["Ahnentafel Report for %s"] = "Ahnentafel rapport for %s";
-
-  
-
   $lang_strings["Aka"] = "Alias";
-
-  
-
   $lang_strings["All"] = "Alle";
-
-  
-
   $lang_strings["Alt. Birth"] = "Alt. F&oslash;dt";
-
-  
-
   $lang_strings["Alt. Death"] = "Alt. D&oslash;d";
-
-  
-
   $lang_strings["Ancestor Reports"] = "Stamfedre Rapporter";
-
-  
-
   $lang_strings["Ancestors"] = "Stamfedre";
 
   
