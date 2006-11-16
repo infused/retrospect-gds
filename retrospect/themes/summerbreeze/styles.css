@@ -70,11 +70,11 @@ form {
 
 #header {
 	height: 70px;
-	background: #2157d1 url("images/paint.png") repeat-x bottom ; 
+	background: #0b51c3 url("images/paint.gif") repeat-x bottom ; 
 }
 #header #logo {
   height: 70px;
-  background: url("images/logo.png") no-repeat left bottom;
+  background: url("images/logo.gif") no-repeat left bottom;
 }
 
 /* MAIN NAVIGATION MENU */

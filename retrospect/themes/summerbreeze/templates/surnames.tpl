@@ -4,6 +4,7 @@
 	* $Id$
 	*/
 -->
+
 <h1>{$content_title}</h1>
 <div id="tabs">
 	<ul>
