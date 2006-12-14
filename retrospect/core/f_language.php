@@ -42,7 +42,7 @@
 		$sql = "SELECT lang_charset FROM ".TBL_LANG." WHERE lang_code = '{$lang}'";
 		$charset = $db->GetOne($sql);
 		
-		//header('Content-Type: text/html; charset='.$charset);
+		header('Content-Type: text/html; charset='.$charset);
 		require(ROOT_PATH.'/locale/'.$lang.'.php');
 	}
 	
