@@ -42,6 +42,8 @@
 		$sql = "SELECT lang_charset FROM ".TBL_LANG." WHERE lang_code = '{$lang}'";
 		$charset = $db->GetOne($sql);
 		
+		# we can't rely on the html meta tag to enforce the character set if 
+		# the the server has a default character set specified
 		header('Content-Type: text/html; charset='.$charset);
 		require(ROOT_PATH.'/locale/'.$lang.'.php');
 	}
