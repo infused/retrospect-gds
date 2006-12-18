@@ -35,8 +35,8 @@
   require_once(CORE_PATH.'config.php');
   
   # Load adodb library w/xmlschema
-  require_once(LIB_PATH . 'adodb/adodb.inc.php');
-  require_once(LIB_PATH . 'adodb/adodb-xmlschema.inc.php');
+  require_once(LIB_PATH . 'adodb.493a/adodb.inc.php');
+  require_once(LIB_PATH . 'adodb.493a/adodb-xmlschema.inc.php');
   
   # Establish the database connection
   # Connections to MSSQL via ODBC require a special connection string!

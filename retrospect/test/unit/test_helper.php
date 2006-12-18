@@ -2,7 +2,7 @@
   define('_RGDS_VALID', 1 );
   define('ROOT_PATH', dirname('../../index.php'));
   require_once('./config.php');
-  require_once('../../libraries/adodb/adodb.inc.php');
+  require_once('../../libraries/adodb.493a/adodb.inc.php');
   require_once('../../libraries/phpunit/phpunit.php');
   require_once('../../core/options.class.php');
   require_once('../../core/f_misc.php');
