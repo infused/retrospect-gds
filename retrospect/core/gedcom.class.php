@@ -248,8 +248,8 @@
 		}
 		
 		/**
-		* Parse the gedcom file
-		* Please note that this function sends some output to the browser
+		* Parse the gedcom file.
+		* Please note that this function sends some output to the browser.
 		* @param integer Optional file offset at which to begin parsing
 		* @param integer Optional time limit in seconds
 		*/
