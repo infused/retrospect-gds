@@ -1,0 +1,40 @@
+<html>
+  <head>
+  <title>Retrospect-GDS Help</title>
+  </head>
+  <NULL TAG FOR NETSCAPES LITTLE HICKUP><SCRIPT LANGUAGE="JavaScript">
+  <!--
+  function myError(msg, url, line) { return true; }
+  window.onerror = myError; key = "";
+  UniqueID = top.name = "JS_TreeView_docu";
+  window.defaultStatus = "Documentation";
+
+  if ((top.name != UniqueID) && (navigator.appName == "Netscape")
+   && (navigator.appVersion.charAt(0) == "2")) {
+    opts = "location,menubar,status,resizable,toolbar,scrollbars";
+    remote = window.open("index.htm"+ self.location.hash, UniqueID, opts);
+    if (remote != null) setTimeout("self.close();", 10); }
+  if (top.frames.length > 0) { // ensure full-screen
+   if (window.stop) window.stop();
+   if (document.images) top.location.replace(self.location.href);
+   else top.location.href = self.location.href;
+  }
+  function setFrameContent() { prm = " "+ self.location.href;
+   pos = prm.indexOf("hrf="); if (pos > -1 && top.main) {
+    var newPage = prm.substring(pos + 5, prm.length);
+    if (document.images) top.main.location.replace(newPage);
+    else top.main.location.href = newPage;
+  }}
+  function resizeReload() {
+   if (document.layers && self.frames.index)
+    setTimeout("self.frames.index.location.reload();", 500);
+  } // -->
+  </SCRIPT></HEAD>
+  <frameset cols="35%,*" frameborder="1" onload="setFrameContent();" onresize="resizeReload();">
+  <frame name="index" src="left.html">
+  <frame name="main" src="retrospectgds.html">
+  </frameset>
+  <noframes>
+  This website requires Frames.
+  </noframes>
+</html>
