@@ -8,7 +8,7 @@
 <div id="tabs">
 	<ul>
 		<li><a href="{$php_self}?m=search{$search_params}">{php}t("Search"){/php}</a></li>
-		<li id="selected"><a id="selected">{php}t("Results"){/php}</a></td>
+		<li id="selected"><a id="selected">{php}t("Results"){/php}</a></li>
 	</ul>
 </div>
 <div class="tab-page">
