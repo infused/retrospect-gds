@@ -10,10 +10,10 @@ require_once(CORE_PATH.'atree.class.php');
 
 class RelCalculator {
 	var $_indkey;
+	var $_other_indkey;
 	var $_indiv;
 	var $_max_gens;
 	var $_treeIndiv;
-
 
 	/**
 	* RelCalculator constructor
@@ -33,8 +33,7 @@ class RelCalculator {
 
 	}
 
-	function calculate($other_indkey, $common_indiv = false)
-	{
+	function calculate($other_indkey, $common_indiv = false) {
 		$treeOtherIndiv = new ATree($other_indkey);
 		$treeOtherIndiv->fill_tree($this->_max_gens);
 
@@ -42,46 +41,46 @@ class RelCalculator {
 		$skip_o = array();
 		$common_ancestors = array();
 
-        foreach ($this->_treeIndiv->nodes as $i) {
-            foreach ($treeOtherIndiv->nodes as $o) {
-                if (strcmp($i->data, $o->data) == 0) {
-                    $branch_found = false;
-                    foreach ($common_ancestors as $common) {
-                        $ci = $common['indiv'];
-                        if (in_array($i->node_index, $skip_i)) {
-                            if ($i->father_index && !in_array($i->father_index, $skip_i))
-                                $skip_i[] = $i->father_index;
-                            if ($i->mother_index && !in_array($i->mother_index, $skip_i))
-                                $skip_i[] = $i->mother_index;
-                            $branch_found = true;
-                        }
-                        if (in_array($o->node_index, $skip_o)) {
-                            if ($o->father_index && !in_array($o->father_index, $skip_o))
-                                $skip_o[] = $o->father_index;
-                            if ($o->mother_index && !in_array($o->mother_index, $skip_o))
-                                $skip_o[] = $o->mother_index;
-                            $branch_found = true;
-                        }
-                    }
-                    if (!$branch_found) {
-                        $common_ancestor = array();
-                        $common_ancestor["indiv"] = $i;
-                        $common_ancestor["other_indiv"] = $o;
-                        $skip_i[] = $i->node_index;
-                        if ($i->father_index && !in_array($i->father_index, $skip_i))
-                            $skip_i[] = $i->father_index;
-                        if ($i->mother_index && !in_array($i->mother_index, $skip_i))
-                            $skip_i[] = $i->mother_index;
-
-                        $skip_o[] = $o->node_index;
-                        if ($o->father_index && !in_array($o->father_index, $skip_o))
-                            $skip_o[] = $o->father_index;
-                        if ($o->mother_index && !in_array($o->mother_index, $skip_o))
-                            $skip_o[] = $o->mother_index;
-                        $common_ancestors[] = $common_ancestor;
-                    }
-                }
+    foreach ($this->_treeIndiv->nodes as $i) {
+      foreach ($treeOtherIndiv->nodes as $o) {
+        if (strcmp($i->data, $o->data) == 0) {
+          $branch_found = false;
+          foreach ($common_ancestors as $common) {
+            $ci = $common['indiv'];
+            if (in_array($i->node_index, $skip_i)) {
+              if ($i->father_index && !in_array($i->father_index, $skip_i))
+                $skip_i[] = $i->father_index;
+              if ($i->mother_index && !in_array($i->mother_index, $skip_i))
+                $skip_i[] = $i->mother_index;
+              $branch_found = true;
             }
+            if (in_array($o->node_index, $skip_o)) {
+              if ($o->father_index && !in_array($o->father_index, $skip_o))
+                $skip_o[] = $o->father_index;
+              if ($o->mother_index && !in_array($o->mother_index, $skip_o))
+                $skip_o[] = $o->mother_index;
+              $branch_found = true;
+            }
+          }
+            if (!$branch_found) {
+              $common_ancestor = array();
+              $common_ancestor["indiv"] = $i;
+              $common_ancestor["other_indiv"] = $o;
+              $skip_i[] = $i->node_index;
+              if ($i->father_index && !in_array($i->father_index, $skip_i))
+                $skip_i[] = $i->father_index;
+              if ($i->mother_index && !in_array($i->mother_index, $skip_i))
+                $skip_i[] = $i->mother_index;
+
+              $skip_o[] = $o->node_index;
+              if ($o->father_index && !in_array($o->father_index, $skip_o))
+                $skip_o[] = $o->father_index;
+              if ($o->mother_index && !in_array($o->mother_index, $skip_o))
+                $skip_o[] = $o->mother_index;
+              $common_ancestors[] = $common_ancestor;
+            }
+          }
+        }
 		}
 
 		$common_indivs = array();
@@ -91,7 +90,7 @@ class RelCalculator {
 		}
 
 		# get other person information
-		$other_indiv = new Person($this->_other_indkey);
+		$other_indiv = new Person($other_indkey);
 
 		$relationship = "";
 		$number_suffixes = array( 1 => "st", 2 => "nd", 3 => "rd");
