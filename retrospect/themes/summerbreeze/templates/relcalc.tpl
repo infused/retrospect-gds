@@ -3,7 +3,7 @@
 <div class="tab-page">
 	{if $other_indiv}
 		{if $relationship}
-			<p><a href="?m=family&id={$other_indiv->indkey}">{$other_indiv->full_name()}</a> is {$indiv->full_name()}'s {$relationship}.</p>
+			<p><a href="?m=family&id={$other_indiv->indkey}">{$other_indiv->full_name()}</a> is <a href="?m=family&id={$indiv->indkey}">{$indiv->full_name()}'s</a> {$relationship}.</p>
 			<p>Common ancestors are:</p>
 			<ul>
 			{foreach from=$common_ancestors item=ancestor}
@@ -12,9 +12,9 @@
 			</ul>
 		{else}
 			{if $indiv->indkey == $other_indiv->indkey}
-			They are the same person.<BR>
+			They are the same person.<br />
 			{else}
-				{$indiv->name}	and <a href="?m=family&id={$other_indiv->indkey}">{$other_indiv->name}</a> are not related.<BR>
+				<a href="?m=family&id={$indiv->indkey}">{$indiv->full_name()}</a> and <a href="?m=family&id={$other_indiv->indkey}">{$other_indiv->full_name()}</a> are not related.<BR>
 			{/if}
 		{/if}
 	{/if}

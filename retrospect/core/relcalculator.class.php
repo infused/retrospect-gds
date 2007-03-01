@@ -10,7 +10,6 @@ require_once(CORE_PATH.'atree.class.php');
 
 class RelCalculator {
 	var $_indkey;
-	var $_other_indkey;
 	var $_indiv;
 	var $_max_gens;
 	var $_treeIndiv;
