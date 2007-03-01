@@ -43,12 +43,12 @@
 				{assign var="count" value="1"}
 				{section name=i loop=$surnames}
 					{if $count % $max_rows == 0}
-						<a href="?m=surnames&amp;sn={$surnames[i].surname}">{$surnames[i].surname}</a>
+						<a href="?m=surnames&amp;sn={$surnames[i].surname|escape}">{$surnames[i].surname|escape}</a>
 						&nbsp;({$surnames[i].count})
 						</td><td class="text" width="200" valign="top">
 						{assign var="count" value="`$count+1`"}
 					{else}
-						<a href="?m=surnames&amp;sn={$surnames[i].surname}">{$surnames[i].surname}</a>
+						<a href="?m=surnames&amp;sn={$surnames[i].surname|escape}">{$surnames[i].surname|escape}</a>
 						&nbsp;({$surnames[i].count})
 						<br />
 						{assign var="count" value="`$count+1`"}
