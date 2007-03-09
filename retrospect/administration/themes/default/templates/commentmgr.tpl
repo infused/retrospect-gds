@@ -39,7 +39,9 @@
 			<td class="list_item">
 				<input name="selectitem[]" type="checkbox" class="checkbox" value="{$comment.id}">
 			</td>
-			<td class="list_item">{$comment.indkey}</td>
+			
+			
+			<td class="list_item"><a href="{$BASE_URL}/../?m=family&amp;id={$comment.indkey}" target="_blank">{$comment.indkey}</a></td>
 			<td class="list_item">{$comment.received|date_format:"%b %e, %Y %H:%M"}</td>
 			<td class="list_item">{$comment.email}</td>
 			<td class="list_item">{$comment.comment|nl2br}</td>
