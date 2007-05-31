@@ -695,21 +695,21 @@
 					fseek($this->fhandle, $poffset);
 					return $name;
 				}
-				elseif (preg_match(REG_GIVN, $line, $match)) {	# given name
-					$name['givenname'] = trim($match[1]);
-				}
-				elseif (preg_match(REG_SURN, $line, $match)) {	# surname
-					$name['surname'] = trim($match[1]);
-				}
-				elseif (preg_match(REG_NICK, $line, $match)) {	# nickname (aka)
-					$name['aka'] = trim($match[1]);
-				}
-				elseif (preg_match(REG_NPFX, $line, $match)) {	# prefix
-					$name['prefix'] = trim($match[1]);
-				}
-				elseif (preg_match(REG_NSFX, $line, $match)) {	# suffix
-					$name['suffix'] = trim($match[1]);
-				}
+        // elseif (preg_match(REG_GIVN, $line, $match)) { # given name
+        //  $name['givenname'] = trim($match[1]);
+        // }
+        // elseif (preg_match(REG_SURN, $line, $match)) { # surname
+        //  $name['surname'] = trim($match[1]);
+        // }
+        // elseif (preg_match(REG_NICK, $line, $match)) { # nickname (aka)
+        //  $name['aka'] = trim($match[1]);
+        // }
+        // elseif (preg_match(REG_NPFX, $line, $match)) { # prefix
+        //  $name['prefix'] = trim($match[1]);
+        // }
+        // elseif (preg_match(REG_NSFX, $line, $match)) { # suffix
+        //  $name['suffix'] = trim($match[1]);
+        // }
 			}
 		}
 		
