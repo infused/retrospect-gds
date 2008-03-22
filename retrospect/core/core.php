@@ -160,6 +160,7 @@
 	$smarty->assign_by_ref('module', $module);
 	$smarty->assign_by_ref('meta_keywords', implode(', ', $keywords));
 	$smarty->assign_by_ref('PHP_SELF', $_SERVER['PHP_SELF']);
+	$smarty->assign_by_ref('php_self', $_SERVER['PHP_SELF']);
 	$smarty->assign_by_ref('CURRENT_PAGE', $current_page);
 	if (isset($lang_names)) $smarty->assign_by_ref('lang_names', $lang_names);
 	if (isset($lang_codes)) $smarty->assign_by_ref('lang_codes', $lang_codes);

@@ -13,7 +13,7 @@
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; either version 2
  * of the License, or (at your option) any later version.
-
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -28,19 +28,39 @@
 	# Ensure this file is being included by a parent file
 	defined( '_RGDS_VALID' ) or die( 'Direct access to this file is not allowed.' );
 	
-	# process expected get/post variables
+	# Name search POST variables
 	$gname = isset($_POST['gname']) ? $_POST['gname'] : null;
 	$smarty->assign('form_gname', $gname);
 	$sname = isset($_POST['sname']) ? $_POST['sname'] : null;
 	$smarty->assign('form_sname', $sname);
 	$soundex = isset($_POST['soundex']) ? true : false;
 	$smarty->assign('form_soundex', $soundex);
+	
+	# Birthdate search POST variables
+	$begin_month = isset($_POST['begin_month']) ? $_POST['begin_month'] : null;
+	$begin_day = isset($_POST['begin_day']) ? $_POST['begin_day'] : null;
+	$begin_year = isset($_POST['begin_year']) ? $_POST['begin_year'] : null;
+	$smarty->assign('form_begin_month', $begin_month);
+	$smarty->assign('form_begin_day', $begin_day);
+	$smarty->assign('form_begin_year', $begin_year);
+	$begin_date = $begin_year . str_pad($begin_month, 2 , "0", STR_PAD_LEFT) . str_pad($begin_day, 2 , "0", STR_PAD_LEFT);
+	$end_month = isset($_POST['end_month']) ? $_POST['end_month'] : null;
+	$end_day = isset($_POST['end_day']) ? $_POST['end_day'] : null;
+	$end_year = isset($_POST['end_year']) ? $_POST['end_year'] : null;
+	$smarty->assign('form_end_month', $end_month);
+	$smarty->assign('form_end_day', $end_day);
+	$smarty->assign('form_end_year', $end_year);
+	$end_date = $begin_year . str_pad($end_month, 2 , "0", STR_PAD_LEFT) . str_pad($end_day, 2 , "0", STR_PAD_LEFT);
+	
+	# Location search POST variables
 	$location = isset($_POST['locat']) ? $_POST['locat'] : null;
 	$smarty->assign('form_location', $location);
 	$search_type = isset($_POST['search_type']) ? $_POST['search_type'] : null;
 	$smarty->assign('form_search_type', $search_type);
 	$parts = isset($_POST['parts']) ? $_POST['parts'] : null;
 	$smarty->assign('form_parts', $parts);
+	
+	# Note search POST variables
 	$note = isset($_POST['note']) ? $_POST['note'] : null;
 	$smarty->assign('form_note', $note);
 	
@@ -48,9 +68,18 @@
 	$search_params  = '&gname='.$gname;
 	$search_params .= '&sname='.$sname;
 	if ($soundex) $search_params .= '&soundex='.$soundex;
+	
+	$search_params .= '&begin_month='.$begin_month;
+	$search_params .= '&begin_day='.$begin_day;
+	$search_params .= '&begin_year='.$begin_year;
+	$search_params .= '&end_month='.$end_month;
+	$search_params .= '&end_day='.$end_day;
+	$search_params .= '&end_year='.$end_year;
+	
 	$search_params .= '&locat='.$location;
 	$search_params .= '&search_type='.$search_type;
 	$search_params .= '&parts='.$parts;
+	
 	$search_params .= '&note='.$note;
 	$smarty->assign('search_params', $search_params);
 	
@@ -84,7 +113,19 @@
 	  else {
 	    $sql .= "givenname LIKE " . $db->qstr('%'.$gname.'%') . " ORDER BY givenname";
 	  }
-
+	}
+	
+	# birthdate search
+	elseif ($search_type == 'birthdate') {
+		$individuals = TBL_INDIV;
+		$facts = TBL_FACT;
+		
+		$sql = "SELECT *, $facts.date1 " .
+					 "FROM $individuals " .
+					 "INNER JOIN $facts " .
+					 "ON $individuals.indkey = $facts.indfamkey " .
+					 "AND $facts.type = 'Birth' " .
+					 "AND $facts.date1 BETWEEN '$begin_date' AND '$end_date'";
 	}
 
 	# location searches
