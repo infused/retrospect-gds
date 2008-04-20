@@ -1,0 +1,40 @@
+# Default configuration file for the lighttpd web server
+# Start using ./script/server lighttpd
+
+server.port = 3000
+
+server.modules           = ( "mod_rewrite", "mod_accesslog", "mod_fastcgi" )
+index-file.names         = ( "index.html", "index.php" )
+
+server.document-root     = "/absolute/path/to/this/directory"
+
+server.errorlog          = "lighttpd.error.log"
+accesslog.filename       = "lighttpd.access.log"
+
+fastcgi.server = ( ".php" => 
+  ("localhost" => 
+    ( 
+      "bin-path" => "/usr/bin/env php5-cgi",
+      "socket" => "/tmp/php5.socket"
+     )
+  )
+)
+
+mimetype.assign = (  
+  ".css"        =>  "text/css",
+  ".gif"        =>  "image/gif",
+  ".htm"        =>  "text/html",
+  ".html"       =>  "text/html",
+  ".jpeg"       =>  "image/jpeg",
+  ".jpg"        =>  "image/jpeg",
+  ".js"         =>  "text/javascript",
+  ".png"        =>  "image/png",
+  ".swf"        =>  "application/x-shockwave-flash",
+  ".txt"        =>  "text/plain"
+)
+
+# Making sure file uploads above 64k always work when using IE or Safari
+# For more information, see http://trac.lighttpd.net/trac/ticket/360
+$HTTP["useragent"] =~ "^(.*MSIE.*)|(.*AppleWebKit.*)$" {
+  server.max-keep-alive-requests = 0
+}
