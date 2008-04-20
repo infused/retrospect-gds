@@ -2,3 +2,4 @@
 lighttpd.conf
 log/*log
 tmp/**/*
+core/config.php
