@@ -6,7 +6,7 @@ $g_db_type = 'mysql';
 
 # Database Name
 # The name of the database to connect to.
-$g_db_name   = 'database';
+$g_db_name   = 'retrospect';
 
 # Database Username
 $g_db_user = 'username';
@@ -23,7 +23,7 @@ $g_db_host = 'localhost';
 $g_db_port = '';
 
 # Database table prefix
-# Don't change this unless you know what you are doing.
+# All table names will be prefixed with this string
 $g_db_prefix = 'rgds_';
 
 # Theme
