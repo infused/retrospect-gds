@@ -1,3 +1,4 @@
 *.log
+lighttpd.conf
 log/*log
 tmp/**/*
