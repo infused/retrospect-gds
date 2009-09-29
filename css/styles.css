@@ -1,3 +1,11 @@
-#header h1 {
-  color: #666;
+body { 
+  color: #333;
+}
+
+#content_wrapper {
+  margin-top: 3em;
+}
+
+#content {
+  font-size: 120%;
 }
