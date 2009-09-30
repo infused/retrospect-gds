@@ -4,8 +4,8 @@ body {
   color: #333;
 }
 
-#content_wrapper {
-  margin-top: 3.0em;
+#header {
+  padding: 0 0 0.75em 0;
 }
 
 .bold {
