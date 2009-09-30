@@ -1,7 +1,9 @@
 body {
-  font-size: 81.25%;
-  font-family: Helvetica, sans-serif;
-  color: #333;
+  /* 
+    Set a 13px font-size with 20px line-height.
+    All vertical elements should be in increments of the 20px.
+  */
+  font-size: 83.3331%;
 }
 
 #header {
