@@ -1,11 +1,13 @@
-body { 
+body {
+  font-size: 81.25%;
+  font-family: Helvetica, sans-serif;
   color: #333;
 }
 
 #content_wrapper {
-  margin-top: 3em;
+  margin-top: 3.0em;
 }
 
-#content {
-  font-size: 120%;
+.bold {
+  font-weight: bold;
 }
