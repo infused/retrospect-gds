@@ -2,11 +2,11 @@
 
 Retrospect-GDS is an easy to use software application for displaying your genealogy information on the web
 
-Copyright (c) 2003-2009 Keith Morrison <keithm@infused.org>, <www.infused.org>
+Copyright (c) 2003-2009 Keith Morrison [keithm@infused.org](mailto:keithm@infused.org?subject=Retrospect-GDS), <http://www.infused.org>
 
-* Official project page: <http://github.com/infused/retrospect-gds>
-* To report bugs: <http://github.com/infused/retrospect-gds/issues>
-* Questions: Email keithm@infused.org with Retrospect-GDS somewhere in the subject line
+* Project page: <http://github.com/infused/retrospect-gds>  
+* Report bugs: <http://github.com/infused/retrospect-gds/issues>  
+* Questions? Email [keithm@infused.org](mailto:keithm@infused.org?subject=Retrospect-GDS) with Retrospect-GDS in the subject line
 
 ## Features
 
@@ -49,7 +49,7 @@ Copyright (c) 2003-2009 Keith Morrison <keithm@infused.org>, <www.infused.org>
 
 (The MIT Licence)
 
-Copyright (c) 2003-2009 Keith Morrison <keithm@infused.org>, <www.infused.org>
+Copyright (c) 2003-2009 Keith Morrison [keithm@infused.org](mailto:keithm@infused.org?subject=Retrospect-GDS), <http://www.infused.org>
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
