@@ -50,7 +50,7 @@
 	$smarty->assign('form_end_month', $end_month);
 	$smarty->assign('form_end_day', $end_day);
 	$smarty->assign('form_end_year', $end_year);
-	$end_date = $begin_year . str_pad($end_month, 2 , "0", STR_PAD_LEFT) . str_pad($end_day, 2 , "0", STR_PAD_LEFT);
+	$end_date = $end_year . str_pad($end_month, 2 , "0", STR_PAD_LEFT) . str_pad($end_day, 2 , "0", STR_PAD_LEFT);
 	
 	# Location search POST variables
 	$location = isset($_POST['locat']) ? $_POST['locat'] : null;
