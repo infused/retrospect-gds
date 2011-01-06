@@ -86,6 +86,7 @@
   $lang_strings["Father"] = "Father";
   $lang_strings["Feb"] = "Feb";
   $lang_strings["Female"] = "Female";
+  $lang_strings["First"] = "First";
   $lang_strings["First Communion"] = "First Communion";
   $lang_strings["French"] = "French";
   $lang_strings["Friends"] = "Friends";
@@ -117,6 +118,7 @@
   $lang_strings["Keywords"] = "Keywords";
   $lang_strings["Land"] = "Land";
   $lang_strings["Language"] = "Language";
+  $lang_strings["Last"] = "Last";
   $lang_strings["Last Known Addr"] = "Last Known Addr";
   $lang_strings["Location Search"] = "Location Search";
   $lang_strings["Login"] = "Login";
@@ -142,6 +144,7 @@
   $lang_strings["Name Search"] = "Name Search";
   $lang_strings["Nationality"] = "Nationality";
   $lang_strings["Naturalization"] = "Naturalization";
+  $lang_strings["Next"] = "Next";
   $lang_strings["No matching records were found."] = "No matching records were found.";
   $lang_strings["Norwegian"] = "Norwegian";
   $lang_strings["Note Search"] = "Note Search";
@@ -169,6 +172,7 @@
   $lang_strings["Posted"] = "Posted";
   $lang_strings["Posted by"] = "Posted by";
   $lang_strings["Powered by"] = "Powered by";
+  $lang_strings["Previous"] = "Previous";
   $lang_strings["Probate"] = "Probate";
   $lang_strings["Reference Number"] = "Reference Number";
   $lang_strings["Religion"] = "Religion";
@@ -195,6 +199,7 @@
   $lang_strings["She was born in %s."] = "She was born in %s.";
   $lang_strings["She was born on %s in %s."] = "She was born on %s in %s.";
   $lang_strings["She was born on %s."] = "She was born on %s.";
+  $lang_strings["Showing"] = "Showing";
   $lang_strings["Social Security Number"] = "Social Security Number";
   $lang_strings["Source Citations"] = "Source Citations";
   $lang_strings["Sources"] = "Sources";

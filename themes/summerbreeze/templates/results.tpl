@@ -13,7 +13,14 @@
 </div>
 <div class="tab-page">
 	{if $individuals|@count > 0}
-		<div class-"text">{php}t("Number of individuals listed"){/php}: {$individuals|@count}</div>
+		<div class="text">{php}t("Number of individuals listed"){/php}: {$individuals_count}</div>
+		<div class="text">{php}t("Showing"){/php}: {$start} - {$end}</div>
+		<div class="text">&nbsp;</div>
+		<div class="text"><a href="?m=results&{$first}">{php}t("First");{/php}</a>&nbsp;&nbsp;
+		{if $prev != ''}<a href="?m=results&{$prev}">{php}t("Previous");{/php}</a>&nbsp;&nbsp;{/if}
+		{if $next != ''}<a href="?m=results&{$next}">{php}t("Next");{/php}</a>&nbsp;&nbsp;{/if}
+		<a href="?m=results&{$last}">{php}t("Last");{/php}</a>
+		</div>
 		<div class="text">&nbsp;</div>
 		<table border="0" cellspacing="0" cellpadding="0" width="100%">
 			<tr>
@@ -32,6 +39,13 @@
 			</tr>
 			{/foreach}
 		</table>
+		<div class="text">&nbsp;</div>
+		<div class="text"><a href="?m=results&{$first}">{php}t("First");{/php}</a>&nbsp;&nbsp;
+		{if $prev != ''}<a href="?m=results&{$prev}">{php}t("Previous");{/php}</a>&nbsp;&nbsp;{/if}
+		{if $next != ''}<a href="?m=results&{$next}">{php}t("Next");{/php}</a>&nbsp;&nbsp;{/if}
+		<a href="?m=results&{$last}">{php}t("Last");{/php}</a>
+		</div>
+		<div class="text">&nbsp;</div>
 	{else}
 		{php}t("No matching records were found."){/php}
 	{/if}

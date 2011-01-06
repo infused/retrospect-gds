@@ -77,6 +77,7 @@
   $lang_strings["Father"] = "Vader";
   $lang_strings["Feb"] = "Feb";
   $lang_strings["Female"] = "Vrouw";
+  $lang_strings["First"] = "Eerste";
   $lang_strings["First Communion"] = "Eerste Communie";
   $lang_strings["French"] = "Frans";
   $lang_strings["Friends"] = "Vrienden";
@@ -108,6 +109,7 @@
   $lang_strings["Keywords"] = "Sleutelwoorden";
   $lang_strings["Land"] = "Land";
   $lang_strings["Language"] = "Taal";
+  $lang_strings["Last"] = "Laatste";
   $lang_strings["Last Known Addr"] = "Laatst bekend adres";
   $lang_strings["Location Search"] = "Zoek op Plaats";
   $lang_strings["Login"] = "Login";
@@ -133,6 +135,7 @@
   $lang_strings["Name Search"] = "Zoek op Naam";
   $lang_strings["Nationality"] = "Nationaliteit";
   $lang_strings["Naturalization"] = "Naturalisatie";
+  $lang_strings["Next"] = "Volgende";
   $lang_strings["No matching records were found."] = "Helaas geen gegevens gevonden!";
   $lang_strings["Note Search"] = "Zoek op Aantekeningen";
   $lang_strings["Notes"] = "Aantekeningen";
@@ -159,6 +162,7 @@
   $lang_strings["Posted"] = "Gepost";
   $lang_strings["Posted by"] = "Gepost door";
   $lang_strings["Powered by"] = "Powered by";
+  $lang_strings["Previous"] = "Vorige";
   $lang_strings["Probate"] = "Legaat uit erfenis";
   $lang_strings["Reference Number"] = "Referentie nummer";
   $lang_strings["Religion"] = "Religie";
@@ -185,6 +189,7 @@
   $lang_strings["She was born in %s."] = "Zij werd in %s geboren.";
   $lang_strings["She was born on %s in %s."] = "Zij werd geboren op %s in %s.";
   $lang_strings["She was born on %s."] = "Zij werd %s op geboren.";
+  $lang_strings["Showing"] = "Getoond";
   $lang_strings["Social Security Number"] = "SoFi-nummer";
   $lang_strings["Source Citations"] = "Bronverwijzing";
   $lang_strings["Sources"] = "Bronnen";
