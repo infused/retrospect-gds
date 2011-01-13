@@ -15,10 +15,7 @@
 	</tr>
 </table>
 <div class="tab-page">
-	{if !$form_gname and !$form_sname and !$form_location and !$form_note}
-		{php}t("No search parameters were specified."){/php}
-		{php}t("Please go back to the search page and enter some search criteria."){/php}
-	{elseif $individuals|@count > 0}
+	{if $individuals|@count > 0}
 		<div class="text">{php}t("Number of individuals listed"){/php}: {$individuals_count}</div>
 		<div class="text">{php}t("Showing"){/php}: {$start} - {$end}</div>
 		<div class="text">&nbsp;</div>
