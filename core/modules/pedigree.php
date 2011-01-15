@@ -26,7 +26,7 @@
 	# Ensure this file is being included by a parent file
 	defined( '_RGDS_VALID' ) or die( 'Direct access to this file is not allowed.' );
 	
-	require_once('core/atree.class.php');
+	require_once(CORE_PATH . 'atree.class.php');
 	
 	# process expected get/post variables
 	$g_indiv = isset($_GET['id']) ? $_GET['id'] : exit;

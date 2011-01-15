@@ -8,7 +8,7 @@
 <table class="tab-row" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<td class="tab">
-			<a href="{$php_self}?option=search{$search_params}">{php}t("Search"){/php}</a>
+			<a href="{$php_self}?m=search{$search_params}">{php}t("Search"){/php}</a>
 		</td>
 		<td class="tab-selected">{php}t("Results"){/php}</td>
 		<td class="tab-last">&nbsp;</td>

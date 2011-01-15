@@ -44,11 +44,11 @@
 				{assign var="count" value="1"}
 				{section name=i loop=$surnames}
 					{if $count % $max_rows == 0}
-						<a href="{$PHP_SELF}?m=surnames&sn={$surnames[i].surname}">{$surnames[i].surname}</a>&nbsp;({$surnames[i].count})
+						<a href="{$PHP_SELF}?m=surnames&amp;sn={$surnames[i].surname}">{$surnames[i].surname}</a>&nbsp;({$surnames[i].count})
 						</td><td class="text" width="200" valign="top">
 						{assign var="count" value="`$count+1`"}
 					{else}
-						<a href="{$PHP_SELF}?m=surnames&sn={$surnames[i].surname}">{$surnames[i].surname}</a>&nbsp;({$surnames[i].count})
+						<a href="{$PHP_SELF}?m=surnames&amp;sn={$surnames[i].surname}">{$surnames[i].surname}</a>&nbsp;({$surnames[i].count})
 						<br />
 						{assign var="count" value="`$count+1`"}
 					{/if}
